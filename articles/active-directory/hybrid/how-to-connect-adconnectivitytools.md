@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164319"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436718"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>Vad är ADConnectivityTool PowerShell-modulen?
 
@@ -47,7 +47,7 @@ Till exempel när vi försöker lägga till en katalog på den **Anslut dina kat
 
 Vad som faktiskt händer i bakgrunden är att Azure AD Connect anropar den `Start-NetworkConnectivityDiagnosisTools` funktion.  Den här funktionen anropas när valideringen av autentiseringsuppgifter misslyckas på grund av ett problem med nätverksanslutningen.
 
-Slutligen genereras en detaljerad loggfil när verktyget anropas från guiden. Loggen finns i **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Slutligen genereras en detaljerad loggfil när verktyget anropas från guiden. Loggen finns i **C:\ProgramData\AADConnect\ADConnectivityTool-\<datum >-\<tid > .log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools efter installation
 När Azure AD Connect har installerats, kan alla funktioner i ADConnectivityTools PowerShell-modulen användas.  

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400781"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438792"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en master VHD-avbildning
+# <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
 Den här artikeln kommer berättar hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera och konfigurera programvara på dem. Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
 
@@ -162,8 +162,8 @@ Du kan inaktivera automatiska uppdateringar manuellt.
 
 Inaktivera automatiska uppdateringar:
 
-1. Installera Office 365 genom att följa instruktionerna i [Office bild förberedelse](set-up-customize-master-image.md#office-image-preparation).
-2. Installera eventuell programvara genom att följa instruktionerna i [inställningarna (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), och [andra program och registerkonfigurationen](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Installera Office 365 genom att följa instruktionerna i [förberedelse av programvara och installation](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Installera eventuell programvara genom att följa instruktionerna i [ställa in profilen användarbehållaren (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [konfigurera Windows Defender](set-up-customize-master-image.md#configure-windows-defender), och [andra program och registret konfiguration av](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Inaktivera Windows automatiskt Update-tjänsten på den lokala virtuella datorn.
 4. Öppna **Redigeraren för lokal grupprincip\\Administrationsmallar\\Windows-komponenter\\Windows Update**.
 5. Högerklicka på **konfigurera automatisk uppdatering** och ge den värdet **inaktiverad**.
@@ -171,7 +171,7 @@ Inaktivera automatiska uppdateringar:
 Du kan också köra följande kommando i Kommandotolken för att inaktivera automatiska uppdateringar.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Kör detta kommando för att ange en Start-layout för Windows 10-datorer.
@@ -232,9 +232,7 @@ Virtuella Windows-skrivbordet stöder inte officiellt Skype för företag och te
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användarbehållaren profil (FSLogix)
 
-För att inkludera FSLogix behållaren som en del av avbildningen, följer du anvisningarna i [ställa in en användare profil resurs för en värd-pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-När du konfigurerar registernyckeln filen resursen, använda filresursen som du skapade i [konfigurera behörigheter för filservern](set-up-customize-master-image.md#configure-permissions-for-the-file-server) där du tänker lagra profil-behållare. Du kan också testa funktionerna i behållaren FSLogix använder det här [snabbstarten](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+För att inkludera FSLogix behållaren som en del av avbildningen, följer du anvisningarna i [ställa in en användare profil resurs för en värd-pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i behållaren FSLogix med [snabbstarten](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
 

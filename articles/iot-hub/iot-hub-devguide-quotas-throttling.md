@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791383"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437648"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -42,6 +42,7 @@ I följande tabell visas de tvingande begränsningar. Värden finns i en enskild
 | Moln-till-enhet tar emot<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16.67/sec/Unit (1000 per minut per enhet) | 16.67/sec/Unit (1000 per minut per enhet) | 833.33/sec/Unit (50000 per minut per enhet) |
 | Filuppladdning | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 1.67 filen ladda upp meddelanden per sekund och enhet (100 per minut per enhet) | 83.33 filen ladda upp meddelanden per sekund och enhet (5000 per minut per enhet) |
 | Direkta metoder<sup>1</sup> | 160KB per sekund och enhet<sup>2</sup> | 480KB per sekund och enhet<sup>2</sup> | 24MB per sekund och enhet<sup>2</sup> | 
+| Frågor | 20 per sekund och enhet | 20 per sekund och enhet | 1000 per sekund och enhet |
 | Twin (enhets- och modulen) läsningar<sup>1</sup> | 100 per sekund | Högre av 100 per sekund eller 10 per sekund och enhet | 500 per sekund och enhet |
 | Twin uppdateringar (enhets- och modulen)<sup>1</sup> | 50 per sekund | Högre av 50 per sekund eller 5 per sekund och enhet | 250 per sekund och enhet |
 | Jobb operations<sup>1,3</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |

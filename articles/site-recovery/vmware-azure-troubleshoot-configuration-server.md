@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107601"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418711"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -48,11 +48,10 @@ Källdatorn registreras med konfigurationsservern när du installerar mobilitets
     3. Kontrollera att mapparna i [Site Recovery mappar som ska undantas från antivirusprogram](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) undantas från antivirusprogrammet.  
     4. När du har löst problemen och försök registreringen följande riktlinjer i [registrera källdatorn med konfigurationsservern](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. På Linux, om värdet för plattformen i < INSTALLATION_DIR\>/etc/drscout.conf är skadad, misslyckas registreringen. Öppna filen /var/log/ua_install.log för att identifiera problemet. Sök efter strängen **avbryts konfiguration eftersom VM_PLATFORM värde är null eller så är inte VmWare/Azure**. Plattformen ska vara inställd på antingen **VmWare** eller **Azure**. Om filen drscout.conf är skadad, rekommenderar vi att du [avinstallera mobilitetsagenten](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) och sedan installera om mobilitetsagenten. Om avinstallationen misslyckas gör du följande:
-    1. Öppna filen Installation_Directory/uninstall.sh och kommentera ut anropet till den **StopServices** funktion.
-    2. Öppna filen Installation_Directory/Vx/bin/uninstall.sh och kommentera ut anropet till den **stop_services** funktion.
-    3. Öppna Installation_Directory/Fx/uninstall.sh filen och kommentera ut hela avsnittet som försöker att stoppa tjänsten Fx.
-    4. [Avinstallera](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobilitetsagenten. Starta om systemet efter lyckad avinstallation och försök sedan installera om mobilitetsagenten.
+7. På Linux, om värdet för plattformen i < INSTALLATION_DIR\>/etc/drscout.conf är skadad, misslyckas registreringen. Öppna filen /var/log/ua_install.log för att identifiera problemet. Sök efter strängen **avbryts konfiguration eftersom VM_PLATFORM värde är null eller så är inte VmWare/Azure**. Plattformen ska vara inställd på antingen **VmWare** eller **Azure**. Om filen drscout.conf är skadad, rekommenderar vi att du [avinstallera mobilitetsagenten](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) och sedan installera om mobilitetsagenten. Om avinstallationen misslyckas gör du följande: en. Öppna filen Installation_Directory/uninstall.sh och kommentera ut anropet till den **StopServices** funktion.
+    b. Öppna filen Installation_Directory/Vx/bin/uninstall.sh och kommentera ut anropet till den **stop_services** funktion.
+    c. Öppna Installation_Directory/Fx/uninstall.sh filen och kommentera ut hela avsnittet som försöker att stoppa tjänsten Fx.
+    d. [Avinstallera](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) mobilitetsagenten. Starta om systemet efter lyckad avinstallation och försök sedan installera om mobilitetsagenten.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Installationsfel: Det gick inte att läsa in konton
 
@@ -80,9 +79,9 @@ Om du vill undvika det här felet, se till att det tiden på systemklockan inte 
 
 Det går inte att skapa ett certifikat som krävs för att autentisera Site Recovery. Kör installationsprogrammet igen när du har kontrollerat att du kör installationen som lokal administratör.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från utvärdering av Standard-Server till Server Standard
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från utvärdering av Standard-Server till Server Standard
 
-1. Som en del av distribution av konfigurationsserver via OVF används en utvärderingslicens, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
+1. Som en del av distribution av konfigurationsserver via OVF används en utvärderingslicens, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinder för replikering.
 2. Om det inte går att aktivera Windows-licens kan nå ut till [Windows supportteam](https://aka.ms/Windows_Support) att lösa problemet.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrera källdatorn med konfigurationsservern
@@ -146,7 +145,7 @@ Använd följande steg för att ta bort inaktuella skyddad dator på konfigurati
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Om du har en källa server inmatning av ”OnPrem-VM01” med en IP-adress för adressen 10.0.0.4 sedan använda följande kommando i stället.
+    Om du har en källa server inmatning av ”OnPrem-VM01” med ip-adressen 10.0.0.4 sedan använda följande kommando i stället.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

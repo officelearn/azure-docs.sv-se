@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861357"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439013"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -31,7 +31,7 @@ Innan du börjar är det viktigt att förstå att du inte kan ta bort ett Recove
 - Om du inte vill behålla några data i Recovery Services-valvet och vill ta bort valvet, kan du ta bort valvet automatiskt.
 - Om du försöker ta bort ett valv, men inte kan konfigureras fortfarande valvet för att ta emot säkerhetskopierade data.
 
-Lär dig hur du ta bort ett valv, finns i avsnittet [ta bort ett valv från Azure-portalen](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Om avsnittet [ta bort valvet automatiskt](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Om du är osäker på vad som finns i valvet och du måste se till att du tar bort valvet, finns i avsnittet [ta bort valvet beroenden och ta bort valvet](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Lär dig hur du ta bort ett valv, finns i avsnittet [ta bort ett valv från Azure-portalen](#delete-a-vault-from-the-azure-portal). Om avsnittet [ta bort valvet automatiskt](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Om du är osäker på vad som finns i valvet och du måste se till att du tar bort valvet, finns i avsnittet [ta bort valvet beroenden och ta bort valvet](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Ta bort ett valv i Azure Portal
 
@@ -90,7 +90,7 @@ Ta bort ett Recovery Services-valv:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Om valvet inte är tom, får du felmeddelandet ”går inte att ta bort valvet eftersom det finns befintliga resurser i det här valvet”. Om du vill ta bort ett objekt i ett valv, gör du följande:
+9. Om valvet inte är tom, får du felmeddelandet ”går inte att ta bort valvet eftersom det finns befintliga resurser i det här valvet”. Om du vill ta bort en behållare i ett valv, gör du följande:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

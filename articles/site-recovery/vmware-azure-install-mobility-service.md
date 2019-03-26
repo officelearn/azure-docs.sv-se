@@ -1,19 +1,19 @@
 ---
-title: Installera Mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure | Microsoft Docs
-description: Lär dig hur du installerar mobilitetstjänstagenten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery-tjänsten.
+title: Förbereda källdatorer att installera Mobilitetstjänsten via push-installation för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure | Microsoft Docs
+description: Lär dig hur du förbereder din server för att installera mobilitetsagenten via push-installation för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery-tjänsten.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846920"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418677"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installera mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Förbereda källdatorn för push-installation av mobilitetsagenten
 
 När du ställer in katastrofåterställning för virtuella VMware-datorer och fysiska servrar med [Azure Site Recovery](site-recovery-overview.md), du installerar den [Site Recovery-mobilitetstjänsten](vmware-physical-mobility-service-overview.md) på varje virtuell dator med en lokal VMware och fysiska servrar.  Mobilitetstjänsten samlar in skrivna data på datorn och vidarebefordrar dem till processervern för Site Recovery.
 
@@ -24,9 +24,9 @@ På varje Windows-dator som du vill skydda, gör du följande:
 1. Kontrollera att det finns nätverksanslutning mellan datorn och processervern. Om du inte har konfigurerat en separat processerver sedan körs som standard den på konfigurationsservern.
 1. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste ha administratörsbehörighet, antingen lokalt eller via domänadministratör. Använd det här kontot bara för push-installation och för agentuppdateringar.
 2. Om du inte använder ett domänkonto, inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn på följande sätt:
-    - Under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registernyckeln lägger du till ett nytt DWORD-värde: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
+    - Lägg till ett nytt DWORD-värde under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registernyckeln: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
     -  Om du vill göra detta i en kommandotolk, kör du följande kommando:  
-   ”REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. I Windows-brandväggen på den dator du vill skydda, Välj **Tillåt en app eller funktion i brandväggen**. Aktivera **File and Printer Sharing** och **Windows Management Instrumentation (WMI)**. För datorer som tillhör en domän kan konfigurera du brandväggsinställningarna med ett grupprincipobjekt (GPO).
 
    ![Brandväggsinställningar](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -59,6 +59,10 @@ På varje Linux-dator som du vill skydda, gör du följande:
 11. På den **hantera konton** fliken **Lägg till konto**.
 12. Lägg till kontot som du skapade.
 13. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.
+
+## <a name="anti-virus-on-replicated-machines"></a>Ett virusskyddsprogram på replikerade datorer
+
+Om datorer som du vill replikera har aktiva antivirusprogram som körs, kontrollerar du exkluderar installationsmappen Mobility service från ett virusskyddsprogram åtgärder (*C:\ProgramData\ASR\agent*). Detta garanterar att replikeringen fungerar som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
 

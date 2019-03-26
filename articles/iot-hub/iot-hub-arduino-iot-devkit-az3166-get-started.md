@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438490"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -24,7 +24,9 @@ Du kan använda den [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-de
 
 ## <a name="what-you-do"></a>Vad du gör
 
-Anslut DevKit till Azure IoT hub som du skapar. Sedan samla in temperatur och fuktighet data från sensorer och skicka data till IoT hub.
+I den här artikeln använder du [Visual Studio Code](https://code.visualstudio.com/), plattformsoberoende källa code-redigerare, tillsammans med den [Azure IoT Tools](https://aka.ms/azure-iot-tools) tilläggspaketet.
+
+Du ansluter DevKit till Azure IoT hub som du skapar. Sedan samla in temperatur och fuktighet data från sensorer och skicka data till IoT hub.
 
 Har inte en DevKit ännu? Prova den [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [köpa en DevKit](https://aka.ms/iot-devkit-purchase).
 
@@ -119,7 +121,9 @@ Tryck på knappen B för att testa sensorerna. Fortsätt att trycka på och nedt
 
 ### <a name="install-azure-iot-tools"></a>Installera verktyg för Azure IoT
 
-Vi rekommenderar att [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack för Visual Studio Code för att utveckla på DevKit. Azure IoT-verktygen innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) att utveckla och felsöka på olika IoT devkit-enheter och [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit) hantera och interagera med Azure IoT Hub.
+I det här avsnittet ska du installera den [Arduino IDE](https://www.arduino.cc/en/Main/Software) tillsammans med [Visual Studio Code](https://code.visualstudio.com/), en plattformsoberoende källkodsredigerare.
+
+Installerar du den [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack för Visual Studio Code. Vi rekommenderar att du använder [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack för Visual Studio Code för att utveckla program på DevKit. Verktyg för Azure IoT-tilläggspaketet innehåller den [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. Den [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), också ingår verktyg för Azure IoT-tilläggspaketet, används för att hantera och interagera med Azure IoT-hubbar.
 
 Du kan se dessa [Channel 9](https://channel9.msdn.com/) videor ha översikt om vad de gör:
 * [Introduktion till det nya IoT Workbench-tillägget för VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)

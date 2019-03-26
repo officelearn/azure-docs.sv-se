@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901550"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418762"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Källkontrollintegrering i Azure Automation - äldre
 
@@ -65,17 +65,17 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
      
      | **Parametern** | **Värde** |
      |:--- |:--- |
-     | Namn |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
-     | Värde |{”Gren”:\<*din grennamnet*>, ”RunbookFolderPath”:\<*runbookmapp*>, ”providertyp”:\<*har värdet 1 för GitHub*>, ”databas”:\<*namnet på databasen*>, ”användarnamn”:\<*Your GitHub-användarnamn*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |String |
+     | `Value` |{”Gren”:\<*din grennamnet*>, ”RunbookFolderPath”:\<*runbookmapp*>, ”providertyp”:\<*har värdet 1 för GitHub*>, ”databas”:\<*namnet på databasen*>, ”användarnamn”:\<*Your GitHub-användarnamn*>} |
 
      * Variabeln **Microsoft.Azure.Automation.SourceControl.OAuthToken**, innehåller din OAuthToken säker krypterade värdet.  
 
      |**Parametern**            |**Värde** |
      |:---|:---|
-     | Namn  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Värde | <*Krypterade OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*Krypterade OAuthToken*> |  
 
      ![Variabler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

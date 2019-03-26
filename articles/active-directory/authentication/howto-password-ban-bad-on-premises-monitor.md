@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309613"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437568"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-lösenordsskydd övervakning och loggning
 
 Är viktiga uppgifter efter distribution av Azure AD-lösenordsskydd, övervakning och rapportering. Den här artikeln innehåller information för att du lär dig vilka olika övervakning tekniker, inklusive där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
+
+Övervakning och rapportering utförs av meddelanden eller genom att köra PowerShell-cmdletar. DC-agenten proxy tjänsterna och båda logga meddelanden. Alla PowerShell-cmdlets som beskrivs nedan är bara tillgängliga på proxyservern (se AzureADPasswordProtection PowerShell-modulen). DC-agentprogramvaran installerar inte en PowerShell-modul.
 
 ## <a name="dc-agent-event-logging"></a>Händelseloggning för DC-agent
 

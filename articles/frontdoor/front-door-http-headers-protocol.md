@@ -1,5 +1,5 @@
 ---
-title: Azure ytterdörren Service – stöd för HTTP-huvuden protokoll | Microsoft Docs
+title: Azure ytterdörren Service – stöd för HTTP-huvuden | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå de HTTP-huvud protokoll som stöds av ytterdörren
 services: frontdoor
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: b34ab417ab1d9ef77c3141d5aa130c338fb89188
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 40bfdfc3837da12f62864433508482a65def291c
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726336"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407325"
 ---
-# <a name="azure-front-door-service---http-headers-protocol-support"></a>Azure ytterdörren Service – stöd för HTTP-huvuden protokoll
+# <a name="azure-front-door-service---http-headers-support"></a>Azure ytterdörren Service – stöd för HTTP-huvuden
 Det här dokumentet beskriver det protokoll som Azure ytterdörren tjänsten stöder med de olika delarna av anropet sökvägen från bilden nedan. I avsnitten nedan ger mer information om HTTP-huvuden som har stöd för åtkomsten.
 
 ![Azure ytterdörren Service HTTP-huvuden-protokoll][1]
@@ -36,10 +36,10 @@ Ytterdörren innehåller rubrikerna från den inkommande begäran, såvida inte 
 
 | Huvud  | Exempel och beskrivning |
 | ------------- | ------------- |
-| Via |  *Via: 1.1 azure* </br> Ytterdörren lägger till klientens HTTP-version följt av ”Azure” som värde för Via rubrik. Detta har lagts till för att ange klientens HTTP-version och den Azure-ytterdörren var en mellanliggande mottagare för förfrågan mellan klienten och serverdelen.  |
+| Via |  *Via: 1.1 azure* </br> Ytterdörren lägger till klientens HTTP-version följt av ”Azure” som värde för Via rubrik. Den har lagts till anger HTTP-klientversionen och den åtkomsten för Azure har en mellanliggande mottagare för förfrågan mellan klienten och serverdelen.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representerar ”klient”-IP-adress som är associerade med begäran bearbetas. En begäran kommer från en proxy kan till exempel lägga till rubriken X-vidarebefordrade-för att ange IP-adressen för den ursprungliga anroparen. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representerar socket-IP-adress som är associerade med den aktuella begäran har sitt ursprung på den TCP-anslutningen. En begäran klient-IP-adress kanske inte lika med dess Socket IP-adress eftersom godtyckligt kan åsidosättas av en slutanvändare.|
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Det här är en unik referens-sträng som identifierar en begäran som hanteras av ytterdörren. Det är viktigt för att felsöka som används för att söka i Åtkomstloggarna.|
+| X-Azure-SocketIP | *X-Azure-SocketIP: 127.0.0.1* </br> Representerar socket-IP-adress som är associerade med den aktuella begäran har sitt ursprung på den TCP-anslutningen. En begäran klient-IP-adress kanske inte lika med dess Socket IP-adress eftersom godtyckligt kan åsidosättas av en slutanvändare.|
+| X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Det här är en unik referens-sträng som identifierar en begäran som hanteras av ytterdörren. Det är viktigt för att felsöka som används för att söka i Åtkomstloggarna.|
 | X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> Detta är en rubrik som ytterdörren använder för att identifiera begäran loopar och användare som inte ska ett beroende på den. |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> Huvudfältet X-Forwarded-For (XFF) HTTP-är en vanlig metod för att identifiera den ursprungliga IP-adressen för en klient som ansluter till en server via en HTTP-proxy eller belastningsutjämnare. Om det har en befintlig XFF rubrik och sedan ytterdörren lägger till klientens socket IP-Adressen till den andra lägger du till rubriken XFF med klientens socket IP-Adressen. |
 | X-Forwarded-Host | *X-vidarebefordrade-värd: contoso.azurefd.net* </br> Fältet X-vidarebefordrade-värd HTTP-huvud är en vanlig metod för att identifiera den ursprungliga värden som begärs av klienten i värden http-rubriken, eftersom du värdnamnet från ytterdörren kan skilja sig för backend-servern som hanterar begäran. |

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285793"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418864"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain\@contoso.com*.
@@ -84,6 +84,8 @@ När du registrerar ditt domännamn måste du kontrollera att den är giltig i A
 4. På den **Contoso** väljer **Kontrollera** så att den anpassade domänen har registrerats korrekt och är giltig för Azure AD.
 
     ![Contoso-sida med information om DNS-post och knappen verifiera](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+När du har kontrollerat att ditt domännamn kan du ta bort din verifiering TXT- eller MX-fil.
 
 ## <a name="common-verification-issues"></a>Vanliga problem med verifiering
 - Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande rekommendationer:

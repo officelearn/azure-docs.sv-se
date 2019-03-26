@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1b1fd5976189c4c74791bf2e6a80a494a2fccc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 18042b34e7c3a32dd5e4706c8020324c0cef0754
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433305"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437398"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -149,21 +149,49 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 >Information om hur och när Azure AD-tjänst för användaretablering genererar de åtgärder som beskrivs nedan finns i [vad som händer under etableringen av användare?](user-provisioning.md#what-happens-during-provisioning).
 
 - [Användaråtgärder](#user-operations)
-    - [Skapa användare](#create-user) - [begära](#request) - [svar](#response)
-    - [Hämta användare](#get-user) - [begära](#request-1) - [svar](#response-1)
-    - [Hämta användare av frågan](#get-user-by-query) - [begära](#request-2) - [svar](#response-2)
-    - [Hämta användare av frågan - resultat](#get-user-by-query---zero-results) - [begära](#request-3) - [svar](#response-3)
-    - [Uppdatera användare [med flera värden egenskaper]](#update-user-multi-valued-properties) - [begära](#request-4) - [svar](#response-4)
-    - [Uppdatera användare [enkelvärdesattribut egenskaper]](#update-user-single-valued-properties) - [begära](#request-5) - [svar](#response-5)
-    - [Ta bort användaren](#delete-user) - [begära](#request-6) - [svar](#response-6)
+  - [Skapa användare](#create-user)
+    - [Förfrågan](#request)
+    - [Svar](#response)
+  - [Hämta användare](#get-user)
+    - [Förfrågan](#request-1)
+    - [Svar](#response-1)
+  - [Hämta användare av frågan](#get-user-by-query)
+    - [Förfrågan](#request-2)
+    - [Svar](#response-2)
+  - [Hämta användare av frågan - resultat](#get-user-by-query---zero-results)
+    - [Förfrågan](#request-3)
+    - [Svar](#response-3)
+  - [Uppdatera användare [med flera värden egenskaper]](#update-user-multi-valued-properties)
+    - [Förfrågan](#request-4)
+    - [Svar](#response-4)
+  - [Uppdatera användare [enkelvärdesattribut egenskaper]](#update-user-single-valued-properties)
+    - [Förfrågan](#request-5)
+    - [Svar](#response-5)
+  - [Ta bort användare](#delete-user)
+    - [Förfrågan](#request-6)
+    - [Svar](#response-6)
 - [Grupp-åtgärder](#group-operations)
-    - [Skapa grupp](#create-group) - [begära](#request-7) - [svar](#response-7)
-    - [Hämta grupp](#get-group) - [begära](#request-8) - [svar](#response-8)
-    - [Hämta grupp av displayName](#get-group-by-displayname) - [begära](#request-9) - [svar](#response-9)
-    - [Uppdatera grupp [icke-Medlemsattribut]](#update-group-non-member-attributes) - [begära](#request-10) - [svar](#response-10)
-    - [Uppdatera grupp [Lägg till medlemmar]](#update-group-add-members) - [begära](#request-11) - [svar](#response-11)
-    - [Uppdatera grupp [ta bort medlemmar]](#update-group-remove-members) - [begära](#request-12) - [svar](#response-12)
-    - [Ta bort grupp](#delete-group) - [begära](#request-13) - [svar](#response-13)
+  - [Skapa grupp](#create-group)
+    - [Förfrågan](#request-7)
+    - [Svar](#response-7)
+  - [Hämta grupp](#get-group)
+    - [Förfrågan](#request-8)
+    - [Svar](#response-8)
+  - [Hämta grupp av displayName](#get-group-by-displayname)
+    - [Förfrågan](#request-9)
+    - [Svar](#response-9)
+  - [Uppdatera grupp [icke-Medlemsattribut]](#update-group-non-member-attributes)
+    - [Förfrågan](#request-10)
+    - [Svar](#response-10)
+  - [Uppdatera grupp [Lägg till medlemmar]](#update-group-add-members)
+    - [Förfrågan](#request-11)
+    - [Svar](#response-11)
+  - [Uppdatera grupp [ta bort medlemmar]](#update-group-remove-members)
+    - [Förfrågan](#request-12)
+    - [Svar](#response-12)
+  - [Ta bort grupp](#delete-group)
+    - [Förfrågan](#request-13)
+    - [Svar](#response-13)
 
 ### <a name="user-operations"></a>Användaråtgärder
 
@@ -609,7 +637,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 
 5. Skapa FileProvisioningService-projektet.
 6. Starta Kommandotolken programmet i Windows (som administratör) och använda den **cd** kommando för att ändra katalogen till din **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug**mapp.
-7. Kör du följande kommando och ersätter < ip-adress > med IP-adress eller domännamn namnet på den Windows-datorn:
+7. Kör följande kommando ersätter `<ip-address>` med IP-adress eller domännamn namnet på den Windows-datorn:
 
    ```
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv
@@ -626,8 +654,8 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 4. I skärmbilden som visas väljer du den **etablering** fliken i den vänstra kolumnen.
 5. I den **etablering läge** menyn och välj **automatisk**.
     
-  ![][2]
-  *Bild 6: Konfigurera etablering i Azure portal*
+   ![][2]
+   *Bild 6: Konfigurera etablering i Azure portal*
     
 6. I den **klient-URL** fältet, anger du URL: en och en port för din SCIM-slutpunkt som visas på internet. Transaktionen är något som liknar http://testmachine.contoso.com:9000 eller http://\<ip-adress >: 9000 / där \<ip-adress > är internet exponerade IP adress.  
 7. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt används att Azure AD inkludera en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
@@ -839,12 +867,12 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
     >[!NOTE]
     > Detta är bara ett exempel. Inte alla användare har en mailNickname-attributet och en användare har värdet får inte vara unika i katalogen. Dessutom används för att matcha attributet (som i det här fallet är externalId) kan konfigureras i den [Azure AD-attributmappningar](customize-application-attributes.md).
 
-  ````
+   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-  ````
-  Om tjänsten har skapats med hjälp av CLI-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden fråga i den tjänstleverantör.  Här är signaturen för metoden: 
-  ````
+   ````
+   Om tjänsten har skapats med hjälp av CLI-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden fråga i den tjänstleverantör.  Här är signaturen för metoden: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -854,9 +882,9 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-  ````
-  Här är definitionen av gränssnittet Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
-  ````
+   ````
+   Här är definitionen av gränssnittet Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
+   ````
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -940,58 +968,58 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
 
 2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user does not return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
-  ````
+   ````
     EFTER https://.../scim/Users HTTP/1.1 auktorisering: Ägar...  Innehållstyp: application/scim + json {”scheman”: [”urn: ietf:params:scim:schemas:core:2.0:User”, ”urn: ietf:params:scim:schemas:extension:enterprise:2.0User”] ”externalId”: ”jyoung”, ”användarnamn”: ”jyoung”, ”aktiv”: true, ”adresser”: null    ”displayName”: ”Joy Young”, ”e-postmeddelanden”: [{”type”: ”arbetar”, ”value” ”:jyoung@Contoso.com”, ”primär”: true}], ”metadata”: {”resourceType”: ”användare”}, ”namn”: {”Familjenamn”: ”unga”, ”givenName”: ”nu ett”}, ”phoneNumbers”: null, ”preferredLa nguage ”: null,” title ”: null,” avdelning ”: null,” manager ”: null}
-  ````
-  The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-  ````
+   ````
+   The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
+   ````
     System.Threading.Tasks.Tasks har definierats i mscorlib.dll.  
     Microsoft.SystemForCrossDomainIdentityManagement.Resource definieras i / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
     System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > Skapa (Microsoft.SystemForCrossDomainIdentityManagement.Resource resurs, sträng correlationIdentifier);
-  ````
-  In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+   ````
+   In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
 
 3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-  ````
+   ````
     Hämta ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1 auktorisering: Ägar...
-  ````
-  In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-  ````
+   ````
+   In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
+   ````
     System.Threading.Tasks.Tasks har definierats i mscorlib.dll.  
     Microsoft.SystemForCrossDomainIdentityManagement.Resource och / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters / / definieras i Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
     System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > hämta (Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters parametrar, sträng correlationIdentifier);
 
     offentliga gränssnittet Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
         IRetrievalParameters {Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get;}} offentliga gränssnittet Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier {sträng identifierare {get; set;} strängen Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier {get; set;}}
-  ````
-  In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+   ````
+   In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
    * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
 
-  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
-  * parameters.AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
+   Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
 
 5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-  ````
+   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1 auktorisering: Ägar...  Innehållstyp: application/scim + json {”scheman”: [”urn: ietf:params:scim:api:messages:2.0:PatchOp”], ”åtgärder”: [{”op”: ”Lägg till”, ”sökväg”: ”manager”, ”value”: [{”$ref”: ”http://.../scim/Users/2819c223-7f76-453a-919d-413861904646”, ”value”: ”2819c223-7f76-453a-919d-413861904646”}]}]}
-  ````
-  The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-  ````
+   ````
+   The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
+   ````
     System.Threading.Tasks.Tasks och / / System.Collections.Generic.IReadOnlyCollection<T> / / definieras i mscorlib.dll.  
     Microsoft.SystemForCrossDomainIdentityManagement.IPatch, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, / / Microsoft.SystemForCrossDomainIdentityManagement.OperationName, / / Microsoft.SystemForCrossDomainIdentityManagement.IPath och / / Microsoft.SystemForCrossDomainIdentityManagement.OperationValue / / är alla definierade i Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
@@ -1005,19 +1033,19 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
 
    Om tjänsten har skapats med Common Language infrastruktur-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden fråga i den tjänstleverantör. Värdet för egenskaperna för objektet som tillhandahålls som värde för argumentet parametrar är följande: 
   
-   * parameters.AlternateFilters.Count: 2
-   * parameters.AlternateFilters.ElementAt(x).AttributePath: ”ID”
-   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * parametrar. AlternateFilters.ElementAt(y). AttributePath: ”manager”
-   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
-   * parameters.RequestedAttributePaths.ElementAt(0): ”ID”
-   * parametrar. SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
+* parameters.AlternateFilters.Count: 2
+* parameters.AlternateFilters.ElementAt(x).AttributePath: ”ID”
+* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+* parametrar. AlternateFilters.ElementAt(y). AttributePath: ”manager”
+* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+* parameters.RequestedAttributePaths.ElementAt(0): ”ID”
+* parametrar. SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
-   Här är värdet för indexet x kan vara 0 och värdet för y index kan vara 1, eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttryck av filter-frågeparameter.   
+  Här är värdet för indexet x kan vara 0 och värdet för y index kan vara 1, eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttryck av filter-frågeparameter.   
 
-5. Här är ett exempel på en begäran från Azure Active Directory till en SCIM-tjänsten för att uppdatera en användare: 
+1. Här är ett exempel på en begäran från Azure Active Directory till en SCIM-tjänsten för att uppdatera en användare: 
 
    ```
      PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1133,7 +1161,7 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
    * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referens: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-6. Om du vill avetablera en användare från en identity-butik fronted av en SCIM-tjänst, skickar Azure AD en begäran som: 
+1. Om du vill avetablera en användare från en identity-butik fronted av en SCIM-tjänst, skickar Azure AD en begäran som: 
 
    ```
      DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1154,13 +1182,13 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
 
    Objektet som tillhandahålls som värde för argumentet resourceIdentifier har de här egenskaperna i exemplet med en begäran om att avetablera en användare: 
 
-6. Om du vill avetablera en användare från en identity-butik fronted av en SCIM-tjänst, skickar Azure AD en begäran som: 
-  ````
+1. Om du vill avetablera en användare från en identity-butik fronted av en SCIM-tjänst, skickar Azure AD en begäran som: 
+   ````
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-  ````
-  Om tjänsten har skapats med hjälp av CLI-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden Delete av tjänstens-providern.   Metoden har den här signaturen: 
-  ````
+   ````
+   Om tjänsten har skapats med hjälp av CLI-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden Delete av tjänstens-providern.   Metoden har den här signaturen: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
     // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1168,11 +1196,11 @@ Utvecklare som använder CLI-bibliotek som tillhandahålls av Microsoft för att
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
         resourceIdentifier, 
       string correlationIdentifier);
-  ````
-  Objektet som tillhandahålls som värde för argumentet resourceIdentifier har de här egenskaperna i exemplet med en begäran om att avetablera en användare: 
+   ````
+   Objektet som tillhandahålls som värde för argumentet resourceIdentifier har de här egenskaperna i exemplet med en begäran om att avetablera en användare: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
 ## <a name="user-and-group-schema-reference"></a>Schemareferens för användare och grupper
 Azure Active Directory kan etablera två typer av resurser till SCIM-webbtjänster.  Dessa typer av resurser är användare och grupper.  
@@ -1182,6 +1210,7 @@ Användarresurser identifieras av schema-ID `urn:ietf:params:scim:schemas:extens
 Gruppera resurser identifieras av schema-ID `urn:ietf:params:scim:schemas:core:2.0:Group`.  Tabell 2 nedan visar standardmappningen attribut för grupper i Azure Active Directory attributen för gruppera resurser.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabell 1: Attributmappning för standard-användare
+
 | Azure Active Directory-användare | ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User” |
 | --- | --- |
 | IsSoftDeleted |aktiv |
@@ -1203,6 +1232,7 @@ Gruppera resurser identifieras av schema-ID `urn:ietf:params:scim:schemas:core:2
 | användaren huvudkontot |Användarnamn |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabell 2: Attributmappning för standard-grupp
+
 | Azure Active Directory-grupp | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |

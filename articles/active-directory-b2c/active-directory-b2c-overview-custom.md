@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187172"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417941"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 |-|-------------------|-----------------|
 | Målanvändare | Alla utvecklare av företagsprogram med eller utan kunskaper om identitet. | Experter, systemintegrerare, konsulter och interna identitet team. De är nöjd med OpenIDConnect flöden och förstå Identitetsproviders och Anspråksbaserad autentisering. |
 | Konfigurationsmetoden | Azure-portalen med ett användarvänligt användargränssnitt (UI). | Redigera XML-filer direkt och sedan ladda upp till Azure-portalen. |
-| Anpassning av Användargränssnittet | Fullständig anpassningar inklusive HTML och CSS.<br><br>Stöd för flera språk med anpassade strängar. | Samma |
+| Anpassning av Användargränssnittet | Fullständig anpassningar inklusive HTML, CSS och JavaScript.<br><br>Stöd för flera språk med anpassade strängar. | Samma |
 | Attributanpassning | Standardentiteter och anpassade attribut. | Samma |
 | Hantering av token och sessionen | Anpassade token och flera sessionsalternativ för. | Samma |
-| Identitetsprovidrar | Fördefinierade lokal eller sociala provider. | Standardbaserad OIDC, OAUTH och SAML. |
+| Identitetsprovidrar | Fördefinierade provider för lokal eller sociala och de flesta OIDC-identitetsleverantörer, till exempel federation med Azure Active Directory-klienter. | Standardbaserad OIDC, OAUTH och SAML.  Autentisering är också möjligt med hjälp av integrering med REST API: er. |
 | Identity-uppgifter | Registrera dig eller logga in med lokal eller många konton i sociala medier.<br><br>Återställning av lösenord.<br><br>Profilredigering.<br><br>Multi-Factor Authentication.<br><br>Anpassa token och sessioner.<br><br>Åtkomst-token flöden. | Utföra samma åtgärder som användarflöden med hjälp av anpassade identitetsprovidrar eller använda anpassade omfattningar.<br><br>Etablera ett användarkonto på ett annat system vid tidpunkten för registrering.<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör.<br><br>Använd en användararkivet utanför Azure AD B2C.<br><br>Validera användaren tillhandahållit information med en betrodd dator med hjälp av ett API. |
 
 ## <a name="policy-files"></a>Principfiler

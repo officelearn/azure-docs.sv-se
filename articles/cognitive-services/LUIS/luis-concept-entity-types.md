@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372530"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418694"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -216,11 +216,20 @@ Om entiteten fördefinierade märks med mer text eller token än din anpassade e
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Ta bort exempel uttryck för att åtgärda taggning 
 
-Ditt första val är att ta bort exempel uttryck och träna om appen. Lägg tillbaka till bara ordet eller fras som är enheten som en exempel-uttryck och sedan markera de entiteter och träna. Lägg nu till tillbaka fördefinierade entiteten och den ursprungliga exempel-uttryck. Den anpassade entiteten ska fortsätta att markeras i stället för den fördefinierade entiteten. 
+Ditt första val är att ta bort exempel-uttryck. 
+
+1. Ta bort exempel-uttryck.
+1. Träna om appen. 
+1. Lägg till tillbaka bara ordet eller en fras som entiteten, som har markerats som en fördefinierade entitet, som en komplett exempel-uttryck. Ordet eller frasen har fortfarande fördefinierade entiteten markerats. 
+1. Välj entiteten i exempel-uttryck på den **avsikt** sida, och ändra i din anpassade entitet och träna igen. Detta bör förhindra att LUIS markerar den här texten som färdiga entiteten i yttranden exempel som använder texten. 
+1. Lägga till hela ursprungliga exempel uttryck avsikten. Den anpassade entiteten ska fortsätta att markeras i stället för den fördefinierade entiteten. Om den anpassade entiteten inte har markerats som du behöver lägga till fler exempel på texten i yttranden.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Ta bort fördefinierade entitet för att åtgärda taggning
 
-I andra hand är att ta bort entiteten färdiga appen, sedan tagga den anpassade entiteten i exempel-uttryck och sedan lägga till färdiga entiteten i appen. Den här snabbkorrigeringen förutsätter fördefinierade entiteten är inte en del av en sammansatt entitet. 
+1. Ta bort fördefinierade entiteten från appen. 
+1. På den **avsikt** sidan, markera den anpassade entiteten i exempel-uttryck.
+1. Träna appen.
+1. Lägga till färdiga entiteten i appen och träna appen. Den här snabbkorrigeringen förutsätter fördefinierade entiteten är inte en del av en sammansatt entitet.
 
 ## <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
 

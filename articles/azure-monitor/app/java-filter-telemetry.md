@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116817"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418830"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i Java-webbappen
 
@@ -253,6 +253,20 @@ In ApplicationInsights.xml:
     </ApplicationInsights>
 
 ```
+
+### <a name="3-invoke-your-filter-java-spring"></a>3. Anropa filter (Java Spring)
+
+Anpassad telemetri processorer måste vara registrerad i klassen huvudprogrammet för program som är baserade på Spring framework som en böna. De kommer sedan att autowired när programmet startas.
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+Behöver du skapa dina egna filterparametrar i `application.properties` och utnyttja Spring Boot externalized configuration ramverk för att skicka in ditt filter. 
+
 
 ## <a name="troubleshooting"></a>Felsökning
 

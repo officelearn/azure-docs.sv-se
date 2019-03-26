@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876372"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437109"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -338,6 +338,39 @@ IoT Edge innehåller förbättrad konfigurationen för att skydda Azure IoT Edge
 |AMQP|5671|BLOCKERADE (standard)|ÖPPEN (standard)|<ul> <li>Standard kommunikationsprotokoll för IoT Edge. <li> Måste konfigureras för att vara öppen om Azure IoT Edge inte är konfigurerad för andra protokoll som stöds eller AMQP är det önskade kommunikationsprotokollet.<li>5672 för AMQP stöds inte av IoT Edge.<li>Blockera den här porten när protokoll som stöds av Azure IoT Edge använder en annan IoT-hubb.<li>Inkommande (inkommande) anslutningar ska blockeras.</ul></ul>|
 |HTTPS|443|BLOCKERADE (standard)|ÖPPEN (standard)|<ul> <li>Konfigurera utgående (utgående) är öppen på 443 för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS). <li>Inkommande (inkommande)-anslutningen ska vara öppen endast för specifika scenarier: <ul> <li>  Om du har en transparent gateway med lövenheter som kan skicka metodbegäranden. I det här fallet behöver inte Port 443 är öppen för externa nätverk att ansluta till IoTHub eller tillhandahålla IoTHub-tjänster via Azure IoT Edge. Därför kan den inkommande regeln begränsas till endast öppna inkommande (inkommande) från det interna nätverket. <li> För klient till enheten (C2D)-scenarier.</ul><li>80 för HTTP stöds inte av IoT Edge.<li>Om icke-HTTP-protokoll (till exempel AMQP eller MQTT) inte kan konfigureras i företaget. meddelanden kan skickas via WebSockets. Port 443 används för WebSocket-kommunikation i så fall.</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge-modul för agenten kontinuerligt rapporter ”tom konfigurationsfilen' och inga moduler startar på enheten
+
+Enheten har problem med att starta moduler som anges i distributionen. Endast edgeAgent körs men kontinuerligt rapporterar '... tom konfigurationsfilen'.
+
+### <a name="potential-root-cause"></a>Eventuella grundorsaken
+Som standard startar IoT Edge moduler i sin egen isolerad behållare nätverk. Enheten kan ha problem med DNS-namnmatchning i det här privata nätverket.
+
+### <a name="resolution"></a>Lösning
+Ange DNS-server för din miljö i motorn behållarinställningar. Skapa en fil med namnet `daemon.json` anger DNS-server som ska användas. Exempel:
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+Exemplet ovan anger DNS-servern till en offentligt tillgänglig DNS-tjänst. Om edge-enhet inte kan komma åt denna IP-adress från dess miljö måste du ersätta det med DNS-serveradress som är tillgänglig.
+
+Plats `daemon.json` på rätt plats för din plattform: 
+
+| Plattform | Plats |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby-data\config` |
+
+Om platsen innehåller redan `daemon.json` Lägg till den **dns** nyckeln till den och spara filen.
+
+*Starta om motorn för behållaren för uppdateringarna ska börja gälla*
+
+| Plattform | Kommando |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>Nästa steg
 Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett ärende](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra. 

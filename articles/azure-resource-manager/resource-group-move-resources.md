@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081261"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418898"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -49,7 +49,7 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 
 ## <a name="services-that-can-be-moved"></a>Tjänster som kan flyttas
 
-Följande lista innehåller en allmän översikt över Azure-tjänster som kan flyttas till en ny resursgrupp och prenumeration. Läs mer detaljerat, [flytta åtgärden stöd för resurser](move-support-resources.md).
+Följande lista innehåller en allmän översikt över Azure-tjänster som kan flyttas till en ny resursgrupp och prenumeration. En lista över vilken resurs som typer stöd för att flytta finns i [flytta åtgärden stöd för resurser](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -143,7 +143,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
+* Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Managed Applications
 * Microsoft Genomics
 * SAP HANA på Azure

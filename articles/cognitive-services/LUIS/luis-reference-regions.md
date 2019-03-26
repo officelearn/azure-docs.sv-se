@@ -1,7 +1,7 @@
 ---
 title: Publicera regioner och slutpunkter
 titleSuffix: Azure Cognitive Services
-description: Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du publicerar en app genererar LUIS automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln.
+description: 3 redigering regioner och deras portaler stöd för många publishing regioner. Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du publicerar en app genererar LUIS automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765178"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436344"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Skapa och publicera regioner och associerade nycklar
 
-Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du [publicera en app](./luis-how-to-publish-app.md), LUIS genererar automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln. Om du vill publicera en LUIS-app till flera regioner, behöver du minst en nyckel per region. 
+Tre redigering regioner och deras portaler stöd för många publishing regioner. Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du [publicera en app](./luis-how-to-publish-app.md), LUIS genererar automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln. Om du vill publicera en LUIS-app till flera regioner, behöver du minst en nyckel per region. 
 
-## <a name="luis-website"></a>LUIS-webbplats
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS redigering regioner
 Det finns tre LUIS-webbplatser, baserat på region. Du måste skapa och publicera i samma region. 
 
-|LUIS|Region|
-|--|--|
-|[www.Luis.AI][www.luis.ai]|Amerikansk<br>inte Europa<br>inte Australien|
-|[AU.Luis.AI][au.luis.ai]|Australien|
-|[EU.Luis.AI][eu.luis.ai]|Europa|
+|LUIS|Global region|Redigera region i Azure|
+|--|--|--|
+|[www.Luis.AI][www.luis.ai]|Amerikansk<br>inte Europa<br>inte Australien| `westus`|
+|[AU.Luis.AI][au.luis.ai]|Australien| `australiaeast`|
+|[EU.Luis.AI][eu.luis.ai]|Europa|`westeurope`|
+
+Du kan använda regionen redigering för att interagera med distribuerad LUIS-tjänst i en annan Azure publishing-region.  
+
+Redigering regioner har [länkade regioner för redundans](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Regioner och Azure-resurser
 Appen har publicerats i alla regioner som associeras med LUIS-resurser som har lagts till i LUIS-portalen. Till exempel för en app som skapats på [www.luis.ai][www.luis.ai], om du skapar en LUIS-resurs i **westus** och lägga till den i appen som en resurs, appen publiceras i den regionen. 

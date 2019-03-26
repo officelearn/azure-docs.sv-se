@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214647"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407410"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API till inställningar för Loggaviseringar
 
@@ -37,13 +37,18 @@ Det finns flera fördelar med att skapa och hantera aviseringar med hjälp av [s
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Processen för att växla från äldre Log aviseringar API
 
-Processen att flytta Varningsregler från [äldre Log Analytics avisering API](api-alerts.md) inbegriper inte ändra aviseringens definition, fråga eller konfiguration på något sätt. Användare kan använda antingen [äldre Log Analytics avisering API](api-alerts.md) eller nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Aviseringsregler som skapats av antingen API, kommer *hanteras av samma API* – och som från Azure-portalen. Som standard Azure Monitor kommer att fortsätta att använda [äldre Log Analytics avisering API](api-alerts.md) för att skapa någon ny aviseringsregel från Azure-portalen.
+Processen att flytta Varningsregler från [äldre Log Analytics avisering API](api-alerts.md) inbegriper inte ändra aviseringens definition, fråga eller konfiguration på något sätt. Dina aviseringsregler och övervakning är påverkas inte och aviseringarna kommer inte att stoppa eller ha stoppats, under eller efter växeln.
+
+Användare kan använda antingen [äldre Log Analytics avisering API](api-alerts.md) eller nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Aviseringsregler som skapats av antingen API, kommer *hanteras av samma API* – och som från Azure-portalen. Som standard Azure Monitor kommer att fortsätta att använda [äldre Log Analytics avisering API](api-alerts.md) för att skapa någon ny aviseringsregel från Azure-portalen.
 
 Påverkan av växeln inställning till scheduledQueryRules API kompileras nedan:
 
 - Alla interaktioner som klar för hantering av aviseringar via programgränssnitt måste nu utföras med hjälp av [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) i stället. Mer information finns i, [exemplet används, via Azure-resursmall](alerts-log.md#managing-log-alerts-using-azure-resource-template) och [exemplet används, via Azure CLI och PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
-- Alla nya loggvarningsregel som skapats i Azure-portalen kommer att skapas med [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) endast och att användare använder den [ytterligare funktioner för nya API: et](#Benefits-of-switching-to-new-Azure-API) via Azure portal samt
+- Alla nya loggvarningsregel som skapats i Azure-portalen kommer att skapas med [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) endast och att användare använder den [ytterligare funktioner för nya API: et](#benefits-of-switching-to-new-azure-api) via Azure portal samt
 - Allvarlighetsgrad för loggaviseringsregler växlar från: *Kritisk, varning och information*till *allvarlighetsgrader 0, 1 och 2*. Tillsammans med alternativet för att skapa/uppdatera Varningsregler med allvarlighetsgrad 4 samt.
+
+> [!CAUTION]
+> När en användare väljer om du vill byta inställning till den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), regler kan inte välja tillbaka eller återgå till användning av den äldre [äldre Log Analytics avisering API](api-alerts.md).
 
 Alla kunder som vill växla frivilligt till den nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och blockera användning från den [äldre Log Analytics avisering API](api-alerts.md); kan göra det genom att utföra en PUT-anrop på den nedan API för att växla alla avisering regler som är associerade med specifika Log Analytics-arbetsytan.
 

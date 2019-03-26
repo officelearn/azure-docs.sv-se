@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443461"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418987"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -190,11 +190,15 @@ När användningsvillkoren har skapats och tillämpats kommer användare som ing
 
 ![Web användarinloggning](./media/active-directory-tou/user-tou.png)
 
+Användare kan visa användningsvillkoren och om det behövs använder du knapparna för att zooma in och ut.
+
+![Visa villkor för användning med zoomning knappar](./media/active-directory-tou/zoom-buttons.png)
+
 Följande skärmbild visar hur användningsvillkor ser ut på mobila enheter.
 
 ![Mobila användarinloggning](./media/active-directory-tou/mobile-tou.png)
 
-Användarna behöver bara godkänna villkoren en gång och de ser inte användningsvillkoren igen på efterföljande inloggningar.
+Användarna behöver bara godkänna villkoren en gång och de kommer inte se användningsvillkoren igen på efterföljande inloggningar.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Hur användarna kan granska deras användningsvillkor
 Användare kan granska och se användningsvillkoren som de har godkänt genom att använda följande procedur.

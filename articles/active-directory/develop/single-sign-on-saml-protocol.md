@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012768"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437891"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 
@@ -158,7 +158,7 @@ Den `Response` elementet innehåller resultatet av begäran om godkännande. Azu
 
 ### <a name="issuer"></a>Utfärdare
 
-Azure AD-uppsättningar på `Issuer` elementet mot `https://login.microsoftonline.com/<TenantIDGUID>/` där <TenantIDGUID> är klient-ID för Azure AD-klient.
+Azure AD-uppsättningar på `Issuer` elementet mot `https://login.microsoftonline.com/<TenantIDGUID>/` där \<TenantIDGUID > är klient-ID för Azure AD-klient.
 
 Ett svar med utfärdaren element kan till exempel se ut som i följande exempel:
 
@@ -193,7 +193,7 @@ Förutom den `ID`, `IssueInstant` och `Version`, Azure AD anger följande elemen
 
 #### <a name="issuer"></a>Utfärdare
 
-Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/`där <TenantIDGUID> är klient-ID för Azure AD-klient.
+Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/`där \<TenantIDGUID > är klient-ID för Azure AD-klient.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

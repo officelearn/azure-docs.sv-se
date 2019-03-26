@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294520"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407308"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Läs konsekvens gäller för en enda Läsåtgärd begränsade inom en partitions
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurera standardkonsekvensnivån
 
-Du kan konfigurera standard-konsekvensnivå på ditt Azure Cosmos-konto när som helst. Standard-konsekvensnivå som konfigurerats på ditt konto gäller för alla Azure Cosmos DB-databaser och behållare med det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas kan du använda den angivna konsekvensnivån som standard. Mer information finns i så här [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Du kan konfigurera standard-konsekvensnivå på ditt Azure Cosmos-konto när som helst. Standard-konsekvensnivå som konfigurerats på ditt konto gäller för alla Azure Cosmos-databaser och behållare med det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas kan du använda den angivna konsekvensnivån som standard. Mer information finns i så här [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantier som är associerade med konsekvensnivåer
 
@@ -41,31 +41,31 @@ Här beskrivs semantiken för de fem konsekvensnivåerna:
 
 - **Stark**: Stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar. Läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient ser aldrig en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
 
-- **Begränsad föråldring**: Läsningar garanterat respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst ”K”-versioner (det vill säga ”uppdateringar”) av ett objekt eller efter ”t” tidsintervall. När du väljer begränsad föråldring kan ”föråldring” konfigureras på två sätt: 
+- **Begränsad föråldring**: Läsningar garanterat respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst *”K”* versioner (t.ex. ”uppdateringar”) av ett objekt eller genom att *”T”* tidsintervall. När du väljer begränsad föråldring, alltså konfigureras ”föråldring” på två sätt: 
 
-  * Antal versioner (K) av objektet
-  * Tidsintervall (t) som kan läsningar släpar efter skrivningar 
+  * Antalet versioner (*K*) för objekt
+  * Tidsintervallet (*T*) av som läsningar kan ligga efter skrivningar 
 
-  Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. Stark konsekvens har samma semantik som de som erbjuds av begränsad föråldring. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de garantierna med stark konsekvens.
+  Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier finns inom en region både i och utanför fönstret föråldring. Stark konsekvens har samma semantik som erbjuds av begränsad föråldring. Fönstret föråldring är lika med noll. Begränsad föråldring kallas också tid fördröjd linjärbarhetsgaranti. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de garantierna av stark konsekvens.
 
 - **Sessionen**: Läsningar garanterat respektera konsekvent prefix (förutsatt att en session med en ”författare”), monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar och skrivning-följer-läsning garantier. Sessionskonsekvens är begränsad till en klientsession.
 
-- **Konsekvent prefix**: Uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix garanterar att läsningar aldrig ser skrivningar out ordning.
+- **Konsekvent prefix**: Uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix konsekvensnivå garanterar att läsningar aldrig ser skrivningar out ordning.
 
 - **Slutlig**: Det finns ingen skrivordning garanti för läsningar. Om eventuella ytterligare skrivningar konvergerar replikerna så småningom.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Konsekvensnivåer baseboll
 
-Låt oss ta ett spel baseboll-scenario som exempel. Föreställ dig en sekvens med skrivningar som representerar in resultatet från en baseboll-spel. Resultat för inning av inning beskrivs i den [replikerade datakonsekvens med basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) dokumentet. Den här hypotetiska basket spelet är för närvarande mitt sjunde inning. Är det sjunde--inning stretch. Besökare är bakom med ett värde av 2 till 5.
+Låt oss ta ett spel baseboll-scenario som exempel. Föreställ dig en sekvens med skrivningar som representerar in resultatet från en baseboll-spel. Resultat för inning av inning beskrivs i den [replikerade datakonsekvens med basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) dokumentet. Den här hypotetiska basket spelet är för närvarande mitt sjunde inning. Är det sjunde--inning stretch. Besökare är bakom med ett värde av 2 till 5 som visas nedan:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Körningar** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Besökare** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Startsida** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-En Azure Cosmos DB-behållare innehåller besökarna och home team som kör summor. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökarnas och home poäng med var och en av de fem konsekvensgarantier. Den besökare poäng visas först. Olika möjliga returvärden avgränsas med kommatecken.
+Ett Azure Cosmos-behållaren innehåller kör summor för besökare och home team. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökarnas och home poäng med var och en av de fem konsekvensgarantier. Den besökare poäng visas först. Olika möjliga returvärden avgränsas med kommatecken.
 
-| **Konsekvensnivå** | **Poäng** |
+| **Konsekvensnivå** | **Poängsätter (besökare, hem)** |
 | - | - |
 | **Stark** | 2 – 5 |
 | **Begränsad föråldring** | Resultat som innehåller högst en inning inaktuell: 2-3, 2-4, 2-5 |

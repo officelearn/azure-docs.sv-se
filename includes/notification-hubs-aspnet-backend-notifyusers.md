@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124983"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407855"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -58,6 +58,8 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
    Du behöver ingen databas för den här självstudiekursen. När du har valt app service-plan väljer du **OK** för att skapa projektet.
 
     ![Konfigurera Microsoft Azure Web App-fönstret][B5]
+
+    Om du inte ser den här sidan för Konfigurera app service-plan kan du gå vidare med självstudiekursen. Du kan konfigurera det när du publicerar appen senare. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
 
@@ -265,8 +267,8 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
             case "apns":
                 registration = new AppleRegistrationDescription(deviceUpdate.Handle);
                 break;
-            case "gcm":
-                registration = new GcmRegistrationDescription(deviceUpdate.Handle);
+            case "fcm":
+                registration = new FcmRegistrationDescription(deviceUpdate.Handle);
                 break;
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -354,10 +356,10 @@ I det här avsnittet kan du lägga till en ny domänkontrollant som exponerar en
                 var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                 break;
-            case "gcm":
+            case "fcm":
                 // Android
                 var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
-                outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif, userTag);
                 break;
         }
 

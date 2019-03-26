@@ -10,17 +10,17 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: ab9db26f7de67308f3156988bcb498f1e35613eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f7a7b5c9a22ba9cb8746cecde56c0a047521ad0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57758965"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437658"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### <a name="make-a-code-change"></a>Göra en kodändring
-Gå till VS Code-fönstret `mywebapi` och gör en kodändring i `String index()`-metoden, till exempel:
+Gå till VS Code-fönstret för `mywebapi` och göra en kod som redigera den `String index()` -metod i `src/main/java/com/ms/sample/mywebapi/Application.java`, till exempel:
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402736"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439081"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Skapa en värd-pool med PowerShell
+# <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
 Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 Den **Lägg till RdsAppGroupUser** cmdlet inte stöd för att lägga till säkerhetsgrupper och endast lägger till en användare i taget till app-gruppen. Om du vill lägga till flera användare i gruppen app kan du köra cmdleten med lämpliga huvudnamn.
 
-Kör följande cmdlet för att exportera fcm till en variabel som du ska använda senare i [registrera virtuella datorer till virtuella Windows-skrivbordet värd poolen](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Kör följande cmdlet för att exportera fcm till en variabel som du ska använda senare i [registrera virtuella datorer till virtuella Windows-skrivbordet värd poolen](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

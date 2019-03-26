@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med hjälp av CLI'
+title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI'
 description: Lär dig hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286337"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418660"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286337"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-Den här snabbstarten beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,7 +45,7 @@ Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör 
     az login
     ```
 
-2. Konfigurera den prenumeration där du vill att klustret ska skapas. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
+1. Konfigurera den prenumeration där du vill att klustret ska skapas. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör 
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
 
-2. Kör följande kommando för att kontrollera om klustret har skapats:
+1. Kör följande kommando för att kontrollera om klustret har skapats:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    | soft-delete-period | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | hot-cache-period | *3650:00:00:00* | Hur lång tid data ska behållas i cache. |
 
-2. Kör följande kommando för att se den databas som du skapade:
+1. Kör följande kommando för att se den databas som du skapade:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

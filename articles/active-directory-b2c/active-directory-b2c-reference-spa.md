@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104846"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439438"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Ensidesapp logga in med hjälp av OAuth 2.0 implicit flöde
 
@@ -27,7 +27,7 @@ Många moderna appar innehåller en ensidesapp klientdel som främst är skriven
 
 Stöd för dessa program, Azure Active Directory B2C (Azure AD B2C) använder det implicita flödet för OAuth 2.0. Implicit beviljande flöde för OAuth 2.0-auktorisering beskrivs i [avsnittet 4.2 av OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). I implicit flöde appen tar emot token direkt från Azure Active Directory (Azure AD) tillåta slutpunkt utan någon exchange server-till-server. Placera helt i JavaScript-klienter utan ytterligare sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
-Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till principer till din app, till exempel registrering, inloggning, och profilera management användarflöden. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program. För att hjälpa dig att komma igång, ta en titt på våra [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) och [Microsoft.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exempel.
+Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till principer till din app, till exempel registrering, inloggning, och profilera management användarflöden. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program.
 
 I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi kan också använda vår egen exemplet och flöden. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
 Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-azure-ad-b2c-tenant).
@@ -275,9 +275,4 @@ Slutför följande tre steg för att prova de här begärandena själv. Ersätt 
 1. [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md). Använd namnet på din klient i begäranden.
 2. [Skapa ett program](active-directory-b2c-app-registration.md) att hämta ett program-ID och en `redirect_uri` värde. Inkludera en webbapp eller webb-API i din app. Du kan också skapa en programhemlighet.
 3. [Skapa din användarflöden](active-directory-b2c-reference-policies.md) att hämta din användare namn för flödet.
-
-## <a name="samples"></a>Exempel
-
-* [Skapa en ensidesapp med hjälp av Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [Skapa en ensidesapp med hjälp av .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 

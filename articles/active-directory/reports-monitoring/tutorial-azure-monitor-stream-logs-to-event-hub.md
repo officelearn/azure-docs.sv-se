@@ -3,7 +3,7 @@ title: Självstudie – Strömma Azure Active Directory-loggar till en Azure-hä
 description: Lär dig hur du konfigurerar Azure-diagnostik för att skicka Azure Active Directory-loggar till en händelsehubb (förhandsversion)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d416f61e2752ad2e26bda1276c3c52b36d5754a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198260"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436939"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Självstudier: Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion)
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att strömma Azure Active Directory-loggar (Azure AD) till en Azure-händelsehubb. Använd den här mekanismen för att integrera dina loggar med SIEM-verktyg (Säkerhetsinformation och händelsehantering) från tredje part, till exempel Splunk och QRadar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om du vill använda den här funktionen behöver du:
 
@@ -39,7 +39,7 @@ Om du vill använda den här funktionen behöver du:
 
 ## <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 2. Välj **Azure Active Directory** > **Aktivitet** > **Spårningsloggar**. 
 

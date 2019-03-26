@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201474"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439270"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en intern iOS-app
 
@@ -44,7 +44,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
-> För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en svars-URL som `msal<AppId>://auth` (när msal<AppId> är detta program-ID).
+> För kodexempel för den här snabbstarten ska fungera måste du lägga till en svars-URL som `msal<AppId>://auth` (där msal\<AppId > är den här program-Id).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Där:||
 > |---------|---------|
-> | `forScopes` | Innehåller de omfång som begärs (det vill säga [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | Innehåller de omfång som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (dvs. `api://<Application ID>/access_as_user`)) |
 
 #### <a name="getting-an-access-token-silently"></a>Hämta en åtkomsttoken obevakat
 

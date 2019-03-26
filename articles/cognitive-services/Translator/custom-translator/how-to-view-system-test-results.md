@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997712"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438622"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -78,6 +78,9 @@ Att begära en distribution:
     ![Distribuera modell](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Du kan visa statusen för din modell i kolumnen ”Status”.
+
+>[!Note]
+>Anpassade Translator stöder 10 distribuerade modeller i en arbetsyta när som helst i tid.
 
 ## <a name="update-deployment-settings"></a>Uppdatera distributionsinställningar
 

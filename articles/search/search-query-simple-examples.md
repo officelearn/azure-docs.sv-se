@@ -1,5 +1,5 @@
 ---
-title: Exempelfråga-exempel – Azure Search
+title: Fråga efter exempel med ”enkla” Söksyntaxen – Azure Search
 description: Exempelfråga exempel för fulltextsökning, filter, search, geo-sökning, aspektbaserad sökning och andra frågesträngar som används för att fråga en Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136486"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439141"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exempel på enkla syntaxfråga för att skapa frågor i Azure Search
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Fråga efter exempel med ”enkla” Söksyntaxen i Azure Search
 
 [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) anropar standard frågeparsern för att köra fulltextsökningsfrågor mot ett Azure Search-index. Enkel frågeanalysatorn går snabbt och hanterar vanliga scenarier i Azure Search, inklusive fulltextsökning, filtrerad och aspektbaserad sökning och geo-sökning. Gå igenom exempel som visar frågeåtgärder som är tillgängliga när du använder enkel syntax i den här artikeln.
 
@@ -55,7 +55,9 @@ Webbadressen har följande element:
 
 ## <a name="send-your-first-query"></a>Skicka din första fråga
 
-Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultat returneras som utförliga JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
+Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultat returneras som utförliga JSON-dokument. Hela returneras dokument, vilket gör att du kan se alla fält och alla värden.
+
+Klistra in URL: en i en REST-klient som ett steg för verifiering och för att visa dokumentstruktur.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ För interaktiva frågor du inte behöver ange något: enkel är standard. I kod
 Det här första exemplet är inte parser-specifika, men vi leda med den till introducerar begreppet första grundläggande fråga: inneslutning. Det här exemplet anger omfattningen för frågekörning och svaret på bara några specifika fält. Det är viktigt att att känna till hur du ska strukturera ett läsbara JSON-svar när ditt verktyg är Postman eller Search explorer. 
 
 Av utrymmesskäl, frågan riktar sig till endast de *business_title* fältet och anger endast företag rubriker som returneras. Syntaxen är **searchFields** att begränsa Frågekörningen bara till business_title fältet, och **Välj** att ange vilka fält som ska ingå i svaret.
+
+### <a name="partial-query-string"></a>Partiell frågesträng
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Här är samma fråga med flera fält i en kommaavgränsad lista.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Fullständiga URL: en
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

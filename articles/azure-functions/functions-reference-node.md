@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226546"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437585"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -48,7 +48,6 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json). Namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion.
@@ -616,6 +615,10 @@ När du skapar en funktionsapp som använder App Service-planen, rekommenderar v
 ### <a name="cold-start"></a>Kallstart
 
 När börjar utveckla Azure Functions i utan server som värd modellen kalla är verklighet. *Kallstart* refererar till faktumet att när appen startas för första gången efter en tids inaktivitet, det tar längre tid att starta. För JavaScript-funktioner med stora beroendeträd särskilt kan kallstart vara betydande. Påskynda processen kallstart [kör dina funktioner som en paketfil](run-functions-from-deployment-package.md) när det är möjligt. Många distributionsmetoder använder Kör från paketet modellen som standard, men om du har stora kallstarter och körs inte på så sätt kan den här ändringen kan erbjuda en viktig förbättringar.
+
+### <a name="connection-limits"></a>Anslutningsgränser
+
+När du använder en tjänstspecifika klient i ett program för Azure Functions kan inte skapa en ny klient med varje funktionsanrop. Skapa i stället en enda, statisk klient i det globala området. Mer information finns i [hantera anslutningar i Azure Functions](manage-connections.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

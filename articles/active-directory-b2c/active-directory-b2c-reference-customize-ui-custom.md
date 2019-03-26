@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438265"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
 
@@ -150,7 +150,7 @@ I följande tabell beskrivs syftet med de föregående HTML5-sidorna.
 
 Du kan lägga till en länk till dina HTML5/CSS-mallar till din användarresa genom att redigera en anpassad princip direkt.
 
-Anpassade HTML5/CSS-mallarna för att använda i din användarresan måste anges i en lista över innehållsdefinitioner som kan användas i dessa användare-utbildning. För detta ändamål, en valfri *<ContentDefinitions>* XML-element måste deklareras den *<BuildingBlocks>* i din anpassad princip för XML-fil.
+Anpassade HTML5/CSS-mallarna för att använda i din användarresan måste anges i en lista över innehållsdefinitioner som kan användas i dessa användare-utbildning. För detta ändamål, en valfri  *\<ContentDefinitions >* XML-element måste deklareras den  *\<BuildingBlocks >* i din anpassad princip för XML-fil.
 
 I följande tabell beskriver uppsättningen innehåll definition-ID: N som identifieras av Azure AD B2C-identitet uppleva-motorn och vilken typ av sidor som relaterar till dem.
 

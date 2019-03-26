@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867750"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439401"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 Valda standardfilnamnet används vid roten och eventuella underkataloger när ett filnamn inte har angetts. Om servern returnerar ett 404 och du inte anger en feldokumentets sökväg, returneras ett 404 standardsidan för användaren.
+
+> [!NOTE]
+> Standardnivån för offentlig åtkomst för filer är privata. Eftersom filerna hanteras via anonyma förfrågningar, ignoreras den här inställningen. Det finns offentlig åtkomst till alla filer och RBAC-behörigheter ignoreras.
 
 ## <a name="cdn-and-ssl-support"></a>CDN- och SSL-stöd
 

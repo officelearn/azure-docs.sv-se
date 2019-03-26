@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350020"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407191"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -69,7 +69,7 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 - [Händelser och Live utdata](live-events-outputs-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
-Här följer stegen för en live arbetsflöde:
+### <a name="general-steps"></a>Allmänna steg
 
 1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** körs. 
 2. Skapa en [direktsändning](live-events-outputs-concept.md). <br/>När du skapar händelsen, kan du ange att autostart den. Du kan också starta händelsen när du är redo att börja direktuppspelning.<br/> När autostart är satt till SANT, Live-händelsen kommer att startas rätt när du har skapat. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).

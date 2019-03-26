@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319388"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418802"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -57,12 +57,12 @@ Hanterade diskar debiteras annorlunda ut än storage-konton. Se exemplet nedan f
 
 * Standard storage-konto Vs. Standard HDD Managed Disk
 
-    - **Etablerade Lagringsdisken för ASR**: S10
+    - **Allokerat lagringsutrymme disk av Azure Site Recovery**: S10
     - **Standard storage-konto debiteras förbrukas volym**: 5 USD per månad
     - **Hanterade standarddiskar debiteras etablerade volymens**: $5.89 per månad
 
 * Premium storage-konto Vs. Premium SSD hanterad Disk 
-    - **Etablerade Lagringsdisken för ASR**: P10
+    - **Allokerat lagringsutrymme disk av Azure Site Recovery**: P10
     - **Premium storage-konto debiteras etablerade volymens**: $17.92 per månad
     - **Hanterade premiumdiskar debiteras etablerade volymens**: $17.92 per månad
 
@@ -203,7 +203,7 @@ Ja, kan du lägga till nya virtuella datorer till en befintlig replikeringsgrupp
 Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan jag migrera på lokala datorer till en ny Vcenter utan att påverka pågående replikering?
-Nej, ändring av Vcenter eller migrering kommer att påverka pågående replikering. Du måste konfigurera ASR med nya Vcenter och aktivera replikering för virtuella datorer.
+Nej, ändring av Vcenter eller migrering kommer att påverka pågående replikering. Du måste ställa in Azure Site Recovery med den nya Vcenter och aktivera replikering för virtuella datorer.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan jag replikera till cache/mål-lagringskontot som har ett virtuellt nätverk (med Azure storage-brandväggar) konfigurerats på den?
 Nej, Azure Site Recovery inte stöder replikering till lagring för virtuella nätverk.
@@ -275,7 +275,7 @@ I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** 
 Installationsprogram för hålls kvar i den **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** mapp på konfigurationsservern.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Hur gör jag för att installera mobilitetstjänsten?
-Installera på varje virtuell dator som du vill replikera, med hjälp av en [push-installation](vmware-azure-install-mobility-service.md), eller [manuell installation](vmware-physical-mobility-service-install-manual.md) från Användargränssnittet eller Powershell. Du kan också distribuera med ett distributionsverktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Installera på varje virtuell dator som du vill replikera, med hjälp av en [push-installation](vmware-physical-mobility-service-overview.md#push-installation), eller [manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från Användargränssnittet eller Powershell. Du kan också distribuera med ett distributionsverktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

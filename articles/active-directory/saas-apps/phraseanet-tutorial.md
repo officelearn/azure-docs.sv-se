@@ -4,188 +4,196 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 078d84ce-e054-4ae1-a52e-46a94a6959a7
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/09/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59e60f4b89bb1d579c9a3e11ddb65b33af81b0e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a43ba4a4f6a1a9d658d8f4bc8ba4ff7d07d1834
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848855"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Självstudier: Azure Active Directory-integrering med Phraseanet
 
 I den här självstudien får du lära dig hur du integrerar Phraseanet med Azure Active Directory (AD Azure).
-
 Integrera Phraseanet med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Phraseanet.
-- Du kan aktivera användarna att automatiskt få loggat in på Phraseanet (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Phraseanet.
+* Du kan aktivera användarna att vara automatiskt inloggad till Phraseanet (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Phraseanet, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Phraseanet enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Phraseanet enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Phraseanet från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Phraseanet **SP** -initierad SSO
 
 ## <a name="adding-phraseanet-from-the-gallery"></a>Att lägga till Phraseanet från galleriet
+
 För att konfigurera integrering av Phraseanet i Azure AD, som du behöver lägga till Phraseanet från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Phraseanet från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![image](./media/phraseanet-tutorial/selectazuread.png)
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![image](./media/phraseanet-tutorial/a_select_app.png)
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![image](./media/phraseanet-tutorial/a_new_app.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **Phraseanet**väljer **Phraseanet** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_addfromgallery.png)
+     ![Phraseanet i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Phraseanet baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Phraseanet är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Phraseanet upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Phraseanet baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Phraseanet upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Phraseanet, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Phraseanet](#create-a-phraseanet-test-user)**  – du har en motsvarighet för Britta Simon i Phraseanet som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera Phraseanet Single Sign-On](#configure-phraseanet-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa testanvändare Phraseanet](#create-phraseanet-test-user)**  – du har en motsvarighet för Britta Simon i Phraseanet som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Phraseanet program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Phraseanet:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Phraseanet:
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **Phraseanet** application integration markerar **enkel inloggning**.
 
-    ![image](./media/phraseanet-tutorial/b1_b2_select_sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![image](./media/phraseanet-tutorial/b1_b2_saml_sso.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![image](./media/phraseanet-tutorial/b1-domains_and_urlsedit.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    I den **inloggnings-URL** anger en URL som:  `https://<SUBDOMAIN>.alchemyasp.com`
+    ![Phraseanet domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_url.png)
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.alchemyasp.com`
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Phraseanet supportteamet](mailto:support@alchemy.fr) att hämta värdet.
- 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **Federation Metadata-XML**  och spara den på din dator.
+    > [!NOTE]
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Phraseanet klienten supportteamet](mailto:support@alchemy.fr) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_certificate.png) 
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-6. Att konfigurera enkel inloggning på **Phraseanet** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** till [Phraseanet supportteamet](mailto:support@alchemy.fr). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+6. På den **konfigurera Phraseanet** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-phraseanet-single-sign-on"></a>Konfigurera Phraseanet Single Sign-On
+
+Att konfigurera enkel inloggning på **Phraseanet** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Phraseanet supportteamet](mailto:support@alchemy.fr). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![image](./media/phraseanet-tutorial/d_users_and_groups.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
 2. Välj **Ny användare** överst på skärmen.
 
-    ![image](./media/phraseanet-tutorial/d_adduser.png)
+    ![Knappen Ny användare](common/new-user.png)
 
 3. Genomför följande steg i Användaregenskaper.
 
-    ![image](./media/phraseanet-tutorial/d_userproperties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
- 
-### <a name="create-a-phraseanet-test-user"></a>Skapa en Phraseanet testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Phraseanet. Arbeta med [Phraseanet supportteamet](mailto:support@alchemy.fr) att lägga till användare i Phraseanet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+    d. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Phraseanet.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Phraseanet**.
 
-    ![image](./media/phraseanet-tutorial/d_all_applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **Phraseanet**.
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_app.png)
+    ![Länken Phraseanet i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![image](./media/phraseanet-tutorial/d_leftpaneusers.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![image](./media/phraseanet-tutorial/d_assign_user.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-phraseanet-test-user"></a>Skapa Phraseanet testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i Phraseanet. Arbeta med [Phraseanet supportteamet](mailto:support@alchemy.fr) att lägga till användare i Phraseanet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Phraseanet i åtkomstpanelen du bör få automatiskt loggat in på ditt Phraseanet program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Phraseanet i åtkomstpanelen, bör det vara loggas in automatiskt till Phraseanet som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

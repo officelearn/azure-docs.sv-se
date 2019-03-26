@@ -1,24 +1,24 @@
 ---
 title: Förstå sekvensen distributionsordning
-description: Läs om livscykeln som passerar en skiss och information om varje steg.
+description: Läs om livscykeln för som en skissdefinitionen passerar och information om varje steg.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990572"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434814"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå sekvensen för distribution i Azure skisser
 
-Azure skisser använder en **ordningsföljd** att fastställa ordningen för resursskapande vid bearbetning av tilldelningen av en skiss. Den här artikeln beskriver följande begrepp:
+Azure skisser använder en **ordningsföljd** att fastställa ordningen för resursskapande vid bearbetning av tilldelning av skissdefinitionen. Den här artikeln beskriver följande begrepp:
 
 - Sekvensering ordning som används
 - Hur du anpassar ordningen
@@ -30,7 +30,7 @@ Det finns variabler i JSON-exempel som du måste ersätta med dina egna värden:
 
 ## <a name="default-sequencing-order"></a>Standard ordningsföljd
 
-Om skissen innehåller inga direktiv att distribuera artefakter eller direktivet är null, används följande ordning:
+Om skissdefinitionen innehåller inga direktiv att distribuera artefakter eller direktivet är null, används följande ordning:
 
 - Prenumerationsnivå **rolltilldelning** artefakter sorterade efter sammansättningsartefaktens namn
 - Prenumerationsnivå **principtilldelning** artefakter sorterade efter sammansättningsartefaktens namn
@@ -45,16 +45,14 @@ Inom varje **resursgrupp** artefakt följande sekvens ordning används för arte
 
 ## <a name="customizing-the-sequencing-order"></a>Anpassa ordningsföljd
 
-När du skriver stora skisser kan det vara nödvändigt för resurser som ska skapas i en viss ordning. De vanligaste användningsmönstret för det här scenariot är när en skiss innehåller flera Azure Resource Manager-mallar. Skisser hanterar det här mönstret genom att låta ordningsföljd definieras.
+När du skriver stora skissdefinitioner, kan det vara nödvändigt för resurser som ska skapas i en viss ordning. De vanligaste användningsmönstret för det här scenariot är när en skissdefinitionen innehåller flera Azure Resource Manager-mallar. Skisser hanterar det här mönstret genom att låta ordningsföljd definieras.
 
-Sorteringen åstadkoms genom att definiera en `dependsOn` egenskap i JSON. Stöder den här egenskapen endast skissen (för resursgrupper) och artefakt-objekt. `dependsOn` är en strängmatris av artefaktnamn som viss artefakten måste skapas innan den har skapats.
+Sorteringen åstadkoms genom att definiera en `dependsOn` egenskap i JSON. Skissdefinitionen, stöder den här egenskapen för resursgrupper och artefakt-objekt. `dependsOn` är en strängmatris av artefaktnamn som viss artefakten måste skapas innan den har skapats.
 
-> [!NOTE]
-> **Resursgrupp** artefakter stöder den `dependsOn` egenskap, men får inte vara målet för en `dependsOn` av någon typ av artefakt.
+### <a name="example---ordered-resource-group"></a>Exempel – sorterade resursgrupp
 
-### <a name="example---blueprint-with-ordered-resource-group"></a>Exempel – skissen med sorterad resursgruppen
-
-Det här exemplet skissen har en resursgrupp som har definierat en anpassad ordningsföljd genom att deklarera ett värde för `dependsOn`, tillsammans med en standard resursgrupp. I det här fallet artefakten med namnet **assignPolicyTags** behandlas före den **sorterade rg** resursgrupp. **standard-rg** bearbetas per sekvensering ordning.
+Det här exemplet skissdefinitionen har en resursgrupp som har definierat en anpassad ordningsföljd genom att deklarera ett värde för `dependsOn`, tillsammans med en standard resursgrupp. I det här fallet artefakten med namnet **assignPolicyTags** behandlas före den **sorterade rg** resursgrupp.
+**standard-rg** bearbetas per sekvensering ordning.
 
 ```json
 {
@@ -101,6 +99,42 @@ Det här exemplet är en princip-artefakt som är beroende av en Azure Resource 
     "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
     "type": "Microsoft.Blueprint/artifacts",
     "name": "assignPolicyTags"
+}
+```
+
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exempel – prenumerationen på mallen artefakt beroende på en resursgrupp
+
+Det här exemplet är för en Resource Manager-mall som har distribuerats på prenumerationsnivå förlita sig på en resursgrupp. I ordning, skulle prenumeration på artefakter skapas innan alla resursgrupper och underordnade artefakter i de resursgrupperna. Resursgruppen har definierats i skissdefinitionen så här:
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+Prenumeration på mallen artefakten beroende på den **wait-för-mig** resursgrupp definieras så här:
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
 }
 ```
 

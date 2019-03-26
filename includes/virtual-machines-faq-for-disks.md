@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395717"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407809"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -300,7 +300,7 @@ Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på 
 
 **Vad är den största Managed diskstorlek som stöds för operativsystem och datadiskar?**
 
-Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar. Hanterade diskar som är större än 4 TiB finns i förhandsversion. Mer information om dem finns i vår [blogginlägget](https://aka.ms/azure-large-disk-32TB-preview-blog).
+Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar i globala Azure, 4 TiB i Azure suveräna moln.
 
 **Vad är den största ohanterad Disk-storlek som stöds för operativsystem och datadiskar?**
 
@@ -335,7 +335,7 @@ Du kan ta en ögonblicksbild av dina små diskar och sedan skapa en disk för at
 
 **Kan du ändra storlek på befintliga hanterade diskar från storlekar färre än 4 tebibyte (TiB) till nya Nyintroducerade diskstorlekar upp till 32 TiB?**
 
-Nya hanterade diskar som är 8 TiB och 16 TiB 32 TiB finns för närvarande i förhandsversion. Vi ännu stöd inte för storleksändring befintliga diskstorlekar till den nya diskstorleken.
+Ja.
 
 **Vad är den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten?**
 

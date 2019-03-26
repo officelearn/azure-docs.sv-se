@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105190"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435608"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
@@ -87,7 +87,7 @@ Som standard behåller Azure AD Connect upp till sju dagar som körningshistorik
 
 3. Under **åtgärder**väljer **Rensa körningar**...
 
-4. Du kan antingen välja **Rensa alla körningar** eller **Clear körs före... <date>**  alternativet. Vi rekommenderar att du börjar genom att avmarkera köra historikdata som är äldre än två dagar. Om du fortfarande stöter på problem i DB storlek, väljer den **Rensa alla körningar** alternativet.
+4. Du kan antingen välja **Rensa alla körningar** eller **Clear körs före... \<datum >** alternativet. Vi rekommenderar att du börjar genom att avmarkera köra historikdata som är äldre än två dagar. Om du fortfarande stöter på problem i DB storlek, väljer den **Rensa alla körningar** alternativet.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Förkorta kvarhållningsperioden för körningshistorik för data
 Det här steget är att minska sannolikheten för att köra i gräns på 10 GB-problem när du har flera synkroniseringscyklerna.

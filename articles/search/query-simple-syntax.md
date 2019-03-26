@@ -4,7 +4,7 @@ description: Referens för den enkla frågesyntaxen som används för fulltexts�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441568"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437500"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Enkel frågesyntax i Azure Search
 Azure Search implementerar två Lucene-baserat frågespråk: [Enklare Frågeparsern](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) och [Lucene Frågeparsern](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). I Azure Search utesluter den enkla frågesyntaxen fuzzy/uppsamlingstankar alternativ.  
 
 > [!NOTE]  
->  Azure Search har ett alternativ [Lucene-frågesyntax](query-lucene-syntax.md) för mer komplexa frågor. Läs mer om frågan parsning av arkitekturen och fördelarna med varje syntax i [hur Fullständig textsökning fungerar i Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Azure Search har ett alternativ [Lucene-frågesyntax](query-lucene-syntax.md) för mer komplexa frågor. Läs mer om frågan parsning av arkitekturen och fördelarna med varje syntax i [hur Fullständig textsökning fungerar i Azure Search](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Hur du anropar enkel parsning
 
@@ -44,38 +44,38 @@ Intuitivt det här låter säkert, det är en del av körningen av frågan i Azu
 
 Du är vanligtvis mycket mer troligt att dessa beteenden i interaktion användarmönster för program som söker igenom innehållet, där användarna som är mer troligt att inkludera en operatör i en fråga, till skillnad från e-handelswebbplatser som har fler inbyggda navigeringsstrukturer. Mer information finns i [NOT-operator](#not-operator). 
 
-## <a name="operators-in-simple-search"></a>Operatörer i enkel sökning
+## <a name="boolean-operators-and-or-not"></a>Booleska operatorer (AND, OR, inte) 
 
 Du kan bädda in operatörer i en frågesträng för att skapa en omfattande uppsättning villkor mot vilken matchande dokument påträffas. 
 
-## <a name="and-operator-"></a>OCH operatör `+`
+### <a name="and-operator-"></a>OCH operatör `+`
 
 Operatorn och är ett plustecken. Till exempel `wifi+luxury` söker efter dokument som innehåller både `wifi` och `luxury`.
 
-## <a name="or-operator-"></a>ELLER har frågor `|`
+### <a name="or-operator-"></a>ELLER har frågor `|`
 
 Operatorn eller är en lodrät stapel- eller vertikalstrecket. Till exempel `wifi | luxury` söker efter dokument som innehåller antingen `wifi` eller `luxury` eller båda.
 
 <a name="not-operator"></a>
 
-## <a name="not-operator--"></a>NOT-operator `-`
+### <a name="not-operator--"></a>NOT-operator `-`
 
 Operatorn inte är ett minustecken. Till exempel `wifi –luxury` söker efter dokument som innehåller den `wifi` term och/eller har inte `luxury` (och/eller styrs av `searchMode`).
 
 > [!NOTE]  
 >  Den `searchMode` alternativet kontroller om en term med operatorn inte är and eller ORed med andra villkor i fråga om en `+` eller `|` operator. Kom ihåg att `searchMode` kan vara inställd på antingen `any` (standard) eller `all`. Om du använder `any`, ökas återkallande av frågor genom att inkludera fler resultat och som standard `-` tolkas som ”eller inte”. Till exempel `wifi -luxury` ska matcha dokument som antingen innehåller termen `wifi` eller som inte innehåller termen `luxury`. Om du använder `all`, den ökar precisionen för frågor genom att inkludera färre resultat och som standard - tolkas som ”och inte”. Till exempel `wifi -luxury` kommer att matcha dokument som innehåller termen `wifi` och inte innehåller termen ”Lyxig”. Det är utan tvekan en mer intuitiv användning som gäller för den `-` operator. Därför bör du använda `searchMode=all` i stället för `searchMode=any` om du vill optimera söker efter precision i stället för återkallar, *och* som ofta används för den `-` operator i sökningar.
 
-## <a name="suffix-operator-"></a>Suffixet operator `*`
+## <a name="suffix-operator"></a>Suffixet operator
 
-Operatorn suffixet är en asterisk. Till exempel `lux*` söker efter dokument som har en term som börjar med `lux`, Ignorera skiftläge.  
+Operatorn suffixet är en asterisk `*`. Till exempel `lux*` söker efter dokument som har en term som börjar med `lux`, Ignorera skiftläge.  
 
-## <a name="phrase-search-operator--"></a>Fras sökoperatorn `" "`
+## <a name="phrase-search-operator"></a>Fras sökoperatorn
 
-Operatorn frasen placerar en fras i citattecken. Till exempel när `Roach Motel` (utan citattecken) söker efter dokument som innehåller `Roach` och/eller `Motel` var som helst i valfri ordning, `"Roach Motel"` (med citattecken) kommer bara att matcha dokument som innehåller den hel frasen tillsammans och som ordning (textanalys gäller fortfarande).
+Operatorn frasen placerar en fras i citattecken `" "`. Till exempel när `Roach Motel` (utan citattecken) söker efter dokument som innehåller `Roach` och/eller `Motel` var som helst i valfri ordning, `"Roach Motel"` (med citattecken) kommer bara att matcha dokument som innehåller den hel frasen tillsammans och som ordning (textanalys gäller fortfarande).
 
-## <a name="precedence-operator--"></a>Prioritet operator `( )`
+## <a name="precedence-operator"></a>Prioritet operator
 
-Operatorn prioritet omsluter strängen inom parentes. Till exempel `motel+(wifi | luxury)` söker efter dokument som innehåller termen motel och antingen `wifi` eller `luxury` (eller båda). |  
+Operatorn prioritet omsluter strängen inom parentes `( )`. Till exempel `motel+(wifi | luxury)` söker efter dokument som innehåller termen motel och antingen `wifi` eller `luxury` (eller båda).  
 
 ## <a name="escaping-search-operators"></a>Undantagstecken sökoperatorer  
 

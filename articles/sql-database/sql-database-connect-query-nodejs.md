@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 49fe9f51026c4cb096fd8248b53d2e5b5b574923
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f92b40aad9de59e1859b3689fb4bdb119491adf1
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236030"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418048"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Snabbstart: Använd Node.js för att fråga en Azure SQL-databas
 
@@ -55,7 +55,7 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
@@ -67,8 +67,8 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## <a name="add-code-to-query-database"></a>Lägga till kod i frågedatabas
@@ -84,8 +84,13 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.windows.net', // update me
         options:
         {

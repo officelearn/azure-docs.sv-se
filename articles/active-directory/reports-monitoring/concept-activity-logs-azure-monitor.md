@@ -3,7 +3,7 @@ title: Azure Active Directory-aktivitetsloggar i Azure Monitor (förhandsversion
 description: Introduktion till Azure Active Directory-loggarna i Azure Monitor (förhandsversion)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d6da0ac5ab204bbfe70ea15e80650dd9b9e6364
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436310"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-aktivitetsloggar i Azure Monitor (förhandsversion)
 
@@ -106,43 +106,43 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka loggar ingår?**
 
-**A**: Logga in aktivitetsloggar och granskningsloggar är du båda att dirigeras via den här funktionen, även om B2C-relaterade granskningshändelser inte ingår för närvarande. Om du vill ta reda på vilka typer av loggar och vilka funktionsbaserade loggar som stöds för närvarande kan du läsa [schemat för spårningslogg](reference-azure-monitor-audit-log-schema.md) och [schemat för inloggningslogg](reference-azure-monitor-sign-ins-log-schema.md). 
+**S**: Logga in aktivitetsloggar och granskningsloggar är du båda att dirigeras via den här funktionen, även om B2C-relaterade granskningshändelser inte ingår för närvarande. Om du vill ta reda på vilka typer av loggar och vilka funktionsbaserade loggar som stöds för närvarande kan du läsa [schemat för spårningslogg](reference-azure-monitor-audit-log-schema.md) och [schemat för inloggningslogg](reference-azure-monitor-sign-ins-log-schema.md). 
 
 -----
 
 **F: Hur strax efter en åtgärd motsvarande loggarna visas i min event hub?**
 
-**A**: Loggarna visas i din event hub inom två till fem minuter efter att åtgärden utförs. Mer information om Event Hubs finns i [Vad är Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
+**S**: Loggarna visas i din event hub inom två till fem minuter efter att åtgärden utförs. Mer information om Event Hubs finns i [Vad är Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
 
 -----
 
 **F: Hur strax efter en åtgärd motsvarande loggarna visas i mitt lagringskonto?**
 
-**A**: För Azure storage-konton är svarstiden var som helst från 5 till 15 minuter efter att åtgärden utförs.
+**S**: För Azure storage-konton är svarstiden var som helst från 5 till 15 minuter efter att åtgärden utförs.
 
 -----
 
 **F: Vad händer om en administratör ändrar kvarhållningsperioden för en diagnostikinställning?**
 
-**A**: Den nya kvarhållningsprincipen kommer att gälla loggar som samlats in efter ändringen. Insamlade loggar innan principändringen påverkas.
+**S**: Den nya kvarhållningsprincipen kommer att gälla loggar som samlats in efter ändringen. Insamlade loggar innan principändringen påverkas.
 
 -----
 
 **F: Hur mycket kostar det för att lagra Mina data?**
 
-**A**: Kostnader för lagring är beroende av både storleken på dina loggar och kvarhållningsperioden som du väljer. En lista över de uppskattade kostnaderna för klientorganisationer, vilket beror på mängden loggar som genereras, finns i avsnittet [Lagringsstorlek för aktivitetsloggar](#storage-size-for-activity-logs).
+**S**: Kostnader för lagring är beroende av både storleken på dina loggar och kvarhållningsperioden som du väljer. En lista över de uppskattade kostnaderna för klientorganisationer, vilket beror på mängden loggar som genereras, finns i avsnittet [Lagringsstorlek för aktivitetsloggar](#storage-size-for-activity-logs).
 
 -----
 
 **F: Hur mycket kostar det för att strömma data till en event hub?**
 
-**A**: Strömmande kostnaderna beror på hur många meddelanden du får per minut. Den här artikeln beskriver hur kostnaderna beräknas och visar kostnadsberäkningar som baseras på antalet meddelanden. 
+**S**: Strömmande kostnaderna beror på hur många meddelanden du får per minut. Den här artikeln beskriver hur kostnaderna beräknas och visar kostnadsberäkningar som baseras på antalet meddelanden. 
 
 -----
 
 **F: Hur jag för att integrera Azure AD-aktivitetsloggar med mitt SIEM-system?**
 
-**A**: Du kan göra detta på två sätt:
+**S**: Du kan göra detta på två sätt:
 
 - Använd Azure Monitor med Event Hubs för att streama loggar till ditt SIEM-system. [Strömma loggarna till en händelsehubb](tutorial-azure-monitor-stream-logs-to-event-hub.md) och [konfigurera sedan SIEM-verktyget](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) med den konfigurerade händelsehubben. 
 
@@ -152,25 +152,25 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka SIEM-verktyg stöds för närvarande?** 
 
-**A**: Azure Monitor är för närvarande av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, och [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**S**: Azure Monitor är för närvarande av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, och [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 -----
 
 **F: Hur jag för att integrera Azure AD-aktivitetsloggar med mitt Splunk instans?**
 
-**A**: Först [vägen med Azure AD-aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md), Följ stegen för att [integrera aktivitetsloggar med Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**S**: Först [vägen med Azure AD-aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md), Följ stegen för att [integrera aktivitetsloggar med Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
 -----
 
 **F: Hur jag för att integrera Azure AD-aktivitetsloggar med Sumo logik?** 
 
-**A**: Först [vägen med Azure AD-aktivitetsloggar till en händelsehubb](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), Följ stegen för att [installerar Azure AD-programmet och visa instrumentpaneler i SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
+**S**: Först [vägen med Azure AD-aktivitetsloggar till en händelsehubb](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), Följ stegen för att [installerar Azure AD-programmet och visa instrumentpaneler i SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
 -----
 
 **F: Kan jag komma åt data från en händelsehubb utan att använda något externt SIEM-verktyg?** 
 
-**A**: Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**S**: Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
 -----
 

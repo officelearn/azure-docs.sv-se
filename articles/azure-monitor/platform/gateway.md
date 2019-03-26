@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369623"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437347"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway i Azure Monitor
 
@@ -173,7 +173,7 @@ Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverk
 Om du vill lära dig att utforma och distribuera en Azure Load Balancer, se [vad är Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Om du vill distribuera en grundläggande belastningsutjämnare, Följ stegen som beskrivs i det här [snabbstarten](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) förutom de steg som beskrivs i avsnittet **skapa backend-servrar**.   
 
 > [!NOTE]
-> Konfigurera i Azure-belastningsutjämnare med hjälp av den **Basic SKU**, kräver att Azure-datorer som tillhör en Tillgänglighetsuppsättning. Läs mer om tillgänglighetsuppsättningar i [hantera tillgängligheten för Windows-datorer i Azure](../../virtual-machines/windows/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighetsuppsättning som avser [ange Azure Resource Manager VM-Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Konfigurera Azure-belastningsutjämnare med hjälp av den **Basic SKU**, kräver att Azure-datorer som tillhör en Tillgänglighetsuppsättning. Läs mer om tillgänglighetsuppsättningar i [hantera tillgängligheten för Windows-datorer i Azure](../../virtual-machines/windows/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighetsuppsättning som avser [ange Azure Resource Manager VM-Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 När belastningsutjämnaren har skapats, måste en serverdelspool skapas, som distribuerar trafiken till en eller flera gateway-servrar. Följa stegen i artikelavsnittet snabbstarten [skapa resurser för belastningsutjämnaren](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  

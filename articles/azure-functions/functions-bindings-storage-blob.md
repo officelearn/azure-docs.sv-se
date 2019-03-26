@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737798"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437483"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -282,7 +282,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   {
       ....
   }
-  ```
+   ```
 
   Ett komplett exempel finns i [utlösare – C#-exempel](#trigger---c-example).
 
@@ -318,8 +318,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
-|**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). | 
+|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. |
+|**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). |
 |**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -450,7 +450,9 @@ JavaScript och Java läsa in hela blob i minnet, och C# funktioner gör det om d
 
 ## <a name="trigger---polling"></a>Utlösa - avsökning
 
-Om blob-behållaren som övervakas innehåller fler än 10 000 BLOB, loggfiler Functions runtime genomsökningar att se upp för nya eller ändrade blobar. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats. Dessutom [lagringsloggar skapas på en ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser ska samlas in. Under vissa förhållanden kan du missats loggar. Om du behöver snabbare och mer tillförlitlig blob bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar bloben. Använd sedan en [köutlösare](functions-bindings-storage-queue.md) i stället för en blob-utlösare för att bearbeta blob. Ett annat alternativ är att använda Event Grid; finns i självstudierna [automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+Om blob-behållaren som övervakas innehåller fler än 10 000 BLOB (över alla behållare), loggfiler Functions runtime genomsökningar att se upp för nya eller ändrade blobar. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats. Dessutom [lagringsloggar skapas på en ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser ska samlas in. Under vissa förhållanden kan du missats loggar.
+
+Om du behöver snabbare och mer tillförlitlig blob bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar bloben. Använd sedan en [köutlösare](functions-bindings-storage-queue.md) i stället för en blob-utlösare för att bearbeta blob. Ett annat alternativ är att använda Event Grid; finns i självstudierna [automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## <a name="input"></a>Indata
 
@@ -479,7 +481,7 @@ public static void Run(
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
-```        
+```
 
 ### <a name="input---c-script-example"></a>Indata - exempel på C#-skript
 
@@ -802,7 +804,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
     { ImageSize.Small,      (640, 400) },
     { ImageSize.Medium,     (800, 600) }
 };
-```        
+```
 
 ### <a name="output---c-script-example"></a>Resultat – exempel på C#-skript
 

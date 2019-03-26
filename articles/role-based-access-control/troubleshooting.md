@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342481"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407597"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -28,23 +28,31 @@ Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstko
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problem med RBAC-rolltilldelningar
 
-- Om det inte går att lägga till en rolltilldelning eftersom den **Lägg till rolltilldelning** alternativet är inaktiverat eller eftersom du får ett behörighetsfel kan du kontrollera att du använder en roll som har den `Microsoft.Authorization/roleAssignments/*` behörighet för definitionsområdet du försöker tilldela rollen. Om du inte har den här behörigheten kan du fråga prenumerationsadministratören.
-- Om du får ett behörighetsfel när du försöker skapa en resurs kan du kontrollera att du använder en roll som har behörighet att skapa resurser i det valda omfånget. Du kan behöva medverka. Om du inte har behörighet, kontrollera med systemadministratören.
-- Om du får ett behörighetsfel när du försöker skapa eller uppdatera ett supportärende kan du kontrollera att du använder en roll som har den `Microsoft.Support/*` behörighet, till exempel [stöder begär deltagare](built-in-roles.md#support-request-contributor).
-- Om du får ett felmeddelande om att antalet rolltilldelningar har överskridits när du försöker tilldela en roll kan du försöka att minska antalet rolltilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration.
+- Om det inte går att lägga till en rolltilldelning i Azure portal på **åtkomstkontroll (IAM)** eftersom den **Lägg till** > **Lägg till rolltilldelning** alternativet är inaktiverat eller eftersom du får felet behörigheter ”klienten med objekt-id har inte behörighet att utföra åtgärden” kan du kontrollera att du har loggat in med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleAssignments/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) i det omfånget som du vill tilldela rollen.
+- Om du får felmeddelandet ”inga fler rolltilldelningar kan skapas (kod: RoleAssignmentLimitExceeded) ”när du försöker tilldela en roll, försök att minska antalet rolltilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration.
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 
-- Om det inte går att uppdatera en befintlig anpassad roll kan du kontrollera om du har den `Microsoft.Authorization/roleDefinition/write` behörighet.
-- Om det inte går att uppdatera en befintlig anpassad roll kan du kontrollera om en eller flera tilldelningsbara omfång har tagits bort i klienten. Den `AssignableScopes` egenskap för en anpassad roll kontroller [som kan skapa, ta bort, uppdatera eller visa den anpassade rollen](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
-- Om du får ett felmeddelande som den högsta tillåtna antalet rolldefinitioner har överskridits när du försöker skapa en ny roll, ta bort eventuella anpassade roller som inte används. Du kan även försöka att konsolidera eller återanvända alla befintliga anpassade roller. Azure har stöd för upp till **2000** anpassade roller i en klient.
-- Om det inte går att ta bort en anpassad roll kan du kontrollera om en eller flera rolltilldelningar fortfarande använder den anpassade rollen.
+- Om du behöver anvisningar att skapa en anpassad roll kan se de anpassade rollen självstudier med [Azure PowerShell](tutorial-custom-role-powershell.md) eller [Azure CLI](tutorial-custom-role-cli.md).
+- Om det inte går att uppdatera en befintlig anpassad roll kan du kontrollera att du har loggat in med en användare som har tilldelats en roll som har den `Microsoft.Authorization/roleDefinition/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
+- Om du inte att ta bort en anpassad roll och felmeddelandet ”det finns befintliga rolltilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments) ”, så det är rolltilldelningar som fortfarande använder den anpassade rollen. Ta bort de rolltilldelningar och försök att ta bort den anpassade rollen igen.
+- Om du får felmeddelandet ”högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler Rolldefinitioner kan skapas (kod: RoleDefinitionLimitExceeded) ”när du försöker skapa en ny anpassad roll kan du ta bort eventuella anpassade roller som inte används. Azure har stöd för upp till **2000** anpassade roller i en klient.
+- Om du får ett felmeddelande liknande ”klienten har behörighet att utföra åtgärden” Microsoft.Authorization/roleDefinitions/write ”på omfånget” /subscriptions/ {subscriptionid}}, men det inte gick att hitta den länkade prenumerationen ”när du försöker uppdatera en anpassad roll Om en eller flera [tilldelningsbara omfång](role-definitions.md#assignablescopes) har tagits bort i klienten. Om scopet har tagits bort, skapar du ett supportärende eftersom det finns ingen självbetjäning lösning som är tillgängliga just nu.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Återställa RBAC när prenumerationer flyttas mellan klienter
 
-- Om du behöver anvisningar att överföra en prenumeration till en annan klient kan du läsa [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md).
-- När du överför en prenumeration till en annan klient alla rolltilldelningar tas bort permanent från käll-klient och migreras inte till Målklienten. Du måste återskapa din rolltilldelningar i Målklienten.
-- Om du är en Global Administration och du har förlorat åtkomsten till en prenumeration, använder du den **åtkomsthantering för Azure-resurser** Växla tillfälligt [utöka din behörighet](elevate-access-global-admin.md) att återfå åtkomst till den prenumeration.
+- Om du behöver anvisningar att överföra en prenumeration till en annan Azure AD-klient, finns i [överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md).
+- Om du överför en prenumeration till en annan Azure AD-klient, alla rolltilldelningar tas bort permanent från källan Azure AD-klient och migreras inte till Azure AD-klient mål. Du måste återskapa din rolltilldelningar i Målklienten.
+- Om du är en Azure AD Global administratör och du inte har åtkomst till en prenumeration när den har flyttats mellan klienter kan använda den **åtkomsthantering för Azure-resurser** Växla tillfälligt [utöka din behörighet](elevate-access-global-admin.md) att få åtkomst till prenumerationen.
+
+## <a name="issues-with-service-admins-or-co-admins"></a>Problem med tjänstadministratörer eller medadministratörer
+
+- Om du har problem med tjänstadministratör eller medadministratörer kan se [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md) och [administratörsroller för klassiska prenumeration, Azure RBAC-roller och Azure AD administratörsroller](rbac-and-directory-admin-roles.md).
+
+## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighet fel
+
+- Om du får felet behörigheter ”klienten med objekt-id har inte behörighet att utföra åtgärden omfånget (kod: AuthorizationFailed) ”när du försöker skapa en resurs, kontrollera att du har loggat in med en användare som har tilldelats en roll som har skrivbehörighet till resursen i det valda omfånget. Till exempel för att hantera virtuella datorer i en resursgrupp måste du ha den [virtuell Datordeltagare](built-in-roles.md#virtual-machine-contributor) -rollen på den resursgrupp (eller en överordnad omfattning). En lista över behörigheter för varje inbyggd roll finns i [inbyggda roller för Azure-resurser](built-in-roles.md).
+- Om du får felet behörigheter ”du har inte behörighet att skapa en supportbegäran” när du försöker skapa eller uppdatera ett supportärende, kontrollera att du har loggat in med en användare som har tilldelats en roll som har den `Microsoft.Support/supportTickets/write` behörighet, till exempel [Stöder begäran deltagare](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>RBAC ändringar identifieras inte
 
@@ -119,6 +127,6 @@ Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) k
 Användaren kan klicka på **plattformsfunktioner** fliken och klicka sedan på **alla inställningar** att visa vissa inställningar som är relaterade till en funktionsapp (liknar en webbapp), men de kan inte ändra någon av dessa inställningar.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](role-assignments-portal.md)
+* [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 * [Visa aktivitetsloggar för RBAC ändringar till Azure-resurser](change-history-report.md)
 

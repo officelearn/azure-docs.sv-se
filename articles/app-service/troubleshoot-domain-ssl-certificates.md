@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730111"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407614"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka domän och SSL-certifikat problem i Azure App Service
 
@@ -278,7 +278,7 @@ När du köper en domän från Azure-portalen, konfigureras automatiskt App Serv
 
 **Kan jag använda en domän som har köpt i Azure portal så att den pekar till en Azure virtuell dator i stället?**
 
-Ja, kan du peka domänen på en virtuell dator, lagring osv. Mer information finns i [skapa en anpassad fullständigt domännamn i Azure portal för en virtuell Windows-dator](../virtual-machines/windows/portal-create-fqdn.md).
+Ja, du peka domänen till en virtuell dator. Mer information finns i [Använda Azure DNS för att skapa inställningar för anpassad domän för en Azure-tjänst](../dns/dns-custom-domain.md).
 
 **Min domän finns på GoDaddy och Azure DNS?**
 

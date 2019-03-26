@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119300"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418014"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
@@ -96,10 +96,12 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Returnerar listan över chiffer som stöds av klienten          |
 | ciphers_used               | Returnerar en sträng med chiffer som används för en etablerad SSL-anslutning |
+| client_ip                  | IP-adressen för klienten. särskilt användbart i situationer där kunder ska skriva om rubriken X-vidarebefordrade-för som Application Gateway, så att huvudet innehåller IP-adress utan portinformation. |
 | client_port                | klientport                                                  |
 | client_tcp_rtt             | information om klienten TCP-anslutning. tillgängligt på system som stöder socketalternativet TCP_INFO |
 | client_user                | När du använder HTTP-autentisering, användarnamnet som angetts för autentisering |
 | värd                       | i den här rangordning: värdnamn från begäran linje- eller värdnamnet från fältet ”värd” begäran rubrik eller ett servernamn som matchar en begäran |
+| cookie_*name*              | den *namn* cookie |
 | http_method                | den metod som används för att utföra URL-begäran. Till exempel få POST osv. |
 | http_status                | Sessionsstatus, t.ex.: 200, 400, 403 osv.                       |
 | http_version               | begäran-protokollet, vanligtvis ”HTTP/1.0”, ”HTTP/1.1” eller ”HTTP/2.0” |
@@ -120,10 +122,6 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 - HTTP-huvudet omskrivning stöd stöds bara på den nya SKU: N [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Funktionen stöds inte på den gamla SKU: N.
 
 - Skriva om Connect, uppgradering och värd-rubriker stöds inte ännu.
-
-- Två viktiga servervariabler, client_ip (IP-adressen för klienten som gör begäran) och cookie_*namn* (den *namn* cookie), stöds inte ännu. Servervariabeln client_ip är särskilt användbart i scenarier där kunderna vill skriva om rubriken x-vidarebefordrade-för som Application Gateway, så att huvudet innehåller endast IP-adressen för klienten och inte portinformationen.
-
-  Båda dessa servervariabler kommer snart att stödjas.
 
 - Möjlighet att skriva villkorligt om http-huvuden är tillgänglig snart.
 

@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402855"
+ms.locfileid: "58418643"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifiera problem med funktionen diagnostik
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifiera problem med diagnostikfunktionen
 
 Windows Virtual Desktop förhandsversionen erbjuder en diagnostikfunktion som administratören kan identifiera problem med hjälp av ett enda gränssnitt. Roller för virtuella Windows-skrivbordet logga en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de som ingår i transaktionen, felmeddelanden, klientinformation och användarinformation rollerna för virtuella Windows-skrivbordet. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan vara indelade i tre huvudsakliga buckets:
 
@@ -32,20 +32,20 @@ Diagnostik för virtuella skrivbord i Windows använder bara en PowerShell-cmdle
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Hämta diagnostiska aktiviteter i din klient
 
-Du kan hämta diagnostiska aktiviteter genom att ange den **Get-RdsDiagnosticsActivities** cmdlet. Följande exempel-cmdlet returnerar en lista över diagnostiska aktiviteter, sorteras de mest minst nyligen gjorda.
+Du kan hämta diagnostiska aktiviteter genom att ange den **Get-RdsDiagnosticActivities** cmdlet. Följande exempel-cmdlet returnerar en lista över diagnostiska aktiviteter, sorteras de mest minst nyligen gjorda.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Som andra Windows Virtual Desktop PowerShell-cmdletar, måste du använda den **- TenantName** parametern för att ange namnet på den klient som du vill använda för din fråga. Innehavarens namn kan användas för nästan alla diagnostiska aktivitet frågor.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Hämta detaljerad diagnostisk aktiviteter
 
-Den **-detaljerad** parametern innehåller ytterligare information för varje diagnostiska aktivitet som returneras. Formatet för varje aktivitet varierar beroende på dess aktivitetstyp. Den **-detaljerad** parametern kan läggas till någon **Get-RdsDiagnosticsActivities** fråga som visas i följande exempel.
+Den **-detaljerad** parametern innehåller ytterligare information för varje diagnostiska aktivitet som returneras. Formatet för varje aktivitet varierar beroende på dess aktivitetstyp. Den **-detaljerad** parametern kan läggas till någon **Get-RdsDiagnosticActivities** fråga som visas i följande exempel.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Hämta en specifik diagnostiska aktivitet av aktivitets-ID

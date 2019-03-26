@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dabffd88965a10fe4feca2b600cfaf5741e2f664
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436062"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip för Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 | rolling_refresh_token_lifetime_secs | Nej | Uppdatera token livslängd för skjutfönster. När den här tidsperioden har gått ut måste tvingas användaren att autentiseras på nytt, oavsett giltighetsperioden hos den senaste uppdateringstoken som införskaffats av programmet. Om du inte vill att framtvinga en livslängd för skjutfönster, ange värdet för allow_infinite_rolling_refresh_token till `true`. Standardvärdet är 7,776,000 sekunder (90 dagar). Minimivärdet (inklusivt) är 86 400 sekunder (24 timmar). Max (inklusivt) är 31,536,000 sekunder (365 dagar). | 
 | allow_infinite_rolling_refresh_token | Nej | Om inställd `true`, uppdateringstoken skjutfönster livslängd upphör aldrig att gälla. |
 | IssuanceClaimPattern | Ja | Styr utfärdare (iss)-anspråk. Ett av värdena:<ul><li>AuthorityAndTenantGuid - iss-anspråk innehåller ditt domännamn, t.ex. `login.microsoftonline` eller `tenant-name.b2clogin.com`, och din klient-ID https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - iss-anspråk innehåller ditt domännamn, t.ex. `login.microsoftonline` eller `tenant-name.b2clogin.com`, din klient-ID och namnet på din förlitande part. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
-| AuthenticationContextReferenceClaimPattern | Nej | Kontroller i `acr` anspråksvärde.<ul><li>Ingen - Azure AD B2C inte utfärda anspråk för acr</li><li>PolicyId - den `acr` anspråk innehåller namnet på principen</li></ul>Alternativ för det här värdet är TFP (förtroendeprincipen för framework) och ACR (autentisering kontext referens). Rekommenderas TFP att ställa in det här värdet, för att ange värdet, se till att den `<Item>` med den `Key="AuthenticationContextReferenceClaimPattern"` finns och värdet är `None`. Lägg till förlitande part kräva <OutputClaims> objektet, Lägg till elementet `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Kontrollera också att din princip innehåller Anspråkstypen `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
+| AuthenticationContextReferenceClaimPattern | Nej | Kontroller i `acr` anspråksvärde.<ul><li>Ingen - Azure AD B2C inte utfärda anspråk för acr</li><li>PolicyId - den `acr` anspråk innehåller namnet på principen</li></ul>Alternativ för det här värdet är TFP (förtroendeprincipen för framework) och ACR (autentisering kontext referens). Rekommenderas TFP att ställa in det här värdet, för att ange värdet, se till att den `<Item>` med den `Key="AuthenticationContextReferenceClaimPattern"` finns och värdet är `None`. Lägg till förlitande part kräva `<OutputClaims>` objektet, Lägg till elementet `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Kontrollera också att din princip innehåller Anspråkstypen `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
 ## <a name="cryptographic-keys"></a>Krypteringsnycklar
 

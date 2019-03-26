@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119045"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417779"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverloggar i Azure Database for MySQL
 Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning. 
@@ -53,31 +53,31 @@ I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och 
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
-| TenantId | Ditt klient-ID |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Tidsstämpel när loggen registrerades i UTC |
-| Type | Typ av loggen. Alltid `AzureDiagnostics` |
-| SubscriptionId | GUID för den prenumeration som servern tillhör |
-| ResourceGroup | Namnet på den resursgrupp som servern tillhör |
-| ResourceProvider | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | Resurs-URI |
-| Resurs | Namnet på servern |
-| Kategori | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Namnet på servern |
-| start_time_t [UTC] | Tid som frågan började |
-| query_time_s | Total tid som frågan tog att utföra |
-| lock_time_s | Total tid som frågan var låst |
-| user_host_s | Användarnamn |
-| rows_sent_s | Antalet rader som har skickats |
-| rows_examined_s | Antalet rader som undersöks |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Infoga id |
-| sql_text_s | Fullständig fråga |
-| server_id_s | Serverns id |
-| thread_id_s | Tråd-id |
-| \_ResourceId | Resurs-URI |
+| `TenantId` | Ditt klient-ID |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Tidsstämpel när loggen registrerades i UTC |
+| `Type` | Typ av loggen. Alltid `AzureDiagnostics` |
+| `SubscriptionId` | GUID för den prenumeration som servern tillhör |
+| `ResourceGroup` | Namnet på den resursgrupp som servern tillhör |
+| `ResourceProvider` | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | Resurs-URI |
+| `Resource` | Namnet på servern |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Namnet på servern |
+| `start_time_t` [UTC] | Tid som frågan började |
+| `query_time_s` | Total tid som frågan tog att utföra |
+| `lock_time_s` | Total tid som frågan var låst |
+| `user_host_s` | Användarnamn |
+| `rows_sent_s` | Antalet rader som har skickats |
+| `rows_examined_s` | Antalet rader som undersöks |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Infoga id |
+| `sql_text_s` | Fullständig fråga |
+| `server_id_s` | Serverns id |
+| `thread_id_s` | Tråd-id |
+| `\_ResourceId` | Resurs-URI |
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hur du konfigurerar och få åtkomst till serverloggar från Azure CLI](howto-configure-server-logs-in-cli.md).

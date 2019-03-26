@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835840"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418779"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -33,9 +33,9 @@ Med hjälp av DPS kan:
 I den här artikeln beskrivs följande fyra användningsfall:
 
 1. [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
-1. Anslut enheter i stor skala med hjälp av SAS
+1. [Anslut enheter i stor skala med hjälp av SAS](#connect-devices-at-scale-using-sas)
 1. [Anslut enheter i stor skala med X.509-certifikat](#connect-devices-using-x509-certificates) detta är den rekommendera metoden för produktionsmiljöer.
-1. Ansluta utan att första registrera enheter 
+1. [Ansluta utan att första registrera enheter](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>Ansluta en enskild enhet
 

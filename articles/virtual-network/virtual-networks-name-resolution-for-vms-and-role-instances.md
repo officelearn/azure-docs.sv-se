@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194001"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418745"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -74,6 +74,7 @@ Saker att tänka på när du använder Azure-tillhandahållen namnmatchning:
 * Värdnamn måste vara DNS-kompatibla. Namn måste använda bara 0-9, a – z och '-', och får inte börja eller sluta med en '-'.
 * DNS-frågorna är begränsad för varje virtuell dator. Begränsning bör inte påverka de flesta program. Se till att cachelagring på klientsidan är aktiverad om begärandebegränsning observeras. Mer information finns i [DNS-klientkonfiguration](#dns-client-configuration).
 * Endast virtuella datorer i de första 180 molntjänsterna är registrerade för varje virtuellt nätverk i en klassisk distributionsmodell. Den här begränsningen gäller inte för virtuella nätverk i Azure Resource Manager.
+* Azure DNS-IP-adressen är 168.63.129.16. Detta är en statisk IP-adress och ändras inte.
 
 ## <a name="dns-client-configuration"></a>DNS-klientkonfiguration
 

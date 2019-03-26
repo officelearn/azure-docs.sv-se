@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979895"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407699"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Remote Desktop Services eller dess administratörslösenordet, i en virtuell Windows-dator
 Om du inte kan ansluta till en Windows-dator (VM), kan du återställa ditt lösenord för lokal administratör eller återställa Remote Desktop Services-konfigurationen (stöds inte på Windows-domänkontrollanter). Om du vill återställa lösenordet använder du Azure-portalen eller tillägget för VM-åtkomst i Azure PowerShell. När du har loggat in till den virtuella datorn kan du återställa lösenordet för den lokala administratören.  
@@ -39,18 +39,19 @@ Logga först in på den [Azure-portalen](https://portal.azure.com) och välj sed
 
 1. Välj din virtuella Windows-dator och därefter **Återställ lösenord** under **stöd + felsökning**. Den **Återställ lösenord** -fönstret visas.
 
-1. Välj **Återställ lösenord**, ange ett användarnamn och ett lösenord och välj sedan **uppdatering**. 
+2. Välj **Återställ lösenord**, ange ett användarnamn och ett lösenord och välj sedan **uppdatering**. 
 
-1. Vill du försöka ansluta till den virtuella datorn igen.
+3. Vill du försöka ansluta till den virtuella datorn igen.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Återställ Remote Desktop Services-konfiguration**
 
+Den här processen kommer Aktivera Remote Desktop-tjänsten på den virtuella datorn och skapa en brandväggsregel för standard RDP-porten 3389.
+
 1. Välj din virtuella Windows-dator och därefter **Återställ lösenord** under **stöd + felsökning**. Den **Återställ lösenord** -fönstret visas. 
 
-1. Välj **Återställ endast konfiguration** och välj sedan **uppdatering**. 
+2. Välj **Återställ endast konfiguration** och välj sedan **uppdatering**. 
 
-1. Vill du försöka ansluta till den virtuella datorn igen.
-
+3. Vill du försöka ansluta till den virtuella datorn igen.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Återställa med hjälp av VMAccess-tillägget och PowerShell
 

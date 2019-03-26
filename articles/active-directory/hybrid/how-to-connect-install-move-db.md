@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076844"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437789"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 
@@ -42,7 +42,7 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
 8. När databasen är bifogad, gå tillbaka till Azure AD Connect-servern och installera Azure AD Connect.
 9. När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
    ![Välkommen](./media/how-to-connect-install-move-db/db1.png)
-10. Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen <drive>\Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
+10. Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen \<enhet > \Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
     ![Välkommen](./media/how-to-connect-install-move-db/db3.png)

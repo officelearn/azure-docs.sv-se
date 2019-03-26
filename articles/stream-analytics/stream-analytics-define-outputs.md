@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898881"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438507"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data.
@@ -127,6 +127,7 @@ Det finns några parametrar som behövs för att konfigurera Event Hub-dataströ
 | Kodning | För CSV och JSON är UTF-8 i kodningsformat som endast stöds just nu. |
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
 | Format | Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att låta varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Den här matrisen stängs först när jobbet stoppas eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom det inte krävs någon särskild hantering när utdatafilen skrivs fortfarande till. |
+| [Valfritt] egenskapskolumner | Kommaavgränsade kolumner som ska anslutas som användaregenskaper för utgående meddelanden i stället för nyttolasten. Mer information om den här funktionen i avsnittet ”anpassade metadataegenskaper för utdata” |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) kan användas som utdata för ett Stream Analytics-jobb för att tillhandahålla för en omfattande visualiseringsupplevelsen av analysresultat. Den här funktionen kan användas för driftsinstrumentpaneler, rapportgenerering och mått som driven reporting.
@@ -230,6 +231,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Kodning |CSV och JSON är UTF-8 Kodningsformatet som endast stöds just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
 | Format |Gäller endast för JSON-typen. Radseparering innebär att utdata formateras genom att låta varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. |
+| [Valfritt] egenskapskolumner | Kommaavgränsade kolumner som ska anslutas som användaregenskaper för utgående meddelanden i stället för nyttolasten. Mer information om den här funktionen i avsnittet ”anpassade metadataegenskaper för utdata” |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
@@ -248,6 +250,7 @@ I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa 
 | Händelseserialiseringsformat |Serialiseringsformat för utdata. JSON-, CSV- och Avro stöds. |
 | Kodning |Om du använder CSV eller JSON-format, måste en kodning anges. UTF-8 är Kodningsformatet som endast stöds just nu |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
+| [Valfritt] egenskapskolumner | [Valfritt] Kommaavgränsade kolumner som ska anslutas som användaregenskaper för utgående meddelanden i stället för nyttolasten. Mer information om den här funktionen i avsnittet ”anpassade metadataegenskaper för utdata” |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
@@ -293,6 +296,25 @@ När Azure Stream Analytics tar emot 413 (http-begäran enhet är stor)-undantag
 
 I en situation där det finns ingen händelse som hamnar under en tidsperiod, inga utdata skapas. Därför anropas computeResult funktionen inte. Det här beteendet är konsekvent med de inbyggda mängdfunktionerna.
 
+## <a name="custom-metadata-properties-for-output"></a>Anpassade metadataegenskaper för utdata 
+
+Den här funktionen kan koppla fråga kolumner som användaregenskaper till meddelanden. De här kolumnerna styrenheterna inte i nyttolasten. Dessa egenskaper finns i form av en ordlista för utdata-meddelandet. Nyckeln är kolumnens namn och värde är kolumnvärde i ordlistan egenskaper. Alla Stream Analytics-datatyper stöds utom post och matris.  
+
+Stöds utdata: 
+* Service Bus-köer 
+* Avsnitt om Service Bus 
+* Händelsehubb 
+
+Exempel: I följande exempel vi lägger till 2 fälten DeviceId och DeviceStatus metadata. 
+* Fråga: `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Utdata-konfiguration: `DeviceId,DeviceStatus`.
+
+![Egenskapskolumner](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+Utdata meddelandeegenskaper granskas i EventHub med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Anpassade egenskaper för händelse](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>Partitionering
 
 I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata för varje Utdatatyp av:
@@ -302,7 +324,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Azure Data Lake Store | Ja | Använd {date} och {time}-token i prefixmönster för sögväg. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Ja | Baserat på PARTITION BY-sats i frågan | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). Du kan få veta mer om att uppnå bättre skrivprestanda dataflöde när du läser in data till SQL Azure Database [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob Storage | Ja | Använd {date} och {time}-token från dina event fält i mönstret för sökvägen. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. BLOB-utdata kan partitioneras av en enda anpassad händelseattribut {fieldname} eller {datetime:\<specificerare >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
-| Azure händelsehubb | Ja | Ja | Varierar beroende på partitionen justering.<br /> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet händelsehubbspartitioner. Varje skrivare använder Eventhub's [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. <br /> När utdata Event Hub partitionsnyckel inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klass](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till utdata-partitionerna. |
+| Azure händelsehubb | Ja | Ja | Varierar beroende på partitionen justering.<br /> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet händelsehubbspartitioner. Varje skrivare använder Eventhub's [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. <br /> När utdata Event Hub partitionsnyckel inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klass](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till utdata-partitionerna. |
 | Power BI | Nej | Ingen | Ej tillämpligt. |
 | Azure Table Storage | Ja | Alla utdatakolumn.  | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
 | Azure Service Bus-ämne | Ja | Valt automatiskt. Antalet partitioner är baserad på den [Service Bus-SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.| Samma som antalet partitioner i avsnittet om utdata.  |

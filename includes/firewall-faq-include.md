@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/25/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747755"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419112"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -33,7 +33,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är den typiska distributionsmodellen för Azure-brandvägg?
 
-Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunder normalt distribuerar den på en central virtuellt nätverk och peer-andra virtuella nätverk till den i en nav-och-eker-modell. Du kan sedan ange standardvägen från peer-kopplade virtuella nätverk så att den pekar till den här virtuella nätverket centrala brandväggen.
+Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunder normalt distribuerar den på en central virtuellt nätverk och peer-andra virtuella nätverk till den i en nav-och-eker-modell. Du kan sedan ange standardvägen från peer-kopplade virtuella nätverk så att den pekar till den här virtuella nätverket centrala brandväggen. Global VNet-peering stöds, men det rekommenderas inte på grund av potentiella prestanda och svarstidsproblem i olika regioner. Distribuera en brandvägg per region för bästa prestanda.
 
 Fördelen med den här modellen är möjligheten att centralt utöva kontrollen i flera ekrar virtuella nätverk i olika prenumerationer. Det finns även kostnadsbesparingar som du inte behöver distribuera en brandvägg i varje virtuellt nätverk separat. Besparingarna mäts och koppla peering kostnad som baseras på trafikmönster kund.
 
@@ -122,7 +122,7 @@ Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera o
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk eller peerkopplade virtuella nätverk?
 
-Ja. Konfigurera UDR att omdirigera trafik mellan undernät i samma kräver virtuella nätverk ytterligare uppmärksamhet dock. När du använder VNET-adressintervall som ett mål-prefix för den användardefinierade vägen är tillräcklig kan dirigerar detta även all trafik från en dator till en annan dator i samma undernät genom brandväggen för Azure-instans. Undvik detta genom att inkludera en väg för undernätet i den användardefinierade vägen med ett nexthop-typ för **VNET**. Hantera dessa vägar kan vara besvärligt och felbenägna. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper som inte kräver udr: er.
+Ja. Konfigurera udr: er för att omdirigera trafik mellan undernät i samma virtuella nätverk kräver dock ytterligare uppmärksamhet. När du använder VNET-adressintervall som ett mål-prefix för den användardefinierade vägen är tillräcklig kan dirigerar detta även all trafik från en dator till en annan dator i samma undernät genom brandväggen för Azure-instans. Undvik detta genom att inkludera en väg för undernätet i den användardefinierade vägen med ett nexthop-typ för **VNET**. Hantera dessa vägar kan vara besvärligt och felbenägna. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper som inte kräver udr: er.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 

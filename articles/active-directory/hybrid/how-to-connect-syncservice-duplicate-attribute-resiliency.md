@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838399"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438309"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Duplicerad Attributåterhämtning är en funktion i Azure Active Directory åtgärdar problem som orsakas av **UserPrincipalName** och **ProxyAddress** står i konflikt när du kör något av Microsofts synkroniseringsverktyg för.
@@ -40,7 +40,7 @@ Om det finns ett försök att etablera ett nytt objekt med ett UPN eller ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Beteende med duplicerad Attributåterhämtning
 Istället för att helt föra att etablera eller uppdatera ett objekt med Duplicerat attribut, Azure Active Directory ”placerar i karantän” dubblettattribut som skulle strida mot unikhetsbegränsningen. Om det här attributet är obligatoriskt för etablering som UserPrincipalName, tilldelar ett platshållarvärde i tjänsten. Formatet för dessa tillfälliga värden är  
-”***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***”.  
+“***\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com***”.  
 Om attributet inte är obligatoriskt, som en **ProxyAddress**, Azure Active Directory bara placerar i karantän attributet konflikt och fortsätter med objektskapande eller update.
 
 Vid sätta attributet skickas information om konflikten i samma fel rapporten e-postmeddelandet används i den gamla funktionen. Men den här informationen visas bara i felrapporten en gång om karantänen inträffar kan det inte fortsätter att loggas i framtida e-postmeddelanden. Dessutom eftersom exporten av det här objektet har slutförts Synkroniseringsklienten loggar inte ett fel och gör inget nytt försök att skapa / uppdatera igen vid nästa synkroniseringscykler.
@@ -66,7 +66,7 @@ Om du vill kontrollera om funktionen är aktiverad för din klient, kan du göra
 > Du kan inte längre använda cmdlet Set-MsolDirSyncFeature för att aktivera funktionen duplicerad Attributåterhämtning proaktivt innan den är aktiverad för din klient. Om du vill kunna testa funktionen behöver du skapa en ny Azure Active Directory-klient.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identifierar objekt med DirSyncProvisioningErrors
-Det finns för närvarande två sätt att identifiera objekt som har de här felen på grund av duplicerade egenskapsvärden konflikter, Azure Active Directory PowerShell och administrationsportalen för Office 365. Det finns planer på att utöka till ytterligare portal baserat rapportering i framtiden.
+Det finns för närvarande två sätt att identifiera objekt som har de här felen på grund av duplicerade egenskapsvärden som står i konflikt, Azure Active Directory PowerShell och [Microsoft 365 Administrationscenter](https://admin.microsoft.com). Det finns planer på att utöka till ytterligare portal baserat rapportering i framtiden.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 För PowerShell-cmdletar i det här avsnittet stämmer följande:
@@ -113,17 +113,17 @@ Att göra en bred sträng search använder den **- SearchString** flaggan. Detta
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>I ett begränsat antal eller alla
-1. **MaxResults <Int>**  kan användas för att begränsa frågan till ett visst antal värden.
+1. **MaxResults \<Int >** kan användas för att begränsa frågan till ett visst antal värden.
 2. **Alla** kan användas för att se till att alla resultat hämtas om det finns ett stort antal fel.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Administrationsportalen för Office 365
-Du kan visa directory synkroniseringsfel i administrationscentret för Office 365. Rapporten i Office 365-portalen visar endast **användaren** objekt som har de här felen. Den visar inte information om konflikter mellan **grupper** och **kontakter**.
+## <a name="microsoft-365-admin-center"></a>Microsoft 365 Administrationscenter
+Du kan visa directory synkroniseringsfel i Microsoft 365 Administrationscenter. Rapporten i Microsoft 365 admin center visar bara **användaren** objekt som har de här felen. Den visar inte information om konflikter mellan **grupper** och **kontakter**.
 
 ![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "aktiva användare")
 
-Anvisningar om hur du visar katalogen synkroniseringsfel i Office 365 Administrationscenter finns i [identifiera directory synkroniseringsfel i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Anvisningar om hur du visar katalogen synkroniseringsfel i Microsoft 365 Administrationscenter finns i [identifiera directory synkroniseringsfel i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Felrapport för synkronisering av identitet
 När ett objekt med en dubblettattribut konflikt hanteras med den här nya funktionen ett meddelande som ingår i standard identitet felrapport för synkronisering av e-postmeddelandet som skickas till tekniska meddelanden kontakta för klienten. Det finns dock en viktig förändring i det här beteendet. Tidigare skulle information om en konflikt dubblettattribut inkluderas i varje efterföljande felrapport tills konflikten har lösts. Med den här nya funktionen visas endast felmeddelanden för en viss konflikt en gång – då attributet som står i konflikt har placerats i karantän.

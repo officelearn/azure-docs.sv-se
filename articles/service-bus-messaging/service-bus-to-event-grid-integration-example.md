@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770535"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436786"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exempel på integration av Azure Service Bus till Azure Event Grid
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du konfigurerar en Azure-funktion och en logikapp so
  
 * Skapa en enkel Azure-testfunktion för felsökning och för att visa det första flödet av händelser från Event Grid. Utför det här steget oavsett om du utför de andra stegen eller inte.
 * Skapa en Azure-funktion som tar emot och bearbetar Azure Service Bus-meddelanden baserat på Event Grid-händelser.
-* Använd Logic Apps-funktionen i Azure App Service.
+* Använda Logic Apps-funktionen i Azure App Service.
 
 I exemplet som du skapar förutsätter vi att Service Bus-ämnet har två prenumerationer. Vi förutsätter också att Event Grid-prenumerationen har skapats för att skicka händelser för endast en Service Bus-prenumeration. 
 

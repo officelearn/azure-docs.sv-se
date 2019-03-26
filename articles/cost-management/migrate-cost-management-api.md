@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318606"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439234"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft Customer avtal API: er
 
@@ -463,7 +463,7 @@ Följande fält är antingen inte tillgänglig i kund-priset på Microsoft-avtal
 | offerId | Inte tillämpligt. Motsvarar productOrderName i MCA. |
 | meterCategory  | Inte tillämpligt. Motsvarar tjänsten i MCA. |
 | enhet | Inte tillämpligt. Kan parsas från unitOfMeasure. |
-| currencyCode | Samma som den pricingCurrency i MCA. |
+| currencyCode | Samma som pricingCurrency i MCA. |
 | meterLocation | Samma som meterRegion i MCA. |
 | partNumber partnumber | Ej tillämpligt eftersom artikelnumret inte visas i MCA fakturor. I stället för partnumber, att använda meterId och productOrderName tillsammans att unikt identifiera priser. |
 | totalIncludedQuantity | Inte tillämpligt. |

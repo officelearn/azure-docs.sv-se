@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201689"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437092"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Enkel utloggning SAML-protokoll
 
@@ -72,7 +72,7 @@ Azure AD skickar en `LogoutResponse` som svar på en `LogoutRequest` element. F�
 Azure AD-uppsättningar på `ID`, `Version` och `IssueInstant` värdena i den `LogoutResponse` element. I exemplet anges också den `InResponseTo` element till värdet för den `ID` attributet för den `LogoutRequest` som förvärvas svaret.
 
 ### <a name="issuer"></a>Utfärdare
-Azure AD anger det här värdet till `https://login.microsoftonline.com/<TenantIdGUID>/` där <TenantIdGUID> är klient-ID för Azure AD-klient.
+Azure AD anger det här värdet till `https://login.microsoftonline.com/<TenantIdGUID>/` där \<TenantIdGUID > är klient-ID för Azure AD-klient.
 
 Att utvärdera värdet för den `Issuer` element, Använd värdet för den **Appidentitets-URI** angavs under registreringen av program.
 

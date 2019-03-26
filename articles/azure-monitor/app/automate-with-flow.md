@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834058"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438945"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -43,7 +43,7 @@ I den här självstudien får du lära dig hur du skapar ett flöde som använde
 
     ![Välj schemalägga under build](./media/automate-with-flow/2schedule.png)
 
-1. I den de **intervall** anger **1**, och i den **frekvens** väljer **dag**.
+1. I den **intervall** anger **1**, och i den **frekvens** väljer **dag**.
 2. Klicka på **nytt steg**
 
     ![Ställ in schema-upprepning med att ange frekvens och intervall](./media/automate-with-flow/3schedulerecurrence.png)

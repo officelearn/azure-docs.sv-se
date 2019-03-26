@@ -1,8 +1,16 @@
-      ---
-author: alkohli ms.service: databox  
-ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431597"
+---
 | Porten Nej.| In eller ut | Port omfång| Krävs|   Anteckningar |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Utdata|WAN |Nej|Utgående port används för åtkomst till internet för att hämta uppdateringar. <br>Utgående webbproxy kan konfigureras av användaren. |
@@ -15,4 +23,3 @@ ms.topic: include ms.date: 03/21/2019 ms.author: alkohli
 | TCP 443 (HTTPS)|Out/i|LAN|Ja|Den här porten är den inkommande porten för lokala Användargränssnittet på enheten för lokal hantering. |
 | TCP 445 (SMB)|I|LAN|I vissa fall<br>Se information|Den här porten krävs endast om du ansluter via SMB. |
 | TCP 2049 (NFS)|I|LAN|I vissa fall<br>Se information|Den här porten krävs endast om du ansluter via NFS. |
-

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010523"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407359"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -170,7 +170,6 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
   - När du hämtat flera filer eller en undermapp som innehåller loggfiler, kan du slå samman dem lokalt enligt beskrivningen i SSMS Merge granskningsfilerna anvisningarna som beskrivs ovan.
   - Visa blobbgranskning loggar programmässigt:
 
-    - Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-biblioteket.
     - [Frågefiler utökade händelser](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
 
 ## <a id="subheading-5"></a>Produktionsmetoder
@@ -258,8 +257,11 @@ Utökade princip med där satsen stöd för ytterligare filtrering:
 Du kan hantera Azure SQL database-granskning med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar, som visas i följande exempel:
 
 - [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Azure Blob storage-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Azure Monitor-loggar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> Länkade exemplen finns på en extern offentlig lagringsplats och tillhandahålls ”som är” utan garanti, och stöds inte under några Microsoft-supporten program/tjänst.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

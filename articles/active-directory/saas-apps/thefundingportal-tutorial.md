@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3654168d5bd733c87c48d808ab4a668c5c03655e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370150"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Självstudier: Azure Active Directory-integrering med The finansiering Portal
 
@@ -194,7 +194,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 2. I listan med program väljer **The finansiering Portal**.
 
-    ![The finansiering Portal-länken i programlistan](common/all-applications.png)
+    ![Finansiering Portal-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -218,7 +218,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon The finansi
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen The finansiering Portal i åtkomstpanelen, bör det vara loggas in automatiskt till The finansiering Portal som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på det finansiering portalen panelen i åtkomstpanelen, bör det vara loggas in automatiskt till The finansiering Portal som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

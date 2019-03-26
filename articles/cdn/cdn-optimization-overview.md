@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870898"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435616"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typ av leverans av innehåll
 
@@ -38,6 +38,8 @@ Den här artikeln innehåller en översikt över olika optimering funktioner och
 
 * [Allmän webbleverans](#general-web-delivery). Den här metoden används också för direktuppspelning och hämta stora filer.
 
+> [!NOTE]
+> Acceleration av dynamisk webbplats från Microsoft erbjuds [Azure ytterdörren Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler stöder följande optimeringar:
 
@@ -120,6 +122,9 @@ Läs mer om optimering av stora filer, [optimering av stora filer](cdn-large-fil
 ### <a name="dynamic-site-acceleration"></a>Acceleration av dynamisk webbplats
 
  Acceleration av dynamisk webbplats (DSA) är tillgänglig för **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon**, och **Azure CDN Premium från Verizon** profiler. Denna optimering omfattar en ytterligare avgift ska användas. Mer information finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Acceleration av dynamisk webbplats från Microsoft erbjuds [Azure ytterdörren Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) som är en global [anycast](https://en.wikipedia.org/wiki/Anycast) tjänsten att använda privata Microsofts globala nätverk för att leverera din app-arbetsbelastningar.
 
 DSA innehåller olika tekniker som dra svarstid och prestanda för dynamiskt innehåll. Tekniken omfattar rutten och nätverket optimering, optimering för TCP med mera. 
 

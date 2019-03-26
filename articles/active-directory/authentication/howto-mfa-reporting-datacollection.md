@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314493"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436676"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Datainsamling för Azure Multi-Factor Authentication-användare
 
@@ -138,7 +138,7 @@ Följande process kan administratörer kan exportera alla data för användare f
 - Logga in på din MFA-servern, navigerar till den **användare** , Välj användaren i fråga och på den **redigera** knappen. Ta skärmdumpar (Alt-PrtScn) för varje flik att ge användaren deras aktuella MFA-inställningar.
 - Kör följande kommando ändra sökvägen enligt din installation från kommandoraden för MFA-servern, `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` att skapa en JSON-formaterad fil.
 - Administratörer kan också använda Web Service SDK GetUserGdpr igen som ett alternativ för att exportera alla MFA informationen om Molntjänsten som samlats in för en viss användare eller lägga till i en större rapporteringslösning.
-- Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och eventuella säkerhetskopior för ”<username>” (ta med citattecknen i sökningen) att hitta alla instanser av användarposten läggs till eller ändras.
+- Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och eventuella säkerhetskopior för ”\<användarnamn >” (ta med citattecknen i sökningen) att hitta alla instanser av användarposten läggs till eller ändras.
    - Dessa poster kan vara begränsad (men inte har tagits bort) genom att avmarkera **”logga användarändringar”** i MFA Server UX-Gränssnittet, i avsnittet loggning, på fliken loggfiler.
    - Om syslog har konfigurerats och **”logga användarändringar”** har checkats in MFA Server UX-Gränssnittet, i avsnittet loggning, Syslog-fliken, och sedan loggposterna samlas in från syslog i stället.
 - Andra förekomster av användarnamnet i MultiFactorAuthSvc.log och andra MFA Server loggfiler som hör till autentisering försök anses drifts- och duplicerande i dessa uppgifter med hjälp av MultiFactorAuthGdpr.exe export eller webbtjänst-SDK GetUserGdpr.

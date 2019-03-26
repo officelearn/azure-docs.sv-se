@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762984"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417963"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database-hanterad databasinstans
 
@@ -45,13 +45,13 @@ Konfigurera en hanterad instans för att fungera som en utgivare eller distribut
 Stöder:
 
 - Transaktions- och replikering blandning av lokal SQL Server och hanterade instanser i Azure SQL Database.
-- Prenumeranter kan vara i en lokal SQL Server-databaser, enskilda databaser i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
+- Prenumeranter kan vara i en lokal SQL Server-databaser, enskild databaser/hanterade instanser i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
 - Enkelriktade eller dubbelriktade replikering.
 
 Följande funktioner stöds inte i en hanterad instans i Azure SQL Database:
 
 - Uppdateringsbara prenumerationer.
-- Aktiv geo-replikering.
+- [Aktiv georeplikering](sql-database-active-geo-replication.md) och [automatisk redundans grupper](sql-database-auto-failover-group.md) bör inte användas om Transaktionsreplikering har konfigurerats.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Konfigurera publicering och distribution av exempel
 

@@ -4,14 +4,14 @@ description: Visar en lista över vilka typer av Azure-resurs som kan flyttas ti
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/13/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: f82c3adc0049c7386206fb4be10d3e634627a25a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236897"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438476"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 Den här artikeln visar om en Azure-resurstypen stöder flyttåtgärden. Även om en resurstyp stöder flyttåtgärden, kan det finnas villkor som hindrar resursen flyttas. Mer information om villkor som påverkar flyttåtgärder finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).
@@ -241,7 +241,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| Paket | Nej | Nej |
+| paket | Nej | Nej |
 | Planer | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -422,7 +422,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | ----------- | ---------- |
-| labaccounts | Ja | Ja |
+| labaccounts | Nej | Nej |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -533,7 +533,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | expressroutecrossconnections | Nej | Nej |
 | expressroutegateways | Nej | Nej |
 | expressrouteports | Nej | Nej |
-| frontdoors | Ja | Ja |
+| ytterdörrar | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
 | interfaceendpoints | Nej | Nej |
 | loadbalancers | Ja | Ja |
@@ -782,7 +782,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [move
 | customapis | Ja | Ja |
 | hostingenvironments | Nej | Nej |
 | servergrupper | Ja | Ja |
-| Platser | Ja | Ja |
+| webbplatser | Ja | Ja |
 | sites/premieraddons | Ja | Ja |
 | platser/platser | Ja | Ja |
 

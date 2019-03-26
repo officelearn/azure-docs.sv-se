@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 31a50d1dab0d5b62ab4dd549127e9092148bd88c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400440"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438095"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
@@ -65,22 +65,6 @@ Data Box Edge har följande funktioner:
 |Återhämtning     | Inbyggd nätverksåterhämtning.        |
 
 
-## <a name="features-and-specifications"></a>Funktioner och specifikationer
-
-Den fysiska Data Box Edge-enheten har följande funktioner:
-
-| Funktioner/specifikationer                                          | Beskrivning              |
-|---------------------------------------------------------|--------------------------|
-| Dimensioner   | Bredd: 17.25 ”djup: 27.25 ”höjd: 1.75”<br>(exklusive öron och nätaggregatshandtag)  |            
-| Rackutrymme|1U vid placering i racket|
-| Kablar| 2 x strömkabel<br>2 x 1 Gbit/s RJ45-kablar<br>2 x 10 Gbit/s SFP+-kopparkablar|
-| Komponenter|2 inbyggda nätaggregat (PSU:er)|
-| Processor|2 Intel Xeon-processorer med 10 kärnor vardera  |
-| Minne| 64 GB RAM|
-| Diskar| 8 NVMe SSD-enheter med 1,6 TB vardera <br> Systemet kraschar om en NVMe-SSD slutar fungera. |
-| Lokal lagringskapacitet| 12,8 TB total kapacitet|
-| Nätverksgränssnitt| 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.|
-
 ## <a name="components"></a>Komponenter
 
 Data Box Edge-lösningen består av Data Box Edge-resursen, en fysisk Data Box Edge-enhet och ett lokalt webbgränssnitt.
@@ -105,30 +89,16 @@ Data Box Edge-lösningen består av Data Box Edge-resursen, en fysisk Data Box E
 Den fysiska Data Box Edge-enheten, Azure-resursen och mållagringskontot som du vill överföra data till behöver inte alla finnas i samma region.
 
 - **Resurstillgänglighet** – för den här versionen är Data Box Edge-resursen tillgänglig i följande regioner:
-    - **USA** – USA, västra 2 och USA, östra
+    - **Förenta staternas** – USA, östra
     - **EU** – Europa, västra
     - **Asien och stillahavsområdet** – Sydostasien
-
+    
+    Data Box-Gateway kan också distribueras i Azure Government-molnet. Mer information finns i [vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. 
 
     För optimala prestanda bör de regioner där lagringskonton lagrar Data Box-data ligga nära den plats där enheten finns. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda. 
 
-
-## <a name="sign-up"></a>Registrera dig
-
-Data Box Edge är en förhandsversion och du måste registrera dig. Registrera dig för Data Box Gateway via följande steg:
-
-1. Logga in på Azure-portalen på: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Välj den prenumeration som du vill använda för förhandsversionen av Data Box Edge. Välj den region där du vill distribuera Data Box Edge-resursen. I alternativet för Data Box Edge klickar du på **Registrera**.
-
-    ![Registrering för Data Box Edge 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Svara på frågor om datahemland, tidsperiod, Azure-måltjänst för dataöverföring, nätverkets bandbredd och dataöverföringsfrekvens. Granska **sekretess och villkor** och markera kryssrutan mot att **Microsoft kan använda din e-postadress för att kontakta dig**.
-
-    ![Registrering för Data Box Edge 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. När du är registrerad och aktiverad för förhandsversionen kan du beställa du Data Box Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 

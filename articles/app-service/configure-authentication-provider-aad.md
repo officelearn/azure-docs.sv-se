@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403229"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438232"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Konfigurera App Service-appen för att använda Azure Active Directory-inloggning
 
@@ -43,8 +43,6 @@ Den här artikeln visar hur du konfigurerar Azure App Services för att använda
 5. (Valfritt) Om du vill begränsa åtkomsten till din plats för att endast användare som autentiseras av Azure Active Directory, ange **åtgärd att vidta när begäran inte har autentiserats** till **logga in med Azure Active Directory**. Detta kräver att alla förfrågningar autentiseras och alla oautentiserade begäranden omdirigeras till Azure Active Directory för autentisering.
 6. Klicka på **Spara**.
 
-Du är nu redo att använda Azure Active Directory för autentisering i din App Service-app.
-
 ## <a name="advanced"> </a>Konfigurera med avancerade inställningar
 
 Du kan också tillhandahålla konfigurationsinställningar manuellt. Detta är det en bättre lösningen om Azure Active Directory-klient som du vill använda skiljer sig från den klient som du loggar in på Azure. Om du vill slutföra konfigurationen, måste du först skapa en registrering i Azure Active Directory och du måste ange några av de här registreringsinformationen till App Service.
@@ -57,8 +55,12 @@ Du kan också tillhandahålla konfigurationsinställningar manuellt. Detta är d
 4. Du bör se den nya appregistreringen som du nyss skapade på några sekunder.
 5. När appregistreringen har lagts till, klicka på namnet på registrering, klickar du på **inställningar** överst, klicka sedan på **egenskaper** 
 6. I den **Appidentitets-URI** rutan, klistra in i programmets URL (från steg 1), även i den **URL-Adressen** klistra in program-URL: en (från steg 1), klicka sedan på **spara**
-7. Nu klickar du på den **Svarswebbadresser**, redigera den **svars-URL**, klistra in i programmets URL (från steg 1) och sedan läggas till i slutet av URL: en, */.auth/login/aad/callback* (för exempelvis `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Klicka på **Spara**.   
-8.  Nu kan kopiera den **program-ID** för appen. Spara den för senare bruk. Du behöver den för att konfigurera din App Service-app.
+7. Nu klickar du på den **Svarswebbadresser**, redigera den **svars-URL**, klistra in i programmets URL (från steg 1) och sedan lägga till den i slutet av URL: en, */.auth/login/aad/callback* (för exempelvis `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Klicka på **Spara**.
+
+   > [!NOTE]
+   > Du kan använda samma appregistreringen för flera domäner genom att lägga till ytterligare **Svarswebbadresser**. Se till att modellera varje App Service-instans med sin egen registreringen så att den har en egen behörigheter och samtycke. Överväg också att använda separata app-registreringar för separat plats för webbplatsen. Det här är att undvika att behörigheter som delas mellan miljöer, så att en bugg i ny kod som du testar inte påverkar produktion.
+    
+8. Nu kan kopiera den **program-ID** för appen. Spara den för senare bruk. Du behöver den för att konfigurera din App Service-app.
 9. Stäng den **registrerad app** sidan. På den **appregistreringar** klickar du på den **slutpunkter** knappen överst, kopiera den **inloggnings-SLUTPUNKT för WS-FEDERATION** URL: en men ta bort den `/wsfed` slutar från URL: en. Slutresultatet ska se ut som `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Domännamnet kan vara olika för ett nationellt moln. Detta kommer att fungera som utfärdar-URL för senare.
 
 ### <a name="secrets"> </a>Lägga till Azure Active Directory-information i din App Service-app

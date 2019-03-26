@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400289"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439132"
 documentType: LandingData
 title: Azure Data Box-dokumentation – överföring online
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för dataöverföringar över nätverket med höga prestanda.<p>Välj Data Box Gateway<SUP>förhandsversion</SUP> för att skicka data för molnarkivering, haveriberedskap, eller för att bearbeta data i molnskala.  Använd Data Box Edge<SUP>förhandsversion</SUP> för att filtrera, analysera och transformera data när de flyttas till Azure.</p><p>Lär dig hur du kan använda Data Box Gateway och Data Box Edge för nätverksbaserad överföring med våra självstudier.</p>
+  description: Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för dataöverföringar över nätverket med höga prestanda.<p>Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.  Använd Data Box Edge för att filtrera, analysera och transformera data när de flyttas till Azure.</p><p>Lär dig hur du kan använda Data Box Gateway och Data Box Edge för nätverksbaserad överföring med våra självstudier.</p>
 sections:
 - title: Självstudier
   items:

@@ -91,6 +91,15 @@ items:
       href: personal-data-delete-export.md
     - name: Importera virtuella datorer från ett annat labb
       href: import-virtual-machines-from-another-lab.md
+    - name: Skapa en avbildningsfabrik
+      href: image-factory-create.md
+      items:
+      - name: Köra en avbildningsfabrik från AzureDevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Spara anpassade avbildningar och distribuera till flera labb
+        href: image-factory-save-distribute-custom-images.md
+      - name: Ange bevarandeprincip och köra rensningsskript
+        href: image-factory-set-retention-policy-cleanup.md
     - name: Konfigurera DevTest Labs-infrastruktur i ditt företag
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -132,6 +141,8 @@ items:
         href: devtest-lab-redeploy-vm.md
       - name: Importera en virtuell dator
         href: devtest-lab-import-vm.md
+      - name: Starta eller stoppa en virtuell dator med PowerShell eller CLI
+        href: use-command-line-start-stop-virtual-machines.md
     - name: Använd miljöer i ett labb
       items:
       - name: Skapa en miljö
@@ -252,9 +263,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Vanliga frågor och svar
       href: devtest-lab-faq.md
-ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338385"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435642"

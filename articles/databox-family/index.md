@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>Azure Data Box-serien erbjuder produkter med olika lagringskapacitet för att skicka terabyte (TB) med data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Microsoft påskyndar säker dataöverföring genom att skicka skyddade lagringsenheter till dig som möjliggör dataöverföring offline eller över nätverket.</p>
 <h2>Dataöverföring offline</h2>
 <p>För begränsad till ingen nätverksbandbredd</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> för datastorlekar < 40 TB. Microsoft skickar 1 till 5 krypterade SSD-diskar för att kopiera data och skicka tillbaka.</p>
+                            <p><b>Data Box Disk</b> för datastorlekar &lt; 40 TB. Microsoft skickar 1 till 5 krypterade SSD-diskar för att kopiera data och skicka tillbaka.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box – tung<SUP>förhandsversion</SUP></b> för datastorlekar > 500 TB. Microsoft skickar en enhet på 1 petabyte (PB) med frakt för att kopiera data och skicka tillbaka.</p>
+                            <p><b>Data Box Heavy</b> för datastorlekar &gt; 500 TB. Microsoft skickar en enhet på 1 petabyte (PB) med frakt för att kopiera data och skicka tillbaka.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>förhandsversion</SUP></b> – virtuell enhet med lagringsutrymme. Använd den här enheten för att skicka dina data över nätverket till Azure.</p>
+                            <p><b>Data Box Gateway</b> virtuell enhet med lagring. Använd den här enheten för att skicka dina data över nätverket till Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>förhandsversion</SUP></b> – fysisk enhet med lagringsutrymme och databearbetning. Använd den här enheten när du planerar att analysera, transformera eller filtrera dina data när de flyttas till Azure.</p>
+                            <p><b>Data Box Edge</b> fysisk enhet med lagring och beräkning. Använd den här enheten när du planerar att analysera, transformera eller filtrera dina data när de flyttas till Azure.</p>
                         </div>
                     </div>
                 </div>

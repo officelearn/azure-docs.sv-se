@@ -1,93 +1,108 @@
 ---
-title: Självstudie – Konfigurera geofiltrering på en domän för Azure Front Door Service | Microsoft Docs
+title: Självstudie – konfigurera geo-filtrering web application brandväggsprincipen för åtkomsten för Azure-tjänsten
 description: I den här självstudiekursen lär du dig hur du skapar en enkel princip för geofiltrering och associerar principen med din befintliga Front Door-klientdelsvärd
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
-ms.author: sharadag
-ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.date: 03/21/2019
+ms.author: kumud;tyao
+ms.openlocfilehash: 371347149b3c3f14784ba62365cfd6224ded99d1
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214886"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407342"
 ---
-# <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Så konfigurerar du en princip för geofiltrering för Front Door
+# <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Hur du ställer in en princip för geo-filtrering WAF för ytterdörren
 Den här självstudiekursen visar hur du använder Azure PowerShell till att skapa ett exempel på en princip för geofiltrering och associerar principen med din befintliga Front Door-klientdelsvärd. Exempelprincipen för geofiltrering blockerar begäranden från alla andra länder utom USA.
 
-## <a name="1-set-up-your-powershell-environment"></a>1. Konfigurera PowerShell-miljön
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
+
+## <a name="prerequisites"></a>Förutsättningar
+Innan du börjar ställa in en princip för geo-filter ställer in din PowerShell-miljö och skapa en profil för åtkomsten.
+### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
 Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ instruktionerna på sidan, för att logga in med dina Azure-autentiseringsuppgifter och installera AzureRM.
-```
-# Connect to Azure with an interactive dialog for sign-in
-Connect-AzureRmAccount
-Install-Module -Name AzureRM
-```
-> [!NOTE]
->  Stöd för [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) kommer snart.
+Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan, för att logga in med dina autentiseringsuppgifter för Azure, och installerar Az PowerShell-modulen.
 
-Se till att du har installerat den senaste versionen av PowerShellGet, innan du installerar Front Door-modulen. Kör kommandot nedan och öppna PowerShell igen.
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Anslut till Azure med en interaktiv dialogruta för inloggning
+```
+Connect-AzAccount
+Install-Module -Name Az
+```
+Kontrollera att du har den aktuella versionen av installerat PowerShellGet. Kör kommandot nedan och öppna PowerShell igen.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
 
-Installera AzureRM.FrontDoor-modulen. 
+### <a name="create-a-front-door-profile"></a>Skapa en ytterdörren-profil
+Skapa en profil för åtkomsten genom att följa anvisningarna som beskrivs i [snabbstarten: Skapa en profil för ytterdörren](quickstart-create-front-door.md).
 
-```
-Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
-```
+## <a name="define-geo-filtering-match-condition"></a>Definiera geo-filtrering matchningsvillkor
 
-## <a name="2-define-geo-filtering-match-conditions"></a>2. Definiera matchningsvillkor för geofiltrering
-Skapa först ett exempel på matchningsvillkor som väljer begäranden som inte kommer från ”US” (USA). Se [PowerShell-guiden](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) för parametrar när du skapar ett matchningsvillkor. [Här](front-door-geo-filtering.md) anges mappning till länder med landskoder på två bokstäver.
+Skapa en exempel-matchningsvillkor som väljer begäranden som inte kommer från ”US” med [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) på parametrar när du skapar ett matchningsvillkor. Landskoder för två bokstäver för land mappning tillhandahålls [här](front-door-geo-filtering.md).
 
-```
-$nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"
+```azurepowershell-interactive
+$nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
+-MatchVariable RemoteAddr `
+-OperatorProperty GeoMatch `
+-NegateCondition $true `
+-MatchValue "US"
 ```
  
-## <a name="3-add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>3. Lägga till matchningsvillkor för geofiltrering i en regel med Action (Åtgärd) och Priority (Prioritet)
+## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Lägga till matchningsvillkor för geofiltrering i en regel med Action (Åtgärd) och Priority (Prioritet)
 
-Skapa sedan ett CustomRule-objekt, `nonUSBlockRule`, utifrån matchningsvillkoret, en åtgärd och en prioritet.  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
-
-```
-$nonUSBlockRule = New-AzureRmFrontDoorCustomRuleObject -Name "geoFilterRule" -RuleType MatchRule -MatchCondition $nonUSGeoMatchCondition -Action Block -Priority 1
-```
-
-Se [PowerShell-guiden](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorcustomruleobject) för parametrar när du skapar ett CustomRuleObject.
-
-## <a name="4-add-rules-to-a-policy"></a>4. Lägga till regler i en princip
-Det här steget skapar ett `geoPolicy`-principobjekt som innehåller `nonUSBlockRule` från tidigare steg i den angivna resursgruppen. Använd `Get-AzureRmResourceGroup` till att hitta ResourceGroupName $resourceGroup.
+Skapa ett objekt för CustomRule `nonUSBlockRule` baserat på matchningsvillkor, en åtgärd och en prioritet med hjälp av [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject).  En CustomRule (Anpassad regel) kan ha flera MatchCondition (Matchningsvillkor).  I det här exemplet anges Block (Blockera) för Action (Åtgärd) och 1 som Priority (Prioritet), högsta prioritetsnivån.
 
 ```
-$geoPolicy = New-AzureRmFrontDoorFireWallPolicy -Name "geoPolicyAllowUSOnly" -resourceGroupName $resourceGroup -Customrule $nonUSBlockRule  -Mode Prevention -EnabledState Enabled
+$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+-Name "geoFilterRule" `
+-RuleType MatchRule `
+-MatchCondition $nonUSGeoMatchCondition `
+-Action Block `
+-Priority 1
 ```
 
-Se [PowerShell-guiden](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoorfirewallpolicy) för parametrar när du skapar en princip.
+## <a name="add-rules-to-a-policy"></a>Lägga till regler i en princip
+Hitta namnet på resursgruppen som innehåller ytterdörren profil med `Get-AzResourceGroup`. Skapa sedan en `geoPolicy` princip objekt som innehåller `nonUSBlockRule` med [New AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) i den angivna resursgruppen som innehåller ytterdörren profilen. Du måste ange ett unikt namn för geo-principen. 
 
-## <a name="5-link-policy-to-a-front-door-frontend-host"></a>5. Länka principen till en Front Door-klientdelsvärd
-De sista stegen är att länka skyddsprincipobjektet till en befintlig Front Door-klientdelsvärd och uppdatera Front Door-egenskaper. Du hämtar först ditt Front Door-objekt med hjälp av [Get-AzureRmFrontDoor](https://docs.microsoft.com/azure/frontdoor/get-azurermfrontdoor), följt av att ange ställa in dess klientdelsegenskap WebApplicationFirewallPolicyLink på resourceId för `geoPolicy`.
+I exemplet nedan använder Resursgruppnamnet *myResourceGroupFD1* profilen med antagandet att du har skapat åtkomsten med hjälp av instruktionerna i den [snabbstarten: Skapa en ytterdörren](quickstart-create-front-door.md) artikeln.
 
 ```
-$geoFrontDoorObjectExample = Get-AzureRmFrontDoor -ResourceGroupName $resourceGroup
+$geoPolicy = New-AzFrontDoorFireWallPolicy `
+-Name "geoPolicyAllowUSOnly" `
+-resourceGroupName myResourceGroupFD1 `
+-Customrule $nonUSBlockRule  `
+-Mode Prevention `
+-EnabledState Enabled
+```
+
+## <a name="link-waf-policy-to-a-front-door-frontend-host"></a>Länken WAF-princip till en ytterdörren frontend-värd
+Länka WAF-policyobjekt på befintliga ytterdörren klientdel värden och uppdatera ytterdörren egenskaper. 
+
+Om du vill göra det först hämta dina ytterdörren objekt genom att använda [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
+
+```
+$geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD1
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Använd följande [kommando](https://docs.microsoft.com/azure/frontdoor/set-azurermfrontdoor) till att uppdatera Front Door-objektet.
+Ange sedan egenskapen klientdel WebApplicationFirewallPolicyLink som resourceId av den `geoPolicy`med [Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
-Set-AzureRmFrontDoor -InputObject $geoFrontDoorObjectExample[0]
+Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 ```
 
 > [!NOTE] 
-> Du behöver bara ange egenskapen WebApplicationFirewallPolicyLink en gång för att länka en skyddsprincip till en Front Door-klientdelsvärd. Efterföljande principuppdateringar tillämpas automatiskt på klientdelsvärden.
+> Du behöver bara ange WebApplicationFirewallPolicyLink egenskap en gång för att länka en WAF-princip till en ytterdörren frontend-värd. Efterföljande uppdateringar tillämpas automatiskt på frontend-värden.
 
 ## <a name="next-steps"></a>Nästa steg
 

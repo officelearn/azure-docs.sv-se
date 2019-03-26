@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862734"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439196"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudier: Använda Video Indexer-API:et
 
@@ -73,19 +73,6 @@ Du kan göra det lättare genom att använda **Auktoriserings**-API:t > **GetAcc
 Åtkomsttoken upphör att gälla efter 1 timme. Kontrollera att din åtkomsttoken är giltig innan du använder åtgärds-API:t. Om den upphör att gälla anropar du auktoriserings-API:t igen för att få en ny åtkomsttoken.
  
 Du kan börja integrera med API:t. Se [den detaljerade beskrivningen av varje Video Indexer-REST API](https://api-portal.videoindexer.ai/).
-
-## <a name="location"></a>Plats
-
-Alla åtgärds-API:er kräver en platsparameter, som anger vilken region anropet ska dirigeras till och vilket konto det skapades på.
-
-De värden som beskrivs i tabellen nedan gäller. **Parametervärde** är det värde du skickar när du använder API:t.
-
-|**Namn**|**Parametervärde**|**Beskrivning**|
-|---|---|---|
-|Utvärdering|spårning|Används för utvärderingskonton.|
-|Västra USA|westus2|Används för Azure-regionen Västra USA 2.|
-|Norra Europa |northeurope|Används för Azure-regionen Norra Europa.|
-|Östasien|eastasia|Används för Azure-regionen Östasien.|
 
 ## <a name="account-id"></a>Konto-ID 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska information i JSON-utdata](video-indexer-output-json-v2.md).
-
-[Översikt över Video Indexer](video-indexer-overview.md)
+- [Granska information i JSON-utdata](video-indexer-output-json-v2.md).
+- [Översikt över Video Indexer](video-indexer-overview.md)
+- [Regioner](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

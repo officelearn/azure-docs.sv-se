@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb9c7087b8c8241d352cfa67d5d6158899fa8a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35c231f043261b65baa40eff32535eeab014bee9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174018"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437971"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Så här använder Azure AD SAML-protokoll
 
@@ -37,7 +37,7 @@ Azure AD använder molntjänstens **Metadata URI** att hämta signeringsnyckeln 
 
 Azure Active Directory exponerar klientspecifik och vanliga (klient-oberoende) enkel inloggning och enkel utloggning slutpunkter. Dessa URL: er representerar adresserbara platser – de är inte bara identifierare – så att du kan gå till slutpunkten för att läsa metadata.
 
-* Klientspecifik slutpunkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Den *<TenantDomainName>* är ett registrerat domännamn eller TenantID GUID för en Azure AD-klient. Federationsmetadata för klienten contoso.com är till exempel på: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Klientspecifik slutpunkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Den  *\<TenantDomainName >* är ett registrerat domännamn eller TenantID GUID för en Azure AD-klient. Federationsmetadata för klienten contoso.com är till exempel på: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Klient-oberoende slutpunkten finns på `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. I den här slutpunktsadress **vanliga** visas i stället för en klientdomännamn eller -ID.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116240"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439251"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker API service-portalen
 
@@ -69,6 +69,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 När du är klar med kunskapsbasen kan du ta bort den i QnA Maker-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
+
+För kostnaden besparingar mått, kan du [dela](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) vissa men inte alla Azure-resurser skapas för QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Lägg till personliga chit-chatt](./chit-chat-knowledge-base.md)

@@ -3,7 +3,7 @@ title: Så här felsöker du inloggningsfel med hjälp av Azure Active Directory
 description: Lär dig att felsöka inloggning med Azure Active Directory-rapporter i Azure-portalen
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198481"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434899"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Anvisningar: Felsöka inloggning med Azure Active Directory-rapporter
 
@@ -37,17 +37,17 @@ Dessutom rapporten inloggningar kan också hjälpa dig att felsöka inloggningar
 Du behöver:
 
 * En Azure AD-klient med en premiumlicens (P1/P2). Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
-* En användare som har rollen **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportläsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
+* En användare som tillhör den **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportera läsare** rollen för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Felsöka inloggning med hjälp av rapporten inloggningar
 
 1. Gå till [Azure-portalen](https://portal.azure.com) och välj din katalog.
 2. Välj **Azure Active Directory** och välj **Inloggningar** i avsnittet **Övervakning**. 
-3. Använd de angivna filtren för att begränsa fel, antingen efter användarnamn eller objekt-ID, namn eller datum. Dessutom välja **fel** från den **Status** listrutan för att visa endast de misslyckade inloggningarna. 
+3. Använd de angivna filtren för att begränsa fel, antingen efter användarnamn eller objekt-ID, namn eller datum. Dessutom väljer **fel** från den **Status** listrutan för att visa endast de misslyckade inloggningarna. 
 
     ![Filtrera resultat](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifiera misslyckade inloggningen som du vill undersöka och markera den. Då öppnas fönstret ytterligare information med mer information om misslyckade inloggningen. Anteckna den **inloggning felkoden** och **felorsak**. 
+4. Identifiera misslyckade inloggningen du vill undersöka. Välj det för att öppna fönstret för ytterligare information öppnas med mer information om misslyckade inloggningen. Anteckna den **inloggning felkoden** och **felorsak**. 
 
     ![Välj posten](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Du behöver:
 
     ![Felsökning och support](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Orsaken till felet beskriver felet. I scenariot ovan orsaken till felet är exempelvis **ogiltigt användarnamn eller lösenord eller ogiltigt lokalt användarnamn eller lösenord**. Det innebär att användaren har angett ett felaktigt användarnamn eller lösenord för att logga in på Azure-portalen. Korrigeringen är att bara logga in igen med rätt användarnamn och lösenord.
+6. Orsaken till felet beskriver felet. I scenariot ovan orsaken till felet är exempelvis **ogiltigt användarnamn eller lösenord eller ogiltigt lokalt användarnamn eller lösenord**. Korrigeringen är att bara logga in igen med rätt användarnamn och lösenord.
 
 7. Du kan få ytterligare information, inklusive idéer om justeringen genom att söka efter felkoden **50126** i det här exemplet i den [inloggningar referens för felkoder](reference-sign-ins-error-codes.md). 
 

@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: db6064feb379bf7da4f2c2e6417583c3d8b8b0d3
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287541"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417895"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Python
 
@@ -25,11 +25,11 @@ ms.locfileid: "58287541"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Den här snabbstarten beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Python.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av Python.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
@@ -53,9 +53,9 @@ pip install azure-mgmt-kusto
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
     
-    Ange autentiseringsuppgifterna du dina autentiseringsuppgifter (Mer information finns i https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. Ange [ *dina autentiseringsuppgifter*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Kör följande kommando för att kontrollera om klustret har skapats:
+1. Kör följande kommando för att kontrollera om klustret har skapats:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +91,7 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    | soft_delete_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | hot_cache_period | *3650 dagar, 0:00:00* | Hur lång tid data ska behållas i cache. |
 
-2. Kör följande kommando för att se den databas som du skapade:
+1. Kör följande kommando för att se den databas som du skapade:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

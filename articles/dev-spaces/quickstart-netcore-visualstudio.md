@@ -1,116 +1,131 @@
 ---
-title: Skapa ett utrymme för Kubernetes-utveckling i molnet
+title: Utveckla med .NET Core på AKS med Azure Dev blanksteg och Visual Studio 2017
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+manager: jeconnoc
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770126"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418847"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och Visual Studio)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio 2017)
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Iterativt utvecklar kod i containrar med Visual Studio.
-- Felsök kod som körs i ditt kluster.
-
-> [!Note]
-> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-netcore-visualstudio.md).
+- Utveckla iterativt koden i behållare med hjälp av Visual Studio 2017.
+- Felsöka kod som körs i klustret med hjälp av Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Ett Kubernetes-kluster som kör Kubernetes 1.9.6 eller senare i regionen USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra.
+- En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- Visual Studio 2017 för Windows med arbetsbelastningen webbutveckling installerad. Om du inte har installerat den kan du hämta den [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools) installerad.
 
-- Visual Studio 2017 med arbetsbelastningen webbutveckling installerad. Om du inte har installerat den kan du hämta den [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
-## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
+Du måste skapa ett AKS-kluster i en [region som stöds](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Skapa ett kluster:
 
-Installera [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Välj *+ skapa en resurs > Kubernetes Service*. 
+1. Ange den _prenumeration_, _resursgrupp_, _Kubernetes-klusternamn_, _Region_, _Kubernetes-version_, och _DNS-namnprefix_.
 
-## <a name="connect-to-a-cluster"></a>Anslut till ett kluster
+    ![Skapa AKS i Azure portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-Därefter måste du skapa och konfigurera ett projekt för Azure Dev Spaces.
+1. Klicka på *Granska + skapa*.
+1. Klicka på *Skapa*.
 
-### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure Dev blanksteg på AKS-kluster
 
-Skapa ett nytt projekt i Visual Studio 2017. För närvarande måste projektet vara ett **ASP.NET Core-webbprogram**. Ge projektet namnet ”**webfrontend**”.
+Navigera till ditt AKS-kluster i Azure-portalen och klicka på *Dev blanksteg*. Ändra *aktivera Dev blanksteg* till *Ja* och klicka på *spara*.
 
-Välj mallen **Webbprogram (MVC, Model-View-Controller)** och välj **.NET Core** och **ASP.NET Core 2.0** som mål.
+![Aktivera Dev blanksteg i Azure portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Aktivera Dev Spaces för ett AKS-kluster
+## <a name="create-a-new-aspnet-web-app"></a>Skapa en ny ASP.NET-webbapp
 
-För projektet som du nyss skapat väljer du **Azure Dev Spaces** i listrutan för startinställningar, som du ser nedan.
+1. Öppna Visual Studio 2017.
+1. Skapa ett nytt projekt.
+1. Välj *ASP.NET Core-Webbapp* och namnge projektet *webfrontend*.
+1. Klicka på *OK*.
+1. Välj *webbprogram (Model-View-Controller)* för mallen.
+1. Välj *.NET Core* och *ASP.NET Core 2.0* högst upp.
+1. Klicka på *OK*.
+
+## <a name="connect-your-project-to-your-dev-space"></a>Ansluta ditt projekt till ditt dev-adressutrymme
+
+I projektet, väljer **Azure Dev blanksteg** i listrutan Start inställningar som visas nedan.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-I nästa dialogruta som visas kontrollerar du att du har loggat in med rätt konto och välj sedan ett befintligt kluster.
+I Azure Dev blanksteg, väljer din *prenumeration* och *Azure Kubernetes-kluster*. Lämna *utrymme* inställd *standard* och aktivera den *offentligt tillgänglig* kryssrutan. Klicka på *OK*.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Lämna inställningen `default` i listrutan **Utrymme** tills vidare. Markera kryssrutan **Offentligt tillgänglig**, så att webbprogrammet är tillgängligt via en offentlig slutpunkt.
-
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
-
-Välj eller skapa klustret genom att klicka på **OK**.
-
-Om du väljer ett kluster som inte har konfigurerats för användning med Azure Dev Spaces tillfrågas du om du vill konfigurera det.
+Den här processen distribuerar din tjänst till den *standard* dev utrymme med en offentligt tillgänglig URL. Om du väljer ett kluster som inte har konfigurerats för användning med Azure Dev Spaces tillfrågas du om du vill konfigurera det. Klicka på *OK*.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-Välj **OK**. 
+En offentlig URL för tjänsten som körs i den *standard* dev yta ska visas i den *utdata* fönster:
 
-### <a name="look-at-the-files-added-to-project"></a>Titta på filerna som lagts till i projektet
-Medan utvecklingsmiljön skapas kan du titta på filerna som lades till i projektet när du valde att använda en Azure-utvecklingsmiljö.
+```cmd
+Starting warmup for project 'webfrontend'.
+Waiting for namespace to be provisioned.
+Using dev space 'default' with target 'MyAKS'
+...
+Successfully built 1234567890ab
+Successfully tagged webfrontend:devspaces-11122233344455566
+Built container image in 39s
+Waiting for container...
+36s
 
-- En mapp med namnet `charts` har lagts till och ett [Helm-diagram](https://docs.helm.sh) har skapats för ditt program i den här mappen. Dessa filer används för att distribuera ditt program till utvecklingsmiljön.
-- `Dockerfile` innehåller information som behövs för att paketera ditt program i Docker-standardformatet.
-- `azds.yaml` innehåller den utvecklingstidskonfiguration som krävs av utvecklingsmiljön.
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:62266
+Completed warmup for project 'webfrontend' in 125 seconds.
+```
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+I exemplet ovan är en offentlig URL http://webfrontend.1234567890abcdef1234.eus.azds.io/. Gå till din tjänsts offentliga URL och interagera med tjänsten som körs i ditt dev-adressutrymme.
 
-## <a name="debug-a-container-in-kubernetes"></a>Felsöka en container i Kubernetes
-När utvecklingsmiljön har skapats kan du felsöka programmet. Lägg till en brytpunkt i koden, till exempel på rad 20 i filen `HomeController.cs` där variabeln `Message` anges. Starta felsökningen genom att trycka på **F5**. 
+## <a name="update-code"></a>Uppdatera kod
 
-Visual Studio kommunicerar med utvecklingsmiljön för att skapa och distribuera programmet och öppnar sedan en webbläsare där webbprogrammet körs. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att Azure Dev Spaces skapar en tillfällig SSH-tunnel för containern som körs i AKS.
+Om Visual Studio 2017 fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Ändra rad 20 i `Controllers/HomeController.cs` till:
+    
+```csharp
+ViewData["Message"] = "Your application description page in Azure.";
+```
 
-Klicka på länken **Om** längst upp på sidan för att utlösa brytpunkten. Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
+Spara dina ändringar och starta din tjänst med hjälp av **Azure Dev blanksteg** listrutan Start Inställningar. Öppna den offentliga URL: en för din tjänst i en webbläsare och klicka på *om*. Observera att din uppdaterade meddelande visas.
 
+Kompilerar koden i befintliga behållaren att tillhandahålla en snabbare redigera/debug-loop i stället för att bygga om och omdistribuera en ny behållaravbildning varje gång kod ändringar görs, Azure Dev blanksteg inkrementellt.
 
-## <a name="iteratively-develop-code"></a>Iterativ kodutveckling
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Ställa in och använda brytpunkter för felsökning
 
-Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
+Om Visual Studio 2017 fortfarande är ansluten till ditt dev adressutrymme klickar du på stopp-knappen. Öppna `Controllers/HomeController.cs` och klicka någonstans på rad 20 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*. Om du vill starta tjänsten i felsökningsläge i dev-utrymme når *F5* eller klicka på *felsöka* sedan *Starta felsökning*.
 
-### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
-1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
-1. Spara filen.
-1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
+Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio 2017 och notera rad 20 markeras. Brytpunkt som du angett har pausats tjänsten på rad 20. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
 
-Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. En aktiv F5-session synkroniserar automatiskt ändrade innehållsfiler i containern som körs i AKS, så att du genast kan se dina innehållsändringar.
+När du kör din tjänst i Kubernetes ett internt, har du fullständig åtkomst till felsökningsinformation som anropsstacken, lokala variabler och undantagsinformation.
 
-### <a name="update-a-code-file"></a>Uppdatera en kodfil
-Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
+Ta bort brytpunkten genom att placera markören på rad 20 i `Controllers/HomeController.cs` och träffa *F9*.
 
-1. Stoppa felsökaren i Visual Studio.
-1. Öppna kodfilen `Controllers/HomeController.cs` och ändra meddelandet som ska visas på sidan Om: `ViewData["Message"] = "Your application description page.";`
-1. Spara filen.
-1. Starta felsökningen igen genom att trycka på **F5**. 
+## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
-I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
+Navigera till din resursgrupp i Azure-portalen och klicka på *ta bort resursgrupp*. Du kan också använda den [az aks ta bort](/cli/azure/aks#az-aks-delete) kommando:
 
-Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
-
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

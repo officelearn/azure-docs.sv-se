@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 85fdd67cd676db2a7c54c10523787b0d395de5dc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9955068fbc0d6493add83c6c92390413b3975106
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870796"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437179"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -77,7 +77,7 @@ Det här exemplet är för Azure Functions-version 1.x. Så här gör den här k
 - [utelämna parametern åtkomst rättigheter](#trigger---configuration)
 - ändra typen av log-parametern från `TraceWriter` till `ILogger`
 - Ändra `log.Info` till `log.LogInformation`
- 
+
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
 I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser [meddelande metadata](#trigger---message-metadata) och loggar ett meddelande med Service Bus-kö.
@@ -160,7 +160,7 @@ Följande Java-funktionen använder den `@ServiceBusQueueTrigger` anteckning fr�
  ) {
      context.getLogger().info(message);
  }
- ```
+```
 
 Java-funktioner kan även aktiveras när ett meddelande läggs till en Service Bus-ämne. I följande exempel används den `@ServiceBusTopicTrigger` anteckning som beskriver konfigurationen för utlösaren.
 
@@ -177,7 +177,7 @@ Java-funktioner kan även aktiveras när ett meddelande läggs till en Service B
     ) {
         context.getLogger().info(message);
     }
- ```
+```
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
@@ -279,7 +279,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till ”serviceBusTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
+|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. |
 |**Könamn**|**Könamn**|Namnet på kön som ska övervaka.  Ange bara om övervakning av en kö, inte för ett ämne.
 |**topicName**|**topicName**|Namnet på ämnet du övervakar. Ange bara om övervakning av ett ämne, inte för en kö.|
 |**subscriptionName**|**subscriptionName**|Namnet på prenumerationen som ska övervaka. Ange bara om övervakning av ett ämne, inte för en kö.|
@@ -339,7 +339,21 @@ Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare 
 
 Den [host.json](functions-host-json.md#servicebus) filen innehåller inställningar som styr beteendet för Service Bus-utlösare.
 
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "maxAutoRenewDuration": "00:05:00"
+    }
+}
+```
+
+|Egenskap   |Standard | Beskrivning |
+|---------|---------|---------|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. |
+|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.|
+|maxAutoRenewDuration|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.|
 
 ## <a name="output"></a>Resultat
 
@@ -471,7 +485,7 @@ public String pushToQueue(
       result.setValue(message + " has been sent.");
       return message;
  }
- ```
+```
 
  I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@QueueOutput` anteckningen i funktionsparametrar vars värde skulle skrivas till en Service Bus-kö.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
 
@@ -582,7 +596,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till ”serviceBus”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till ”ut”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
+|**Namn** | Saknas | Namnet på variabeln som representerar kön eller ämnet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. |
 |**Könamn**|**Könamn**|Namnet på kön.  Ange endast om skickar Kömeddelanden, inte för ett ämne.
 |**topicName**|**topicName**|Namnet på ämnet du övervakar. Ange endast om avsnittet meddelanden, inte för en kö.|
 |**anslutning**|**anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträngen för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Exempel: Om du ställer in `connection` till ”MyServiceBus” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom funktionskörningen använder standard Service Bus-anslutningssträngen i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill ha en anslutningssträng, följ anvisningarna som visas på [få autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). Anslutningssträngen måste vara för en Service Bus-namnområde, inte begränsat till en viss kö eller ämne.|
@@ -641,11 +655,11 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 ```
 
 |Egenskap   |Standard | Beskrivning |
-|---------|---------|---------| 
-|maxAutoRenewDuration|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.| 
-|automatisk komplettering|true|Utlösaren ska om omedelbart Markera som slutförd (Komplettera automatiskt) eller vänta på att processen för att anropa klar.| 
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. | 
-|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|---------|---------|---------|
+|maxAutoRenewDuration|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.|
+|automatisk komplettering|true|Utlösaren ska om omedelbart Markera som slutförd (Komplettera automatiskt) eller vänta på att processen för att anropa klar.|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. |
+|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.|
 
 
 ## <a name="next-steps"></a>Nästa steg

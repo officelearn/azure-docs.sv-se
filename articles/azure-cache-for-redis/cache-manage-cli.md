@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233208"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418609"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Hur du skapar och hanterar Azure Cache för Redis med hjälp av den klassiska Azure CLI
 > [!div class="op_single_selector"]
@@ -57,9 +57,9 @@ Följande egenskaper som används när du skapar och uppdaterar Azure Cache för
 | Shardantal |r-,--shardantal |Antal fragment för att skapa på Premium-kluster Cache med klustring. |
 | Virtual Network |-v, --virtual-network |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Nyckeltyp |-t,--key-typ |Typen av nyckel att förnya. Giltiga värden: [primär, sekundär] |
-| StaticIP |-p, – statisk ip < statisk ip > |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. |
-| Undernät |t,--undernät <subnet> |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. |
-| VirtualNetwork |v-,--virtuellt nätverk < virtuellt nätverk > |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, – statisk ip \<statisk ip\> |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. |
+| Undernät |t,--undernät \<undernät\> |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. |
+| VirtualNetwork |v-,--virtuellt nätverk \<virtuellt nätverk\> |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Prenumeration |-s,--prenumeration |Prenumerations-ID. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Se alla Azure-Cache för Redis-kommandon

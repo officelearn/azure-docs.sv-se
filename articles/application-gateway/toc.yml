@@ -17,15 +17,15 @@ items:
 - name: Självstudier
   items:
   - name: Agera värd åt en enskild webbplats
-    href: tutorial-manage-web-traffic-cli.md
+    href: quick-create-portal.md
   - name: Aktivera brandvägg för webbaserade program
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: Skydda med SSL
-    href: tutorial-ssl-cli.md
+    href: create-ssl-portal.md
   - name: Tillhandahåll värdtjänster för flera webbplatser
-    href: tutorial-multiple-sites-cli.md
+    href: create-multiple-sites-portal.md
   - name: Dirigera efter URL
-    href: tutorial-url-route-cli.md
+    href: create-url-route-portal.md
   - name: Omdirigera webbtrafik
     href: tutorial-url-redirect-cli.md
   - name: Automatisk skalning och zonredundans
@@ -90,8 +90,10 @@ items:
   items:
   - name: Agera värd åt en enskild webbplats
     items:
-    - name: Azure Portal
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md
     - name: Mall
       href: create-vmss-template.md
   - name: Konfigurera intern lastbalanserare
@@ -104,10 +106,10 @@ items:
     items:
     - name: SSL-avslutning
       items:
-      - name: SSL-avslutning – portalen
-        href: create-ssl-portal.md
       - name: SSL-avslutning – PowerShell
         href: tutorial-ssl-powershell.md
+      - name: SSL-avslutning – Azure CLI
+        href: tutorial-ssl-cli.md
     - name: SSL från slutpunkt till slutpunkt
       items:
       - name: Slutpunkt till slutpunkt för SSL – portalen
@@ -126,10 +128,10 @@ items:
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Konfigurera brandväggen för webbappar
     items:
-    - name: Azure Portal
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md
   - name: Konfigurera WAF-regeluppsättningar
     items:
     - name: Azure Portal
@@ -140,16 +142,16 @@ items:
       href: application-gateway-customize-waf-rules-cli.md
   - name: Dirigera efter URL
     items:
-    - name: Azure Portal
-      href: create-url-route-portal.md
     - name: Azure PowerShell
       href: tutorial-url-route-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-route-cli.md
   - name: Tillhandahåll värdtjänster för flera webbplatser
     items:
-    - name: Azure Portal
-      href: create-multiple-sites-portal.md
     - name: Azure PowerShell
       href: tutorial-multiple-sites-powershell.md
+    - name: Azure CLI
+      href: tutorial-multiple-sites-cli.md
   - name: Omdirigera trafik
     items:
     - name: Extern trafik
@@ -236,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: cd08a1ac880bb4242f4f57882d0e45133cf26748
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: b7b696b2094dc74e1a30cbd33f304aa663bf742e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350768"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444922"

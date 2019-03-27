@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473392"
+documentType: LandingData
+title: Dokumentation om API:et för avvikelseidentifiering
+metadata:
+  title: API:et för avvikelseidentifiering – självstudier snabbstarter, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Använd API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.
+  services: cognitive-services
+  author: aahill
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: aahi
+abstract:
+  description: API:et för avvikelseidentifiering hjälper dig att enkelt bädda in funktioner för avvikelseidentifiering i dina appar så att dina användare snabbt kan identifiera problem och minimera förluster och kundpåverkan. Du behöver inga kunskaper om maskininlärning. Med ett enda API-anrop kan du aktivera den här förtränade AI-modellen som matar in tidsseriedata av alla typer och volymer, väljer den bästa modellen för avvikelseidentifiering för dina data och identifierar incidenter automatiskt så snart de inträffar. Du kan anpassa tjänsten för att identifiera avvikelser i olika storlekar.  Använd avvikelseidentifiering för att identifiera affärsincidenter, övervaka IoT-trafik, upptäcka bedrägerier, agera på marknadsförändringar och mycket mer.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/anomaly-detector/overview
+      html: <p>Läs mer om API:et för avvikelseidentifiering</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är API:et för avvikelseidentifiering?
+    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+      html: <p>Optimera dina avvikelseidentifieringsresultat med hjälp av metodtips för API:et</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Metodtips när du använder API:et för avvikelseidentifiering
+    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+      html: <p>Justera känsligheten för avvikelseidentifiering, använd olika lägen med mera.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Använda API:et för avvikelseidentifiering
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Identifiera avvikelser i dina tidsseriedata med hjälp av:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: quickstarts/detect-data-anomalies-csharp
+      text: C#
+    - image:
+        src: media/logo_Java.svg
+      href: quickstarts/detect-data-anomalies-java
+      text: Java
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/detect-data-anomalies-python
+      text: Python

@@ -1,0 +1,47 @@
+items:
+- name: Dokumentation om avvikelseidentifiering
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är API:et för avvikelseidentifiering?
+    href: overview.md
+  expanded: true
+- name: Snabbstarter
+  items:
+  - name: Identifiera avvikelser i dina data
+    items:
+    - name: Använd C#
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Använda Java
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Använda Python
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: Instruktionsguider
+  items:
+  - name: Identifiera avvikelser i dina data
+    href: how-to/identify-anomalies.md
+- name: Begrepp
+  items:
+  - name: Regelverk för API:et för avvikelseidentifiering
+    href: concepts/anomaly-detection-best-practices.md
+- name: Referens
+  items:
+  - name: Referens för REST API
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDK:er
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Resurser
+  items:
+  - name: Prissättning
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: Regional tillgänglighet
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473393"

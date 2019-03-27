@@ -1,31 +1,38 @@
 items:
-- name: Dokumentation om anpassning av Azure-portalen
+- name: Dokumentation om Azure Portal
   href: index.yml
-- name: Azure-instrumentpaneler
+- name: Översikt
+  items:
+  - name: Om Azure-portalen
+    href: azure-portal-overview.md
+  - name: Webbläsare och enheter som stöds
+    href: azure-portal-supported-browsers-devices.md
+- name: Begrepp
   items:
   - name: Skapa och dela Azure-instrumentpaneler
     href: azure-portal-dashboards.md
-  - name: Använda en anpassad Markdown-panel
-    href: azure-portal-markdown-tile.md
   - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll
     href: azure-portal-dashboard-share-access.md
-  - name: Azure-instrumentpanelernas struktur
-    href: azure-portal-dashboards-structure.md
   - name: Skapa Azure-instrumentpaneler programmässigt
     href: azure-portal-dashboards-create-programmatically.md
-- name: Inställningar
+- name: Instruktionsguider
+  items:
+  - name: Aktivera hög kontrast eller ändra tema
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Använda en anpassad Markdown-panel
+    href: azure-portal-markdown-tile.md
+  - name: Exportera eller ta bort användarinställningar
+    href: azure-portal-export-delete-settings.md
+- name: Referens
   items:
   - name: Kortkommandon
     href: azure-portal-keyboard-shortcuts.md
-  - name: Webbläsare och enheter som stöds
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Aktivera hög kontrast eller ändra tema
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Exportera eller ta bort användarinställningar
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Azure-instrumentpanelernas struktur
+    href: azure-portal-dashboards-structure.md
 - name: Resurser
   items:
+  - name: Instruktionsvideoserie om Azure-portalen
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure-översikt
     href: https://azure.microsoft.com/updates/
   - name: Utveckla dina färdigheter med Microsoft Learn
@@ -36,11 +43,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Videoklipp
+  - name: Azure-videor
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902779"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443866"

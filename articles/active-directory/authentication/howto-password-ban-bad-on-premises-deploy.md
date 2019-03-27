@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311976"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499258"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -36,7 +36,7 @@ När funktionen har körts i granskningsläge i rimlig tid, kan du byta konfigur
 
 ## <a name="deployment-requirements"></a>Krav för distribution
 
-* Alla domänkontrollanter som ta DC tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 eller senare.
+* Alla domänkontrollanter som ta DC tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 eller senare. Det här kravet innebär inte att Active Directory-domän eller skog måste också vara på Windows Server 2012 domänens eller skogens funktionsnivå. Som vi nämnde i [designprinciper](concept-password-ban-bad-on-premises.md#design-principles), det finns ingen minsta DFL eller FFL som krävs för antingen DC-agenten eller proxy programvaran ska köras.
 * Alla datorer som får proxyn tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 R2 eller senare.
 * Alla datorer där Azure AD-lösenord Protection proxytjänsten installeras måste ha .NET 4.7 installerad.
   .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -85,7 +85,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 1. Öppna ett PowerShell-fönster som administratör.
    * Proxy-programvaran lösenord protection innehåller en ny PowerShell-modul *AzureADPasswordProtection*. Följande steg för att köra olika cmdletar från PowerShell-modulen. Importera den nya modulen enligt följande:
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
      * Läge för interaktiv autentisering:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
      * Autentiseringsläge för enhet-kod:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
      * Tyst () lösenordsbaserade läge:
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
      * Läge för interaktiv autentisering:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
      * Autentiseringsläge för enhet-kod:
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
         Slutför autentiseringen genom att följa anvisningarna som visas på en annan enhet.
 
      * Tyst () lösenordsbaserade läge:
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 1. Valfritt: Konfigurera proxytjänsten lösenordsskydd att lyssna på en viss port.
    * DC-agentprogramvaran lösenordsskydd på domänkontrollanter använder RPC över TCP kan kommunicera med proxytjänsten. Proxy-tjänsten lyssnar på alla tillgängliga dynamiska RPC-slutpunkt som standard. Men du kan konfigurera tjänsten för att lyssna på en specifik TCP-port, om detta krävs på grund av nätverkets topologi eller krav på brandvägg i miljön.
       * <a id="static" /></a>För att konfigurera tjänsten körs under en statisk port, använda den `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
          > Du måste stoppa och starta om tjänsten för att ändringarna ska börja gälla.
 
       * Använd samma procedur för att konfigurera tjänsten körs under en dynamisk port, men ange *StaticPort* till noll:
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
    * Om du vill fråga efter den aktuella konfigurationen av tjänsten, använda den `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

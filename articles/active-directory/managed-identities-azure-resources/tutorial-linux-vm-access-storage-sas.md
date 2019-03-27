@@ -3,7 +3,7 @@ title: Använda en systemtilldelad hanterad identitet för virtuell Linux-dator 
 description: En självstudie som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator och kommer åt Azure Storage med hjälp av en SAS-autentiseringsuppgift, istället för en åtkomstnyckel för lagringskonto.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 567127a1bbd61e2b05053d422b5d19de6ed9bed5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5a206b6027054522a2bbbe1cc847adf9bb7f765e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180019"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447645"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en systemtilldelad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via en SAS-autentiseringsuppgift
 

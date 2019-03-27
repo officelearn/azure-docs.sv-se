@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499904"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -113,7 +113,8 @@ För närvarande inte. Den här funktionen finns i vår översikt. Verifiera din
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur tar jag bort min Azure AD B2C-klient?
 Följ dessa steg för att ta bort din Azure AD B2C-klient:
 
-1. Ta bort alla principer i din Azure AD B2C-klient.
+1. Ta bort alla användarens flöden (principer) i din Azure AD B2C-klient.
+1. Ta bort alla program som du registrerade i din Azure AD B2C-klient.
 1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använd samma arbets- eller skolkonto eller samma Microsoft-konto som användes för att registrera dig för Azure.)
 1. Växla till Azure AD B2C-klient som du vill ta bort.
 2. Gå till Active Directory-menyn till vänster.

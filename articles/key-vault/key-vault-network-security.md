@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108899"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487251"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault-brandväggar och virtuella nätverk
 
@@ -84,33 +84,33 @@ Här är hur du konfigurerar Key Vault-brandväggar och virtuella nätverk med h
 1. Installera senast [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), och [logga in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Lista över tillgängliga virtuella Nätverksregler. Om du inte har några regler för den här key vault, kommer listan vara tom.
-   ```PowerShell
+   ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Aktivera tjänstslutpunkten för Key Vault på ett befintligt virtuellt nätverk och undernät.
-   ```PowerShell
+   ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Lägg till en regel för ett virtuellt nätverk och undernät.
-   ```PowerShell
+   ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Lägg till ett IP-adressintervall som du vill tillåta trafik från.
-   ```PowerShell
+   ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Om det här nyckelvalvet ska vara tillgängliga för alla betrodda tjänster, ställa in `bypass` till `AzureServices`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Aktivera network-regler genom att ställa in standardåtgärden `Deny`.
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 

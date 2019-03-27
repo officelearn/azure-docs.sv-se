@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee4a78148c36c7838edcc36f8f76ad612ac87ab0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732536"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487965"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -51,7 +51,7 @@ När du använder ett huvudnamn för tjänsten för resursen hanteringsåtgärde
 
 I följande exempel används appID och ett lösenord för att utföra en uppdatering för modellen databasåtgärd:
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464967"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486453"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägg till/ta bort en serverslutpunkt för Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -51,7 +51,7 @@ Om du vill sluta använda Azure File Sync för en viss server-slutpunkt, kan du 
 
 Inaktivera molnlagringsnivåer på serverslutpunkt för att säkerställa att alla nivåindelade filer hämtas innan du tar bort Serverslutpunkten, och sedan köra följande PowerShell-cmdlet för att återkalla alla nivåindelade filer i din slutpunkt namnrymd:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```

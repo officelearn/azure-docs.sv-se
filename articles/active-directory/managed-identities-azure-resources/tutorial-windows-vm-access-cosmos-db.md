@@ -3,7 +3,7 @@ title: Använda en systemtilldelad hanterad identitet för en virtuell Windows-d
 description: En självstudiekurs som beskriver steg för steg hur du använder en systemtilldelad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 317a4aa43ecf77f8e34495c0bbc583f09c88c1c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6dec8a3f87200c6eaed1d9d2bcc4a5ed5fa14957
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173257"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446852"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Cosmos DB
 
@@ -34,7 +34,7 @@ I den här självstudien lär du dig att komma åt Cosmos DB med en systemtillde
 > * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns systemtilldelade hanterade identitet för att anropa Azure Resource Manager
 > * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

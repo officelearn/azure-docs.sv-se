@@ -3,7 +3,7 @@ title: Uppdatera ett Azure Service Fabric-kluster om du vill använda certifikat
 description: Lär dig hur du växlar Service Fabric-kluster från att använda certifikattumavtryck till med hjälp av certifikatets unika namn.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: aljo
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: ryanwi
-ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.author: aljo
+ms.openlocfilehash: 7280424c57e2dfab0a64794855cb522bcf69e135
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312879"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500516"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikatet till unika namn
-Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Växla ett distribuerat kluster från att använda certifikattumavtryck till att använda vanliga namn för certifikatet gör certifikathantering mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
+Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
 
 >[!NOTE]
 > Om du har två tumavtryck deklarerats i mallen kan behöva du utföra två distributioner.  Den första distributionen är klar innan du följer stegen i den här artikeln.  Den första distributionen anger din **tumavtryck** -egenskapen i mallen för att certifikatet som används och tar bort den **thumbprintSecondary** egenskapen.  Följ stegen i den här artikeln för den andra distributionen.

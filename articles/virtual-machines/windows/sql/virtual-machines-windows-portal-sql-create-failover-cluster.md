@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842761"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486326"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -222,7 +222,7 @@ Nästa steg är att konfigurera failover-kluster med S2D. I det här steget ska 
 
    Om du vill installera funktionen Redundanskluster med PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ Den **guiden Verifiera en konfiguration** körs verifieringstesterna.
 
 För att verifiera klustret med PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ Om du vill skapa redundansklustret, behöver du:
 
 Följande PowerShell skapar ett redundanskluster. Uppdatera skriptet med namnen på noderna (VM-namn) och en tillgänglig IP-adress från det virtuella Azure-nätverket:
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ Diskarna för S2D måste vara tomma och utan partitioner eller andra data. För 
 
    Följande PowerShell aktiverar lagringsdirigering.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ Diskarna för S2D måste vara tomma och utan partitioner eller andra data. För 
 
    En av funktionerna i S2D är att det automatiskt skapas en lagringspool när du aktiverar den. Du är nu redo att skapa en volym. PowerShell-kommandot `New-Volume` automatiserar skapandeprocessen volym, inklusive formatering, lägga till i klustret och skapa en klusterdelad volym (CSV). I följande exempel skapas en 800 gigabyte (GB) CSV.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ Ange parametern kluster avsökning i PowerShell.
 
 Uppdatera variabler i skriptet nedan för att ange parametern kluster avsökning med värden från din miljö. Ta bort hakparenteser `<>` från skriptet. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -457,7 +457,7 @@ Ange värden för din miljö i föregående skript. I följande lista beskrivs v
 
 När du ställer in avsökningen kluster kan du se alla Klusterparametrar i PowerShell. Kör följande skript:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

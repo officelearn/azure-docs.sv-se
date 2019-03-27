@@ -9,16 +9,18 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/29/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 59a6907e3f015bba657bc395aee2e97f601fcf7f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 2db1cdc74fc986d5b8aeec441c3178f781d5248c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037692"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497286"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>Skapa ett Azure Cosmos DB-konto med Azure Cosmos DB API för MongoDB med hjälp av PowerShell
 
 Det här PowerShell-exempelskriptet skapar ett Cosmos-konto med Azure Cosmos DB API för MongoDB. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,7 +33,7 @@ Det här PowerShell-exempelskriptet skapar ett Cosmos-konto med Azure Cosmos DB 
 När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -40,9 +42,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

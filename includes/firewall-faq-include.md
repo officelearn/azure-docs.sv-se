@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419112"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500669"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -45,10 +45,11 @@ Du kan ställa in Azure-brandvägg med hjälp av Azure portal, PowerShell, REST 
 
 Azure-brandväggen har stöd för regler och regelsamlingar. En regelsamling är en uppsättning regler som delar samma ordning och prioritet. Regelsamlingar utförs efter deras prioritet. Nätverket regelsamlingar har högre prioritet än program regelsamlingar och avslutas på alla regler.
 
-Det finns två typer av samlingar:
+Det finns tre typer av samlingar:
 
-* *Regler för program*: Kan du konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät.
-* *Network regler*: Kan du konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser.
+* *Regler för program*: Konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät.
+* *Network regler*: Konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser.
+* *NAT-regler*: Konfigurera DNAT regler för att tillåta inkommande anslutningar.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure Brandvägg för inkommande trafikfiltrering?
 
@@ -94,19 +95,19 @@ Exempel:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera o
 
 Ja. Konfigurera udr: er för att omdirigera trafik mellan undernät i samma virtuella nätverk kräver dock ytterligare uppmärksamhet. När du använder VNET-adressintervall som ett mål-prefix för den användardefinierade vägen är tillräcklig kan dirigerar detta även all trafik från en dator till en annan dator i samma undernät genom brandväggen för Azure-instans. Undvik detta genom att inkludera en väg för undernätet i den användardefinierade vägen med ett nexthop-typ för **VNET**. Hantera dessa vägar kan vara besvärligt och felbenägna. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper som inte kräver udr: er.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Är framtvingad tunneling/länkning till en virtuell nätverksinstallation som stöds?
+
+Ja.
+
+Azure-brandväggen måste ha direkt Internetanslutning. AzureFirewallSubnet har som standard en väg med 0.0.0.0/0 med NextHopType värdet **Internet**.
+
+Om du aktiverar Tvingad tunneltrafik till lokalt via ExpressRoute eller VPN-Gateway, kan du behöva uttryckligen konfigurera en 0.0.0.0/0 användardefinierad väg (UDR) med NextHopType värde som Internet och associera den med din AzureFirewallSubnet. Detta åsidosätter eventuella standard-gateway BGP-meddelandet tillbaka till ditt lokala nätverk. Om din organisation kräver Tvingad tunneltrafik för Azure-brandvägg att dirigera standard gateway trafiken tillbaka via ditt lokala nätverk, kontakta supporten. Vi kan godkänna din prenumeration för att se till att nödvändiga brandväggen Internetanslutning upprätthålls.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
 
 Ja. Brandväggen, undernät, virtuella nätverk och den offentliga IP-adressen måste vara i samma resursgrupp.
@@ -131,3 +140,7 @@ Ja. Brandväggen, undernät, virtuella nätverk och den offentliga IP-adressen m
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>När du konfigurerar DNAT för inkommande nätverkstrafik, också behöver jag konfigurera en motsvarande regel för att tillåta den trafiken?
 
 Nej. NAT-regler är implicit lägga till en regel för motsvarande för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur till jokertecken fungerar i ett program regelmål FQDN?
+
+Om du konfigurerar ***. contoso.com**, tillåter *anyvalue*. contoso.com, men inte contoso.com (domän överst). Om du vill tillåta överst domän måste du uttryckligen konfigurera den som ett FQDN-mål.

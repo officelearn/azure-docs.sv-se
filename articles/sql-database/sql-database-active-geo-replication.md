@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295257"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498493"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -75,8 +75,11 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   Ett program kan komma åt en sekundär databas för skrivskyddade åtgärder med hjälp av samma eller olika säkerhetsobjekt används för åtkomst till den primära databasen. Den sekundära databasen fungera i ögonblicksbilden isoleringsläge för att säkerställa att replikeringen av uppdateringar av primärt (log repetitionsattacker) inte försenas av frågor som körs på sekundärt.
 
-  > [!NOTE]
-  > Log-repetitionsattacker är försenad på den sekundära databasen om det finns schemauppdateringar på primärt. Det senare kräver ett schemalås på den sekundära databasen.
+> [!NOTE]
+> Log-repetitionsattacker är försenad på den sekundära databasen om det finns schemauppdateringar på primärt. Det senare kräver ett schemalås på den sekundära databasen.
+> [!IMPORTANT]
+> Du kan använda geo-replikering för att skapa en sekundär databas i samma region som primärt. Du kan använda den här sekundära att belastningsutjämna en skrivskyddad arbetsbelastningar i samma region. En sekundär databas i samma region tillhandahåller inte ytterligare fel återhämtning och därför är inte en lämplig redundansmål för katastrofåterställning. Det garanterar även inte avaialability zon isolering. Använda affärskritisk eller Premium-tjänstnivån med [zonen redundant konfiguration](sql-database-high-availability.md#zone-redundant-configuration) att uppnå avaialability zon isolering.   
+>
 
 - **Planerad redundans**
 

@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5af778ff23c9b3f9188ac2e7b38767e4693f64a1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107624"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500159"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
+
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Tillbakadragning av anpassad avisering regler i Azure Security Center
+
+> [!NOTE]
+> Anpassade aviseringarna kommer att dras tillbaka den 30 juni 2019 på grund av tillbakadragning av tjänsten Azure Monitor klassiska aviseringar. I tidsramen tills utfasningen användare kommer att kunna redigera befintliga anpassade aviseringsregler men kommer inte att kunna lägga till nya.
+> Användare bör aktivera [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) med ett klick onboarding att automatiskt migrera sina befintliga aviseringar och skapa nya eller också återskapa sina aviseringar med Azure Monitor loggaviseringar.
+>                                      
+> Om du vill behålla dina befintliga aviseringar och migrera dem till Azure Sentinel, kan du [starta Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Välj arbetsytan där din anpassade aviseringar lagras som första steg och välj sedan menyalternativet 'Analytics' för att automatiskt migrera dina aviseringar.
+>
+> ** Observera att anpassade aviseringar migrering till Azure Sentinel migreras en gång för alla anpassade aviseringar i den valda arbetsytan. När migreringen är klar, är anpassade aviseringar för den valda arbetsytan inte tillgänglig via Azure Security Center.
+> Anpassade aviseringar med hjälp av [Search](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries) eller [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instruktioner frågor stöds inte i Azure Sentinel och kommer inte att migreras. Redigera dessa varningar innan du utför migreringen.
+>
+> Om du vill återskapa dina aviseringar med Azure Monitor aviseringar, finns på: [Skapa, visa och hantera aviseringar med Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) anvisningar om hur du skapar aviseringar. Allmän översikt över aviseringar i Azure Monitor klickar du på [här](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Vad är anpassade aviseringsregler i Security Center?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369665"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442289"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser
 
@@ -22,8 +22,6 @@ Azure Blob- och Queue storage har stöd för Azure Active Directory (Azure AD)-a
 Om du vill tilldela behörigheter till en hanterad identitet till en blob-behållare eller en kö, tilldelar du rollen rollbaserad åtkomstkontroll (RBAC) till den hanterade identitet som omfattar behörigheter för den resursen i det aktuella området. Mer information om RBAC-roller i storage finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md). 
 
 Den här artikeln visar hur du autentiserar till Azure Blob eller Queue storage med en hanterad identitet från en Azure virtuell dator.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 
@@ -42,6 +40,8 @@ Om du vill autentisera en hanterad identitet från Azure Storage-program måste 
 ## <a name="get-a-managed-identity-access-token"></a>Hämta en hanterad identitet åtkomsttoken
 
 Om du vill autentisera med en hanterad identitet måste hämta ditt program eller skript en åtkomsttoken för hanterad identitet. Läs om hur du hämta en åtkomsttoken i [hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+Du måste använda HTTPS för att auktorisera blob och kö åtgärder med en OAuth-token.
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET-kodexempel: Skapa en blockblob
 

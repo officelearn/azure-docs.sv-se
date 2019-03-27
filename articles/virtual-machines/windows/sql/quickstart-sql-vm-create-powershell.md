@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24dfc9602f7329b4ea56db2257f29f5711510d22
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977804"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485942"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzAccount**.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -54,19 +54,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Definiera en variabel med ett unikt resursgruppsnamn. För att förenkla resten av snabbstarten används i återstående kommandon det här namnet som grund för andra resursnamn.
 
-   ```PowerShell
+   ```powershell
    $ResourceGroupName = "sqlvm1"
    ```
 
 1. Definiera en plats för en Azure-region som är mål för alla VM-resurser.
 
-   ```PowerShell
+   ```powershell
    $Location = "East US"
    ```
 
 1. Skapa resursgruppen.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
@@ -93,7 +93,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Skapa en nätverkssäkerhetsgrupp. Konfigurera regler för att tillåta anslutning till fjärrskrivbord (RDP) och SQL Server-anslutningar.
 
-   ```PowerShell
+   ```powershell
    # Rule to allow remote desktop (RDP)
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
@@ -113,7 +113,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Skapa nätverksgränssnittet.
 
-   ```PowerShell
+   ```powershell
    $InterfaceName = $ResourceGroupName + "int"
    $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -134,7 +134,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Skapa ett konfigurationsobjekt för den virtuella datorn och sedan skapa den virtuella datorn. Följande kommando skapar en SQL Server 2017 Developer Edition VM på Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
    $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
@@ -153,7 +153,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att få portalintegrering och SQL VM-funktioner måste du installera [tillägget SQL Server IaaS-agent](virtual-machines-windows-sql-server-agent-extension.md). När den nya virtuella datorn har skapats kan du installera agenten på den genom att köra följande kommando.
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -161,7 +161,7 @@ För att få portalintegrering och SQL VM-funktioner måste du installera [till�
 
 1. Använd följande kommando för att hämta den offentliga IP-adressen för den nya virtuella datorn.
 
-   ```PowerShell
+   ```powershell
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
@@ -185,7 +185,7 @@ Du är nu ansluten till SQL Server lokalt. Om du vill ansluta via en fjärranslu
 
 Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Följande kommando stoppar den virtuella datorn men lämnar den tillgänglig för framtida bruk.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 

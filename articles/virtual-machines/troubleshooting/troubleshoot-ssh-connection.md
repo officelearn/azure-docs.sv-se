@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1c28c0bb3fdc2bb94595910ccff9f86769b17da5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547138"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446588"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller nekas
 Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av Secure Shell (SSH)-fel, SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
@@ -37,7 +37,7 @@ Försök återansluta till den virtuella datorn efter varje steg i felsökningen
 3. Kontrollera den [nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md) regler tillåta SSH-trafik.
    * Se till att en [Nätverkssäkerhetsgrupp kopplad till regeln](#security-rules) finns för att tillåta SSH-trafik (som standard, TCP-port 22).
    * Du kan inte använda omdirigering av portar / mappning utan att använda en Azure load balancer.
-4. Kontrollera den [VM resurshälsa](../../resource-health/resource-health-overview.md). 
+4. Kontrollera den [VM resurshälsa](../../resource-health/resource-health-overview.md).
    * Se till att den virtuella datorn rapporterar är felfri.
    * Om du har [startdiagnostik aktiverat](boot-diagnostics.md), kontrollera den virtuella datorn inte rapporterar startfel i loggarna.
 5. [Starta om den virtuella datorn](#restart-vm).
@@ -49,6 +49,7 @@ Läs vidare för mer detaljerad felsökning och förklaringar.
 Du kan återställa autentiseringsuppgifter eller SSH-konfigurationen med någon av följande metoder:
 
 * [Azure-portalen](#use-the-azure-portal) – det är bra om du behöver snabbt återställa SSH-konfigurationen eller SSH-nyckeln och du inte har Azure-verktygen installerats.
+* [Azure VM från Seriekonsol](https://aka.ms/serialconsolelinux) -VM seriekonsolen fungerar oavsett SSH-konfigurationen och ger dig en interaktiv konsol till den virtuella datorn. I själva verket ”kan inte SSH” situationer är särskilt seriekonsolen har utformats för att lösa. Mer information nedan.
 * [Azure CLI](#use-the-azure-cli) – om du redan är på kommandoraden, snabbt återställa SSH-konfigurationen eller autentiseringsuppgifter. Om du arbetar med en klassisk virtuell dator kan du använda den [Azure klassiskt CLI](#use-the-azure-classic-cli).
 * [Azure VMAccessForLinux-tillägget](#use-the-vmaccess-extension) – skapa och återanvända json definitionsfiler för att återställa SSH-konfiguration eller autentiseringsuppgifter.
 
@@ -76,6 +77,26 @@ Använd [IP-flödesverifieringen](../../network-watcher/network-watcher-check-ip
 ### <a name="check-routing"></a>Kontrollera Routning
 
 Använda Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte förhindrar trafik dirigeras till eller från en virtuell dator. Du kan också gå igenom effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [använda effektiva vägar för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-routing-problem.md).
+
+## <a name="use-the-azure-vm-serial-console"></a>Använda Azure VM-Seriekonsol
+Den [Azure VM från Seriekonsol](./serial-console-linux.md) ger åtkomst till en textbaserad konsol för Linux-datorer. Du kan använda konsolen för att felsöka din SSH-anslutning i ett interaktivt gränssnitt. Se till att du har uppfyllt de [krav](./serial-console-linux.md#prerequisites) för att använda Seriekonsol och försök kommandona nedan för att ytterligare Felsök SSH-anslutning.
+
+### <a name="check-that-ssh-is-running"></a>Kontrollera att SSH körs
+Du kan använda följande kommando för att avgöra om SSH körs på den virtuella datorn:
+```
+$ ps -aux | grep ssh
+```
+Om det finns inga utdata, är SSH igång.
+
+### <a name="check-which-port-ssh-is-running-on"></a>Kontrollera vilken port som SSH körs på
+Du kan använda följande kommando för att kontrollera vilken port som SSH körs på:
+```
+$ sudo grep Port /etc/ssh/sshd_config
+```
+Dina utdata ser ut ungefär som:
+```
+Port 22
+```
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
@@ -209,8 +230,8 @@ Du kan distribuera om en virtuell dator till en annan nod i Azure, som kan korri
 
 > [!NOTE]
 > När den här åtgärden är klar differentierande diskdata går förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn uppdateras.
-> 
-> 
+>
+>
 
 ### <a name="azure-portal"></a>Azure Portal
 Om du vill distribuera om en virtuell dator med Azure portal, Välj den virtuella datorn och bläddra ned till den **stöd + felsökning** avsnittet. Välj **omdistribuera** som i följande exempel:
@@ -236,12 +257,12 @@ Prova de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtue
 
 * Återställ fjärråtkomst från den [Azure-portalen](https://portal.azure.com). Välj din virtuella dator på Azure-portalen och välj sedan **Återställ fjärråtkomst...** .
 * Starta om den virtuella datorn. På den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn och välj **starta om**.
-    
+
 * Distribuera om den virtuella datorn till en ny Azure-nod. Information om hur du distribuera om en virtuell dator finns i [distribuera om virtuell dator till nya Azure-nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  
+
     När den här åtgärden är klar differentierande diskdata går förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn kommer att uppdateras.
 * Följ instruktionerna i [återställa ett lösenord eller SSH för Linux-baserade virtuella datorer](../linux/classic/reset-access-classic.md) till:
-  
+
   * Återställa lösenordet eller SSH-nyckel.
   * Skapa en *sudo* användarkonto.
   * Återställa SSH-konfigurationen.

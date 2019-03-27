@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 66e94ed4f68ed43891ad3e81bd66cdc57799d204
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c2f302d7b87426115df716dfba638eee0756f79
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117905"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480744"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av PowerShell eller Azure CLI, kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -146,7 +146,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 Du kan använda PowerShell för att ändra licensieringsmodellen. 
 
 Följande kodavsnitt växlar modellen betala per licens till BYOL (eller med hjälp av Azure Hybrid-förmånen): 
-```PowerShell
+```powershell
 # Switch  your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
@@ -160,7 +160,7 @@ $SqlVm | Set-AzResource -Force
 ```
 
 Följande kodavsnitt växlar BYOL-modell till betala per användning:
-```PowerShell
+```powershell
 # Switch  your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
@@ -178,7 +178,7 @@ $SqlVm | Set-AzResource -Force
 
 Följande kodavsnitt kan du visa aktuella licensieringsmodellen för din SQL Server-VM. 
 
-```PowerShell
+```powershell
 # View current licensing model for your SQL Server VM
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 
@@ -204,7 +204,7 @@ Det här felet kan uppstå när du försöker ändra licensieringsmodellen för 
 `Set-AzResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
 
 Lös felet genom att ta bort kommentarerna raderna i kodfragmentet tidigare nämnda PowerShell när du växlar licensieringsmodellen: 
-```PowerShell
+```powershell
 # the following code snippet is necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
@@ -213,7 +213,7 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 
 Använd följande kod för att verifiera Azure PowerShell-version:
 
-```PowerShell
+```powershell
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 

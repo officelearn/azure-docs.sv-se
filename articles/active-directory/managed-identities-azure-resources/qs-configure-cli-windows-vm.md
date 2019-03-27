@@ -3,7 +3,7 @@ title: Hur du konfigurerar system- och användartilldelade hanterade identiteter
 description: Steg för steg-instruktioner för att konfigurera system- och användartilldelade hanterade identiteter på en Azure-dator med Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223928"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449530"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med Azure CLI
 

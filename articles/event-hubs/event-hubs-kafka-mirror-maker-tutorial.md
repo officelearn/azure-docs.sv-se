@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769939"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487472"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd MirrorMaker för Kafka med Event Hubs för Apache Kafka
 
@@ -119,6 +119,12 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 Om du vill kontrollera att händelser ansluter till Kafka-aktiverade event hub, se inkommande statistik i den [Azure-portalen](https://azure.microsoft.com/features/azure-portal/), eller kör en konsument mot event hub.
 
 Eventuella händelser som skickats till källan Kafka-kluster tas emot av både Kafka-klustret med MirrorMaker som körs, och den speglade Kafka aktiverat event hub-tjänsten. Genom att använda MirrorMaker och en Event Hubs Kafka-slutpunkt kan migrera du en befintlig Kafka-pipeline till hanterade Azure Event Hubs-tjänsten utan att ändra det befintliga klustret eller att avbryta alla pågående dataflöde.
+
+## <a name="samples"></a>Exempel
+Se följande exempel på GitHub:
+
+- [Exempelkod för den här självstudiekursen på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Hubs Kafka av Azure Event-MirrorMaker som körs på en Azure Container Instance](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,33 +8,49 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/26/2019
 ms.author: anroth
-ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 715fa526c83608c9922315e3a0d89b67b31e0d16
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351617"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472735"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Använd förutsägelse-slutpunkten för att testa avbildningar programmässigt
+#  <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägande API
 
 När du tränar din modell kan du testa bilder programmatiskt genom att skicka dem till förutsägelse-API:et.
 
 > [!NOTE]
-> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel på användning av API:et finns i [Referens för förutsägelse-API](https://go.microsoft.com/fwlink/?linkid=865445).
+> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel på användning av API:et finns i [Referens för förutsägelse-API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+
+## <a name="publish-your-trained-iteration"></a>Publicera din tränade iteration
+
+Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__.
+
+För att skicka avbildningar förutsägelse-API: et, du måste först publicera din upprepningen för förutsägelse som kan göras genom att välja __publicera__ och ange ett namn för den publicerade upprepningen. Detta aktiverar din modell ska vara tillgänglig för förutsägelse-API: et för din anpassade Vision Azure-resurs. 
+
+![Fliken prestanda visas med en röd rektangel omger knappen Publicera.](./media/use-prediction-api/unpublished-iteration.png)
+
+När modellen har publicerats, visas en ”publicerad” etikett som visas bredvid din iteration i vänster sidofält samt namnet på den publicerade iterationen i beskrivningen i iteration.
+
+![Fliken prestanda visas med en röd rektangel omger den publicerade etiketten och namnet på den publicerade iterationen.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__. För att visa information om hur du använder förutsägelse-API, inklusive __förutsägelsenyckel__ väljer du __förutsägelse-URL__. För projekt som är kopplade till en Azure-resurs din __förutsägelse-key__ finns också i den [Azure-portalen](https://portal.azure.com) för associerade Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
+När din modell har publicerats kan du hämta information om hur du använder förutsägelse-API genom att välja __förutsägelse URL__. Då öppnas en dialogruta som liknar den nedan med information för att använda förutsägelse-API, inklusive den __förutsägelse URL__ och __förutsägelse-nyckeln__.
 
-* __URL__ för att använda en __bildfil__.
-* Värde för __Förutsägelsenyckel__.
+![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-knappen.](./media/use-prediction-api/published-iteration-prediction-url.png)
+
+![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-värdet för att använda en bildfil och förutsägelse-nyckel-värde.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Om du har flera iterationer kan du styra vilken som används genom att ange den som standard. Välj iteration från avsnittet __iterationer__ och välj sedan __ange som standard__ överst på sidan.
+> Din __förutsägelse-Key__ finns också i den [Azure-portalen](https://portal.azure.com) sidan för Custom Vision Azure-resurs som är kopplad till ditt projekt, under __nycklar__. 
 
-![Prestandafliken visas med en röd rektangel runt förutsägelse-URL:en.](./media/use-prediction-api/prediction-url.png)
+Kopiera följande information för användning i programmet från dialogrutan:
+
+* __URL: en förutsägelse__ för att använda en __bildfil__.
+* __Förutsägelse-Key__ värde.
 
 ## <a name="create-the-application"></a>Skapa programmet
 
@@ -46,8 +62,8 @@ Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och 
     > Ändra följande information:
     >
     > * Ange __namnområdet__ till namnet på ditt projekt.
-    > * Ange det värde för __förutsägelsenyckeln__ som du fick tidigare på raden som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Ange det värde för __URL__ som du fick tidigare på raden som börjar med `string url =`.
+    > * Ange den __förutsägelse-Key__ värde som du hämtade tidigare i den rad som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Ange den __förutsägelse URL__ värde som du hämtade tidigare i den rad som börjar med `string url =`.
 
     ```csharp
     using System;
@@ -56,37 +72,30 @@ Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och 
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
 
-    namespace CSPredictionSample
+    namespace CVSPredictionSample
     {
-        static class Program
+        public static class Program
         {
-            static void Main()
+            public static void Main()
             {
                 Console.Write("Enter image file path: ");
                 string imageFilePath = Console.ReadLine();
 
                 MakePredictionRequest(imageFilePath).Wait();
 
-                Console.WriteLine("\n\n\nHit ENTER to exit...");
+                Console.WriteLine("\n\nHit ENTER to exit...");
                 Console.ReadLine();
             }
 
-            static byte[] GetImageAsByteArray(string imageFilePath)
-            {
-                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-
-            static async Task MakePredictionRequest(string imageFilePath)
+            public static async Task MakePredictionRequest(string imageFilePath)
             {
                 var client = new HttpClient();
 
-                // Request headers - replace this example key with your valid subscription key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+                // Request headers - replace this example key with your valid Prediction-Key.
+                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
 
-                // Prediction URL - replace this example URL with your valid prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
+                // Prediction URL - replace this example URL with your valid Prediction URL.
+                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
 
                 HttpResponseMessage response;
 
@@ -100,23 +109,30 @@ Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och 
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 }
             }
+
+            private static byte[] GetImageAsByteArray(string imageFilePath)
+            {
+                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
         }
     }
     ```
 
 ## <a name="use-the-application"></a>Använd programmet
 
-När du kör programmet, ange sökvägen till en bildfil. Bilden skickas till API:et och resultaten returneras som ett JSON-dokument. Följande JSON är ett exempel på svaret
+När du kör programmet, anger du sökvägen till en bildfil i konsolen. Avbildningen skickas förutsägelse-API: et och resultatet returneras som JSON-dokument. Följande JSON är ett exempel på svaret.
 
 ```json
 {
-    "Id":"3f76364c-b8ae-4818-a2b2-2794cfbe377a",
-    "Project":"2277aca4-7aff-4742-8afb-3682e251c913",
-    "Iteration":"84105bfe-73b5-4fcc-addb-756c0de17df2",
-    "Created":"2018-05-03T14:15:22.5659829Z",
+    "Id":"7796df8e-acbc-45fc-90b4-1b0c81b73639",
+    "Project":"8622c779-471c-4b6e-842c-67a11deffd7b",
+    "Iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
+    "Created":"2019-03-20T16:47:31.322Z",
     "Predictions":[
-        {"TagId":"35ac2ad0-e3ef-4e60-b81f-052a1057a1ca","Tag":"dog","Probability":0.102716163},
-        {"TagId":"28e1a872-3776-434c-8cf0-b612dd1a953c","Tag":"cat","Probability":0.02037274}
+        {"TagId":"d9cb3fa5-1ff3-4e98-8d47-2ef42d7fb373","TagName":"cat", "Probability":1.0},
+        {"TagId":"9a8d63fb-b6ed-4462-bcff-77ff72084d99","TagName":"dog", "Probability":0.1087869}
     ]
 }
 ```
@@ -124,3 +140,13 @@ När du kör programmet, ange sökvägen till en bildfil. Bilden skickas till AP
 ## <a name="next-steps"></a>Nästa steg
 
 [Exportera modellen för mobilanvändning](export-your-model.md)
+
+[Kom igång med .NET SDK: er](csharp-tutorial.md)
+
+[Kom igång med Python SDK: er](python-tutorial.md)
+
+[Kom igång med Java SDK: er](java-tutorial.md)
+
+[Kom igång med Node SDK: er](node-tutorial.md)
+
+[Kom igång med Go-SDK: er](go-tutorial.md)

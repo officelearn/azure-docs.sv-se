@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: b45b59775abd2db7cea9d0fa9b0cc23f7ce31277
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848843"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497847"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Meddelandet sessioner: först in först ut (FIFO) 
 
 Microsoft Azure Service Bus-sessioner gör gemensamma och sorterad hantering obegränsade sekvenser av relaterade meddelanden. Använd sessioner för att använda en FIFO-säkerhet i Service Bus. Service Bus är inte förebyggande om vilken typ av relationen mellan meddelanden och även definierar inte en viss modell för att fastställa där en Meddelandeordningen börjar eller slutar.
 
 > [!NOTE]
-> Basic-nivån i Service Bus stöder inte sessioner. Standard- och premiumnivåerna har stöd för sessioner. Mer information finns i [priser för Service Bus](service-bus-pricing-billing.md).
+> Basic-nivån i Service Bus stöder inte sessioner. Standard- och premiumnivåerna har stöd för sessioner. Mer information finns i [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Alla avsändare kan skapa en session när skickar meddelanden till ett ämne eller en kö genom att ange den [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) egenskapen till vissa programdefinierade identifierare som är unik för sessionen. På nivån AMQP 1.0-protokollet det här värdet som mappar till den *grupp-id* egenskapen.
 

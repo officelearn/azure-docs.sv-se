@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316082"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472814"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -41,7 +41,7 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 
    Från och med versionen 2018-05-01-preview, Event Grid har stöd för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, Event Grid skickar en `validationUrl` -egenskapen i datamängden i händelsen prenumeration verifiering. För att slutföra handskakningen hitta URL: en i händelsedata och manuellt skickar en GET-begäran till den. Du kan använda antingen en REST-klient eller webbläsaren.
 
-   Den tillhandahållna URL: en är giltig i 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
+   Den tillhandahållna URL: en är giltig i fem minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
 
 ### <a name="validation-details"></a>Verifieringsinformation
 

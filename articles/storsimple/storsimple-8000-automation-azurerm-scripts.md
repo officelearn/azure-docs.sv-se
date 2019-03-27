@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997874"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443184"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använda Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
@@ -62,10 +62,10 @@ Det här avsnittet tar ett exempelskript och beskriver de olika stegen som kräv
 Innan du börjar måste du kontrollera att du har:
 
 *   Azure PowerShell installerad. Installera Azure PowerShell-moduler:
-    * I en Windows-miljö, följer du stegen i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0). Du kan installera Azure PowerShell på Windows Server-värd för din StorSimple om du använder en.
-    * I en Linux eller MacOS-miljö, följer du stegen i [installera och konfigurera Azure PowerShell på MacOS eller Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * I en Windows-miljö, följer du stegen i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Du kan installera Azure PowerShell på Windows Server-värd för din StorSimple om du använder en.
+    * I en Linux eller MacOS-miljö, följer du stegen i [installera och konfigurera Azure PowerShell på MacOS eller Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
 
-Mer information om hur du använder Azure PowerShell, går du till [Kom igång med hjälp av Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Mer information om hur du använder Azure PowerShell, går du till [Kom igång med hjälp av Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Köra Azure PowerShell-skript
 

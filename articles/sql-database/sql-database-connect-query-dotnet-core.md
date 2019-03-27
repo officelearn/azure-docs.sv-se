@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: 6cc5d6a778f16b857d0596780a737df3358ac8c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.date: 03/25/2019
+ms.openlocfilehash: 460f79eb0679dc7d71bc929e4e790b68bd0f6774
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867362"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447393"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot Azure SQL Database med hjälp av .NET Core (C#)
 
 I den här snabbstarten använder du [.NET Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en Azure SQL-databas. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för den här självstudien:
 
@@ -33,11 +33,11 @@ Du behöver följande för den här självstudien:
   |:--- |:--- |:---|
   | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md)-fil från [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -52,7 +52,7 @@ Du behöver följande för den här självstudien:
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 

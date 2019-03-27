@@ -1,0 +1,190 @@
+---
+title: Med hjälp av modulen Tjänster – Azure Maps | Microsoft Docs
+description: Lär dig hur du använder Azure Maps-services-modul.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 03/25/2019
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: cpendleton
+ms.openlocfilehash: 335e114fc6a4afa83a6b82509148cf258a9e8347
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58501158"
+---
+# <a name="using-the-azure-maps-services-module"></a>Med hjälp av modulen Azure Maps-tjänsterna
+
+Azure Maps Web SDK tillhandahåller en modul för tjänster som är ett hjälpbibliotek som gör det enkelt att använda Azure Maps REST-tjänster i webb- eller Node.js-program med hjälp av JavaScript- eller TypeScript.
+
+## <a name="using-the-services-module-in-a-web-page"></a>Med hjälp av modulen tjänster i en webbsida
+
+1. Skapa en ny HTML-fil.
+2. Läsa in i modulen Azure Maps-tjänsterna. Detta kan göras med hjälp av ett av två alternativ;
+
+    a. Använder den globalt värdbaserade CDN-versionen av modulen för Azure Maps-tjänster genom att lägga till en skriptreferens till den <head> elementet i filen:
+    
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    ```
+    
+    b. Du kan också läsa in Azure mappar webbtjänst-SDK-källkoden lokalt med hjälp av den [azure maps rest](https://www.npmjs.com/package/azure-maps-rest) NPM paketera och lägga upp den med din app. Det här paketet innehåller också TypeScript definitioner.
+    
+    > npm install azure maps-vila
+    
+    Lägg sedan till ett skript som refererar till den `<head>` elementet i filen:
+    
+    ```html
+    <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+    ```
+
+3. Om du vill initiera en tjänstslutpunkt URL: en klient, måste du först skapa en pipeline för autentisering. Använda din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (AAD) för att autentisera klienten för search-tjänsten. Search service URL: en klient i det här exemplet kommer att skapas. Om du använder en prenumerationsnyckel för autentisering:
+
+    ```javascript
+    //Get an Azure Maps key at https://azure.com/maps
+    var subscriptionKey = '<Your Azure Maps Key>';
+    
+    //Use SubscriptionKeyCredential with a subscription key.
+    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(subscriptionKey);
+    
+    //Use subscriptionKeyCredential to create a pipeline.
+    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
+      retryOptions: { maxTries: 4 } // Retry options
+    });
+    
+    //Create an instance of the SearchURL client.
+    var searchURL = new atlas.service.SearchURL(pipeline);
+    ```
+    
+    Om du använder Azure Active Directory (AAD) för autentisering:
+
+    ```javascript
+    // Enter your Azure Actiuve Directory client ID.
+    var clientId = "<Your Azure Active Directory Client Id>";
+    
+    // Use TokenCredential with OAuth token (AAD or Anonymous).
+    var aadToken = await getAadToken();
+    var tokenCredential = new atlas.service.TokenCredential(clientId, aadToken);
+    
+    // Create a repeating timeout that will renew the AAD token.
+    // This timeout must be cleared once the TokenCredential object is no longer needed.
+    // If the timeout is not cleared the memory used by the TokenCredential will never be reclaimed.
+    var renewToken = async () => {
+        try {
+            console.log("Renewing token");
+            var token = await getAadToken();
+            tokenCredential.token = token;
+            tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
+        } catch (error) {
+            console.log("Caught error when renewing token");
+            clearTimeout(tokenRenewalTimer);
+            throw error;
+        }
+    }
+    tokenRenewalTimer = setTimeout(renewToken, getExpiration(aadToken));
+    
+    // Use tokenCredential to create a pipeline
+    var pipeline = atlas.service.MapsURL.newPipeline(tokenCredential, {
+        retryOptions: { maxTries: 4 } // Retry options
+    });
+    
+    //Create an instance of the SearchURL client.
+    var searchURL = new atlas.service.SearchURL(pipeline);
+
+    function getAadToken() {
+        //Use the logged in auth context to get a token.
+        return new Promise((resolve, reject) => {
+            //The resource should always be https://atlas.microsoft.com/.
+            const resource = "https://atlas.microsoft.com/";
+            authContext.acquireToken(resource, (error, token) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(token);
+                }
+            });
+        })
+    }
+
+    function getExpiration(jwtToken) {
+        //Decode the JWT token to get the expiration timestamp.
+        const json = atob(jwtToken.split(".")[1]);
+        const decode = JSON.parse(json);
+
+        //Return the milliseconds until the token needs renewed.
+        //Reduce the time until renew by 5 minutes to avoid using an expired token.
+        //The exp property is the timestamp of the expiration in seconds.
+        const renewSkew = 300000;
+        return (1000 * decode.exp) - Date.now() - renewSkew;
+    }
+    ```
+
+    Mer information finns i [autentisering med Azure Maps](azure-maps-authentication.md).
+
+4. Följande kod använder nyligen skapade search service URL: en klient att geokoda en adress, ”1 Microsoft sätt, Redmond, WA” med hjälp av den `searchAddress` fungerar och visa resultatet som en tabell i brödtexten i sidan. 
+
+    ```javascript
+    //Search for "1 microsoft way, redmond, wa".
+    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa').then(response => {
+      var html = [];
+      
+      //Display the total results.
+      html.push('Total results: ', response.summary.numResults, '<br/><br/>');
+     
+      //Create a table of the results.
+      html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
+      
+      for(var i=0;i<response.results.length;i++){
+        html.push('<tr><td>', (i+1), '.</td><td>', 
+                  response.results[i].address.freeformAddress, 
+                  '</td><td>', 
+                  response.results[i].position.lat,
+                  '</td><td>', 
+                  response.results[i].position.lon,
+                  '</td></tr>');
+      }
+      
+      html.push('</table>');
+      
+      //Add the result HTML to the body of the page.
+      document.body.innerHTML = html.join('');
+    });
+    ```
+
+    Här är helt körs kodexempel:
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Med hjälp av Services-modul" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen Services</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om de klasser och metoder som används i den här artikeln:
+
+> [!div class="nextstepaction"]
+> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-iot-typescript-latest)
+
+Se följande artiklar om fler kodexempel som använder services-modul:
+
+> [!div class="nextstepaction"]
+> [Visa sökresultat på kartan](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
+
+> [!div class="nextstepaction"]
+> [Visa riktningar från A till B](./map-route.md)

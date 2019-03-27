@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774446"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487325"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med hjälp av filtrering, kan du kontrollera vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de Konfigurera skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, dra nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som skulle uppstå med en lokal implementering av Exchange- eller Lync.
@@ -99,6 +99,12 @@ Domänbaserade filtreringen konfigurationen består av följande:
 3. [Tillämpa och verifiera ändringar av](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Markera domänerna som ska synkroniseras
+Det finns två sätt att välja domänerna som ska synkroniseras:
+    - Med synkroniseringstjänsten
+    - Med hjälp av Azure AD Connect-guiden.
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Markera domänerna som ska synkroniseras med synkroniseringstjänsten
 Om du vill ange filter för domänen, gör du följande:
 
 1. Logga in på den server som kör Azure AD Connect-synkronisering genom att använda ett konto som är medlem i den **ADSyncAdmins** säkerhetsgrupp.
@@ -112,6 +118,17 @@ Om du vill ange filter för domänen, gör du följande:
    ![Uppdatering behövs](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. När du är klar stänger du den **egenskaper** dialogrutan genom att klicka på **OK**. Om du har tagit bort domäner från skogen ett popup-meddelande som anger att en domän har tagits bort och den konfigurationen rensas.
 7. Fortsätt att justera körningsprofilerna.
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Markera domänerna som ska synkroniseras med hjälp av Azure AD Connect-guiden
+Om du vill ange filter för domänen, gör du följande:
+
+1.  Starta Azure AD Connect-guiden
+2.  Klicka på **Konfigurera**.
+3.  Välj **anpassa synkroniseringsalternativ** och klicka på **nästa**.
+4.  Ange dina autentiseringsuppgifter för Azure AD
+5.  På den **anslutna kataloger** skärmen klickar du på **nästa**.
+6.  På den **domän och Organisationsenhet filtrera sidan** klickar du på **uppdatera**.  Nya domäner som är negativa nu och borttagna domäner kommer att försvinna.
+   ![Partitioner](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Uppdatera körningsprofilerna
 Om du har uppdaterat din domän-filter, måste du även uppdatera körningsprofilerna.

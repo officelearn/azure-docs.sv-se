@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: a79565661ae11e70364d64503b3b11bdeabeabdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899765"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496929"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
 I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett Service Bus-namnområde av typen **Messaging** med en **Standard** SKU. Artikeln definierar också de parametrar som har angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Läs den fullständiga mallen, den [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
@@ -44,7 +44,7 @@ Gå igenom följande avsnitt i den här artikeln för att skapa och distribuera 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 Om du vill använda **Azure CLI** att distribuera Resource Manager-mallen [installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -205,6 +205,6 @@ I den här artikeln har skapat du ett Service Bus-namnområde. Se de andra snabb
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: service-bus-pricing-billing.md
+[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

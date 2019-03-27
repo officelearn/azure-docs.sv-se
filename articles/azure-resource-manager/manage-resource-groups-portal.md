@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090941"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484703"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure-portalen
 
@@ -122,7 +122,7 @@ Det finns två sätt att exportera en mall:
 
 Den här metoden exporterar mallar för vissa distributioner. Om du har ändrat resurserna från portalen eller resurs som har lagts till eller tas bort i flera distributioner kan du läsa [Exportera mallar från resursgrupper](#export-templates-from-resource-groups).
 
-1. Öppna resursgruppen som du vill ta bort.  Se [öppna resursgrupper](#open-resource-groups).
+1. Öppna resursgruppen som du vill exportera.  Se [öppna resursgrupper](#open-resource-groups).
 2. I den vänstra rutan väljer **distributioner**, eller klicka på länken under **distributioner**.  På följande skärmbild visas **4 lyckades** eftersom det fanns fyra avgränsas distributioner med fyra olika distributionsnamn. Du kan se **1 lyckades**.
 
     ![Azure resource group export-mallar](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Den här metoden exporterar mallar för vissa distributioner. Om du har ändrat 
 
 Om du har ändrat dina resurser från portalen eller lagts till/ta bort resurser i flera distributioner, motsvarar hämta en mall från distributionshistoriken inte det aktuella tillståndet för resursgruppen. I det här avsnittet visas hur du exporterar en mall som representerar resursgruppens aktuella tillstånd. Den är avsedd som en ögonblicksbild av resursgruppen som du kan använda för att distribuera om till samma resursgrupp. Om du vill använda den exporterade mallen andra lösningar, måste du avsevärt ändra den.
 
-1. Öppna resursgruppen som du vill ta bort.  Se [öppna resursgrupper](#open-resource-groups).
-2. I den vänstra rutan väljer **automationsskript**. Resource Manager hämtar följande sex filer åt dig:
+1. Öppna resursgruppen som du vill exportera.  Se [öppna resursgrupper](#open-resource-groups).
+2. I den vänstra rutan väljer **exportmallen**. Resource Manager hämtar följande sex filer åt dig:
 
    - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
    - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.

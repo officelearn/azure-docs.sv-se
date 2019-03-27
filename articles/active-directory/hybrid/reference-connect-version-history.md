@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836988"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499921"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -40,6 +40,56 @@ Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 
 >[!NOTE]
 >Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>Versionsstatus 
+
+3/25/2019: Ännu inte släppts 
+ 
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
+
+
+
+- Lägg till stöd för att uppdatera domän 
+- Med funktionen gemensamma mappar för Exchange-e-post blir allmänt tillgänglig 
+- Förbättra guiden felhantering för inträffar 
+- Har lagts till varning länk för gamla Användargränssnittet på egenskapssidan för anslutningen. 
+- Enhetliga grupper tillbakaskrivning av funktionen är nu allmänt tillgänglig 
+- Förbättrad SSPR-felmeddelandet när domänkontrollanten saknar en LDAP-kontroll 
+- Har lagts till diagnostik för DCOM registret fel under installera  
+- Förbättrad spårning av PHS RPC-fel 
+- Tillåt EA inloggningsuppgifter från en underordnad domän 
+- Tillåt databasnamn anges under installationen (standardnamnet ADSync)
+- Uppgradera till ADAL 3.19.8 att hämta en korrigering för WS-Trust ping och lägga till stöd för nya Azure-instanser 
+- Ändra grupp Synkroniseringsregler flöda samAccountName DomainNetbios och DomainFQDN till molnet – som behövs för anspråk 
+- Ändra standard synkronisering regeln hantering – Läs mer [här](how-to-connect-fix-default-rules.md).
+- Lägga till en ny agent som körs som en windows-tjänst. Den här agenten med namnet ”Admin Agent” gör det möjligt för djupare fjärrdiagnostik av Azure AD Connect-servern för att Microsoft Engineers Felsöka när du öppnar ett supportärende. Läs mer om administratören agenten [här](whatis-aadc-admin-agent.md). 
+- Uppdatera licensavtalet (EULA) 
+- Lagt till automatisk uppgradering stöd för distributioner som använder AD FS som deras inloggningstypen.  Detta också bort kravet för att uppdatera AD FS Azure AD förlitande Partsförtroenden som en del av uppgraderingsprocessen. 
+- Lagt till en hanteringsaktivitet för Azure AD-förtroende som ger två alternativ: analysera/uppdatera förtroende och återställa förtroendet. 
+- Ändra beteendet för AD FS Azure AD förlitande part förtroende så att den alltid använder växeln - SupportMultipleDomain (omfattar förtroende och Azure AD-domän uppdateringar). 
+- Ändra installera nya AD FS-servergruppen beteende så att det krävs en .pfx-certifikat genom att ta bort alternativet att använda ett tidigare installerade certifikat.
+- Uppdatera installera nya AD FS-servergrupp arbetsflödet så att du bara kan distribuera 1 AD FS och 1 WAP-servern.  Alla ytterligare servrar görs efter den första installationen. 
+
+### <a name="fixed-issues"></a>Åtgärdade problem 
+
+
+- Åtgärda SQL återansluta logik för ADSync-tjänsten 
+- Åtgärda så att ren installation med en tom SQL-databas för AOA 
+- Åtgärda behörigheter PS-skript för att förfina GWB behörigheter 
+- Åtgärda VSS-fel med LocalDB  
+- Åtgärda vilseledande felmeddelande när objekttypen inte är i omfånget 
+- Korrigera ett problem där installation av Azure AD PowerShell på en server kan medföra en sammansättning konflikt med Azure AD Connect. 
+- PHS bugg har åtgärdats på mellanlagringsserver när anslutningen autentiseringsuppgifter har uppdaterats i Användargränssnittet för gamla. 
+- Fast vissa minnesläckor 
+- Diverse Autoupgrade korrigeringar 
+- Diverse korrigeringar för Export och obekräftat Import-bearbetning 
+- Ett fel har åtgärdats med hantering av ett omvänt snedstreck i domän och OU-filtrering 
+- Ett problem där ADSync-tjänsten tar mer än 2 minuter att stoppa och orsakar ett problem vid tiden för uppgraderingen har åtgärdats. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

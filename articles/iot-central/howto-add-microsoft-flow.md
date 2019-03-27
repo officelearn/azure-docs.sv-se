@@ -1,25 +1,32 @@
 ---
 title: Skapa arbetsflöden med Azure IoT Central connector i Microsoft Flow | Microsoft Docs
-description: Använd IoT Central-anslutningen i Microsoft Flow att utlösa arbetsflöden direkt och skapa, uppdatera och ta bort enheter i arbetsflöden.
+description: Använd IoT Central-anslutningen i Microsoft Flow att utlösa arbetsflöden direkt och skapa, hämta, uppdatera, ta bort enheter och köra kommandon i arbetsflöden.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+manager: hegate
+ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770257"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497745"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
 *Det här avsnittet gäller builders och administratörer.*
 
-Använd Microsoft Flow för att automatisera arbetsflöden i många program och tjänster som företagsanvändare förlitar sig på. Använder IoT Central-connector i Microsoft Flow kan utlösa du arbetsflöden när en regel utlöses i IoT Central. I ett arbetsflöde som utlöses av IoT Central eller något annat program, kan du använda åtgärderna i IoT Central-anslutningsappen skapar en enhet, uppdatera enhetens egenskaper och inställningar eller ta bort en enhet. Kolla in [mallarna Microsoft Flow](https://aka.ms/iotcentralflowtemplates) som ansluta IoT Central till andra tjänster, till exempel mobila meddelanden och Microsoft Teams.
+Använd Microsoft Flow för att automatisera arbetsflöden i många program och tjänster som företagsanvändare förlitar sig på. Använder IoT Central-connector i Microsoft Flow kan utlösa du arbetsflöden när en regel utlöses i IoT Central. Du kan använda åtgärderna i IoT Central connector i ett arbetsflöde som utlöses av IoT Central eller något annat program:
+- Skapa en enhet
+- Hämta enhetsinformation
+- Uppdatera enhetens egenskaper och inställningar
+- Köra ett kommando på en enhet
+- Ta bort en enhet
+
+Kolla in [mallarna Microsoft Flow](https://aka.ms/iotcentralflowtemplates) som ansluta IoT Central till andra tjänster, till exempel mobila meddelanden och Microsoft Teams.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,19 +35,19 @@ Använd Microsoft Flow för att automatisera arbetsflöden i många program och 
 
 ## <a name="trigger-a-workflow"></a>Utlös ett arbetsflöde
 
-Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen när en regel utlösare i IoT Central.
+Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen när en regel utlösare i IoT Central. Du kan skapa den här hela arbetsflödet i din IoT Central-app med hjälp av inbäddad Microsoft Flow-designern.
 
-1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor, Välj den **Microsoft Flow-åtgärden** som en ny åtgärd. En ny flik eller fönster ska öppnas i din webbläsare tar dig till Microsoft Flow.
+1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor, Välj den **Microsoft Flow-åtgärden** som en ny åtgärd. En dialogruta öppnas för dig att konfigurera ditt arbetsflöde. IoT Central-användarkonto som du är inloggad på används för att logga in på Microsoft Flow.
 
     ![Skapa en ny Microsoft Flow-åtgärd](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Logga in på Microsoft Flow. Detta behöver inte vara samma konto som det som du använder i IoT Central. Kommer du att hamna på en översiktssida som visar en IoT Central-koppling som ansluter till en anpassad åtgärd.
+1. Du ser en lista över arbetsflöden tha du har åtkomst till och är kopplade till regeln IoT Central. Klicka på **utforska mallar** eller **New > Skapa från mall** och du kan välja från någon av de tillgängliga mallarna. 
 
-1. Logga in på den IoT Central-anslutningen och välj **Fortsätt**. Du kommer till Microsoft Flow-designern att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
+    ![Mall för Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. Välj **+ nytt steg** och **Lägg till en åtgärd**. Nu kan du lägga till alla åtgärder som du vill ditt arbetsflöde. Exempelvis kan vi skicka ett SMS. Sök efter **meddelande**, och välj **meddelanden – skicka ett SMS**.
+1. Du uppmanas att logga in på anslutningar i den valda mallen. När anslutningarna har loggat in, hamnar i designer för att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
 
-1. I åtgärden, fyller du i textfältet med vad du vill att dina meddelanden att säga. Du kan inkludera *dynamiskt innehåll* från regeln IoT Central, skicka längs viktig information, till exempel enhetens namn och tidsstämpel till ditt meddelande.
+1. Du kan anpassa arbetsflödet genom att anpassa den information som skickas till åtgärden och lägga till nya åtgärder. Det här exemplet åtgärden är **meddelanden – skicka ett SMS**. Du kan inkludera *dynamiskt innehåll* från regeln IoT Central, skicka längs viktig information, till exempel enhetens namn och tidsstämpel till ditt meddelande.
 
     > [!NOTE]
     > Välj den **mer** text i fönstret för dynamiskt innehåll för att hämta mått och egenskapen värden som utlöste regeln.
@@ -52,9 +59,9 @@ Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen n
     > [!NOTE]
     > Om du vill att andra användare i din IoT Central-app för att redigera den här regeln, måste du dela den med dem i Microsoft Flow. Lägga till sina Microsoft Flow-konton som ägare i arbetsflödet.
 
-1. Om du går tillbaka till din IoT Central-app, visas den här regeln har en Microsoft Flow-åtgärd i området åtgärder.
+1. Om du går tillbaka till din IoT Central-app, visas den här regeln har en Microsoft Flow-åtgärd i området för åtgärder.
 
-Du kan alltid börja skapa ett arbetsflöde med IoT Central-kopplingen i Microsoft Flow. Du kan sedan välja vilken IoT Central-app och vilken regel för att ansluta till.
+Du kan också skapa arbetsflöden med IoT Central-kopplingen direkt från Microsoft Flow. Du kan sedan välja vilken IoT Central-app för att ansluta till.
 
 ## <a name="create-a-device-in-a-workflow"></a>Skapa en enhet i ett arbetsflöde
 
@@ -107,6 +114,18 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
 1. Slutligen kan spara ditt arbetsflöde.
 
 1. Testa ditt arbetsflöde i Microsoft Flow-mobilappen. Gå till den **knappar** fliken i appen. Du bör se din knapp -> Uppdatera ett arbetsflöde för enheten. Ange indata, och se enheten uppdateras i IoT Central!
+
+## <a name="get-device-information-in-a-workflow"></a>Hämta enhetsinformation i ett arbetsflöde
+
+Du kan få enhetsinformation med dess enhet ID den **Azure IoT Central - hämta en enhet** åtgärd. Du kan få information som enhetsnamn, enhetsnamn för mallen, egenskapsvärden och värden ska skickas till senare åtgärder i arbetsflödet. Här är ett exempel på ett arbetsflöde som skickar med kundnamn egenskapens värde från en enhet till Microsoft Teams.
+
+   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## <a name="run-a-command-on-a-device-in-a-workflow"></a>Köra ett kommando på en enhet i ett arbetsflöde
+Du kan köra ett kommando på en enhet som anges av dess enheter ID med hjälp av den **Azure IoT Central - köra ett kommando** åtgärd. Du kan välja kommandot för att köra och skicka parametrar för kommandot via den här åtgärden. Här är ett exempel på ett arbetsflöde som kör ett kommando för omstart av enheten från en knapp i Microsoft Flow-mobilappen.
+
+   ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Ta bort en enhet i ett arbetsflöde
 

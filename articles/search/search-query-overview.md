@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438809"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500176"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -76,7 +76,7 @@ Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökba
 Skärmbilden ovan är en lista över indexattribut för fastigheter. Du kan visa hela indexschemat i portalen. Läs mer om indexattribut [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Vissa frågefunktioner aktiveras index hela snarare än på basis av per fält. Funktionerna omfattar: [synonymen mappar](search-synonyms.md), [anpassade analysverktyg](index-add-custom-analyzers.md), [förslagsställare konstruktioner (för automatisk komplettering och automatiska förslag)](index-add-suggesters.md), [bedömning logik för rangordning av resultat](index-add-scoring-profiles.md).
+> Vissa frågefunktioner aktiveras index hela snarare än på basis av per fält. Funktionerna omfattar: [synonymen mappar](search-synonyms.md), [anpassade analysverktyg](index-add-custom-analyzers.md), [förslagsställare konstruktioner (för automatisk komplettering och föreslagna frågor)](index-add-suggesters.md), [bedömning logik för att rangordna resultat](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Element i en fråga
 

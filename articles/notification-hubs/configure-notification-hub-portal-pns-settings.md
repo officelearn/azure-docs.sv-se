@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113341"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480131"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Konfigurera push-meddelanden i en notification hub i Azure portal
 
@@ -29,7 +29,7 @@ Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer informati
 
 Så här ställer upp Apple Push Notification Service (APNS):
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Apple (APNS)**.
+1. I Azure-portalen på den **Meddelandehubb** väljer **Apple (APNS)** menyn till vänster.
 
 1. För **autentiseringsläge**, väljer du antingen **certifikat** eller **Token**.
 
@@ -42,7 +42,7 @@ Så här ställer upp Apple Push Notification Service (APNS):
 
    b. Om du väljer **Token**:
 
-   * Ange värden för **nyckel-Id**, **paket-Id**, **lag-Id**, och **Token**.
+   * Ange värden för **nyckel-ID**, **paket-ID**, **lag-ID**, och **Token**.
    * Välj **Sandbox**-läge. Eller om du vill skicka push-meddelanden till användare som har köpt din app från butiken, Välj **produktion** läge.
 
      ![Skärmbild av en APN token konfiguration i Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
@@ -53,7 +53,7 @@ Mer information finns i [Push-meddelanden till iOS med Azure Notification Hubs](
 
 Konfigurera push-meddelanden för Google Firebase Cloud Messaging (FCM):
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Google (GCM/FCM)**. 
+1. I Azure-portalen på den **Meddelandehubb** väljer **Google (GCM/FCM)** menyn till vänster. 
 2. Klistra in den **API-nyckel** för FCM-projektet som du sparade tidigare. 
 3. Välj **Spara**. 
 
@@ -67,7 +67,7 @@ Mer information finns i [Push-meddelanden till Android-enheter med hjälp av Med
 
 Så här ställer in Windows Push Notification Service (WNS):
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Windows (WNS)**.
+1. I Azure-portalen på den **Meddelandehubb** väljer **Windows (WNS)** menyn till vänster.
 2. Ange värden för **Package SID** (Paket-SID) och **Security Key** (Säkerhetsnyckel).
 3. Välj **Spara**.
 
@@ -79,7 +79,7 @@ Mer information finns i [skicka meddelanden till UWP-appar med Azure Notificatio
 
 Så här upp Microsoft Push Notification Service (MPNS) för Windows Phone: 
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Windows Phone (MPNS)**.
+1. I Azure-portalen på den **Meddelandehubb** väljer **Windows Phone (MPNS)** menyn till vänster.
 1. Aktivera oautentiserad eller autentiserade push-meddelanden:
 
    a. Om du vill aktivera ej autentiserade push-meddelanden, Välj **aktivera ej autentiserade push** > **spara**.
@@ -99,7 +99,7 @@ Mer information finns i [Push-meddelanden till Windows Phone-appar med hjälp av
 
 Konfigurera push-meddelanden för Amazon Device Messaging (ADM):
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Amazon (ADM)**.
+1. I Azure-portalen på den **Meddelandehubb** väljer **Amazon (ADM)** menyn till vänster.
 2. Ange värden för **klient-ID** och **Klienthemlighet**.
 3. Välj **Spara**.
     
@@ -111,7 +111,7 @@ Mer information finns i [Kom igång med Notification Hubs för Kindle-appar](not
 
 Konfigurera push-meddelanden för Baidu:
 
-1. I Azure-portalen i den **Meddelandehubb**väljer **Baidu (Android China)**. 
+1. I Azure-portalen på den **Meddelandehubb** väljer **Baidu (Android China)** menyn till vänster. 
 2. Ange den **Api-nyckel** som du fick från Baidu-konsolen i Baidu cloud push-projekt. 
 3. Ange den **hemlig nyckel** som du fick från Baidu-konsolen i Baidu cloud push-projekt. 
 4. Välj **Spara**. 

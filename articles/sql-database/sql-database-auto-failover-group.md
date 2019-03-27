@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861085"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483394"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -326,13 +326,13 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 1. Uppdatera modulen PowerShellGet till 1.6.5 (eller senaste förhandsversionen). Se [plats för PowerShell-förhandsversion](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```PowerShell
+   ```powershell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Kör följande kommandon i ett nytt PowerShell-fönster:
 
-   ```PowerShell
+   ```powershell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 86cb6f6a18cb799574ae9badc0f02144b3a6e1d7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116902"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445124"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
 
@@ -332,5 +332,4 @@ Oozie webbgränssnittet ger en webbaserad översikt över statusen för Oozie-jo
 
 ## <a name="next-steps"></a>Nästa steg
 * [Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-* [Använda tidsbaserad Apache Oozie-koordinator](../hdinsight-use-oozie-coordinator-time.md).
 * [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

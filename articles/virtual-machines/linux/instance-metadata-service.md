@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351974"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445494"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -111,6 +111,9 @@ Ange det begärda formatet som en frågesträngsparameter i begäran för att ko
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> För lövnoder den `format=json` fungerar inte. För de här frågorna `format=text` måste anges uttryckligen om standardformatet är json.
+
 ### <a name="security"></a>Säkerhet
 
 Instance Metadata Service-slutpunkten är enbart tillgänglig från den VM-instansen som som körs på en icke-dirigerbara IP-adress. Dessutom kan ett begärande med ett `X-Forwarded-For` rubrik avvisas av tjänsten.
@@ -123,8 +126,8 @@ Om det finns ett dataelement hittades inte eller en felaktig begäran, returnera
 HTTP-statuskod | Orsak
 ----------------|-------
 200 OK |
-400 Felaktig förfrågan | Saknas `Metadata: true` rubrik
-404 Hittades inte | Det begärda elementet finns inte 
+400 Felaktig förfrågan | Saknas `Metadata: true` rubrik eller saknar formatet när du frågar efter en lövnod
+404 Hittades inte | Det begärda elementet finns inte
 405 Metoden tillåts inte | Endast `GET` och `POST` stöds
 429 för många begäranden | API: et stöder för närvarande upp till 5 frågor per sekund
 500 tjänstfel     | Försök igen om en stund

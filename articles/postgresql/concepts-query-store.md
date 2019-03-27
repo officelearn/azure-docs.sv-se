@@ -5,21 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/26/2019
+ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005904"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485925"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
 **Gäller för:** Azure Database för PostgreSQL 9.6 och 10
-
-> [!IMPORTANT]
-> Funktionen för Query Store är i offentlig förhandsversion.
-
 
 Query Store-funktionen i Azure Database for PostgreSQL ger ett sätt att spåra prestanda för frågor över tid. Query Store förenklar prestandafelsökning genom att hjälpa dig snabbt hitta körs längst och mest resurskrävande frågor. Query Store avbildas automatiskt en historik över frågor och körningsstatistik och den lagrar dem för granskning. När du delar den upp data efter tidsfönster så att du kan se databasanvändningsmönster. Data för alla användare, databaser och frågor lagras i en databas med namnet **azure_sys** i Azure Database for PostgreSQL-instans.
 

@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301765"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497932"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -203,6 +203,12 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  I stället Använd följande Transact-SQL-instruktion:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - När du kör uttryck `CREATE USER` med alternativ `FOR/FROM LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.

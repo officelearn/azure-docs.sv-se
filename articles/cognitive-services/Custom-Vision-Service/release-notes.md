@@ -9,14 +9,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 1850959946531abbaf531484696951dee59dadbb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351770"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472964"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service viktig information
+
+## <a name="march-26-2019"></a>26 mars 2019
+- Custom Vision Service har in allmänt tillgängliga på Azure! 
+- Har lagts till avancerade utbildning-funktion med en ny machine learning-serverdelen för bättre prestanda, särskilt på utmanande datauppsättningar och detaljerad klassificering. Du kan ange en beräkning tid budget för utbildning och Custom Vision experimentellt identifierar den bästa inställningen för tokenomvandling och utbildning med avancerade utbildning. Du kan fortsätta att använda befintliga snabb utbildning för snabba iterationer. 
+- Introducerade 3.0 API: er. Meddelade kommande utfasningen av äldre än 3.0 API: er på den 1 oktober 2019. Finns i dokumentationen Snabbstarter för [.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial), [nod](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), eller [Gå](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) exempel information om hur du kommer igång. 
+- Ersatt ”standard iterationer” med publicera/avpublicera i 3.0 API: er. 
+- Nya modellen export mål har lagts till. Dockerfile export har uppgraderats för att stödja ARM för Raspberry Pi 3. Stöd för export har lagts till i [Vision AI Dev Kit.](https://visionaidevkit.com/) 
+- Ökade gränsen på taggar per projekt till 500 för S0-nivån. Ökade gränsen på bilder per projekt till 100 000 för S0-nivån.
+- Ta bort vuxet domän. Allmänna domänen är reccomended i stället.
+- Meddelade [priser](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) för allmän tillgänglighet.  
+
+
+## <a name="february-25-2019"></a>Den 25 februari 2019
+- Meddelade slutet av begränsad utvärderingsversion projekt (projekt som inte är associerade med en Azure-resurs), när Custom Vision närmar sig slutförandet av flytten till Azure offentlig förhandsversion. Från och den 25 mars 2019 stöder CustomVision.ai plats bara visning av projekt som är associerade med en Azure-resurs, till exempel den kostnadsfria Custom Vision-resursen. Via den 1 oktober 2019 kommer du fortfarande att kunna komma åt dina befintliga begränsad utvärderingsversion projekt Custom Vision-API: er. Detta ger du har tid att uppdatera API-nycklar för alla appar som du har skrivit med Custom Vision. Efter den 1 oktober 2019 tas begränsad utvärderingsversion projekt som du inte har flyttats till Azure bort.
 
 ## <a name="january-22-2019"></a>Den 22 januari 2019
 - Stöd för nya Azure-regioner: Västra USA 2, östra USA, östra USA 2, Västeuropa, Nordeuropa, Sydostasien, östra, centrala Indien, Storbritannien, södra, Japan, östra och norra centrala USA. Support fortsätter för södra centrala USA. 

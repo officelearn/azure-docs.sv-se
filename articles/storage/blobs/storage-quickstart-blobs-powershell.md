@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: rogarana
-ms.openlocfilehash: c3a85a668a398047e7daef8a2e07be261ff644c5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 464f3db86c2b6dc4cfe51c74b224a8da4d512103
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485602"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure PowerShell
 
 Använd Azure PowerShell-modulen för att skapa och hantera Azure-resurser. Du kan skapa och hantera Azure-resurser via PowerShell-kommandoraden eller i skript. I den här guiden beskrivs hur du använder PowerShell för att överföra filer mellan en lokal disk och Azure Blob Storage.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -98,7 +98,7 @@ Verktyget [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblob
 
 Som ett enkelt exempel ser du här AzCopy-kommandot för att ladda upp en fil med namnet *myfile.txt* till containern *mystoragecontainer* inifrån ett PowerShell-fönster.
 
-```PowerShell
+```powershell
 ./AzCopy `
     /Source:C:\myfolder `
     /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `

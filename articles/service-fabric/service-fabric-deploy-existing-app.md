@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853162"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480555"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När paketering en befintlig körbar fil som en [gästfil](service-fabric-guest-executables-introduction.md), kan du välja att använda en projektmall för Visual Studio eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application package struktur och manifestfiler med den nya projektmallen för åt dig.
@@ -254,7 +254,7 @@ Loggfilerna sparas i en av tjänstens fungerande kataloger. Om du vill faststäl
 ## <a name="deployment"></a>Distribution
 Det sista steget är att [distribuera ditt program](service-fabric-deploy-remove-applications.md). Följande PowerShell-skript visar hur du distribuerar ditt program till det lokala utvecklingsklustret och starta en ny Service Fabric-tjänst.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

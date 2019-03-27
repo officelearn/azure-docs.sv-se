@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111624"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487625"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -335,12 +335,12 @@ Observera följande punkter:
   
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern. 
 
-    ```PowerShell    
+    ```powershell    
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad. 
     
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.

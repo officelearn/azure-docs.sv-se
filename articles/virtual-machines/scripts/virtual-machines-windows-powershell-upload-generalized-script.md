@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7245fd60af91833dab26772e2aac08f675b14e6c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 95826cb3928f9a3220505040ef3162fe5016d08b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447624"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator
 
@@ -149,7 +149,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | Anger en avbildning för en virtuell dator.                                                                                                                                            |
 | [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
 | [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
-| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?view=azurermps-6.8.1)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
+| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | Skapa en virtuell dator.                                                                                                                                                            |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | Tar bort en resursgrupp och alla resurser som ingår i gruppen.                                                                                                                         |
 

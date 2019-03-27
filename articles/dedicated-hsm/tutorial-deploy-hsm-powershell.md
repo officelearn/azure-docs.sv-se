@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122360"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449359"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -37,7 +37,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Antaganden:
 

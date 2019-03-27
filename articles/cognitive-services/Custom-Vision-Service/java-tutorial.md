@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 89683b0fe5d401a92dc8575fd1ddc81d74d594b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 01052e218d2c7017ca6f29126f7232aeee16705a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351158"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479554"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
@@ -44,7 +44,7 @@ Det här projektet i Java skapar ett nytt Custom Vision-projekt för bildklassif
 
 Programmet är konfigurerat för att lagra dina nyckeldata som miljövariabler. Ange dessa variabler genom att navigera till mappen **Vision/CustomVision** i PowerShell. Ange sedan kommandona:
 
-```PowerShell
+```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
@@ -69,13 +69,13 @@ Exempelbilderna finns i mappen **src/main/resources** i projektet. De är lästa
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=76-87)]
 
-Föregående kodfragment använder två hjälpfunktioner som hämtar bilderna som resursdataströmmar och överför dem till tjänsten.
+Föregående kodavsnitt använder två hjälpfunktioner som hämtar bilderna som resursdataströmmar och laddar upp dem till tjänsten.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-classifier"></a>Träna klassificeraren
+### <a name="train-the-classifier-and-publish"></a>Träna klassificeraren och publicera
 
-Den här koden skapar den första iterationen i projektet och markerar den som standardinteration. Standarditerationen speglar versionen av den modell som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar om modellen.
+Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
@@ -89,7 +89,7 @@ Förutsägelseslutpunkten, som representeras av objektet `predictor` här, är d
 
 För att kompilera och köra lösningen med hjälp av maven kör du följande kommando i projektkatalogen i PowerShell:
 
-```PowerShell
+```powershell
 mvn compile exec:java
 ```
 

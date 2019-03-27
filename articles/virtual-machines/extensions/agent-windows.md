@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977159"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483258"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure VM-agenten
 Microsoft Azure VM-agenten (VM-agenten) är en säker och enkel process som hanterar kommunikation mellan virtuella datorer (VM) med Azure-Infrastrukturkontrollanten. VM-agenten har en primär roll i att aktivera och köra Azure virtual machine-tillägg. VM-tillägg aktivera efter distribution konfiguration av virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg också aktivera funktioner, som att återställa lösenordet för administratörer av en virtuell dator. VM-tillägg kan inte köras utan Azure VM-agenten.
@@ -80,7 +80,7 @@ Get-AzVM
 
 Följande komprimerade exempel utdata visar den *ProvisionVMAgent* egenskapen inuti *OSProfile*. Den här egenskapen kan användas för att avgöra om VM-agenten har distribuerats till den virtuella datorn:
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -91,7 +91,7 @@ OSProfile                  :
 
 Följande skript kan användas för att returnera en kortfattad lista över namn på virtuella datorer och tillståndet för VM-agenten:
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/24/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400684"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499038"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Hantera beräkning på Azure Data Box-Edge
 
@@ -32,7 +32,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="manage-triggers"></a>Hantera utlösare
 
-Händelser är saker som händer i molnmiljön eller på en enhet som du kanske vill vidta åtgärder för. Det är till exempel en händelse när en fil skapas i en resurs. Utlösare är svar på dessa händelser. Utlösare kan utföra en funktion när händelsen utlöses. Utlösare för din Data Box-Edge kan vara som svar på filhändelser eller ett schema.
+Händelser är saker som händer i molnmiljön eller på en enhet som du kanske vill vidta åtgärder för. Det är till exempel en händelse när en fil skapas i en resurs. Utlösare utlösa händelser. Utlösare för din Data Box-Edge kan vara som svar på filhändelser eller ett schema.
 
 - **Filen**: Dessa utlösare är som svar på händelser för filen, till exempel skapar en fil, ändring av en fil.
 - **Schemalagd**: Dessa utlösare är reaktion på ett schema som du kan definiera med ett startdatum och starttid upprepningsintervallet.

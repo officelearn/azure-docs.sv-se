@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293914"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449425"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -45,9 +45,9 @@ När du utför en efterföljande skalbara, till exempel är öka antalet replike
 
 * Synkronisering tillåts även om det finns inga repliker i frågepoolen. Om du skala ut från noll till en eller flera repliker med nya data från en bearbetning åtgärd på den primära servern, synkronisera först med inga repliker i frågepoolen och sedan skala ut. Synkronisera innan du skalar ut undviker redundanta hydrering nytillagda repliker.
 
-* När du tar bort en modelldatabas från den primära servern, den inte automatiskt tas bort från repliker i frågepoolen. Du måste utföra en synkroniseringsåtgärd som tar bort filen/s för den här databasen från repliken delade blob-lagringsplats och tar sedan bort modelldatabasen på repliker i frågepoolen.
+* När du tar bort en modelldatabas från den primära servern, den inte automatiskt tas bort från repliker i frågepoolen. Du måste utföra en synkroniseringsåtgärd med hjälp av den [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-kommando som tar bort filen/s för den här databasen från repliken delade blob-lagringsplats och tar sedan bort modellen databasen på repliker i frågepoolen.
 
-* När du ändrar en databas på den primära servern, finns det ytterligare ett steg krävs för att se till att databasen är korrekt synkroniserad till alla repliker. När du byter namn på, utför du en synkronisering att ange den `-Database` parametern med det gamla databasnamnet. Synkroniseringen tar bort databasen och filer med det gamla namnet från alla repliker. Utför sedan en annan synkronisering ange den `-Database` parametern med det nya databasnamnet. Den andra synkroniseringen kopierar den nya databasen till den andra uppsättningen av filer och hydrates alla repliker. Dessa synkroniseringar kan inte utföras med hjälp av kommandot Synkronisera modellen i portalen.
+* När du ändrar en databas på den primära servern, finns det ytterligare ett steg krävs för att se till att databasen är korrekt synkroniserad till alla repliker. När du byter namn på, utför du en synkronisering med hjälp av den [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) kommando för att ange den `-Database` parametern med det gamla databasnamnet. Synkroniseringen tar bort databasen och filer med det gamla namnet från alla repliker. Utför sedan en annan synkronisering ange den `-Database` parametern med det nya databasnamnet. Den andra synkroniseringen kopierar den nya databasen till den andra uppsättningen av filer och hydrates alla repliker. Dessa synkroniseringar kan inte utföras med hjälp av kommandot Synkronisera modellen i portalen.
 
 ### <a name="separate-processing-from-query-pool"></a>Separata bearbetning från frågepool
 
@@ -103,6 +103,20 @@ Använd den **synkronisering** igen.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+Status för returkoder:
+
+
+|Kod  |Beskrivning  |
+|---------|---------|
+|-1     |  Ogiltig       |
+|0     | Replikerar        |
+|1     |  Återställning       |
+|2     |   Slutfört       |
+|3     |   Misslyckad      |
+|4     |    Slutför     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ Innan du använder PowerShell [installera eller uppdatera den senaste Azure Powe
 Kör synkronisering med [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 Ange antal frågerepliker och [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-ReadonlyReplicaCount` parametern.
+
+Om du vill separera bearbetningsservern från frågepoolen använder [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-DefaultConnectionMode` används till `Readonly`.
 
 ## <a name="connections"></a>Anslutningar
 

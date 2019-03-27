@@ -3,7 +3,7 @@ title: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dat
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08184b8b1cddbc456b70c74e57729e4d95fb261d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6b7e778e04901e830cdbc463d889621565c175a0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187992"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448165"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Cosmos DB 
 
@@ -37,7 +37,7 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > * Hämta en åtkomsttoken och använd den för att anropa Azure Resource Manager
 > * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

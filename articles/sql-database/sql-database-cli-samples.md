@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: e3a75acb6d591a9fdf1e632369cc2e9ae6b6099d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306943"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447842"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-exempel för Azure SQL Database
 
@@ -27,7 +27,7 @@ Azure SQL Database kan konfigureras med <a href="/cli/azure">Azure CLI</a>.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="single-database--elastic-pools"></a>Enkel databas och elastiska pooler
 

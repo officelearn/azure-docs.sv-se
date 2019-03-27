@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010994"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445662"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
@@ -41,9 +41,9 @@ Seriell konsol dokumentation för virtuella Windows-datorer finns i [seriekonsol
 
 - Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto:
 
-    - Den virtuella datorn som du försöker komma åt en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
+- Den virtuella datorn som du försöker komma åt en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
 
-    - Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
+- Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Anpassade Linux-avbildningar     | Aktivera seriekonsol för en anpassad Linux V
 
 Scenario          | Åtgärder i seriekonsolen
 :------------------|:-----------------------------------------
-Bruten *FSTAB* fil | Tryck på den **RETUR** att fortsätta och använda en textredigerare för att åtgärda den *FSTAB* fil. Du kan behöva vara i enanvändarläge gör. Mer information finns i [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
-Felaktig brandväggsregler | Få åtkomst till den seriella konsolen och åtgärda iptables.
-Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet.
-Problem med SSH/RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna.
-Nätverket låsa system| Komma åt seriekonsolen från Azure portal för att hantera systemet.
-Interagera med startprogrammet | Starta om den virtuella datorn från seriell konsol-bladet för att komma åt GRUB på Linux-VM. Mer information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
+Bruten *FSTAB* fil | Tryck på den **RETUR** att fortsätta och använda en textredigerare för att åtgärda den *FSTAB* fil. Du kan behöva vara i enanvändarläge gör. Mer information finns i avsnittet seriekonsolen i [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
+Felaktig brandväggsregler |  Om du har konfigurerat iptables för att blockera SSH-anslutningen kan använda du Seriell konsol för att interagera med den virtuella datorn utan att behöva SSH. Mer information finns på den [iptables man sidan](https://linux.die.net/man/8/iptables). Om du firewalld blockerar SSH-åtkomst, kan du åtkomst till den virtuella datorn via seriekonsolen och konfigurera om firewalld. Mer information finns i den [firewalld dokumentation](https://firewalld.org/documentation/).
+Filsystem skadade/kontroll | Se avsnittet seriekonsolen i [virtuell Linux-dator kan inte starta på grund av fel i filsystemet](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) för mer information om hur du felsöker skadat filsystem med hjälp av Seriell konsol.
+Problem med SSH-konfigurationen | Komma åt seriekonsolen och ändra inställningarna. Seriell konsol kan användas oavsett SSH-konfigurationen för en virtuell dator som inte kräver att den virtuella datorn har nätverksanslutning ska fungera. Felsökningsguide för finns på [Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller avvisas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Mer information finns på [detaljerad SSH felsökningssteg för problem med anslutning till en Linux-VM i Azure](./detailed-troubleshoot-ssh-connection.md)
+Interagera med startprogrammet | Starta om den virtuella datorn från seriell konsol-bladet för att komma åt GRUB på Linux-VM. Mer information och -distribution-specifik information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Inaktivera seriekonsolen
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.

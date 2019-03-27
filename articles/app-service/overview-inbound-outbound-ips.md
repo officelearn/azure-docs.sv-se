@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811017"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480812"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
@@ -45,11 +45,11 @@ Oavsett vilket antal utskalade instanser av har varje app ett visst antal utgåe
 
 Uppsättningen med utgående IP-adresser för din app ändras när du skalar din app mellan de lägre nivåerna (**grundläggande**, **Standard**, och **Premium**) och  **Premium V2** nivå.
 
-Du kan hitta uppsättningen med alla möjliga utgående IP-adresser din app kan använda, oavsett prisnivån genom att söka efter den `possibleOutboundIPAddresses` egenskapen. Se [hitta utgående IP-adresser](#find-outbound-ips).
+Du kan hitta uppsättningen med alla möjliga utgående IP-adresser din app kan använda, oavsett prisnivån genom att söka efter den `possibleOutboundIPAddresses` egenskapen eller i den **ytterligare utgående IP-adresser** i den **egenskaper**  bladet i Azure-portalen. Se [hitta utgående IP-adresser](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Hitta utgående IP-adresser
 
-För att hitta de utgående IP-adresser som för närvarande används av din app i Azure portal, klickar du på **egenskaper** i din app vänstra navigeringsfältet. 
+För att hitta de utgående IP-adresser som för närvarande används av din app i Azure portal, klickar du på **egenskaper** i din app vänstra navigeringsfältet. De listas i den **utgående IP-adresser** fält.
 
 Du kan hitta samma information genom att köra följande kommando i den [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -61,7 +61,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Du hittar alla möjliga utgående IP-adresser för din app, oavsett prisnivån kör följande kommando den [Cloud Shell](../cloud-shell/quickstart.md).
+Att hitta _alla_ möjliga utgående IP-adresser för din app, oavsett prisnivån klickar du på **egenskaper** i din app vänstra navigeringsfältet. De listas i den **ytterligare utgående IP-adresser** fält.
+
+Du kan hitta samma information genom att köra följande kommando i den [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv

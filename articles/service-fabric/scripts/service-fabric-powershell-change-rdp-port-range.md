@@ -3,7 +3,7 @@ title: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall | Micros
 description: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall för ett distribuerat kluster.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 83fb6cc03f605a60b06f31fa6ddd82cd4e3e899e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: ee2ac3a2051ba7dd63aac5928e1713541f23b81f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30180195"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500108"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Uppdatera RDP-portintervallvärden
 
 Det här exempelskriptet ändrar RDP-portintervallvärdena på klusternodens virtuella datorer när klustret har distribuerats.  Azure PowerShell används så att de underliggande virtuella datorerna inte växlar.  Skriptet hämtar `Microsoft.Network/loadBalancers`-resursen i klustrets resursgrupp och uppdaterar `inboundNatPools.frontendPortRangeStart`- och `inboundNatPools.frontendPortRangeEnd`-värdena. Anpassa parametrarna efter behov.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview). 
 
@@ -38,8 +40,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar `Microsoft.Network/loadBalancers`-resursen. |
-|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Uppdaterar `Microsoft.Network/loadBalancers`-resursen.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar `Microsoft.Network/loadBalancers`-resursen. |
+|[Set-AzResource](/powershell/module/az.resources/set-azresource)|Uppdaterar `Microsoft.Network/loadBalancers`-resursen.|
 
 ## <a name="next-steps"></a>Nästa steg
 

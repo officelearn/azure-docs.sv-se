@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001291"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480591"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows-redundanskluster och delad disk för en SAP ASCS/SCS-instans i Azure
 
@@ -251,7 +251,7 @@ Lägga till en avsökningsport:
 
 1. Kontrollera aktuellt **ProbePort** värde genom att köra följande PowerShell-kommando:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -270,7 +270,7 @@ Lägga till en avsökningsport:
 
    Ange ett nytt värde för ProbePort för SAP \<SID\> IP-klusterresursen, kör följande PowerShell-skript för att uppdatera variablerna PowerShell för din miljö:
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
@@ -328,7 +328,7 @@ Lägga till en avsökningsport:
 
    När du tar SAP \<SID\> rollen online-kluster, kontrollerar du att **ProbePort** är inställt på det nya värdet.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -345,7 +345,7 @@ Lägga till en avsökningsport:
 
 Öppna en Windows-brandväggen avsökningsport på båda klusternoderna. Använd följande skript för att öppna en Windows-brandväggen avsökningsporten. Uppdatera PowerShell-variabler för din miljö.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -405,7 +405,7 @@ _**Bild 7:** I SIOS DataKeeper replikerar du lokala volymen från klusternoden A
    - Hanteraren för redundanskluster  
    - Redundanskluster PowerShell
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

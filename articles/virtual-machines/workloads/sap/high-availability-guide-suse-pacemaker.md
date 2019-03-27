@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999665"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487372"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker konfigurationen för Azure schemalagda händelser
+
+Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via metadata-tjänsten och väntar tills programmet för att förbereda för händelser avstängningen, ny distribution av virtuella datorer, t.ex. Resurs-agenten **[azure-händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda händelser i Azure. Om händelserna identifieras försöker agenten stoppa alla resurser på den berörda virtuella datorn och flytta dem till en annan nod i klustret. För att uppnå de ytterligare Pacemaker resurserna måste konfigureras. 
+
+1. **[A]**  Installera den **azure-händelser** agent. 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]**  Konfigurera resurserna i Pacemaker. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > När du har konfigurerat Pacemaker resurser för azure-händelser agent, när du placerar klustret i eller ur underhållsläge, kan du få varningsmeddelanden som:  
+     Varning: cib-bootstrap-alternativ: Okänt attribut ”hostName_  <strong>värdnamn</strong>'  
+     Varning: cib-bootstrap-alternativ: Okänt attribut ”azure-events_globalPullState”  
+     Varning: cib-bootstrap-alternativ: Okänt attribut ”hostName_ <strong>värdnamn</strong>'  
+   > Dessa varningsmeddelanden kan ignoreras.
 
 ## <a name="next-steps"></a>Nästa steg
 

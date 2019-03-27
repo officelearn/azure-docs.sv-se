@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439401"
+ms.locfileid: "58472777"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
@@ -112,7 +112,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 Följande: metoder för att distribuera innehåll till en lagringsbehållare
 
 - [AzCopy](../common/storage-use-azcopy.md)
-- [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code-tillägg](https://code.visualstudio.com/tutorials/static-website/getting-started)
 

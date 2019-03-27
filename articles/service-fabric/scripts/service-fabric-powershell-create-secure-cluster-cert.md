@@ -3,7 +3,7 @@ title: Exempel på Azure PowerShell-skript – Skapa ett Service Fabric-kluster 
 description: Exempel på Azure PowerShell-skript – Skapa ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596559"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496079"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
 
 Det här exempelskriptet skapar ett Service Fabric-kluster med fem noder som skyddas med ett X.509-certifikat.  Kommandot skapar ett självsignerat certifikat och laddar upp det till ett nytt nyckelvalv. Certifikatet kopieras även till en lokal katalog.  Ange parametern *-OS* för att välja den version av Windows eller Linux som körs på klusternoderna.  Anpassa parametrarna efter behov.
 
-Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzureRmAccount` för att skapa en anslutning med Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning med Azure. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -38,7 +40,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -47,7 +49,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Skapar ett nytt Service Fabric-kluster. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Skapar ett nytt Service Fabric-kluster. |
 
 ## <a name="next-steps"></a>Nästa steg
 

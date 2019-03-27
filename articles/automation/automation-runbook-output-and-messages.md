@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487676"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata. Dessa utdata kan ett felmeddelande till användaren eller ett komplext objekt som du planerar att använda med en annan runbook. Windows PowerShell innehåller [flera strömmar](/powershell/module/microsoft.powershell.core/about/about_redirection) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar på olika sätt med var och en av dessa strömmar. Du bör följa bästa praxis för hur du använder när du skapar en runbook.
@@ -35,7 +35,7 @@ Utdataströmmen är avsedd för utdata för objekt som skapas av ett skript elle
 
 Du kan skriva data till den utgående dataströmmen med [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) eller genom att placera objektet på en egen rad i runbooken.
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output –InputObject $object
 $object
@@ -46,7 +46,7 @@ När du skriver till utdataströmmen i en funktion som ingår i din runbook skic
 
 Överväg följande exempel-runbook:
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -90,7 +90,7 @@ Här är en lista med exempel utdatatyper:
 
 Följande exempel-runbook matar ut ett strängobjekt och innehåller en förklaring av utdatatypen. Om din runbook matar ut en matris med en viss typ, bör du fortfarande ange typen till skillnad från en matris av typen.
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -126,7 +126,7 @@ Varningar och felströmmar är avsedda att logga problem som uppstår i en runbo
 
 Skapa en varning eller fel meddelande med hjälp av den [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) eller [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Aktiviteter kan också skriva till dessa strömmar.
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ När [testar en runbook](automation-testing-runbook.md), utförliga meddelanden 
 
 Skapa ett utförligt meddelande med den [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose –Message "This is a verbose message."
@@ -183,7 +183,7 @@ I Windows PowerShell kan du hämta utdata och meddelanden från en runbook med h
 
 I följande exempel startas en exempel-runbook och väntar sedan tills den är klar. När klar utdataström dess från jobbet.
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 

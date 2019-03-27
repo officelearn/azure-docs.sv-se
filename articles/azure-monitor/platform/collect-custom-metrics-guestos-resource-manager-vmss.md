@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760230"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481331"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst-OS mått till arkivet som Azure Monitor-mått med en Azure Resource Manager-mall för en Windows VM-skalningsuppsättning
 
@@ -242,12 +242,12 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
 1. Hämta listan över prenumerationer genom att använda `Get-AzSubscription`.
 1. Ange den prenumeration du ska skapa eller uppdatera den virtuella datorn: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Skapa en ny resursgrupp för den virtuella datorn som ska distribueras. Kör följande kommando: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -259,7 +259,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
    > [!NOTE]  
    > Om du vill uppdatera en befintlig skalningsuppsättning, lägger du till **-läge inkrementella** i slutet av kommandot. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

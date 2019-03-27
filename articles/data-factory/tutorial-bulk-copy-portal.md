@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112576"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445547"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -74,9 +74,10 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
    
-   ![Nytt->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. På sidan **Ny datafabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
       
      ![Sida för ny datafabrik](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)

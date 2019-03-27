@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 2b0f3a4394267a808b6e6e0a73abfaf1e698ff1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653976"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445026"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache Pig med Apache Hadoop på HDInsight
 
@@ -117,7 +117,7 @@ Nu när du har lärt dig hur du använder Pig med HDInsight kan använda följan
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md)
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 * [Använd Apache Sqoop med HDInsight](hdinsight-use-sqoop.md)
-* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md)
+* [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie-linux-mac.md)
 * [Använda MapReduce-jobb med HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

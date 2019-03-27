@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317280"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447097"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
@@ -23,7 +23,6 @@ I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apac
 > [!IMPORTANT]  
 > Stegen i den här artikeln kräver ett Linux-baserade Storm på HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
-> Information om distribution och övervakning topologier i Windows-baserade HDInsight finns i [distribuera och hantera Apache Storm-topologier i Windows-baserade HDInsight](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878463"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481764"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
 
@@ -272,7 +272,7 @@ Den här lösningen har inte en uppsättning exempel på loggsökningar visas p�
 ## <a name="removing-the-connector-with-powershell"></a>Ta bort anslutningen med PowerShell
 Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Du kan ta bort befintliga anslutningar med följande PowerShell-skript. Du måste vara ägare eller deltagare i arbetsytan och läsaren i Application Insights-resurs för att utföra åtgärden.
 
-```PowerShell
+```powershell
 $Subscription_app = "App Subscription Name"
 $ResourceGroup_app = "App ResourceGroup"
 $Application = "Application Name"
@@ -289,7 +289,7 @@ Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceG
 
 Du kan hämta en lista över program med hjälp av följande PowerShell-skript som anropar ett REST API-anrop. 
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"

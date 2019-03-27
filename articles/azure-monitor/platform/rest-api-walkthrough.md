@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 12c0ee08435ca4b3077bc3a8c28b217ebaf70e08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993325"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484990"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
 
@@ -31,7 +31,7 @@ Det första steget är att autentisera begäran.
 
 Alla aktiviteter som körs mot Azure Monitor-API använder Azure Resource Manager-autentiseringsmodellen. Därför måste alla begäranden autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD-tjänstens huvudnamn och hämta token för autentisering (JWT). Följande exempelskript visar skapar en Azure AD-tjänsten huvudnamn via PowerShell. En mer detaljerad genomgång finns i dokumentationen på [använder Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det går också att [skapa ett huvudnamn för tjänsten via Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-```PowerShell
+```powershell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
@@ -60,7 +60,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 Om du vill fråga API: et för Azure Monitor bör klientprogrammet använda tidigare skapade tjänstens huvudnamn för autentisering. I följande exempel PowerShell-skript visas en itu med den [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-token för autentisering. Detta JWT-token skickas som en del av en HTTP-auktorisering parameter i begäranden till REST-API i Azure Monitor.
 
-```PowerShell
+```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
 $subscription = Get-AzSubscription -SubscriptionId $subscriptionId
@@ -102,7 +102,7 @@ Använd den [REST API för Azure Monitor måttdefinitioner](https://docs.microso
 
 Till exempel för att hämta måttdefinitioner för ett Azure Storage-konto, skulle begäran visas på följande sätt:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
@@ -246,7 +246,7 @@ Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begär
 
 Till exempel för att hämta listan över dimensionsvärden som har genererats för ”API-namn dimensionen' för måttet 'Transaktioner” där dimensionen GeoType = ”primär” under det angivna tidsintervallet begäran skulle vara följande:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -319,7 +319,7 @@ Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begär
 
 Till exempel för att hämta de 3 främsta API: er, i fallande värde, av hur många transaktioner om du under flera 5 min där GeotType var primär, begäran skulle vara följande:
 
-```PowerShell
+```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
@@ -398,7 +398,7 @@ Använd den [REST API för Azure Monitor måttdefinitioner](https://msdn.microso
 
 Till exempel för att hämta måttdefinitioner för en Azure Logic App skulle begäran visas på följande sätt:
 
-```PowerShell
+```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
 
 Invoke-RestMethod -Uri $request `
@@ -471,7 +471,7 @@ När de tillgängliga definitionerna av mått är kända har det möjligt att h�
 
 Till exempel om du vill hämta RunsSucceeded mått datapunkter för det angivna tidsintervallet och för ett tidskorn 1 timme skulle begäran vara följande:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -519,7 +519,7 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 
 Om du vill hämta flera punkter för data eller aggregering, lägga till måttdefinition namn och aggregeringstyper filtret, som visas i följande exempel:
 
-```PowerShell
+```powershell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
 Invoke-RestMethod -Uri $request `
@@ -631,7 +631,7 @@ Resurs-ID kan också hämtas från Azure-portalen. Du gör detta genom att gå t
 
 Resurs-ID kan hämtas med hjälp av Azure PowerShell-cmdlets. Till exempel för att hämta resurs-ID för ett Azure Logic Apps, kör du cmdleten Get-AzureLogicApp, som i följande exempel:
 
-```PowerShell
+```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
@@ -710,7 +710,7 @@ Resultatet bör likna följande exempel:
 
 Förutom definitioner av mätvärden och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter som är relaterade till Azure-resurser. Exempelvis är det möjligt att frågan [aktivitetsloggen](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. I följande exempel visar hur du använder Azure Monitor REST API för att fråga aktivitetsloggdata inom ett visst datumintervall för en Azure-prenumeration:
 
-```PowerShell
+```powershell
 $apiVersion = "2015-04-01"
 $filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"

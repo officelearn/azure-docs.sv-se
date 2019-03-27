@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863601"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498391"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [ASP.NET-felsökning översikt](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET spårning översikt](https://msdn2.microsoft.com/library/bb386420.aspx), [så här: Aktivera spårning för ett ASP.NET-program](https://msdn2.microsoft.com/library/0x5wc973.aspx), [så här: Aktivera felsökning för ASP.NET-program](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referenser**              | [ASP.NET-felsökning översikt](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET spårning översikt](https://msdn.microsoft.com/library/bb386420.aspx), [så här: Aktivera spårning för ett ASP.NET-program](https://msdn.microsoft.com/library/0x5wc973.aspx), [så här: Aktivera felsökning för ASP.NET-program](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steg** | När spårning är aktiverat för sidan varje webbläsare som begär den hämtar även spårningsinformation som innehåller data om interna Servertillstånd och arbetsflöde. Den här informationen kan vara känslig säkerhet. När felsökning är aktiverat för sidan, leda fel händer på servern till en fullständig stack spårningsdata som visas i webbläsaren. Dessa data kan exponera känsliga information om serverns arbetsflöde. |
 
 ## <a id="js-trusted"></a>Åtkomst från tredje part JavaScript-skript från betrodda källor

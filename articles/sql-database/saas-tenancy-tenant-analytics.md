@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890550"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481696"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - enda klient
  
@@ -91,7 +91,7 @@ I följande steg ska du distribuera analytics store, som kallas **tenantanalytic
 2. Ställ in variabeln $DemoScenario i skriptet så att den matchar ditt val av analytics store:
     - Om du vill använda SQL-databas utan columnstore **$DemoScenario** = **2**
     - Om du vill använda SQL-databas med kolumnen store **$DemoScenario** = **3**  
-3. Tryck på **F5** att köra demo-skriptet (som anropar den *distribuera TenantAnalytics<XX>.ps1* skript) som skapar klient analytics store. 
+3. Tryck på **F5** att köra demo-skriptet (som anropar den *distribuera TenantAnalytics\<XX > .ps1* skript) som skapar klient analytics store. 
 
 Nu när du har distribuerat programmet och fyllt med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användaren&gt;**  och **catalog-dpt -&lt;användaren&gt;**  servrar med hjälp av inloggning = *developer*, lösenord = *P\@ssword1*. Se den [inledande självstudien](saas-dbpertenant-wingtip-app-overview.md) för mer information.
 
@@ -120,7 +120,7 @@ Kontrollera att du har distribuerat den jobb konto och jobbkonto-databasen innan
 
 1. I SSMS, ansluta till den **jobaccount** databasen i katalogen-dpt -&lt;användaren&gt;.
 2. Öppna i SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Ändra den @User variabeln överst i skriptet ersätter <User> med det användarvärde som används när du distribuerade Wingtip SaaS-appen.
+3. Ändra den @User variabeln överst i skriptet ersätter `<User>` med det användarvärde som används när du distribuerade Wingtip SaaS-appen.
 4. Tryck på **F5** att köra skriptet som skapar två målgrupper.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extrahera rådata från alla klienter
@@ -134,7 +134,7 @@ Varje jobb extraherar data och skickar det till arkivet analytics. Ett separat j
 
 1. I SSMS, ansluta till den **jobaccount** databasen i katalogen-dpt -&lt;användaren&gt; server.
 2. Öppna i SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Ändra @User överst i skriptet och Ersätt <User> med användarnamnet som används när du distribuerade Wingtip SaaS-appen 
+3. Ändra @User överst i skriptet och Ersätt `<User>` med användarnamnet som används när du distribuerade Wingtip SaaS-appen 
 4. Tryck på F5 för att köra skriptet som skapar och kör jobb som hämtar data för biljetter och kunder från varje klientdatabas. Jobbet sparar data till arkivet analytics.
 5. Fråga tabellen TicketsRawData i tenantanalytics databasen, så att tabellen fylls med biljetter information från alla klienter.
 

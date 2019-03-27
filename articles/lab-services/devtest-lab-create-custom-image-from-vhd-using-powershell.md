@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e594ace368799f85eea2e7291ead6febea0ea4b7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc6e218fe048e1781f53c53935308eb193fcd094
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543890"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487166"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Skapa en anpassad avbildning från en VHD-fil med hjälp av PowerShell
 
@@ -37,20 +37,20 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 1. I en PowerShell-Kommandotolken, logga in på ditt Azure-konto med följande anrop till den **Connect AzAccount** cmdlet.  
     
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 1.  Ange den önskade prenumerationen genom att anropa den **Välj AzSubscription** cmdlet. Ersätt följande platshållare för den **$subscriptionId** variabeln med ett giltigt Azure-prenumerations-ID. 
 
-    ```PowerShell
+    ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
 1.  Hämta objektet för labbet genom att anropa den **Get-AzResource** cmdlet. Ersätt följande platshållare för den **$labRg** och **$labName** variabler med lämpliga värden för din miljö. 
 
-    ```PowerShell
+    ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
@@ -58,20 +58,20 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
  
 1.  Hämta labbet storage-konto och lab storage nyckelvärden från labb-objektet. 
 
-    ```PowerShell
+    ```powershell
     $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
 1.  Ersätt följande platshållare för den **$vhdUri** variabeln med URI: N till din överförda VHD-fil. Du kan hämta VHD-filen URI från lagringskontots blob-bladet i Azure-portalen.
 
-    ```PowerShell
+    ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
 1.  Skapa en anpassad avbildning med hjälp av den **New AzResourceGroupDeployment** cmdlet. Ersätt följande platshållare för den **$customImageName** och **$customImageDescription** variabler till beskrivande namn för din miljö.
 
-    ```PowerShell
+    ```powershell
     $customImageName = '<Specify the custom image name>'
     $customImageDescription = '<Specify the custom image description>'
 
@@ -84,7 +84,7 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 Följande PowerShell-skript kan användas för att skapa en anpassad avbildning från en VHD-fil. Ersätt platshållarna (börjar och slutar med hakparenteser) med lämpliga värden för dina behov. 
 
-```PowerShell
+```powershell
 # Log in to your Azure account.  
 Connect-AzAccount
 

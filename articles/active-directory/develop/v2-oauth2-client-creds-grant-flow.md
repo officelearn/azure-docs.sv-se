@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540576"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445435"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0- och OAuth 2.0 flödet
 
@@ -76,10 +76,10 @@ Följ stegen som beskrivs i nästa avsnitt för att använda behörigheter för 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av app
 
-1. Registrera dig och skapa en app via den [programregistreringsportalen](quickstart-v2-register-an-app.md) eller nya [appregistreringar (förhandsversion) får](quickstart-register-app.md).
-1. Gå till ditt program på portalen som du använde för att registrera eller skapa din app. Du måste använda minst en programhemlighet när du skapar din app.
-1. Leta upp den **API-behörigheter** , och lägger sedan till den **programbehörigheter** som din app kräver.
-1. **Spara** appregistreringen.
+1. Registrera dig och skapa en app via nya [appregistreringar (förhandsversion) får](quickstart-register-app.md).
+2. Gå till ditt program i App-registreringar (förhandsgranskning)-upplevelse. Navigera till den **certifikat och hemligheter** , och lägger till en **nya klienthemligheten**, eftersom du måste använda minst en klienthemlighet för att begära en token.
+3. Leta upp den **API-behörigheter** , och lägger sedan till den **programbehörigheter** som din app kräver.
+4. **Spara** appregistreringen.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Rekommenderat: Logga in användaren till din app
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
 | `client_id` | Krävs | Program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du har registrerat appen. |
 | `scope` | Krävs | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. </br>Det här värdet anger v2.0-slutpunkten att slutpunkten för alla direkt tillämpning behörigheter du har konfigurerat för din app, bör utfärdar en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Krävs | Programhemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas. |
+| `client_secret` | Krävs | Klienthemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas. |
 | `grant_type` | Krävs | Måste anges till `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat

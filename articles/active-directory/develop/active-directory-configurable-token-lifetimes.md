@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa6a44a3fb92647ba74f865b2a1a46bdd79eb433
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174092"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484551"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
@@ -209,13 +209,13 @@ Utför följande steg för att komma igång:
 1. Hämta senaste [Azure AD PowerShell-modulen offentliga förhandsversionen](https://www.powershellgallery.com/packages/AzureADPreview).
 2. Kör den `Connect` kommando för att logga in på ditt Azure AD-administratörskonto. Kör det här kommandot varje gång startar du en ny session.
 
-    ```PowerShell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Kör följande kommando om du vill se alla principer som har skapats i din organisation. Kör det här kommandot när du har de flesta åtgärderna i följande scenarier. Kör kommandot hjälper dig också att få den ** ** av dina principer.
 
-    ```PowerShell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -226,7 +226,7 @@ I det här exemplet skapar du en princip som gör att användare kan logga in me
 
     1.  Ange den enda faktor Uppdateringstoken till ”tills-återkallas”. Token inte upphör att gälla förrän åtkomst har återkallats. Skapa principdefinitionen för följande:
 
-        ```PowerShell
+        ```powershell
         @('{
             "TokenLifetimePolicy":
             {
@@ -238,13 +238,13 @@ I det här exemplet skapar du en princip som gör att användare kan logga in me
 
     2.  Om du vill skapa principen, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     3.  Se din nya princip och för att få principens **ObjectId**, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -252,7 +252,7 @@ I det här exemplet skapar du en princip som gör att användare kan logga in me
 
     Du kan välja den första principen som du anger i det här exemplet inte är så strikta som din tjänst kräver. Ange din enda faktor uppdatera Token upphör att gälla om två dagar genom att köra följande kommando:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
@@ -266,13 +266,13 @@ I det här exemplet skapar du en princip som kräver att användarna ska autenti
 
     1.  Om du vill skapa principen, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Se din nya princip och för att få principen **ObjectId**, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -282,7 +282,7 @@ I det här exemplet skapar du en princip som kräver att användarna ska autenti
 
     2.  När du har den **ObjectId** för tjänstens huvudnamn, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -294,13 +294,13 @@ I det här exemplet skapar du en princip som kräver att användarna ska autenti
 
     1.  Om du vill skapa en strikt princip för ett webb-API, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  Se din nya princip och för att få principen **ObjectId**, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -308,7 +308,7 @@ I det här exemplet skapar du en princip som kräver att användarna ska autenti
 
    När du har den **ObjectId** för din app, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
@@ -320,13 +320,13 @@ I det här exemplet skapar du några principer, om du vill veta hur prioritet sy
 
     1.  Om du vill skapa en standardprincip för organisationen som anger livslängd för en faktor uppdatera Token till 30 dagar, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
     2.  Se din nya princip och för att få principens **ObjectId**, kör du följande kommando:
 
-        ```PowerShell
+        ```powershell
         Get-AzureADPolicy
         ```
 
@@ -338,19 +338,19 @@ I det här exemplet skapar du några principer, om du vill veta hur prioritet sy
 
     2.  När du har den **ObjectId** för tjänstens huvudnamn, kör du följande kommando:
 
-            ```PowerShell
+            ```powershell
             Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Ange den `IsOrganizationDefault` flaggan till false:
 
-    ```PowerShell
+    ```powershell
     Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Skapa en ny organisation standardprincip:
 
-    ```PowerShell
+    ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
     ```
 
@@ -366,7 +366,7 @@ Du kan använda följande cmdletar för att hantera principer.
 
 Skapar en ny princip.
 
-```PowerShell
+```powershell
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
@@ -383,7 +383,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Hämtar alla Azure AD-principer eller en angiven princip.
 
-```PowerShell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -396,7 +396,7 @@ Get-AzureADPolicy
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Hämtar alla appar och tjänstens huvudnamn som är länkade till en princip.
 
-```PowerShell
+```powershell
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
@@ -409,7 +409,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Uppdaterar en befintlig princip.
 
-```PowerShell
+```powershell
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
@@ -427,7 +427,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Tar bort den angivna principen.
 
-```PowerShell
+```powershell
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
@@ -443,7 +443,7 @@ Du kan använda följande cmdletar för principer för program.</br></br>
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Länkar den angivna principen till ett program.
 
-```PowerShell
+```powershell
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -457,7 +457,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Hämtar den princip som tilldelats till ett program.
 
-```PowerShell
+```powershell
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
@@ -470,7 +470,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Tar bort en princip från ett program.
 
-```PowerShell
+```powershell
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
@@ -487,7 +487,7 @@ Du kan använda följande cmdletar för huvudprinciper för tjänst.
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Länkar den angivna principen till ett huvudnamn för tjänsten.
 
-```PowerShell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
@@ -501,7 +501,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Hämtar princip länkad till det angivna tjänsthuvudnamnet.
 
-```PowerShell
+```powershell
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
@@ -514,7 +514,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Tar bort principen från den angivna tjänsten huvudnamn.
 
-```PowerShell
+```powershell
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 

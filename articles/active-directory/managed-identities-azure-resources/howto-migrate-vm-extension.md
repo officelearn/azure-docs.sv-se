@@ -3,7 +3,7 @@ title: Sluta använda VM-tillägget hanterad identitet och börja använda Azure
 description: Steg för steg-anvisningar för att sluta använda VM-tillägget och börja använda Azure Instance Metadata Service (IMDS) för autentisering.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227691"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498340"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Hanterad identiteter tillägget och börja använda Azure Instance Metadata Service att sluta använda den virtuella datorn
 
@@ -196,7 +196,7 @@ Det finns flera viktiga begränsningar med att använda tillägget för virtuell
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-Den [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) är en REST-slutpunkt som ger information om hur du kör instanser av virtuella datorer som kan användas för att hantera och konfigurera dina virtuella datorer. Slutpunkten är tillgänglig på en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.
+Den [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) är en REST-slutpunkt som ger information om hur du kör instanser av virtuella datorer som kan användas för att hantera och konfigurera dina virtuella datorer. Slutpunkten är tillgänglig på en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.
 
 Det finns flera fördelar med att använda Azure IMDS att begära token. 
 

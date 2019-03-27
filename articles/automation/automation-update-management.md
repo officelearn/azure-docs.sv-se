@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369776"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447602"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -238,7 +238,7 @@ Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du sk
 
 ### <a name="multi-tenant"></a>Distribution av flera klienter
 
-Om du har datorer i en annan Azure-klient som rapporterar till hantering av uppdateringar som du behöver för att korrigera måste du använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+Om du har datorer i en annan Azure-klient som rapporterar till hantering av uppdateringar som du behöver för att korrigera måste du använda följande lösning för att få dem schemalagda. Du kan använda den [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet med växeln `-ForUpdate` att skapa ett schema och använda den [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet och skicka den datorer i den andra klienten till den `-NonAzureComputer` parametern. I följande exempel visar ett exempel på hur du gör detta:
 
 ```azurepowershell-interactive

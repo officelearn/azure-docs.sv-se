@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162942"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499989"
 ---
 # <a name="application-types-for-v20"></a>Programtyper för v2.0
 
@@ -124,7 +124,7 @@ I det här flödet får appen en auktoriseringskod från v2.0-slutpunkten när a
 
 Appar som har tidskrävande processer eller som fungerar utan interaktion med en användare måste också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. De här apparna kan autentisera och hämta token genom att använda appens identitet, snarare än en användares delegerade identitet med hjälp av OAuth 2.0 flödet. Du kan bekräfta appens identitet med hjälp av en klienthemlighet eller ett certifikat. Mer information finns i [autentiserar till Azure AD i daemon-appar med certifikat](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-I det här flödet appen interagerar direkt med den `/token` slutpunkt för att hämta slutpunkter:
+I det här flödet appen interagerar direkt med den `/token` slutpunkt för att få åtkomst:
 
 ![Autentiseringsflödet för Daemon-app](./media/v2-app-types/convergence_scenarios_daemon.png)
 

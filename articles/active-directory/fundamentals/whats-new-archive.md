@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c78786d48dbd8d399013507fe8edcd2ce2ad45
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cb75c57b832dbd12dbd06fd42b636a16b40ff10e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456235"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499360"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -1223,7 +1223,7 @@ Webbläsartillägget för Mina appar är nu tillgängligt via ett enkelt verktyg
 - Genvägar till nyligen använda appar från tillägget
 - Tillägget är tillgängligt för Microsoft Edge, Chrome och Firefox.
  
-Mer information finns i [Mina appar skyddat Inloggningstillägg](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
+Mer information finns i [Mina appar skyddat Inloggningstillägg](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ---
 

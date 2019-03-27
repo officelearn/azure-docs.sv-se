@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a9de0f0021d92c59c44e85f0487cc9a08b6a3099
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000338"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497370"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Skapa MATLAB distribuerad databehandling Server-kluster på Azure Virtual Machines
 Använd Microsoft Azure-datorer för att skapa en eller flera MATLAB distribuerade Computing serverkluster för att köra dina beräkningsintensiva parallella MATLAB arbetsbelastningar. Installera din MATLAB databehandling Server för distribuerad programvara på en virtuell dator att använda som en grundläggande avbildning och använda en Azure-snabbstartsmall eller Azure PowerShell-skript (tillgängligt på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) att distribuera och hantera klustret. Efter distributionen kan du ansluta till klustret för att köra arbetsbelastningar.
@@ -34,7 +34,7 @@ Du kan skapa MATLAB distribuerad databehandling Server-kluster som har samma met
 * **Azure PowerShell** – Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) att installera den på klientdatorn.
 * **Azure-prenumeration** -om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en användningsbaserad prenumeration eller andra alternativ för större kluster.
 * **virtuella processorer kvot** – du kan behöva öka vCPU-kvoten för att distribuera ett stort kluster eller flera MATLAB distribuerad databehandling Server-kluster. Att öka en kvot [öppna en supportbegäran online-kund](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) utan kostnad.
-* **MATLAB, parallella databehandling verktygslådan och MATLAB distribuerad databehandling Server-licenser** -skripten förutsätts att den [MathWorks finns License Manager](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) används för alla licenser.  
+* **MATLAB, parallella databehandling verktygslådan och MATLAB distribuerad databehandling Server-licenser** -skripten förutsätts att den [MathWorks finns License Manager](https://www.mathworks.com/help/install/license-management.html) används för alla licenser.  
 * **MATLAB distribuerad databehandling serverprogramvara** -kommer att installeras på en virtuell dator som ska användas som basavbildning för virtuell dator för virtuella datorer i klustret.
 
 ## <a name="high-level-steps"></a>Hög steg

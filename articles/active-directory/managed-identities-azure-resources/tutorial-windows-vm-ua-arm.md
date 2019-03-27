@@ -3,7 +3,7 @@ title: Använda en användartilldelad hanterad identitet på virtuell Windows-da
 description: En självstudiekurs som beskriver steg för steg hur du använder en användartilldelad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d44aaa96b03e188e7f502d5bf1dc1b0de48e4c4d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 42b0269d783dac17c48553c837ccdc2b3b014790
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852329"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442225"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Windows-dator för åtkomst till Azure Resource Manager
 

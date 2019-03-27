@@ -3,7 +3,7 @@ title: Azure Service Fabric reliable services application manifest exempel | Mic
 description: Lär dig hur du konfigurerar programmet och tjänstinställningar manifestet för en Service Fabric reliable services-programmet.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
-ms.openlocfilehash: 1d0a0c2c6a965ac14002257484c5f840666e6fc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pepogors
+ms.openlocfilehash: 202999ed6521cd3013685742b0dec92ef30fc8bc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885274"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499853"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Här följer några exempel på program och tjänstens manifest för ett Service Fabric-program med en ASP.NET-kärnans webbklient och en tillståndskänslig backend-server. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Snabbstart för Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.

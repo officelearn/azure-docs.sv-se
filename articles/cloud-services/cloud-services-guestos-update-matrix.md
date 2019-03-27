@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: c5fdee4e5b1b9d2a283ef55ce99dffab0cb25873
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 955ba0aae41d7e555c1248cf04073b1b6e3f2d4f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840859"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499972"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -43,6 +43,9 @@ Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updat
 
 ## <a name="news-updates"></a>Nyheter
 
+###### <a name="march-26-2019"></a>**26 mars 2019**
+Gäst-OS mars har publicerat.
+
 ###### <a name="march-12-2019"></a>**Den 12 mars 2019**
 Gäst-OS februari har publicerat.
 
@@ -63,9 +66,6 @@ Gäst-OS oktober har publicerat.
 
 ###### <a name="october-12-2018"></a>**12 oktober 2018**
 Gästoperativsystemet i September har publicerat.
-
-###### <a name="september-12-2018"></a>**Den 12 september 2018**
-Gäst-OS augusti har publicerat.
 
 ## <a name="releases"></a>Versioner
 
@@ -89,9 +89,10 @@ Gäst-OS augusti har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-6.5_201903-01 |26 mars 2019 |Post 6.7 |
 | WA-GUEST-OS-6.4_201902-01 |Den 12 mars 2019 |Post 6.6 |
-| WA-GUEST-OS-6.3_201901-01 |Den 5 februari 2019 |Post 6.5 |
-|~~WA-GUEST-OS-6.2_201812-01~~|24 januari 2019 |Den 12 mars 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |24 januari 2019 |Den 12 mars 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 januari 2019 |Den 5 februari 2019 |
 
 ## <a name="family-5-releases"></a>Familj 5 versioner
@@ -106,13 +107,13 @@ Gäst-OS augusti har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-5.29_201903-01 |26 mars 2019 |Post 5.31 |
 | WA-GUEST-OS-5.28_201902-01 |Den 12 mars 2019 |Post 5.30 |
-| WA-GUEST-OS-5.27_201901-01 |Den 5 februari 2019 |Post 5.29 |
-|~~WA-GUEST-OS-5.26_201812-01~~|7 januari 2019 |Den 12 mars 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |December 14 maj 2018 |Den 5 februari 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 november 2018 |7 januari 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 oktober 2018 |December 14 maj 2018 |
-|~~WA-GUEST-OS-5.22_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 
 ## <a name="family-4-releases"></a>Gästoperativsystemfamilj 4 versioner
 **Windows Server 2012 R2**
@@ -121,13 +122,13 @@ Gäst-OS augusti har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-4.64_201903-01 |26 mars 2019 |Post 4,66 |
 | WA-GUEST-OS-4.63_201902-01 |Den 12 mars 2019 |Post 4.65 |
-| WA-GUEST-OS-4.62_201901-01 |Den 5 februari 2019 |Post 4.64 |
-|~~WA-GUEST-OS-4.61_201812-01~~|7 januari 2019 |Den 12 mars 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |December 14 maj 2018 |Den 5 februari 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 november 2018 |7 januari 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 oktober 2018 |December 14 maj 2018 |
-|~~WA-GUEST-OS-4.57_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 
 ## <a name="family-3-releases"></a>Familj 3 versioner
 **Windows Server 2012**
@@ -136,13 +137,13 @@ Gäst-OS augusti har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-3.71_201903-01 |26 mars 2019 |Post 3,73 |
 | WA-GUEST-OS-3.70_201902-01 |Den 12 mars 2019 |Post 3,72 |
-| WA-GUEST-OS-3.69_201901-01 |Den 5 februari 2019 |Post 3.71 |
-|~~WA-GUEST-OS-3.68_201812-01~~|7 januari 2019 |Den 12 mars 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |December 14 maj 2018 |Den 5 februari 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 november 2018 |7 januari 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 oktober 2018 |December 14 maj 2018 |
-|~~WA-GUEST-OS-3.64_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
@@ -151,13 +152,13 @@ Gäst-OS augusti har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-2.84_201903-01 |26 mars 2019 |Post 2.86 |
 | WA-GUEST-OS-2.83_201902-01 |Den 12 mars 2019 |Post 2,85 |
-| WA-GUEST-OS-2.82_201901-01 |Den 5 februari 2019 |Post 2.84 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |Den 5 februari 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 januari 2019 |Den 12 mars 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |December 14 maj 2018 |Den 5 februari 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 november 2018 |7 januari 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 oktober 2018 |December 14 maj 2018 |
-|~~WA-GUEST-OS-2.77_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 
 ## <a name="msrc-patch-updates"></a>MSRC patch-uppdateringar
 Lista över korrigeringsprogram som ingår med varje månatlig gäst-OS-version är tillgänglig [här][patches].

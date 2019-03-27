@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568912"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443990"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhetsnamn Linux VM
 
@@ -36,15 +36,17 @@ Följande problem kan uppstå när du kör virtuella Linux-datorer i Microsoft A
 
 Enhetssökvägarna i Linux är inte garanterat enhetlig mellan omstarter. Enhetsnamn består av större tal (versaler) och lägre tal. När Linux storage drivrutinen upptäcker en ny enhet, tilldelar drivrutinen högre och den lägre tal från det tillgängliga intervallet till enheten. När en enhet tas bort, frigörs enheten siffror för återanvändning.
 
-Problemet uppstår eftersom enheten i Linux schemaläggs av SCSI-undersystem ske asynkront. Ett enhetsnamn för sökvägen kan därför kan variera mellan olika omstarter. 
+Problemet uppstår eftersom enheten i Linux schemaläggs av SCSI-undersystem ske asynkront. Ett enhetsnamn för sökvägen kan därför kan variera mellan olika omstarter.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att använda beständiga naming. Det finns fyra sätt att använda beständiga naming: av filsystem etikett, UUID, efter ID eller efter sökväg. Vi rekommenderar att du använder filsystem etiketten eller UUID för virtuella Linux-datorer. 
+Lös problemet genom att använda beständiga naming. Det finns fyra sätt att använda beständiga naming: av filsystem etikett, UUID, efter ID eller efter sökväg. Vi rekommenderar att du använder filsystem etiketten eller UUID för virtuella Linux-datorer.
 
-De flesta distributioner ger den `fstab` **nofail** eller **nobootwait** parametrar. Dessa parametrar kan ett system att starta när disken inte kan montera vid start. Kontrollera din distribution-dokumentationen för mer information om dessa parametrar. Information om hur du konfigurerar en Linux-VM för att använda en UUID när du lägger till en datadisk finns i [Anslut till Linux VM att montera den nya disken](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+De flesta distributioner ger den `fstab` **nofail** eller **nobootwait** parametrar. Dessa parametrar kan ett system att starta när disken inte kan montera vid start. Kontrollera din distribution-dokumentationen för mer information om dessa parametrar. Information om hur du konfigurerar en Linux-VM för att använda en UUID när du lägger till en datadisk finns i [Anslut till Linux VM att montera den nya disken](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 När Azure Linux-agent installeras på en virtuell dator, använder agenten Udev regler för att konstruera en uppsättning symboliska länkar under /dev/disk/azure-sökvägen. Program och skript kan du använda Udev regler för att identifiera diskar som är anslutna till den virtuella datorn, tillsammans med disktypen och disk LUN.
+
+Om du redan har redigerat din fstab så att den virtuella datorn inte startar och du kan inte SSH till den virtuella datorn, kan du använda den [VM Seriekonsolen](./serial-console-linux.md) ange [enanvändarläge](./serial-console-grub-single-user-mode.md) och ändra din fstab.
 
 ### <a name="identify-disk-luns"></a>Identifiera disken LUN
 
@@ -83,29 +85,29 @@ Gästen LUN informationen används med Azure-prenumeration metadata för att hit
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Alla ytterligare partitioner från den `blkid` listan finns på en datadisk. Pro
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>Hämta de senaste Azure Storage-reglerna
 
 Om du vill hämta de senaste Azure Storage-reglerna, kör du följande kommandon:

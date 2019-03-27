@@ -11,21 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/14/2019
+ms.date: 3/26/2019
 ms.author: raiye
-ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887297"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500618"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
-
->[!NOTE]
->Mars-Gästoperativsystem distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i mars-OS. Den här listan kan ändras.
-
 
 ## <a name="march-2019-guest-os"></a>Mars 2019 gäst-OS
 

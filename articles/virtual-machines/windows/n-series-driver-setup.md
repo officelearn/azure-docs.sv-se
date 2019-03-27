@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d173f1f9048a46f3fb2500d225ec121157d5d960
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008396"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483554"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Windows 
 
@@ -59,7 +59,7 @@ Om du vill fråga GPU-enhetstillstånd, kör den [nvidia smi](https://developer.
 RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer, till exempel NC24r som distribuerats i samma tillgänglighetsuppsättning eller i en enda placeringsgrupp i en skalningsuppsättning för virtuell dator. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows network RDMA-anslutning. Om du vill lägga till VM-tillägget för en N-serien med RDMA-aktiverade VM, använda [Azure PowerShell](/powershell/azure/overview) cmdletar för Azure Resource Manager.
 
 Om du vill installera den senaste versionen 1.1 HpcVMDrivers tillägg på en befintlig RDMA-kompatibla virtuell dator med namnet myVM i regionen västra USA:
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   Mer information finns i [VM-tillägg och funktioner i Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

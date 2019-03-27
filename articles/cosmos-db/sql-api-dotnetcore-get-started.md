@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 52e39b705b8bd0e20c846f065702bcaf7b3a45f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035686"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487286"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>Självstudie: Skapa en .NET Core-app för att hantera data som lagras i SQL API-kontot
 
@@ -42,7 +42,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Har du inte tid att skapa programmet? Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
 
@@ -76,7 +76,7 @@ Använd följande steg för att skapa ett Azure Cosmos-konto:
 
    ![Skärmdump som visar den högerklickade menyn för projektet](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. Välj **Bläddra** längst upp på fliken **NuGet** och skriv **azure documentdb** i sökrutan.
+6. Välj **Bläddra** längst upp på fliken **NuGet** och skriv **azure documentdb** i sökrutan. Se till att den **inkludera förhandsversion** är markerad.
 
 7. Leta reda på **Microsoft.Azure.DocumentDB.Core** i resultatet och välj **Installera**.
 

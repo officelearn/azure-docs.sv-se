@@ -1,9 +1,9 @@
 ---
-title: Skriptexempel för Azure PowerShell – Öppna programport i belastningsutjämnaren | Microsoft Docs
-description: Skriptexempel för Azure PowerShell – Öppna en port i Azure-belastningsutjämnaren för ett Service Fabric-program.
+title: Skriptexempel för Azure PowerShell – Öppna programport i lastbalanseraren | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Öppna en port i Azure-lastbalanseraren för ett Service Fabric-program.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 05/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0549f5f2b5b0f8fdfc18b8c091c1065d6137b8c6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 72badb5ca2e8973fd64f5339eaff55ceb79a5ce3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366179"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498272"
 ---
-# <a name="open-an-application-port-in-the-azure-load-balancer"></a>Öppna en programport i Azure-belastningsutjämnaren
+# <a name="open-an-application-port-in-the-azure-load-balancer"></a>Öppna en programport i Azure-lastbalanseraren
 
-Ett Service Fabric-program som körs i Azure är placerat bakom Azure-belastningsutjämnaren. Det här exempelskriptet öppnar en port i en Azure-belastningsutjämnare så att ett Service Fabric-program kan kommunicera med externa klienter. Anpassa parametrarna efter behov. Om klustret är i en nätverkssäkerhetsgrupp så [lägg till en inkommande regel för nätverkssäkerhetsgrupper](service-fabric-powershell-add-nsg-rule.md) som tillåter inkommande trafik.
+Ett Service Fabric-program som körs i Azure är placerat bakom Azure-lastbalanseraren. Det här exempelskriptet öppnar en port i en Azure-lastbalanserare så att ett Service Fabric-program kan kommunicera med externa klienter. Anpassa parametrarna efter behov. Om klustret är i en nätverkssäkerhetsgrupp så [lägg till en inkommande regel för nätverkssäkerhetsgrupper](service-fabric-powershell-add-nsg-rule.md) som tillåter inkommande trafik.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Installera, om så behövs, Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](../service-fabric-get-started.md). 
 
@@ -38,12 +40,12 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar en Azure-resurs.  |
-| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Hämtar Azure Load Balancer. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Lägger till en avsökningskonfiguration till en belastningsutjämnare.|
-| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Hämtar en avsökningskonfiguration för en belastningsutjämnare. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | Lägger till en regelkonfiguration till en belastningsutjämnare. |
-| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Konfigurerar målstatusen för en belastningsutjämnare. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar en Azure-resurs.  |
+| [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | Hämtar Azure Load Balancer. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) | Lägger till en avsökningskonfiguration till en lastbalanserare.|
+| [Get-AzLoadBalancerProbeConfig](/powershell/module/az.network/get-azloadbalancerprobeconfig) | Hämtar en avsökningskonfiguration för en lastbalanserare. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) | Lägger till en regelkonfiguration till en lastbalanserare. |
+| [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) | Konfigurerar målstatusen för en lastbalanserare. |
 
 ## <a name="next-steps"></a>Nästa steg
 

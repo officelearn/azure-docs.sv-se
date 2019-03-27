@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417827"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449245"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för VMware-datorer och fysiska servrar
 
@@ -43,7 +43,8 @@ Följande steg utförs under push-installation av mobilitetsagenten
 2. När agenten har kopierats på till utförs de nödvändiga kontrollerna på servern. Installationen misslyckas om en eller flera av de [krav](vmware-physical-azure-support-matrix.md) inte uppfylls. Om alla krav är uppfyllda, utlöses installation.
 3. Azure Site Recovery VSS-providern är installerad på servern som en del av Mobility agentinstallation. Den här providern används för att generera programmet konsekvent punkter. Om det inte går att installera VSS-providern, det här steget kommer att hoppas över och kommer att fortsätta installationen av agenten.
 4. Om agentinstallationen lyckas men inte det går att installera VSS-providern, markeras jobbstatus som ”varning”. Detta påverkar inte krascher konsekvens punkter generation.
-    a. Om du vill generera programmet konsekvent punkter, som avser [vår vägledning](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) att slutföra installationen av Site Recovery VSS-providern manuellt.
+
+    a. Om du vill generera programmet konsekvent punkter, som avser [vår vägledning](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) att slutföra installationen av Site Recovery VSS-providern manuellt. </br>
     b.  Om du inte vill att programmet konsekvent punkter som ska genereras [ändra replikeringsprincipen](vmware-azure-set-up-replication.md#create-a-policy) att inaktivera programmet konsekvent punkter.
 
 ### <a name="before-922-versions"></a>Innan du 9.22 versioner

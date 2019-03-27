@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8d0d37b988f36e23d8bd12b5a225b1714205b3fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ca96dbd2073540d47fe09caaa8a337e292445590
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158085"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486775"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Begäranden som skickas till Salesforce måste signeras av Azure AD B2C. Om du v
 > [!NOTE]
 > Se till att du uppdaterar innehavarens namn och lösenord i de två översta raderna.
 
-```PowerShell
+```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
 $pwdText = "<YOUR PASSWORD HERE>"
 
@@ -88,8 +88,8 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 Du behöver lagra certifikatet som du skapade i din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Upload`.
@@ -199,9 +199,9 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-4. Välj **program**, och välj sedan **Lägg till**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
 6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
 7. Klicka på **Skapa**.

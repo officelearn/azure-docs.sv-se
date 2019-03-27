@@ -9,16 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
 ms.reviewer: sngun
-ms.openlocfilehash: 9fcebed584d1abb35f491eb7d401aebb4da3f8d8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: ce6c87c9775552ad747701ae48f72f37e5943d3d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037182"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496062"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB: Skapa en brandvägg med PowerShell
 
 Det här skriptexemplet för PowerShell skapar en brandvägg för alla typer av API-konton i Azure Cosmos DB. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,7 +33,7 @@ Det här skriptexemplet för PowerShell skapar en brandvägg för alla typer av 
 När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -40,10 +42,10 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
-| [Set-AzureRMResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | Ändrar databaskontot. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Ändrar databaskontot. |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

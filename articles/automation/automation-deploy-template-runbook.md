@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416130"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446974"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
@@ -32,7 +32,7 @@ Den här kursen behöver du följande objekt:
 * En Azure-prenumeration. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * [Azure Storage-konto](../storage/common/storage-create-storage-account.md) där du vill lagra Resource Manager-mall
-* Azure Powershell installerad på en lokal dator. Se [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) information om hur du hämtar Azure PowerShell.
+* Azure Powershell installerad på en lokal dator. Se [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) information om hur du hämtar Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 
@@ -203,7 +203,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Starta runbook
 
-Nu börjar vi runbook genom att anropa den [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
+Nu börjar vi runbook genom att anropa den [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet.
 
 Information om hur du startar en runbook i Azure-portalen finns i [starta en runbook i Azure Automation](automation-starting-a-runbook.md).
 

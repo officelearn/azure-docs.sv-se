@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9bb9954e8463617694efe2997d886a2ba4390ccb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004312"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500295"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till och från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,6 +33,8 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 ## <a name="overview"></a>Översikt
 Du kan kopiera data från alla dataarkiv till Azure Blob Storage eller Azure Blob Storage till alla mottagarens datalager. I följande tabell innehåller en lista över datalager som stöds som källor eller egenskaperna av kopieringsaktiviteten. Du kan exempelvis flytta data **från** en SQL Server-databas eller en Azure SQL database **till** Azure blob storage. Och du kan kopiera data **från** Azure blobblagring **till** en Azure SQL Data Warehouse eller en Azure Cosmos DB-samling.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 Du kan kopiera data **från Azure Blob Storage** till följande data lagras:
@@ -84,7 +86,7 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 | --- | --- | --- |
 | folderPath |Sökvägen till behållaren och mappen i blob storage. Exempel: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Namnet på bloben. Filnamnet är valfria och skiftlägeskänsliga.<br/><br/>Om du anger ett filename fungerar aktiviteten (inklusive kopia) på den specifika blobben.<br/><br/>Om filnamnet inte anges innehåller kopiera alla Blobbar i folderPath för datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen skulle vara i följande det här formatet: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett filnamn för time series-data. Till exempel kan folderPath parameteriseras för varje timme som data. Se den [med partitionedBy egenskapen](#using-partitionedBy-property) information och exempel. |Nej |
+| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett filnamn för time series-data. Till exempel kan folderPath parameteriseras för varje timme som data. Se den [med partitionedBy egenskapen](#using-partitionedby-property) information och exempel. |Nej |
 | Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
 | Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 

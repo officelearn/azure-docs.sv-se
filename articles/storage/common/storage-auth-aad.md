@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369905"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447042"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory
 
@@ -22,8 +22,6 @@ Azure Storage stöder autentisering och auktorisering med Azure Active Directory
 Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-autentisering för dina Azure Storage-program när det är möjligt.
 
 Autentisering och auktorisering med Azure AD-autentiseringsuppgifter är tillgängliga för alla generell användning v2, general-purpose v1 och Blob storage-konton i alla offentliga regioner. Storage-konton som skapats med stöd för Azure Resource Manager deployment model Azure AD-auktorisering.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Översikt över Azure AD för blobbar och köer
 
@@ -41,7 +39,11 @@ När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar å
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Läs hur du tilldelar en inbyggd roll i Azure-portalen i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
+Om du vill veta hur du tilldelar en inbyggda RBAC för Azure Storage-resurser finns i följande avsnitt:
+
+- [Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal](storage-auth-aad-rbac-portal.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC med hjälp av PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Åtkomstbehörigheter som ges av RBAC-roller 
 
@@ -49,7 +51,6 @@ Mer information om de behörigheter som krävs för att anropa åtgärder för A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal](storage-auth-aad-rbac.md)
 - [Autentisera med Azure Active Directory från ett program för åtkomst till blobar och köer](storage-auth-aad-app.md)
 - [Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)
-- [Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell](storage-auth-aad-script.md)
+- Azure Files stöder autentisering med Azure AD via SMB för domänanslutna datorer endast (förhandsversion). Läs om hur du använder Azure AD via SMB för Azure Files i [översikt av Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)](../files/storage-files-active-directory-overview.md).

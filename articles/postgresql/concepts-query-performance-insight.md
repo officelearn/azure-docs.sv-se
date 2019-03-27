@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 1a71fb81acc91036ce12ff15f6b2762b808c7473
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/26/2019
+ms.openlocfilehash: 69963f34cb49482cc7eae25320a6a3a5f176f8dd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541631"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486593"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
 **Gäller för:** Azure Database för PostgreSQL 9.6 och 10
-
-> [!IMPORTANT]
-> Funktionen för Query Performance Insight är allmänt tillgänglig förhandsversion. 
 
 Query Performance Insight hjälper dig att snabbt identifiera vilka körs längst frågorna är hur den ändras över tid och vilka väntar påverkar dem.
 

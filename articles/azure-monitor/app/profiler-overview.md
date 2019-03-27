@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850283"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498136"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
@@ -75,7 +75,7 @@ Om **clr! ThePreStub** tar lång tid en begäran begäran är den första att k�
 
 ### <a id="ngencold"></a>Läser in koden ([kall])
 
-Om metodnamnet innehåller **[KALLA]**, till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, körningen av .NET Framework kod körs för första gången som inte är optimerad med [profil guidad optimering](https://msdn.microsoft.com/library/e7k32f4k.aspx). För varje metod ska det visas högst en gång under processen.
+Om metodnamnet innehåller **[KALLA]**, till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, körningen av .NET Framework kod körs för första gången som inte är optimerad med [profil guidad optimering](/cpp/build/profile-guided-optimizations). För varje metod ska det visas högst en gång under processen.
 
 Om du läser in koden tar lång tid för en begäran, är den första att köra icke-optimerad delen av metoden i begäran. Överväg att använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den.
 

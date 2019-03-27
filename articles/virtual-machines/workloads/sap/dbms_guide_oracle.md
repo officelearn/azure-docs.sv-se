@@ -1,6 +1,6 @@
 ---
 title: Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar | Microsoft Docs
-description: Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar
+description: DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327790"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483527"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327790"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327790"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ Det här dokumentet omfattar flera olika områden att tänka på när du distrib
 Du kan hitta information om Oracle-versioner och motsvarande OS-versioner som stöds för att köra SAP på Oracle på Azure i SAP-kommentar [2039619].
 
 Allmän information om att köra SAP Business Suite på Oracle finns på [SAP på Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure. Mer information om allmänna stöd för Windows Hyper-V och Azure den [Oracle och vanliga frågor om Microsoft Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure. Mer information om allmänna stöd för Windows Hyper-V och Azure den [Oracle och vanliga frågor om Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>SAP Notes som är relevanta för Oracle, SAP och Azure 
 
@@ -405,7 +405,7 @@ Prestandakonfigurationen är följande:
 Om det krävs fler IOPS, bör du använda lagringspooler för Windows (endast tillgängligt i Windows Server 2012 och senare) att skapa en stor logisk enhet över flera monterade diskar. Den här metoden förenklar administrationen omkostnader för att hantera hur mycket diskutrymme och hjälper dig att undvika att behöva distribuera manuellt filer över flera monterade diskar.
 
 
-#### <a name="write-accelerator"></a>Write Accelerator
+#### <a name="write-accelerator"></a>Skrivningsaccelerator
 För M-serien virtuella datorer i Azure, kan du minska svarstiden skrivningen till online gör om loggarna av faktorer jämfört med Azure Premium Storage. Aktivera Azure Write Accelerator för diskar (VHD) baserat på Azure Premium Storage som används för online gör om-loggfiler. Mer information finns i [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
@@ -426,7 +426,7 @@ För distribution av Oracle på Windows, rekommenderar vi starkt accelererat nä
 [Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle-databas, inklusive Azure tillgänglighetsuppsättningar och övervakning av SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Informationen för för Oracle-databas i Oracle Linux
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure med Oracle Linux som gästoperativsystemet. Mer information om allmänna stöd för Windows Hyper-V och Azure finns i den [Azure och vanliga frågor och svar Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure med Oracle Linux som gästoperativsystemet. Mer information om allmänna stöd för Windows Hyper-V och Azure finns i den [Azure och vanliga frågor och svar Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 Den särskilda situationen av SAP-program att använda Oracle-databaser stöds också. Information om beskrivs i nästa del av dokumentet.
 
@@ -463,12 +463,13 @@ Om du använder diskar baserat på sida för Azure blob storage eller Managed Di
 För att identifiera de Azure VM-typerna som stöds, se SAP-kommentar [1928533].
 
 Minsta konfiguration:
+
 | Komponent | Disk | Cachelagring | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
-| /Oracle/<SID>/origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
-| /Oracle/<SID>/sapdata1...n | Premium | Skrivskyddad | Kan användas |
-| /Oracle/<SID>/oraarch | Standard | Ingen | Behövs inte |
+| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
+| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
+| /oracle/\<SID>/sapdata1...n | Premium | Skrivskyddad | Kan användas |
+| /Oracle/\<SID > / oraarch | Standard | Ingen | Behövs inte |
 | Oracle Home, saptrace, ... | OS-disk | | Behövs inte |
 
 * Tar bort specifika konfigurationer: LVM stripe eller MDADM med RAID0
@@ -476,15 +477,16 @@ Minsta konfiguration:
 Valet av disk som värd för Oracles online gör om loggar bör styras av krav på IOPS. Det är möjligt att lagra alla sapdata1... n (registerutrymmen) på en enda monterade disken så länge volymen, IOPS och dataflöde uppfyller kraven. 
 
 Prestandakonfiguration:
+
 | Komponent | Disk | Cachelagring | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA | Premium | Ingen | Kan användas  |
-| /Oracle/<SID>/origlogaB | Premium | Ingen | Kan användas |
-| /Oracle/<SID>/mirrlogAB | Premium | Ingen | Kan användas |
-| /Oracle/<SID>/mirrlogBA | Premium | Ingen | Kan användas |
-| /Oracle/<SID>/sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
-| /oracle/SID/sapdata(n+1)* | Premium | Ingen | Kan användas |
-| /Oracle/<SID>/oraarch* | Premium | Ingen | Behövs inte |
+| /Oracle/\<SID > / origlogaA | Premium | Ingen | Kan användas  |
+| /oracle/\<SID>/origlogaB | Premium | Ingen | Kan användas |
+| /Oracle/\<SID > / mirrlogAB | Premium | Ingen | Kan användas |
+| /oracle/\<SID>/mirrlogBA | Premium | Ingen | Kan användas |
+| /oracle/\<SID>/sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Ingen | Kan användas |
+| /oracle/\<SID>/oraarch* | Premium | Ingen | Behövs inte |
 | Oracle Home, saptrace, ... | OS-disk | Behövs inte |
 
 * Tar bort specifika konfigurationer: LVM stripe eller MDADM med RAID0
@@ -497,7 +499,7 @@ Prestandakonfiguration:
 Om det krävs fler IOPS, bör du använda LVM (Logical Volume Manager) eller MDADM för att skapa en stor logisk volym över flera monterade diskar. Mer information finns i [överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) angående riktlinjer och tips på hur man utnyttjar LVM eller MDADM. Den här metoden gör det enklare administration arbetet med att hantera hur mycket diskutrymme och hjälper dig att undvika att behöva distribuera manuellt filer över flera monterade diskar.
 
 
-#### <a name="write-accelerator"></a>Write Accelerator
+#### <a name="write-accelerator"></a>Skrivningsaccelerator
 För M-serien virtuella datorer i Azure, när du använder Azure Write Accelerator begränsas svarstiden skrivningen till online gör om loggarna av faktorer jämfört med Azure Premium Storage-prestanda. Aktivera Azure Write Accelerator för diskar (VHD) baserat på Azure Premium Storage som används för online gör om-loggfiler. Mer information finns i [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 

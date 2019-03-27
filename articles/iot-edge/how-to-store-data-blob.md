@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881392"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499166"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -345,7 +345,7 @@ Här är ett exempel på önskade egenskaper för den här modulen: ![ange önsk
     }
 
    ```
-  ## <a name="logs"></a>Logs
+## <a name="logs"></a>Logs
 
 Följ anvisningarna för att [konfigurera ditt dockerloggar för IoT Edge-moduler](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Följande snabbstarter använder språk som stöds också av IoT Edge, så att d
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
-Du kan även försöka [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ansluta till ditt konto för lokal lagring. Vi har försökt med [tidigare version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) i Azure Explorer.
+Du kan även försöka ”Azure Storage Explorer” för att ansluta till ditt konto för lokal lagring. Den fungerar med [Azure Storage Explorer version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> Du kan stöta på fel när du utför stegen nedan, Ignorera och uppdatera. 
+> Du kan stöta på fel när du utför följande steg, till exempel lägger till en anslutning till ett konto för lokal lagring eller skapa behållare i lokala storage-konto. Ignorera och uppdatera. 
 
 1. Ladda ned och installera Azure Storage Explorer
 2. Ansluta till Azure Storage med hjälp av en anslutningssträng

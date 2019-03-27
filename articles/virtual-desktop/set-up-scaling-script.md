@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402498"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497905"
 ---
-# <a name="automatically-scale-session-hosts"></a>Skala automatiskt session värdar
+# <a name="automatically-scale-session-hosts"></a>Skala sessionsvärdar automatiskt
 
 För många förhandsversion för virtuella skrivbord i Windows-distributioner i Azure representerar VM-kostnader stor del av den totala kostnaden för distribution av virtuella Windows-skrivbordet. Det är bäst att stänga av och frigör session virtuella datorer (VM) under perioder med låg användningstimmar och sedan starta om dem under belastning för användning för att minska kostnaderna.
 
@@ -81,7 +81,7 @@ Ange de relevanta värdena i följande fält i uppdatera skalningsinställningar
 | currentAzureSubscriptionId    | ID för Azure-prenumerationen där sessionen vara värd för virtuella datorer kör                        |
 | tenantName                    | Virtuella Windows-skrivbordet klientnamn                                                    |
 | hostPoolName                  | Virtuella Windows-skrivbordet värdnamn för poolen                                                 |
-| RDBroker                      | URL till tjänsten WVD standardvärdet <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL till tjänsten WVD standard värdet https:\//rdbroker.wvd.microsoft.com             |
 | Användarnamn                      | ID för tjänstens huvudnamn programmet (det är möjligt att ha samma tjänstens huvudnamn som i AADApplicationId) eller standardanvändare utan Multi-Factor authentication |
 | isServicePrincipal            | Godkända värden är **SANT** eller **FALSKT**. Anger om den andra uppsättningen av autentiseringsuppgifter som används är ett huvudnamn för tjänsten eller ett standardkonto. |
 | BeginPeakTime                 | När tid för användning med högsta användningsnivå börjar                                                            |

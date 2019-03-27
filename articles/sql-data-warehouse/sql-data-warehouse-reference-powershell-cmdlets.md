@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0310a74986f86e072e3ee0fa81df36a03d2e5117
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 10ba16fc06a4678c7bd70cbb7e6797b8d9be8ff4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409949"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485127"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell-cmdletar och REST API: er för SQL Data Warehouse
 Många administrationsuppgifter för SQL Data Warehouse kan hanteras med hjälp av Azure PowerShell-cmdletar eller REST API: er.  Nedan följer några exempel på hur du använder PowerShell-kommandon för att automatisera vanliga uppgifter i din SQL Data Warehouse.  Några bra REST-exempel finns i artikeln [hantera skalbarhet med REST][Manage scalability with REST].
@@ -26,7 +26,7 @@ Många administrationsuppgifter för SQL Data Warehouse kan hanteras med hjälp 
 1. Öppna Windows PowerShell.
 2. I PowerShell-Kommandotolken kör du följande kommandon för att logga in till Azure Resource Manager och välj din prenumeration.
    
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     Get-AzSubscription
     Select-AzSubscription -SubscriptionName "MySubscription"

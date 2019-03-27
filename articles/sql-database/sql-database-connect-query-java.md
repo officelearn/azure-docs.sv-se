@@ -10,13 +10,13 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: d172abd05dae63e7da47f6477df2893793933e2b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/25/2019
+ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447940"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Java
 
@@ -32,15 +32,15 @@ För att kunna slutföra det här exemplet behöver du följande:
   |:--- |:--- |:---|
   | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
-  |Läsa in data|AdventureWorks som lästs in enligt snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md)-fil från [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
-  > Skripten i den här artikeln är skrivna för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
+  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
 - Java-relaterad programvara installerad för ditt operativsystem:
 
@@ -52,13 +52,13 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet samt inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständiga servernamnet intill **Servernamn** för en enkel databas eller det fullständiga servernamnet intill **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
 
 ## <a name="create-the-project"></a>Skapa projektet
 

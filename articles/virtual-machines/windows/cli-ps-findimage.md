@@ -3,7 +3,7 @@ title: Välj Windows VM-avbildningar i Azure | Microsoft Docs
 description: Använda Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för Marketplace-VM-avbildningar.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
-ms.author: danlep
-ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: cynthn
+ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081856"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500023"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
 
@@ -72,21 +72,21 @@ Kör sedan följande för en vald SKU [Get-AzVMImage](https://docs.microsoft.com
 
     ```powershell
     $pubName="<publisher>"
-    Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
 
 3. Fyll i namnet på din valda erbjudandet och lista över SKU: er:
 
     ```powershell
     $offerName="<offer>"
-    Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
 
 4. Fyll i din valda SKU-namnet och hämta versionsnumret för avbildningen:
 
     ```powershell
     $skuName="<SKU>"
-    Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
     
 Från utdata från den `Get-AzVMImage` kommandot, kan du välja en version bild för att distribuera en ny virtuell dator.
@@ -126,7 +126,7 @@ För den *MicrosoftWindowsServer* utgivare:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
-Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
 Utdata:
@@ -143,7 +143,7 @@ För den *WindowsServer* erbjuder:
 
 ```powershell
 $offerName="WindowsServer"
-Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
 ```
 
 Delvisa utdata:
@@ -174,7 +174,7 @@ Sedan för den *2019 Datacenter* SKU:
 
 ```powershell
 $skuName="2019-Datacenter"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Nu kan du kombinera valda utgivare, erbjudande, SKU och version till en URN (värden separerade med:). Skicka den här URN med den `--image` parameter när du skapar en virtuell dator med den [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. Du kan också ersätta versionsnumret i URN med ”senaste” för att få den senaste versionen av avbildningen.
@@ -191,7 +191,7 @@ Till exempel den *Windows Server 2016 Datacenter* bilden inte har ytterligare vi
 
 ```powershell
 $version = "2016.127.20170406"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Utdata:
@@ -216,7 +216,7 @@ DataDiskImages   : []
 Exemplet nedan visar ett liknande kommando för den *virtuella dator för datavetenskap – Windows 2016* avbildningen, som har följande `PurchasePlan` egenskaper: `name`, `product`, och `publisher`. Vissa bilder har också en `promotion code` egenskapen. Finns i följande avsnitt att acceptera villkoren och aktivera programdistribution för att distribuera den här avbildningen.
 
 ```powershell
-Get-AzVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
+Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
 Utdata:

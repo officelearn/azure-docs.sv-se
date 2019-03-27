@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438979"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500567"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -96,7 +96,7 @@ När Azure Dev blanksteg är aktiverat på AKS-klustret, installerar kontrollant
 * Tar bort alla Kubernetes namnområdes med namnet *azds*, om den finns, och skapar en ny.
 * Distribuerar ett Kubernetes-initierare-objekt.
 
-! [Azure Dev blanksteg förbereda klustret]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure Dev blanksteg förbereda klustret](media/how-dev-spaces-works/prepare-cluster.svg)
 
 För att kunna använda Azure Dev blanksteg, måste det finnas minst en dev-utrymme. Azure Dev blanksteg använder Kubernetes-namnområden i AKS-kluster för utveckling blanksteg. När en domänkontrollant installeras, uppmanas du att skapa ett nytt Kubernetes-namnområde eller välj ett befintligt namnområde ska användas som ditt första adressutrymme för utveckling. När ett namnområde är utsedd till en dev-utrymme, kontrollanten lägger till den *azds.io/space=true* etikett till det namnområdet för att identifiera den som en dev-utrymme. Inledande utveckling kan du skapa eller välja väljs som standard när du har förberett ditt kluster. När ett blanksteg väljs, används den med Azure Dev blanksteg för att skapa nya arbetsbelastningar.
 

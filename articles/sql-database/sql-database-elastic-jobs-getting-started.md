@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904634"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484262"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
 
@@ -52,7 +52,7 @@ Här vi vanligtvis skulle skapa en skärvkarta mål med hjälp av den **New Azur
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Skapar en anpassad samling och lägger till alla databaser på servern till målet för anpassad insamling med undantag för master
 
-   ```PowerShell
+   ```powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -316,7 +316,7 @@ Om ett jobb avbrott har begärts för ett överordnat jobb, är på avbrottsbeg�
 
 För att skicka en begäran om annullering, använda den **Stop-AzureSqlJobExecution** cmdleten och ange den **JobExecutionId** parametern.
 
-   ```PowerShell
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

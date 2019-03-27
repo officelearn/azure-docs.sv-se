@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012325"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446005"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -98,7 +98,7 @@ Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redund
 Om gränsen på storage-konton som du kan ha i en viss prenumeration/region kombination närmar, utvärdera dina program och användningen av storage-konton och avgör om något av dessa villkor gäller.
 
 * Använda storage-konton som ohanterade diskar och lägga till diskarna till dina virtuella datorer. I det här scenariot, bör du använda [hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md), som de hanterar skalbarhet för lagring disken åt dig utan att du behöver att skapa och hantera enskilda storage-konton.
-* Med hjälp av ett lagringskonto på basis av per kund, i syfte att isolering av data. I det här scenariot bör du använda behållare för varje kund i stället för ett hela storage-konto. Azure Storage nu kan du ange rollbaserad åtkomstkontroll på en per [behållare basis](storage-auth-aad-rbac.md).
+* Med hjälp av ett lagringskonto på basis av per kund, i syfte att isolering av data. I det här scenariot bör du använda behållare för varje kund i stället för ett hela storage-konto. Azure Storage nu kan du ange rollbaserad åtkomstkontroll på en per [behållare basis](storage-auth-aad-rbac-portal.md).
 * Använda flera lagringskonton till fragment för bättre skalbarhet för ingående/utgående/iops/kapacitet. I det här scenariot, om möjligt rekommenderar vi du dra nytta av den [ökade gränser](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) för standard storage-konton för att minska antalet lagringskonton som krävs för din arbetsbelastning.
 
 Om ditt program närmar sig det för skalbarhetsmål för ett enda lagringskonto, bör du börja använda någon av följande metoder:  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226070"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487557"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -75,7 +75,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 1. Lägg till en referens till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Kör följande kommando för att återställa paketen för ditt projekt:
 
@@ -96,12 +96,19 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 4. Öppna Program.cs och uppdatera den `CreateWebHostBuilder` metod du använder Appkonfiguration genom att anropa den `config.AddAzureAppConfiguration()` metoden.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -179,7 +186,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en ASP.NET Core-webbapp. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
+I den här snabbstarten har du skapat en ny konfiguration appbutik och används med en ASP.NET Core-webbapp via den [App konfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
 > [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)

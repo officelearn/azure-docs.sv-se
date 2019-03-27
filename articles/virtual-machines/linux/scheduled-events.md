@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198753"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446136"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -47,7 +47,9 @@ Programmet kan identifiera när Underhåll ska inträffa och utlösa uppgifter f
 Schemalagda händelser innehåller händelser i följande användningsfall:
 
 - Plattform-kundinitierat Underhåll (till exempel en uppdatering för värdens operativsystem)
+- Degraderat maskinvara
 - Användarinitierat Underhåll (till exempel en användare startar om eller distribuerar om en virtuell dator)
+- [Borttagning har VM med låg prioritet](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) i skala
 
 ## <a name="the-basics"></a>Grunderna  
 
@@ -65,15 +67,16 @@ Därför kan kontrollera den `Resources` i händelsen för att identifiera vilka
 ### <a name="endpoint-discovery"></a>Slutpunktsidentifiering
 För VNET-aktiverade virtuella datorer, Metadata Service är tillgänglig från en statisk nonroutable IP-adress, `169.254.169.254`. Fullständig slutpunkten för den senaste versionen av Scheduled Events är: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 Om den virtuella datorn inte har skapats i ett virtuellt nätverk, standard-fall för molntjänster och klassiska virtuella datorer, krävs ytterligare logik för att identifiera IP-adress som ska användas. Att lära dig hur du [identifiera värd-slutpunkt](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), finns i det här exemplet.
 
 ### <a name="version-and-region-availability"></a>Version och Regiontillgänglighet
-Tjänsten Scheduled Events är en ny version. Versioner är obligatoriska. den aktuella versionen är `2017-08-01`.
+Tjänsten Scheduled Events är en ny version. Versioner är obligatoriska. den aktuella versionen är `2017-11-01`.
 
 | Version | Versionstyp | Regioner | Viktig information | 
 | - | - | - | - | 
+| 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för borttagning har VM med låg prioritet händelsetyp 'Preempt'<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella IaaS-datorer<br><li>Metadata-huvud kravet gäller för alla begäranden | 
 | 2017-03-01 | Förhandsversion | Alla | <li>Första utgåvan
 
@@ -112,7 +115,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -126,7 +129,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
 |Egenskap   |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen effekt på minne, öppna filer och nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart. (Ickebeständig minne förloras.) <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod. (Differentierande diskar går förlorade.) |
+| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen inverkan på minne, öppna filer eller nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
 | ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Listan kommer att innehålla datorer från högst ett [uppdateringsdomän](manage-availability.md), men det kanske inte innehåller alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts. Händelsen är inte längre returneras när händelsen är klar.
@@ -140,6 +143,7 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på 
 | Lås| 15 minuter |
 | Starta om | 15 minuter |
 | Omdistribuera | 10 minuter |
+| Förutse | 30 sekunder |
 
 ### <a name="start-an-event"></a>Starta en händelse 
 
@@ -158,7 +162,7 @@ I följande JSON-exempel förväntas i den `POST` brödtext i begäran. Begäran
 
 #### <a name="bash-sample"></a>Bash-exempel
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -176,7 +180,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

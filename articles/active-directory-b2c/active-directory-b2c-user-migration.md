@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893212"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484720"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar din identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsprovider till Azure AD B2C. Artikeln är inte avsedd att köras förebyggande, men i stället beskriver några scenarier. Utvecklaren är ansvarig för lämpligheten för varje metod.
@@ -104,7 +104,7 @@ I det här PowerShell-skriptet kan du göra följande:
    
 1. Använd den **program-ID** att tilldela programmet till administratörsrollen-konto. Dessa roller har välkänd identifierare, så allt du behöver göra är att ange din **program-ID** i skriptet.
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"

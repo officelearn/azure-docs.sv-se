@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 1b15a3966c6e408fb17655b112c1ec900bd86c5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999780"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480659"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -64,13 +64,13 @@ Aktuellt [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-av
 
 Exemplen i den här artikeln anger en standardbelastningsutjämnare. I exemplen är skriptet innehåller `-sku Standard`.
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Om du vill skapa en basic load balancer, tar du bort `-sku Standard` från den rad som skapar belastningsutjämnaren. Exempel:
 
-```PowerShell
+```powershell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996439"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481883"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -248,7 +248,7 @@ Mer information om kommandon som du kan använda för att interagera med behåll
 
 Om du vill ta bort IoT Edge-installationen från din Windows-enhet använder du följande kommando från en administrativ PowerShell-fönster. Det här kommandot tar bort IoT Edge-körningen, tillsammans med din befintliga konfiguration och Moby engine-data. 
 
-```PowerShell
+```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
 ```

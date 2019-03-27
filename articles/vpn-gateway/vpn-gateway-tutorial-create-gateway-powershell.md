@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414141"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445227"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudier: Skapa och hantera en VPN-gateway med hjälp av PowerShell
 
@@ -118,7 +118,7 @@ När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nät
 
 ## <a name="view-the-gateway-public-ip-address"></a>Se den offentliga IP-adressen för gatewayen
 
-Om du känner till namnet på den offentliga IP-adressen kan du använda [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) till att visa den offentliga IP-adress som är tilldelad till gatewayen.
+Om du känner till namnet på den offentliga IP-adressen kan du använda [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) till att visa den offentliga IP-adress som är tilldelad till gatewayen.
 
 Om tidsgränsen för sessionen har uppnåtts, kopierar du de gemensamma nätverksparametrarna från början av den här självstudien i den nya sessionen och går vidare och fortsätter.
 

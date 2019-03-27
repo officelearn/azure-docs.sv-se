@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731089"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485160"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
-Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
 
 Den här artikeln innehåller information om onboarding och med hjälp av Tjänstkarta. Information om hur du konfigurerar Service Map och publicering av agenter finns i [konfigurerar Service Map lösning i Azure]( service-map-configure.md).
 
@@ -374,50 +374,50 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en dator i arbetsytan |
-| ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
-| ComputerName_s | Datorn FQDN |
-| Ipv4Addresses_s | En lista över serverns IPv4-adresser |
-| Ipv6Addresses_s | En lista över serverns IPv6-adresser |
-| DnsNames_s | En matris med DNS-namn |
-| OperatingSystemFamily_s | Windows- eller Linux |
-| OperatingSystemFullName_s | Det fullständiga namnet på operativsystemet  |
-| Bitness_s | Bitar som inte för datorn (32-bitars eller 64-bitars)  |
-| PhysicalMemory_d | Fysiskt minne i MB |
-| Cpus_d | Antal processorer |
-| CpuSpeed_d | CPU-hastighet i MHz|
-| VirtualizationState_s | *Okänd*, *fysiska*, *virtuella*, *hypervisor-programmet* |
-| VirtualMachineType_s | *Hyper-v*, *vmware*och så vidare |
-| VirtualMachineNativeMachineId_g | VM-ID som tilldelats av dess hypervisor-programmet |
-| VirtualMachineName_s | Namnet på den virtuella datorn |
-| BootTime_t | Starttiden |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Den unika identifieraren för en dator i arbetsytan |
+| `ResourceName_s` | Den unika identifieraren för en dator i arbetsytan |
+| `ComputerName_s` | Datorn FQDN |
+| `Ipv4Addresses_s` | En lista över serverns IPv4-adresser |
+| `Ipv6Addresses_s` | En lista över serverns IPv6-adresser |
+| `DnsNames_s` | En matris med DNS-namn |
+| `OperatingSystemFamily_s` | Windows- eller Linux |
+| `OperatingSystemFullName_s` | Det fullständiga namnet på operativsystemet  |
+| `Bitness_s` | Bitar som inte för datorn (32-bitars eller 64-bitars)  |
+| `PhysicalMemory_d` | Fysiskt minne i MB |
+| `Cpus_d` | Antal processorer |
+| `CpuSpeed_d` | CPU-hastighet i MHz|
+| `VirtualizationState_s` | *Okänd*, *fysiska*, *virtuella*, *hypervisor-programmet* |
+| `VirtualMachineType_s` | *Hyper-v*, *vmware*och så vidare |
+| `VirtualMachineNativeMachineId_g` | VM-ID som tilldelats av dess hypervisor-programmet |
+| `VirtualMachineName_s` | Namnet på den virtuella datorn |
+| `BootTime_t` | Starttiden |
 
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL poster
 Poster med en typ av *ServiceMapProcess_CL* ha inventeringsdata för TCP-anslutna processer på servrar med Service Map agenter. Dessa poster har egenskaper i följande tabell:
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en process i arbetsytan |
-| ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
-| MachineResourceName_s | Resursnamnet för datorn |
-| ExecutableName_s | Namnet på processprogramfil |
-| StartTime_t | Starttid för process-pool |
-| FirstPid_d | Första PID i programprocess-poolen |
-| Description_s | Beskrivning av process |
-| CompanyName_s | Namnet på företaget |
-| InternalName_s | Det interna namnet |
-| ProductName_s | Namnet på produkten |
-| ProductVersion_s | Produktversion |
-| FileVersion_s | Filversionen |
-| CommandLine_s | Från kommandoraden |
-| ExecutablePath _Vä | Sökvägen till den körbara filen |
-| WorkingDirectory_s | Arbetskatalogen |
-| Användarnamn | Det konto som processen körs |
-| UserDomain | Den domän där processen körs |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Den unika identifieraren för en process i arbetsytan |
+| `ResourceName_s` | Den unika identifieraren för en process på datorn där den körs|
+| `MachineResourceName_s` | Resursnamnet för datorn |
+| `ExecutableName_s` | Namnet på processprogramfil |
+| `StartTime_t` | Starttid för process-pool |
+| `FirstPid_d` | Första PID i programprocess-poolen |
+| `Description_s` | Beskrivning av process |
+| `CompanyName_s` | Namnet på företaget |
+| `InternalName_s` | Det interna namnet |
+| `ProductName_s` | Namnet på produkten |
+| `ProductVersion_s` | Produktversion |
+| `FileVersion_s` | Filversionen |
+| `CommandLine_s` | Från kommandoraden |
+| `ExecutablePath _s` | Sökvägen till den körbara filen |
+| `WorkingDirectory_s` | Arbetskatalogen |
+| `UserName` | Det konto som processen körs |
+| `UserDomain` | Den domän där processen körs |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 

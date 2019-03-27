@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell-skript exempel – Lägg till en grupp för nätverkssäkerhetsregeln | Microsoft Docs
-description: Azure PowerShell skriptexempel - lägger till en nätverkssäkerhetsgrupp som tillåter inkommande trafik på en specifik port.
+title: Skriptexempel för Azure PowerShell – lägga till en regel för nätverkssäkerhetsgrupp | Microsoft Docs
+description: Azure PowerShell-skriptexempel – lägger till en nätverkssäkerhetsgrupp som tillåter inkommande trafik på en viss port.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,36 +13,38 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fd3c648ee63c45bef305658832a4d31dfdb213be
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: fead6aa19775eab6cc3a1014e9f52b30cfa2cefa
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25987386"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498323"
 ---
-# <a name="add-an-inbound-network-security-group-rule"></a>Lägg till en grupp för inkommande nätverk säkerhetsregel
+# <a name="add-an-inbound-network-security-group-rule"></a>Lägg till en regel för inkommande nätverkssäkerhetsgrupper
 
-Det här exempelskriptet skapar en grupp nätverkssäkerhetsregeln för att tillåta inkommande trafik på port 8081.  Skriptet hämtar den `Microsoft.Network/networkSecurityGroups` resurs som klustret finns, skapas en ny konfiguration för nätverkssäkerhetsregeln och uppdaterar nätverkssäkerhetsgruppen. Anpassa parametrarna efter behov.
+Det här exempelskriptet skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik på port 8081.  Skriptet hämtar den `Microsoft.Network/networkSecurityGroups` resurs som klustret finns, skapar en ny konfiguration för nätverkssäkerhetsregeln och uppdaterar nätverkssäkerhetsgruppen. Anpassa parametrarna efter behov.
 
-Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i den [Azure PowerShell guiden](/powershell/azure/overview). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installera Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview) om det behövs. 
 
 ## <a name="sample-script"></a>Exempelskript
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/add-inbound-nsg-rule/add-inbound-nsg-rule.ps1 "Update the RDP port range values")]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar den `Microsoft.Network/networkSecurityGroups` resurs. |
-|[Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)| Hämtar nätverkssäkerhetsgruppen efter namn.|
-|[Lägg till AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)| Lägger till en regel för nätverkssäkerhetskonfigurationen till en nätverkssäkerhetsgrupp. |
-|[Ange AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)| Anger tillståndet målet för en nätverkssäkerhetsgrupp.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar `Microsoft.Network/networkSecurityGroups`-resursen. |
+|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Hämtar nätverkssäkerhetsgruppen med namnet.|
+|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Lägger till en regel för nätverkssäkerhetskonfigurationen en nätverkssäkerhetsgrupp. |
+|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Konfigurerar målstatusen för en grupp.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).

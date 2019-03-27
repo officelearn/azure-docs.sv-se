@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900581"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483904"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -65,8 +65,8 @@ Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Type | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
-| ExecuteActionsIf | Ja | Anger om åtgärderna som i villkor som ska utföras om testet är true eller false. |
+| `Type` | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
+| `ExecuteActionsIf` | Ja | Anger om åtgärderna som i villkor som ska utföras om testet är true eller false. |
 
 Den **Förhandsvillkoret** elementet innehåller följande element:
 

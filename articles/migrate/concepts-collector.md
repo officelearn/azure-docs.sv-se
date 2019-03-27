@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315308"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498425"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | Insamlaren måste kunna kommunicera med vCenter-serve
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Insamlade metadata
+
+> [!NOTE]
+> Metadata som identifieras av Azure Migrate insamlingsprogrammet används för att hjälpa dig att storleksanpassa dina program när du migrerar dem till Azure, utföra Azure-lämplighet analys, analys av programmets beroenden och planera för kostnaden. Microsoft använder inte informationen i förhållande till alla licens efterlevnadsgranskning.
 
 Insamlingsprogrammet identifierar följande konfigurationsmetadata för varje virtuell dator. Konfigurationsinformationen för de virtuella datorerna finns en timme efter att du startar identifieringen.
 

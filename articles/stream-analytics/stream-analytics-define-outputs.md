@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f2318d3026578aef1e0e5c08d4a816b8f95a366f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438507"
+ms.locfileid: "58448710"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data.

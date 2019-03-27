@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201525"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499433"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Hantera samtidighet i Azure Search
 
@@ -170,7 +170,7 @@ Följande kod visar accessCondition söker efter nyckeln uppdateringsåtgärder:
 
 Design arbetsprofilen för att implementera Optimistisk samtidighet bör innehålla en loop som försöker åtkomst villkoret kontrollera ett test för åtkomst-villkor och du kan också hämtar en uppdaterad resurs innan du försöker igen tillämpa ändringarna.
 
-Det här kodstycket visar att lägga till en synonymMap till ett index som redan finns. Den här koden är från den [Förhandsgranska synonymer C# exempel för Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk).
+Det här kodstycket visar att lägga till en synonymMap till ett index som redan finns. Den här koden är från den [Förhandsgranska synonymer C# exempel för Azure Search](search-synonyms-tutorial-sdk.md).
 
 Kodfragmentet hämtar indexet ”hotels”, kontrollerar versionen på en uppdateringsåtgärd, genereras ett undantag om villkoret misslyckas, och sedan försöker igen (upp till tre gånger) från och med index hämtning från servern för att hämta den senaste versionen.
 

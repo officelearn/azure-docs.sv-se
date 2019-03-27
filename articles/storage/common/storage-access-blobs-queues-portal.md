@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319702"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444728"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använda Azure portal för att få åtkomst till blob eller kön data
 
@@ -43,7 +43,7 @@ Om du vill komma åt blob eller kön data från Azure portal med din Azure AD-ko
 - Du har tilldelats Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) roll, som ett minimum begränsade till nivån av storage-konto eller högre. Den **läsare** rollen ger de mest begränsade behörigheterna, men en annan Azure Resource Manager-roll som ger åtkomst till hantering av lagringsresurser-konto är också tillåtet.
 - Du har tilldelats antingen den inbyggda eller anpassade roll som ger åtkomst till BLOB-objekt eller data i kön.
 
-Den **läsare** rolltilldelningen eller en annan Azure Resource Manager-rolltilldelning krävs så att användaren kan visa och navigera management lagringskontoresurserna i Azure-portalen. RBAC-roller som ger åtkomst till blob-eller kön ger inte åtkomst till hantering av lagringsresurser-konto. Om du vill komma åt data blob eller kö i portalen, måste användaren behörighet att navigera lagringskontoresurserna. Mer information om det här kravet finns i [tilldela rollen Läsare för portalåtkomst](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
+Den **läsare** rolltilldelningen eller en annan Azure Resource Manager-rolltilldelning krävs så att användaren kan visa och navigera management lagringskontoresurserna i Azure-portalen. RBAC-roller som ger åtkomst till blob-eller kön ger inte åtkomst till hantering av lagringsresurser-konto. Om du vill komma åt data blob eller kö i portalen, måste användaren behörighet att navigera lagringskontoresurserna. Mer information om det här kravet finns i [tilldela rollen Läsare för portalåtkomst](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De inbyggda roller som har stöd för åtkomst till dina data i blob eller kön är:
 
@@ -96,5 +96,7 @@ Observera att inga blobbar visas i listan om du inte har åtkomst till nycklar f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion)](storage-auth-aad.md)
-- [Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md)
+- [Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory](storage-auth-aad.md)
+- [Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal](storage-auth-aad-rbac-portal.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC med hjälp av PowerShell](storage-auth-aad-rbac-powershell.md)

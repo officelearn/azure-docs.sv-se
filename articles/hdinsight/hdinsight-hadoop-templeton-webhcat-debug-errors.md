@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f1515af1ef61bc40ae91e3e5b43154f92bc89ae4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f158e08f0f882801dc488721013e9705ea4ff738
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725380"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448317"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel togs emot från WebHCat på HDInsight
 
@@ -29,7 +29,7 @@ Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du l�
 > [!IMPORTANT]  
 > Flera av de fel som anges i det här dokumentet beror på att en konfigurerade maxantalet har överskridits. När steget upplösning nämner att du kan ändra ett värde, måste du använda något av följande för att utföra ändringen:
 
-* För **Windows** kluster: Använda en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions.md).
+* För **Windows** kluster: Använda en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions-linux.md).
 
 * För **Linux** kluster: Använd Apache Ambari (webb- eller REST API) för att ändra värdet. Mer information finns i [hantera HDInsight med hjälp av Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
@@ -42,9 +42,9 @@ Om följande standardvärden överskrids, kan som försämra WebHCat prestanda e
 
 | Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.maximum-program][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
-| [templeton.Exec.Max-procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
-| [mapreduce.jobhistory.Max ålder ms][max-age-ms] |Hur många dagar som jobbhistorik bevaras |7 dagar |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
+| [templeton.exec.max-procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Hur många dagar som jobbhistorik bevaras |7 dagar |
 
 ## <a name="too-many-requests"></a>För många förfrågningar
 
@@ -70,7 +70,7 @@ Om följande standardvärden överskrids, kan som försämra WebHCat prestanda e
 | --- | --- |
 | Information om återställningsjobb har rensats av jobbhistoriken ett rengöringsband |Standardkvarhållningsperioden för jobbets historik är 7 dagar. Loggperioden kan ändras genom att ändra `mapreduce.jobhistory.max-age-ms`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
 | Jobbet har avslutats på grund av en redundansväxling |Försök jobböverföring i upp till två minuter |
-| Ett ogiltigt jobb-id användes |Kontrollera om jobb-id är korrekt |
+| Ett ogiltigt jobb-ID användes |Kontrollera om jobb-ID är korrekt |
 
 ## <a name="bad-gateway"></a>Felaktig gateway
 
@@ -80,7 +80,7 @@ Om följande standardvärden överskrids, kan som försämra WebHCat prestanda e
 | --- | --- |
 | Intern skräpinsamling inträffar i processen WebHCat |Vänta tills skräpinsamling slutförts eller starta om tjänsten WebHCat |
 | Timeout för väntan på svar från ResourceManager-tjänsten. Det här felet kan inträffa när antalet aktiva program blir det konfigurerade maxantalet (standard 10 000) |Vänta tills pågående jobb för att slutföra eller öka gränsen för antal samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications`. Mer information finns i den [ändra configuration](#modifying-configuration) avsnittet. |
-| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` är inställd på `*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information för jobb som bara är större än vissa jobb-id. Eller Använd inte `Fields` |
+| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` är inställd på `*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information för jobb som bara är större än vissa jobb-ID. Eller Använd inte `Fields` |
 | WebHCat-tjänsten har stoppats under huvudnoden redundans |Vänta två minuter och försök igen |
 | Det finns fler än 500 väntande jobb som skickas via WebHCat |Vänta tills väntar jobben har slutförts innan du skickar in fler jobb |
 

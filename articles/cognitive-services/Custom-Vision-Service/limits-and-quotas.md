@@ -1,5 +1,5 @@
 ---
-title: Priser och begränsningar – Custom Vision Service
+title: Begränsningar och kvoter – Custom Vision Service
 titlesuffix: Azure Cognitive Services
 description: Läs mer om begränsningar och kvoter för Custom Vision Service.
 services: cognitive-services
@@ -8,37 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: a3fdd39cdbd4204fece145bde23b23e155500bdb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351396"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472448"
 ---
-# <a name="pricing-and-limits"></a>Priser och begränsningar
+# <a name="limits-and-quotas"></a>Begränsningar och kvoter
 
-Det finns tre nivåer av nycklar för Custom Vision-tjänsten. Begränsad utvärderingsversion projektresurser är kopplade till din Custom Vision-inloggning (det vill säga en Azure Active Directory-konto eller MSA-konto). De är avsedda att användas för kort utvärderingsversioner av tjänsten. Du kan registrera dig för en F0 (kostnadsfri) eller S0 (standard) prenumeration via Azure portal. Se motsvarande [prissättning för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för information om priser och transaktioner.
-
-Konton som skapats under tidig kostnadsfri förhandsversion, före införandet av förhandsversioner av Azure (1 mars 2018), behåller sina tidigare kvoter för begränsad tester.
+Det finns två nivåer av nycklar för Custom Vision-tjänsten. Du kan registrera dig för en F0 (kostnadsfri) eller S0 (standard) prenumeration via Azure portal. Se motsvarande [prissättning för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för information om priser och transaktioner.
 
 Antalet inlärningsbilder per projekt och taggar per projekt förväntas öka med tiden för S0-projekt.
 
-||**Begränsad utvärderingsversion**|**F0**|**S0**|
-|-----|-----|-----|-----|
-|Projekt|2|2|100|
-|Inlärningsbilder per projekt, klassificering|5 000|5 000|50,000|
-|Inlärningsbilder per projekt, objektidentifiering|5 000|5 000|10 000|
-|Förutsägelser / månad|10 000 |10 000|Obegränsat|
-|Taggar / project|50|50|250|
-|Iterationer |10|10|10|
-|Minst några taggade bilder per tagg, klassificering (50 + rekommenderas) |5|5|5|
-|Minst några taggade bilder per tagg, objektidentifiering (50 + rekommenderas)|15|15|15|
-|Hur länge förutsägelse bilder sparas|30 dagar|30 dagar|30 dagar|
-|[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) operationerna för lagring (transaktioner Per sekund)|2|2|10|
-|[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) åtgärder utan lagring (transaktioner Per sekund)|2|2|20|
-|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API-anrop Per sekund)|2|2|10|
-|[Andra API-anrop](https://go.microsoft.com/fwlink/?linkid=865446) (transaktioner Per sekund)|10|10|10|
-|Maximal bildstorlek (utbildning bildöverföring) |6 MB|6 MB|6 MB|
-|Maximal bildstorlek (förutsagda)|4 MB|4 MB|4 MB|
+||**F0**|**S0**|
+|-----|-----|-----|
+|Projekt|2|100|
+|Inlärningsbilder per projekt |5 000|100 000|
+|Förutsägelser / månad|10 000 |Obegränsat|
+|Taggar / project|50|500|
+|Iterationer |10|10|
+|Min några taggade bilder per tagg, klassificering (50 + rekommenderas) |5|5|
+|Min några taggade bilder per tagg, objektidentifiering (50 + rekommenderas)|15|15|
+|Hur länge förutsägelse bilder sparas|30 dagar|30 dagar|
+|[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) operationerna för lagring (transaktioner Per sekund)|2|10|
+|[Förutsägelse](https://go.microsoft.com/fwlink/?linkid=865445) åtgärder utan lagring (transaktioner Per sekund)|2|20|
+|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API-anrop Per sekund)|2|10|
+|[Andra API-anrop](https://go.microsoft.com/fwlink/?linkid=865446) (transaktioner Per sekund)|10|10|
+|Maximal bildstorlek (utbildning bildöverföring) |6 MB|6 MB|
+|Maximal bildstorlek (förutsagda)|4 MB|4 MB|

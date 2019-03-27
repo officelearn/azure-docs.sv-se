@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652568"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486112"
 ---
 # <a name="cloud-tiering-overview"></a>Molnet lagringsnivåer översikt
 Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnade filer cachelagras lokalt på servern medan alla andra filer nivåindelas till Azure Files utifrån principinställningar. När en fil är nivåindelad ersätter Azure File Sync filsystemsfilter (StorageSync.sys) filen lokalt med en pekare eller en referenspunkt. Referenspunkten representerar en URL till filen i Azure Files. En nivåindelad fil har både ”offline”-attributet och FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen i NTFS så att program från tredje part kan på ett säkert sätt identifiera nivåindelade filer.
@@ -85,7 +85,7 @@ Det finns flera sätt att kontrollera om en fil nivåer till din Azure-filresurs
    * **Använd `fsutil` att söka efter referenspunkter för en fil.**
        Enligt beskrivningen i föregående alternativ, har en nivåindelad fil alltid en referenspunkt set. En referenspunkt pekare är en särskild pekare för Azure File Sync filsystemsfilter (StorageSync.sys). Om du vill kontrollera om en fil har en referenspunkt, i en upphöjd kommandotolk eller PowerShell-kommandotolk, kör den `fsutil` verktyget:
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -101,7 +101,7 @@ Det enklaste sättet att återställa en fil till disk är att öppna filen. Azu
 
 Du kan också använda PowerShell om du vill tvinga en fil som ska återställas. Det här alternativet kan vara användbart om du vill återställa flera filer samtidigt, till exempel alla filer i en mapp. Öppna en PowerShell-session till noden där Azure File Sync är installerad och kör följande PowerShell-kommandon:
     
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
     ```
@@ -114,7 +114,7 @@ Windows Utforskaren visar två egenskaper för att representera storleken på en
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?
 När funktionen cloud lagringsnivåer aktiveras molnlagringsnivåer automatiskt nivåer filer baserat på senaste åtkomst och ändra gånger för att uppnå den volymen ledigt utrymme i procent som anges på molnslutpunkten. Ibland, men kanske du vill tvinga en fil till tier manuellt. Detta kan vara användbart om du sparar en stor fil som du inte planerar att använda igen under en längre tid och du vill ha det lediga utrymmet på volymen nu ska användas för andra filer och mappar. Du kan tvinga lagringsnivåer med hjälp av följande PowerShell-kommandon:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```

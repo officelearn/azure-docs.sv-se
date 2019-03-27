@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411296"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500057"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägg till ett lager för symbolen på en karta
 
@@ -36,9 +36,12 @@ Det tredje kodblocket skapar en [händelselyssnaren](https://docs.microsoft.com/
 
 En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Datakällan och händelselyssnaren klickar du på symbolen lagret skapas och läggs till kartan inom den [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion för att tillse att punkten visas när kartan har lästs in helt.
 
+> [!TIP]
+> Som standard för prestanda, optimera symbolen lager återgivningen av symboler genom att dölja symboler som överlappar. När du zoomar in dolda symbolerna bli då synligt. Om du vill inaktivera den här funktionen och rendera alla symboler hela tiden, ange den `allowOverlap` egenskapen för den `iconOptions` alternativ `true`.
+
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Lägga till en anpassad ikon i en symbol-lager
 
-Symbol lager återges med WebGL. Som sådana alla resurser, till exempel ikonen avbildningar måste läsas in WebGL kontexten. Detta exempel visar hur du lägger till en anpassad symbol-ikon i kartan resurser och sedan använda den för att rendera punkt data med en anpassad symbol på kartan. Den `textField` egenskapen skiktets symbolen kräver ett uttryck som anges. I det här fallet vill vi återge temperatur-egenskapen för funktionen punkt som textvärdet. Detta kan uppnås med det här uttrycket: `['get', 'temperature']`. 
+Symbol lager återges med WebGL. Som sådana alla resurser, till exempel ikonen avbildningar måste läsas in WebGL kontexten. Detta exempel visar hur du lägger till en anpassad symbol-ikon i kartan resurser och sedan använda den för att rendera punkt data med en anpassad symbol på kartan. Den `textField` egenskapen skiktets symbolen kräver ett uttryck som anges. I det här fallet vill vi rendera temperatur-egenskapen för funktionen punkt som textvärdet. Detta kan uppnås med det här uttrycket: `['get', 'temperature']`. 
 
 <br/>
 

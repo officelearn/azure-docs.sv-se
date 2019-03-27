@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446383"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497967"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -108,7 +108,7 @@ Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns 
 
 Program som är installerade på enheter, till exempel bärbara och stationära program behöver ofta åtkomst till backend-tjänster eller webb-API: er åt användare. Du kan lägga till anpassade identitetshanteringsmiljöer i dina interna program och på ett säkert sätt anropa backend-tjänster med hjälp av Azure AD B2C och [OAuth 2.0-auktoriseringskodflödet](active-directory-b2c-reference-oauth-code.md).  
 
-I det här flödet att programmet kör [principer](active-directory-b2c-reference-policies.md) och tar emot en `authorization_code` från Azure AD när användaren uppfyller principen. Den `authorization_code` representerar programmets behörighet att anropa backend-tjänster för den användare som för närvarande är inloggad. Programmet kan sedan byta den `authorization_code` i bakgrunden för en `id_token` och en `refresh_token`.  Programmet kan använda den `id_token` att autentisera till en backend-webb API i HTTP-förfrågningar. Den kan också använda `refresh_token` för att hämta en ny `id_token` när en äldre upphör att gälla.
+I det här flödet att programmet kör [principer](active-directory-b2c-reference-policies.md) och tar emot en `authorization_code` från Azure AD när användaren uppfyller principen. Den `authorization_code` representerar programmets behörighet att anropa backend-tjänster för den användare som för närvarande är inloggad. Programmet kan sedan byta den `authorization_code` i bakgrunden för en `access_token` och en `refresh_token`.  Programmet kan använda den `access_token` att autentisera till en backend-webb API i HTTP-förfrågningar. Den kan också använda `refresh_token` för att hämta en ny `access_token` när en äldre upphör att gälla.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 

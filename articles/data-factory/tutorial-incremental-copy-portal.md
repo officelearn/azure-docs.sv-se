@@ -1,6 +1,6 @@
 ---
 title: Kopiera en tabell stegvis med Azure Data Factory | Microsoft Docs
-description: I den här självstudien kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
+description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447236"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I den här självstudien får du göra följande:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -62,7 +62,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
 
@@ -122,7 +122,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```sql
     Select * from watermarktable
     ```
-    Resultat: 
+    Utdata: 
 
     ```
     TableName  | WatermarkValue
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
    
-   ![Nytt->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. På sidan **Ny datafabrik** anger du **ADFIncCopyTutorialDF** som **namn**. 
       
      ![Sida för ny datafabrik](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
@@ -308,7 +309,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga fönstret med **verifieringsrapporten för pipeline** klickar du på >>.   

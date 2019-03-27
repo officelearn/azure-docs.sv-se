@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247247"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486792"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database 
 
@@ -67,7 +67,7 @@ Låt oss ta en djupdykning i anslutningsarkitektur för hanterade instanser. Fö
 
 ![Anslutningsarkitektur för det virtuella klustret](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienterna ansluter till en hanterad instans med hjälp av ett värdnamn som har formatet `<mi_name>.<dns_zone>.database.windows.net`. Värddatorns namn matchas till en privat IP-adress, även om den är registrerad i en zon som offentliga Domain Name System (DNS) och är offentligt matchat. Den `zone-id` genereras automatiskt när du skapar klustret. Om ett nyskapat kluster är värd för en sekundär hanterad instans, delar dess zons-ID med det primära klustret. Mer information finns i [använda autofailover grupper för att aktivera transparent och samordnad redundans för flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienterna ansluter till en hanterad instans med hjälp av ett värdnamn som har formatet `<mi_name>.<dns_zone>.database.windows.net`. Värddatorns namn matchas till en privat IP-adress, även om den är registrerad i en zon som offentliga Domain Name System (DNS) och är offentligt matchat. Den `zone-id` genereras automatiskt när du skapar klustret. Om ett nyskapat kluster är värd för en sekundär hanterad instans, delar dess zons-ID med det primära klustret. Mer information finns i [använda automatisk växling vid fel grupper för att aktivera transparent och samordnad redundans för flera databaser](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Den här privata IP-adressen tillhör den hanterade instansen intern belastningsutjämnare. Belastningsutjämnaren dirigerar trafik till den hanterade instansen gateway. Eftersom flera hanterade instanser kan köras i samma kluster, använder gatewayen värdnamnet för den hanterade instansen för att omdirigera trafik till rätt tjänst för SQL-motor.
 
@@ -109,6 +109,8 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |Alla              |Internet   |Tillåt |
 |mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT *  |Tillåt |
+
+> Kontrollera att det finns endast en regel för inkommande trafik för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterad instans etablering via ARM-distributioner kan misslyckas om inkommande och utgående regler konfigureras separat för varje portar. 
 
 \* MI – UNDERNÄT refererar till IP-adressintervall för undernätet i formuläret 10.x.x.x/y. Du hittar den här informationen i Azure-portalen i undernätsegenskaperna för.
 
@@ -167,6 +169,6 @@ Om det virtuella nätverket innehåller en anpassad DNS kan du lägga till en po
 - [Beräkna storleken på undernätet](sql-database-managed-instance-determine-size-vnet-subnet.md) där du vill distribuera de hanterade instanserna.
 - Lär dig hur du skapar en hanterad instans:
   - Från den [Azure-portalen](sql-database-managed-instance-get-started.md).
-  - Med hjälp av [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Med hjälp av [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Med hjälp av [en Azure Resource Manager-mall (med JumpBox, med SSMS som ingår)](https://portal.azure.com/).

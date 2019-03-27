@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294917"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500482"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -98,7 +98,7 @@ Nästa steg är Granska loggfilerna för jobbet körning för de olika tjänster
 
 ### <a name="access-the-hadoop-log-files"></a>Få åtkomst till loggfilerna för Hadoop
 
-HDInsight lagrar loggfilerna både i filsystemet kluster och i Azure storage. Du kan undersöka loggfiler i klustret genom att öppna en [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) anslutningen till klustret och bläddra i filsystemet eller med hjälp av Hadoop YARN Status-portalen på fjärranslutna huvudnoden-servern. Du kan granska loggfilerna i Azure storage med någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK för att komma åt data i Azure blob storage.
+HDInsight lagrar loggfilerna både i filsystemet kluster och i Azure storage. Du kan undersöka loggfiler i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) anslutningen till klustret och bläddra i filsystemet eller med hjälp av Hadoop YARN Status-portalen på fjärranslutna huvudnoden-servern. Du kan granska loggfilerna i Azure storage med någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK för att komma åt data i Azure blob storage.
 
 Hadoop körs verk som tillhör jobb som *uppgift försök* på olika noder i klustret. HDInsight kan initiera spekulativ uppgift försök Avsluta några andra uppgiften försök som inte slutförs först. Detta genererar betydande aktivitet som loggas i domänkontrollanten, stderr och syslog log-filer i farten. Dessutom kan flera försök att uppgiften körs samtidigt, men en loggfil kan bara visa resultat linjärt.
 

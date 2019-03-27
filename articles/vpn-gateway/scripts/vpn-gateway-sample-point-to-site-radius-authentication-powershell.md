@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 05/30/2018
 ms.author: alzam
-ms.openlocfilehash: 5437eed8aae01542dee63f8f951a49ff60f17e67
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 703ffac5775c979199afdd44afe0941b1416369b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417422"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448875"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Skapa en VPN-gateway och lägga till en punkt-till-plats-konfiguration med hjälp av PowerShell
 
@@ -81,7 +81,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som du har skapat kan du ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Därmed tas resursgruppen och alla resurser den innehåller bort.
+När du inte längre behöver de resurser som du har skapat kan du ta bort resursgruppen med kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Därmed tas resursgruppen och alla resurser den innehåller bort.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1
@@ -102,7 +102,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Skapar en offentlig IP-adress. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Skapar en ny IP-gatewaykonfiguration. |
-| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway?view=azurermps-6.8.1) | Skapar en VPN-gateway. |
+| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway) | Skapar en VPN-gateway. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Anger undernätskonfiguration för det virtuella nätverket. |
 | [Set-AzVirtualNetworkGateway](/powershell/module/az.network/set-azvirtualnetworkgateway) | Anger konfiguration för VPN-gatewayen. |

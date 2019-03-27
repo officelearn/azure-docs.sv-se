@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/21/2019
 ms.author: daauld
-ms.openlocfilehash: 93a6d923aff49811a4b5b0bc2236af8d0bd4c067
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 77ba3144afcc48d68466341c154bc1d8eef54d3b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885254"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479214"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. Go SDK
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Go för att skapa en objektidentifierarmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet som mall för att skapa dit eget Go-program.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Go för att skapa en objektidentifierarmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets publicerade förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet som mall för att skapa dit eget Go-program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Go 1.8+](https://golang.org/doc/install)
 
@@ -59,15 +59,17 @@ import(
     "path"
     "log"
     "time"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v3.0/customvision/prediction"
 )
 
 var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
+    prediction_resource_id = "<your prediction resource id>"
     endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
     project_name string = "Go Sample OD Project"
+    iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"
 )
 
@@ -211,16 +213,16 @@ Använd sedan den här mappningen av associationer för att ladda upp varje exem
         
     scissor_batch, _ := trainer.CreateImagesFromFiles(ctx, *project.ID, training.ImageFileCreateBatch{ 
         Images: &scissor_images,
-     })
+    })
      
     if (!*scissor_batch.IsBatchSuccessful) {
         fmt.Println("Batch upload failed.")
-    }    
+    }     
 ```
 
-### <a name="train-the-project"></a>Utbilda projektet
+### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
 
-Den här koden skapar den första iterationen i projektet och markerar den som standardinteration. Standarditerationen speglar versionen av den modell som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar om modellen.
+Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
 
 ```go
     iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -234,12 +236,10 @@ Den här koden skapar den första iterationen i projektet och markerar den som s
         fmt.Println("Training status:", *iteration.Status)
     }
 
-    // Mark iteration as default
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+    trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på slutpunkten för förutsägelse
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -248,9 +248,9 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_od_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.DetectImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
-    for _, prediction := range *results.Predictions {
+    for _, prediction := range *results.Predictions    {
         boundingBox := *prediction.BoundingBox
 
         fmt.Printf("\t%s: %.2f%% (%.2f, %.2f, %.2f, %.2f)", 
@@ -269,7 +269,7 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 
 Kör *sample.go*.
 
-```PowerShell
+```powershell
 go run sample.go
 ```
 

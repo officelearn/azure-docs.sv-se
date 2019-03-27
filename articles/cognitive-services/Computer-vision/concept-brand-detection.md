@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734327"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496595"
 ---
 # <a name="brand-detection"></a>Varumärke identifiering
 
@@ -91,7 +91,8 @@ I vissa fall tar varumärke detektor över både fyrkantig logotyp och snygg nam
 ```
 
 ## <a name="use-the-api"></a>Använda API: et
-Funktionen för identifiering av varumärke är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. När du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"brands"` avsnittet.
+
+Funktionen för identifiering av varumärke är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. Inkludera `Brands` i den **visualFeatures** frågeparameter. Sedan, när du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"brands"` avsnittet.
 
 * [Snabbstart: Analysera en bild (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

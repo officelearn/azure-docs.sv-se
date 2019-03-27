@@ -9,19 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295495"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499139"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -37,11 +35,11 @@ På den här sidan klickar du på **Anpassa** för att starta en installation me
 ### <a name="install-required-components"></a>Installera nödvändiga komponenter
 När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valfri konfiguration avmarkerat så konfigurerar Azure AD Connect allt automatiskt. Verktyget konfigurerar en instans av SQL Server 2012 Express LocalDB, skapar relevanta grupper och tilldelar behörigheter. Om du vill ändra standardinställningarna kan du använda följande tabell som hjälper dig att förstå de valfria konfigurationsalternativen.
 
-![Nödvändiga komponenter](./media/how-to-connect-install-custom/requiredcomponents.png)
+![Nödvändiga komponenter](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | Valfri konfiguration | Beskrivning |
 | --- | --- |
-| Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern. |
+| Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern.  Ange namnet på Azure AD Connect-databasen.  SQL-privilegier avgöra om en ny databas skapas eller SQL-administratören måste skapa databasen i förväg.  Om du har behörighet för SQL-SA ser [så här installerar du använder en befintlig databas](how-to-connect-install-existing-database.md).  Om du har tilldelats behörighet (DBO) Se [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md). |
 | Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect: Konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
 | Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. De här grupperna är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
 

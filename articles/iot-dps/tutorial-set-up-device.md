@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 190b675076f757925e71324d072b2ce37b7881a4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: eae674693b647eed5bce0a38236d44d457c1c2ae
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436648"
+ms.locfileid: "58486928"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
 
@@ -49,7 +49,7 @@ Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din p
 
     I följande exempel används Windows PowerShell för att verifiera kryptografisk hash för version 3.13.4 av x64 MSI-distribution:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True

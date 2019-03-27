@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099550"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449370"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -127,9 +127,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**:
    
-   ![Nytt->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
      ![Sida för ny datafabrik](./media/tutorial-control-flow-portal/new-azure-data-factory.png)

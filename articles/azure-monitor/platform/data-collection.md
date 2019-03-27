@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770228"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448886"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -102,7 +102,7 @@ Följande: uppgifter som du kan utföra med mått
 - Dirigera mått till loggar analysera måttdata tillsammans med loggdata och för att lagra måttvärden under längre tid än 93 dagar. 
 - Stream mått för att en [Händelsehubb](stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) eller till externa system.
 - [Arkivera](../../azure-monitor/learn/tutorial-archive-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.
-- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) eller [REST API](rest-api-walkthrough.md).
+- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.insights/) eller [REST API](rest-api-walkthrough.md).
 
 
 
@@ -146,7 +146,7 @@ Uppgifter som du kan utföra med loggar som följande:
 - Konfigurera en [loggvarningsregler](alerts-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när frågans resultat matchar ett visst resultat.
 - Skapa ett arbetsflöde baserat på log data med hjälp av [Logikappar](~/articles/logic-apps/index.yml).
 - Exportera resultatet av en fråga till [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.
-- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) eller [REST API](https://dev.loganalytics.io/).
+- Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) eller [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visa loggdata
 Alla loggdata i Azure Monitor hämtas med hjälp av en [loggfråga](../log-query/log-query-overview.md) skrivna med den [Kusto-frågespråket](../log-query/get-started-queries.md), där du kan snabbt hämta, konsolidera och analysera insamlade data. Använd [Log Analytics](../log-query/portals.md) att skriva och testa frågor i Azure-portalen. Du kan arbeta interaktivt med resultat eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta loggar med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

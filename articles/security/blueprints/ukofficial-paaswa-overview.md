@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482996"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -95,7 +95,7 @@ Data överförs från utanför och mellan Azure-komponenter är skyddat med hjä
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) är en personligt anpassad molnrådgivare som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) är en realtidsskydd-funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Detta som standard är installerad på den underliggande PaaS-infrastrukturen för virtuell dator och hanteras av Azure-infrastrukturen transparent till kunden, säkerställer
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) är en realtidsskydd-funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Detta som standard är installerad på den underliggande PaaS-infrastrukturen för virtuell dator och hanteras av Azure-infrastrukturen transparent till kunden.
 
 ### <a name="paas-services-in-this-blueprint"></a>PaaS-tjänster i den här skissen
 

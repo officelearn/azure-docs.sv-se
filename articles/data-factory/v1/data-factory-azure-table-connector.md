@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812558"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500091"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabell med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,6 +31,8 @@ ms.locfileid: "55812558"
 Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data till och från Azure Table Storage. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten. 
 
 Du kan kopiera data från alla dataarkiv till Azure Table Storage eller Azure Table Storage till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till/från en Azure Table Storage med hjälp av olika verktyg/API: er.
@@ -476,7 +478,7 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 | OData-datatypen | .NET-typ | Information |
 | --- | --- | --- |
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
-| Edm.Boolean |Bool |Ett booleskt värde. |
+| Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar från midnatt, 1 januari, 1601 e. kr. (C.E.), UTC. Intervallet som slutar på den 31 December 9999. |
 | Edm.Double |double |Ett 64-bitars flytande punktvärde. |
 | Edm.Guid |Guid |En globalt unik identifierare för 128-bitars. |
@@ -535,7 +537,7 @@ Få typmappningen från Azure Table OData-typ till .NET-typ, definierar du tabel
 
 | Kolumnnamn | Type |
 | --- | --- |
-| användar-ID |Edm.Int64 |
+| userid |Edm.Int64 |
 | namn |Edm.String |
 | lastlogindate |Edm.DateTime |
 

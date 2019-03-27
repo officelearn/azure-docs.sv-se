@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871544"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486078"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -121,14 +121,14 @@ Förhandsversionen är endast avsedd för icke-produktion användning. Produktio
 
 Registrera dig för förhandsversionen, kör du följande kommandon i PowerShell. Se till att ersätta platshållarna inom hakparentes med ditt eget prenumerations-ID:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Det kan ta 1 – 2 dagar som fått godkännande för förhandsversionen. Verifiera att registreringen har godkänts genom att köra följande kommando:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Följande funktioner eller tjänster stöds inte för kontot redundans i förhan
 - Lagringskonton med hjälp av Azure Data Lake Storage Gen2 hierarkiskt namnområde redundansväxlas inte.
 - Ett lagringskonto som innehåller arkiverade blobbar redundansväxlas inte. Underhålla arkiverade blobar i ett separat lagringskonto som du inte planerar att redundansväxla.
 - Ett lagringskonto som innehåller premium blockblob-objekt kan inte växlas. Storage-konton som har stöd för premium blockblobar stöder för närvarande inte geo-redundans.
+- När redundansväxlingen är klar kan följande funktioner att sluta fungera om ursprungligen aktiverat: [Händelseprenumerationer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [livscykel principer](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Storage Analytics loggning](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiering av data som ett alternativ till redundans
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110226"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496182"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
 
@@ -91,9 +91,9 @@ Mer information om klassen lagringsalternativ finns i [storage frigöra principe
 
 ## <a name="secure-and-back-up-your-data"></a>Skydda och säkerhetskopiera dina data
 
-**Bästa praxis riktlinjer** – säkerhetskopiera dina data med ett lämpligt verktyg för din typ, till exempel Heptio Ark eller Azure Site Recovery. Kontrollera integriteten och säkerheten för dessa säkerhetskopior.
+**Bästa praxis riktlinjer** – säkerhetskopiera dina data med ett lämpligt verktyg för din typ, till exempel Velero eller Azure Site Recovery. Kontrollera integriteten och säkerheten för dessa säkerhetskopior.
 
-När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Heptio Ark] [ heptio-ark] kan säkerhetskopiera beständiga volymer och ytterligare klusterresurser och konfigurationer. Om du inte [ta bort tillstånd från dina program][remove-state], säkerhetskopiera data från beständiga volymer och regelbundet testa återställningsåtgärder för att kontrollera dataintegriteten och processer som krävs.
+När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Velero] [ velero] kan säkerhetskopiera beständiga volymer och ytterligare klusterresurser och konfigurationer. Om du inte [ta bort tillstånd från dina program][remove-state], säkerhetskopiera data från beständiga volymer och regelbundet testa återställningsåtgärder för att kontrollera dataintegriteten och processer som krävs.
 
 Förstå begränsningar av olika metoder för säkerhetskopiering av data och du måste du inaktivera dina data för ögonblicksbild. Säkerhetskopiering av data kan inte nödvändigtvis du återställa din Programmiljö av klusterdistribution. Mer information om dessa scenarier finns i [bästa praxis för företag affärskontinuitet och haveriberedskap i AKS][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Förstå begränsningar av olika metoder för säkerhetskopiering av data och du
 Den här artikeln fokuserar på lagring bästa praxis i AKS. Läs mer om grunderna i storage i Kubernetes [lagringsbegrepp för program i AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

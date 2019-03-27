@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352144"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449552"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -1287,8 +1287,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MessageCount|Antal meddelanden|Antal|Totalt|Den totala mängden meddelanden.|Inga dimensioner|
 |InboundTraffic|Inkommande trafik|Byte|Totalt|Inkommande trafik för tjänsten|Inga dimensioner|
 |OutboundTraffic|Utgående trafik|Byte|Totalt|Utgående trafik för tjänsten|Inga dimensioner|
-|UserErrors|Användarfel|Procent|Maximal|Procentandelen användarfel|Inga dimensioner|
-|SystemErrors|Systemfel|Procent|Maximal|Procentandelen fel i filsystemet|Inga dimensioner|
+|UserErrors|Användarfel|Procent|Medel|Procentandelen användarfel|Inga dimensioner|
+|SystemErrors|Systemfel|Procent|Medel|Procentandelen fel i filsystemet|Inga dimensioner|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 

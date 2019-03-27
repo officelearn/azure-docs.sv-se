@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b472927f435cb86787c4580920250cb33438a07b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487031"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
@@ -227,19 +227,19 @@ Gå till **Verktyg**-menyn och klicka på **NuGet Package Manager** > **Package 
 
 Aktivera Code First Migrations i fönstret Package Manager-konsolen:
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 Lägg till en migrering:
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 Uppdatera den lokala databasen:
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

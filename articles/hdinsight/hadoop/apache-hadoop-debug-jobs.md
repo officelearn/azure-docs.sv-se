@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203072"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449492"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analysera Apache Hadoop-loggar
 
@@ -315,6 +315,5 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)

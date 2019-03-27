@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013234"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480727"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -75,7 +75,7 @@ Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel 
 #### <a name="download-instructions"></a>Hämta anvisningar
 1. Se till att du har den senaste versionen av PackageManagement och PowerShellGet installerat (Detta kan du installera förhandsversionsmoduler)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -83,29 +83,29 @@ Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel 
 2. Starta om PowerShell
 3. Installera modulerna
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Användning  
 Du kan anropa verktyget utvärdering på ett par olika sätt: du kan utföra Systemkontroller, datauppsättning kontroller eller båda. Om du vill utföra både system- och datauppsättningen kontrollerar du: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Så här testar endast din datauppsättning:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Så här testar endast systemkrav:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Så här visar resultatet i CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```

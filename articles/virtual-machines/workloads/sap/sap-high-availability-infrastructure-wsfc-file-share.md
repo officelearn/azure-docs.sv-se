@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008372"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480018"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbereda Azure-infrastrukturen för hög tillgänglighet för SAP genom att använda en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser
 
@@ -276,7 +276,7 @@ För att förbereda Azure-infrastrukturen, gå igenom följande:
 Du kan distribuera Microsoft Scale-Out File Server-kluster manuellt, enligt beskrivningen i bloggen [Lagringsdirigering i Azure][ms-blog-s2d-in-azure], genom att köra följande kod:  
 
 
-```PowerShell
+```powershell
 # Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 

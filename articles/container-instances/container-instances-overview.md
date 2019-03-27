@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863329"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499564"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -52,10 +52,11 @@ Vissa funktioner är för närvarande begränsade till Linux-behållare:
 
 * Flera containrar per containergrupp
 * Montera volymen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [hemlighet](container-instances-volume-secret.md))
+* [Användningsstatistik för resursen](container-instances-monitor.md) med Azure Monitor
 * [Virtual network-distributionen](container-instances-vnet.md) (förhandsversion)
 * [GPU-resurser](container-instances-gpu.md) (förhandsversion)
 
-Azure Container Instances stöder Windows Server 2016 bilder baserat på Long-Term Servicing kanal (LTSC)-versioner. SAC-versioner (halvårskanal) för Windows såsom 1709 och 1803 stöds inte.
+Azure Container Instances stöder för närvarande avbildningar av Windows Server 2016 baserat på Long-Term Servicing kanal (LTSC)-versionen. SAC-versioner (halvårskanal) för Windows såsom 1709 och 1803 stöds inte.
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 

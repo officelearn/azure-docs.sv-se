@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295393"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499275"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -39,21 +39,24 @@ Innan du börjar experimentet måste bestämma du vilken typ av machine learning
 
 När automatisk maskininlärningsförmågor är allmänt tillgängliga **prognoser är fortfarande i förhandsversion.**
 
-Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen.
+Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen. DNN-algoritmer är tillgängliga vid träning, automatiserade ML inte att skapa DNN-modeller.
 
 Klassificering | Regression | Prognosticering
 |-- |-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastisk Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastisk Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C-Support Vector klassificering (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Linjär SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[Dell Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[Dell Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslutsträd](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Linjär SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[Dell Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[Dell Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-Support Vector klassificering (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremt slumpmässig träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremt slumpmässig träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremt slumpmässig träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
-[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN linjär klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linjär Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linjär Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[Stokastisk brantaste Lutningsmetoden (Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>Datakällan och format
@@ -156,15 +159,15 @@ Du kan ange separata träna upp och verifiering ange antingen via get_data() ell
 
 ### <a name="k-folds-cross-validation"></a>K Vikningar Korsvalidering
 
-Använd `n_cross_validations` inställningen för att ange hur många olika plattformar verifieringar. Utbildning datauppsättningen slumpmässigt delas upp i `n_cross_validations` vikningar av samma storlek. Vid varje mellan verifiering av runda används en av vikningar som för verifiering av modellen som har tränats på återstående vikningar. Den här processen upprepas för `n_cross_validations` Avrundar tills varje vikning används en gång som angetts för verifiering. Genomsnittlig poängen för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen.
+Använd `n_cross_validations` inställningen för att ange hur många olika plattformar verifieringar. Utbildning datauppsättningen slumpmässigt delas upp i `n_cross_validations` vikningar av samma storlek. Vid varje mellan verifiering av runda används en av vikningar som för verifiering av modellen som har tränats på återstående vikningar. Den här processen upprepas för `n_cross_validations` Avrundar tills varje vikning används en gång som angetts för verifiering. Genomsnittlig poängen för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen. 
 
 ### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>Monte Carlo Korsvalidering (alias) Upprepas underordnade stickprov)
 
-Använd `validation_size` att ange procentandelen av datauppsättning för träning som ska användas för verifiering och Använd `n_cross_validations` kan du ange antalet mellan verifieringar. Under varje korsvalidering avrunda en delmängd av storleken `validation_size` väljs slumpmässigt för verifiering av modellen som har tränats på kvarvarande data. Slutligen medelvärdet poängsätter för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen.
+Använd `validation_size` att ange procentandelen av datauppsättning för träning som ska användas för verifiering och Använd `n_cross_validations` kan du ange antalet mellan verifieringar. Under varje korsvalidering avrunda en delmängd av storleken `validation_size` väljs slumpmässigt för verifiering av modellen som har tränats på kvarvarande data. Slutligen medelvärdet poängsätter för alla `n_cross_validations` Avrundar rapporteras och motsvarande modellen kommer modellkomponenten utbildning på hela datauppsättningen. Monte Carlo stöds inte för tidsserier.
 
 ### <a name="custom-validation-dataset"></a>Anpassad validering datauppsättning
 
-Använd anpassad validering datauppsättning om slumpmässiga delning inte kan godkännas (vanligtvis time series-data eller imbalanced data). Du kan ange verifiering datauppsättningen. Modellen kommer att utvärderas mot verifiering datauppsättningen som anges i stället för slumpmässiga datauppsättning.
+Använd anpassad validering datauppsättning om slumpmässiga delning inte kan godkännas, vanligtvis time series-data eller imbalanced data. Du kan ange verifiering datauppsättningen. Modellen kommer att utvärderas mot verifiering datauppsättningen som anges i stället för slumpmässiga datauppsättning.
 
 ## <a name="compute-to-run-experiment"></a>Beräkning för att köra experiment
 
@@ -178,7 +181,7 @@ Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tr
 
 ## <a name="configure-your-experiment-settings"></a>Konfigurera inställningarna för experiment
 
-Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt.
+Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt. Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
 
 Några exempel är:
 
@@ -223,6 +226,7 @@ Det finns tre olika `task` parametervärden som avgörs av algoritmer för att t
     * GradientBoosting
     * TensorFlowDNN
     * TensorFlowLinearClassifier
+    * XGBoostClassifier
 * Regression
     * ElasticNet
     * GradientBoosting
@@ -235,6 +239,7 @@ Det finns tre olika `task` parametervärden som avgörs av algoritmer för att t
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
+    * XGBoostRegressor
 * Prognosticering
     * ElasticNet
     * GradientBoosting
@@ -247,8 +252,7 @@ Det finns tre olika `task` parametervärden som avgörs av algoritmer för att t
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
-
-Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
+    * XGBoostRegressor
 
 ## <a name="data-pre-processing-and-featurization"></a>Förbearbetning av data och funktionalisering
 
@@ -265,6 +269,44 @@ Om du använder `preprocess=True`, följande data Förbearbeta stegen utförs au
     * Numeriska funktioner med mycket få unika värden som omvandlas till kategoriska funktioner.
     * Beroende på Kardinaliteten för kategoriska funktioner, utföra etikett kodning eller (hash) en frekvent kodning.
 
+## <a name="time-series-forecasting"></a>Time Series prognoser
+Time series prognosmodellen Uppgiftstyp har ytterligare parametrar för att definiera.
+1. time_horizon_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i din utbildning som innehåller datum/tid dataserien. 
+1. max_horizon - detta definierar hur lång tid som du vill förutsäga ut baserat på periodiciteten för träningsdata. Till exempel om du har träningsdata till dagliga tid kärnor kan du definiera hur långt ut i dagar som du vill att modellen för att träna för.
+1. grain_column_names - detta definierar namnet på kolumner som innehåller enskilda time series-data i dina utbildningsdata. Om du försäljningsprognoser för ett visst varumärke per butik, skulle du till exempel definiera store och varumärke kolumner som grain-kolumner.
+
+Se exempel på dessa inställningar som används nedan, notebook-exempel finns [här](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
+
 ## <a name="run-experiment"></a>Kör experimentet
 
 Skicka experiment för att köra och generera en modell. Skicka den `AutoMLConfig` till den `submit` metod för att generera modellen.
@@ -277,6 +319,13 @@ run = experiment.submit(automl_config, show_output=True)
 >Beroenden installeras först på en ny dator.  Det kan ta upp till 10 minuter innan utdata visas.
 >Ange `show_output` till `True` i utdata som visas på konsolen.
 
+## <a name="exit-criteria"></a>Avsluta-villkor 
+Det ett par alternativ du kan definiera för att slutföra experimentet.
+1. Inga kriterier - om du inte definierar någon avsluta parametrar experimentet fortsätter tills inga ytterligare framsteg görs på din primära mått. 
+1. Antalet iterationer - definierar du antalet upprepningar som krävs att köra experimentet. Du kan valfritt lägga till iteration_timeout_minutes för att definiera en tidsgräns i minuter per varje iteration.
+1. Avsluta efter en lång tid – med hjälp av experiment_timeout_minutes i dina inställningar som du kan definiera hur länge i minuter bör fortsätta ett experiment i körning.
+1. Avsluta när en poäng nåtts - med experiment_exit_score som du kan välja att utföra experiement när en poäng baserat på din primära mått har uppnåtts.
+
 
 ## <a name="explore-model-metrics"></a>Utforska mått i modellen
 Du kan visa dina resultat i en widget eller en infogad om du är på en bärbar dator. Se [spåra och utvärdera modeller](how-to-track-experiments.md#view-run-details) för mer information.
@@ -285,7 +334,7 @@ Du kan visa dina resultat i en widget eller en infogad om du är på en bärbar 
 ### <a name="classification-metrics"></a>Klassificering mått
 Följande mått har sparats i varje iteration för en klassificering.
 
-|Primär mått|Beskrivning|Beräkning|Extra parametrar
+|Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|
 AUC_Macro| AUC är området under mottagare fungerar egenskap kurvan. Makrot är det aritmetiska medelvärdet av AUC för varje klass.  | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”makrot”|
 AUC_Micro| AUC är området under mottagare fungerar egenskap kurvan. Micro beräknas globalt genom att kombinera positiva och falska positiva identifieringar från varje klass| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Genomsnittlig = ”micro”|
@@ -311,7 +360,7 @@ weighted_accuracy|Viktad Precision är Precision där vikten för varje exempel 
 ### <a name="regression-and-forecasting-metrics"></a>Regression och prognostisering mått
 Följande mått har sparats i varje iteration för en regression eller prognosmodellen uppgift.
 
-|Primär mått|Beskrivning|Beräkning|Extra parametrar
+|Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|
 explained_variance|Beskrivs varians är den som en matematisk modell-konton för variant av en viss uppsättning data. Det är i procent minskning i variansen för den ursprungliga informationen med variansen av fel. När medelvärdet av felen är 0, är det lika beskrivs avvikelse.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Ingen|
 r2_score|R2 är bestämning dvs procent minskningen jämfört med en baslinje-modell som visar medelvärdet av kvadratfel. När medelvärdet av felen är 0, är det lika beskrivs avvikelse.|[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Ingen|

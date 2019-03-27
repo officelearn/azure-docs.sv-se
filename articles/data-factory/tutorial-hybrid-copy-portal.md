@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ab13b0db843e5a2652ed1dd61a0e5ab5f7541244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2dc2418354cb1083c02516fbcdea710a74152ad
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120269"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445415"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
@@ -121,9 +121,10 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken. 
 
 1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. I den vänstra menyn väljer du **Nytt** > **Data och analys** > **Data Factory**.
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**:
    
-   ![Skapa ny datafabrik](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**. 
    
      ![Sida för ny datafabrik](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)

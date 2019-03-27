@@ -1,0 +1,138 @@
+---
+title: Använda Azure PowerShell för att hantera Azure AD-åtkomsträttigheter till blob och kö data med RBAC - Azure Storage
+description: Tilldela åtkomst till behållare och köer med rollbaserad åtkomstkontroll (RBAC) med hjälp av Azure PowerShell. Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: article
+ms.date: 03/21/2019
+ms.author: tamram
+ms.subservice: common
+ms.openlocfilehash: f14c6625a36356a6882e1596db13c1749a9a292a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58450153"
+---
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Bevilja åtkomst till Azure blob och kö data med RBAC med hjälp av PowerShell
+
+Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till behållare eller köer. 
+
+När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar åtkomst till att dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. En Azure AD-säkerhetsobjekt kan vara en användare, en grupp, tjänstens huvudnamn för ett program eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+
+Den här artikeln beskriver hur du använder Azure PowerShell för att visa en lista över inbyggda RBAC-roller och tilldela dem till användare. Mer information om hur du använder Azure PowerShell finns i [översikt av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
+
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
+
+## <a name="determine-resource-scope"></a>Bestäm resource omfattning 
+
+[!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
+
+## <a name="list-available-rbac-roles"></a>Lista tillgängliga RBAC-roller
+
+Om du vill visa tillgängliga inbyggda RBAC-roller med Azure PowerShell, Använd den [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) kommando:
+
+```powershell
+Get-AzRoleDefinition | FT Name, Description
+```
+
+Du ser de inbyggda Azure Storage data roller visas, tillsammans med andra inbyggda roller för Azure:
+
+```Example
+Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
+Storage Blob Data Owner                   Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control.
+Storage Blob Data Reader                  Allows for read access to Azure Storage blob containers and data
+Storage Queue Data Contributor            Allows for read, write, and delete access to Azure Storage queues and queue messages
+Storage Queue Data Message Processor      Allows for peek, receive, and delete access to Azure Storage queue messages
+Storage Queue Data Message Sender         Allows for sending of Azure Storage queue messages
+Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
+```
+
+## <a name="assign-an-rbac-role-to-a-user"></a>Tilldela en RBAC-roll till en användare
+
+Om du vill tilldela en RBAC-roll till en användare använder den [New AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) kommando. Formatet för kommandot kan variera beroende på omfånget för tilldelningen. I följande exempel visas hur du tilldela en roll till en användare på olika omfång.
+
+### <a name="container-scope"></a>Behållaren omfång
+
+Tilldela en roll som är begränsade till en behållare genom att ange en sträng som innehåller omfånget för behållaren för den `--scope` parametern. Omfattningen för en behållare är i formatet:
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+```
+
+I följande exempel tilldelas den **Storage Blob Data-deltagare** roll till en användare som hör till en behållare med namnet *exempelbehållaren*. Se till att ersätta exempelvärdena och du platshållarens värden inom hakparentes med dina egna värden: 
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Storage Blob Data Contributor" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+```
+
+### <a name="queue-scope"></a>Köomfång
+
+Om du vill tilldela en roll som är begränsade till en kö, ange en sträng som innehåller omfånget för kön för den `--scope` parametern. Omfattningen för en kö är i formatet:
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
+```
+
+I följande exempel tilldelas den **Lagringsködata-deltagare** roll till en användare som hör till en kö med namnet *exempel kön*. Se till att ersätta exempelvärdena och du platshållarens värden inom hakparentes med dina egna värden: 
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Storage Queue Data Contributor" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
+```
+
+### <a name="storage-account-scope"></a>Storage-konto omfång
+
+Tilldela en roll som är begränsade till lagringskontot genom att ange omfånget för resursen för lagringskonton för den `--scope` parametern. Omfånget för ett lagringskonto är i formatet:
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+I följande exempel visas hur du omfång i **Storage Blob Data-läsare** roll till en användare på nivån för storage-konto. Se till att ersätta exempelvärdena med dina egna värden: 
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Storage Blob Data Reader" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+```
+
+### <a name="resource-group-scope"></a>Resursen Gruppomfång
+
+Om du vill tilldela en roll som är begränsade till resursgruppen, ange resursgruppens namn eller ID: T för den `--resource-group` parametern. I följande exempel tilldelas den **Lagringsködata-läsare** roll till en användare på nivån för resursgruppen. Se till att ersätta exempelvärden och platshållarens värden inom hakparentes med dina egna värden: 
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Storage Queue Data Reader" `
+    -ResourceGroupName "sample-resource-group"
+```
+
+### <a name="subscription-scope"></a>Prenumerationsomfattningen
+
+Tilldela en roll som hör till prenumerationen genom att ange omfånget för prenumerationen för den `--scope` parametern. Omfattningen för en prenumeration är i formatet:
+
+```
+/subscriptions/<subscription>
+```
+
+I följande exempel visar hur du tilldelar den **Storage Blob Data-läsare** roll till en användare på nivån för storage-konto. Se till att ersätta exempelvärdena med dina egna värden: 
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Storage Blob Data Reader" `
+    -Scope  "/subscriptions/<subscription>"
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal](storage-auth-aad-rbac-portal.md)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 92a4560f35abe0a6da0ffd6f0536413f22d7289e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a608db9d806f9b0ed69eec3ce4dfb69adc5a5ea3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989586"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449081"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Skapa en virtuell dator med hjälp av en befintlig hanterad operativsystemdisk med PowerShell
 
@@ -60,7 +60,7 @@ Det här skriptet använder följande kommandon för att hämta egenskaper för 
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Skapa en virtuell dator. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
-För Marketplace-avbildningar använder du [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) för att konfigurera planinformationen.
+För Marketplace-avbildningar använder du [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) för att konfigurera planinformationen.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

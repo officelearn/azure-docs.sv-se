@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554600"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500873"
 ---
 ### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
 Den **länkad Azure Storage-tjänst** kan du länka ett Azure storage-konto till en Azure-datafabrik med hjälp av den **kontonyckel**, vilket möjliggör data factory med global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage-länkade tjänst.
@@ -42,8 +42,8 @@ En signatur för delad åtkomst (SAS) ger delegerad åtkomst till resurser i dit
 > Azure Data Factory nu endast stöder **SAS för tjänst** men inte SAS-konto. Se [typer av signaturer för delad åtkomst](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) mer information om dessa två typer och hur du skapar. Observera SAS-Webbadressen generable från Azure-portalen eller Storage Explorer är en SAS-konto, vilket inte stöds.
 
 > [!TIP]
-> Du kan köra nedan PowerShell-kommandon för att generera en SAS för tjänst för ditt lagringskonto (Ersätt platshållarna och bevilja behörigheten som krävs): `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> Du kan köra nedan PowerShell-kommandon för att generera en SAS för tjänst för ditt lagringskonto (Ersätt platshållarna och bevilja behörigheten som krävs): `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Med Azure Storage SAS länkad service kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Data factory skapar med begränsade/Tidsbundna åtkomst till alla utvalda resurser (blobbehållare) i lagringen. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage SAS länkad tjänst. 
 

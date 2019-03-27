@@ -8,20 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310916"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497762"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](../../azure-monitor/platform/activity-logs-overview.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
-
-> [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) som du kan arkivera din aktivitetslogg. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du även arkiverar diagnostikloggar och mått till ett lagringskonto, men kan det vara klokt du använder det lagringskontot för din aktivitetslogg så att alla övervakningsdata på en central plats. Storage-kontot behöver inte finnas i samma prenumeration som prenumerationen för loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
@@ -65,7 +60,7 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 | --- | --- | --- |
 | StorageAccountId |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
 | Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzLocation).Location`. |
-| RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 365. Värdet noll lagrar loggarna på obestämd tid (alltid). |
 | Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arkivera aktivitetsloggen via CLI
@@ -79,7 +74,7 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 | namn |Ja |Namnet på din loggprofil. |
 | storage-account-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
 | platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
-| dagar |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
+| dagar |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 365. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
 |aktiverad | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
 | kategorier |Ja |Blankstegsavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
 

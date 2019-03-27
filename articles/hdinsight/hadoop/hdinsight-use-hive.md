@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 5b5f323e20bbaf91c151641f8dc78fbc8cde8c24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351651"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446338"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -204,8 +204,6 @@ Dessa instruktioner utför följande åtgärder:
 
 Den [Apache Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
 
-För att underlätta felsökning jobb kördes med Tez, HDInsight innehåller följande webbgränssnittet där du kan visa information om Tez-jobb: [Använd Apache Ambari Tez-vyn på Linux-baserade HDInsight](../hdinsight-debug-ambari-tez-view.md).
-
 ### <a name="low-latency-analytical-processing-llap"></a>Låg latens Analytical Processing (LLAP)
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (kallas ibland Live Long and Process) är en ny funktion i Hive 2.0 som gör att cachelagra i minnet för frågor. LLAP gör Hive-frågor som är mycket snabbare, upp till [26 x snabbare än Hive 1.x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
@@ -256,7 +254,7 @@ Nu när du har lärt dig vad Hive är och hur du använder det med Hadoop i HDIn
 [ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

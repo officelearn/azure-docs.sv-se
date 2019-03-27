@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8e104d67d5a16dde3229380a78a06f9c4a87f19c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075023"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483768"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Skapa en Data Factory-pipeline för att kopiera data med hjälp av en Azure Resource Manager-mall 
 > [!div class="op_single_selector"]
@@ -321,19 +321,19 @@ Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehål
 1. Starta **Azure PowerShell** och kör följande kommando:
    * Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
    
-     ```PowerShell
-     Connect-AzAccount       
-     ```  
+    ```PowerShell
+    Connect-AzAccount       
+    ```  
    * Kör följande kommando för att visa alla prenumerationer för det här kontot.
    
-     ```PowerShell
-     Get-AzSubscription
-     ```   
+    ```PowerShell
+    Get-AzSubscription
+    ```   
    * Kör följande kommando för att välja den prenumeration som du vill arbeta med.
     
-     ```PowerShell
-     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```    
+    ```PowerShell
+    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+    ```    
 2. Kör följande kommando för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade i steg 1.
 
     ```PowerShell   

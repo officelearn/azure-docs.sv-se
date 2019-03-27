@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444897"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
 Som partner kan spåra du din inverkan mellan dina kundrelationer. Du kan länka ditt partner-ID för de konton som används för att hantera resurser för en kund.
-
-Den här funktionen är tillgänglig i en offentlig förhandsversion.
 
 ## <a name="get-access-from-your-customer"></a>Hämta från kunden
 
@@ -56,7 +54,7 @@ När du har åtkomst till kundens resurser, använda Azure portal, PowerShell el
 
 1. Installera den [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-modulen.
 
-2. Logga in på kundens klient med användarkonton eller tjänstens huvudnamn. Mer information finns i [logga in med PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Logga in på kundens klient med användarkonton eller tjänstens huvudnamn. Mer information finns i [logga in med PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

@@ -1,6 +1,6 @@
 ---
-title: Övervaka VPN-gatewayer Azure Nätverksbevakaren felsökning | Microsoft Docs
-description: Den här artikeln beskriver hur diagnostisera lokal anslutning med Azure Automation och Nätverksbevakaren
+title: Övervaka VPN-gatewayer med Azure Network Watcher troubleshooting | Microsoft Docs
+description: Den här artikeln beskrivs hur diagnostisera lokal anslutning med Azure Automation och Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,78 +13,78 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a102916bb0626f5b110fb134a8a25c902cfaefe7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4995d7ae846652c374a289603f29f88f6f56dfef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598140"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485501"
 ---
-# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Övervaka VPN-gatewayer Nätverksbevakaren felsökning
+# <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Övervaka VPN gateway med Network Watcher troubleshooting
 
-Får du djupa insikter på nätverkets prestanda är viktigt att tillhandahålla tillförlitlig tjänster till kunder. Det är därför viktigt att snabbt identifiera nätverksförhållanden avbrott och vidta åtgärder för att minimera avbrott villkoret. Azure Automation kan du implementera och köra en aktivitet i ett programmässiga sätt via runbooks. Med hjälp av Azure Automation skapas ett perfekt recept för att utföra kontinuerlig och proaktiv övervakning och avisering.
+Få djupgående insikter på nätverkets prestanda är viktigt att tillhandahålla tillförlitliga tjänster till kunder. Det är därför viktigt att snabbt identifiera nätverksförhållanden för avbrott och vidta åtgärder för att minimera avbrott i villkoret. Azure Automation kan du implementera och kör en uppgift i ett programmässiga sätt via runbooks. Med Azure Automation skapar ett perfekt recept för att utföra kontinuerlig och proaktiv övervakning och avisering.
 
 ## <a name="scenario"></a>Scenario
 
-Scenariot i följande bild är ett program som flera nivåer med lokal anslutning upprättas med hjälp av en VPN-Gateway och -tunnel. Säkerställa VPN-Gateway är igång och körs är avgörande för prestanda för program.
+Scenariot i följande bild är ett program med flera nivåer, med plats-anslutning upprättas med hjälp av en VPN-Gateway och -tunnel. Att se till att VPN-Gateway är igång och körs är viktigt att prestanda för program.
 
-En runbook skapas med ett skript för att söka efter anslutningsstatusen för VPN-tunnel, med hjälp av Resource felsökning API för att söka efter status för användaranslutning tunnel. Om statusen inte är felfri, skickas en e-utlösare för administratörer.
+En runbook skapas med ett skript för att söka efter anslutningsstatusen för VPN-tunneln med resursen felsökning av API för att söka efter tunnel anslutningsstatus. Om statusen inte är felfri, skickas ett e-postutlösare till administratörer.
 
 ![Exempel på ett scenario][scenario]
 
-Det här scenariot kommer:
+Det här scenariot kommer att:
 
-- Skapa en runbook anropar den `Start-AzureRmNetworkWatcherResourceTroubleshooting` för att felsöka anslutningsstatus
+- Skapa en runbook anropar den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet för att felsöka anslutningsstatus
 - Länka ett schema till runbook
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du startar det här scenariot måste du ha följande krav:
+Innan du startar det här scenariot måste du ha följande förutsättningar:
 
-- Ett Azure automation-konto i Azure. Kontrollera att automation-konto har de senaste modulerna och har även AzureRM.Network-modulen. Modulen AzureRM.Network är tillgängliga i modulgalleriet om du behöver lägga till den i ditt automation-konto.
-- Du måste ha en uppsättning autentiseringsuppgifter konfigurera i Azure Automation. Mer information finns i [Azure Automation-säkerhet](../automation/automation-security-overview.md)
+- Ett Azure automation-konto i Azure. Kontrollera att automation-kontot har de senaste modulerna och har även AzureRM.Network-modulen. AzureRM.Network modulen finns i modulgalleriet om du vill lägga till den i ditt automation-konto.
+- Du måste ha en uppsättning autentiseringsuppgifter som konfigurerar i Azure Automation. Läs mer på [säkerheten i Azure Automation](../automation/automation-security-overview.md)
 - En giltig SMTP-server (Office 365, din lokala e-post eller en annan) och autentiseringsuppgifter som definierats i Azure Automation
-- En konfigurerade virtuella nätverksgateway i Azure.
-- Ett befintligt lagringskonto med en befintlig behållare för lagring i loggarna.
+- En konfigurerad virtuell nätverksgateway i Azure.
+- Ett befintligt lagringskonto med en befintlig behållare för att lagra loggarna i.
 
 > [!NOTE]
-> Den infrastruktur som beskrivs i föregående bild är som illustration och är inte skapade i steg i den här artikeln.
+> Den infrastruktur som beskrivs i den föregående bilden är för tydlighetens skull och har skapats inte med de steg som ingår i den här artikeln.
 
-### <a name="create-the-runbook"></a>Skapa en runbook
+### <a name="create-the-runbook"></a>Skapa runbook
 
-Det första steget att konfigurera exemplet är att skapa runbook. Det här exemplet används en Kör som-konto. Läs om Kör som-konton [autentisera Runbooks med Azure kör som-konto](../automation/automation-create-runas-account.md)
+Det första steget för att konfigurera exemplet är att skapa runbook. Det här exemplet används en Kör som-konto. Mer information om Kör som-konton, besök [autentisera Runbooks med Kör som-konto](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Steg 1
 
-Gå till Azure Automation i den [Azure-portalen](https://portal.azure.com) och på **Runbooks**
+Gå till Azure Automation i den [Azure-portalen](https://portal.azure.com) och klicka på **Runbooks**
 
 ![Översikt över Automation-konto][1]
 
 ### <a name="step-2"></a>Steg 2
 
-Klicka på **lägga till en runbook** att starta processen för runbook.
+Klicka på **Lägg till en runbook** att starta processen att skapa runbook.
 
-![runbooks blad][2]
+![runbooks bladet][2]
 
 ### <a name="step-3"></a>Steg 3
 
 Under **Snabbregistrering**, klickar du på **skapa en ny runbook** att skapa en runbook.
 
-![Lägg till en runbook-bladet][3]
+![Lägg till en runbook][3]
 
 ### <a name="step-4"></a>Steg 4
 
-I det här steget kan vi ge runbook ett namn, i exempel kallas **Get-VPNGatewayStatus**. Det är viktigt att ange ett beskrivande namn för runbook och rekommenderade ett namn som följer standard PowerShell namngivning standarder. Runbook-typen för det här exemplet är **PowerShell**, de andra alternativ är grafisk PowerShell-arbetsflöde och grafisk PowerShell-arbetsflöde.
+I det här steget ska vi ge runbook ett namn, i det här exemplet kallas **Get-VPNGatewayStatus**. Det är viktigt att ge ett beskrivande namn för runbooken och rekommenderade ger den ett namn som följer standard namngivningskonvention för PowerShell. Runbook-typen för det här exemplet är **PowerShell**, de andra alternativen är grafisk, PowerShell-arbetsflöde, och grafiskt PowerShell-arbetsflöde.
 
 ![runbook-bladet][4]
 
 ### <a name="step-5"></a>Steg 5
 
-Följande kodexempel innehåller all kod som behövs för exemplet i det här steget som skapats i runbook. Objekten i kod som innehåller \<värdet\> måste ersättas med värden från din prenumeration.
+I följande kodexempel innehåller all kod som behövs för det här exemplet i det här steget som skapats i runbook. Objekten i koden som innehåller \<värdet\> måste de ersättas med värden från din prenumeration.
 
 Använd följande kod som Klicka **spara**
 
-```PowerShell
+```powershell
 # Set these variables to the proper values for your environment
 $o365AutomationCredential = "<Office 365 account>"
 $fromEmail = "<from email address>"
@@ -146,7 +146,7 @@ else
 
 ### <a name="step-6"></a>Steg 6
 
-När du har sparat runbook måste ett schema länkas till den att automatisera start av runbook. Starta processen, klicka på **schema**.
+När runbook sparas kan måste ett schema kopplas till den för att automatisera början av runbooken. Starta processen genom att klicka på **schema**.
 
 ![Steg 6][6]
 
@@ -158,23 +158,23 @@ Du måste skapa ett nytt schema. Klicka på **länka ett schema till din runbook
 
 ### <a name="step-1"></a>Steg 1
 
-På den **schema** bladet, klickar du på **skapa ett nytt schema**
+På den **schema** bladet klickar du på **skapa ett nytt schema**
 
 ![Steg 8][8]
 
 ### <a name="step-2"></a>Steg 2
 
-På den **nytt schema** bladet fill schema-information. De värden som kan anges finns i följande lista:
+På den **nytt schema** bladet fylla i schemainformationen om. De värden som kan anges finns i följande lista:
 
-- **Namnet** -ett eget namn för schemat.
-- **Beskrivning** -en beskrivning av schemat.
-- **Startar** -värdet är en kombination av datum, tid och tidszon som utgör schema-utlösare.
-- **Återkommande** – det här värdet fastställer scheman upprepning.  Giltiga värden är **när** eller **återkommande**.
-- **Upprepas var** -intervall för schemat i timmar, dagar, veckor eller månader.
-- **Ställa in ett utgångsdatum** -värdet fastställer om schemat ska upphöra att gälla eller inte. Kan anges till **Ja** eller **nr**. Ett giltigt datum och tid är ska tillhandahållas om du väljer Ja.
+- **Namn på** -det egna namnet på schemat.
+- **Beskrivning av** – en beskrivning av schemat.
+- **Startar** – det här värdet är en kombination av datum, tid och tidszon som utgör schemautlösare.
+- **Upprepning** – det här värdet fastställer scheman för upprepning.  Giltiga värden är **när** eller **återkommande**.
+- **Utför varje** -intervall för schemat i timmar, dagar, veckor eller månader.
+- **Ställa in ett utgångsdatum** -värdet som avgör om schemat ska upphöra att gälla eller inte. Kan anges till **Ja** eller **nr**. Ett giltigt datum och tid är ska tillhandahållas om Ja väljs.
 
 > [!NOTE]
-> Om du behöver ha en runbook körs oftare än en gång i timmen måste flera scheman skapas med olika intervall (det vill säga 15, 30, 45 minuter efter timmen)
+> Om du behöver ha en runbook som körs oftare än en gång i timmen måste flera scheman skapas med olika intervall (det vill säga 15, 30, 45 minuter efter timmen)
 
 ![Steg 9][9]
 
@@ -186,7 +186,7 @@ Klicka på Spara för att spara schemat till runbook.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en förståelse för hur du integrerar Nätverksbevakaren felsökning med Azure Automation lär du dig hur du utlöser paket insamlingar på VM-aviseringar genom att besöka [skapar en avisering utlösta paketinsamling med Azure Nätverksbevakaren](network-watcher-alert-triggered-packet-capture.md).
+Nu när du har en förståelse för hur du integrerar Network Watcher felsökning med Azure Automation, lär du dig hur du utlöser infångade paket på VM-aviseringar genom att besöka [skapar en avisering utlösta infångade med Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

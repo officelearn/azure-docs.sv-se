@@ -8,12 +8,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: ec012f85c4b4e93e9be475781e9da79f686cbf9e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417725"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472488"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av PowerShell
 
@@ -25,7 +25,7 @@ ms.locfileid: "58417725"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av Powershell. Du kan köra PowerShell-cmdlets och skript på Windows, Linux, eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) tillsammans med [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) att skapa och konfigurera Azure Data Explorer-kluster och databaser.
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av Powershell. Du kan köra PowerShell-cmdlets och skript på Windows, Linux, eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) att skapa och konfigurera Azure Data Explorer-kluster och databaser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -47,12 +47,12 @@ Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör 
     Connect-AzAccount
     ```
 
-2. Ange prenumerationen där du vill att klustret ska skapas:
+1. Ange prenumerationen där du vill att klustret ska skapas:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. När du kör Azure CLI lokalt eller i Azure Cloud Shell kan behöva du installera modulen Az.Kusto på din enhet:
+1. När du kör Azure CLI lokalt eller i Azure Cloud Shell kan behöva du installera modulen Az.Kusto på din enhet:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -74,7 +74,7 @@ Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör 
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
 
-2. Kör följande kommando för att kontrollera om klustret har skapats:
+1. Kör följande kommando för att kontrollera om klustret har skapats:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -98,7 +98,7 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    | SoftDeletePeriod | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | HotCachePeriod | *3650:00:00:00* | Hur lång tid data ska behållas i cache. |
 
-2. Kör följande kommando för att se den databas som du skapade:
+1. Kör följande kommando för att se den databas som du skapade:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase

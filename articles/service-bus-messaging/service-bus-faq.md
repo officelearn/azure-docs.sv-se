@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210602"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498085"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -55,7 +55,7 @@ Följande egenskaper för en kö och avsnittet är inte kan ändras. Överväg a
 ## <a name="pricing"></a>Prissättning
 Det här avsnittet får du svar på några vanliga frågor om Service Bus prissättningsstruktur.
 
-Den [Service Bus priser och fakturering](service-bus-pricing-billing.md) artikeln förklarar faktureringsmätare i Service Bus. Specifik information om Service Bus prisalternativ finns i [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
+Den [Service Bus priser och fakturering](https://azure.microsoft.com/pricing/details/service-bus/) artikeln förklarar faktureringsmätare i Service Bus. Specifik information om Service Bus prisalternativ finns i [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Du kan också besöka den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/) för allmänna Azure information om priser. 
 

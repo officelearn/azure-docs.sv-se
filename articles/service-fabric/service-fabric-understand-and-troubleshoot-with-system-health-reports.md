@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838909"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487914"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -84,7 +84,7 @@ System.FM rapporterar som OK när noden läggs till ringen (det är igång). Den
 
 I följande exempel visas System.FM-händelse med ett hälsotillstånd OK för nod:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ System.CM rapporterar som OK när programmet har skapats eller uppdaterats. Det 
 
 I följande exempel visas händelsen tillstånd på den **fabric: / WordCount** program:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ System.FM rapporterar som OK när tjänsten har skapats. Det tar bort entiteten 
 
 I följande exempel visas händelsen tillstånd på tjänsten **fabric: / WordCount/WordCountWebService**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ I följande exempel beskrivs några av de här rapporterna.
 
 I följande exempel visas en felfri partition:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 I följande exempel visas hälsotillståndet för en partition som är lägre än målet replikantal. Nästa steg är att få partition beskrivning, som visar hur den är konfigurerad: **MinReplicaSetSize** är tre och **TargetReplicaSetSize** sju. Hämta sedan antalet noder i klustret, som i det här fallet är fem. Så i det här fallet två repliker kan inte placeras, eftersom antalet repliker är högre än antalet noder som är tillgängliga.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 I följande exempel visas hälsotillståndet för en partition som har fastnat i omkonfiguration beror på att användaren inte respekterar annulleringen token i den **RunAsync** metod. Undersöka hälsorapport av alla repliker som markerats som primär (P) hjälper dig att öka detaljnivån ned ytterligare problemet.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ System.RA rapporterar OK när repliken har skapats.
 
 I följande exempel visas en felfri replik:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ Dessa hälsotillståndsvarningar aktiveras efter att ha försökt åtgärden lok
 
 I följande exempel visas hälsotillståndet för en replik som kastar `TargetInvocationException` från dess open-metod. Beskrivningen innehåller felpunkt, **IStatefulServiceReplica.Open**, Undantagstypen **TargetInvocationException**, och stackspårning.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 I följande exempel visas en replik som ständigt kraschar när den stängdes:
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ I sällsynta fall kan omkonfigurationen ha fastnat på grund av kommunikation el
 
 I följande exempel visas en hälsorapport där en omkonfigurationen har fastnat på den lokala repliken. I det här exemplet, det på grund av en tjänst inte respekterar annullering-token.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ Så här avblockerar du omkonfigurationen:
 
 I följande exempel visar hälsohändelsen från System.RAP för en tillförlitlig tjänst som inte med konfiguration för detta token i **RunAsync**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ När en åtgärd för namngivning av tar längre tid än förväntat flaggas ige
 
 I följande exempel visas en åtgärd för att skapa tjänsten. Åtgärden tog längre tid än den konfigurera varaktigheten. ”AO” återförsök och skickar arbete ”Nej”. ”Nej” slutfört den sista åtgärden med TIMEOUT. I det här fallet är samma replik primär för både ”AO” och ”Nej” roller.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ System.Hosting rapporterar som OK när ett program har aktiverats på noden. Ann
 
 I följande exempel visas en lyckad aktivering:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -793,7 +793,7 @@ System.Hosting rapporterar som OK om tjänsttypen har registrerats. Den rapporte
 
 I följande exempel visas en felfri distribuerat tjänstpaket:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-dataidentifiering och klassificering | Microsoft Docs
-description: Azure SQL Database-dataidentifiering och klassificering
+title: Azure SQL Database och SQL Data Warehouse dataidentifiering och klassificering | Microsoft Docs
+description: Azure SQL Database och data identifiering och klassificering
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202987"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495994"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-dataidentifiering och klassificering
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database och SQL Data Warehouse dataidentifiering och klassificering
 
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL-databas för **identifierar**, **klassificera**, **märkning**  &  **skyddar** känslig data i dina databaser.
 Identifiera och klassificera dina mest känsliga data (business- och finansiella institutioner vård, personligt identifierbar information (PII) och så vidare.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
@@ -31,7 +31,7 @@ Identifiera och klassificera dina mest känsliga data (business- och finansiella
 Dataidentifiering och klassificering är en del av den [avancerade datasäkerhet](sql-database-advanced-data-security.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
-> Det här dokumentet avser endast Azure SQL Database. SQL Server (lokalt), se [SQL Dataidentifiering och klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
+> Det här dokumentet avser Azure SQL Database och Azure SQL Data Warehouse. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. SQL Server (lokalt), se [SQL Dataidentifiering och klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Vad är dataidentifiering och klassificering
 

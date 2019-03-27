@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406919"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498544"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -81,8 +81,6 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).
 
 Följande PowerShell-exempel visar hur du använder [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
 

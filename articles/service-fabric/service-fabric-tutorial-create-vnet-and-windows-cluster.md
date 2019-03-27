@@ -3,7 +3,7 @@ title: Skapa ett Service Fabric-kluster som kör Windows i Azure | Microsoft Doc
 description: I den här självstudien får du lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett Azure-nätverk och en nätverkssäkerhetsgrupp med hjälp av PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: aa44355ea86b42f8865d7791fec04ffad2b6f3ad
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313829"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498187"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster som kör Windows till en Azure-nätverk
 
@@ -58,6 +58,7 @@ Innan du börjar den här självstudien:
 * Installera den [Service Fabric SDK och PowerShell-modulen](service-fabric-get-started.md).
 * Installera den [Azure Powershell-Modulversion 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Granska viktiga begrepp för [Azure kluster](service-fabric-azure-clusters-overview.md).
+* [Planera och förbereda](service-fabric-cluster-azure-deployment-preparation.md) för en Produktionsdistribution för klustret.
 
 Följande procedurer skapar ett Service Fabric-kluster med sju noder. Använd den [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) att beräkna kostnader som uppstår genom att köra ett Service Fabric-kluster i Azure.
 
@@ -181,7 +182,7 @@ Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbpro
 
 Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar. Ange användarnamn och lösenord för användarna. Exempel:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

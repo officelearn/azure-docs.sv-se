@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 35568f6c281a2aaf058fe08b214657c7737c64fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a4ba784402774750d4d7770652589b598ee00d8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842166"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485585"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Lösning för Wire Data 2.0 (förhandsversion) i Azure Monitor
 
@@ -269,7 +269,7 @@ Det är enklare att distribuera beroendeagenten på flera servrar samtidigt med 
 
 #### <a name="powershell-script-for-windows"></a>PowerShell-skript för Windows
 
-```PowerShell
+```powershell
 
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 

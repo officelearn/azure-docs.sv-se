@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 16484531e27bcbdfbd5b70303715ddd41bef7f07
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351362"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472607"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. NET SDK
 
@@ -76,21 +76,48 @@ Koden skapar den första träningsiterationen i projektet.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=106-117)]
 
-### <a name="set-the-current-iteration-as-default"></a>Ange den aktuella iterationen som standard
+### <a name="publish-the-current-iteration"></a>Publicera den aktuella iterationen
 
-Den här koden markerar den aktuella iterationen som standarditeration. Standardupprepningen speglar den version av modellen som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar modellen.
+Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=119-124)]
+```csharp
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### <a name="create-a-prediction-endpoint"></a>Skapa en förutsägelseslutpunkt
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=126-131)]
+```csharp
+// Create a prediction endpoint, passing in the obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
 
 ### <a name="use-the-prediction-endpoint"></a>Använda en förutsägelseslutpunkt
 
 Den här delen av skriptet läser in testbilden, frågar modellslutpunkten och genererar förutsägelsedata till konsolen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=133-145)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var imageFile = Path.Combine("Images", "test", "test_image.jpg");
+using (var stream = File.OpenRead(imageFile))
+{
+        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+
+        // Loop over each prediction and write out the results
+        foreach (var c in result.Predictions)
+        {
+                Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
+        }
+}
+```
 
 ## <a name="run-the-application"></a>Köra programmet
 

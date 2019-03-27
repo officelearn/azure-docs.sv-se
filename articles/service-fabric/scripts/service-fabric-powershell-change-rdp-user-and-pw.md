@@ -3,7 +3,7 @@ title: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och
 description: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och lösenordet för alla noder i Service Fabric-klustret av en viss nodtyp.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: a5c1e7786f02b7ebc42f96e4ed12b2fb5729bb41
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177839"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498017"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Uppdatera administratörens användarnamn och lösenord för de virtuella datorerna i ett kluster
 
 Varje [nodtyp](../service-fabric-cluster-nodetypes.md) i ett Service Fabric-kluster är en VM-skalningsuppsättning. Det här exempelskriptet uppdaterar administratörens användarnamn och lösenord för de virtuella datorerna i klustret i en viss nodtyp.  Lägg till filnamnstillägget VMAccessAgent till skalningsuppsättningen, eftersom administratörslösenordet inte är en ändringsbar egenskap för skalningsuppsättningar.  Ändringarna av användarnamn och lösenord gäller för alla noder i skalningsuppsättningen. Anpassa parametrarna efter behov.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview). 
 
@@ -34,13 +36,13 @@ Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azur
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon: Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Hämtar egenskaperna för en klusternodstyp (en VM-skalningsuppsättning).   |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Lägger till ett tillägg till VM-skalningsuppsättningen.|
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|Uppdaterar tillståndet för VM-skalningsuppsättningen till ett lokalt VMSS-objekts tillstånd.|
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Hämtar egenskaperna för en klusternodstyp (en VM-skalningsuppsättning).   |
+| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Lägger till ett tillägg till VM-skalningsuppsättningen.|
+| [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Uppdaterar tillståndet för VM-skalningsuppsättningen till ett lokalt VMSS-objekts tillstånd.|
 
 ## <a name="next-steps"></a>Nästa steg
 

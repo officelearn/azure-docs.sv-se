@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839108"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500261"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -274,7 +274,7 @@ Du kan lära dig mer om Azure VPN-alternativet genom att läsa artikeln [planeri
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) använder kryptering, identitet och auktoriseringsprinciper för att skydda dina filer och e-post. Azure RMS fungerar på flera olika enheter – telefoner, surfplattor och datorer genom att skydda både inom organisationen och utanför organisationen. Den här funktionen är möjligt eftersom Azure RMS lägger till en nivå av skydd som följer med informationen, även när de lämnar organisationens gränser.
 
-När du använder Azure RMS för att skydda dina filer, använder du branschstandardkryptografi med fullständig support av [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). När du använder Azure RMS för dataskydd, har du säkra på att skyddet kvar för filen även om de kopieras till lagring som inte kontrolleras av IT-avdelningen, till exempel en molntjänst för lagring. Samma inträffar för filer som delas via e-post, filen skyddas som en bifogad fil till ett e-postmeddelande med instruktioner för hur du öppnar den skyddade bifogade filen.
+När du använder Azure RMS för att skydda dina filer, använder du branschstandardkryptografi med fullständig support av [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). När du använder Azure RMS för dataskydd, har du säkra på att skyddet kvar för filen även om de kopieras till lagring som inte kontrolleras av IT-avdelningen, till exempel en molntjänst för lagring. Samma inträffar för filer som delas via e-post, filen skyddas som en bifogad fil till ett e-postmeddelande med instruktioner för hur du öppnar den skyddade bifogade filen.
 När du planerar för Azure RMS-införande rekommenderar vi följande:
 
 - Installera den [RMS-delningsappen](https://technet.microsoft.com/library/dn339006.aspx). Den här appen kan integreras med Office program genom att installera ett Office-tillägget så att användarna kan enkelt skydda filer direkt.

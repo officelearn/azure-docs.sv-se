@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4dc0be045bceaaac4b71c653d82f7f9db834c3ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238352"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486073"
 ---
 # <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Självstudier: Använda Elastic Query få åtkomst till data i Azure SQL Data Warehouse från Azure SQL Database
 
@@ -94,8 +94,8 @@ I följande steg ska vi skapa en tabell i våra data warehouse-instans med flera
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL 
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL, 
+       [CustomerID] [int] NOT NULL 
    ) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
@@ -106,19 +106,19 @@ I följande steg ska vi skapa en tabell i våra data warehouse-instans med flera
 
 3. Med hjälp av SSMS eller någon annan frågeklient öppnar du en ny fråga för den **SQL-databas** på den logiska servern.
 
-4. Skicka följande fråga för att skapa en definition för extern tabell som pekar på den **OrdersInformation** tabellen i informationslagerinstansen.
+4. Skicka följande fråga för att skapa en definition för extern tabell som pekar på den **OrderInformation** tabellen i informationslagerinstansen.
 
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL,
+       [CustomerID] [int] NOT NULL 
    ) 
    WITH 
    (
-        DATA_SOURCE = EnterpriseDwSrc
-   ,    SCHEMA_NAME = N'dbo'
-   ,    OBJECT_NAME = N'OrderInformation'
+        DATA_SOURCE = EnterpriseDwSrc,
+    SCHEMA_NAME = N'dbo',
+    OBJECT_NAME = N'OrderInformation'
    )
    ```
 

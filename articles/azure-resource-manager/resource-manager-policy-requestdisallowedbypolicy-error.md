@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d05ec1835bc04be0ca0fc12f41322c14b5420213
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c160fe39b02d8adf6c12e3736307cf7f9688b0c5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337824"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483241"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Fel med RequestDisallowedByPolicy med Azure-resurs-princip
 
@@ -47,7 +47,7 @@ Använd det följande av metoder för att hämta information om principen som bl
 
 I PowerShell, anger du den princip-ID som den `Id` parametern för att hämta information om principen som blockerade din distribution.
 
-```PowerShell
+```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 

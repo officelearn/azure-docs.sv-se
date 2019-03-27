@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: ba5baa928e60729aa128ca5097646768cf5656e8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1448c72e87d51c0bb88c9ee521a7a3112060473b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441926"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483837"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
@@ -76,7 +76,7 @@ När du använder DSC-tillägget för att registrera en nod med State Configurat
 
 Den här informationen kan ses i den [Azure-portalen](../../automation/automation-dsc-onboarding.md#azure-portal) eller så kan du använda PowerShell.
 
-```PowerShell
+```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```

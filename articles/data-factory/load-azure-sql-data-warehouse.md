@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437742"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446720"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läs in data till Azure SQL Data Warehouse med hjälp av Azure Data Factory
 
@@ -45,10 +45,11 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På menyn till vänster väljer **New** > **Data och analys** > **Data Factory**: 
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
    
-   ![Skapa en ny datafabrik](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. I den **ny datafabrik** anger värden för fälten som visas i följande bild:
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. I den **ny datafabrik** anger värden för fälten som visas i följande bild:
       
    ![Sida för ny datafabrik](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
@@ -58,8 +59,8 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
     * **Version**: Välj **V2**.
     * **Plats**: Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas på andra platser och regioner. Dessa datalager omfattar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
-1. Välj **Skapa**.
-1. När datafabriken har skapats går du till din datafabrik. Du ser den **Data Factory** startsida, enligt följande bild:
+3. Välj **Skapa**.
+4. När datafabriken har skapats går du till din datafabrik. Du ser den **Data Factory** startsida, enligt följande bild:
    
    ![Datafabrikens startsida](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 

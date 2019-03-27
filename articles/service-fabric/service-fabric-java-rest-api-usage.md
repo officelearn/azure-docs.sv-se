@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a6cb5ffe6c21c6eda9eb8b7f610952e92707a6bd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182038"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483479"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java-klient API: er
 
@@ -126,11 +126,11 @@ Följ stegen nedan för att generera klientkod för Service Fabric Java med hjä
 Du kommer märka fyra överlagringar av implementering för alla API: er. Om det finns valfria parametrar kan du hitta fyra mer variationer, inklusive de valfria parametrarna. Överväg till exempel att API: et ``removeReplica``.
  1. **offentliga void removeReplica (sträng nodnamn, UUID partitionId, sträng replicaId, booleskt forceRemove, lång timeout)**
     * Det här är den synkrona varianten av removeReplica API-anrop
- 2. **offentliga ServiceFuture<Void> removeReplicaAsync (String nodnamn, UUID partitionId, sträng replicaId, booleskt forceRemove, lång timeout, sista ServiceCallback<Void> serviceCallback)**
+ 2. **offentliga ServiceFuture\<Void > removeReplicaAsync (String nodnamn, UUID partitionId, sträng replicaId, booleskt forceRemove, lång timeout, sista ServiceCallback\<Void > serviceCallback)**
     * Den här variant av API-anrop som kan användas om du vill använda framtida baserat asynkron programmering och använda återanrop
- 3. **offentliga övervakas<Void> removeReplicaAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
+ 3. **offentliga övervakas\<Void > removeReplicaAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
     * Den här variant av API-anrop som kan användas om du vill använda reaktiva asynkron programmering
- 4. **offentliga övervakas < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
+ 4. **offentliga övervakas\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
     * Den här variant av API-anrop som kan användas om du vill använda reaktiva asynkron programmering och hantera RAW rest-svar
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f6a9d688169f0f8fdd6f0be7b664dbe9ebd71941
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: adcfb308bbbc8e3de456c4e7a71c543f988db02a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295240"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498000"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Apache Hive och Apache Pig i HDInsight
 
@@ -35,7 +35,7 @@ HDInsight omfattar även Jython, vilket är en Python-implementering skriven i J
 * Valfri.  Om du tänker använda PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installerad.
 
 > [!NOTE]  
-> Lagringskontot som används i den här artikeln har Azure Storage med [säker överföring](/../storage/common/storage-require-secure-transfer.md) aktiverad och därmed `wasbs` används i hela artikeln.
+> Lagringskontot som används i den här artikeln har Azure Storage med [säker överföring](../../storage/common/storage-require-secure-transfer.md) aktiverad och därmed `wasbs` används i hela artikeln.
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
 Ingen åtgärd krävs om lagringskontot som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)`.  Processen i den här artikeln resultat till minst `/tezstaging`.  Innehåller en standardkonfiguration för hadoop `/tezstaging` i den `fs.azure.page.blob.dir` configuration variabel i `core-site.xml` för tjänsten `HDFS`.  Den här konfigurationen leder till utdata till katalogen är sidblobbar, som inte stöds för storage-kontotyp `BlobStorage`.  Att använda `BlobStorage` i den här artikeln tar du bort `/tezstaging` från den `fs.azure.page.blob.dir` configuration variabeln.  Konfigurationen kan nås från den [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  I annat fall visas ett felmeddelande: `Page blob is not supported for this account type.`

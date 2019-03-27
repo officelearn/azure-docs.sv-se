@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: ae06fae8aa7706428a71b8069eff58ba8bf6abb1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1ca2faca6c3d34ec4c987df85fff65e0a8fdc7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307521"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486072"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon för att få åtkomst till Azure Monitor-funktioner.
@@ -32,19 +32,19 @@ Exemplen i den här artikeln visar hur du kan använda Azure Monitor-cmdletar. D
 ## <a name="sign-in-and-use-subscriptions"></a>Logga in och använda prenumerationer
 Logga först in på Azure-prenumerationen.
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
 Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och standard prenumerations-ID visas. Alla Azure-cmdlets fungerar i kontexten för din Standardprenumeration. Om du vill visa en lista över prenumerationer som du har åtkomst till, använder du följande kommando:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Om du vill ändra den fungerande kontexten till en annan prenumeration, använder du följande kommando:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscriptionid>
 ```
 
@@ -54,37 +54,37 @@ Använd den `Get-AzLog` cmdlet.  Här följer några vanliga exempel.
 
 Hämta poster från den här tid/datum att presentera:
 
-```PowerShell
+```powershell
 Get-AzLog -StartTime 2016-03-01T10:30
 ```
 
 Hämta loggposter mellan flera tid/datum:
 
-```PowerShell
+```powershell
 Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Hämta poster från en specifik resursgrupp:
 
-```PowerShell
+```powershell
 Get-AzLog -ResourceGroup 'myrg1'
 ```
 
 Hämta poster från en viss resursprovider mellan flera tid/datum:
 
-```PowerShell
+```powershell
 Get-AzLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Hämta alla poster med en specifik anropare:
 
-```PowerShell
+```powershell
 Get-AzLog -Caller 'myname@company.com'
 ```
 
 Följande kommando hämtar de senaste 1 000 händelserna från aktivitetsloggen:
 
-```PowerShell
+```powershell
 Get-AzLog -MaxEvents 1000
 ```
 
@@ -98,13 +98,13 @@ Get-AzLog -MaxEvents 1000
 ## <a name="retrieve-alerts-history"></a>Hämta aviseringar historik
 Om du vill visa alla händelser, kan du fråga Azure Resource Manager-loggar med hjälp av följande exempel.
 
-```PowerShell
+```powershell
 Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
 ```
 
 Om du vill visa historik för en specifik aviseringsregel, du kan använda den `Get-AzAlertHistory` cmdlet, skicka i resurs-ID för regeln.
 
-```PowerShell
+```powershell
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
@@ -115,19 +115,19 @@ Alla följande kommandon fungerar på en resursgrupp med namnet ”montest”.
 
 Visa alla egenskaper för regeln:
 
-```PowerShell
+```powershell
 Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
 ```
 
 Hämta alla aviseringar på en resursgrupp:
 
-```PowerShell
+```powershell
 Get-AzAlertRule -ResourceGroup montest
 ```
 
 Hämta alla Varningsregler för en målresurs. Till exempel ange alla Varningsregler på en virtuell dator.
 
-```PowerShell
+```powershell
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
@@ -156,25 +156,25 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 
 Skapa en e poståtgärd
 
-```PowerShell
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail myname@company.com
 ```
 
 Skapa en Webhook-åtgärd
 
-```PowerShell
+```powershell
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
 ```
 
 Skapa varningsregeln på CPU % mått på en klassisk virtuell dator
 
-```PowerShell
+```powershell
 Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
 ```
 
 Hämta varningsregeln
 
-```PowerShell
+```powershell
 Get-AzAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
@@ -183,13 +183,13 @@ Lägg till avisering cmdleten uppdaterar även regeln om det finns redan en varn
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Hämta en lista över tillgängliga mått för aviseringar
 Du kan använda den `Get-AzMetricDefinition` cmdlet för att visa en lista över alla mått för en specifik resurs.
 
-```PowerShell
+```powershell
 Get-AzMetricDefinition -ResourceId <resource_id>
 ```
 
 I följande exempel genererar en tabell med mått namn och en enhet för den.
 
-```PowerShell
+```powershell
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
@@ -198,7 +198,7 @@ En fullständig lista över tillgängliga alternativ för `Get-AzMetricDefinitio
 ## <a name="create-and-manage-activity-log-alerts"></a>Skapa och hantera aviseringar för aktivitetsloggen
 Du kan använda den `Set-AzActivityLogAlert` cmdlet för att ange en aktivitetsloggavisering. En aktivitetsloggavisering kräver att du först definiera dina villkor som en ordlista med villkor och sedan skapa en avisering som använder dessa villkor.
 
-```PowerShell
+```powershell
 
 $condition1 = New-AzActivityLogAlertCondition -Field 'category' -Equal 'Administrative'
 $condition2 = New-AzActivityLogAlertCondition -Field 'operationName' -Equal 'Microsoft.Compute/virtualMachines/write'
@@ -226,37 +226,37 @@ I följande exempel visas hur du kan skapa en autoskalningsinställning för en 
 
 Börja med att skapa en regel för att skala ut, med en instans antal ökning.
 
-```PowerShell
+```powershell
 $rule1 = New-AzAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
 Därefter skapa en regel för att skala, med en instans antal minskningen.
 
-```PowerShell
+```powershell
 $rule2 = New-AzAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
 ```
 
 Skapa sedan en profil för reglerna.
 
-```PowerShell
+```powershell
 $profile1 = New-AzAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "My_Profile"
 ```
 
 Skapa en webhook-egenskap.
 
-```PowerShell
+```powershell
 $webhook_scale = New-AzAutoscaleWebhook -ServiceUri "https://example.com?mytoken=mytokenvalue"
 ```
 
 Skapa meddelande-egenskapen för autoskalningsinställningen, inklusive e-post och webhooken som du skapade tidigare.
 
-```PowerShell
+```powershell
 $notification1= New-AzAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
 Skapa slutligen autoskalningsinställningen som du lägger till den profil som du skapade tidigare. 
 
-```PowerShell
+```powershell
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
@@ -265,13 +265,13 @@ Läs mer om hur du hanterar inställningarna för automatisk skalning, [Get-Auto
 ## <a name="autoscale-history"></a>Historik för automatisk skalning
 I följande exempel visas hur du kan visa de senaste automatisk skalning och händelser. Använda loggsökning aktivitet för att visa historik för automatisk skalning.
 
-```PowerShell
+```powershell
 Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
 Du kan använda den `Get-AzAutoScaleHistory` cmdlet för att hämta historiken för automatisk skalning.
 
-```PowerShell
+```powershell
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
@@ -282,20 +282,20 @@ Du kan använda den `Get-Autoscalesetting` cmdlet för att hämta mer informatio
 
 I följande exempel visas information om alla inställningar för automatisk skalning i resource group ”myrg1”.
 
-```PowerShell
+```powershell
 Get-AzAutoscalesetting -ResourceGroup myrg1 -DetailedOutput
 ```
 
 I följande exempel visas information om alla inställningar för automatisk skalning i resource group ”myrg1” och specifikt autoskalningsinställning med namnet ”MyScaleVMSSSetting”.
 
-```PowerShell
+```powershell
 Get-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOutput
 ```
 
 ### <a name="remove-an-autoscale-setting"></a>Ta bort en autoskalningsinställning
 Du kan använda den `Remove-Autoscalesetting` cmdlet för att ta bort en autoskalningsinställning.
 
-```PowerShell
+```powershell
 Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
@@ -306,26 +306,26 @@ Du kan skapa en *loggprofilen* och exportera data från din aktivitetslogg till 
 Om du vill hämta din befintliga loggprofiler, använda den `Get-AzLogProfile` cmdlet.
 
 ### <a name="add-a-log-profile-without-data-retention"></a>Lägg till en loggprofil utan datakvarhållning
-```PowerShell
+```powershell
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### <a name="remove-a-log-profile"></a>Ta bort en loggprofil
-```PowerShell
+```powershell
 Remove-AzLogProfile -name my_log_profile_s1
 ```
 
 ### <a name="add-a-log-profile-with-data-retention"></a>Lägg till en loggprofil med en datakvarhållning
 Du kan ange den **- RetentionInDays** egenskap med antalet dagar som ett positivt heltal, där data bevaras.
 
-```PowerShell
+```powershell
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Lägg till loggprofil med kvarhållning och EventHub
 Förutom routning dina data till storage-konto kan du också strömma det till en Händelsehubb. I den här förhandsversionen konfigurationen av storage-kontot är obligatorisk men Event Hub-konfigurationen är valfritt.
 
-```PowerShell
+```powershell
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
@@ -338,50 +338,50 @@ Många Azure-tjänster tillhandahåller ytterligare loggar och telemetri som kan
 Åtgärden kan bara utföras på en resursnivå. Storage-konto eller event hub ska finnas i samma region som målresursen där diagnostik inställningen konfigureras.
 
 ### <a name="get-diagnostic-setting"></a>Hämta diagnostikinställning
-```PowerShell
+```powershell
 Get-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
 
 Inaktivera diagnostikinställning
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $false
 ```
 
 Aktivera diagnostikinställningar utan kvarhållning
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true
 ```
 
 Aktivera diagnostikinställningar med kvarhållning
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 Aktivera diagnostikinställningar med kvarhållning för en viss loggning-kategori
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 Aktivera diagnostikinställningar för Event Hubs
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
 Aktivera diagnostikinställningar för Log Analytics
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
 
 ```
 
 Observera att egenskapen WorkspaceId tar den *resurs-ID* i arbetsytan. Du kan hämta resurs-ID för Log Analytics-arbetsytan med följande kommando:
 
-```PowerShell
+```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId
 
 ```

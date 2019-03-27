@@ -3,7 +3,7 @@ title: Skala upp ett Azure Service Fabric-nodtyp | Microsoft Docs
 description: Lär dig hur du skalar ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
-ms.author: ryanwi
-ms.openlocfilehash: 7c90556916f86f58fa479f9f14b03a90e6405d2b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.author: aljo
+ms.openlocfilehash: 71517f251a6907e54b1fda9802e5740f9a0b2fe4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302709"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500533"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en Service Fabric-kluster primära nodtypen
 Den här artikeln beskriver hur du skalar upp ett Service Fabric-kluster primära nodtypen genom att öka virtuella datorresurser. Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Virtual machine scale sets är en Azure-beräkningsresurs som används för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster, kan du skala en klusternodstyp lodrätt (ändra resurser noder) eller uppgradera operativsystemet på nodtyp virtuella datorer.  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.

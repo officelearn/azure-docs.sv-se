@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec441835d4c409d0d8c1fad66c41cef2eb462105
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8f60cce99606b1a92cba62847b060c49cb0c2c0d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436458"
+ms.locfileid: "58485263"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad X.509-enhet med Azure IoT C SDK
 
@@ -49,7 +49,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
 
     I följande exempel används Windows PowerShell för att verifiera kryptografisk hash för version 3.13.4 av x64 MSI-distribution:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -139,7 +139,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
 
 3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
 
-    - **Mekanism:** Välj X.509 som identitet för bestyrkande *mekanism*.
+    - **Mekanism:** Välj **X.509** som identitet för bestyrkande *mekanism*.
     - **Primär .pem- eller .cer-fil:** Klicka på **Välj en fil** för att välja certifikatfilen X509testcert.pem som du skapade tidigare.
     - **Enhets-ID för IoT Hub:** Ge enheten ett ID genom att ange **test-docs-cert-device**.
 

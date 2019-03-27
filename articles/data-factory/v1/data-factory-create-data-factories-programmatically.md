@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436775"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486979"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med hjälp av Azure Data Factory .NET SDK
 > [!NOTE]
@@ -44,17 +44,17 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 1. Starta **PowerShell**.
 2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Kör följande kommando för att visa alla prenumerationer för det här kontot.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -63,7 +63,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 
 5. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -72,28 +72,28 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     Om du använder en annan resursgrupp måste du använda namnet på din resursgrupp i stället för ADFTutorialResourceGroup i den här självstudiekursen.
 6. Skapa ett Azure Active Directory-program.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Om följande fel returneras anger du en annan URL och kör kommandot igen.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. Skapa AD-tjänstobjektet.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Lägg till tjänstobjektet till rollen som **Data Factory-deltagare**.
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Hämta program-ID:t.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Anteckna program-ID:t (applicationID) från utdata.

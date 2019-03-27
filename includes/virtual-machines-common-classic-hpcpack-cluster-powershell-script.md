@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735559"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484871"
 ---
 Beroende på din miljö och alternativ, kan skriptet Skapa hela klustret infrastrukturen, inklusive Azure-nätverk, lagringskonton, molntjänster, domänkontrollant, fjärrdatorer eller lokala SQL-databaser, huvudnod och ytterligare klusternoder. Skriptet kan också använda redan existerande Azure-infrastrukturen och skapa endast noderna för HPC-kluster.
 
@@ -22,7 +22,7 @@ Bakgrundsinformation om hur du planerar ett HPC Pack-kluster finns i den [produk
 * **Skriptet konfigurationsfilen**: Skapa en XML-fil som skriptet använder för att konfigurera HPC-kluster. Information och exempel finns i avsnitten senare i den här artikeln och filen Manual.rtf som medföljer distributionsskriptet.
 
 ## <a name="syntax"></a>Syntax
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>Exempel
 I följande exempel skapas ett HPC Pack-kluster med hjälp av konfigurationsfilen *MyConfigFile.xml*, och anger autentiseringsuppgifter för att installera klustret.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

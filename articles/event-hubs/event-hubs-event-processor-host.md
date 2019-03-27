@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106130"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498179"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Ta emot händelser från Azure Event Hubs med värden för händelsebearbetning
 
@@ -83,11 +83,11 @@ public class SimpleEventProcessor : IEventProcessor
 
 Därefter skapa en instans av en [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instans. Beroende på överbelastning, när du skapar den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instans i konstruktorn används följande parametrar:
 
-- **Värdnamn:** namnet på varje konsumentinstans. Varje instans av **EventProcessorHost** måste ha ett unikt värde för den här variabeln inom en konsumentgrupp, så det är bäst att inte hårt code det här värdet.
+- **Värdnamn:** namnet på varje konsumentinstans. Varje instans av **EventProcessorHost** måste ha ett unikt värde för den här variabeln inom en konsumentgrupp, så att inte hårt code det här värdet.
 - **eventHubPath:** Namnet på händelsehubben.
 - **consumerGroupName:** Händelsehubbar använder **$Default** eftersom namnet på förinställd konsumentgrupp, men det är en bra idé att skapa en konsumentgrupp för din specifika aspekter av bearbetning.
 - **eventHubConnectionString:** Anslutningssträngen till event hub, som kan hämtas från Azure-portalen. Den här anslutningssträngen måste ha **lyssna** behörigheter i event hub.
-- **StorageConnectionString:** Det lagringskonto som används för interna resurshantering.
+- **storageConnectionString:** Det lagringskonto som används för interna resurshantering.
 
 Slutligen användare registrerar den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) -instansen med Event Hubs-tjänsten. Registrera en händelseklass-processor med en instans av EventProcessorHost startar bearbetning av händelser. Registrera instruerar Event Hubs-tjänsten kan förvänta sig att appen konsument förbrukar händelser från vissa av tabellens partitioner, och att anropa den [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringskod när den skickar händelser för att använda. 
 
@@ -125,7 +125,7 @@ Varje värd skaffar här ägarskapet för en partition för en viss varaktighet 
 
 Varje anrop till [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) levererar en insamling av händelser. Det är ditt ansvar att hantera dessa händelser. Om du vill kontrollera värden för händelsebearbetning bearbetar alla meddelanden minst en gång som du behöver skriva din egen keep försöker kod. Men var försiktig om förgiftat meddelanden.
 
-Vi rekommenderar att du gör saker som är relativt snabbt. det vill säga göra bearbetningen som möjligt. Använd istället konsumentgrupper. Om du behöver skriva till lagring och vissa routning, är det vanligtvis bättre att använda två konsumentgrupper och har två [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringar som kör separat.
+Vi rekommenderar att du gör saker som är relativt snabbt. det vill säga göra bearbetningen som möjligt. Använd istället konsumentgrupper. Om du behöver skriva till lagring och vissa routning, är det bättre att använda två konsumentgrupper och har två [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementeringar som kör separat.
 
 Du kanske vill hålla reda på vad du har läst och slutfört någon gång under bearbetningen. Spåra är kritiskt om du måste starta om läsning, så att du inte gå tillbaka till början av strömmen. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) förenklar den här spårning med hjälp av *kontrollpunkter*. En kontrollpunkt är en plats eller offset för en given partition inom en viss konsumentgrupp, vid vilken tidpunkt som du är nöjd som du har bearbetat meddelandena. Markera en kontrollpunkt i **EventProcessorHost** åstadkoms genom att anropa den [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) metoden på den [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) objekt. Den här åtgärden görs i den [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) metoden men kan också göras [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -141,7 +141,7 @@ Som standard [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processo
 
 ## <a name="shut-down-gracefully"></a>Stäng av ett smidigt sätt
 
-Slutligen [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) möjliggör en ren avstängning av alla läsare i partitionen och ska alltid anropas när du stänger en instans av [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Det gick inte att göra det kan ta längre tid att starta andra instanser av **EventProcessorHost** på grund av lånets förfallotid och Epoch konflikter. Hantering av epoch beskrivs i detalj i den här [blogginlägget](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
+Slutligen [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) möjliggör en ren avstängning av alla läsare i partitionen och ska alltid anropas när du stänger en instans av [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Det gick inte att göra det kan ta längre tid att starta andra instanser av **EventProcessorHost** på grund av lånets förfallotid och Epoch konflikter. Hantering av epoch beskrivs i detalj i de [Epoch](#epoch) i artikeln. 
 
 ## <a name="lease-management"></a>Hantering av partitionsleasing
 Registrera en händelseklass-processor med en instans av EventProcessorHost startar bearbetning av händelser. Värdinstans hämtar lån på vissa partitioner i Event Hub grabbing eventuellt vissa från andra ha instanser på ett sätt som konvergerar på en jämn fördelning av partitioner i alla värdinstanser. För varje utlånat partition värdinstans skapar en instans av klassen angivna event processor, sedan tar emot händelser från partitionen och skickar dem till event processor-instans. När fler instanser läggs och fler leasingar är gripit balanserar EventProcessorHost så småningom belastningen mellan alla konsumenter.
@@ -159,6 +159,32 @@ Dessutom kan en överlagring för [RegisterEventProcessorAsync](/dotnet/api/micr
 - [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Om den här parametern **SANT**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) anropas när tidsgränsen uppnås för underliggande anropet för att ta emot händelser på en partition. Den här metoden är användbar för att utföra åtgärder för tidsbaserade perioder av inaktivitet på partitionen.
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Gör en pekare eller lambda funktionsuttryck anges, som kallas för att tillhandahålla den första förskjutningen när en läsare börjar läsa en partition. Utan att ange denna offset läsaren börjar vid den äldsta händelsen, såvida inte en JSON-fil med en förskjutning redan har sparats i storage-kontot som angetts för den [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) konstruktor. Den här metoden är användbar när du vill ändra beteendet för läsare-start. När den här metoden har anropats innehåller parametern objektet partitions-ID som läsaren startas.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Gör det möjligt att få meddelanden om alla underliggande undantag som uppstår i [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Om allt inte fungerar som förväntat, är ett bra ställe att börja titta i den här händelsen.
+
+## <a name="epoch"></a>Epoch
+
+Så fungerar här receive epoch:
+
+### <a name="with-epoch"></a>Med Epoch
+Epoch är en unik identifierare (epoch värde) som tjänsten använder framtvinga ägarskap partitionen/lånet. Du skapar en Epoch-baserade mottagare med hjälp av den [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) metod. Den här metoden skapar en Epoch-baserade mottagare. Mottagaren har skapats för en specifik händelse hub partition från den angivna konsumentgruppen.
+
+Funktionen epoch ger användarna möjlighet att se till att det finns bara en mottagare på en konsumentgrupp när som helst i tid, med följande regler:
+
+- Om det finns ingen befintlig mottagare i en konsumentgrupp, men användaren kan skapa en mottagare med ett epoch-värde.
+- Om det finns en mottagare med en epok värdet e1 och en ny mottagare har skapats med en epok värdet e2 där e1 < = e2, kommer att kopplas från mottagaren med e1 automatiskt, mottagare med e2 har skapats.
+- Om det finns en mottagare med en epok värdet e1 och en ny mottagare har skapats med en epok värdet e2 där e1 > e2 och sedan skapa e2 med misslyckas med fel: Det finns redan en mottagare med epoch e1.
+
+### <a name="no-epoch"></a>Inga Epoch
+Du skapar en icke-Epoch-baserade mottagare med hjälp av den [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) metod. 
+
+Det finns vissa scenarier i strömbearbetning där användare skulle vilja skapa flera olika mottagare på en enskild konsument-grupp. Vi har möjlighet att skapa en mottagare utan epoch för att stödja sådana scenarier, och i så fall tillåter vi upp till 5 samtidiga mottagare på konsumentgruppen.
+
+### <a name="mixed-mode"></a>Blandat läge
+Vi rekommenderar inte programanvändning där du skapar en mottagare med epoch och sedan växla till Nej epoch eller vice versa på samma konsumentgruppen. Men när detta inträffar kan hanteras tjänsten den med hjälp av följande regler:
+
+- Om det finns en mottagare som redan har skapats med epoch e1 och aktivt tar emot händelser och en ny mottagare har skapats med inga epoch, misslyckas skapandet av nya mottagare. Epoch mottagare har alltid företräde i systemet.
+- Om det var en mottagare som redan har skapats med epoch e1 och fick frånkopplad och en ny mottagare har skapats med inga epoch på en ny MessagingFactory, lyckas skapandet av nya mottagare. Det finns ett villkor här att vårt system identifierar ”mottagare frånkoppling” efter ~ 10 minuter.
+- Om det finns en eller flera mottagare som skapats med inga epoch och en ny mottagare har skapats med epoch e1, gamla mottagarna få kopplas från.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

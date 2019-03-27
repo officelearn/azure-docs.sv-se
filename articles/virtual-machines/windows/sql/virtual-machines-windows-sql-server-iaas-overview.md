@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e845724d02d668444a770deb5f02b50560a14653
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771400"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481288"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -85,7 +85,7 @@ Om du vill använda din egen licens kan du antingen konvertera en befintlig virt
 
 Det är möjligt att distribuera en äldre avbildning av SQL Server som inte är tillgänglig i Azure-portalen med hjälp av PowerShell. Om du vill visa alla tillgängliga avbildningar med hjälp av Powershell använder du följande kommando:
 
-  ```PowerShell
+  ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 

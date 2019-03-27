@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194103"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484120"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -55,7 +55,7 @@ Det första steget i att konfigurera viktiga loggning är att punkt Azure PowerS
 
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med hjälp av följande kommando:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i w
 
 Du kan behöva ange den prenumeration som du använde för att skapa ett nyckelvalv. Ange följande kommando för att visa prenumerationerna för ditt konto:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Ange sedan om du vill ange den prenumeration som är associerad med nyckelvalvet som du ska logga:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Men du kan använda ett befintligt lagringskonto för dina loggar, ska vi skapa 
 
 För ytterligare underlätta använder vi också samma resursgrupp som det som innehåller nyckelvalvet. Från den [introduktionskursen](key-vault-get-started.md), heter den här resursgruppen **ContosoResourceGroup**, och vi kommer att fortsätta att använda Östasien plats. Ersätt värdena med dina egna efter behov:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ För ytterligare underlätta använder vi också samma resursgrupp som det som i
 
 I den [introduktionskursen](key-vault-get-started.md), namn på key vault har **ContosoKeyVault**. Vi fortsätter att använda det namnet och lagrar informationen i en variabel med namnet **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Om du vill aktivera loggning för Nyckelvalvet, använder vi den **Set-AzDiagnosticSetting** cmdlet, tillsammans med de variabler som vi skapade för det nya lagringskontot och nyckelvalvet. Vi kan också ange den **-aktiverad** flaggan till **$true** och ange kategorin till **AuditEvent** (den enda kategorin för nyckelvalvloggning):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Det här resultatet bekräftar att loggning är aktiverat för nyckelvalvet och 
 
 Du kan ange en bevarandeprincip för dina loggar så att äldre loggar tas bort automatiskt. Till exempel bevarandeprincip genom att ange den **- RetentionEnabled** flaggan till **$true**, och ange den **- RetentionInDays** parameter **90**så att loggar som är äldre än 90 dagar tas bort automatiskt.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ Key Vault-loggar lagras i den **insights-logs-auditevent** behållare i lagrings
 
 Börja med att skapa en variabel för containerns namn. Du använder den här variabeln i resten av den här genomgången.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Om du vill visa alla blobbar i den här behållaren, anger du:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Eftersom du kan använda samma lagringskonto för att samla in loggar för flera
 
 Skapa en mapp för att ladda ned blobbarna. Exempel:
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Hämta sedan en lista över alla blobbar:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Skicka den här listan via **Get-AzStorageBlobContent** att ladda ned blobbarna till målmappen:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Om du har flera resursgrupper och bara vill hämta loggar för en av dem använder du `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Om du vill hämta alla loggar för januari 2019 använda `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ Nu är det dags att börja titta på vad som finns i loggarna. Men innan vi går
 
 Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Låt oss titta på ett exempel på post i loggen. Kör följande kommando:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

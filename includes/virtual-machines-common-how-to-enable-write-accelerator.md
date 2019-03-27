@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740766"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495044"
 ---
 # <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
 
@@ -96,7 +96,7 @@ Ange $true eller $false att styra stöd för Azure Write Accelerator med diskar.
 
 Exempel på kommandon kan se ut:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Du kan använda det här skriptet för att lägga till en ny disk till den virtu
 
 Ersätt `myVM`, `myWAVMs`, `log001`, storleken på disken och LunID på disken med värden som är lämpliga för din specifika distribution.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Du kan använda det här skriptet för att aktivera Write Accelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`, och `test-log001` med värden som är lämpliga för din specifika distribution. Skriptet lägger till Write Accelerator till en befintlig disk där värdet för **$newstatus** är inställd på '$true'. Med hjälp av värdet '$false' inaktiverar Write Accelerator på en angiven disk.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

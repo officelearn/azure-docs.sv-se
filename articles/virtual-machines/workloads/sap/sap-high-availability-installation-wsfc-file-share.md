@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997359"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483446"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser i Azure
 
@@ -253,7 +253,7 @@ Ta bort filresursen SAPMNT på *både* ASCS/SCS klusternoder.
 
 Kör följande PowerShell-skript:
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ Om SAPLOC resursen inte finns, skapar du ett på *både* ASCS/SCS klusternoder.
 
 Kör följande PowerShell-skript:
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ Skapa följande volym och -filresursen på SOFS-klustret:
 Om du vill skapa en CSV-volym med speglingsåterhämtning, kör du följande PowerShell-cmdlet på en SOFS-klusternoder:
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 Om du vill skapa SAPMNT och resursen säkerhet, kör du följande PowerShell-skript på en SOFS-klusternoder:
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Kör följande steg:
 
 Kör följande PowerShell-skript på en av noderna i SAP ASCS/SCS:
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Om du vill använda det nya virtuella SAP ASCS/SCS-värdnamnet och SAP globala v
 
 Kopiera [ **SAPScripts.psm1** ] [ sap-powershell-scrips] till din lokala enhet C:\tmp och kör följande PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ Mer information finns i [1596496 för SAP-Anmärkning – så här uppdaterar SA
 
 Skapa en SAP \<SID > klustergrupp, en ASCS/SCS-nätverksnamn och en motsvarande IP-adress, kör du följande PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ Att slutföra skapandet av resurser av SAP-SAP\<SID > klustergruppen skapar föl
 
 Kör följande PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

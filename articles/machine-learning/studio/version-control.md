@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ff7aa1ab8972b6cbb891a67b1065044b48f1cfa3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121476"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446223"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Livscykelhantering för program i Azure Machine Learning Studio
 Azure Machine Learning Studio är ett verktyg för utveckling av machine learning-experiment som operationaliserat i Azure-molnplattformen. Det sammanfogas som Visual Studio IDE och skalbar molntjänst i en enda plattform. Du kan införliva standardmetoder Application Lifecycle Management (ALM) från versionshantering olika tillgångar för automatisk körning och distribution i Azure Machine Learning Studio. Den här artikeln beskrivs några av alternativen och metoder.
@@ -73,7 +73,7 @@ Du kan ha många slutpunkter som skapats i samma webbtjänsten med tiden. Varje 
 Du kan också skapa slutpunkter för många identiska webbtjänster och korrigera olika versioner av den iLearner-fil till slutpunkten för att uppnå liknande effekt. [Den här artikeln](create-models-and-endpoints-with-powershell.md) förklarar i detalj hur du utför som.
 
 ### <a name="new-web-service"></a>Ny webbtjänst
-Om du skapar en ny Azure Resource Manager-baserad webbtjänst, är endpoint-konstruktion inte längre tillgängliga. I stället du kan generera web service definition (WSD)-filer, i JSON-format från ditt förutsägbart experiment med hjälp av den [Export AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-kommandot, eller genom att använda den [ *Export AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) PowerShell-kommandot från en distribuerad Resource Manager-baserad webbtjänst.
+Om du skapar en ny Azure Resource Manager-baserad webbtjänst, är endpoint-konstruktion inte längre tillgängliga. I stället du kan generera web service definition (WSD)-filer, i JSON-format från ditt förutsägbart experiment med hjälp av den [Export AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-kommandot, eller genom att använda den [ *Export AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) PowerShell-kommandot från en distribuerad Resource Manager-baserad webbtjänst.
 
 När du har exporterat WSD fil- och kontroll över den version distribuera du även WSD som en ny webbtjänst i en annan web service-plan i en annan Azure-region. Se bara till att du anger rätt konto lagringskonfigurationen samt nya web service-plan-ID. Om du vill korrigera i olika iLearner filer du ändrar WSD-filen och uppdatera platsreferensen av den tränade modellen och distribuera den som en ny webbtjänst.
 

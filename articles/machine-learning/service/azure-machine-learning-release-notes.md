@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437874"
+ms.locfileid: "58444656"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -29,6 +29,23 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 + **Nya funktioner**
   + Den *azureml.core.Run.create_children* metoden kan låg latens skapandet av flera underordnade körs med ett enda anrop.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
+
++ **Större ändringar**
+  + Begreppet Prep datapaketet är inaktuell och längre stöds inte. I stället för att spara flera dataflöden i ett paket kan du behålla dataflöden individuellt.
+    + Här guiden: [Anteckningsboken för att öppna och spara dataflöden](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Nya funktioner**
+  + Dataförberedelser kan nu identifiera kolumner som matchar en viss semantiska typ och dela i enlighet med detta. Inkludera STypes som stöds för närvarande: e-postadressen, geografiska koordinater (latitud och longitud), IPv4 och IPv6-adresser, Amerikanskt telefonnummer och postnummer.
+    + Här guiden: [Den semantiska typer notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Dataförberedelser har nu stöd för följande åtgärder för att generera en gällande kolumn från två numeriska kolumner: subtrahera, multiplicera och dividera, och modulo.
+  + Du kan anropa `verify_has_data()` på en dataflöde för att kontrollera om dataflödet skulle skapa poster om körs.
+
++ **Felkorrigeringar och förbättringar**
+  + Du kan nu ange hur många lagerplatser ska användas i ett histogram för numerisk kolumn profiler.
+  + Den `read_pandas_dataframe` transformeringen kräver nu DataFrame ha sträng - eller byte typifierade kolumnnamn.
+  + En bugg i den `fill_nulls` transformering, där värdena inte har korrekt fylls i om kolumnen saknades.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

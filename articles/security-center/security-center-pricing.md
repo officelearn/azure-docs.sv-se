@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201695"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449006"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån i Security Center för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Du får insyn och kontroll över hybridmolnarbetsbelastningar active försvar som minskar din exponering för hot och intelligent identifiering för att hålla jämna steg med snabbt växande cyberattacker.
@@ -49,7 +49,7 @@ Hämta Standard-nivån:
 ![Security Center-prissättning](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Om du vill aktivera alla funktioner i Security Center, måste du aktivera Standardprisnivån för den prenumeration eller resursgrupp som innehåller de tillämpliga virtuella datorerna. Konfigurera priser för en arbetsyta kan inte just-in-time-åtkomst till virtuell dator och anpassningsbara programkontroller nätverk identifieringar för Azure-resurser.
+> Om du vill aktivera alla funktioner i Security Center, måste du aktivera Standardprisnivån för prenumerationen som innehåller de tillämpliga virtuella datorerna. Konfigurera priser för en arbetsyta kan inte just-in-time-åtkomst till virtuell dator och anpassningsbara programkontroller nätverk identifieringar för Azure-resurser.
 >
 >
 

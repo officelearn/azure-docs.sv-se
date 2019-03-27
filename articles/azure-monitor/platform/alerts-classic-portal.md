@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833393"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480642"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -93,37 +93,37 @@ Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hanter
 
 2. Logga först in på Azure-prenumerationen.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och standard prenumerations-ID visas. Alla Azure-cmdlets fungerar i kontexten för din Standardprenumeration. Om du vill visa en lista över prenumerationer som du har åtkomst till, använder du följande kommando:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. Om du vill ändra den fungerande kontexten till en annan prenumeration, använder du följande kommando:
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Du kan hämta alla klassiska måttaviseringsregler på en resursgrupp:
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Du kan visa information om en klassisk måttaviseringsregel
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Du kan hämta alla Varningsregler för en målresurs. Till exempel ange alla Varningsregler på en virtuell dator.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

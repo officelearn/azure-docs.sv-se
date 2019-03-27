@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888506"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444867"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler programmässigt
 
@@ -28,7 +28,7 @@ Det här dokumentet beskriver steg för att skapa och publicera Azure-instrument
 
 ## <a name="overview"></a>Översikt
 
-Delade instrumentpaneler i Azure är [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) precis som virtuella datorer och storage-konton.  Därför kan de kan hanteras via programmering den [Azure Resource Manager REST API: er](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-kommandon](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), och många [ Azure-portalen](https://portal.azure.com) funktioner bygger på dessa API: er för att underlätta resurshantering.  
+Delade instrumentpaneler i Azure är [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) precis som virtuella datorer och storage-konton.  Därför kan de kan hanteras via programmering den [Azure Resource Manager REST API: er](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell-kommandon](https://docs.microsoft.com/powershell/azure/get-started-azureps), och många [ Azure-portalen](https://portal.azure.com) funktioner bygger på dessa API: er för att underlätta resurshantering.  
 
 Var och en av dessa API: er och verktyg erbjuder olika sätt att skapa, visa, hämta, ändra och ta bort resurser.  Eftersom instrumentpaneler är resurser, kan du välja din favorit-API / verktyget om du vill använda.
 

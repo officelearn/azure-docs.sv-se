@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335869"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497694"
 ---
 # <a name="language-support-for-qna-maker"></a>Språkstöd för QnA Maker
 
@@ -37,7 +37,7 @@ QnA Maker stöder extrahering av fråga/svar i alla på sidan, men effektivitete
 
 Det primära språket som används för identifiering av har angetts för QnA Maker-resursen och alla kunskapsbaser som skapats på den aktuella, när det första dokumentet eller URL: en läggs till i första knowledge base. Språket kan inte ändras. 
 
-Om du planerar att ha stöd för flera språk, som de behöver ha en ny QnA Maker-resurs för varje språk. Lär dig hur du [skapa en kunskapsbas för språk-baserade QnA Maker](/how-to/language-knowledge-base.md).  
+Om du planerar att ha stöd för flera språk, som de behöver ha en ny QnA Maker-resurs för varje språk. Lär dig hur du [skapa en kunskapsbas för språk-baserade QnA Maker](../how-to/language-knowledge-base.md).  
 
 Kontrollera det primära språket med följande steg:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369521"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446066"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
@@ -21,11 +21,11 @@ En stor fördel med att använda Azure Active Directory (Azure AD) med Azure Sto
 
 Den här artikeln visar hur du konfigurerar ditt program för autentisering med Azure AD. Använd ett liknande sätt kod exempel funktioner .NET, men andra språk.
 
-Innan du kan autentisera ett säkerhetsobjekt från ditt Azure Storage-program, konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
+Konfigurera rollbaserade inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet innan du autentiserar ett säkerhetsobjekt från ditt Azure Storage-program. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
 
 En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+Du måste använda HTTPS för att auktorisera blob och kö åtgärder med en OAuth-token.
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Tilldela en RBAC-roll till en Azure AD-säkerhetsobjekt
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>Skapa blockblob
 
-Slutligen använder åtkomsttoken för att skapa nya storage-autentiseringsuppgifter och använder dessa autentiseringsuppgifter för att skapa blob:
+Slutligen använder åtkomsttoken för att skapa nya storage-autentiseringsuppgifter och använder dessa autentiseringsuppgifter för att skapa bloben. Tänk på att du måste använda HTTPS för att auktorisera blob och kö åtgärder med en OAuth-token.:
 
 ```dotnet
 // Get the access token.

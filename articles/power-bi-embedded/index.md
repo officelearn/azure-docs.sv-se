@@ -1,6 +1,6 @@
 ---
-title: Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs
-description: Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation.
+title: 'Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs'
+description: 'Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation.'
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678244"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded-dokumentation
 
 Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i appar med hjälp av Power BI Embedded. Självstudier, API-referenser och annan dokumentation som visar hur du sömlöst kan bädda in Power BI-rapporter och instrumentpaneler i appar.
@@ -105,7 +100,7 @@ Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i app
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>

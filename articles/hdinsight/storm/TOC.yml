@@ -74,21 +74,6 @@ items:
       - name: Publicera HDInsight-appar till Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: Installera publicerad app – Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Installera publicerad app – Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Installera publicerad app – Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Installera publicerad app – H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Installera publicerad app – Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Skydda
     items:
     - name: Använda SSH med HDInsight
@@ -178,9 +163,6 @@ items:
       maintainContext: true
     - name: Använda Apache Oozie för arbetsflöden
       href: ../hdinsight-use-oozie-linux-mac.md
-      maintainContext: true
-    - name: Använda tidsbaserade Apache Oozie-koordinatorer
-      href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Kluster- och tjänstportar samt URI:er
       href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -283,20 +265,6 @@ items:
     - name: Migrera .NET-lösningar till Linux-kluster
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Distribuera och hantera Apache Storm-topologier
-      href: apache-storm-deploy-monitor-topology.md
-    - name: Använda Apache Maven för att skapa Java-program
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Få åtkomst till Apache Hadoop YARN-programloggar
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Utveckla skriptåtgärder
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Övervaka kluster med Apache Ambari-API:et
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: Resurser
   items:
   - name: Azure-översikt
@@ -312,9 +280,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 2dd6ba413eaaad3e740c9c4dcc905f7384172f1a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b8a55191f78010bab759cf90880c3b7aaddab7ba
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359798"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444966"

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091315"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446593"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -108,8 +108,6 @@ Om du vill visa Tez UI för frågan, Välj den **Tez** fliken under kalkylbladet
 
 > [!IMPORTANT]  
 > Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez. 
-
-Om Tez användes för att matcha frågan, visas dirigeras Acyklisk graf (DAG). Om du vill visa DAG för frågor som du har kört tidigare, eller om du vill felsöka Tez-processen använder den [Tez visa](../hdinsight-debug-ambari-tez-view.md) i stället.
 
 ## <a name="view-job-history"></a>Visa jobbhistorik
 

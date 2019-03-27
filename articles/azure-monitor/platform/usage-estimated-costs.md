@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480558"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Om du vill migrera prenumerationen till den nya prismodellen kör:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Kontrollera att ändringen har lyckats kör:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ OptInDate innehåller nu en tidsstämpel för när den här prenumerationen har 
 
 Om du vill återgå till den gamla prismodellen kör du:
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Om du kör sedan föregående skript som har ``-Action listmigrationdate``, du b
 
 Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa en egen variant med hjälp av delar av följande skript:
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Om du vill kontrollera om alla prenumerationer i din klient är berättigad till den nya prismodellen, kan du köra:
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris som består av alla prenumerations-id som har ```isGrandFatherableSubscription``` SANT och optedInDate inte har ett värde. En andra uppsättning några prenumerationer för närvarande på den nya prismodellen. Och en tredje matris som innehåller bara prenumerations-ID: n i din klient som inte är berättigade till den nya prismodellen:
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Nu när du har dina prenumerationer som är uppdelad i tre matriser bör du noggrant granska dina resultat. Du kanske vill göra en säkerhetskopia av innehållet i matriser så att du kan enkelt återställa ändringarna skulle du behöva i framtiden. Om du valt som du vill konvertera alla berättigade prenumerationer som för närvarande på den gamla prismodellen till den nya prismodellen den här uppgiften kan nu uppnås med:
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

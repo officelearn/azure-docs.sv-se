@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317467"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482069"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Alla instans metadatafrågor är skiftlägeskänsliga.
 
 ### <a name="data-output"></a>Utdata
+
 Som standard Instance Metadata Service returnerar data i JSON-format (`Content-Type: application/json`). Dock returnerar olika API: er data i olika format om så krävs.
 I följande tabell är en referens för andra dataformat som kan ha stöd för API: er.
 
@@ -111,6 +112,9 @@ Ange det begärda formatet som en frågesträngsparameter i begäran för att ko
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> För lövnoder den `format=json` fungerar inte. För de här frågorna `format=text` måste anges uttryckligen om standardformatet är json.
+
 ### <a name="security"></a>Säkerhet
 
 Instance Metadata Service-slutpunkten är enbart tillgänglig från den VM-instansen som som körs på en icke-dirigerbara IP-adress. Dessutom kan ett begärande med ett `X-Forwarded-For` rubrik avvisas av tjänsten.
@@ -123,8 +127,8 @@ Om det finns ett dataelement hittades inte eller en felaktig begäran, returnera
 HTTP-statuskod | Orsak
 ----------------|-------
 200 OK |
-400 Felaktig förfrågan | Saknas `Metadata: true` rubrik
-404 Hittades inte | Det begärda elementet finns inte 
+400 Felaktig förfrågan | Saknas `Metadata: true` rubrik eller saknar formatet när du frågar efter en lövnod
+404 Hittades inte | Det begärda elementet finns inte
 405 Metoden tillåts inte | Endast `GET` och `POST` stöds
 429 för många begäranden | API: et stöder för närvarande upp till 5 frågor per sekund
 500 tjänstfel     | Försök igen om en stund
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure har olika nationella moln som [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Ibland kan du behöva Azure-miljön för att fatta beslut om vissa runtime. I följande exempel visas hur du kan åstadkomma detta beteende.
 
 **Förfrågan**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Svar**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

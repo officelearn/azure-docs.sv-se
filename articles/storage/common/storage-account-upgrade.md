@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311143"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444510"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -21,7 +21,7 @@ Generell användning v2-konton stöder de senaste funktionerna i Azure Storage o
 Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller Blob storage-konton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI.
 
 > [!IMPORTANT]
-> Uppgradera ett v1 storage-konto till gpv2 är permanent och kan inte ångras.
+> Uppgradera en allmänna v1- eller Blob storage-lagringskonto till gpv2 är permanent och kan inte ångras.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Uppgradera med Azure portal
 
@@ -32,11 +32,13 @@ Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller
 5. Ange namnet på ditt konto under **Bekräfta uppgradering**.
 6. Klicka på **uppgradera** längst ned på bladet.
 
+    ![Uppgradera typ av konto](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+
 ## <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **Az.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Om du vill uppgradera ett General-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **Az.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
@@ -46,7 +48,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Uppgradera med Azure CLI
 
-Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med Azure CLI, först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du vill uppgradera ett General-purpose v1-konto till ett gpv2-konto med Azure CLI, först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
@@ -62,7 +64,7 @@ Gpv2-konton stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstniv
 
 Som standard skapas ett nytt lagringskonto i frekvent åtkomstnivå och ett lagringskonto i allmänna v1 uppgraderas till frekvent åtkomstnivå. Överväg att ditt scenario om du utforskar vilken åtkomstnivå som ska användas för efter datauppgraderingen. Det finns två vanliga scenarier för att migrera till ett gpv2-konto:
 
-* Du har ett befintligt general-purpose v1-lagringskonto och vill utvärdera en uppgradering till ett gpv2-lagringskonto med rätt lagringsnivå åtkomst för blob-data.
+* Du har ett befintligt General-purpose v1-lagringskonto och vill utvärdera en uppgradering till ett gpv2-lagringskonto med rätt lagringsnivå åtkomst för blob-data.
 * Du har valt att använda ett gpv2-lagringskonto eller redan har ett och vill utvärdera om du ska använda frekvent eller lågfrekvent åtkomstnivå för blob-data.
 
 I båda fallen är högsta prioritet att beräkna kostnaden för lagring, åtkomst och körs på dina data som lagras i ett gpv2-lagringskonto och jämföra det med dina nuvarande kostnader.
@@ -116,7 +118,7 @@ När du har gjort det registreras kapacitetsdata varje dag för ett lagringskont
 Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera transaktionsmått för varje timme från API:et. Med transaktionsmått för varje timme aktiverat aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten när du använder RA-GRS-lagringskonton.
 
 > [!NOTE]
-> Om du har ett allmänt lagringskonto (GPvX) där du har lagrat sidblobar och virtuella datordiskar, eller köer, filer eller tabeller, utöver block- och tilläggsblobdata så gäller inte den här uppskattningsberäkningen. Kapacitetsdata gör ingen åtskillnad mellan blockblobar och andra typer och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
+> Om du har ett allmänt lagringskonto där du har lagrat sidblobbar och virtuella datordiskar, eller köer, filer eller tabeller, utöver block och tilläggsblobdata gäller inte den här uppskattningsberäkningen. Kapacitetsdata gör ingen åtskillnad mellan blockblobar och andra typer och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
 
 För att få en bra uppskattning av din dataförbrukning och ditt åtkomstmönster rekommenderar vi att du väljer en kvarhållningsperiod för mätvärden som är representativ för din normala användning, och att du utgår därifrån. Ett alternativ är att spara mätvärdena i sju dagar och samla in data varje vecka, för att sedan analysera dessa data i slutet av månaden. Ett annat alternativ är att spara mätvärden i 30 dagar och samla in och analysera dessa data i slutet av 30-dagarsperioden.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2ed42e10071e3100f285c55c7b965dfa836d6c0e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437470"
+ms.locfileid: "58485320"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -48,7 +48,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
 
     I följande exempel används Windows PowerShell för att verifiera kryptografisk hash för version 3.13.4 av x64 MSI-distribution:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
@@ -144,7 +144,7 @@ I det här avsnittet kompilerar och kör du ett exempel som läser bekräftelsen
 
 3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
 
-    - **Mekanism:** Välj TPM som identitet för bestyrkande *mekanism*.
+    - **Mekanism:** Välj **TPM** som identitet för bestyrkande *mekanism*.
     - **Bekräftelsenyckel:** Ange den *bekräftelsenyckel* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
     - **Registrerings-ID**: Ange det *registrerings-ID* som du skapade för din TPM-enhet genom att köra projektet *tpm_device_provision*.
     - **IoT Edge-enhet:** Välj **Inaktivera**.

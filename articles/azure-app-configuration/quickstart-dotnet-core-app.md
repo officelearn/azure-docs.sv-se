@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: e00c086e0b91c0f48821143ff118c62afdd76e82
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225390"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485177"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med App-konfiguration
 
@@ -51,7 +51,7 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
 1. Lägg till en referens till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Kör följande kommando för att återställa paketen för ditt projekt:
 
@@ -60,6 +60,11 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 3. Öppna *Program.cs*, och uppdatera den `Main` metod du använder Appkonfiguration genom att anropa den `builder.AddAzureAppConfiguration()` metoden.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();
@@ -100,7 +105,7 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en .NET Core-konsolapp. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
+I den här snabbstarten har du skapat en ny konfiguration appbutik och används med en .NET Core-konsolapp via den [App konfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
 > [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)

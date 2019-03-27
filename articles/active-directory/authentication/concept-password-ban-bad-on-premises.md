@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310565"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479537"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Azure AD-lösenordsskydd har utformats med dessa principer i åtanke:
 * Inga minsta Active Directory domänens eller skogens funktionsnivå (DFL/FFL) krävs.
 * Programvaran inte skapa eller kräver konton i Active Directory-domäner som den skyddar.
 * Lösenord i klartext lämna inte domänkontrollanten under verifieringen lösenordsåtgärder eller vid en annan tidpunkt.
-* Stegvis distribution stöds. Men lösenordsprincipen som gäller endast där Domain Controller agenten (DC-Agent) är installerad.
-* Vi rekommenderar att du installerar DC-agenten på alla domänkontrollanter för att säkerställa universal lösenord protection säkerhet.
+* Stegvis distribution stöds, men lösenordsprincipen som gäller endast där Domain Controller agenten (DC-Agent) är installerad. Se nästa avsnitt för mer information.
+
+## <a name="incremental-deployment"></a>Stegvis distribution
+
+Azure AD-lösenordsskydd har stöd för stegvis distribution mellan domänkontrollanter i en Active Directory-domän, men det är viktigt att förstå vad det verkligen innebär och vad kompromisser är.
+
+Azure AD lösenord DC skyddsagentprogramvaran kan bara verifiera lösenord när den är installerad på en domänkontrollant, och endast för lösenordsändringar som skickas till domänkontrollanten. Det går inte att kontrollera vilka domänkontrollanter väljs av Windows-klientdatorer för att bearbeta ändringar av lösenord för användaren. För att garantera konsekvent beteende och tvingande för universal lösenord protection säkerhet, måste DC-agentprogramvaran installeras på alla domänkontrollanter i en domän.
+
+Många organisationer vill göra noggrann testning av Azure AD-lösenordsskydd för en delmängd av sina domänkontrollanter innan du gör en fullständig distribution. Azure AD-lösenordsskydd stöder partiella distribution, ie DC klientprogrammet på en viss Domänkontrollant verifierar aktivt lösenord även när andra domänkontrollanter i domänen inte har DC-Agentprogrammet som är installerad. Partiell distributioner av den här typen är inte säker och rekommenderas inte än i testsyfte.
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 

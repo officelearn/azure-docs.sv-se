@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d79b44d0123d64d6280939767e5df7b5f64a5fcb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546542"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445960"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer baserat på LastModifiedDate med hjälp av verktyget kopieringsdata stegvis
 
@@ -49,10 +49,11 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. I den vänstra menyn väljer du **+ Nytt** > **Data och analys** > **Data Factory**: 
+1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
    
-   ![Skapa ny datafabrik](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
-2. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**. 
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**. 
       
      ![Ny datafabrik](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  

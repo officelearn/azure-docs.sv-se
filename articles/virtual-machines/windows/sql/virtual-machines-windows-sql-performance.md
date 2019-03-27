@@ -16,18 +16,18 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415909"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448563"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln innehåller vägledning för att optimera prestanda för SQL Server på Microsoft Azure-dator. När du kör SQL Server i Azure Virtual Machines, rekommenderar vi att du fortsätter med den samma databas alternativen för prestandajustering som gäller för SQL Server i en lokal server-miljö. Prestanda för en relationsdatabas i ett offentligt moln beror dock på många faktorer, till exempel storleken på en virtuell dator och konfigurationen för datadiskar.
+Den här artikeln innehåller vägledning för att optimera prestanda för SQL Server på Microsoft Azure-dator. När du kör SQL Server i Azure Virtual Machines, rekommenderar vi att du fortsätter med den samma databas alternativen för prestandajustering som gäller för SQL Server i en lokal server-miljö. Prestanda för en relationsdatabas i ett offentligt moln beror dock på många faktorer, till exempel storleken på en virtuell dator och konfigurationen av datadiskar.
 
 [SQL Server-avbildningar som etableras i Azure portal](quickstart-sql-vm-create-portal.md) följa bästa praxis för allmänna konfiguration (Mer information om hur konfigureras lagringsutrymme finns i [lagringskonfiguration för SQL Server-datorer](virtual-machines-windows-sql-server-storage-configuration.md)). Överväg att använda andra optimeringar som beskrivs i den här artikeln när du har etablerat. Basera dina val på din arbetsbelastning och verifiera genom testning.
 
@@ -135,7 +135,7 @@ Det finns ett undantag till den här rekommendationen: _om TempDB-användningen 
 
   * Rekommendationerna ovan gäller till premium SSD: er. Om du inte använder premium SSD: er kan du inte aktivera alla cachelagring på eventuella datadiskar.
 
-  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Klassiskt (ASM) distributionsmodell finns: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager deployment model finns i: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) och [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
+  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Klassiskt (ASM) distributionsmodell finns: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager deployment model finns i: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) och [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Stoppa SQL Server-tjänsten när du ändrar cache-inställningen för Virtuella Azure-diskar för att undvika risken att databasen är skadad.

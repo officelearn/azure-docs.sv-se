@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202894"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445692"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -46,6 +46,8 @@ Oföränderlig storage har stöd för följande:
 ## <a name="how-it-works"></a>Hur det fungerar
 
 Oföränderlig lagring för Azure Blob storage stöder två typer av mask eller inte kan ändras principer: tidsbaserat bevarande och bevarande av juridiska skäl. När en tidsbaserad bevarandeprincip eller bevarande av juridiska skäl används på en behållare, flytta alla befintliga blobar till ett oföränderligt mask tillstånd i mindre än 30 sekunder. Alla nya blobbar som överförs till den behållaren flyttas även om den inte kan ändras statusen. När alla blobar har flyttats till tillståndet inte kan ändras, kan ändras principen bekräftas och alla skriver över eller tar bort tillåts inte åtgärder för befintliga och nya objekt i behållaren kan ändras.
+
+Behållare och försöker ta bort också tillåts inte om det finns alla blobar som skyddas av en princip som inte kan ändras. Ta bort behållaråtgärden misslyckas om det finns minst en blob med en låst tidsbaserad bevarandeprincip eller ett juridiskt bevarande. Borttagningen av lagringskontot misslyckas om det finns minst en WORM-container med bevarande av juridiska skäl eller en blob med ett aktivt kvarhållningsintervall. 
 
 ### <a name="time-based-retention"></a>Tidsbaserat bevarande
 
@@ -85,12 +87,10 @@ I följande tabell visas typerna av blobåtgärder som är inaktiverade i olika 
 Det finns ingen extra kostnad för att använda den här funktionen. Oföränderlig data debiteras på samma sätt som vanliga, föränderliga data. Information om priser på Azure Blob Storage finns i den [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Komma igång
+Oföränderlig storage är endast tillgängligt för generell användning v2 och Blob Storage-konton. Dessa postkontot måste hanteras via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Information om hur du uppgraderar ett befintligt lagringskonto för generell användning v1 finns i [uppgradera ett lagringskonto](../common/storage-account-upgrade.md).
 
 De senaste versionerna av den [Azure-portalen](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), och [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) stöder inte kan ändras lagring för Azure Blob storage. [Bibliotek för klientstöd](#client-libraries) tillhandahålls också.
 
-> [!NOTE]
->
-> Oföränderlig storage är endast tillgängligt för generell användning v2 och Blob Storage-konton. Dessa postkontot måste hanteras via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Information om hur du uppgraderar ett befintligt lagringskonto för generell användning v1 finns i [uppgradera ett lagringskonto](../common/storage-account-upgrade.md).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -114,17 +114,19 @@ De senaste versionerna av den [Azure-portalen](https://portal.azure.com), [Azure
 
     ![”Låsa principen” på menyn](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Välj **låsa princip**. Principen nu är låst och kan inte tas bort, tillåts endast tillägg av Kvarhållningsintervall som.
+6. Välj **Låsprincip** och bekräfta låset. Principen nu är låst och kan inte tas bort, tillåts endast tillägg av Kvarhållningsintervall som. Tar bort BLOB och åsidosättningar tillåts inte. 
 
-6. Välj för att aktivera bevarande av juridiska skäl **+ Lägg till**. Välj **bevarande av juridiska skäl** från den nedrullningsbara menyn.
+    ![Bekräfta ”låsprincip” på menyn](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. Välj för att aktivera bevarande av juridiska skäl **+ Lägg till**. Välj **bevarande av juridiska skäl** från den nedrullningsbara menyn.
 
     ![”Bevarande av juridiska skäl” under ”principtypen” på menyn](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Skapa ett bevarande av juridiska skäl med en eller flera taggar.
+8. Skapa ett bevarande av juridiska skäl med en eller flera taggar.
 
     ![”Taggnamnet”-rutan under principtypen](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. Om du vill ta bort ett bevarande av juridiska skäl, tar du bort taggen tillämpade bevarande av juridiska skäl identifierare.
+9. Om du vill ta bort ett bevarande av juridiska skäl, tar du bort taggen tillämpade bevarande av juridiska skäl identifierare.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -170,9 +172,9 @@ Ja. Dokumentet att Microsoft behålls ett ledande oberoende utvärdering av för
 
 Oföränderlig storage kan användas med en blobtyp, men vi rekommenderar att du använder den huvudsakligen för blockblob-objekt. Till skillnad från blockblob-objekt, sidan BLOB-objekt och lägga till BLOB-objekt måste skapa utanför en mask behållare och kopieras sedan i. När du har inte kopierat dessa blobar till en mask behållare och ytterligare *lägger till* till en tilläggs blob eller ändringar av en sidblobb tillåts.
 
-**Behöver jag alltid skapa ett nytt lagringskonto för att använda den här funktionen?**
+**Behöver jag skapa ett nytt lagringskonto för att använda den här funktionen?**
 
-Du kan använda lagring som inte kan ändras med befintliga eller nya generell användning v2 eller Blob Storage-konton. Den här funktionen är avsedd för användning med blockblobar i GPv2 och Blob Storage-konton.
+Nej, du kan använda lagring som inte kan ändras med befintliga eller nya generell användning v2 eller Blob storage-konton. Den här funktionen är avsedd för användning med blockblobar i GPv2 och Blob Storage-konton. Allmänt syfte v1-lagringskonton stöds inte, men kan enkelt uppgraderas till gpv2. Information om hur du uppgraderar ett befintligt lagringskonto för generell användning v1 finns i [uppgradera ett lagringskonto](../common/storage-account-upgrade.md).
 
 **Kan jag använda ett bevarande av juridiska skäl och en tidsbaserad bevarandeprincip?**
 
@@ -188,7 +190,7 @@ Ta bort behållaråtgärden misslyckas om det finns minst en blob med en låst t
 
 **Vad händer om jag försöker ta bort ett lagringskonto med en WORM-container som har en *låst* tidsbaserad bevarandeprincip eller ett bevarande av juridiska skäl?**
 
-Borttagningen av lagringskontot misslyckas om det finns minst en WORM-container med bevarande av juridiska skäl eller en blob med ett aktivt kvarhållningsintervall.  Du måste ta bort alla mask behållare innan du kan ta bort lagringskontot. Information om borttagning av behållare, finns i den föregående frågan.
+Borttagningen av lagringskontot misslyckas om det finns minst en WORM-container med bevarande av juridiska skäl eller en blob med ett aktivt kvarhållningsintervall. Du måste ta bort alla mask behållare innan du kan ta bort lagringskontot. Information om borttagning av behållare, finns i den föregående frågan.
 
 **Kan jag flytta data över olika blob-nivåer (frekvent, lågfrekvent, kall) när blobben är i oförändrat tillstånd?**
 

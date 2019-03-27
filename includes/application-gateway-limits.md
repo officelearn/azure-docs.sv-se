@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 77a391cc661ed33f5888d2b18cb9c5db16498cd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554245"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495033"
 ---
 | Resurs | Standardgräns | Obs! |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "57554245"
 | URL-mappningar per lyssnare |1 | |
 | Maximal sökväg-baserade regler per URL: en karta|100||
 | Omdirigerings-konfigurationer |100<sup>1</sup>| |
-| Samtidiga WebSocket-anslutningar |5 000| |
+| Samtidiga WebSocket-anslutningar |Medelhög gatewayer 20k<br> Stora gatewayer 50k| |
 | Maximal URL-längd|8,000||
 | Ladda upp för maximal filstorlek, Standard |2 GB | |
 | Maximal uppladdning storlek WAF |Medelhög WAF-gatewayer, 100 MB<br>Stora WAF-gatewayer, 500 MB| |

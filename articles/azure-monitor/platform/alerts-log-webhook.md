@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442893"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496096"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -54,7 +54,7 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används med Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults skickar parametrar som SearchQuery, Sök intervall StartTime & intervallslut för sökning i URL: en till Azure-portalen för visning i Analytics-avsnittet. Azure-portalen har URI storleksgränsen på cirka 2 000 tecken och kommer *inte* öppna länken i aviseringar om parametervärdena överskrider denna gräns. Användarna kan manuellt ange information om du vill visa resultatet i Analytics-portalen eller använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](https://dev.loganalytics.io/reference) att hämta resultat programmässigt 
+> LinkToSearchResults skickar parametrar som SearchQuery, Sök intervall StartTime & intervallslut för sökning i URL: en till Azure-portalen för visning i Analytics-avsnittet. Azure-portalen har URI storleksgränsen på cirka 2 000 tecken och kommer *inte* öppna länken i aviseringar om parametervärdena överskrider denna gräns. Användarna kan manuellt ange information om du vill visa resultatet i Analytics-portalen eller använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) att hämta resultat programmässigt 
 
 Du kan till exempel ange följande anpassade nyttolasten som innehåller en enda parameter med namnet *text*.  Den tjänst som denna webhook-anrop skulle förväntas den här parametern.
 

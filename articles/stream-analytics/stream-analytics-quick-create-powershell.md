@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 6feeaeb71818f355c0d91d5b49b4162a33682fa0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408759"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442974"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
 
@@ -147,7 +147,7 @@ Följande Azure PowerShell-kodblock använder kommandon för att skapa bloblagri
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-Skapa ett Stream Analytics-jobb med cmdleten [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, resursgruppens namn och jobbdefinitionen som parametrar. Jobbnamnet kan vara ett eget namn som identifierar jobbet. Det får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. Jobbdefinitionen är en JSON-fil som innehåller de egenskaper som krävs för att skapa ett jobb. Skapa en fil med namnet `JobDefinition.json` på den lokala datorn och lägg till följande JSON-data i den:
+Skapa ett Stream Analytics-jobb med cmdleten [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn och jobbdefinitionen som parametrar. Jobbnamnet kan vara ett eget namn som identifierar jobbet. Det får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. Jobbdefinitionen är en JSON-fil som innehåller de egenskaper som krävs för att skapa ett jobb. Skapa en fil med namnet `JobDefinition.json` på den lokala datorn och lägg till följande JSON-data i den:
 
 ```json
 {
@@ -177,7 +177,7 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Konfigurera indata för jobbet
 
-Lägg till indata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Jobbets indatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet skapar du en bloblagring som indata.
+Lägg till indata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput). Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Jobbets indatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet skapar du en bloblagring som indata.
 
 Skapa en fil med namnet `JobInputDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. Ersätt värdet för `accesspolicykey` med `SharedAccessKey`-delen i den anslutningssträng för IoT Hub som du sparade i ett tidigare avsnitt.
 
@@ -224,7 +224,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Konfigurera utdata för jobbet
 
-Lägg till utdata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
+Lägg till utdata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput). Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
 
 Skapa en fil med namnet `JobOutputDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. Ersätt värdet för `accountKey` med åtkomstnyckeln för ditt lagringskonto, vilket är det värde som lagras i $storageAccountKey.
 
@@ -273,7 +273,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
-Lägg till en transformation för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. Skapa en fil med namnet `JobTransformationDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. JSON-filen innehåller en frågeparameter som definierar transformationsfrågan:
+Lägg till en transformation för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation). Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. Skapa en fil med namnet `JobTransformationDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. JSON-filen innehåller en frågeparameter som definierar transformationsfrågan:
 
 ```json
 {
@@ -310,7 +310,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-Starta jobbet med hjälp av cmdleten [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`. Mer information om vad dessa värden refererar till finns i avsnittet om [parametrar](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) i PowerShell-dokumentationen.
+Starta jobbet med hjälp av cmdleten [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`. Mer information om vad dessa värden refererar till finns i avsnittet om [parametrar](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) i PowerShell-dokumentationen.
 
 När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringscontainern med de data som har transformerats.
 

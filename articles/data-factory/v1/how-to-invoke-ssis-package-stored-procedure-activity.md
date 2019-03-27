@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108720"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487931"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktivitet för lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropar ett SSIS-paket från en Azure Data Factory-pipeline med hjälp av en lagrad procedur-aktivitet. 
@@ -306,13 +306,13 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
 
 1. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. 
 1. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

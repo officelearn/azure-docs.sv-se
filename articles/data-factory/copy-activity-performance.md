@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301279"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445833"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ För varje körningen av Kopieringsaktiviteten, avgör hur många parallella kop
 | Kopiera data från alla källans datalager till Azure Table storage |4 |
 | Alla andra kopia-scenarier |1 |
 
-[!TIP]
+> [!TIP]
 > När du kopierar data mellan filbaserade standardbeteendet (auto bestäms) vanligtvis ger dig bästa dataflödet. 
 
 Kontrollera belastningen på datorer som är värdar för dina data lagras eller om du vill justera prestanda för kopia som du kan välja att åsidosätta standardvärdet och ange ett värde för den **parallelCopies** egenskapen. Värdet måste vara ett heltal större än eller lika med 1. Vid körning använder för bästa prestanda Kopieringsaktiviteten ett värde som är mindre än eller lika med värdet som du anger.

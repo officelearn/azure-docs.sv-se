@@ -3,7 +3,7 @@ title: Azure Service Fabric fristående skalning av klustret | Microsoft Docs
 description: Mer information om skalning fristående i Service Fabric-kluster i eller ut och upp eller ned.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: ryanwi
-ms.openlocfilehash: 0c211c2bb9dc07e705679b5d4079b85de9d72d8c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.author: dekapur
+ms.openlocfilehash: 4a3b3cf128f9d03f93bbde7f1f6edd5b19328b03
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100469"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500584"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Skala fristående Service Fabric-kluster
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.

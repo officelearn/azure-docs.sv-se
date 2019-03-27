@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961303"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486146"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -63,8 +63,8 @@ Den **OrchestrationStep** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Beställa | Ja | Sorteringen för orchestration-steg. | 
-| Type | Ja | Typ av orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** -anger att orkestreringssteget visas olika anspråksleverantörer för användaren att välja en.</li><li>**CombinedSignInAndSignUp** -anger att orkestreringssteget utgör en kombinerad social provider registreringssida för inloggning och lokala konto.</li><li>**ClaimsExchange** -anger att orkestreringssteget utbyter anspråk med en anspråksprovider.</li><li>**SendClaims** -anger att orkestreringssteget skickar anspråk till den förlitande parten med en token utfärdad av en utfärdare av anspråk.</li></ul> | 
+| `Order` | Ja | Sorteringen för orchestration-steg. | 
+| `Type` | Ja | Typ av orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** -anger att orkestreringssteget visas olika anspråksleverantörer för användaren att välja en.</li><li>**CombinedSignInAndSignUp** -anger att orkestreringssteget utgör en kombinerad social provider registreringssida för inloggning och lokala konto.</li><li>**ClaimsExchange** -anger att orkestreringssteget utbyter anspråk med en anspråksprovider.</li><li>**SendClaims** -anger att orkestreringssteget skickar anspråk till den förlitande parten med en token utfärdad av en utfärdare av anspråk.</li></ul> | 
 | ContentDefinitionReferenceId | Nej | Identifierare för den [innehåll definition](contentdefinitions.md) som är associerade med den här orchestration-steg. Vanligtvis har innehållsdefinition referens-ID definierats i självkontrollerad tekniska profilen. Men finns det tillfällen när Azure AD B2C behöver visa något utan tekniska profil. Det finns två exempel, om typ av orkestreringssteget är en av följande: `ClaimsProviderSelection` eller `CombinedSignInAndSignUp`. Azure AD B2C måste visa identitets-provider-markeringen utan en tekniska profilen. | 
 | CpimIssuerTechnicalProfileReferenceId | Nej | Orkestreringssteget är `SendClaims`. Den här egenskapen definierar den tekniska profilen identifieraren för anspråksleverantören som utfärdar en token för den förlitande parten.  Om ej finns, skapas ingen förlitande part-token. |
 
@@ -92,8 +92,8 @@ Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Type | Ja | Typ av kontroll eller fråga för den här villkor. Värdet kan vara **ClaimsExist**, som anger åtgärderna som ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller **ClaimEquals**, som anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
-| ExecuteActionsIf | Ja | Använd ett sant eller falskt-test för att avgöra om åtgärder i villkor som ska utföras. | 
+| `Type` | Ja | Typ av kontroll eller fråga för den här villkor. Värdet kan vara **ClaimsExist**, som anger åtgärderna som ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller **ClaimEquals**, som anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| `ExecuteActionsIf` | Ja | Använd ett sant eller falskt-test för att avgöra om åtgärder i villkor som ska utföras. | 
 
 Den **Förhandsvillkoret** element innehåller följande element:
 

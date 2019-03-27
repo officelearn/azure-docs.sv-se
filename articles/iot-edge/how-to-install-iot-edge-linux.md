@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309306"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499479"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installera Azure IoT Edge-körningen på Linux (x64)
 
@@ -23,7 +23,7 @@ Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Kö
 
 Mer information finns i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Linux x64 (Intel/AMD) IoT Edge-enhet. Referera till [support för Azure IoT Edge](support.md#operating-systems) en lista över operativsystem som stöds AMD64.
+Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Ubuntu Linux x64 (Intel/AMD) IoT Edge-enhet. Referera till [support för Azure IoT Edge](support.md#operating-systems) en lista över operativsystem som stöds AMD64.
 
 > [!NOTE]
 > Paket i databaser för Linux-programvara är gäller under licensvillkor som finns i varje paket (/ usr/dela/docs/*paketnamn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
@@ -33,11 +33,22 @@ Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Lin
 Förbered enheten för IoT Edge runtime-installation.
 
 
-Installera konfiguration av databaser. Ersätt **\<viktig\>** med **16.04** eller **18.04** som passar din version av Ubuntu.
+Installera konfiguration av databaser. Välj antingen den **16.04** eller **18.04** kodfragment som passar din version av Ubuntu.
 
+> [!IMPORTANT]
+> Kontrollera att du väljer kodfragmentet rätt kod som visas för din version av Ubuntu.
+
+* För **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* För **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Installera konfiguration av databaser. Välj antingen den **16.04** eller **18.04** kodfragment som passar din version av Ubuntu.
 
 Kopiera Skapad lista.
 

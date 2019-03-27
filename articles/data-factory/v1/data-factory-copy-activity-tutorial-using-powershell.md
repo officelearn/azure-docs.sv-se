@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7031e003ad05d647ccfaebf9239f26ef0af00a7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110723"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482411"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Självstudier: Skapa en Data Factory-pipeline som flyttar data med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
@@ -82,31 +82,31 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
 
     Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in i Azure Portal:
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```   
    
     Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
     Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 1. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando:
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     Vissa av stegen i den här självstudien förutsätter att du använder resursgruppen med namnet **ADFTutorialResourceGroup**. Om du använder en annan resursgrupp måste du använda den i stället för ADFTutorialResourceGroup i den här självstudiekursen.
 1. Kör den **New-AzDataFactory** cmdlet för att skapa en datafabrik med namnet **ADFTutorialDataFactoryPSH**:  
 
-    ```PowerShell
+    ```powershell
     $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
     Det här namnet har kanske redan tagits. Därför bör du göra namnet på datafabriken unikt genom att lägga till ett prefix eller suffix (till exempel: ADFTutorialDataFactoryPSH05152017) och köra kommandot igen.  
@@ -124,13 +124,13 @@ Observera följande punkter:
 
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern:
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
     Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad:
 
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Logga in i [Azure Portal](https://portal.azure.com) via Azure-prenumerationen. Gå till ett Data Factory-blad, eller skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
@@ -166,7 +166,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 1. I **Azure PowerShell** växlar du till appen **ADFGetStartedPSH**.
 1. Kör den **New AzDataFactoryLinkedService** cmdlet för att skapa den länkade tjänsten: **AzureStorageLinkedService**. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna **ResourceGroupName** och **DataFactoryName**. Du kan också skicka DataFactory-objektet som returneras av cmdleten New-AzDataFactory utan att ange ResourceGroupName och DataFactoryName varje gång du kör en cmdlet. 
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
     Här är exempel på utdata:
@@ -181,7 +181,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 
     Andra sätt att skapa den här länkade tjänsten är att ange resursgruppens namn och datafabriksnamnet istället för att ange DataFactory-objektet.  
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
 
@@ -206,7 +206,7 @@ I det här steget länkar du Azure SQL-databasen till din datafabrik.
     ```
 1. Kör följande kommando för att skapa en länkad tjänst:
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
@@ -290,7 +290,7 @@ I det här steget skapar du en datauppsättning med namnet InputDataset som peka
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 1. Kör följande kommando för att skapa Data Factory-datauppsättningen.
 
-    ```PowerShell  
+    ```powershell  
     New-AzDataFactoryDataset $df -File .\InputDataset.json
     ```
     Här är exempel på utdata:
@@ -353,7 +353,7 @@ I den här delen av steget ska du skapa en utdatauppsättning med namnet **Outpu
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure SQL-anslutningsapp](data-factory-azure-sql-connector.md#dataset-properties).
 1. Skapa datafabriksdatauppsättningen genom att köra följande kommando.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
@@ -438,7 +438,7 @@ Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen ä
      Beskrivningar av JSON-egenskaper i en pipeline-definition finns i artikeln [skapa pipelines](data-factory-create-pipelines.md). Beskrivningar av JSON-egenskaper i en kopieringsaktivitet-definition finns i artikeln [aktiviteter för dataflyttning](data-factory-data-movement-activities.md). Beskrivningar av JSON-egenskaper som stöds av BlobSource finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md). Beskrivningar av JSON-egenskaper som stöds av SqlSink finns i artikeln [Azure SQL Database-anslutningsapp](data-factory-azure-sql-connector.md).
 1. Kör följande kommando för att skapa datafabrikstabellen.
 
-    ```PowerShell   
+    ```powershell   
     New-AzDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
@@ -459,12 +459,12 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
 
 1. Ersätt &lt;DataFactoryName&gt; med namnet på din datafabrik och kör **Get-AzDataFactory**, och tilldela utdatan till en variabel $df.
 
-    ```PowerShell  
+    ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
     Exempel:
-    ```PowerShell
+    ```powershell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
     
@@ -483,7 +483,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     ```
 1. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den **OutputDataset**, vilket är utdatan för pipelinen.  
 
-    ```PowerShell   
+    ```powershell   
     Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
@@ -527,7 +527,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     ```
 1. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en **specifika** sektorn. Kopiera datum-/tid-värde från utdata från det föregående kommandot för att ange värdet för parametern StartDateTime. 
 
-    ```PowerShell  
+    ```powershell  
     Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 

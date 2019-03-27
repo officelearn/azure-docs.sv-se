@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544052"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444822"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
@@ -29,6 +29,29 @@ Application Gateway och Web Application Firewall (WAF) finns nu i offentlig för
 > SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Jämförelse mellan SKU: N v1 och v2-SKU
+
+I följande tabell jämförs funktionerna med varje SKU.
+
+|                                                   | V1-SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Automatisk skalning                                       |          | &#x2713; |
+| Redundans                                   |          | &#x2713; |
+| &nbsp;Statisk VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL-baserad routning                                 | &#x2713; | &#x2713; |
+| Värd för flera platser                             | &#x2713; | &#x2713; |
+| Trafik-omdirigering                               | &#x2713; | &#x2713; |
+| Brandvägg för webbaserade program (WAF)                    | &#x2713; | &#x2713; |
+| Secure Sockets Layer-avslutning (SSL)            | &#x2713; | &#x2713; |
+| Slutpunkt till slutpunkt SSL-kryptering                         | &#x2713; | &#x2713; |
+| Sessionstillhörighet                                  | &#x2713; | &#x2713; |
+| Anpassade felsidor                                | &#x2713; | &#x2713; |
+| Skriv om rubriker för HTTP (S)                           |          | &#x2713; |
+| WebSocket-stöd                                 | &#x2713; | &#x2713; |
+| Stöd för HTTP/2                                    | &#x2713; | &#x2713; |
+| Anslutningstömning                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) Ingress-kontrollant |          | &#x2713; |
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -48,7 +71,7 @@ I förhandsversionen är gratis. Du debiteras för andra resurser än Programgat
 |NSG för inkommande portintervall| -65200 till 65535 för Standard_v2 SKU<br>-65503 till 65534 för Standard-SKU.<br>Mer information finns i den [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestandaloggar i Azure-diagnostik|Stöds ej.<br>Du bör använda Azure-mått.|
 |Fakturering|Det finns ingen fakturering för närvarande.|
-|FIPS-läge, WebSocket|Dessa stöds inte för närvarande.|
+|FIPS-läge|Dessa stöds inte för närvarande.|
 |ILB läge|Detta stöds för närvarande inte. Offentliga och ILB-läget tillsammans stöds.|
 |NetWatcher-integrering|Stöds inte i den offentliga förhandsversionen.|
 

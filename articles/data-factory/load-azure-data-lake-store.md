@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119755"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446461"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 
@@ -46,7 +46,8 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 1. På menyn till vänster väljer **skapa en resurs** > **Analytics** > **Data Factory**:
    
-   ![Skapa en ny datafabrik](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. I den **ny datafabrik** anger värden för fälten som visas i följande bild: 
       
    ![Sida för ny datafabrik](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)

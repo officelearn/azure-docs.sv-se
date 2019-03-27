@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004451"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449215"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -184,7 +184,7 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
 10. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
 
-    **Inte**, användning av klonade konfigurationsservern komponent stöds inte.
+    **Inte**, användning av klonade konfigurationsservern komponent stöds inte. Kloning av skalbar processerver är också ett scenario som inte stöds. Kloning av Site Recovery påverka komponenter pågående replikering.
 
 11. Kan jag ändra IP-Adressen för konfigurationsservern?
 

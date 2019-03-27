@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586808"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448061"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
 
@@ -40,7 +40,7 @@ Det här är ett tillfälligt fel som ska matchas.
 
 * Använd cmdleten ”Remove-AzAutomationDscConfiguration” Az för att ta bort konfigurationen.
 * I dokumentationen för denna cmdlet har inte uppdaterats ännu.  Fram till dess, finns i dokumentationen för AzureRM-modulen.
-  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Scenario: Noden är i ett misslyckat tillstånd med ett ”kunde inte hittas”-fel
 

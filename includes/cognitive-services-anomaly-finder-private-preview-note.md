@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 11/15/2018
+ms.date: 03/21/2019
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1dab9b0e23b5fe574f9b4506fdcad510d378bfef
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716278"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494624"
 ---
 > [!NOTE]
-> Avvikelsesökare är i privat förhandsversion. Att använda förhandsgranskningen Avvikelseidentifiering Finder privat [Kontakta oss](mailto:kenshoteam@microsoft.com). När du har beviljats åtkomst, se åtkomst-kontrollerade [Avvikelseidentifiering Finder Private Preview-dokumentation](https://aka.ms/AnomalyFinderPrivatePreview) för mer information.
+> Avvikelseidentifiering detektor API (nu i offentlig förhandsversion) ersätter Avvikelsesökare labbet. Befintliga Avvikelsesökare labs tas den 30 April 2019. Vi rekommenderar att du migrerar till Avvikelseidentifiering detektor före denna tidpunkt. Se den [Avvikelseidentifiering detektor API-dokumentation](../articles/cognitive-services/anomaly-detector/index.yml) för mer information. 

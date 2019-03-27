@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eeda1ed3181b8cc8f641ed731b7f00fac2d3fad6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bbda2a16e57f3907ef2910b17ed3c744d2d1ec3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005841"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487863"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -58,7 +58,7 @@ Det här meddelandet visas om servern tidigare har registrerats med en Lagringss
 
 Om servern inte visas **registrerade servrar** i Storage Sync-tjänsten på den server som du vill avregistrera, kör du följande PowerShell-kommandon:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Reset-StorageSyncServer
 ```
@@ -113,7 +113,7 @@ Det här problemet uppstår om servern är offline eller inte har någon nätver
 <a id="server-endpoint-provisioningfailed"></a>**Det går inte att öppna egenskapssidan för server-slutpunkt eller uppdatera principer för lagringsnivåer för moln**  
 Det här problemet kan inträffa om en management-åtgärd på Serverslutpunkten misslyckas. Om egenskapssidan för slutpunkten inte öppnas i Azure-portalen, kan uppdaterar serverslutpunkt med hjälp av PowerShell-kommandon från servern åtgärda problemet. 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzureRmStorageSyncServerEndpoint `
@@ -253,7 +253,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | En fil har ändrats, men ändringen har ännu inte identifierats av synkronisering. Återställer synkronisera om den här ändringen har identifierats. | Ingen åtgärd krävs. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Filen kan inte synkroniseras eftersom Azure file share gränsen har nåtts. | För att lösa problemet, se [du nått lagringsgränsen för Azure file-resursen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) avsnittet i felsökningsguiden. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa om filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS) eller filen har ett väntetillstånd. | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa av följande skäl: filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS), filen har ett väntetillstånd eller filen finns på en skrivskyddad replikering DFS-R-mapp | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. Om filen finns på en skrivskyddad replikering DFS-R-mapp, stöder inte serverslutpunkter för DFS-R skrivskyddad replikering mappar i Azure Files Sync. Se [Planeringsguiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) för mer information.
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
 
@@ -331,7 +331,7 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
 
 1. Kontrollera att du kan matcha DNS-namn för lagring från servern.
 
-    ```PowerShell
+    ```powershell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Kontrollera att lagringskontot finns.](#troubleshoot-storage-account)
@@ -457,13 +457,13 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
 
 1. Skapa registervärdet SkipVerifyingPinnedRootCertificate.
 
-    ```PowerShell
+    ```powershell
     New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Azure\StorageSync -Name SkipVerifyingPinnedRootCertificate -PropertyType DWORD -Value 1
     ```
 
 2. Starta om synkroniseringstjänsten på den registrerade servern.
 
-    ```PowerShell
+    ```powershell
     Restart-Service -Name FileSyncSvc -Force
     ```
 
@@ -503,7 +503,7 @@ Utför följande steg för att lösa problemet om servertiden stämmer:
 1. Verifiera Azure File Sync-agenten version 4.0.1.0 eller senare är installerat.
 2. Kör följande PowerShell-kommandon på servern:
 
-    ```PowerShell
+    ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
     Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -616,7 +616,7 @@ Det här felet uppstår på grund av ett internt problem med av synkroniseringsd
     ![En skärmbild som visar fönstret cloud endpoint detaljerad med en länk till lagringskontot.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
@@ -719,7 +719,7 @@ if ($storageAccount -eq $null) {
     ![En skärmbild som visar storage-konto brandväggs- och regler inaktiveras.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
     Write-Host ("The storage account referenced contains network " + `
@@ -735,7 +735,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 3. Kontrollera filresursen som refereras av molnslutpunkten visas i listan över filresurser (du bör ha antecknat detta i steg 1 ovan).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
@@ -762,7 +762,7 @@ if ($fileShare -eq $null) {
     - I den **Välj** skriver **Hybrid Filsynkroniseringstjänstens**, markerar du rollen och klickar på **spara**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell    
+```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
@@ -790,13 +790,13 @@ Du kan använda [File Server Resource Manager (FSRM) filgaller](https://docs.mic
 
 Först skapa en FSRM-filen med den [cmdlet New-FsrmFileGroup](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Det här exemplet definierar gruppen så att den innehåller endast två av otillåtna tecken, men du kan innehålla valfritt antal tecken som krävs i din grupp.
 
-```PowerShell
+```powershell
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
 ```
 
 När du har definierat en FSRM-filgrupp kan skapa du en FSRM-filgallring med hjälp av cmdleten New-FsrmFileScreen.
 
-```PowerShell
+```powershell
 New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
 ```
 
@@ -893,7 +893,7 @@ Om problemet kvarstår kör du verktyget AFSDiag:
 1. Skapa en katalog som där AFSDiag utdata ska sparas (till exempel C:\Output).
 2. Öppna en upphöjd PowerShell-kommandotolk och kör sedan följande kommandon (tryck på RETUR efter varje kommando):
 
-    ```PowerShell
+    ```powershell
     cd "c:\Program Files\Azure\StorageSyncAgent"
     Import-Module .\afsdiag.ps1
     Debug-Afs c:\output # Note: Use the path created in step 1.

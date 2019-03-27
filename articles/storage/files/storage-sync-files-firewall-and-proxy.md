@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890839"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481510"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -49,7 +49,7 @@ Azure File Sync stöder appspecifika och datoromfattande proxy-inställningar.
 **Appspecifika proxyinställningar** tillåter konfiguration av proxy specifikt för Azure File Sync-trafik. Appspecifika proxyinställningar stöds på agentversion 4.0.1.0 eller nyare och kan konfigureras under agentinstallationen av eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
 
 PowerShell-kommandon för att konfigurera proxyinställningar för appspecifika:
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```

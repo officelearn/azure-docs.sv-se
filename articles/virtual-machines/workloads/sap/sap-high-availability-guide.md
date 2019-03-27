@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6b6728d7eaa263bb7e9da0f08a47ffe2f1e961a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81e31a6e5fd1260ec844cc36f28a64e44334ebec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009457"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482783"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
@@ -455,14 +455,14 @@ För produktion SAP-system, distribuera Azure-datorer med [anslutning till före
 2. I den **SUBNETID** lägger du till fullständig sträng med förberedda Azure nätverk SubnetID där du planerar att distribuera virtuella datorer i Azure.
 3. Om du vill hämta en lista över alla Azure-nätverk undernät, kör du följande PowerShell-kommando:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    Den **ID** fältet visar den **SUBNETID**.
 4. Hämta en lista över alla **SUBNETID** värden, kör den här PowerShell-kommando:
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
@@ -1196,7 +1196,7 @@ Lägga till en avsökningsport:
 
 1. Kontrollera aktuellt **ProbePort** inställningen genom att köra följande PowerShell-kommando. Köra den från inom någon av de virtuella datorerna i klusterkonfigurationen.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1213,7 +1213,7 @@ Lägga till en avsökningsport:
 
    Ange ett nytt ProbePort värde för den **SAP <*SID*> IP** klusterresursen genom att köra följande PowerShell-skript. Uppdatera PowerShell-variabler för din miljö. När skriptet har körts uppmanas du att starta om klustergrupp SAP för att aktivera ändringarna.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
@@ -1271,7 +1271,7 @@ Lägga till en avsökningsport:
 
    När du tar den **SAP <*SID*>** rollen online-kluster, kontrollerar du att **ProbePort** är inställt på det nya värdet.
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1287,7 +1287,7 @@ Lägga till en avsökningsport:
 
 Du behöver öppna en Windows-brandväggen avsökningsport på båda klusternoderna. Använd följande skript för att öppna en Windows-brandväggen avsökningsporten. Uppdatera PowerShell-variabler för din miljö.
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -1347,7 +1347,7 @@ _**Bild 62:** I SIOS DataKeeper replikerar du lokala volymen från klusternoden 
    - Använda hanteraren för redundanskluster  
    - Använd PowerShell för Failover-kluster
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"

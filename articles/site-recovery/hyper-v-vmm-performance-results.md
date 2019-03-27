@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793044"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482808"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testresultat för Hyper-V-replikering till en sekundär plats
 
@@ -108,7 +108,7 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 | Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| Hyper-V-servrar i klustret: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
 | VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databas 2012 R2 (x 64) och VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sekundär plats
@@ -120,9 +120,9 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 | Server | RAM | Modell | Processor | Antal processorer | Nätverkskort | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| Hyper-V-servrar i klustret: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
 | VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databas 2012 R2 (x 64) och VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Server-arbetsbelastningar
@@ -131,12 +131,12 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 * Vi använder [IOMeter](http://www.iometer.org) med arbetsbelastningen-egenskap som sammanfattas i tabellen för att simulera.
 * Alla IOMeter profiler är inställda på att skriva slumpmässiga byte att simulera sämsta skrivmönster för arbetsbelastningar.
 
-| Arbetsbelastning | I/o-storlek (KB) | % Åtkomst | % Läs | Utestående I/o | I/o-mönster |
+| Arbetsbelastning | I/o-storlek (KB) | % Åtkomst | %Read | Utestående I/o | I/o-mönster |
 | --- | --- | --- | --- | --- | --- |
 | Filserver |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Alla 100% slumpmässiga |
 | SQL Server (volym 1) SQL Server (volym 2) |864 |100%100% |70%0% |88 |100% random100% sekventiella |
-| Exchange |32 |100% |67% |8 |100% slumpmässiga |
-| Arbetsstationen/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
+| Exchange |32 |100 % |67% |8 |100% slumpmässiga |
+| Workstation/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
 | Web-filserver |4864 |33%34%33% |95%95%95% |888 |Alla 75% slumpmässiga |
 
 ### <a name="vm-configuration"></a>Konfiguration av virtuell dator
@@ -175,10 +175,10 @@ Tabellen sammanfattas de prestandamått och räknare som har mätt i distributio
 | Processor |\Processor(_Total)\% processortid |
 | Ledigt minne |\Memory\Available megabyte |
 | IOPS |\PhysicalDisk (_Total) \Disk disköverföringar/sek |
-| VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Read/sek |
-| VM skrivåtgärder (IOPS) / sek |\Hyper-V virtuell lagringsenhet (<VHD>) \Write åtgärder/S |
-| Läsningsdataflöde som virtuell dator |\Hyper-V virtuell lagringsenhet (<VHD>) \Read byte/sek |
-| Genomströmning för skrivning av virtuell dator |\Hyper-V virtuell lagringsenhet (<VHD>) \Write byte/sek |
+| VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (\<VHD >) \Read/sek |
+| VM skrivåtgärder (IOPS) / sek |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| Läsningsdataflöde som virtuell dator |\Hyper-V virtuell lagringsenhet (\<VHD >) \Read byte/sek |
+| Genomströmning för skrivning av virtuell dator |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
 
 ## <a name="next-steps"></a>Nästa steg
 

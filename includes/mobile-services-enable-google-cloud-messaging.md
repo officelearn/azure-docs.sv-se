@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836586"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488050"
 ---
 1. Navigera till [Google Cloud-konsolen](https://console.developers.google.com/cloud-resource-manager) och logga in med dina Google-kontouppgifter. 
 2. Välj **Skapa projekt** i verktygsfältet. 
    
     ![Skapa nytt projekt](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. För **Projektnamn** anger du ett namn för projektet och klickar på **Skapa**.
-4. Välj knappen **Aviseringar** i verktygsfältet och välj ditt projekt i listan. Instrumentpanelen för projektet visas. Du kan också gå direkt till instrumentpanelen genom att ange URL:en https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Välj knappen **Aviseringar** i verktygsfältet och välj ditt projekt i listan. Instrumentpanelen för projektet visas. Du kan också navigera direkt till instrumentpanelen med hjälp av URL: en: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Välj ditt projekt i Aviseringar](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Anteckna **projektnumret** på panelen **Projektinformation** på instrumentpanelen. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836586"
 
     ![Kopiera API-nyckeln](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    Du kommer att använda API-nyckelvärdet för att autentisera med GCM och skicka push-meddelanden för din app. Gå tillbaka till instrumentpanelen för projektet genom att ange URL:en https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    Du kommer att använda API-nyckelvärdet för att autentisera med GCM och skicka push-meddelanden för din app. Gå tillbaka till instrumentpanelen för projektet genom att använda URL: en: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

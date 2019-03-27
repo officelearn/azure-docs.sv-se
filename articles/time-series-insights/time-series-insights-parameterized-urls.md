@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558472"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487880"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -81,13 +81,13 @@ Parametern multiChartStack = <true/false> aktiverar stapling i diagrammet och pa
 - 'multiChartStack=false&multiChartSameScale=true' 
   - Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är false som standard, så skicka true aktiverar den här funktionen.  
   
-Med timeBucketUnit=<Unit>&timeBucketSize=<integer>, kan du ändra intervallskjutreglaget för att ge en mer detaljerad eller jämnare och mer samlad diagramvy.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+Den `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du ändra intervallskjutreglaget för att ge en mer detaljerad eller jämnare och mer samlad diagramvy.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Enheter (Units) = dagar, timmar, minuter, sekunder och millisekunder.  Inled alltid enheten med versal.
   - Definiera antalet enheter genom att skicka det önskade heltalet för timeBucketSize.  Observera att du jämnar upp till 7 dagar.  
   
-Med parametern timezoneOffset=<integer> kan du ange tidszonen som diagrammet ska visas i som en förskjutning till UTC.  
-  - 'timezoneOffset=-<integer>'
+Den `timezoneOffset=<integer>` parametern kan du ange tidszonen som diagrammet ska visas i som en förskjutning till UTC.  
+  - `timezoneOffset=-<integer>`
     - Heltalet är alltid i millisekunder.  
     - Observera den här funktionen är något annorlunda än vad vi aktivera i TSI-utforskaren där du kan välja lokal tid (webbläsartid) eller UTC.  
  

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167078"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487829"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ Den **protokollet** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
+| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
 | PartnerClaimType | Ja | Anspråk typnamn som ska användas. |
 
 I följande exempel, när den Identitetsramverk interagerar med en identitetsprovider för SAML2 eller förlitande partsprogram den **efternamn** anspråk har mappats till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, med OpenIdConnect och OAuth2 anspråket är mappad till `family_name`.
@@ -106,8 +106,8 @@ Den **Mask** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Typ | Ja | Typ av anspråk masken. Möjliga värden: `Simple` eller `Regex`. Den `Simple` värdet anger att en enkel text mask tillämpas på den ledande delen av ett sträng-anspråk. Den `Regex` värdet anger att ett reguljärt uttryck används till sträng anspråk som helhet.  Om den `Regex` värde har angetts, ett valfritt attribut måste också ha definierats med reguljära uttrycket som ska användas. |
-| Regex | Nej | Om **typ** är inställd på `Regex`, ange det reguljära uttrycket att använda.
+| `Type` | Ja | Typ av anspråk masken. Möjliga värden: `Simple` eller `Regex`. Den `Simple` värdet anger att en enkel text mask tillämpas på den ledande delen av ett sträng-anspråk. Den `Regex` värdet anger att ett reguljärt uttryck används till sträng anspråk som helhet.  Om den `Regex` värde har angetts, ett valfritt attribut måste också ha definierats med reguljära uttrycket som ska användas. |
+| `Regex` | Nej | Om **`Type`** är inställd på `Regex`, ange det reguljära uttrycket att använda.
 
 I följande exempel konfigureras en **PhoneNumber** anspråk med den `Simple` mask:
 

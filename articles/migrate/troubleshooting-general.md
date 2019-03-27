@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119181"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482920"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -61,11 +61,11 @@ Om det inte går att exportera utvärderingsrapporten från portalen kan du prov
 
    a.    I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```armclient login```
 
-   Då öppnas Azure inloggningen popup där du måste logga in på Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Exempel på begäran och utdata:
 
@@ -102,6 +102,9 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
    - Klicka på fil > Distribuera OVF-mall > Gå till ova-filen och slutföra distributionen
 4. Om distributionen fortfarande misslyckas, kontakta supporten för Azure Migrate.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Det går inte att välja Azure i molnet i installationen
+
+Det här är ett känt problem och en korrigering är tillgänglig för problemet. Ladda ned den [senaste uppgradera bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) för installation och uppdatering installation för att tillämpa korrigeringen.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Insamlaren kan inte ansluta till internet
 

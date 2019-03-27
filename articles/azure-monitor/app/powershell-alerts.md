@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309544"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481799"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -41,7 +41,7 @@ Installera Azure Powershell-modulen på datorn där du vill köra skripten.
 ## <a name="connect-to-azure"></a>Anslut till Azure
 Starta Azure PowerShell och [ansluta till din prenumeration](/powershell/azure/overview):
 
-```PowerShell
+```powershell
 
     Add-AzAccount
 ```

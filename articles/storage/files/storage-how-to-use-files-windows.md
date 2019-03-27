@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076351"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482138"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -49,7 +49,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
     Följande PowerShell-kod förutsätter att du har AzureRM PowerShell-modulen är installerad. Mer information finns på sidan om att [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ Ett vanligt mönster för lyftning och skiftande av verksamhetsspecifika program
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Spara autentiseringsuppgifterna för Azure-filresurser i Windows  
 Med [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey)-verktyget kan du lagra autentiseringsuppgifterna för lagringskontot i Windows. Det innebär att när du försöker få åtkomst till en Azure-filresurs via dess UNC-sökväg eller montera Azure-filresursen så behöver du inte ange autentiseringsuppgifter. För att spara autentiseringsuppgifterna för ditt lagringskonto kör du följande PowerShell-kommandon och ersätter `<your-storage-account-name>` och `<your-resource-group-name>` där det är lämpligt.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 Du kan verifiera att cmdkey-verktyget har lagrat autentiseringsuppgifterna för lagringskontot med hjälp av listparametern:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ Det finns två ytterligare scenarier att överväga med cmdkey: lagra autentiser
 
 Det är mycket enkelt att lagra autentiseringsuppgifterna för en annan användare på datorn: när du loggat in på ditt konto kör du följande PowerShell-kommando:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ Däremot går det inte att lagra autentiseringsuppgifterna på en fjärrdator me
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Montera Azure-filresursen med PowerShell
 Kör följande kommandon från en vanlig (dvs. inte en förhöjd) PowerShell-session för att montera Azure-filresursen. Kom ihåg att ersätta `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` och `<desired-drive-letter>` med rätt information.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 Om du vill kan du demontera Azure-filresursen med hjälp av följande PowerShell-cmdlet.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -252,7 +252,7 @@ Innan du tar bort SMB 1 i din miljö kan det vara bra att granska användning av
 
 Du aktiverar granskning genom att köra följande cmdlet från en upphöjd PowerShell-session:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 Om du vill ta bort SMB 1 från en Windows Server-instans kör du följande cmdlet från en upphöjd PowerShell-session:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Starta om servern för att slutföra borttagningsprocessen.
 
 Om du vill ta bort SMB 1 från din Windows-klient kör du följande cmdlet från en upphöjd PowerShell-session:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ SMB 1 kan inte tas bort helt och hållet i äldre versioner av Windows/Windows S
 
 Det är även enkelt att göra detta med följande PowerShell-cmdlet:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

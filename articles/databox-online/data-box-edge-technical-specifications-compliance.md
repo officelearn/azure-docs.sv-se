@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402600"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449192"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
 
@@ -57,9 +57,17 @@ I följande tabell visas måtten på höljet i millimeter och tum.
 
 |     Hölje     |     Millimeter     |     Tum     |
 |-------------------|---------------------|----------------|
-|    Höjd         |    304.8            |    12          |
-|    Bredd          |    660.4            |    26          |
-|    Djup          |    1041.4           |    41          |
+|    Höjd         |    44.45            |    1.75"          |
+|    Bredd          |    434.1           |    17.09"          |
+|    Längd          |    740.4           |    29.15"          |
+
+I följande tabell visas dimensioner för leveranser paketet i millimeter och tum.
+
+|     Paket     |     Millimeter     |     Tum     |
+|-------------------|---------------------|----------------|
+|    Höjd         |    311.2            |    12.25"          |
+|    Bredd          |    642.8          |    25.31"          |
+|    Längd          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Vikt för hölje
 
@@ -67,8 +75,8 @@ Enheten paketet väger 66 lbs. och kräver två personer kan hantera den. Vikten
 
 |     Hölje                                 |     Vikt          |
 |-----------------------------------------------|---------------------|
-|    Total vikt, inklusive paketering       |    66 lbs.          |
-|    Vikten för enheten                       |    48.3 lbs.        |
+|    Total vikt, inklusive paketering       |    61 lbs.          |
+|    Vikten för enheten                       |    35 lbs.          |
 
 ## <a name="enclosure-environment-specifications"></a>Hölje miljö specifikationer
 

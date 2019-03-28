@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078660"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541203"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -183,7 +183,7 @@ Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn f�
 Enhetsnamn ska ersättas med motsvarande UUID.<br>
 
 
-1. Hitta UUID för enheten genom att köra kommandot ”blkid <device name>”. Exempel:<br>
+1. Hitta UUID för enheten genom att köra kommandot ”blkid \<enhetens namn >”. Exempel:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ Enhetsnamn ska ersättas med motsvarande UUID.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =<UUID>”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna ska se ut. <br>
+2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =\<UUID >”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna ska se ut. <br>
    *Kernel /boot/vmlinuz-3.0.101-63-default **rot = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **återuppta = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 3. Starta om skyddet igen
 

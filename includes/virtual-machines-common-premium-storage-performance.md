@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251861"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542373"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
@@ -235,7 +235,7 @@ Azure Premium Storage erbjuder åtta GA-diskstorlekar och tre diskstorlekar som 
 
 | Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
+| Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 TiB)    |
 | IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
 | Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per second | 750 MiB per second |
 

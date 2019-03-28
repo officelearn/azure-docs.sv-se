@@ -1,6 +1,6 @@
 ---
-title: Samla in Azure-tjänstloggar och mått för Log Analytics | Microsoft Docs
-description: Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till Log Analytics.
+title: Samla in Azure-tjänstloggar och mått i Log Analytics-arbetsyta | Microsoft Docs
+description: Konfigurera diagnostik på Azure-resurser att skriva loggar och mått till Log Analytics-arbetsyta i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498544"
+ms.locfileid: "58540186"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Samla in Azure-tjänstloggar och mått i Log Analytics-arbetsyta i Azure Monitor
 
 Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 
-1. Azure Diagnostics-data direkt till Log Analytics (*diagnostik* i tabellen nedan)
-2. Azure Diagnostics-data till Azure-lagring till Log Analytics (*Storage* i tabellen nedan)
+1. Azure Diagnostics-data direkt till Log Analytics-arbetsyta i Azure Monitor (*diagnostik* i tabellen nedan)
+2. Azure Diagnostics-data till Azure-lagring till Log Analytics-arbetsyta i Azure Monitor (*Storage* i tabellen nedan)
 3. Anslutningsappar för Azure-tjänster (*kopplingar* i tabellen nedan)
-4. Skript för att samla in och publicera sedan data till Log Analytics (tomma i följande tabell och för tjänster som inte visas)
+4. Skript för att samla in och publicera sedan data till Log Analytics-arbetsyta i Azure Monitor (tomma i följande tabell och för tjänster som inte visas)
 
 
 | Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
@@ -64,12 +64,12 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure Diagnostics-data direkt till Log Analytics
-Många Azure-resurser kan skriva diagnostikloggar och mått direkt till Log Analytics och detta är det bästa sättet att samla in data för analys. När du använder Azure-diagnostik kan data skrivs direkt till Log Analytics och behöver du inte först skriva data till lagring.
+Många Azure-resurser kan skriva diagnostikloggar och mått direkt till en Log Analytics-arbetsyta i Azure Monitor och det är det bästa sättet att samla in data för analys. När du använder Azure-diagnostik kan data skrivs direkt till arbetsytan och behöver du inte först skriva data till lagring.
 
-Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan skicka sina loggar och mått direkt till Log Analytics.
+Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan skicka sina loggar och mått direkt till Log Analytics-arbetsytan.
 
 > [!NOTE]
-> Det går för närvarande inte att skicka flerdimensionella mätvärden till Log Analytics via diagnostikinställningarna. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
+> Skicka flerdimensionella mätvärden till en Log Analytics Workspace via diagnostikinställningar stöds inte för närvarande. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och visas för varje enskild kö. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
 >
@@ -125,9 +125,9 @@ Aktivera diagnostik på en resurs när den har skapats och har diagnostiken skic
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure Diagnostics-data till lagring och sedan till Log Analytics
 
-Det är möjligt att skicka dem till Azure storage och sedan konfigurera Log Analytics för att läsa loggarna från lagring för att samla in loggar från inom några resurser.
+Det är möjligt att skicka dem till Azure storage och sedan konfigurera Log Analytics-arbetsytan om du vill läsa loggarna från storage för att samla in loggar från inom några resurser.
 
-Log Analytics kan använda den här metoden för att samla in diagnostik från Azure storage för följande resurser och loggar:
+Azure Monitor kan använda den här metoden för att samla in diagnostik från Azure storage för följande resurser och loggar:
 
 | Resurs | Logs |
 | --- | --- |
@@ -136,23 +136,23 @@ Log Analytics kan använda den här metoden för att samla in diagnostik från A
 | Web-roller <br> Worker-roller |Linux Syslog <br> Windows-händelse <br> IIS-logg <br> Windows ETWEvent |
 
 > [!NOTE]
-> Du debiteras normal Azure datataxa för lagring och transaktioner när du skickar diagnostik till ett lagringskonto och när Log Analytics läser data från ditt lagringskonto.
+> Du debiteras normal datataxa Azure för lagring och transaktioner när du skickar diagnostik till ett lagringskonto och för när Log Analytics-arbetsytan läser data från ditt lagringskonto.
 >
 >
 
-Se [blobblagring för IIS- och table storage för händelser](azure-storage-iis-table.md) mer information om hur Log Analytics kan samla in dessa loggar.
+Se [blobblagring för IIS- och table storage för händelser](azure-storage-iis-table.md) mer information om hur Azure Monitor kan samla in dessa loggar.
 
 ## <a name="connectors-for-azure-services"></a>Anslutningsappar för Azure-tjänster
 
-Det finns en koppling för Application Insights, vilket gör att data som samlas in av Application Insights som ska skickas till Log Analytics.
+Det finns en koppling för Application Insights, vilket gör att data som samlas in av Application Insights som ska skickas till Log Analytics-arbetsytan.
 
 Läs mer om den [Application Insights connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Skript för att samla in och skicka data till Log Analytics
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Skript för att samla in och skicka data till Log Analytics-arbetsyta
 
-Du kan använda ett Azure Automation-skript för Azure-tjänster som inte uppger ett enkelt sätt att skicka loggar och mått till Log Analytics för att samla in logg och mått. Skriptet kan sedan skicka data till Log Analytics med hjälp av den [API för datainsamling](../../azure-monitor/platform/data-collector-api.md)
+Du kan använda ett Azure Automation-skript för Azure-tjänster som inte uppger ett enkelt sätt att skicka loggar och mått till en Log Analytics-arbetsyta för att samla in logg och mått. Skriptet kan sedan skicka data till en arbetsyta med hjälp av den [API för datainsamling](../../azure-monitor/platform/data-collector-api.md)
 
-Azure-mall-galleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skickas till Log Analytics.
+Azure-mall-galleriet har [exempel på användning av Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) att samla in data från tjänster och skicka den till Azure Monitor.
 
 ## <a name="next-steps"></a>Nästa steg
 

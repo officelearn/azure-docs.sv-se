@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a4c5b2b6d9818dffdb1c1fee8c4c0df7cad77c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001782"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539810"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till en Azure-dator
 
@@ -48,7 +48,7 @@ Du kan ladda upp både generaliserade och specialiserade virtuella hårddiskar t
 
 Exportera EC2-instans på en virtuell Hårddisk i en Amazon S3-bucket. Följ stegen i dokumentationsartikel Amazon [och exportera en instans som en virtuell dator med hjälp av VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instans till en VHD-fil. 
 
-Den exporterade VHD-filen sparas i en Amazon S3-bucket som du anger. Grundläggande syntax för export av den virtuella Hårddisken är nedan, Ersätt bara platshållartexten i <brackets> med din information.
+Den exporterade VHD-filen sparas i en Amazon S3-bucket som du anger. Grundläggande syntax för export av den virtuella Hårddisken är nedan, Ersätt bara platshållartexten i \<hakparenteser > med din information.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

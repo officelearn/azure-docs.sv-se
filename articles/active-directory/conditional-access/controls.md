@@ -4,7 +4,7 @@ description: L채r dig hur 책tkomstkontroll i Azure Active Directory villkorlig �
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f8cc85900ef8b7a21b8ae2b3f12e38657a093f8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370235"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521983"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad 채r 책tkomstkontroller i Azure Active Directory villkorlig 책tkomst?
 

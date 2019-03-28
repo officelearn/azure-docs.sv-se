@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672737"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540133"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
 
@@ -26,11 +26,11 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 1. Skapa en ny HTML-fil.
 
 2. Läs in modulen Azure Maps-webb-SDK. Detta kan göras med hjälp av ett av två alternativ;
-    
+
     a. Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till URL-slutpunkter i formatmall och skript referenser i den `<head>` elementet i filen:
 
-    ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
     ```
 
@@ -40,19 +40,19 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 
     Lägg till referenser till Azure Maps formatmall och skript källa referenser till den `<head>` elementet i filen:
 
-    ```html
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
     <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
     ```
 
 3. Lägg till följande för att rendera kartan så att det fyller den fullständiga brödtexten ska `<style>` elementet så att den `<head>` element.
 
-    ```html
+    ```HTML
     <style>
         html, body {
             margin: 0;
         }
-    
+
         #myMap {
             height: 100vh;
             width: 100vw;
@@ -60,9 +60,9 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     </style>
     ```
 
-4. I tabellen på sidan, lägger du till en `<div>` element och ge den ett `id` av **myMap**. 
+4. I tabellen på sidan, lägger du till en `<div>` element och ge den ett `id` av **myMap**.
 
-    ```html
+    ```HTML
     <body>
         <div id="myMap"></div>
     </body>
@@ -70,8 +70,8 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 
 5. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (AAD) för att autentisera en karta med hjälp av [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språk** alternativet anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerationsnyckel för autentisering.
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -86,8 +86,8 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 
     Om du använder Azure Active Directory (AAD) för autentisering:
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -103,41 +103,42 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     ```
 
     Se [autentisering med Azure Maps](azure-maps-authentication.md) för mer information.
+
 6. Du kan också hända att lägga till följande meta taggen element till chefen för sidan till hjälp:
 
-    ```html
+    ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
     <!-- Ensures the web page looks good on all screen sizes. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
 7. Sätter samman allt HTML-fil bör se ut ungefär så här:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
         <title></title>
-    
-        <meta charset="utf-8" />
-        
+
+        <meta charset="utf-8">
+
         <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
         <!-- Ensures the web page looks good on all screen sizes. -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-    
+
         <style>
             html, body {
                 margin: 0;
             }
-        
+
             #myMap {
                 height: 100vh;
                 width: 100vw;
@@ -146,8 +147,8 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     </head>
     <body>
         <div id="myMap"></div>
-        
-        <script type='text/javascript'>
+
+        <script type="text/javascript">
             //Create an instance of the map control and set some options.
             var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

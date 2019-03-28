@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840927"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521473"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -109,6 +109,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL
 | Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
 | Sydostasien | 23.100.117.95 | 104.43.15.0 |
 | Storbritannien, södra | 51.140.184.11 | |
+| Storbritannien, västra | 51.141.8.11| |
 | Västra centrala USA | 13.78.145.25 | |
 | Västra Europa | 191.237.232.75 | 40.68.37.158 |
 | Västra USA 1 | 23.99.34.75 | 104.42.238.205 |

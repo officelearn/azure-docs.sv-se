@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226920"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521252"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
-Text till tal från Azure Speech Services är en REST-baserad tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturlig människoliknande syntetiskt tal. Välja mellan standard och neural röster eller skapa egna [anpassade röst](#custom-voice-fonts) unik för din produkt eller varumärke. 75 + standard röster är tillgängliga i mer än 45 språk och nationella inställningar och 5 neural röster är tillgängliga i 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
+Text till tal från Azure Speech Services är en REST-baserad tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturlig människoliknande syntetiskt tal. Välj från standard- och neural röster eller skapa din egen anpassade röst unik för din produkt eller varumärke. 75 + standard röster är tillgängliga i mer än 45 språk och nationella inställningar och 5 neural röster är tillgängliga i 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
 
 Text till tal tekniken kan skapare av innehåll kan interagera med användarna på olika sätt. Text till tal kan förbättra tillgängligheten genom att förse användarna med möjlighet att interagera med innehållet hörbart. Om användaren har en visual nedskrivningar learning funktionshinder, eller kräver navigeringsinformation samtidigt, kan text till tal förbättra en befintlig upplevelse. Text till tal är också en värdefull tillägg för röst robotar och virtuella assistenter.
 
@@ -56,9 +56,9 @@ Vi erbjuder snabbstarter som utformats för att du köra kod i mindre än 10 min
 
 | Snabbstart | Plattform | API-referens |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Exempelkod
 

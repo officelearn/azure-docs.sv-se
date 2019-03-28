@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311192"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522272"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Så här filtrerar du efter språk i Azure Search 
 
@@ -39,11 +39,11 @@ I vårt exempel, inklusive den [fastigheter exemplet](search-get-started-portal.
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Kodexempel som visar fältdefinitioner med analysverktyg för språk finns i [definiera ett index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) och [definiera ett index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> Kodexempel som visar fältdefinitioner med analysverktyg för språk finns i [definiera ett index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) och [definiera ett index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Skapa och läsa in ett index
 
-Ett mellanliggande (och kanske uppenbara) steg är att du behöver [skapa och Fyll i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) innan utformningen av en fråga. Vi nämna det här steget för fullständighetens skull. Ett sätt att avgöra om indexet är tillgänglig är genom att kontrollera listan den [portal](https://portal.azure.com).
+Ett mellanliggande (och kanske uppenbara) steg är att du behöver [skapa och Fyll i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet) innan utformningen av en fråga. Vi nämna det här steget för fullständighetens skull. Ett sätt att avgöra om indexet är tillgänglig är genom att kontrollera listan den [portal](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Begränsa frågan och trimma resultat
 

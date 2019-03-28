@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499275"
+ms.locfileid: "58541153"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -36,8 +36,6 @@ Konfigurationsalternativ är tillgängliga i automatiserade machine learning:
 
 ## <a name="select-your-experiment-type"></a>Väljer du typen av experimentet
 Innan du börjar experimentet måste bestämma du vilken typ av machine learning-problem som du vill lösa. Automatiserad maskininlärning stöder uppgift typer av klassificering, regression och prognostisering.
-
-När automatisk maskininlärningsförmågor är allmänt tillgängliga **prognoser är fortfarande i förhandsversion.**
 
 Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen. DNN-algoritmer är tillgängliga vid träning, automatiserade ML inte att skapa DNN-modeller.
 

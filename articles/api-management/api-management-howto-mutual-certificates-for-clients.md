@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: b2d8a194abb5a5fe7d9c06cb9ef10bb0af58124a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c9d453be0aeb07bf0d78ee4c043fbb6202c225f2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870172"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520470"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Hur du skyddar API: er med klienten certifikatautentisering i API Management
 
@@ -88,5 +88,5 @@ I följande exempel visas hur du kontrollerar tumavtrycket för ett certifikat m
 ## <a name="next-step"></a>Nästa steg
 
 *  [Hur du skyddar backend-tjänster med hjälp av klienten certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [Ladda upp certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Ladda upp certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 523567a0db79e54bea1ed6ff23557c7fa29c74f6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449245"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541119"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för VMware-datorer och fysiska servrar
 
@@ -125,7 +125,7 @@ Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller
 #### <a name="registration-settings"></a>Registreringsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Användning | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
 /PassphraseFilePath |  Obligatorisk. Platsen för lösenfrasen. Använd valfritt giltigt UNC eller lokal filsökväg.
@@ -154,7 +154,7 @@ Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
 **Inställning** | **Detaljer**
 --- | ---
-Användning | . / install -d <Install Location> - r < MS|MT> -v VmWare -q
+Användning | . / install -d \<installationsplats > - r < MS|MT> -v VmWare -q
 -r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 -d | Valfri parameter. Anger installationsplatsen Mobility service: /usr/local/ASR.
 -v | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för VMware-datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
@@ -163,7 +163,7 @@ Användning | . / install -d <Install Location> - r < MS|MT> -v VmWare -q
 #### <a name="registration-settings"></a>Registreringsinställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Användning | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP > -P \<PassphraseFilePath >
 -i | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
 -P |  Obligatorisk. Fullständig sökväg till filen där lösenfrasen sparas. Använd en befintlig mapp.
 

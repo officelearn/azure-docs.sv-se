@@ -4,7 +4,7 @@ description: I den här snabbstarten får du lära dig hur du kan koppla din aut
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cbcb0271a1bd80f0f7155c379de7b5149c76fcca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520436"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory 
 

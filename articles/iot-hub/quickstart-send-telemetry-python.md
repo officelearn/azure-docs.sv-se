@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 51398c893f212bc51f3edd20ee4c666d91779352
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243371"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520011"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs den med ett serverdelsprogram (Python)
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Python. För närvarande stöder endast specifika versioner av Python för varje plattform med Microsoft Azure IoT SDK för Python. Mer information finns i den [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+Exempelprogrammet som du kör i den här snabbstarten är skrivna i Python. För närvarande stöder endast specifika versioner av Python för varje plattform med Microsoft Azure IoT SDK för Python. Mer information finns i den [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
 Den här snabbstarten förutsätter att du använder en Windows-utvecklingsdator. För Windows System [Python 3.6.x](https://www.python.org/downloads/release/python-368/) stöds. Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemet processorarkitektur är 32-bitars och sedan ladda ned x86 installer; ladda ned x86-64-installationsprogrammet för 64-bitars-arkitektur. Se även till den [Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
 

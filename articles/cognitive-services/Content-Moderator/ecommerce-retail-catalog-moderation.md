@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855962"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539504"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Självstudier: Moderera produktbilder för e-handel med Azure Content Moderator
 
@@ -61,7 +61,7 @@ Den här självstudien fokuserar på koden som är central för projektet, men d
 
 ## <a name="define-api-keys-and-endpoints"></a>Definiera API-nycklar och slutpunkter
 
-Som nämnts ovan använder den här självstudien tre kognitiva tjänster. Därför krävs tre motsvarande nycklar och API-slutpunkter. Se följande fält i klassen **Program**: 
+Som nämnts ovan använder den här självstudien tre kognitiva tjänster. Därför krävs tre motsvarande nycklar och API-slutpunkter. Se följande fält i klassen **Program**:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ Se metoden **EvaluateAdultRacy** i klassen **Program**. Den här metoden tar en 
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags-metod
+## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags method
 
-Nästa metod tar en bild-URL och din prenumerationsinformation för visuellt innehåll och analyserar bilden för förekomst av kändisar. Om det finns en eller flera kändisar ställs motsvarande värde i matrisen **ReviewTags** in på **True**. 
+Nästa metod tar en bild-URL och din prenumerationsinformation för visuellt innehåll och analyserar bilden för förekomst av kändisar. Om det finns en eller flera kändisar ställs motsvarande värde i matrisen **ReviewTags** in på **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags-metod
 
-Sedan kan du titta på metoden **EvaluateCustomVisionTags** som klassificerar de faktiska produkterna&mdash;i det här fallet flaggor, leksaker och pennor. Följ instruktionerna i guiden [Skapa en klassificerare](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) för att skapa en egen anpassad bildklassificerare för att detektera förekomsten av flaggor, leksaker och pennor (eller det du valde som dina anpassade taggar) i bilder.
+Sedan kan du titta på metoden **EvaluateCustomVisionTags** som klassificerar de faktiska produkterna&mdash;i det här fallet flaggor, leksaker och pennor. Följ instruktionerna i guiden [Skapa en klassificerare](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) för att skapa en egen anpassad bildklassificerare för att detektera förekomsten av flaggor, leksaker och pennor (eller det du valde som dina anpassade taggar) i bilder. Du kan använda bilder i den **Exempelbilder** mappen för den [GitHub-lagringsplatsen](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) att träna snabbt några av kategorierna i det här exemplet.
 
 ![Custom Vision-webbsida med inlärningsbilder av pennor, leksaker och flaggor](images/tutorial-ecommerce-custom-vision.PNG)
 
-När du har tränat din klassificerare hämtar du förutsägelsenyckeln och slutpunkts-URL:en för förutsägelse (se [Hämta URL och förutsägelsenyckel](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) om du behöver hjälp med att hämta dem), och tilldela dessa värden till dina fält `CustomVisionKey` respektive `CustomVisionUri`. Metoden använder dessa värden för att fråga klassificeraren. Om klassificeraren hittar en eller flera av de anpassade taggarna i bilden ställer den här metoden in de motsvarande värdena i matrisen **ReviewTags** på **True**. 
+När du har tränat din klassificerare hämtar du förutsägelsenyckeln och slutpunkts-URL:en för förutsägelse (se [Hämta URL och förutsägelsenyckel](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) om du behöver hjälp med att hämta dem), och tilldela dessa värden till dina fält `CustomVisionKey` respektive `CustomVisionUri`. Metoden använder dessa värden för att fråga klassificeraren. Om klassificeraren hittar en eller flera av de anpassade taggarna i bilden ställer den här metoden in de motsvarande värdena i matrisen **ReviewTags** på **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

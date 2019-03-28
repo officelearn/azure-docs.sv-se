@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317076"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518738"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317076"
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions har också [inbyggd övervakning som inte använder Application Insights](#monitoring-without-application-insights). Vi rekommenderar Application Insights eftersom det ger mer data och bättre sätt att analysera data.
+Azure Functions har också inbyggd övervakning som inte använder Application Insights. Vi rekommenderar Application Insights eftersom det ger mer data och bättre sätt att analysera data.
 
 ## <a name="application-insights-pricing-and-limits"></a>Priser för Application Insights och begränsningar
 
@@ -77,7 +77,7 @@ Nästa steg är att [inaktivera inbyggd loggning](#disable-built-in-logging).
 
 ## <a name="disable-built-in-logging"></a>Inaktivera inbyggd loggning
 
-När du aktiverar Application Insights kan du inaktivera den [inbyggd loggning som använder Azure Storage](#logging-to-storage). Inbyggd loggning är användbart för att testa med lätta arbetsbelastningar, men är inte avsett för användning i produktion för hög belastning. Vi rekommenderar Application Insights för övervakning av produktionen. Om du använder inbyggd loggning i produktion, kan loggning-posten vara ofullständiga på grund av begränsningar i Azure Storage.
+När du aktiverar Application Insights kan du inaktivera inbyggd loggning som använder Azure Storage. Inbyggd loggning är användbart för att testa med lätta arbetsbelastningar, men är inte avsett för användning i produktion för hög belastning. Vi rekommenderar Application Insights för övervakning av produktionen. Om du använder inbyggd loggning i produktion, kan loggning-posten vara ofullständiga på grund av begränsningar i Azure Storage.
 
 Om du vill inaktivera inbyggd loggning, ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure-portalen finns i den **programinställningar** delen av [hantera en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appinställningen, kontrollera att inga befintliga funktioner i samma funktionsapp använda inställningen för Azure Storage-utlösare och bindningar.
 
@@ -125,7 +125,7 @@ I [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kan du skapa dia
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-På den [fel](../azure-monitor/app/asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar som baseras på funktionen fel och server undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera [anpassad telemetri](#custom-telemetry-in-c-functions) för beroenden.
+På den [fel](../azure-monitor/app/asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar som baseras på funktionen fel och server undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden.
 
 ![Fel](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ I C#-skript-funktioner, kan du använda den `LogMetric` tilläggsmetod på `ILog
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Den här koden är ett alternativ till att anropa `TrackMetric` med hjälp av [Application Insights API för .NET](#custom-telemetry-in-c-functions).
+Den här koden är ett alternativ till att anropa `TrackMetric` med hjälp av Application Insights API för .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Sparar loggar på JavaScript-funktioner
 
@@ -441,7 +441,7 @@ När du kör på [version 1.x](functions-versions.md#creating-1x-apps) Functions
 context.log.metric("TestMetric", 1234);
 ```
 
-Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av [Node.js-SDK: N för Application Insights](#custom-telemetry-in-javascript-functions).
+Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av Node.js-SDK för Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Logga in anpassad telemetri C# funktioner
 
@@ -632,7 +632,7 @@ Den `tagOverrides` parameteruppsättningar den `operation_Id` till funktionens a
 
 ### <a name="dependencies"></a>Beroenden
 
-Beroenden som funktionen har till andra tjänster visas inte automatiskt. Du kan skriva anpassad kod för att visa beroenden. Exempel finns i exempelkoden i den [ C# anpassad telemetri avsnittet](#custom-telemetry-in-c-functions). Exempelkoden resulterar i en *programkartan* i Application Insights som ser ut som följande bild:
+Beroenden som funktionen har till andra tjänster visas inte automatiskt. Du kan skriva anpassad kod för att visa beroenden. Exempel finns i exempelkoden i den [ C# anpassad telemetri avsnittet](#log-custom-telemetry-in-c-functions). Exempelkoden resulterar i en *programkartan* i Application Insights som ser ut som följande bild:
 
 ![Programkarta](media/functions-monitoring/app-map.png)
 

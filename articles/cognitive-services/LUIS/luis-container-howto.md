@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436701"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520164"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -309,6 +309,11 @@ Välj din app från LUIS-portalen och välj sedan **importera endpoint loggarna*
 
 När loggen har överförts [granska slutpunkten](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) yttranden i LUIS-portalen.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Stoppa behållaren
 
 Om du vill stänga av behållaren i kommandoradsmiljön där behållaren körs, trycker du på **Ctrl + C**.
@@ -316,10 +321,6 @@ Om du vill stänga av behållaren i kommandoradsmiljön där behållaren körs, 
 ## <a name="troubleshooting"></a>Felsökning
 
 Om du kör behållaren med ett utgående [montera](luis-container-configuration.md#mount-settings) och loggning är aktiverat, behållaren genererar loggfiler som är användbara för att felsöka problem som kan inträffa när startas eller körs i behållaren. 
-
-## <a name="containers-api-documentation"></a>Behållarens API-dokumentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Fakturering
 

@@ -2,7 +2,7 @@
 title: Vanliga frågor och svar – Azure dedikerad HSM | Microsoft Docs
 description: Vanliga frågor om olika ämnen på Azure dedikerad HSM
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260000"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540830"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -58,9 +58,28 @@ För tillfället ger Azure dedikerad HSM bara HSM: er lösenordsbaserad autentis
 
 Microsoft erbjuder Gemalto SafeNet Luna nätverks-HSM via dedikerade HSM-tjänst endast och kan inte vara värd för alla enheter som tillhandahålls av kunden.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>F: Azure dedikerad HSM stöder PIN-kod/ETF funktioner eller uppfylla kraven för PCI HSM v1 eller v2-certifiering?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>F: Fungerar Azure dedikerad HSM support betalning (PIN-kod/ETF) funktioner?
 
-Azure dedikerad HSM-tjänsten använder SafeNet Luna nätverk HSM 7 (modell A790)-enheter. Dessa enheter stöder inte betalning HSM funktioner (t.ex PIN-kod eller ETF) eller certifieringar. Om du vill ha Azure dedikerad HSM-tjänst för betalning HSM: er i framtiden, ge feedback nedan.
+Azure dedikerad HSM-tjänsten använder SafeNet Luna nätverk HSM 7 (modell A790)-enheter. Dessa enheter stöder inte betalning HSM funktioner (t.ex PIN-kod eller ETF) eller certifieringar. Om du vill ha Azure dedikerad HSM-tjänst för betalning HSM: er i framtiden, skicka på feedbacken till din Microsoft-kontorepresentant.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>F: Vilka Azure-regioner är dedikerad HSM?
+
+Från och med mars-2019 sent är dedikerad HSM tillgänglig i 14 regioner visas nedan. Ytterligare regioner planeras och kan granskas via din Microsoft-kontorepresentant.
+
+* Östra USA
+* USA, östra 2
+* Västra USA
+* Södra centrala USA
+* Sydostasien
+* Östasien
+* Norra Europa
+* Västra Europa
+* Storbritannien, södra
+* Storbritannien, västra
+* Centrala Kanada
+* Östra Kanada
+* Östra Australien
+* Sydöstra Australien
 
 ## <a name="interoperability"></a>Samverkan
 

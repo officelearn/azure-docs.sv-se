@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781723"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520572"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera Azure Search-tjänsten med PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Du kan köra PowerShell-cmdlets och skript på Windows, Linux, eller i [Azure Cl
 > * [Visa en lista över söktjänster i din prenumeration](#list-search-services)
 > * [Få information om en specifik söktjänst](#get-search-service-information)
 > * [Skapa eller ta bort en tjänst](#create-or-delete-a-service)
-> * [Återskapa admin API-nycklar](#regenerate-admin-api-keys)
+> * Återskapa admin API-nycklar
 > * [Skapa eller ta bort api-frågenycklarna](#create-or-delete-query-keys)
 > * [Skala en tjänst genom att öka eller minska repliker och partitioner](#scale-replicas-and-partitions)
 

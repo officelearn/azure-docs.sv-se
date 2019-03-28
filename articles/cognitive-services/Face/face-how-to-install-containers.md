@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437602"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521626"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 
@@ -120,6 +120,11 @@ Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er.
 
 Använd värden `https://localhost:5000`, för behållaren API: er.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Stoppa behållaren
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 Om du kör behållaren med ett utgående [montera](./face-resource-container-config.md#mount-settings) och loggning är aktiverat, behållaren genererar loggfiler som är användbara för att felsöka problem som kan inträffa när startas eller körs i behållaren. 
 
-## <a name="containers-api-documentation"></a>Behållarens API-dokumentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Fakturering
 

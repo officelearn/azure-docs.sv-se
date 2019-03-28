@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904345"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522085"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
 
@@ -234,7 +234,7 @@ Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tills
 `CreateVideoReviewInContentModerator()` anropar flera andra metoder för att utföra följande uppgifter:
 
 > [!NOTE]
-> Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. De här miniatyrerna (bilder) motsvarar bildrutans tidsstämplar i [videoändringens utdata](#sample-video-moderation-response).
+> Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. De här miniatyrbilderna (avbildningar) motsvarar ramens tidsstämplar i videomoderering utdata.
 
 |Aktivitet|Metoder|Fil|
 |-|-|-|

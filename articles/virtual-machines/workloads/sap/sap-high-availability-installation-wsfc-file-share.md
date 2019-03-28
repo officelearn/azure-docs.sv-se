@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483446"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540796"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS-instanser i Azure
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 Skapa följande volym och -filresursen på SOFS-klustret:
 
-* SAP GLOBALHOST filen C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ strukturen på SOFS-kluster klusterdelad volym (CSV)
+* SAP GLOBALHOST filen `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` strukturen på SOFS-kluster klusterdelad volym (CSV)
 
 * SAPMNT filresurs
 
@@ -347,8 +347,8 @@ Kör följande steg:
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Flytta \SYS\... mappen i SOFS-klustret
 
 Kör följande steg:
-1. Kopiera mappen SYS (till exempel C:\usr\sap\\<SID>\SYS) från en av ASCS/SCS-klusternoder till SOFS-klustret (till exempel till C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
-2. Ta bort C:\usr\sap\\<SID>\SYS mappen från båda ASCS/SCS-klusternoderna.
+1. Kopiera mappen SYS (till exempel `C:\usr\sap\<SID>\SYS`) från en av ASCS/SCS-klusternoder till SOFS-klustret (till exempel till `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. Ta bort den `C:\usr\sap\<SID>\SYS` mappen från båda ASCS/SCS-klusternoderna.
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>Uppdatera klustret säkerhetsinställning för SAP ASCS/SCS-kluster
 
@@ -374,7 +374,7 @@ Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Uppdatera standard och profilen för SAP ASCS/SCS-instans
 
-Om du vill använda det nya virtuella SAP ASCS/SCS-värdnamnet och SAP globala värdnamn, måste du uppdatera standardwebbplatsen och den profil för SAP ASCS/SCS-instans \<SID >_ASCS/SCS\<Nr >_<Host>.
+Om du vill använda det nya virtuella SAP ASCS/SCS-värdnamnet och SAP globala värdnamn, måste du uppdatera standardwebbplatsen och den profil för SAP ASCS/SCS-instans \<SID >_ASCS/SCS\<Nr >_\<värd >.
 
 
 | Gamla värden |  |
@@ -459,7 +459,7 @@ Den nya saprc.dll-filen är installerad på båda ASCS/SCS-klusternoderna.
 
 Mer information finns i [1596496 för SAP-Anmärkning – så här uppdaterar SAP-resurstyp DLL-filer för klustret Resursövervakaren][1596496].
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Skapa en SAP <SID> klusternamn grupp, nätverk och IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Skapa en SAP \<SID > klusternamn grupp, nätverk och IP
 
 Skapa en SAP \<SID > klustergrupp, en ASCS/SCS-nätverksnamn och en motsvarande IP-adress, kör du följande PowerShell-cmdlet:
 

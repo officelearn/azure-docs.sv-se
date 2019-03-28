@@ -4,7 +4,7 @@ description: Lär dig hur du kan förbättra din säkerhetsposition genom att bl
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.subservice: conditional-access
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/25/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42f46e6759b0803b49316219f2ca2a6a7beb3818
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434763"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519945"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 

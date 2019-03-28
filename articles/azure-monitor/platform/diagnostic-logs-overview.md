@@ -1,19 +1,19 @@
 ---
 title: Översikt över Azure diagnostikloggar
 description: Lär dig vad Azure diagnostikloggar är och hur du kan använda dem för att förstå händelser som inträffar inom en Azure-resurs.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310190"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519399"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -49,11 +49,6 @@ Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i sa
 > [!NOTE]
 >  Du kan för närvarande inte arkivera flödesloggar för nätverk till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
 
-> [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
 Resursdiagnostikloggar är konfigurerade med resursdiagnostikinställningar. Klient-diagnostikloggar är konfigurerade med en diagnostikinställning för klienten. **Diagnostikinställningar** för en kontroll av tjänsten:
@@ -61,7 +56,7 @@ Resursdiagnostikloggar är konfigurerade med resursdiagnostikinställningar. Kli
 * Diagnostikloggar och mått mottagna (Storage-konto, Händelsehubbar och/eller Azure Monitor).
 * Vilka loggkategorier skickas och om måttdata skickas också.
 * Hur länge varje loggkategori ska behållas i ett lagringskonto
-    - En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
+    - En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 365.
     - Om principerna för kvarhållning har angetts men lagra loggar i ett Lagringskonto är inaktiverad (till exempel om det bara Event Hubs eller Log Analytics-alternativen är markerade), påverkar principerna för kvarhållning inte.
     - Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 

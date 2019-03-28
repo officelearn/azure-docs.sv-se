@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104088"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541017"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktionsarbetsbelastningar. Den här artikeln beskriver hur du konfigurerar säkerheten för nod-till-nod och klient-till-nod med hjälp av Windows-säkerhet i den *ClusterConfig.JSON* fil.  Processen motsvarar konfigurera säkerhetssteg av [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [Klustersäkerhetsscenarier](service-fabric-cluster-security.md).
@@ -30,7 +30,7 @@ För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du sk
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurera Windows-säkerhet som använder gMSA  
-Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows säkerhet med hjälp av [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.\< version > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows säkerhet med hjälp av [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -86,7 +86,7 @@ I följande exempel **security** avsnittet konfigurerar Windows-säkerhet som an
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurera Windows-säkerhet med hjälp av en datorgrupp  
-Den här modellen är inaktuell. Rekommendationen är att använda gMSA som beskrivs ovan. Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows-säkerhet.  Windows security har konfigurerats i den **egenskaper** avsnittet: 
+Den här modellen är inaktuell. Rekommendationen är att använda gMSA som beskrivs ovan. Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.\< version > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows-säkerhet.  Windows security har konfigurerats i den **egenskaper** avsnittet: 
 
 ```
 "security": {

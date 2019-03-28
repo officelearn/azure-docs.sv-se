@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369487"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522340"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de se
 |**Arbetsbelastningen prioritet är nu tillgänglig för förhandsgranskning**|Arbetsbelastningen vikten ger datatekniker kan använda prioritet för att klassificera begäranden. Förfrågningar med högre prioritet garanterat snabbare åtkomst till resurser, vilket hjälper dem att uppfylla serviceavtal.  Arbetsbelastningen prioritet kan viktiga för verksamheten värdet fungerar för att uppfylla SLA: er i en delad miljö med färre resurser.<br/><br/>Mer information om arbetsbelastningen vikten finns i den [klassificering](sql-data-warehouse-workload-classification.md) och [vikten](sql-data-warehouse-workload-importance.md) översiktsartiklar i dokumentationen. Kolla in den [skapa ARBETSBELASTNING KLASSIFICERARE](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) dokument samt.<br/><br/>Se arbetsbelastning betydelse i åtgärden i den nedan videor:<br/>[Arbetsbelastningen Management-relaterade begrepp](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Scenarier för hantering av arbetsbelastning](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**GRUPPERA EFTER SAMLAD**|Samlad är nu en GROUP BY alternativ som stöds i Azure Data Warehouse.   GRUPP av samlad skapar en grupp för varje kombination av kolumnen uttryck. GROUP BY också visar ”” resultaten i delsummor och totalsummor. Om du vill göra detta måste flyttas från höger till vänster, minska antalet kolumnen uttryck som skapar grupper och aggregation(s).  Kolumnordningen påverkar samlad utdata och kan påverka antalet rader i resultatmängden.<br/><br/>Mer information om grupp av samlad finns i artikeln [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Förbättrar precisionen för använda DWU och portalen CPU-mått**|SQL Data Warehouse avsevärt förbättrar mått noggrannhet i Azure-portalen.  Den här versionen innehåller en lösning för att processor- och DWU används måttdefinitionen till korrekt spegla arbetsbelastningen över alla beräkningsnoder.|
-|**Ytterligare T-SQL-stöd**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [ÖVERSÄTT (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**Ytterligare T-SQL-stöd**|T-SQL language utsatt område för SQL Data Warehouse har utökats och omfattar stöd för:<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [ÖVERSÄTT (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar

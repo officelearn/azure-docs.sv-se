@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329174"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540592"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av molnprogram med hjälp av SQL Database aktiv geo-replikering
 
@@ -103,7 +103,21 @@ Om du vill göra det möjligt att återställa uppgraderingen, måste du skapa e
 När du är klar med steg för förberedelse är mellanlagringsmiljön klar för uppgradering. I nästa diagram illustrerar stegen uppgraderingen:
 
 1. Ange den primära databasen i produktionsmiljön till skrivskyddat läge (10). Det här läget garanterar att produktionsdatabasen (V1) inte ändras under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.
-2. Koppla från den sekundära databasen i samma region med hjälp av planerad avslutning-läget (11). Den här åtgärden skapar en oberoende men helt synkroniserade kopia av produktionsdatabasen. Den här databasen kommer att uppgraderas.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Avsluta geo-replikering genom att koppla från sekundärt (11). Den här åtgärden skapar en oberoende men helt synkroniserade kopia av produktionsdatabasen. Den här databasen kommer att uppgraderas. I följande exempel används Transact-SQL, men [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) är också tillgänglig. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Kör uppgraderingsskriptet mot `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, och den fristående primära databasen (12). Databasändringar replikeras automatiskt till den sekundära mellanlagringen.
 
 ![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258538"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518052"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Använda Azure Data Box för att migrera data från en lokal HDFS-databas till Azure Storage
 
@@ -111,7 +111,7 @@ Att kopiera snabbare:
 
 Följ dessa steg för att förbereda och skicka Data Box-enhet till Microsoft.
 
-1. När Datakopieringen är klar kör du [Förbered för att skicka](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) på din Data Box. När enheten förberedelser har slutförts kan du ladda ner BOM-filer. Du ska använda dessa BOM eller manifest filer senare för att kontrollera data har överförts till Azure. Stäng enheten och ta bort kablarna. 
+1. När Datakopieringen är klar kör du [Förbered för att skicka](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) på din Data Box. När enheten förberedelser har slutförts kan du ladda ner BOM-filer. Du ska använda dessa BOM eller manifest filer senare för att kontrollera data har överförts till Azure. Stäng enheten och ta bort kablarna. 
 2.  Schemalägga en upphämtning med Avbrottsfria till [leverera din Data Box tillbaka till Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  När Microsoft tar emot din enhet, den är ansluten till nätverket datacenter och data har överförts till storage-kontot som du har angett (med hierarkisk namnområden inaktiverad) när du har beställt Data Box. Kontrollera att alla dina data har överförts till Azure mot BOM-filer. Du kan nu flytta dessa data till ett lagringskonto för Data Lake Storage Gen2.
 

@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769174"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522068"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -408,19 +408,19 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 
 |Lagrad procedur  |Beskrivning  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Lägger till ett nytt jobb.    |
-|[sp_update_job](#spupdatejob)    |      Uppdaterar ett befintligt jobb.   |
-|[sp_delete_job](#spdeletejob)     |      Tar bort ett befintligt jobb.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Lägger till ett steg i ett jobb.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Uppdaterar ett jobbsteg.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Tar bort ett jobbsteg.    |
-|[sp_start_job](#spstartjob)    |  Startar köra ett jobb.       |
-|[sp_stop_job](#spstopjob)     |     Stoppar en jobbkörning.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Lägger till en målgrupp.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Tar bort en målgrupp.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Tar bort en mål medlem från en målgrupp.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Tar bort historikposter för ett jobb.     |
+|sp_add_job     |     Lägger till ett nytt jobb.    |
+|sp_update_job    |      Uppdaterar ett befintligt jobb.   |
+|sp_delete_job     |      Tar bort ett befintligt jobb.   |
+|sp_add_jobstep    |    Lägger till ett steg i ett jobb.     |
+|sp_update_jobstep     |     Uppdaterar ett jobbsteg.    |
+|sp_delete_jobstep     |     Tar bort ett jobbsteg.    |
+|sp_start_job    |  Startar köra ett jobb.       |
+|sp_stop_job     |     Stoppar en jobbkörning.   |
+|sp_add_target_group    |     Lägger till en målgrupp.    |
+|sp_delete_target_group     |    Tar bort en målgrupp.     |
+|sp_add_target_group_member     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
+|sp_delete_target_group_member     |     Tar bort en mål medlem från en målgrupp.    |
+|sp_purge_jobhistory    |    Tar bort historikposter för ett jobb.     |
 
 
 
@@ -1195,13 +1195,13 @@ Följande vyer som är tillgängliga i den [jobb databasen](sql-database-job-aut
 
 |Visa  |Beskrivning  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  Visar jobbhistorik körning.      |
+|jobs_executions     |  Visar jobbhistorik körning.      |
 |[Jobb](#jobs-view)     |   Visar alla jobb.      |
-|[job_versions](#jobversions-view)     |   Visar alla jobbversioner.      |
+|job_versions     |   Visar alla jobbversioner.      |
 |[jobbsteg](#jobsteps-view)     |     Visar alla steg i den aktuella versionen av varje jobb.    |
-|[jobstep_versions](#jobstepversions-view)     |     Visar alla steg i alla versioner av varje jobb.    |
-|[target_groups](#targetgroups-view)     |      Visar alla målgrupper.   |
-|[target_group_members](#targetgroups-view)     |   Visar alla medlemmar i alla målgrupper.      |
+|jobstep_versions     |     Visar alla steg i alla versioner av varje jobb.    |
+|target_groups     |      Visar alla målgrupper.   |
+|target_group_members     |   Visar alla medlemmar i alla målgrupper.      |
 
 
 ### <a name="jobsexecutions-view"></a>Visa jobs_executions

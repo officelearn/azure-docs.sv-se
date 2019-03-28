@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432642"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540932"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -90,3 +90,7 @@ Klusteråtgärder begränsas när aktiva åtgärder för uppgradering sker eller
 
 * Om klustret aktivt uppgraderar, vänta tills åtgärden avslutas. Om den lyckades försök misslyckats tidigare igen.
 * Om klustret har misslyckad uppgradering, följer du stegen som beskrivs ovan
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan jag flytta mitt kluster till en annan prenumeration eller min prenumeration med mitt kluster till en ny klient?
+
+Om du har flyttat AKS-klustret till en annan prenumeration eller klustret som äger prenumerationen till en ny klient, förlorar klustret funktionalitet på grund av att förlora rolltilldelningar och tjänstens huvudnamn rättigheter. **AKS har inte stöd för glidande kluster över prenumerationer eller klienter** på grund av den här begränsningen.

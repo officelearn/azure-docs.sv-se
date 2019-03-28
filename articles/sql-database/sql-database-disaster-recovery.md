@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749044"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540490"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -32,6 +32,13 @@ Läs mer om affärskontinuitet företagsscenarier och de funktioner som stöder 
 
 > [!NOTE]
 > Om du använder zonredundant Premium eller affärskritiska databaser eller pooler återställningen sker automatiskt och resten av detta material gäller inte.
+
+> [!NOTE]
+> Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt att den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. Mer information finns i [uppgradera eller nedgradera som den primära databasen](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Använda en eller flera grupper för växling vid fel för att hantera redundans för flera databaser.
+> Om du lägger till en befintlig relation för geo-replikering i redundansgruppen, kontrollera att geo-secondary konfigureras med samma tjänstenivå och beräkningsstorleken som primär. Mer information finns i [aktivera transparent och samordnad redundans för flera databaser med hjälp av automatisk redundans grupper](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Förbereda för händelse av ett avbrott
 
@@ -73,6 +80,7 @@ Använd någon av följande guider för att växla över till en geo-replikerad 
 
 - [Växla över till en geo-replikerad sekundär server med Azure portal](sql-database-geo-replication-portal.md)
 - [Växla över till den sekundära servern med hjälp av PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Växla över till en sekundär server med hjälp av Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Återställa med geo-återställning
 

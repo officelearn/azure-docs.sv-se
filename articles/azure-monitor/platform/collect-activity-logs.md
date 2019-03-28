@@ -1,5 +1,5 @@
 ---
-title: Samla in och analysera Azure-aktivitetsloggar i Log Analytics | Microsoft Docs
+title: Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta | Microsoft Docs
 description: Du kan använda Azure-aktivitetsloggar lösningen för att analysera och söka i Azure-aktivitetsloggen i alla dina Azure-prenumerationer.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540274"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540439"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta i Azure Monitor
 
 ![Symbolen för Azure-aktivitetsloggar](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ Activity Log Analytics-lösningen hjälper dig att analysera och söka i [Azure-
 
 Med aktivitetsloggen kan du fastställa den *vad*, *som*, och *när* för alla skrivåtgärder (PUT, POST, ta bort) för resurser i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET) eller åtgärder för resurser som använder den klassiska distributionsmodellen.
 
-När du ansluter din Azure-aktivitetsloggar till Log Analytics kan du:
+När du ansluter din Azure-aktivitetsloggar till Log Analytics-arbetsytan kan du:
 
 - Analysera aktivitetsloggar med fördefinierade vyer
 - Analysera och sökning och aktivitet loggar från flera Azure-prenumerationer
@@ -40,15 +40,15 @@ När du ansluter din Azure-aktivitetsloggar till Log Analytics kan du:
 - Identifiera eller hälsoproblem som påverkar dina resurser
 - Använd Log Search för att jämföra användaraktiviteter, automatisk skalning åtgärder, auktorisering ändringar och tjänstehälsa till andra loggar eller mätvärden från miljön
 
-<sup>1</sup>som standard Log Analytics från dina Azure-aktivitetsloggar för 90 dagar, även om du är på den kostnadsfria nivån. Eller, om du har en inställning för kvarhållning av arbetsyta mindre än 90 dagar. Om din arbetsyta har kvarhållning är längre än 90 dagar, behålls aktivitetsloggarna baserat på kvarhållningsperioden för din arbetsyta.
+<sup>1</sup>som standard Azure Monitor håller din Azure-aktivitetsloggar i Log Analytics-arbetsytan i 90 dagar, även om du är på den kostnadsfria nivån. Eller, om du har en inställning för kvarhållning av arbetsyta mindre än 90 dagar. Om din arbetsyta har kvarhållning är längre än 90 dagar, behålls aktivitetsloggarna baserat på kvarhållningsperioden för din arbetsyta.
 
-Log Analytics samlar in aktivitetsloggar som är kostnadsfritt och lagrar loggarna i 90 dagar utan kostnad. Om du sparar loggar längre än 90 dagar, debiteras du datakvarhållning för data som lagras längre än 90 dagar.
+Log Analytics-arbetsytan samlar in aktivitetsloggar som är kostnadsfritt och lagrar loggarna i 90 dagar utan kostnad. Om du sparar loggar längre än 90 dagar, debiteras du datakvarhållning för data som lagras längre än 90 dagar.
 
 När du är på den kostnadsfria prisnivån gäller inte aktivitetsloggar till din dagliga dataförbrukning.
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Till skillnad från de flesta andra Log Analytics-lösningar kan data samlas inte in aktivitetsloggar av agenter. Alla data som används av lösningen kommer direkt från Azure.
+Till skillnad från de flesta Azure Monitor-lösningar data samlas inte in aktivitetsloggar av agenter. Alla data som används av lösningen kommer direkt från Azure.
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405631"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522017"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -104,10 +104,10 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
     - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
->Listan mappar börja från roten, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **på rotnivå med ”kör” behörighet** eller behörighet för IAM. Detta gäller när du använder den:
+>Listan mappar från kontonivå, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med behörighet att ”kör”** eller behörighet för IAM. Detta gäller när du använder den:
 >- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har problem för att bevilja behörighet på rotnivå kan du hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
+>Om du har problem för att bevilja behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 Dessa egenskaper stöds i den länkade tjänsten:
 
@@ -158,10 +158,10 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser a
     - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
->Listan mappar börja från roten, måste du ange behörighet för den hanterade identitet som beviljas till **på rotnivå med ”kör” behörighet** eller behörighet för IAM. Detta gäller när du använder den:
+>Listan mappar från kontonivå, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med behörighet att ”kör”** eller behörighet för IAM. Detta gäller när du använder den:
 >- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har problem för att bevilja behörighet på rotnivå kan du hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
+>Om du har problem för att bevilja behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
 
 Dessa egenskaper stöds i den länkade tjänsten:
 
@@ -196,7 +196,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till **AzureBlobFSFile**. |Ja |
-| folderPath | Sökvägen till mappen i Data Lake Storage Gen2. Om den inte anges som den pekar till roten. <br/><br/>Jokerteckenfilter stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br/><br/>Exempel: rootfolder/undermappen/se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). |Nej |
+| folderPath | Sökvägen till mappen i Data Lake Storage Gen2. Om den inte anges som den pekar till roten. <br/><br/>Jokerteckenfilter stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br/><br/>Exempel: filsystem/mapp/se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). |Nej |
 | fileName | **Namn eller jokertecken-filtret** för den eller filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i.<br/><br/>Om filnamnet har inte angetts för en utdatauppsättning och **preserveHierarchy** inte har angetts i aktiviteten-mottagare kopieringsaktiviteten genererar automatiskt filnamnet med följande mönster: ”*Data. [aktivitetskörning id GUID]. [GUID om FlattenHierarchy]. [format om konfigurerat]. [komprimering om konfigurerat]* ”, t.ex. ”Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”; Om du kopierar från tabular datakälla med hjälp av tabellnamn i stället för att fråga namnet har formatet är ”*[tabellnamn]. [ format]. [komprimering om konfigurerat]* ”, t.ex. ”MyTable.csv”. |Nej |
 | modifiedDatetimeStart | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
 | modifiedDatetimeEnd | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |

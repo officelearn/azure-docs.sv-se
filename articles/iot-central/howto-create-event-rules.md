@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369054"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521592"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -113,4 +113,5 @@ Nu när du har lärt dig hur du skapar regler i Azure IoT Central programmet, ä
 
 - [Lägg till Microsoft Flow-åtgärd i regler](howto-add-microsoft-flow.md)
 - [Lägg till Webhook-åtgärd i regler](howto-create-webhooks.md)
+- [Gruppera flera åtgärder som ska köras från en eller flera regler](howto-use-action-groups.md)
 - [Så här hanterar du dina enheter](howto-manage-devices.md)

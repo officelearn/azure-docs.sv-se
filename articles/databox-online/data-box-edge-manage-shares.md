@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403654"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519841"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Använda Azure-portalen för att hantera resurser på din Azure Data Box Edge
 
@@ -63,7 +63,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
         ![Lägga till NFS-resurs](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Använda lokala monteringspunkten så att du enkelt vill komma åt filresurser från Edge-moduler för beräkning. Välj **använder resursen med Edge-beräkning** så att resursen är automatiskt monteras efter den som den är skapad. När det här alternativet väljs, kan Edge-modul också använda beräkningarna med lokala monteringspunkten.
+7. Använda lokala monteringspunkten så att du enkelt vill komma åt filresurser från Edge-moduler för beräkning. Välj **använder resursen med Edge-beräkning** så att resursen är monterad automatiskt när den har skapats. När det här alternativet väljs, kan Edge-modul också använda beräkningarna med lokala monteringspunkten.
 
 8. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
 
@@ -97,6 +97,30 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
     ![Visa lokala resursinformation](media/data-box-edge-manage-shares/add-local-share-4.png)
 
+## <a name="mount-a-share"></a>Montera en filresurs
+
+Om du har skapat en resurs innan du har konfigurerat beräkning på din Data Box Edge-enhet, kommer du behöva montera filresursen. Vidta följande åtgärder för att montera en filresurs.
+
+
+1. Gå till din Data Box Edge-resurs i Azure-portalen och gå sedan till **Gateway > resurser**. Välj den resurs som du vill montera från listan över resurser. Den **används för beräkning** kolumnen visas statusen som **inaktiverad** för den valda resursen.
+
+    ![Välja resurs](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Välj **montera**.
+
+    ![Välj Montera](media/data-box-edge-manage-shares/select-mount.png)
+
+3. När du uppmanas att bekräfta väljer **Ja**. Detta kommer montera filresursen.
+
+    ![Bekräfta montera](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. När resursen är monterad, går du till listan över resurser. Ser du att den **används för beräkning** kolumnen visar status för resursen som **aktiverad**.
+
+    ![Resursen monterad](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Välj resursen igen för att visa lokala monteringspunkt för resursen. Edge compute modulen använder den här lokala monteringspunkt för resursen.
+
+    ![Lokala monteringspunkt för resursen](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## <a name="unmount-a-share"></a>Demontera en resurs
 
@@ -142,7 +166,8 @@ Lista över resurser uppdateringar borttagningen.
 Uppdatera för kan du uppdatera innehållet i en resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. Dessa ytterligare filer sedan laddas ned för att uppdatera innehållet i filresursen på enheten.
 
 > [!IMPORTANT]
-> Du kan inte uppdatera lokala resurser.
+> - Du kan inte uppdatera lokala resurser.
+> - Behörigheter och åtkomstkontrollistor (ACL) bevaras inte över en uppdatering. 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 

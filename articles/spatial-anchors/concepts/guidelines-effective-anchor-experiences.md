@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895812"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520810"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Skapa en effektiv ankar-upplevelse med hjälp av Azure Spatial ankare
 
@@ -86,7 +86,7 @@ Mål för scenariot kan foton. Om du visar användare ett foto av det tänkta m�
 
 Utrymme för scenariot ange användare kan bara vetskapen om att det finns en fästpunkt här någonstans. Användarna söka efter utrymmet sin enhet och hitta snabbt till ankaret.
 
-Den här upplevelsen vanligtvis måste du skapa väl granskad ankare, enligt beskrivningen i [olika visning perspektiv](#consider-various-viewing-perspectives). Om du skannade rummet ur många olika perspektiv när du skapade till ankaret kan skanna användarna nästan var som helst när de försöker att hitta den.
+Den här upplevelsen vanligtvis måste du skapa väl granskad ankare, enligt beskrivningen i olika perspektiv för visning. Om du skannade rummet ur många olika perspektiv när du skapade till ankaret kan skanna användarna nästan var som helst när de försöker att hitta den.
 
 ![Bild av hur en användare kan du skanna ett rum för att hitta en fästpunkt](./media/scan-room.png)
 

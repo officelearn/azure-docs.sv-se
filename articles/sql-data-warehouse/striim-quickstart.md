@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250848"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540466"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striims Azure SQL DW Marketplace erbjuder Installation Guide
 
@@ -29,7 +29,7 @@ Konfigurera Striims VM med angivna egenskaper, noterar Striims klusternamnet, l�
 
 ![Konfigurera Striims][configure]
 
-När distribueras, klickar du på <VM Name>- masternode i Azure-portalen, klicka på Anslut och kopiera inloggningen med lokalt konto för virtuell dator 
+När distribueras, klickar du på \<namn på virtuell dator >-masternode i Azure-portalen, klicka på Anslut och kopiera inloggningen med lokalt konto för virtuell dator 
 
 ![Anslut Striims till SQL Data Warehouse][connect]
 
@@ -55,7 +55,7 @@ Kör följande kommandon för att flytta JDBC jar-filen till Striims lib directo
 
 ![Starta Striims-kluster][start-striim]
 
-Nu kan öppna webbläsaren och navigera till <DNS Name>: 9080
+Nu kan öppna webbläsaren och navigera till \<DNS-namn >: 9080
 
 ![Gå till inloggningssidan][navigate]
 

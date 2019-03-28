@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418014"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520929"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
@@ -96,7 +96,7 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Returnerar listan över chiffer som stöds av klienten          |
 | ciphers_used               | Returnerar en sträng med chiffer som används för en etablerad SSL-anslutning |
-| client_ip                  | IP-adressen för klienten. särskilt användbart i situationer där kunder ska skriva om rubriken X-vidarebefordrade-för som Application Gateway, så att huvudet innehåller IP-adress utan portinformation. |
+| client_ip                  | IP-adressen för klienten som application gateway som tog emot begäran. Om det finns en omvänd proxy innan application gateway och den ursprungliga klienten sedan *client_ip* returnerar IP-adress för den omvända proxyn. tjsi variabeln är särskilt användbart i situationer där kunder ska skriva om rubriken X-vidarebefordrade-för som Application Gateway, så att huvudet innehåller IP-adress utan portinformation. |
 | client_port                | klientport                                                  |
 | client_tcp_rtt             | information om klienten TCP-anslutning. tillgängligt på system som stöder socketalternativet TCP_INFO |
 | client_user                | När du använder HTTP-autentisering, användarnamnet som angetts för autentisering |
@@ -121,7 +121,7 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 
 - HTTP-huvudet omskrivning stöd stöds bara på den nya SKU: N [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Funktionen stöds inte på den gamla SKU: N.
 
-- Skriva om Connect, uppgradering och värd-rubriker stöds inte ännu.
+- Skriva om anslutning, uppgradering och värd-rubriker stöds inte ännu.
 
 - Möjlighet att skriva villkorligt om http-huvuden är tillgänglig snart.
 

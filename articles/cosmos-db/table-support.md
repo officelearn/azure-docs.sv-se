@@ -8,12 +8,12 @@ ms.date: 11/15/2017
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 31072be9ae73791e6458b0aee4490ac90df44d94
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957971"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522306"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Utveckla med Azure Cosmos DB Table API:t och Azure Table Storage
 
@@ -44,7 +44,7 @@ Azure Table storage har de här SDK:erna tillgängliga för utveckling:
 - [Python SDK](table-sdk-python.md). Azure Cosmos DB Table SDK för Python stöder också lagringstabelltjänsten.
 - [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java). Den här Azure Storage SDK:n tillhandahåller ett klientbibliotek i Java för att använda Azure Table-lagring.
 - [Node.js SDK](table-sdk-nodejs.md). Detta SDK erbjuder ett Node.js-paket och ett webbläsarkompatibelt JavaScript-klientbiblioteket för att använda lagringstabelltjänsten.
-- [AzureRmStorageTable PowerShell-modulen](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). Den här PowerShell-modulen har cmdletar för att arbeta med lagringstabeller.
+- [AzureRmStorageTable PowerShell-modulen](https://www.powershellgallery.com/packages/AzureRmStorageTable). Den här PowerShell-modulen har cmdletar för att arbeta med lagringstabeller.
 - [Azure Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp/). Det här biblioteket låter dig skapa program mot Azure Storage.
 - [Azure Storage Table-klientbiblioteket för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Det här projektet tillhandahåller ett Ruby-paket som gör det enkelt att komma åt Azure Table-lagringstjänster.
 - [Azure Storage Table PHP-klientbibliotek](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Det här projektet tillhandahåller ett PHP-klientbibliotek som gör det enkelt att komma åt Azure Table-lagringstjänster.

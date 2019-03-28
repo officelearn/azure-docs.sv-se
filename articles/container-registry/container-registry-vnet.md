@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: 044ff823e34f51257cb6186417535b9b542bc289
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136994"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517937"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure container registry med Azure-nätverk eller brandväggsregler
 
@@ -359,7 +359,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har skapat alla Azure-resurser i samma resurs gruppen och inte längre behöver dem. Du kan ta eventuellt bort resurserna med hjälp av en enda [az group delete](/cli/azure/group#az_group_delete) kommando:
+Om du har skapat alla Azure-resurser i samma resurs gruppen och inte längre behöver dem. Du kan ta eventuellt bort resurserna med hjälp av en enda [az group delete](/cli/azure/group) kommando:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -405,7 +405,7 @@ Flera virtuella nätverksresurser och funktioner beskrivs i den här artikeln, �
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show

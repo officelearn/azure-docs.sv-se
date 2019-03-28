@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484436"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539640"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
@@ -40,7 +40,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 - [Jag ser betydande försämrade prestanda](#sync-perf)
 
-- [Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det?](#sync-nulls)
+- [Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen \<kolumn >. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det?](#sync-nulls)
 
 - [Hur hanterar datasynkronisering cirkelreferenser? Det vill säga när samma data synkroniseras i flera synkroniseringsgrupper och ändras som ett resultat?](#sync-circ)
 
@@ -105,7 +105,7 @@ Prestanda försämras avsevärt, eventuellt till den punkt där du även inte ka
 
 - **Lösning**. Bästa korrigeringen är skydd. Se till att du inte har cirkelreferenser i din synkroniseringsgrupper. Alla rader som har synkroniserats med en synkroniseringsgrupp kan inte synkroniseras med en annan synkroniseringsgrupp.
 
-### <a name="sync-nulls"></a> Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen <column>. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det? 
+### <a name="sync-nulls"></a> Jag ser följande meddelande: ”Det går inte att infoga värdet NULL i kolumnen \<kolumn >. Kolumnen tillåter inte null-värden ”. Vad betyder detta och hur kan jag åtgärda det? 
 Det här felmeddelandet indikerar att en av de två följande problem har uppstått:
 -  En tabell har inte en primärnyckel. Om du vill åtgärda problemet genom att lägga till en primär nyckel till alla tabeller som du synkroniserar.
 -  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkronisering kan inte hantera det här tillståndet. Om du vill åtgärda problemet genom att ta bort WHERE-satsen eller manuellt gör ändringar i alla databaser. 

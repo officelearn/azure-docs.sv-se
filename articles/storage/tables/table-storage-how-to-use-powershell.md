@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/27/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: 8993aea208e4ccdcf92f676cc07f2912979da606
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477004"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540235"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,9 +32,11 @@ I den här artikeln beskriver vanliga Azure Table storage-åtgärder. Lär dig a
 
 I den här artikeln visar hur du skapar ett nytt Azure Storage-konto i en ny resursgrupp så att du kan enkelt ta bort den när du är klar. Om du föredrar att använda ett befintligt lagringskonto, kan du göra det i stället.
 
-Exemplen kräver Azure PowerShell-modulen `AzureRM` version 4.4.0 eller senare. Kör i ett PowerShell-fönster `Get-Module -ListAvailable AzureRM` att hitta versionen. Om inget att visas eller om du behöver uppgradera kan du se [installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps).
+Exemplen kräver Az PowerShell-moduler `Az.Storage (1.1.3 or greater)` och `Az.Resources (1.2.0 or greater)`. Kör i ett PowerShell-fönster `Get-Module -ListAvailable Az*` att hitta versionen. Om inget att visas eller om du behöver uppgradera kan du se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
-[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+> [!IMPORTANT]
+> Med den här funktionen i Azure från PowerShell måste du ha den `Az` -modulen installerad. Den aktuella versionen av AzureRmStorageTable är inte kompatibel med den äldre AzureRM-modulen.
+> Följ den [senaste Installationsinstruktioner för att installera modulen Az](/powershell/azure/install-az-ps) om det behövs.
 
 När Azure PowerShell har installerats eller uppdaterats, måste du installera modulen **AzureRmStorageTable**, som innehåller kommandon för att hantera entiteterna. Installera den här modulen genom att köra PowerShell som administratör och Använd den **Install-Module** kommando.
 
@@ -44,10 +46,10 @@ Install-Module AzureRmStorageTable
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot `Connect-AzureRmAccount` och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med kommandot `Add-AzAccount` och följ anvisningarna på skärmen.
 
 ```powershell
-Connect-AzureRmAccount
+Add-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Hämta lista över platser
@@ -55,28 +57,28 @@ Connect-AzureRmAccount
 Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. De här exemplen använder **eastus**. Store det här värdet i variabeln **plats** för framtida användning.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup). 
+Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Store resursgruppens namn i en variabel för framtida användning. I det här exemplet, en resursgrupp med namnet *pshtablesrg* skapas i den *eastus* region.
 
 ```powershell
 $resourceGroup = "pshtablesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-Skapa ett allmänt standardlagringskonto med lokalt redundant lagring (LRS) med hjälp av [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Hämta lagringskontokontexten som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger.
+Skapa ett allmänt standardlagringskonto med lokalt redundant lagring (LRS) med hjälp av [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Glöm inte att ange ett unikt namn på lagringskontot. Hämta sedan kontexten som representerar storage-konto. När du arbetar med ett storage-konto, refererar du till kontexten i stället för att ange dina autentiseringsuppgifter flera gånger.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -87,40 +89,51 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
-Du kan skapa en tabell med den [New AzureStorageTable](/powershell/module/azure.storage/New-AzureStorageTable) cmdlet. I det här exemplet tabellen kallas `pshtesttable`.
+Du kan skapa en tabell med den [New AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) cmdlet. I det här exemplet tabellen kallas `pshtesttable`.
 
 ```powershell
 $tableName = "pshtesttable"
-New-AzureStorageTable –Name $tableName –Context $ctx
+New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Hämta en lista över tabeller i lagringskontot
 
-Hämta en lista över tabeller i storage-konto med [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Hämta en lista över tabeller i storage-konto med [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
 
 ```powershell
-Get-AzureStorageTable –Context $ctx | select Name
+Get-AzStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Hämta en referens till en viss tabell
 
-För att utföra åtgärder på en tabell, behöver du en referens till tabellen. Hämta en referens med hjälp av [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable). 
+För att utföra åtgärder på en tabell, behöver du en referens till tabellen. Hämta en referens med hjälp av [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
+$storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
+```
+
+## <a name="reference-cloudtable-property-of-a-specific-table"></a>Referens för CloudTable-egenskapen för en viss tabell
+
+> [!IMPORTANT]
+> Användning av CloudTable är obligatorisk när du arbetar med **AzureRmStorageTable** PowerShell-modulen. Anropa den **Get-AzTableTable** kommando för att hämta en referens till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
+
+Att utföra åtgärder på en tabell med **AzureRmStorageTable**, behöver du en referens till CloudTable egenskap för en specifik tabell.
+
+```powershell
+$cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 
-Ta bort en tabell genom att använda [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable). Denna cmdlet tar bort tabellen, samt alla data.
+Ta bort en tabell genom att använda [Remove-AzStorageTable](/powershell/module/az.storage/Remove-AzStorageTable). Denna cmdlet tar bort tabellen, samt alla data.
 
 ```powershell
-Remove-AzureStorageTable –Name $tableName –Context $ctx
+Remove-AzStorageTable –Name $tableName –Context $ctx
 
 # Retrieve the list of tables to verify the table has been removed.
-Get-AzureStorageTable –Context $Ctx | select Name
+Get-AzStorageTable –Context $Ctx | select Name
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -128,7 +141,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 Om du har skapat en ny grupp och lagring resurskontot i början av den här anvisningen, kan du ta bort alla resurser som du har skapat i den här övningen genom att ta bort resursgruppen. Det här kommandot tar bort alla resurser som ingår i gruppen samt själva resursgruppen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -145,8 +158,8 @@ I den här artikeln berättade om vanliga Azure Table storage-åtgärder med Pow
 
 Mer information finns i följande artiklar
 
-* [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdletar](/powershell/module/az.storage#storage)
 
-* [Arbeta med Azure Storage-tabeller från PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
+* [Arbeta med Azure-tabeller från PowerShell - AzureRmStorageTable PS-modulen v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

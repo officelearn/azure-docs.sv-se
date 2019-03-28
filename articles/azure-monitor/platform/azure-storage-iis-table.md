@@ -1,6 +1,6 @@
 ---
-title: Använda blob storage för IIS- och table storage för händelser i Azure Log Analytics | Microsoft Docs
-description: Log Analytics kan läsa loggar för Azure-tjänster som skriva diagnostik till tabellagring eller IIS-loggar som skrivs till blob-lagring.
+title: Använda blob storage för IIS- och table storage för händelser i Azure Monitor | Microsoft Docs
+description: Azure Monitor kan läsa loggar för Azure-tjänster som skriva diagnostik till tabellagring eller IIS-loggar som skrivs till blob-lagring.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306637"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540609"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Log Analytics
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Azure Monitor
 
-Log Analytics kan läsa loggar för följande tjänster som skriva diagnostik till tabellagring eller IIS-loggar som skrivs till blob-lagring:
+Azure Monitor kan läsa loggar för följande tjänster som skriva diagnostik till tabellagring eller IIS-loggar som skrivs till blob-lagring:
 
 * Service Fabric-kluster (förhandsgranskning)
 * Virtuella datorer
 * Web/Worker-roller
 
-Innan Log Analytics kan samla in data för dessa resurser, måste Azure-diagnostik aktiveras.
+Innan Azure Monitor kan samla in data till Log Analytics-arbetsytan för dessa resurser, måste Azure-diagnostik aktiveras.
 
-När diagnostik är aktiverat kan du kan använda Azure-portalen eller PowerShell konfigurera Log Analytics för att samla in loggarna.
+När diagnostik är aktiverat kan du kan använda Azure-portalen eller PowerShell konfigurera arbetsytan för att samla in loggarna.
 
-Azure-diagnostik är en Azure-tillägg som hjälper dig att samla in diagnostikdata från en arbetsroll, webbroll eller virtuell dator som kör i Azure. Data lagras i ett Azure storage-konto och sedan ska samlas in av Log Analytics.
+Azure-diagnostik är en Azure-tillägg som hjälper dig att samla in diagnostikdata från en arbetsroll, webbroll eller virtuell dator som kör i Azure. Data lagras i ett Azure storage-konto och sedan ska samlas in av Azure Monitor.
 
-Att samla in dessa Azure-diagnostikloggar för logganalys, finnas loggarna på följande platser:
+För Azure Monitor för att samla in dessa Azure Diagnostics-loggar, finnas loggarna på följande platser:
 
 | Loggtyp | Resurstyp | Plats |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ Se till att din ConfigurationSettings anger ett storage-konto, som i följande e
 
 Den **AccountName** och **AccountKey** värden finns i Azure-portalen i exempelinstrumentpanelen storage-konto under hantera åtkomstnycklar. Protokollet för anslutningssträngen måste vara **https**.
 
-När den uppdaterade diagnostiska konfigurationen tillämpas i din molntjänst och skrivs diagnostik till Azure Storage, är du redo att konfigurera Log Analytics.
+När den uppdaterade diagnostiska konfigurationen tillämpas i din molntjänst och skrivs diagnostik till Azure Storage, är du redo att konfigurera Log Analytics-arbetsytan.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Använd Azure portal för att samla in loggar från Azure Storage
-Du kan använda Azure-portalen för att konfigurera Log Analytics för att samla in loggar för följande Azure-tjänster:
+Du kan använda Azure-portalen för att konfigurera en Log Analytics-arbetsyta i Azure Monitor för att samla in loggar för följande Azure-tjänster:
 
 * Service Fabric-kluster
 * Virtuella datorer
@@ -136,9 +136,9 @@ Navigera till Log Analytics-arbetsytan i Azure-portalen och utföra följande up
 5. Värdet för källa fylls i automatiskt baserat på datatyp och kan inte ändras
 6. Klicka på OK om du vill spara konfigurationen
 
-Upprepa steg 2 till 6 för ytterligare lagringskonton och datatyper som du vill använda Log Analytics för att samla in.
+Upprepa steg 2 till 6 för ytterligare lagringskonton och datatyper som du vill samla in till arbetsytan.
 
-Du ska kunna visa data från storage-konto i Log Analytics i cirka 30 minuter. Du ser bara data som skrivs till storage när konfigurationen används. Log Analytics läser inte befintliga data från storage-kontot.
+Du ska kunna visa data från storage-konto i Log Analytics-arbetsytan i cirka 30 minuter. Du ser bara data som skrivs till storage när konfigurationen används. Arbetsytan läser inte befintliga data från storage-kontot.
 
 > [!NOTE]
 > Portalen kan inte valideras att källan finns i storage-kontot eller om nya data skrivs.
@@ -149,7 +149,7 @@ Du ska kunna visa data från storage-konto i Log Analytics i cirka 30 minuter. D
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Följ stegen i [konfigurerar Log Analytics för att indexera Azure-diagnostik](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) du använder PowerShell för att läsa från Azure-diagnostik som skrivs till table storage.
+Följ stegen i [konfigurera Azure Monitor för att indexera Azure-diagnostik](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) du använder PowerShell för att läsa från Azure-diagnostik som skrivs till table storage.
 
 Med Azure PowerShell kan du mer exakt ange de händelser som skrivs till Azure Storage.
 Mer information finns i [hur du aktiverar diagnostik i Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

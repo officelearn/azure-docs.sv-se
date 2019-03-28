@@ -3,19 +3,22 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
-ms.openlocfilehash: db3b5edfea8d471bb763c2160c3bb77a7df989f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/25/2019
+ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741459"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522527"
 ---
-Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter som en `Try it now` funktionen. Den här funktionen kan du ange dina inställningar i en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. När frågan returnerar, ett exempel CURL-kommando har angetts för att visa de HTTP-rubrikerna och brödtext format som krävs. 
+## <a name="validate-container-is-running"></a>Verifiera behållaren körs 
 
-> [!TIP]
-> Läs den [OpenAPI-specifikation](https://swagger.io/docs/specification/about/), som beskriver API-åtgärder som stöds av behållare, från den `/swagger` relativ URI. Exempel:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+Det finns flera sätt att verifiera behållaren körs: 
+
+|Förfrågan|Syfte|
+|--|--|
+|`http://localhost:5000/`|Behållaren innehåller en webbsida.|
+|`http://localhost:5000/status`|Begärd med GET, körs för att verifiera behållaren utan att orsaka en slutpunkt-fråga. Detta kan användas för Kubernetes [liveness och beredskap avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
+|`http://localhost:5000/swagger`|Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter som en `Try it now` funktionen. Den här funktionen kan du ange dina inställningar i en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. När frågan returnerar, ett exempel CURL-kommando har angetts för att visa de HTTP-rubrikerna och brödtext format som krävs. |
+
+![Behållarens startsida](./media/cognitive-services-containers-api-documentation/container-webpage.png)

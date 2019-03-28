@@ -5,40 +5,33 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228363"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521526"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uppgradera ett klassiskt container register
 
 Azure Container Registry (ACR) är tillgänglig i flera servicenivåer, [kallas SKU: er](container-registry-skus.md). Den första versionen av ACR erbjuds en enda SKU klassisk som saknar flera funktioner som ingår i Basic, Standard och Premium-SKU: er (benämns gemensamt kallas *hanteras* register).
 
-Klassiska SKU: N är inaktuell och kommer att vara tillgänglig efter mars 2019. Den här artikeln beskriver hur du migrerar dina ohanterade klassiskt register till någon av de hantera SKU: erna så att du kan dra nytta av sina förbättrad funktionsuppsättning.
+Klassiska SKU: N är inaktuell och kommer att vara tillgänglig efter April 2019. Den här artikeln beskriver hur du migrerar dina ohanterade klassiskt register till någon av de hantera SKU: erna så att du kan dra nytta av sina förbättrad funktionsuppsättning.
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
 
-Klassisk registret SKU håller **inaktuell**, och är inte tillgängliga från **mars 2019**. Alla befintliga klassiska register bör uppgraderas före mars 2019.
+Klassisk registret SKU håller **inaktuell**, och är inte tillgängliga efter **April 2019**. Alla befintliga klassiska register bör uppgraderas innan April 2019. Portalen hanteringsfunktionerna i klassiskt register ska fasas ut. Skapandet av nya klassiskt register kommer att inaktiveras när April 2019.
 
-På grund av planerade utfasning och begränsade möjligheter för klassisk ohanterade register vara alla klassiskt register uppgraderade till grundläggande, Standard eller Premium hanterade register. Dessa på högre nivå SKU: er integrera molnmiljön registret i funktionerna i Azure.
-
-Hanterade register innehåller:
-
-* Azure Active Directory-integrering för [enskilda inloggning](container-registry-authentication.md#individual-login-with-azure-ad)
-* Stöd för borttagning av bild och tagg
-* [Geo-replikering](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
+På grund av planerade utfasning och begränsade möjligheter för klassisk ohanterade register, bör alla klassiskt register uppgraderas till hanterade register (Basic, Standard eller Premium). Dessa på högre nivå SKU: er integrera molnmiljön registret i funktionerna i Azure. Mer information om priser och funktioner på olika tjänstnivåer finns i [SKU: er för Container Registry](container-registry-skus.md).
 
 Klassiskt register beror på det lagringskonto som Azure automatiskt etablerar i din Azure-prenumeration när du skapar i registret. Däremot Basic, Standard och Premium-SKU: er dra nytta av Azures [avancerade lagringsfunktioner](container-registry-storage.md) genom att transparent hantera lagring av dina avbildningar för dig. Ett separat lagringskonto skapas inte i din egen prenumeration.
 
 Hanterat register storage ger följande fördelar:
 
 * Behållaravbildningar [krypterat i vila](container-registry-storage.md#encryption-at-rest).
-* Bilder lagras med [geo-redundant lagring](container-registry-storage.md#geo-redundant-storage), tillåta säkerhetskopiering av dina avbildningar med replikering av flera regioner.
+* Bilder lagras med [geo-redundant lagring](container-registry-storage.md#geo-redundant-storage), tillåta säkerhetskopiering av dina avbildningar med replikering av flera regioner (endast Premium-SKU).
 * Möjligheten att fritt [flytta mellan SKU: er](container-registry-skus.md#changing-skus), aktiverar högre dataflöde när du väljer en högre nivå SKU. Med varje SKU uppfyller ACR dina behov för dataflöde när behoven ökar.
 * Enhetlig säkerhetsmodell för registret och dess lagring ger förenklad rights management. Du hanterar behörigheter endast för behållarregistret, utan att även hantera behörigheter för ett separat lagringskonto.
 
@@ -46,13 +39,13 @@ Ytterligare information om bildlagring i ACR finns i [bildlagring för behållar
 
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
-När du ändrar ett klassiskt register till ett hanterat register måste Azure kopiera alla befintliga avbildningar från ACR-skapade lagringskontot i din prenumeration till ett lagringskonto som hanteras av Azure. Den här processen kan ta några minuter till flera timmar beroende på storleken på registret.
+När du uppgraderar ett klassiskt register till ett hanterat register måste Azure kopiera alla befintliga avbildningar från ACR-skapade lagringskontot i din prenumeration till ett lagringskonto som hanteras av Azure. Den här processen kan ta några minuter till flera timmar beroende på storleken på registret. Förvänta dig en tiden för migrering av cirka 0,5 GiB per minut för kostnadsuppskattning.
 
-Under konverteringen, alla `docker push` åtgärder blockeras medan `docker pull` fortsätter att fungera.
+Under konverteringen, `docker push` åtgärder är inaktiverade under de senaste 10% av migreringen. `docker pull` fortsätter att fungera normalt.
 
 Inte ta bort eller ändra innehållet i det lagringskonto som backar upp klassiskt register under konverteringen. Detta kan resultera i skadade av dina behållaravbildningar.
 
-När migreringen är klar, används inte längre storage-konto i din prenumeration ursprungligen uppbackning klassiskt register av ACR. När du har kontrollerat att migreringen lyckades, Överväg att ta bort lagringskontot för att minimera kostnader.
+När migreringen är klar, används inte längre storage-konto i din prenumeration ursprungligen uppbackning klassiskt register med Azure Container Registry. När du har kontrollerat att migreringen lyckades, Överväg att ta bort lagringskontot för att minimera kostnader.
 
 >[!IMPORTANT]
 > Uppgradera från klassiskt läge till en av de hanterade SKU: er är en **envägsprocess**. När du har konverterat en klassisk registret till Basic, Standard och Premium, kan du inte återgå till klassisk. Du kan dock fritt flytta mellan hanterade SKU: er med tillräckligt med kapacitet för ditt register.
@@ -69,7 +62,7 @@ Om du vill uppgradera ett klassiskt register i Azure CLI, köra den [az acr upda
 az acr update --name myclassicregistry --sku Premium
 ```
 
-När migreringen är klar, bör du se utdata som liknar följande. Observera att den `sku` är ”Premium” och `storageAccount` är ”null” som anger att Azure nu hanterar bildlagring för det här registret.
+När migreringen är klar, bör du se utdata som liknar följande. Observera att den `sku` är ”Premium” och `storageAccount` är `null`, som anger att Azure nu hanterar bildlagring för det här registret.
 
 ```JSON
 {
@@ -100,7 +93,7 @@ Om du får ett liknande fel, kör den [az acr update] [ az-acr-update] -kommando
 
 ## <a name="upgrade-in-azure-portal"></a>Uppgradera Azure-portalen
 
-När du uppgraderar ett klassiskt register med hjälp av Azure-portalen, väljer den lägsta nivå SKU som kan hantera dina avbildningar i Azure. Till exempel om ditt register innehåller 12 GiB i bilder, Azure väljs automatiskt och konverterar klassiskt register till Standard (100 GiB maximalt).
+När du uppgraderar ett klassiskt register med hjälp av Azure portal väljer Azure automatiskt antingen Standard eller Premium-SKU, beroende på vilken SKU kan hantera dina avbildningar. Till exempel om ditt register innehåller färre än 100 GiB i bilder, Azure väljs automatiskt och konverterar klassiskt register till Standard (100 GiB maximalt).
 
 Om du vill uppgradera klassiskt register med hjälp av Azure-portalen, gå till behållarregistret **översikt** och välj **uppgradera till hanterat register**.
 
@@ -108,19 +101,17 @@ Om du vill uppgradera klassiskt register med hjälp av Azure-portalen, gå till 
 
 Välj **OK** att bekräfta att du vill uppgradera till ett hanterat register.
 
-![Klassiska registret uppgradera bekräftelse i Azure-portalens användargränssnitt][update-classic-02-confirm]
-
-Under migreringen, portalen meddelar som registrets **Etableringsstatus** är *uppdaterar*. Som tidigare nämnts, `docker push` åtgärder är inaktiverade under migreringen, och du inte ta bort eller uppdatera lagringskontot som används av klassiskt register medan migreringen pågår – gör det kan resultera i skadade för avbildningen.
+Under migreringen, portalen meddelar som registrets **Etableringsstatus** är *uppdaterar*. Som tidigare nämnts, `docker push` åtgärder är inaktiverade under de senaste 10% av migreringen. Inte delete eller update storage-konto som används av klassiskt register medan migreringen pågår – detta kan resultera i skadade bild.
 
 ![Klassiska registret Uppgraderingsförlopp i Azure-portalens användargränssnitt][update-classic-03-updating]
 
-När migreringen är klar, den **Etableringsstatus** anger *lyckades*, och du kan återigen `docker push` till registret.
+När migreringen är klar, den **Etableringsstatus** anger *lyckades*, och du kan återställa normal drift med ditt register.
 
 ![Klassiska registret uppgradera slutförande tillstånd i Azure-portalens användargränssnitt][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har uppgraderat en klassisk registret till Basic, Standard och Premium, använder Azure inte längre storage-konto som ursprungligen säkerhetskopieras klassiskt register. Ta bort lagringskontot eller Blob-behållare i kontot som innehåller dina gamla behållaravbildningar för att minska kostnaderna.
+När du har uppgraderat ett klassiskt register till ett hanterat register, används inte längre Azure storage-konto som ursprungligen säkerhetskopieras klassiskt register. Ta bort lagringskontot eller Blob-behållare i kontot som innehåller dina gamla behållaravbildningar för att minska kostnaderna.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362075"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522374"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -231,7 +231,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Teams kommunikation Support Specialist](#teams-communications-support-specialist)**: Användare i den här rollen kan felsöka kommunikationsproblem i Microsoft Teams och Skype för företag med hjälp av användaren anrop felsökningsverktygen i Microsoft Teams och Skype för företag-administrationscentret. Användare i den här rollen kan bara se användarinformation i anropet för den specifika användaren har sökt. Den här rollen har ingen behörighet att visa, skapa eller hantera supportärenden.
 
-* **[Användaradministratör](#user-account-administrator)**: Användare med den här rollen kan skapa användare, och hantera alla aspekter av användare med vissa begränsningar (se nedan) och kan uppdatera principerna för Lösenordets giltighetstid. Dessutom kan kan användare med den här rollen skapa och hantera alla grupper. Den här rollen inkluderar även möjligheten att skapa och hantera användarvyer, hantera supportbegäranden och kontrollera tjänstens hälsotillstånd.
+* **Användaradministratör**: Användare med den här rollen kan skapa användare, och hantera alla aspekter av användare med vissa begränsningar (se nedan) och kan uppdatera principerna för Lösenordets giltighetstid. Dessutom kan kan användare med den här rollen skapa och hantera alla grupper. Den här rollen inkluderar även möjligheten att skapa och hantera användarvyer, hantera supportbegäranden och kontrollera tjänstens hälsotillstånd.
 
   | | |
   | --- | --- |

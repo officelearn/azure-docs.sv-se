@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c2f302d7b87426115df716dfba638eee0756f79
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 14aec0bb8f821110579b0447b1fcb146e486cf4d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480744"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539300"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av PowerShell eller Azure CLI, kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -217,7 +217,7 @@ Använd följande kod för att verifiera Azure PowerShell-version:
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>Resursen 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < resource-group > ”i resursgruppen” < resource-group >' hittades inte. Egenskapen 'sqlServerLicenseType' kan inte hittas på det här objektet. Kontrollera att egenskapen finns och kan ställas in.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>Resursen ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resursgrupp > ”i resursgruppen”\<resursgrupp >' hittades inte. Egenskapen 'sqlServerLicenseType' kan inte hittas på det här objektet. Kontrollera att egenskapen finns och kan ställas in.
 Det här felet uppstår när SQL Server-dator inte har registrerats med SQL-resursprovider. Du måste registrera resursprovidern med din [prenumeration](#register-sql-resource-provider-with-your-subscription), och sedan registrera SQL Server-dator med SQL [resursprovidern](#register-sql-server-vm-with-sql-resource-provider). 
 
 ## <a name="next-steps"></a>Nästa steg

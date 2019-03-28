@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170810"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540915"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskfyllda IP-adresser (offentlig förhandsversion)
 AD FS-kunder kan göra slutpunkter tillgängliga för lösenordsautentisering på Internet för att tillhandahålla autentiseringstjänster till slutanvändare som ska få åtkomst till SaaS-program, till exempel Office 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
@@ -38,7 +38,7 @@ Dessutom är det möjligt att en enskild IP-adress kan försöka utföra flera i
 > 
 
 ## <a name="what-is-in-the-report"></a>Vad ingår i rapporten?
-Varje objekt i rapporten för riskfyllda IP-adresser visar sammanställd information om misslyckade AD FS-inloggningsaktiviteter där angivet tröskelvärde har överskridits. Den innehåller följande information: ![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/report4a.png)
+Misslyckade inloggningen aktivitet klienternas IP-adresser sammanställs via Web Application Proxy-servrar. Varje objekt i rapporten för riskfyllda IP-adresser visar sammanställd information om misslyckade AD FS-inloggningsaktiviteter där angivet tröskelvärde har överskridits. Den innehåller följande information: ![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/report4a.png)
 
 | Rapportobjekt | Beskrivning |
 | ------- | ----------- |

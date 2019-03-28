@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361087"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521933"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -51,7 +51,7 @@ Om du vill följa stegen som beskrivs i den här artikeln, måste du ha:
 
 Den här artikeln beskriver hur du använder ett enda API Management-tjänsten för både interna och externa konsumenter och gör det fungerar som en enda klientdel för både lokalt och API: er i molnet. Du kan även se hur du kan exponera endast en delmängd av dina API: er (i exemplet som de är markerade i grönt) för extern användning med hjälp av Routning funktioner som är tillgängliga i Application Gateway.
 
-I det första exemplet installationen hanteras alla API: er endast från inom ditt virtuella nätverk. Interna konsumenter (markerade i orange) kan komma åt alla dina interna och externa API: er. Trafiken överförs aldrig till Internet en högpresterande levereras via Expressroute-kretsar.
+I det första exemplet installationen hanteras alla API: er endast från inom ditt virtuella nätverk. Interna konsumenter (markerade i orange) kan komma åt alla dina interna och externa API: er. Trafiken går aldrig till internet. Anslutning med höga prestanda levereras via Expressroute-kretsar.
 
 ![URL: en väg](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 

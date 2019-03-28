@@ -4,7 +4,7 @@ description: Innehåller information om Grupprincip och mobila enheter (MDM) han
 services: active-directory
 keywords: Vad är grupp principen och MDM-inställningar för Enterprise State Roaming, Enterprise State Roaming, windows molnet
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33638d9b22fb1717fadcb1717f816e95076a7d66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161107"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520997"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Inställningar för grupprinciper och MDM
 Använd dessa Grupprincip och hanteringsinställningar för mobila enheter (MDM) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enheten. Tillämpa en MDM-principen för att inaktivera synkronisering av inställningar för en personlig påverkar användarägda enheter negativt användningen av enheten. Dessutom kommer andra användarkonton på enheten också att påverkas av principen.

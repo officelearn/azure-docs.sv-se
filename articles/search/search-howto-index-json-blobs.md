@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405121"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518753"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -211,7 +211,7 @@ Indexerarkonfiguration är i brödtexten i begäran. Det krävs en datakälla oc
 
 Schema och parametrar är valfria. Om du utelämnar dem indexeraren körs direkt, med hjälp av `json` som parsning läge.
 
-Viss indexeraren omfattar inte [fältmappningar](#field-mappings). Inom indexerardefinitionen, som du kan lämna **fältmappningar** om egenskaperna för käll-JSON-dokument överensstämmer med fälten för ditt mål search-index. 
+Viss indexeraren inkluderar inte fältmappningar. Inom indexerardefinitionen, som du kan lämna **fältmappningar** om egenskaperna för käll-JSON-dokument överensstämmer med fälten för ditt mål search-index. 
 
 
 ### <a name="rest-example"></a>REST-exempel
@@ -253,7 +253,7 @@ Alla indexerare kräver ett målindex som tar emot data. Brödtexten i begäran 
 
 ### <a name="indexer-request"></a>Indexeraren begäran
 
-Den här begäran visar ett fullständigt anges indexerare. Den innehåller [fältmappningar](#field-mappings), som har utelämnats i föregående exempel. Kom ihåg att ”schema”, ”parametrar” och ”fieldMappings” är valfria så länge det finns en tillgänglig standard. Om du utesluter ”schemalägga” gör att indexeraren ska köras omedelbart. Om du utesluter ”parsingMode” gör i index för att använda standard ”json”.
+Den här begäran visar ett fullständigt anges indexerare. Den innehåller fältmappningar som har utelämnats i föregående exempel. Kom ihåg att ”schema”, ”parametrar” och ”fieldMappings” är valfria så länge det finns en tillgänglig standard. Om du utesluter ”schemalägga” gör att indexeraren ska köras omedelbart. Om du utesluter ”parsingMode” gör i index för att använda standard ”json”.
 
 Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och därefter enligt ett schema om du har angett en.
 

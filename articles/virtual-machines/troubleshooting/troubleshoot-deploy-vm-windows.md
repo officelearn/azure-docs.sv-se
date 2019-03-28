@@ -1,6 +1,6 @@
 ---
 title: Felsöka distribution Windows VM-problem i Azure | Microsoft Docs
-description: Felsöka distribution Windows VM-problem i Azurethe Resource Manager-distributionsmodellen.
+description: Felsöka distribution Windows VM-problem i Azure Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 9d98a060033674a53c8ac5390bc40d10b0fbe69b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882509"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540711"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution Windows VM-problem i Azure
 
@@ -32,11 +32,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret kan inte stöd för den begärda storleken för virtuell dator
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Gör om begäran med en mindre VM-storlek.
 - Om storleken på den begärda virtuella datorn inte kan ändras:
     - Stoppa alla virtuella datorer i tillgänglighetsuppsättningen. Klicka på **resursgrupper** > din resursgrupp > **resurser** > tillgänglighetsuppsättningen > **virtuella datorer** > den virtuella datorn >  **Stoppa**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Klustret har inte kostnadsfria resurser
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Försöka senare.
 - Om den nya virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning
     - Skapa en virtuell dator i en annan tillgänglighetsuppsättning (i samma region).

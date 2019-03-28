@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261272"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541085"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Skapa anpassade fält i Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics-arbetsyta i Azure Monitor
 
 > [!NOTE]
-> Den här artikeln beskriver hur du Parsar textdata i Log Analytics som den har samlats in. Det finns fördelar med att parsa textdata i en fråga när den har samlats in enligt beskrivningen i [parsa textdata i Log Analytics](../log-query/parse-text.md).
+> Den här artikeln beskriver hur du Parsar textdata i en Log Analytics-arbetsyta som den har samlats in. Det finns fördelar med att parsa textdata i en fråga när den har samlats in enligt beskrivningen i [parsa textdata i Azure Monitor](../log-query/parse-text.md).
 
-Den **anpassade fält** funktion i Log Analytics kan du utöka befintliga poster i Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
+Den **anpassade fält** funktion i Azure Monitor kan du utöka befintliga poster i Log Analytics-arbetsytan genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
 
 ![Översikt över anpassade fält](media/custom-fields/overview.png)
 

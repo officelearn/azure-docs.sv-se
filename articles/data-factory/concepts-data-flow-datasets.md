@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371323"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521847"
 ---
 # <a name="mapping-data-flow-datasets"></a>Mappning av datauppsättningar för flödet av Data
 
@@ -49,9 +49,27 @@ I dataflöde, kan du be ADF om du vill skapa en ny tabelldefinition i måldataba
 
 ![Källans omvandling schema](media/data-flow/dataset2.png "SQL-schemat")
 
-## <a name="delimited-text-dataset"></a>Avgränsad text datauppsättning
+## <a name="choose-your-type-of-data-first"></a>Välj typ av data först
 
-I datauppsättningen avgränsad text, ställer du avgränsaren som ska hantera antingen enkel avgränsare (”\t” för TSV ”,”, för CSV-fil, ' |'...) eller flera tecken för avgränsare. Huvudet rad växla och går sedan till transformeringen av källa för att automatiskt identifiera datatyper.
+### <a name="delimited-text"></a>Avgränsad text
+
+I datauppsättningen avgränsad text, ställer du avgränsaren som ska hantera antingen enkel avgränsare (”\t” för TSV ”,”, för CSV-fil, ' |'...) eller flera tecken för avgränsare. Huvudet rad växla och går sedan till transformeringen av källa för att automatiskt identifiera datatyper. Om du använder en avgränsad Text-datauppsättning för att placera data i en mottagare kan bara välja en målmapp. Du kan definiera namnet på utdatafilerna i inställningarna för mottagare.
+
+### <a name="parquet"></a>Parquet
+
+Använd Parquet som tillfälliga datauppsättning standardtypen i ADF dataflöden. Parquet lagrar omfattande metadataschema tillsammans med data.
+
+### <a name="database-types"></a>Typer av databaser
+
+Du kan välja Azure SQL DB eller Azure SQL DW.
+
+För övriga ADF datauppsättningen, Använd Kopieringsaktiviteten för att mellanlagra dina data. Det finns en mall för ADF i mallgalleriet att hjälpa dig att skapa det här mönstret.
+
+![Kopiera mellanlagring](media/data-flow/templatedf.png "kopiera mellanlagring")
+
+## <a name="choose-your-connection-type"></a>Välj vilken typ av anslutning
+
+Om du använder Parquet eller avgränsad Text datauppsättningar, kan du sedan välja platsen för dina data: ADLS eller Blob.
 
 ## <a name="next-steps"></a>Nästa steg
 

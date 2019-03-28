@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224448"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520674"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal till text?
 
@@ -24,7 +24,7 @@ Tal till text från Azure Speech Services, även kallat tal till text, aktiverar
 
 Som standard använder tjänsten tal till text Universal språkmodellen. Den här modellen har lärt sig med hjälp av data som ägs av Microsoft och har distribuerats i molnet. Det är optimala för konversationsanpassad och diktering scenarier. Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. 
 
-Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller få åtkomst till ljud filer från storage med tal SDK och REST API: er. Tal SDK stöder WAV/PCM 16-bitars, 16 kHz, kanal-ljud för taligenkänning. Ytterligare ljudformat stöds med hjälp av den [tal till text REST-slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) eller [batch-tjänsten för taltranskription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Du kan enkelt spela in ljud från en mikrofon, läsa från en ström eller få åtkomst till ljud filer från storage med tal SDK och REST API: er. Tal SDK stöder WAV/PCM 16-bitars, 16 kHz, kanal-ljud för taligenkänning. Ytterligare ljudformat stöds med hjälp av den [tal till text REST-slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) eller [batch-tjänsten för taltranskription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Kärnfunktioner
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319456"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519756"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -72,7 +72,7 @@ Du kan konfigurera programgatewayen så att den antingen har en offentlig IP-adr
 
 Endast en offentlig IP-adress eller en privat IP-adress stöds. Du kan välja frontend-IP för när du skapar Programgatewayen. 
 
-- Vid en offentlig IP-adress kan du välja att skapa en ny offentlig IP-adress eller Använd en befintlig offentlig IP på samma plats som Application Gateway. Om du skapar en ny offentlig IP-adress, kan inte IP-adresstypen som valts (statisk eller dynamisk) ändras senare. Mer information finns i [Statiska och dynamiska offentliga IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- Vid en offentlig IP-adress kan du välja att skapa en ny offentlig IP-adress eller Använd en befintlig offentlig IP på samma plats som Application Gateway. Om du skapar en ny offentlig IP-adress, kan inte IP-adresstypen som valts (statisk eller dynamisk) ändras senare. Mer information finns i [Statiska och dynamiska offentliga IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - Du kan välja att ange en privat IP-adress från det undernät som Application Gateway har skapats vid en privat IP-adress. Om inte anges explicit väljs en skadlig IP-adress automatiskt från undernätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare (ILB) slutpunkt.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Du måste välja mellan HTTP och HTTPS-protokollet.
 
 - Om du väljer HTTP flödar trafiken mellan klienten och programmet gatewayen okrypterade.
 
-- Välj HTTPS om du är intresserad av [Secure Sockets Layer (SSL)-avslutning](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) eller [från slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Om du väljer HTTPS trafik mellan klienten och programmet gateway krypteras och SSL-anslutningen avslutas vid application gateway.  Om du vill från slutpunkt till slutpunkt SSL-kryptering, måste du även välja HTTPS-protokollet när du konfigurerar *serverdelens HTTP-inställningen*. Det säkerställer att trafiken krypteras igen när de överförs från Programgatewayen till serverdelen.
+- Välj HTTPS om du är intresserad av [Secure Sockets Layer (SSL)-avslutning](https://docs.microsoft.com/azure/application-gateway/overview) eller [från slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Om du väljer HTTPS trafik mellan klienten och programmet gateway krypteras och SSL-anslutningen avslutas vid application gateway.  Om du vill från slutpunkt till slutpunkt SSL-kryptering, måste du även välja HTTPS-protokollet när du konfigurerar *serverdelens HTTP-inställningen*. Det säkerställer att trafiken krypteras igen när de överförs från Programgatewayen till serverdelen.
 
   Om du vill konfigurera Secure Sockets Layer (SSL)-avslutning och SSL-kryptering från slutpunkt till slutpunkt, krävs ett certifikat som ska läggas till lyssnaren för att aktivera Application Gateway att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik. 
 

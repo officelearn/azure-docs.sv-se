@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433458"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521762"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -134,7 +134,7 @@ Vi ber du kan använda samma autentiseringsuppgifter för container-registret p�
 
 ### <a name="use-tags-to-manage-versions"></a>Använd taggar för att hantera versioner
 
-En tagg är en Docker-begrepp som du kan använda för att skilja mellan versioner av Docker-behållare. Taggar är suffix som **1.0** som går i slutet av en lagringsplats för behållaren. Till exempel **mcr.microsoft.com/azureiotedge-agent:1.0**. Taggar är föränderliga och kan ändras för att peka till en annan behållare när som helst, så att ditt team måste komma överens om en konvention att följa när du uppdaterar bilderna modulen framöver. 
+En tagg är en docker-begrepp som du kan använda för att skilja mellan versioner av docker-behållare. Taggar är suffix som **1.0** som går i slutet av en lagringsplats för behållaren. Till exempel **mcr.microsoft.com/azureiotedge-agent:1.0**. Taggar är föränderliga och kan ändras för att peka till en annan behållare när som helst, så att ditt team måste komma överens om en konvention att följa när du uppdaterar bilderna modulen framöver. 
 
 Taggar hjälper dig att tillämpa uppdateringar på IoT Edge-enheter. När du överför en uppdaterad version av en modul till behållarregistret, öka taggen. Skicka sedan en ny distribution till dina enheter med taggen ökas. Motorn för behållaren ser ökar taggen som en ny version och hämtar den senaste modulversionen till din enhet. 
 
@@ -172,7 +172,7 @@ Den här checklistan är en startpunkt för brandväggsregler:
    | \*.azurecr.io | 443 | Personliga och 3 part behållarregister |
    | \*.blob.core.windows.net | 443 | Nedladdningen av bilden deltan | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
-   | \*.docker.io  | 443 | Docker-åtkomst (valfritt) |
+   | \*.docker.io  | 443 | Docker Hub-åtkomst (valfritt) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Konfigurera kommunikation via en proxyserver
 
@@ -186,16 +186,57 @@ Om dina enheter kommer att distribueras på ett nätverk som använder en proxys
 
 ### <a name="set-up-logs-and-diagnostics"></a>Konfigurera loggar och diagnostik
 
-På Linux använder IoT Edge-daemon journaler som standard loggning av drivrutinen. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-WinEvent` till fråga loggar från daemon. IoT Edge-moduler använder JSON-drivrutinen för loggning, vilket är standard för Docker.  
+På Linux använder IoT Edge-daemon journaler som standard loggning av drivrutinen. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-WinEvent` till fråga loggar från daemon. IoT Edge-moduler använda JSON-drivrutin för loggning, vilket är standard.  
 
 När du testar en IoT Edge-distribution kan du normalt komma åt dina enheter för att hämta loggar och felsöka. Du kanske inte har alternativet i ett scenario för distribution. Överväg hur du ska samla in information om dina enheter i produktionen. Ett alternativ är att använda en loggningsmodul som samlar in information från andra moduler och skickar dem till molnet. Ett exempel på en loggningsmodul är [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), eller du kan utforma dina egna. 
 
-Om du oroar loggar blir för stort på en begränsad resurs-enhet, har du några alternativ att minska minnesanvändningen av. 
+### <a name="place-limits-on-log-size"></a>Ange gränser för loggstorleken
 
-* Mer specifikt kan du begränsa storleken på alla docker-loggfiler i Docker-daemon själva. För Linux, konfigurera daemon på `/etc/docker/daemon.json`. För Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* Om du vill justera logfile-storleken för varje behållare kan göra du det i CreateOptions för varje modul. 
-* Konfigurera Docker för att hantera loggar automatiskt genom att ange journaler som loggning Standarddrivrutin för Docker. 
-* Regelbundet ta bort gamla loggarna från din enhet genom att installera ett logrotate-verktyg för Docker. Använd följande filspecifikationen: 
+Som standard inställt Moby behållare motorn inte storleksgränser för behållaren log. Detta kan leda till att enheten svämmar över med loggar och få slut på diskutrymme över tid. Överväg följande alternativ för att förhindra detta:
+
+**Alternativ: Ange globala begränsningar som gäller för alla moduler i behållare**
+
+Du kan begränsa storleken på alla behållare logfiles i loggalternativ för container-motorn. I följande exempel anger log-drivrutinen till `json-file` (rekommenderas) med begränsningar i storlek och antalet filer:
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Lägg till (eller Lägg till) den här informationen till en fil med namnet `daemon.json` och placera den på rätt plats för din enhetsplattform.
+
+| Plattform | Plats |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+Behållare-motorn måste startas om för att ändringarna ska börja gälla.
+
+**Alternativ: Justera inställningar för varje container-modul**
+
+Du kan göra i den **createOptions** för varje modul. Exempel:
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Ytterligare alternativ på Linux-system**
+
+* Konfigurera container-motorn för att skicka loggar till `systemd` [journalen](https://docs.docker.com/config/containers/logging/journald/) genom att ange `journald` som Standarddrivrutin för loggning. 
+
+* Regelbundet ta bort gamla loggarna från din enhet genom att installera en logrotate-verktyget. Använd följande filspecifikationen: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

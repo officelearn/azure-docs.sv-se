@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479988"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540150"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ Målet är att installera flera Advanced Business Application Programming ASCS (
 
 _**Bild 2:** SAP – flera SÄKERHETSIDENTIFIERARE konfiguration i två kluster_
 
-Installationen av ytterligare **SAP \<SID2 >** system är identisk med installationen av en <SID> system. Två ytterligare förberedelser krävs på ASCS/SCS-kluster samt på filen resursen SOFS-kluster.
+Installationen av ytterligare **SAP \<SID2 >** system är identisk med installationen av en \<SID > system. Två ytterligare förberedelser krävs på ASCS/SCS-kluster samt på filen resursen SOFS-kluster.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Förbered infrastrukturen i ett scenario med SAP – flera SÄKERHETSIDENTIFIERARE
 
@@ -261,7 +261,7 @@ De här stegen beskrivs i [infrastrukturförberedelser i ett scenario med SAP �
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Förbered infrastrukturen på ett skalbart filserverkluster med hjälp av den befintliga SAP-värd
 
-Du kan återanvända den befintliga \<SAPGlobalHost > och Volume1 av den första SAP <SID1> system.
+Du kan återanvända den befintliga \<SAPGlobalHost > och Volume1 av den första SAP \<SID1 > system.
 
 ![Bild 3: Multi-SID SOFS är samma som SAP globala värdnamn][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Bild 3:** Multi-SID SOFS är samma som SAP globala värdnamn_
 >För andra **SAP \<SID2 >** system, samma Volume1 och samma  **\<SAPGlobalHost >** nätverksnamn används.
 >Eftersom du redan har **SAPMNT** som resursnamn för olika SAP-system, kan återanvända den  **\<SAPGlobalHost >** nätverksnamnet, måste du använda samma **Volume1**.
 >
->Sökvägen till filen för den <SID2> globala värden är C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
+>Sökvägen till filen för den \<SID2 > global värden är C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 För den \<SID2 > system, måste du förbereda SAP globala värden... \SYS\.. mapp på SOFS-klustret.

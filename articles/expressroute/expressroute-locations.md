@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 03/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: d7baebc4236df926dbd8cbe6e17e59b0a3489abd
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 91b8c660608b3705d518d18cd32675891c8a4c5b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188391"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522289"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -109,7 +109,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Newport (Wales), Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Stöds |Stöds |Busan, Söul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Stöds |Stöds |Kapstaden, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, Hongkong, Las Vegas, London, Los Angeles, Melbourne, Miami, New York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, Hongkong, Las Vegas, London, Los Angeles, Melbourne, Miami, New York, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Stöds |Stöds |London |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Stöds |Stöds |Dallas, Los Angeles, Miami, Sao Paulo |
 | **[Nästa datageneration](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Stöds |Stöds |Newport(Wales) |
@@ -141,7 +141,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Hongkong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Stöds |Stöds inte |London, Singapore |
 | **Vodafone Idea** | Stöds | Stöds | Mumbai, Mumbai2 |
-| **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
+| **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
 
  **+** kommer snart
 

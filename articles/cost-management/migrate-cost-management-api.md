@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439234"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518793"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft Customer avtal API: er
 
@@ -60,7 +60,7 @@ EA API: erna använder API-nyckel för autentisering och auktorisering. MCA API:
 | Prisdokument | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format = json|CSV Microsoft.Billing/billingAccounts/.../billingProfiles/.../invoices/... /pricesheet/default/Download format = json|CSV Microsoft.Billing/billingAccounts/... / billingProfiles /... /providers/Microsoft.consumption/pricesheets/Download  |
 | Köp av reservation | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Rekommendationer för reservation | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| Reservation-användning | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| Reservation-användning | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> azure-tjänsten och tredje parts Marketplace användning är tillgängliga med den [användning information API](/rest/api/consumption/usagedetails).
 
@@ -501,7 +501,7 @@ Du kan hämta reserverade användning i en registrering med API för användning
 Dessa är:
 
 - [Information om användning av reserverad instans](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
-- [Användningsöversikt för reserverad instans](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary)
+- [Användningsöversikt för reserverad instans](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 Alla förbrukning API: er har ersatts av interna Azure API: er som använder Azure AD för autentisering och auktorisering. Mer information om anropa Azure REST API: er finns i [komma igång med REST](/rest/api/azure/#create-the-request). Reservation-rekommendationer API: er som angavs tidigare har ersatts av den [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) och [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) API: er.
 

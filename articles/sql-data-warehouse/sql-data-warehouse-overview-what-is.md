@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 393fca972676f2584a9ef4fc457b33161a325089
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477785"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521643"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Vad är Azure SQL Data Warehouse?
 
-SQL Data Warehouse är ett molnbaserad företagsinformationslager som använder en MPP-modell (Massively Parallel Processing) för att snabbt köra komplexa frågor över petabyte med data. Använd SQL Data Warehouse som en viktig komponent i en lösning för stordata. Importera stordata till SQL Data Warehouse med enkla PolyBase T-SQL-frågor och utnyttja sedan kraften i MPP för att köra högpresterande analyser. Använd informationslagret en tid för att integrera och analysera och upptäck vilket fantastiskt hjälpmedel det är för att fördjupa insikterna.  
+SQL Data Warehouse är ett molnbaserad företagsinformationslager som använder en MPP-modell (Massively Parallel Processing) för att snabbt köra komplexa frågor över petabyte med data. Använd SQL Data Warehouse som en viktig komponent i en lösning för stordata. Importera stordata till SQL Data Warehouse med enkel [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL-frågor, och sedan använda kraften i MPP för att köra högpresterande analyser. Använd informationslagret en tid för att integrera och analysera och upptäck vilket fantastiskt hjälpmedel det är för att fördjupa insikterna.  
 
 
 ## <a name="key-component-of-big-data-solution"></a>Viktig komponent i lösning för stordata

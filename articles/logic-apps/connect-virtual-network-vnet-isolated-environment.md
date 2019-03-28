@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400928"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522323"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -121,7 +121,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    | **Namn på integreringstjänstmiljö** | Ja | <*environment-name*> | Namn för att ge din miljö |
    | **Plats** | Ja | <*Azure-datacenter-region*> | Azure-datacenterregion var du vill distribuera din miljö |
    | **Ytterligare kapacitet** | Ja | 0, 1, 2, 3 | Antal enheter för den här ISE-resursen. Om du vill lägga till kapacitet när du har skapat, se [lägga till kapacitet](#add-capacity). |
-   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). |
+   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, kontrollera att du redan har konfigurerat rollbaserad åtkomstkontroll i det virtuella nätverket för Azure Logic Apps. |
    | **Undernät** | Ja | <*subnet-resource-list*> | En ISE kräver fyra *tom* undernät för att skapa resurser i din miljö. Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet).  |
    |||||
 

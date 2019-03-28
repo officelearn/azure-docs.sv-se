@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520589"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och felsöka installationen av SAP HANA skalbar hög tillgänglighet på SLES 12 SP3 
 
@@ -77,10 +77,10 @@ När du använder den **crm migrera** kommandot, se till att rensa klusterkonfig
 | Underordnad nod 2 på plats 2 | hso-hana-vm-s2-2  | 10.0.0.42 |
 | | | |
 | Maker majoritetsnod | hso-hana-dm | 10.0.0.13 |
-| Uppstår enheten servern | hso-hana-uppstår | 10.0.0.19 |
+| Uppstår enheten servern | hso-hana-sbd | 10.0.0.19 |
 | | | |
-| NFS-server 1 | hso-nfs-vm-0 | 10.0.0.15 |
-| NFS-server 2 | hso-nfs-vm-1 | 10.0.0.14 |
+| NFS server 1 | hso-nfs-vm-0 | 10.0.0.15 |
+| NFS server 2 | hso-nfs-vm-1 | 10.0.0.14 |
 
 
 
@@ -964,9 +964,9 @@ Det här exemplet visar Platsbegränsningar på grund av en klustermigrering fö
 ![Hawk lista begränsningar](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Du kan också ladda upp den **hb_report** utdata i Hawk under **historik**, visas på följande sätt. Se [hb_report att samla in loggfiler](#hbreport-to-collect-log-files): 
+Du kan också ladda upp den **hb_report** utdata i Hawk under **historik**, visas på följande sätt. Se hb_report att samla in loggfiler: 
 
-![Hawk uppladdning hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
+![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
 Med den **historik Explorer**, du kan sedan gå igenom alla kluster övergångar som ingår i den **hb_report** utdata:
 

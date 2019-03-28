@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 48774c616fa8fb477218264cb58e09659142a5cd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497949"
+ms.locfileid: "58540660"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Windows-datorer med Azure PowerShell
 
@@ -71,7 +71,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Om du får ett felmeddelande om att **huvudnamn <guid> inte finns i katalogen** har den nya gruppen inte spridits i hela Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett felmeddelande om **huvudnamn \<guid > finns inte i katalogen**, den nya gruppen har inte spridits i hela Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 

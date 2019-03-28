@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482791"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520759"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -409,6 +409,6 @@ Problem med att använda någon av dessa metoder är att de inte inaktivera enda
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska Användarflöden](../../azure-monitor/app/usage-flows.md) att förstå hur användarna navigerar i din app.
-* [Konfigurera insamling av ögonblicksbild](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) att se status för källkoden och variabler för tillfället ett undantagsfel.
+* [Konfigurera insamling av ögonblicksbild](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) att se status för källkoden och variabler för tillfället ett undantagsfel.
 * [Använda API: et](../../azure-monitor/app/api-custom-events-metrics.md) att skicka dina egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.
 * Använd [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) att kontrollera appens hela tiden från hela världen.

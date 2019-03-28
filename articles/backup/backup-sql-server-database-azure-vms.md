@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285079"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522170"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -145,7 +145,7 @@ Konfigurera säkerhetskopiering på följande sätt:
 
    - Välja standardpolicy: HourlyLogBackup.
    - Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
-   - [Definiera en ny policy](#configure-a-backup-policy) baserat på ditt RPO och kvarhållningsintervall.
+   - Definiera en ny princip baserat på din RPO och kvarhållning.
 
      ![Välja säkerhetskopieringspolicy](./media/backup-azure-sql-database/select-backup-policy.png)
 

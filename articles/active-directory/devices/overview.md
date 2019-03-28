@@ -3,7 +3,7 @@ title: Vad är enhetshantering i Azure Active Directory? | Microsoft Docs
 description: Lär dig hur enhetshantering kan hjälpa dig att få kontroll över de enheter som har åtkomst till resurser i din miljö.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/01/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c5b736c75f65fa5dfc2f3132a43ac0485bc58d19
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168613"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520317"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Vad är enhetshantering i Azure Active Directory?
 

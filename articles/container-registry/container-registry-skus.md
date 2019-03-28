@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138090"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521966"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU: er
 
@@ -20,31 +20,15 @@ Azure Container Registry (ACR) är tillgänglig i flera tjänstnivåer, kallas S
 
 | SKU | Hanterad | Beskrivning |
 | --- | :-------: | ----------- |
-| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (integrering med Azure Active Directory-autentisering, bild borttagning och webhooks). Inkluderad lagring och dataflöde som bilden är dock bäst för lägre Användningsscenarier. |
+| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (till exempel Azure Active Directory [autentisering integration](container-registry-authentication.md#individual-login-with-azure-ad), [bild borttagning][container-registry-delete], och [webhooks][container-registry-webhook]). Inkluderad lagring och dataflöde som bilden är dock bäst för lägre Användningsscenarier. |
 | **Standard** | Ja | Standardregister erbjuder samma funktioner som grundläggande med ökad inkluderade lagrings- och dataflöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
 | **Premium** | Ja | Premium-register ger högsta mängden lagringsutrymme och samtidiga åtgärder som att aktivera scenarier med hög volym. Förutom den högre bild dataflöde Premium lägger till funktioner inklusive [geo-replikering] [ container-registry-geo-replication] för att hantera ett enda register i flera regioner [innehåll förtroende (förhandsversion)](container-registry-content-trust.md) för avbildning taggen signering, och [brandväggar och virtuella nätverk (förhandsversion)](container-registry-vnet.md) att begränsa åtkomsten till registret. |
-| Klassiska<sup>1</sup> | Nej | Denna SKU aktiverat den första versionen av Azure Container Registry-tjänst i Azure. Klassiskt register backas upp av ett lagringskonto som skapas av Azure i din prenumeration, vilket begränsar möjligheten för ACR och programlivscykler på högre nivå, till exempel ökat genomflöde och geo-replikering. |
-
-<sup>1</sup> klassiska SKU blir **inaktuell** i **mars 2019**. Använd Basic, Standard eller Premium för alla nya behållarregister.
-
-Välja en högre nivå SKU ger mer prestanda och skalning, men innehåller alla hanterade SKU: er samma programmässiga funktioner. Med flera tjänstnivåer, du kan komma igång med Basic och sedan konvertera till Standard och Premium när ditt register användningen ökar.
-
-## <a name="managed-vs-unmanaged"></a>Hanterade och ohanterade
-
-Basic, Standard och Premium-SKU: er kallas *hanteras* register och klassiskt register som *ohanterade*. Den viktigaste skillnaden mellan två är hur dina behållaravbildningar lagras.
-
-### <a name="managed-basic-standard-premium"></a>Hanterad (Basic, Standard, Premium)
-
-Hanterade register förmånen från bildlagring hanteras helt av Azure. Det vill säga visas ett storage-konto som lagrar dina avbildningar inte i Azure-prenumerationen. Det finns flera fördelar med att använda en av hanterat register SKU: er, beskrivs djupgående i [bildlagring för behållare i Azure Container Registry][container-registry-storage]. Den här artikeln fokuserar på hanterat register-SKU: er och deras funktioner.
-
-### <a name="unmanaged-classic"></a>Ohanterade (klassisk)
+|  Klassiska (*inte tillgänglig efter April 2019*) | Nej | Denna SKU aktiverat den första versionen av Azure Container Registry-tjänst i Azure. Klassiskt register backas upp av ett lagringskonto som skapas av Azure i din prenumeration, vilket begränsar möjligheten för ACR och programlivscykler på högre nivå, till exempel ökat genomflöde och geo-replikering. |
 
 > [!IMPORTANT]
-> Klassiska SKU: N är inaktuell och kommer att vara tillgänglig efter mars 2019. Använd Basic, Standard eller Premium för alla nya register.
+> Klassisk registret SKU håller **inaktuell**, och är inte tillgängliga efter **April 2019**. Vi rekommenderar att du använder Basic, Standard eller Premium för alla nya register. Alla befintliga klassiska register bör uppgraderas innan April 2019. Uppgradera information finns i [uppgradera ett klassiskt register][container-registry-upgrade].
 
-Klassiskt register är ”ohanterade” i den mening att storage-kontot som säkerhetskopierar ett klassiskt register befinner sig inom *din* Azure-prenumeration. Därför måste ansvarar du för hanteringen av storage-konto där dina behållaravbildningar lagras. Med ohanterade register, du kan inte växla mellan SKU: er när dina behov ändras (annat än [uppgraderar] [ container-registry-upgrade] till ett hanterat register), och flera funktioner för hanterade register är inte tillgängliga (t.ex. bild för borttagning av behållare, [georeplikering][container-registry-geo-replication], och [webhooks][container-registry-webhook]).
-
-Mer information om hur du uppgraderar ett klassiskt register till en av de hanterade SKU: er finns i [uppgradera ett klassiskt register][container-registry-upgrade].
+Basic, Standard och Premium-SKU: er (gemensamt kallade *hanterade register*) får du samma programmässiga funktioner. De också alla dra nytta av [bildlagring] [ container-registry-storage] hanteras helt av Azure. Välja en högre nivå SKU ger mer prestanda och skalning. Med flera tjänstnivåer, du kan komma igång med Basic och sedan konvertera till Standard och Premium när ditt register användningen ökar.
 
 ## <a name="sku-feature-matrix"></a>SKU-funktionen matris
 
@@ -54,7 +38,7 @@ I följande tabell beskrivs funktionerna och begränsningarna för tjänstnivåe
 
 ## <a name="changing-skus"></a>Ändra SKU: er
 
-Du kan ändra ett register-SKU med Azure CLI eller i Azure-portalen. Du kan flyttas fritt mellan hanterade SKU: er så länge du växlar till SKU: N har den nödvändiga maximala lagringskapaciteten. Om du byter till en av de hanterade SKU: er från klassiskt läge kan flytta du inte tillbaka till klassisk--är det en enkelriktad konvertering.
+Du kan ändra ett register-SKU med Azure CLI eller i Azure-portalen. Du kan flyttas fritt mellan hanterade SKU: er så länge du växlar till SKU: N har den nödvändiga maximala lagringskapaciteten. När du växlar till en av de hanterade SKU: er från klassiskt läge, kan inte du flytta tillbaka till klassisk – det är en enkelriktad konvertering.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -70,13 +54,7 @@ I behållarregistret **översikt** i Azure-portalen väljer du **uppdatering**, 
 
 ![Uppdatera SKU för container registry på Azure-portalen][update-registry-sku]
 
-Om du har ett klassiskt register kan välja du inte en hanterad SKU i Azure-portalen. I stället måste du först [uppgradera] [ container-registry-upgrade] till ett hanterat register (se [ändra från klassisk](#changing-from-classic)).
-
-## <a name="changing-from-classic"></a>Ändra från klassiskt läge
-
-Det finns fler saker att beakta när du migrerar en ohanterad klassiskt register till hanterade Basic, Standard eller Premium-SKU: er. Om din klassiskt register innehåller ett stort antal bilder och är många gigabyte i storlek, kan migreringen ta lite tid. Dessutom `docker push` åtgärder är inaktiverade tills migreringen är klar.
-
-Mer information om hur du uppgraderar din klassiskt register till en av de hanterade SKU: er finns i [uppgradera ett klassiskt behållarregister][container-registry-upgrade].
+Om du har ett klassiskt register kan välja du inte en hanterad SKU i Azure-portalen. I stället måste du först [uppgradera] [ container-registry-upgrade] till ett hanterat register.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -107,4 +85,5 @@ Skicka in och rösta på förslag på nya funktioner i [ACR UserVoice][container
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
 [container-registry-storage]: container-registry-storage.md
+[container-registry-delete]: container-registry-delete.md
 [container-registry-webhook]: container-registry-webhook.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5eac6110cc021a749b787cd97c3a8872d8476668
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499802"
+ms.locfileid: "58521031"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -106,7 +106,7 @@ Lösningens instrumentpanel visar följande blad:
 
 ![Bladet DNS-säkerhet](./media/dns-analytics/dns-security-blade.png)
 
-När du klickar på en klientens IP-adress i listan Log Search öppnas och visar information om respektive frågan sökning. I följande exempel visas DNS Analytics upptäckte att kommunikationen gjordes med en [IRCbot](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
+När du klickar på en klientens IP-adress i listan Log Search öppnas och visar information om respektive frågan sökning. I följande exempel visas DNS Analytics upptäckte att kommunikationen gjordes med en [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
 
 ![Loggsökningen som visar ircbot](./media/dns-analytics/ircbot.png)
 

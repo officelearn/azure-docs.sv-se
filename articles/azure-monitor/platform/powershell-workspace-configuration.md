@@ -1,6 +1,6 @@
 ---
 title: Använd PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
-description: Logga Analytics använder data från servrar i din lokala eller molnbaserade infrastruktur. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
+description: Log Analytics-arbetsytor i Azure Monitor lagra data från servrar i din lokala eller molnbaserade infrastruktur. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482115"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539385"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Hantera Log Analytics-arbetsyta i Azure Monitor med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
+Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner på en Log Analytics-arbetsyta i Azure Monitor från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
 
 * Skapa en arbetsyta
 * Lägga till eller ta bort en lösning
@@ -195,7 +195,7 @@ I exemplet ovan regexDelimiter har definierats som ”\\n” för ny rad. Log-av
 | `yyyy-MM-ddTHH:mm:ss` <br> T är en literal bokstaven T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Konfigurera Log Analytics för att skicka Azure Diagnostics-data
-För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till Log Analytics och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:
+För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till arbetsytan och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:
 
 | Resurstyp | Logs | Mått |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet: en kan fungera mellan prenumerationer eftersom ger du ID för både den resurs som skapar loggar och arbetsytan loggarna skickas till.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics för att samla in Azure Diagnostics-data från storage
-Du måste först skriva data till Azure storage för att samla in loggdata från en instans av en klassisk molntjänst eller ett service fabric-kluster som körs. Log Analytics konfigureras sedan för att samla in loggar från lagringskontot. Resurser som stöds är:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics-arbetsyta för att samla in Azure Diagnostics-data från storage
+Du måste först skriva data till Azure storage för att samla in loggdata från en instans av en klassisk molntjänst eller ett service fabric-kluster som körs. Log Analytics-arbetsytan konfigureras sedan för att samla in loggar från lagringskontot. Resurser som stöds är:
 
 * Klassiska cloud services (webb- och worker-roller)
 * Service fabric-kluster
 
 I följande exempel visas hur du:
 
-1. Lista över befintliga lagringskonton och platser som Log Analytics indexerar data från
+1. Lista över befintliga lagringskonton och platser som arbetsytan indexerar data från
 2. Skapa en konfiguration för att läsa från ett lagringskonto
 3. Uppdatera nyligen skapade konfigurationen att indexera data från fler platser
 4. Ta bort den nyligen skapade konfigurationen
@@ -250,7 +250,7 @@ I följande exempel visas hur du:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

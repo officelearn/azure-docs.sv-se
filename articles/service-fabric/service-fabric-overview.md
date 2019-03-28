@@ -15,18 +15,21 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4e686d314c1b6550c2c782e9a1e1dc681ff154e1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294441"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539691"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
 
 Denna korta video presenterar Service Fabric och mikrotjänster:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## <a name="compliance"></a>Efterlevnad
+Azure Service Fabric-Resursprovider är tillgänglig i alla Azure-regioner och är kompatibel med alla efterlevnad certifikat som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPPA och GDRP. Läs följande för en fullständig lista över efterlevnad certifikat: [Efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Program som består av mikrotjänster 
 Med Service Fabric kan du skapa och hantera skalbara och tillförlitliga program som består av mikrotjänster och som körs med hög densitet på en delad pool med datorer, som kallas ett kluster. Det ger en avancerad och lättviktig körning för att skapa distribuerade, skalbara, tillståndslösa och tillståndskänsliga mikrotjänster som körs i containrar. Det ger även omfattande funktioner för programhantering för att etablera, distribuera, övervaka, uppgradera/korrigera och ta bort distribuerade program, inklusive tjänster i containrar.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521101"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -104,6 +104,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
 * Recovery Services-valv – registrera dig i en [förhandsversion](#recovery-services-limitations).
+* SAP HANA på Azure
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
 * Service Bus
@@ -146,7 +147,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Lab Services – klassrum Labs kan inte flyttas till en ny resursgrupp eller prenumeration. DevTest Labs kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Managed Applications
 * Microsoft Genomics
-* SAP HANA på Azure
 * Säkerhet
 * Site Recovery
 * StorSimple Device Manager

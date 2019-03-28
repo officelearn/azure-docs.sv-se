@@ -1,6 +1,6 @@
 ---
 title: Självstudiekurs – Anpassa en virtuell Linux-dator med cloud-init i Azure | Microsoft Docs
-description: I den här kursen lär du dig att använda cloud-init och Key Vault för att anpassa virtuell Linux-datorer första gången de startas i Azure
+description: I den här självstudien får du lära dig hur du använder cloud-init och Key Vault för att anpassa virtuella Linux-datorer första gången de startas i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121272"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539368"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Testa webbappen
-Nu kan du öppna en webbläsare och ange *http://<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
+Nu kan du öppna en webbläsare och ange *http:\/\/\<publicIpAddress >* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
 
 ![Visa NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testa säker webbapp
-Nu kan du öppna en webbläsare och ange *https://<publicIpAddress>* i adressfältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
+Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress >* i adressfältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

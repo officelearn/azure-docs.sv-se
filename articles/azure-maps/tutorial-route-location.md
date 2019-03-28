@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b17a9660e16a1cb05c088e97d4ad18dd20fd4216
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588797"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540745"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -43,11 +43,11 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     <html>
     <head>
         <title>Map Route</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
@@ -88,11 +88,11 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     ```JavaScript
    //Instantiate a map object
    var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+           authType: 'subscriptionKey',
+           subscriptionKey: '<Your Azure Maps Key>'
+        }
    });
    ```
 
@@ -110,7 +110,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 
     ```JavaScript
     //Wait until the map resources have fully loaded.
-    map.events.add('load', function () {
+    map.events.add('load', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -158,7 +158,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 
     //Add the data to the data source.
     datasource.add([startPoint, endPoint]);
-    
+
     map.setCamera({
         bounds: atlas.data.BoundingBox.fromData([startPoint, endPoint]),
         padding: 80
@@ -179,7 +179,7 @@ Det här avsnittet visar hur du använder Azure Maps route service API för att 
 
 1. I funktionen GetMap lägger du till följande Javascript-kod.
 
-    ```Javascript
+    ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 
@@ -189,6 +189,7 @@ Det här avsnittet visar hur du använder Azure Maps route service API för att 
     // Construct the RouteURL object
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
+
    Den **SubscriptionKeyCredential** skapar en **SubscriptionKeyCredentialPolicy** att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den **atlas.service.MapsURL.newPipeline()** tar den **SubscriptionKeyCredential** princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den **routeURL** representerar en URL för Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
 2. När du har installerat autentiseringsuppgifter och URL: en, lägger du till följande JavaScript-kod för att konstruera vägen från start till slutpunkten. Den **routeURL** begäranden Azure Maps dirigera tjänsten för att beräkna riktningar i vägen. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod och läggs till i datakällan.
@@ -199,9 +200,9 @@ Det här avsnittet visar hur du använder Azure Maps route service API för att 
 
     //Make a search route request
     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
-      //Get data features from response
-      var data = directions.geojson.getFeatures(); 
-      datasource.add(data);
+        //Get data features from response
+        var data = directions.geojson.getFeatures();
+        datasource.add(data);
     });
     ```
 

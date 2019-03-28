@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087405"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541068"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData-uttryckssyntax för filter och order by-satser i Azure Search
 
@@ -128,10 +128,10 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ## <a name="filter-examples"></a>Filterexempel  
 
- Hitta alla hotels med en basavgift mindre än 100 som är klassificerade vid eller över 4:  
+ Hitta alla hotels med en basavgift mindre än 200 USD som är klassificerade vid eller över 4:  
 
 ```
-$filter=baseRate lt 100.0 and rating ge 4
+$filter=baseRate lt 200.0 and rating ge 4
 ```
 
  Hitta alla hotell än ”Roach Motel” som har varit renoverade sedan 2010:  
@@ -140,10 +140,10 @@ $filter=baseRate lt 100.0 and rating ge 4
 $filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
 ```
 
- Hitta alla hotell med en basavgift mindre än 200 USD som har varit renoverade sedan 2012 med en datetime-literalen som innehåller information om tidszonen för Pacific Standard Time:  
+ Hitta alla hotell med en basavgift mindre än 200 USD som har varit renoverade sedan 2010 med en datetime-literalen som innehåller information om tidszonen för Pacific Standard Time:  
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
 ```
 
  Hitta alla hotell som har parkeringssidans ingår och inte tillåter hälsan:  

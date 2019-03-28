@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078677"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519739"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logic apps i Visual Studio
 
@@ -42,6 +42,13 @@ ms.locfileid: "58078677"
   
     Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">hur du installerar tillägget från Visual Studio</a>. 
     Se till att starta om Visual Studio när installationen är klar.
+
+* Cloud Explorer för Visual Studio 2017 eller Visual Studio 2015
+
+  * Köra installationsprogrammet för Visual Studio för Visual Studio 2017 och installera den **arbetsbelastning för Azures**. Mer information finns i [hantera resurser som är associerade med din Azure accuonts i Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
+
+  * För Visual Studio 2015 [hämta Cloud Explorer från Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+  Mer information finns i [hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Åtkomst till Internet när du använder den inbäddade Logic Apps Designer
 

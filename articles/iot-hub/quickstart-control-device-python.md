@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
-ms.openlocfilehash: 801258f2f6f56fc3fd9e7c830e93bf0dbfa9c134
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/26/2019
+ms.openlocfilehash: ce3bf98a5f31f18c6759b202d53d8a1ced46296e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170368"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519671"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub (Python)
 
@@ -35,9 +35,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Python. Du behöver ha Python 2.7.x eller 3.5.x på utvecklingsdatorn.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Python. För närvarande stöder endast specifika versioner av Python för varje plattform med Microsoft Azure IoT SDK för Python. Mer information finns i den [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Du kan hämta Python för flera plattformar från [Python.org](https://www.python.org/downloads/).
+Den här snabbstarten förutsätter att du använder en Windows-utvecklingsdator. För Windows System [Python 3.6.x](https://www.python.org/downloads/release/python-368/) stöds. Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemet processorarkitektur är 32-bitars och sedan ladda ned x86 installer; ladda ned x86-64-installationsprogrammet för 64-bitars-arkitektur. Se även till den [Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
+
+Du kan hämta Python för andra plattformar från [Python.org](https://www.python.org/downloads/).
 
 Du kan kontrollera den aktuella versionen av Python på utvecklingsdatorn med någon av följande kommandon:
 

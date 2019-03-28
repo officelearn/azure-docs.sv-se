@@ -1,6 +1,6 @@
 ---
 title: Felsöka distribution Linux VM-problem i Azure | Microsoft Docs
-description: Felsöka distribution Linux VM-problem i Azurethe Resource Manager-distributionsmodellen.
+description: Felsöka distribution Linux VM-problem i Azure Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1317a4731d3598c5fba317167ba4a45d95823ca2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729718"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539827"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Felsöka distribution Linux VM-problem i Azure
 
@@ -32,11 +32,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret kan inte stöd för den begärda storleken för virtuell dator
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Gör om begäran med en mindre VM-storlek.
 - Om storleken på den begärda virtuella datorn inte kan ändras:
     - Stoppa alla virtuella datorer i tillgänglighetsuppsättningen. Klicka på **resursgrupper** > din resursgrupp > **resurser** > tillgänglighetsuppsättningen > **virtuella datorer** > den virtuella datorn >  **Stoppa**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Klustret har inte kostnadsfria resurser
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Försöka senare.
 - Om den nya virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning
     - Skapa en virtuell dator i en annan tillgänglighetsuppsättning (i samma region).

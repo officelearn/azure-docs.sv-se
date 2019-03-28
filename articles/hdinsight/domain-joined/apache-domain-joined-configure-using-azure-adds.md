@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 03/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b7364a2bb32f2d38f5cf9ddeddd5e4e1f928e01
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176182"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519807"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -87,7 +87,7 @@ När de virtuella nätverken har peerkopplats kan du konfigurera HDInsight VNET 
 
 ![Konfigurera anpassade DNS-servrar för peer-kopplade virtuella nätverket](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Om du använder regler för Nätverkssäkerhetsgrupper (NSG) i ditt HDInsight-undernät, bör du tillåta de [krävs för IP-adresser](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) för både inkommande och utgående trafik. 
+Om du använder regler för Nätverkssäkerhetsgrupper (NSG) i ditt HDInsight-undernät, bör du tillåta de [krävs för IP-adresser](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) för både inkommande och utgående trafik. 
 
 **Att testa** om ditt nätverk är korrekt konfigurerad, ansluta till en windows-dator till HDInsight VNET/undernätet och pinga domännamnet (det ska matcha en IP-adress) och kör sedan **ldp.exe** att få åtkomst till Azure AD-DS-domän. Sedan **ansluta till den här windows-dator till domänen för att bekräfta** att alla nödvändiga RPC-anrop lyckas mellan klienten och servern. Du kan också använda **nslookup** att bekräfta åtkomst till ditt storage-konto eller någon extern DB som du kan använda (till exempel externa Hive-metaarkiv eller Ranger DB).
 Bör du se till att alla de [krävs portar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) är vitlistade i AAD-DS-undernät nätverkssäkerhetsgruppsregler, om AAD-DS skyddas av en NSG. Om domänanslutning av den här windows VM lyckas kan du gå vidare till nästa steg och skapa ESP-kluster.

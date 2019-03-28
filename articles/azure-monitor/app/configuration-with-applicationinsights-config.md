@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214580"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522255"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
@@ -30,14 +30,14 @@ Det finns inte en motsvarande fil att styra den [SDK på en webbsida][client].
 Det här dokumentet beskrivs i avsnitt som du ser i konfigurationen fil, hur de kontrollera komponenterna i SDK, och vilka NuGet-paket läsa in dessa komponenter.
 
 > [!NOTE]
-> ApplicationInsights.config och .xml instruktioner gäller inte för .NET Core SDK. Ändringar till en .NET Core-program använder vi vanligtvis filen appsettings.json. Ett exempel på detta finns i den [Snapshot Debugger-dokumentationen.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> ApplicationInsights.config och .xml instruktioner gäller inte för .NET Core SDK. Ändringar till en .NET Core-program använder vi vanligtvis filen appsettings.json. Ett exempel på detta finns i den [Snapshot Debugger-dokumentationen.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri moduler (ASP.NET)
 Varje modul telemetri samlar in en viss typ av data och använder core API för att skicka data. Modulerna som installeras av olika NuGet-paket, som också lägga till raderna som behövs i .config-filen.
 
 Det finns en nod i konfigurationsfilen för varje modul. Om du vill inaktivera en modul, ta bort noden eller kommentera ut.
 
-### <a name="dependency-tracking"></a>Beroendespårning
+### <a name="dependency-tracking"></a>Dependency Tracking
 [Beroendespårning](../../azure-monitor/app/asp-net-dependencies.md) samlar in telemetri om anrop som din app som gör att databaser och externa tjänster och -databaser. Om du vill tillåta den här modulen ska fungera i en IIS-server, måste du [installera Status Monitor][redfield]. Kan använda dem med Azure web apps eller virtuella datorer, [Välj Application Insights-tillägget](azure-web-apps.md).
 
 Du kan också skriva egna beroendespårning kod med hjälp av den [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
@@ -63,7 +63,7 @@ Den `DiagnosticsTelemetryModule` rapporterar fel i själva koden berörs instrum
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet-paketet
 
-### <a name="web-request-tracking"></a>Webbegäran spårning
+### <a name="web-request-tracking"></a>Web Request Tracking
 Rapporter i [tid och resultatet svarskod](../../azure-monitor/app/asp-net.md) för HTTP-begäranden.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`

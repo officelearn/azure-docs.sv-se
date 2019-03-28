@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 2fc881aac096ccbafa351fcac2d726cc51d8f178
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 7d5c0a2a05bbdb19681641f53fb4e1cfcf30f6ca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519977"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
@@ -108,6 +108,11 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Du kan också köra `sudo yum update` kan också uppdatera klientpaketet för certifikat (beroende på din RHEL-version), trots de ”utgånget SSL-certifikat” fel visas för andra databaser. Om den här uppdateringen lyckas normala anslutning till andra RHUI-databaser ska återställas, så att du kommer att kunna köra `sudo yum update` har.
 
+Om du får ett 404-fel när du kör en `yum update`, prova följande för att uppdatera din yum-cache:
+```bash
+sudo yum clean all;
+sudo yum makecache
+```
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Felsök anslutningsproblem till Azure RHUI
 Om du får problem med att ansluta till Azure RHUI från Azure RHEL PAYG-VM, gör du följande:

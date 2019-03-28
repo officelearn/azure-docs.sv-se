@@ -8,27 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634634"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521208"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
 
-Lär dig hur du kör MapReduce-jobb på HDInsight-kluster. Använd följande tabell för att identifiera de olika sätt att du kan använda MapReduce med HDInsight:
-
-| **Använd det här**... | **...Om du vill göra detta** | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Använd kommandot Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet via en fjärranslutning med hjälp av **REST** (exempel använder vi cURL) |Linux eller Windows |Linux, Unix, Mac OS X eller Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet via en fjärranslutning med hjälp av **Windows PowerShell** |Linux eller Windows |Windows |
-
-> [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+Lär dig hur du kör MapReduce-jobb på HDInsight-kluster. 
 
 ## <a id="whatis"></a>Vad är MapReduce
 
@@ -40,7 +30,7 @@ Apache Hadoop MapReduce är ett ramverk för programvara för att skriva jobb so
 
 Ett grundläggande word antal MapReduce-jobb exempel illustreras i följande diagram:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 Utdata för jobbet är en uppräkning av hur många gånger varje ord uppstod i texten.
 
@@ -162,9 +152,6 @@ HDInsight kan köra HiveQL jobb med hjälp av olika metoder. Använd följande t
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Använd kommandot Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X eller Windows |
 | [CURL](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet via en fjärranslutning med hjälp av **REST** |Linux eller Windows |Linux, Unix, Mac OS X eller Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet via en fjärranslutning med hjälp av **Windows PowerShell** |Linux eller Windows |Windows |
-
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Nästa steg
 

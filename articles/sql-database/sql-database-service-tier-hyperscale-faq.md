@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075943"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540677"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -216,7 +216,7 @@ Nej. Du kan inte flytta en storskalig databas till en annan tjänstenivå i offe
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Jag förlora några funktioner eller funktioner efter migrering till hyperskala tjänstnivån
 
-Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala för allmänt tillgängliga förhandsversionen, inklusive men inte begränsat till TDE och lång sikt kvarhållning säkerhetskopiering. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.
+Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala allmänt tillgängliga förhandsversionen, inklusive men inte begränsat till long term kvarhållning backup. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Jag kan flytta min lokala SQL Server-databas eller SQL Server VM-databasen till hyperskala
 

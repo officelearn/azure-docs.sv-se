@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848081"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518838"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>Utlösare
 
-Funktioner måste vara offentliga metoderna och måste ha ett utlösarattribut eller [ `NoAutomaticTrigger` ](#manual-trigger) attribut.
+Funktioner måste vara offentliga metoderna och måste ha ett utlösarattribut eller [ `NoAutomaticTrigger` ](#manual-triggers) attribut.
 
 ### <a name="automatic-triggers"></a>Automatisk utlösare
 
@@ -995,7 +995,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-Den `SamplingPercentageEstimatorSettings` objekt konfigurerar [Adaptiv sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). Det innebär att i vissa scenarier med hög volym program Insights skickar en valda delmängd av dessa data till servern.
+Den `SamplingPercentageEstimatorSettings` objekt konfigurerar [Adaptiv sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). Det innebär att i vissa scenarier med hög volym program Insights skickar en valda delmängd av dessa data till servern.
 
 När du har skapat telemetri fabriken kan ange du i till Application Insights loggningsprovider:
 

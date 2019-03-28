@@ -2,27 +2,27 @@
 title: Skapa TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse | Microsoft Docs
 description: Tips för kodning med instruktionen CREATE TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/26/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b66b6018ed5f6f427896db00b5348983b76a0e5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f791f460efec1b84533379e74add003619dbac6f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472158"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521575"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Med CREATE TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse
 Tips för kodning med CREATE TABLE AS SELECT (CTAS) T-SQL-instruktionen i Azure SQL Data Warehouse för utveckling av lösningar.
 
 ## <a name="what-is-create-table-as-select-ctas"></a>Vad är CREATE TABLE AS SELECT (CTAS)?
 
-Den [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller CTAS-utdraget är en av de viktigaste T-SQL-funktionerna tillgängliga. Det är en parallell åtgärd som skapar en ny tabell baserat på resultatet av en SELECT-instruktion. CTASD är det enklaste och snabbaste sättet att skapa en kopia av en tabell. 
+Den [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller CTAS-utdraget är en av de viktigaste T-SQL-funktionerna tillgängliga. Det är en parallell åtgärd som skapar en ny tabell baserat på resultatet av en SELECT-instruktion. CTAS är det enklaste och snabbaste sättet att skapa och infoga data i en tabell med ett enda kommando. 
 
 ## <a name="selectinto-vs-ctas"></a>VÄLJ... I vs. CTAS
 Du kan överväga att CTAS som en blixtsnabb debiteras version av den [Välj... I](/sql/t-sql/queries/select-into-clause-transact-sql) instruktionen.
@@ -35,11 +35,10 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-I föregående exempel `[dbo].[FactInternetSales_new]` skapas som ROUND_ROBIN distribuerad tabell med ett GRUPPERAT COLUMNSTORE-INDEX eftersom det här är standardinställningarna för tabell i Azure SQL Data Warehouse.
+VÄLJ... TILL, men tillåter inte att du kan ändra metod för programvarudistribution eller Indextypen som en del av åtgärden. `[dbo].[FactInternetSales_new]` skapas med hjälp av typ av distribution som ROUND_ROBIN och standard tabellstrukturen som KLUSTRADE COLUMNSTORE-INDEX.
 
-VÄLJ... TILL, men tillåter inte att du kan ändra metod för programvarudistribution eller Indextypen som en del av åtgärden. Det här är här CTAS kommer in.
-
-Om du vill konvertera föregående exempel till CTAS är ganska enkel och tydlig:
+Med hjälp av CTAS, kan du ange både fördelningen av tabelldata, samt struktur tabelltyp.
+Så här konverterar föregående exempel till CTAS:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,7 +53,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Med CTAS ska du kunna ändra båda fördelningen av tabelldata, samt tabelltypen. 
+ 
 
 > [!NOTE]
 > Om du bara vill ändra index i din `CTAS` åtgärden och källtabellen är hash-distribueras sedan din `CTAS` åtgärden utförs bäst om du behåller samma kolumn och data distributionstypen. På så sätt undviker mellan distribution dataförflyttning under åtgärden som är mer effektivt.
@@ -62,7 +61,7 @@ Med CTAS ska du kunna ändra båda fördelningen av tabelldata, samt tabelltypen
 > 
 
 ## <a name="using-ctas-to-copy-a-table"></a>Använda CTAS för att kopiera en tabell
-Kanske en av de vanligaste användningsområdena för `CTAS` skapar en kopia av en tabell så att du kan ändra DDL. Om till exempel din tabell som ursprungligen skapades `ROUND_ROBIN` och nu vill ändra den till en tabell som distribueras på en kolumn, `CTAS` är hur du ändrar kolumnen distribution. `CTAS` kan också användas för att ändra typer av partitionering, indexering eller kolumn.
+Kanske en av de vanligaste användningsområdena för `CTAS` skapar en kopia av en tabell så att du kan ändra DDL. Om du till exempel du skapade tabellen som `ROUND_ROBIN` och nu vill ändra den till en tabell som distribueras på en kolumn, `CTAS` är hur du ändrar kolumnen distribution. `CTAS` kan också användas för att ändra typer av partitionering, indexering eller kolumn.
 
 Anta att du har skapat den här tabellen med hjälp av standardtyp för distribution av `ROUND_ROBIN` distribueras eftersom ingen distributionskolumn har angetts i den `CREATE TABLE`.
 
@@ -95,7 +94,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Nu vill du skapa en ny kopia av den här tabellen med ett grupperat Columnstore-Index så att du kan dra nytta av prestanda för grupperade Columnstore-tabeller. Du vill distribuera den här tabellen på ProductKey eftersom du kommer kopplingar till den här kolumnen och vill undvika dataförflyttning under kopplingar till ProductKey. Till sist vill du också lägga till partitionering på OrderDateKey så att du snabbt kan ta bort gamla data genom att släppa gamla partitioner. Här är CTAS-utdraget som kopierar din gamla tabell till en ny tabell.
+Nu vill du skapa en ny kopia av den här tabellen med ett grupperat Columnstore-Index så att du kan dra nytta av prestanda för grupperade Columnstore-tabeller. Du vill distribuera den här tabellen på ProductKey eftersom du kommer kopplingar till den här kolumnen och vill undvika dataförflyttning under kopplingar till ProductKey. Till sist vill du också lägga till partitionering på OrderDateKey så att du snabbt kan ta bort gamla data genom att släppa gamla partitioner. Här är den CTAS-instruktionen, som kopierar din gamla tabell till en ny tabell.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -125,13 +124,8 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [!NOTE]
-> SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik.  För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar.  En detaljerad förklaring av statistik finns i avsnittet [Statistics] [Statistics] i ämnesgruppen utveckla.
-> 
-> 
-
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Använda CTAS för att undvika funktioner som inte stöds
-CTAS kan också användas för att undvika ett antal stöds inte funktionerna i listan nedan. Detta kan ofta visar sig vara en win/win-situation som inte bara din kod är kompatibla men ofta körs snabbare på SQL Data Warehouse. Det här är ett resultat av dess fullständigt parallelliserad design. Scenarier som går att arbeta runt med CTAS är:
+CTAS kan också användas för att undvika ett antal stöds inte funktionerna i listan nedan. Den här metoden kan ofta visar sig vara en win/win-situation som inte bara din kod är kompatibla men ofta körs snabbare på SQL Data Warehouse. Den här prestanda beror på dess fullständigt parallelliserad design. Scenarier som går att arbeta runt med CTAS är:
 
 * ANSI kopplingar på uppdateringar
 * ANSI kopplingar till borttagningar
@@ -222,7 +216,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI join ersättning för delete-instruktioner
-Ibland den bästa metoden för att ta bort data är att använda `CTAS`. Välj de data som du vill behålla i stället för att helt enkelt ta bort data. Den här särskilt för `DELETE` instruktioner som använder ansi sammanbinder syntax eftersom SQL Data Warehouse inte stöder ANSI kopplingar i den `FROM` -satsen för en `DELETE` instruktionen.
+Ibland den bästa metoden för att ta bort data är att använda `CTAS`. Välj de data som du vill behålla i stället för att ta bort data. Detta gäller särskilt för `DELETE` instruktioner som använder ANSI join syntax eftersom SQL Data Warehouse inte stöder kopplingar av ANSI i den `FROM` -satsen för en `DELETE` instruktionen.
 
 Ett exempel på en konverterade DELETE-instruktion finns nedan:
 
@@ -246,9 +240,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Ersätt merge-instruktioner
-Merge-instruktioner kan ersättas, minst i en del, med hjälp av CTAS. Du kan konsolidera INSERT och UPDATE till en enskild instruktion. Alla borttagna poster måste vara stängda i en andra instruktionen.
+Merge-instruktioner kan ersättas, minst i en del, med hjälp av CTAS. Du kan konsolidera INSERT och UPDATE till en enskild instruktion. Alla borttagna poster ska hindras från att den `SELECT` -uttryck som ska uteslutas från resultaten.
 
-Följande är ett exempel på en UPSERT:
+I följande exempel är för en UPSERT:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -281,7 +275,7 @@ RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
 ## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>CTAS rekommendation: Uttryckligen ange datatyp och Nullbarheten för utdata
-När du migrerar kod kanske du upptäcker att du kör i den här typen av mönster för kodning:
+När du migrerar kod, kanske du upptäcker att du kör i den här typen av mönster för kodning:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -327,15 +321,15 @@ from ctas_r
 ;
 ```
 
-Värdet lagras i resultatet är olika. Felet blir ännu mer betydande beständiga värdet i resultatkolumnen används i andra uttryck.
+Värdet lagras i resultatet är olika. Felet blir ännu viktigare när beständiga värdet i resultatkolumnen används i andra uttryck.
 
 ![CTAS resultat](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
 Detta är särskilt viktigt för migrering av data. Även om den andra frågan är utan tvekan exaktare finns det ett problem. Data som skulle vara olika jämfört med källsystemet och som leder till frågor om integriteten i migreringen. Detta är en av dessa sällsynta fall där ”fel” svaret är faktiskt det rätt!
 
-Det vi se den här diskrepans mellan de två resultaten beror till implicit typ omvandling. I det första exemplet definierar tabellen kolumndefinitionen. När rad infogas görs en implicit typkonvertering. I det andra exemplet finns det ingen implicit typkonvertering som uttrycket definierar datatypen för kolumnen. Observera också att kolumnen i det andra exemplet har definierats som en nullbar kolumn i det första exemplet har den inte. När tabellen har skapats i den första exemplet Nullbarheten definierades uttryckligen. I andra skulle meddelandet är bara kvar uttryck och som standard det här exemplet resultera i en NULL-definition.  
+Det vi se den här diskrepans mellan de två resultaten beror till implicit typ omvandling. I det första exemplet definierar tabellen kolumndefinitionen. När raden infogas, sker en implicit typkonvertering. I det andra exemplet finns det ingen implicit typkonvertering som uttrycket definierar datatypen för kolumnen. Observera också att kolumnen i det andra exemplet har definierats som en nullbar kolumn i det första exemplet har den inte. När tabellen skapades i det första exemplet definierades uttryckligen Nullbarhet. I det andra exemplet lämnades uttryck och som standard, skulle resultera i en NULL-definition.  
 
-Lös problemen måste anges explicit typkonvertering och möjligt nullvärde i väljer delen av CTAS-utdraget. Du kan inte ange dessa egenskaper i Skapa tabell-del.
+Lös problemen, måste du uttryckligen ange typkonvertering och möjligt nullvärde i väljer delen av CTAS-utdraget. Du kan inte ange dessa egenskaper i Skapa tabell-del.
 
 Exemplet nedan visar hur du åtgärdar koden:
 
@@ -386,7 +380,7 @@ WITH
 
 Värdefältet är dock ett beräknat uttryck inte är en del av datakällan.
 
-Skapa din partitionerade datauppsättning som du kanske vill göra detta:
+För att skapa din partitionerade datauppsättning, kanske du vill göra följande:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,7 +404,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-Frågan körs perfekt bra. Problemet är när du försöker utföra partitionsväxeln. Tabelldefinitionerna stämmer inte överens. Om du vill göra tabelldefinitionerna som matchar CTAS ska ändras.
+Frågan körs perfekt bra. Problemet är när du försöker utföra partitionsväxeln. Tabelldefinitionerna stämmer inte överens. Om du vill göra tabelldefinitionerna som matchar CTAS måste ändras för att lägga till en `ISNULL` funktionen för att bevara den kolumnen nullbarhetsattribut.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -435,7 +429,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Du kan se därför att typen konsekvens och underhålla Nullbarheten egenskaper på en CTAS är bra engineering bästa praxis. Det hjälper dig för att upprätthålla integriteten i beräkningarna och säkerställer också att växla partition är möjligt.
 
-Finns det [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) dokumentation. Det är en av de viktigaste rapporterna i Azure SQL Data Warehouse. Kontrollera att du verkligen förstår.
+Referera till den [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) dokumentation. Det är en av de viktigaste rapporterna i Azure SQL Data Warehouse. Kontrollera att du verkligen förstår.
 
 ## <a name="next-steps"></a>Nästa steg
 Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).

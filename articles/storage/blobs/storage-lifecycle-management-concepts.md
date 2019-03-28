@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500431"
+ms.locfileid: "58522221"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob storage livscykel
 
@@ -227,7 +227,7 @@ Det här exemplet visar hur du övergår blockblob-objekt med prefixet `containe
 
 ### <a name="archive-data-at-ingest"></a>Arkivera data vid inmatning 
 
-Vissa data förblir inaktiva i molnet och är data som sällan, kanske aldrig, en gång lagras. Arkivera data omedelbart när det matas in. Följande livscykelprincipen har konfigurerats för att arkivera data vid inmatning. Det här exemplet övergångar blockblobbar i storage-konto i behållaren `archivecontainer` direkt till en arkivnivån. Omedelbar övergången görs genom att fungera för blobbar 0 dagar efter tid för senaste ändring:
+Vissa data förblir inaktiva i molnet och är data som sällan, kanske aldrig, en gång lagras. Följande livscykelprincipen har konfigurerats för att arkivera data när det matas in. Det här exemplet övergångar blockblobbar i storage-konto i behållaren `archivecontainer` i en arkivnivån. Övergången görs genom att fungera för blobbar 0 dagar efter tid för senaste ändring:
 
 ```json
 {

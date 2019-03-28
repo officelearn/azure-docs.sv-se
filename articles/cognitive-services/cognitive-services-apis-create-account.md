@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472862"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519909"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
@@ -33,27 +33,6 @@ Innan du börjar är det viktigt att veta att det finns två typer av Azure Cogn
 
 I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster prenumeration.
 
-### <a name="single-service-subscription"></a>En tjänst-prenumeration
-
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **+ skapa en resurs**.
-
-    ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. Under Azure Marketplace, väljer **AI + Maskininlärning**. Om du inte ser den tjänst som du är intresserad av, klickar du på **se alla** att visa hela katalogen med Cognitive Services API: er.
-
-    ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. På den **skapa** anger du följande information:
-
-    |    |    |
-    |--|--|
-    | **Namn** | Ett beskrivande namn för din resurs för cognitive services. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyNameFaceAPIAccount*. |
-    | **Prenumeration** | Välj en av dina tillgängliga Azure-prenumerationer. |
-    | **Plats** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
-    | **prisnivå** | Kostnaden för Cognitive Services-kontot beror på de alternativ du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
-
-    ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ### <a name="multi-service-subscription"></a>Flera tjänster prenumeration
 
@@ -80,6 +59,28 @@ I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster pre
     | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
 
     ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
+
+### <a name="single-service-subscription"></a>En tjänst-prenumeration
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **+ skapa en resurs**.
+
+    ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreen.png)
+
+2. Under Azure Marketplace, väljer **AI + Maskininlärning**. Om du inte ser den tjänst som du är intresserad av, klickar du på **se alla** att visa hela katalogen med Cognitive Services API: er.
+
+    ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
+
+3. På den **skapa** anger du följande information:
+
+    |    |    |
+    |--|--|
+    | **Namn** | Ett beskrivande namn för din resurs för cognitive services. Vi rekommenderar att du använder ett beskrivande namn, till exempel *MyNameFaceAPIAccount*. |
+    | **Prenumeration** | Välj en av dina tillgängliga Azure-prenumerationer. |
+    | **Plats** | Platsen för din cognitive service-instans. Olika platser kan introducera svarstid, men har ingen inverkan på runtime tillgängligheten för din resurs. |
+    | **prisnivå** | Kostnaden för Cognitive Services-kontot beror på de alternativ du väljer och din användning. Mer information finns i API: et [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Resursgrupp** | Den [Azure-resursgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) som innehåller din resurs för Cognitive Services. Du kan skapa en ny grupp eller lägga till den i en befintlig grupp. |
+
+    ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>Komma åt din resurs
 

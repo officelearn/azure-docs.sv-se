@@ -4,14 +4,14 @@ description: Lär dig hur du ställer in dataflöde för Azure Cosmos-behållare
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005071"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520912"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -75,6 +75,20 @@ Du kan kombinera de två modellerna. Etablering dataflöde på både databasen o
 * Du kan uttryckligen konfigurera ru: er ”P” för etablerat dataflöde på behållaren med namnet B.
 * Dataflödet ”K” ru: er delas mellan de fyra behållarna A, C, D och E. Den exakta mängden dataflöde tillgängliga till A, C, D eller E-varierar. Det finns inga serviceavtal för dataflöden i varje behållare.
 * Behållaren med namnet på B är säkert att hämta dataflödet ”P” ru: er hela tiden. Den understöds av serviceavtal.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Uppdatera dataflöde på en databas eller en behållare
+
+När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade dataflödet. Det finns ingen gräns för det högsta etablerade dataflödet som du kan konfigurera i databasen eller behållaren. Det minsta etablerade dataflödet beror på följande faktorer: 
+
+* Den maximala Datastorleken som du lagrar någonsin i behållaren
+* Den största möjliga dataflöde som du etablerar någonsin på behållaren
+* Det maximala antalet Azure Cosmos-behållare som du vilja skapa i en databas med delade dataflöde. 
+
+Du kan hämta den minsta genomströmningen i en behållare eller en databas via programmering med hjälp av SDK: erna eller visa värdet i Azure-portalen. När du använder .NET SDK, den [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) metod kan du skala dataflöde värdet. När du använder Java-SDK i [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) metod kan du skala dataflöde värdet. 
+
+När du använder .NET SDK, den [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) metod kan du hämta den minsta genomströmningen i en behållare eller en databas. 
+
+Du kan skala det etablerade dataflödet i en behållare eller en databas när som helst. Du kan köra skala ned igen efter den inaktiva i 4 timmar. Inaktiv tid definieras som tid period när det inte fanns inget erbjudande Ersätt-åtgärder (vilket innefattar skala upp och skala ned) i en behållare eller en databas. 
 
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 

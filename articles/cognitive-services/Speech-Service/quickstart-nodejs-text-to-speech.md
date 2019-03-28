@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872654"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520844"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snabbstart: Omvandla text till tal med hjälp av Node.js
 
@@ -82,7 +82,7 @@ I nästa avsnitt ska vi skapa funktionen för att anropa text till tal-API och s
 
 Här ska du skapa begäran text till tal-API: et och spara svaret tal. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `uri`. Mer information finns i [Speech Services regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Skapa sedan begärandetexten med tal syntes Markup Language (SSML). Det här exemplet definierar strukturen och använder den `text` indata du skapade tidigare.
 
@@ -187,6 +187,6 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
 * [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

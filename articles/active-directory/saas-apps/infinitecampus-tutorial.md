@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7d194d810e0fd3b9fb57b0876bee12447f65c6
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885075"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integrering med oändlig Campus
 
@@ -90,7 +90,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med oändlig Campus, 
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en oändlig Campus testanvändare](#creating-a-infinite-campus-test-user)**  – du har en motsvarighet för Britta Simon i oändlig Campus som är länkad till en Azure AD-representation av användaren.
+3. **[Skapa en oändlig Campus testanvändare](#creating-an-infinite-campus-test-user)**  – du har en motsvarighet för Britta Simon i oändlig Campus som är länkad till en Azure AD-representation av användaren.
 4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 

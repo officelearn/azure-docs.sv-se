@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113353"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539980"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure dedikerad HSM-distribution-arkitektur
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure dedikerad HSM distribution-arkitektur
 
 Azure dedikerad HSM tillhandahåller lagring av kryptografiska nycklar i Azure. Den uppfyller stränga säkerhetskrav. Kunderna kommer ha nytta av Azure dedikerad HSM om de:
 
@@ -37,6 +37,12 @@ HSM: erna är fördelade på Microsofts datacenter och enkelt kan etableras som 
 * Östasien
 * Norra Europa
 * Västra Europa
+* Storbritannien, södra
+* Storbritannien, västra
+* Centrala Kanada
+* Östra Kanada
+* Östra Australien
+* Sydöstra Australien
 
 Var och en av dessa regioner har HSM rack som distribueras i två oberoende Datacenter eller minst två oberoende tillgänglighetszoner. Sydostasien har tre tillgänglighetszoner och östra USA 2 har två. Det finns totalt åtta regioner i Europa, östra och USA som erbjuder dedikerad HSM-tjänst. Mer information om Azure-regioner finns i officiellt [Azure-regioner information](https://azure.microsoft.com/global-infrastructure/regions/).
 Vissa design faktorer för alla dedikerad HSM-baserade lösningar är plats/fördröjning och hög tillgänglighet och stöd för andra distribuerade program.

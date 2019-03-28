@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726880"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540048"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mappningen Dataomvandling Flow Join
 
@@ -67,6 +67,10 @@ Du kan uppnå självkoppling villkor i ADF dataflöde med hjälp av väljer omva
 ![Självkoppling](media/data-flow/selfjoin.png "självkoppling")
 
 I diagrammet ovan är väljer vi högst upp. Alla avbrytas är alias ursprungliga direkt för att ”OrigSourceBatting”. Du kan se att vi använder dataströmmen väljer alias som kopplingen till höger så att vi kan referera till samma nyckel i både vänster och höger sida av den inre koppling används i den markerade Join-transformeringen under den.
+
+## <a name="composite-and-custom-keys"></a>Sammansatt och anpassade nycklar
+
+Du kan skapa anpassade och sammansatta nycklar direkt i Join-omvandling. Lägg till rader för ytterligare kopplingskolumner med plustecken (+) bredvid varje rad i relationen. Eller en ny nyckelvärdet i Uttrycksverktyget för ett värde på direkt koppling för beräkning.
 
 ## <a name="next-steps"></a>Nästa steg
 

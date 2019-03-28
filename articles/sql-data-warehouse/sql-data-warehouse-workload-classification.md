@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994009"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520151"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse arbetsbelastning klassificering (förhandsversion)
 
@@ -33,6 +33,8 @@ Klassificering för hantering av arbetsbelastning kan arbetsbelastningen princip
 Det finns många sätt att klassificera arbetsbelastningar i informationslager, är den enklaste och vanligaste klassificeringen belastning och fråga. Du läser in data med insert-, update- och delete-instruktioner.  Du fråga data med väljer. En datalagerlösning har ofta en princip för arbetsbelastningen för load-aktivitet, till exempel tilldela en högre resursklass med mer resurser. En princip för olika arbetsbelastningar kan gälla frågor, till exempel lägre prioritet jämfört med för att läsa in aktiviteter.
 
 Du kan också subclassify belastning och fråga arbetsbelastningar. Etablering ger mer kontroll över dina arbetsbelastningar. Frågearbetsbelastningar kan exempelvis bestå av kuben uppdateras, instrumentpanelen frågor eller ad hoc-frågor. Du kan klassificera var och en av dessa fråga arbetsbelastningar med olika resursklasser eller prioritetsinställningar. Belastningen kan också dra nytta av etablering. Stora omvandlingar kan tilldelas till större resursklasser. Högre prioritet kan användas för att säkerställa att viktiga försäljningsdata är inläsaren innan weather-data eller en sociala data feed.
+
+Inte alla instruktioner som klassificerats som de inte kräver resurser eller behöver prioritet att påverka körning.  DBCC-kommandon, inte klassificeras BEGIN, COMMIT och ROLLBACK TRANSACTION-instruktioner.
 
 ## <a name="classification-process"></a>Klassificeringsprocessen för
 

@@ -1,21 +1,19 @@
 ---
 title: Interagera med rapporter med JavaScript API | Microsoft Docs
 description: Med Power BI JavaScript API kan du enkelt bädda in Power BI-rapporter i dina program.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 47bfdc3afed5fd17d7df98c6664e58374410a7f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883805"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522051"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagera med Power BI-rapporter med JavaScript API
 

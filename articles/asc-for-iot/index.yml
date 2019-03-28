@@ -1,0 +1,67 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542241"
+documentType: LandingData
+title: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT
+metadata:
+  title: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT – självstudier, snabbstarter | Microsoft Docs
+  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  services: ascforiot
+  author: mlottner
+  manager: barbkess
+  ms.service: ascforiot
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/19
+  ms.author: barbkess
+abstract:
+  description: Använd förhandsversionen av Azure Security Center för IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg. 
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du aktiverar IoT Hub till ASC för IoT, installerar ASC för IoT-agenter och får överblick över dina data och potentiella hot.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/deploy.svg
+      text: Aktivera ASC för IoT
+      href: /azure/ascforiot/quickstart-onboard-iot-hub
+    - image:
+        src: media/index/get-started.svg
+      text: Komma igång med ASC för IoT
+      href: /azure/ascforiot/quickstart-getting-started
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig att definiera säkerhetsprinciper, skydda dina enheter mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/ascforiot/tutorial-investigate-device">Identifiera hot med ASC för IoT</a>
+- title: Utveckla dina färdigheter med Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduktion till säkerhet i Azure
+      href: https://docs.microsoft.com/learn/azure
+      image:
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">Mer interaktiv inlärning...</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Tjänstuppdateringar</a>

@@ -18,6 +18,8 @@ ms.author: carolz
 
 Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
+**Obs!** Inga nya funktioner läggs till i Media Services v2. Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Kolla även in [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
@@ -66,7 +68,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med Azure Media Services med hjälp av Azure Portal</h3>
+                        <h3>Komma igång med Azure Media Services med hjälp av Azure-portalen</h3>
                     </div>
                 </div>
             </div>
@@ -84,7 +86,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Skapa ett Azure Media Services-konto med hjälp av Azure Portal</h3>
+                        <h3>Skapa ett Media Services-konto med Azure-portalen</h3>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med att leverera innehåll med hjälp av Azure Portal</h3>
+                        <h3>Komma igång med att leverera innehåll med hjälp av Azure-portalen</h3>
                     </div>
                 </div>
             </div>

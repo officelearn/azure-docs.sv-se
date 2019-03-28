@@ -1,0 +1,75 @@
+items:
+- name: Dokumentation om förhandsversionen av ASC för IoT
+  href: index.yml
+- name: Översikt
+  href: overview.md
+  items:
+  - name: Lösningsarkitektur
+    href: architecture.md
+  - name: Säkerhetsagenter
+    href: security-agent-architecture.md
+  - name: Förutsättningar för tjänsten
+    href: service-prerequisites.md
+  - name: Komma igång med ASC för IoT
+    href: getting-started.md
+- name: Snabbstarter
+  items:
+  - name: Aktivera ASC för IoT i IoT Hub
+    href: quickstart-onboard-iot-hub.md
+  - name: Konfigurera lösningen
+    href: quickstart-configure-your-solution.md
+  - name: Skapa en ASC för IoT-modultvilling
+    href: quickstart-create-security-twin.md
+  - name: Skapa anpassade säkerhetsaviseringar
+    href: quickstart-create-custom-alerts.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Distribuera säkerhetsagenter
+    items:
+    - name: Distribuera en C#-baserad säkerhetsagent på en Windows-enhet
+      href: tutorial-deploy-windows-cs.md
+    - name: Distribuera en C#-baserad säkerhetsagent på en Linux-enhet
+      href: tutorial-deploy-linux-cs.md
+    - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
+      href: tutorial-deploy-linux-c.md
+  - name: Undersöka en enhet
+    href: tutorial-investigate-device.md
+  - name: Skicka dina egna säkerhetsmeddelanden
+    href: tutorial-send-security-messages.md
+- name: Begrepp
+  items:
+  - name: Vilken agent ska jag distribuera?
+    href: select-deploy-agent.md
+  - name: Konfigurera säkerhetsagenter
+    href: concept-agent-configuration.md
+  - name: Autentisering av säkerhetsagent
+    href: concept-security-agent-authentication-methods.md
+  - name: Säkerhetsmodul
+    href: concept-security-module.md
+  - name: Säkerhetsaviseringar
+    href: concept-security-alerts.md
+  - name: Säkerhetsrekommendationer
+    href: concept-recommendations.md
+- name: Instruktionsguider
+  items:
+  - name: Få åtkomst till råsäkerhetsdata
+    href: how-to-security-data-access.md
+  - name: Ändra en säkerhetsmodultvilling
+    href: how-to-modify-security-module-twin.md
+- name: Resurser
+  items:
+  - name: Vanliga frågor och svar
+    href: resources-frequently-asked-questions.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blogg om säkerhet, sekretess och efterlevnad i Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541338"

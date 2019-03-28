@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250690"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519943"
 abstract:
   description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser med hjälp av dessa Azure Machine Learning-produkter.  Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
 documentType: LandingData
@@ -38,8 +38,8 @@ sections:
   - text: <b>Snabbstarter:</b>
     type: paragraph
   - items:
-    - html: <a href="service/quickstart-create-workspace-with-python">Använda Python för att komma igång</a>
-    - html: <a href="service/quickstart-get-started">Använda Microsoft Azure-portalen för att komma igång</a>
+    - html: <a href="service/quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs)
+    - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
     style: unordered
     type: list
   - text: <b>Självstudie för avbildningsklassificering med MNIST-data:</b>

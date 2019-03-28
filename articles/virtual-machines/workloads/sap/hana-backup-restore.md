@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107737"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541238"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 Information om parametrarna är följande: 
 
 - Den första parametern karaktäriserar typen av ögonblicksbild-säkerhetskopiering. De värden som tillåts är **hana**, **loggar**, och **Start**. 
-- Parametern **<HANA Large Instance Type>** krävs för start volymen säkerhetskopieringar. Det finns två giltiga värden med ”TypeI” eller ”TypeII” beroende på den HANA stora instans enheten. Att ta reda på vilken typ din enhet är finns i [SAP HANA (stora instanser) översikt och arkitektur på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Parametern **< snapshot_prefix >** är en ögonblicksbild eller säkerhetskopiering etiketten för typ av ögonblicksbild. Den har två syften: en är att ge den ett namn så att du vet vad de här ögonblicksbilderna om. Andra syftet är att skriptet *azure\_hana\_backup.pl* att fastställa antalet ögonblicksbilder av lagring som bevaras under specifika etiketten. Om du schemalägger två säkerhetskopior på grund av storage-ögonblicksbilder av samma typ (t.ex. **hana**), med två olika etiketter och definiera att 30 ögonblicksbilder ska finnas för varje kan du få 60 storage-ögonblicksbilder av volymerna som påverkas. Endast alfanumeriska (”A-Z, a-z, 0-9”), understreck (”_”) och bindestreck (”-”) tecken tillåts. 
-- Parametern **< snapshot_frequency >** är reserverad för framtida utveckling och har inte påverkas. Ange den till ”3min” när du kör säkerhetskopior av typen **log**, och att ”15 min” när du kör de andra typerna av säkerhetskopiering.
-- Parametern **<number of snapshots retained>** definierar kvarhållningen av ögonblicksbilder indirekt genom att definiera hur många ögonblicksbilder med samma ögonblicksbild prefix (etikett). Den här parametern är viktigt för schemalagda körningar via cron. Om antalet ögonblicksbilder med samma snapshot_prefix överstiger det antal som anges av den här parametern, raderas den äldsta ögonblicksbilden innan du kör en ny storage-ögonblicksbild.
+- Parametern  **\<HANA stora instanstyp >** krävs för start volymen säkerhetskopieringar. Det finns två giltiga värden med ”TypeI” eller ”TypeII” beroende på den HANA stora instans enheten. Att ta reda på vilken typ din enhet är finns i [SAP HANA (stora instanser) översikt och arkitektur på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- Parametern  **\<snapshot_prefix >** är en ögonblicksbild eller säkerhetskopiering etiketten för typ av ögonblicksbild. Den har två syften: en är att ge den ett namn så att du vet vad de här ögonblicksbilderna om. Andra syftet är att skriptet *azure\_hana\_backup.pl* att fastställa antalet ögonblicksbilder av lagring som bevaras under specifika etiketten. Om du schemalägger två säkerhetskopior på grund av storage-ögonblicksbilder av samma typ (t.ex. **hana**), med två olika etiketter och definiera att 30 ögonblicksbilder ska finnas för varje kan du få 60 storage-ögonblicksbilder av volymerna som påverkas. Endast alfanumeriska (”A-Z, a-z, 0-9”), understreck (”_”) och bindestreck (”-”) tecken tillåts. 
+- Parametern  **\<snapshot_frequency >** är reserverad för framtida utveckling och har inte påverkas. Ange den till ”3min” när du kör säkerhetskopior av typen **log**, och att ”15 min” när du kör de andra typerna av säkerhetskopiering.
+- Parametern  **\<antalet ögonblicksbilder bevaras >** definierar kvarhållningen av ögonblicksbilder indirekt genom att definiera hur många ögonblicksbilder med samma ögonblicksbild prefix (etikett). Den här parametern är viktigt för schemalagda körningar via cron. Om antalet ögonblicksbilder med samma snapshot_prefix överstiger det antal som anges av den här parametern, raderas den äldsta ögonblicksbilden innan du kör en ny storage-ögonblicksbild.
 
 När det gäller en skalbar utför skriptet ytterligare kontroller för att säkerställa att du kan komma åt alla HANA-servrar. Skriptet kontrollerar också att alla HANA-instanser returnera rätt status för instanserna innan skapas en ögonblicksbild av SAP HANA. SAP HANA-ögonblicksbilder följs av en storage-ögonblicksbilder.
 

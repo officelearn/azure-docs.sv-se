@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885300"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540813"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>Felsök vCenter-identifiering
+# <a name="troubleshoot-vcenter-discovery-failures"></a>Felsöka vCenter-identifieringsfel
 
 Den här artikeln hjälper dig att felsöka problem som uppstår på grund av VMware vCenter-identifiering av fel.
 
@@ -46,8 +46,8 @@ I allmänhet ska proxyservern användas för att kommunicera med offentliga nät
 
 I följande situationer inträffa när det här problemet inträffar:
 
-- VCenter-servern <vCenter> kan inte nås på grund av felet: Fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
-- VCenter-servern <vCenter> kan inte nås på grund av felet: Fjärrservern returnerade ett fel: Det går inte att ansluta till fjärrservern.
+- VCenter-servern \<vCenter > kan inte nås på grund av felet: Fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
+- VCenter-servern \<vCenter > kan inte nås på grund av felet: Fjärrservern returnerade ett fel: Det går inte att ansluta till fjärrservern.
 - Det går inte att ansluta till vCenter/ESXi-servern.
 
 Att lösa problemet:

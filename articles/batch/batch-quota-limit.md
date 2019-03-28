@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295274"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540983"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -77,14 +77,12 @@ Visa dina kvoter med Batch-konto i den [Azure-portalen][portal].
 1. Välj **Batch-konton** i portalen och markera Batch-kontot som du är intresserad av.
 1. Välj **kvoter** på menyn för Batch-kontot.
 1. Visa kvoter som för närvarande används till Batch-konto
-   
+
     ![Kvoter för batch-konto][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Öka en kvot
 
-Följ dessa steg för att begära en kvot öka för ditt Batch-konto eller din prenumeration med hjälp av den [Azure-portalen][portal]. Vilken typ av kvot beror på poolallokeringsläget för Batch-kontot.
+Följ dessa steg för att begära en kvot öka för ditt Batch-konto eller din prenumeration med hjälp av den [Azure-portalen][portal]. Vilken typ av kvot beror på poolallokeringsläget för Batch-kontot. Om du vill begära en utökad kvot måste du inkludera VM-serierna som du vill öka kvoten för. När kvot tillämpas, tillämpas den på alla serier för virtuella datorer.
 
 ### <a name="increase-a-batch-cores-quota"></a>Öka en Batch-kärnkvoten 
 

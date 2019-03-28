@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861051"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541221"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
@@ -34,7 +34,7 @@ I din programutveckling, skriva kod som skapar frågor som utgör den största d
 ## <a name="sample-code-and-demo"></a>Exempelkod och demo
 Den här artikeln används en jobbet search-portalen som exempel. I exempel implementeras som ett ASP.NET MVC-program.
 
--   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](https://azjobsdemo.azurewebsites.net/).
+-   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
 -   Ladda ned koden från den [lagringsplats för Azure-exempel på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -364,7 +364,7 @@ Det finns två geospatiala funktioner i Azure Search **geo.distance** och **geo.
 * Den **geo.distance** funktionen returnerar avståndet i kilometer mellan två punkter. En plats är ett fält och andra är en konstant som skickas som en del av filtret. 
 * Den **geo.intersects** funktionen returnerar true om en viss tidpunkt som ligger inom en viss polygon. Det är ett fält och polygonen har angetts som en konstant över koordinater som skickas som en del av filtret.
 
-Du kan hitta filter exemplen i [OData-uttryckssyntax (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Du kan hitta filter exemplen i [OData-uttryckssyntax (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 

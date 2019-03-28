@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999558"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541047"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -243,7 +243,7 @@ Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.co
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
 
->Update-AzVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/ < min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
+>Update-AzVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/\<min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
 
 Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
@@ -303,7 +303,7 @@ Komponenten CRP sparas inte kunden hemligheter. Om du kör `stop deallocate` fö
 
 Det uppstår inte problemet vid utskalning eftersom det inte finns en cachelagrad kopia av hemlighet i Azure Service Fabric (i modellen single-fabric-klient).
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Varför måste jag ange den exakta platsen för certifikatets Webbadress (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), som anges i [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Varför måste jag ange den exakta platsen för certifikatets Webbadress (https:\/\/\<namnet på valvet >.vault.azure.net:443/secrets/\<exakt plats >), som anges i [Service Fabric klustersäkerhetsscenarier](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
 
 I Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten om versionen inte har angetts.
 

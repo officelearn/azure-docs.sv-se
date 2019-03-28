@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499921"
+ms.locfileid: "58540966"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -41,7 +41,7 @@ Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >[!NOTE]
 >Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13900"></a>1.3.90.0 
+## <a name="13100"></a>1.3.10.0 
 
 ### <a name="release-status"></a>Versionsstatus 
 
@@ -894,7 +894,7 @@ Direktautentisering
 * Ett problem som gör att Azure AD Connect-guiden att misslyckas om skicka via autentisering har valts men registreringen av dess anslutningen misslyckas har åtgärdats.
 * Ett problem som orsakar Azure AD Connect-guiden för att kringgå verifiering kontrollerar på inloggningsmetod valt när skrivbords-SSO-funktionen är aktiverad har åtgärdats.
 
-Återställning av lösenord
+Lösenordsåterställning
 * Ett problem som kan orsaka Azure AAD Connect-servern för att försöka ansluta igen om anslutningen avbröts av en brandvägg eller proxyserver inte har åtgärdats.
 
 **Nya funktioner/förbättringar:**
@@ -909,7 +909,7 @@ AD FS-hantering
 * Du kan nu ange befintliga gMSA (Grupphanterat tjänstkonto) under installationen av AD FS.
 * Du kan nu konfigurera SHA-256 som signaturens hashalgoritm för Azure AD-förtroende för förlitande part.
 
-Återställning av lösenord
+Lösenordsåterställning
 * Introducerade förbättringar så att produkten ska fungera i miljöer med strängare brandväggsregler.
 * Förbättrad anslutning tillförlitlighet till Azure Service Bus.
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903138"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541289"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -217,7 +217,7 @@ Mer information finns i [ALTER DATABASE SET PARTNER och SET WITNESS](https://doc
 
 - Flera loggfiler stöds inte.
 - InMemory-objekt stöds inte på tjänstnivån generell användning.  
-- Det finns en gräns på 280 filer per instans innebär max 280 filer per databas. Både data och loggfiler räknas mot den här gränsen.  
+- Det finns en gräns på 280 filer per generella instans innebär max 280 filer per databas. Både data och loggfiler filer generellt syfte nivå räknas mot den här gränsen. [Kritiska affärsnivå stöder 32 767 filer per databas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Databasen får inte innehålla filgrupper som innehåller filestream-data.  Återställningen misslyckas om .bak innehåller `FILESTREAM` data.  
 - Varje fil placeras i Azure Blob storage. I/o och dataflöde per fil beror på storleken på varje enskild fil.  
 
@@ -485,9 +485,9 @@ Hanterad instans kan inte återställa [inneslutna databaser](https://docs.micro
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
-Varje hanterad instans har till 35 TB lagring som är reserverade för diskutrymme för Azure Premium och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Outnyttjat utrymme på disken debiteras inte, men den totala summan av Azure Premium-diskstorlekar får inte överskrida 35 TB. I vissa fall kanske en hanterad instans som inte kräver 8 TB totalt överskrider 35 TB Azure begränsa lagringsstorleken, på grund av interna fragmentering.
+Varje allmänt syfte hanterad instans har till 35 TB lagring som är reserverade för diskutrymme för Azure Premium och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Outnyttjat utrymme på disken debiteras inte, men den totala summan av Azure Premium-diskstorlekar får inte överskrida 35 TB. I vissa fall kanske en hanterad instans som inte kräver 8 TB totalt överskrider 35 TB Azure begränsa lagringsstorleken, på grund av interna fragmentering.
 
-En hanterad instans kan till exempel ha en fil 1,2 TB i storlek som placeras på en disk med 4 TB och 248 filer (varje 1 GB i storlek) som är placerade på separata 128 GB-diskar. I det här exemplet:
+En allmän syfte hanterad instans kan till exempel ha en fil 1,2 TB i storlek som placeras på en disk med 4 TB och 248 filer (varje 1 GB i storlek) som är placerade på separata 128 GB-diskar. I det här exemplet:
 
 - Den totala allokerade disk lagringsstorleken är 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Det totala reserverade utrymmet för databaser på instansen är 1 x 1.2 TB + 248 x 1 GB = 1,4 TB.
@@ -495,6 +495,8 @@ En hanterad instans kan till exempel ha en fil 1,2 TB i storlek som placeras på
 Detta visar som under vissa omständigheter på grund av en specifik distribution av filer, en hanterad instans kan nå 35 TB reserverade för ansluten Azure Premium Disk när du kanske inte den ska.
 
 I det här exemplet befintliga databaser fortsätter att fungera och kan växa utan problem, förutsatt att nya filer inte har lagts till. Men nya databaser kunde inte skapas eller återställas eftersom det inte finns tillräckligt med utrymme för nya diskenheter, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Felet som returneras är i så fall oklart.
+
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med systemvyer. Om du ansluter till den här gränsen försöker [tom och ta bort några av de mindre filer med hjälp av DBCC SHRINKFILE instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller shitch till [affärskritisk nivå som inte har den här gränsen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0eead6201f737448b4de76476802518a506375da
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446252"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541272"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -75,15 +75,15 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den `Product list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [växling-kontroll](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Sidindelning|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
-|Program|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program som är synliga för den aktuella användaren.|  
-|Kategorinamn|sträng|Kategorin för programmet.|  
+|`Paging`|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
+|`Applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program som är synliga för den aktuella användaren.|  
+|`CategoryName`|sträng|Kategorin för programmet.|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   

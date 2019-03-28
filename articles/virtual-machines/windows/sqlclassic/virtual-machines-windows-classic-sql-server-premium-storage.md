@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905128"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540881"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: Öka tillåtna fel på resurser <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Steg 2: Öka tillåtna fel på resurser \<valfritt >
 
 På vissa resurser som hör till din Always On Availability Group att det finns begränsningar för hur många fel som kan uppstå med en punkt där Klustertjänsten försöker starta om resursgruppen. Vi rekommenderar att du ökar detta även om du gå igenom den här proceduren sedan om du manuellt inte växling vid fel och utlösa redundans genom att stänga av datorer som du kan hämta nära den här gränsen.
 
@@ -692,7 +692,7 @@ Det skulle vara klokt fördubbla hur fel om du vill göra detta i Klusterhantera
 
 Ändra maximalt antal misslyckanden till 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Ytterligare IP-adressresurs för klustergrupp <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Steg 3: Ytterligare IP-adressresurs för klustergrupp \<valfritt >
 
 Om du har endast en IP-adress för klustergruppen och detta har justerats till undernätet för molnet, var försiktig, om du av misstag kan offline alla klusternoder i molnet på nätverket och sedan klustrets IP-resurs och Klusternätverksnamnet inte är längre ska anslutas. I så fall kan förhindras uppdateringar till andra klusterresurser.
 

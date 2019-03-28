@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456813"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541170"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Drive
 
 Den här artikeln är utgivare som har sitt erbjudande på Azure Marketplace eller som står på AppSource men vill bygga sina Test Drive med endast Azure-resurser.
 
@@ -51,7 +51,7 @@ Här är en process för att skapa en Azure Resource Manager Test Drive:
 
 Den viktigaste delen om att skapa en Azure Resource Manager Test Drive är att definiera vilka scenarier som du vill att dina kunder att uppleva. Är du en brandväggsprodukt och du vill demonstrera hur väl du hantera skript-inmatningsattacker? Är du en produkt för lagring och du vill demonstrera hur snabbt och enkelt din lösning komprimerar filer?
 
-Kontrollera surety spendera en tillräcklig tidsperiod som utvärderar vilka är de bästa sätten att visa upp din produkt. Mer specifikt runt alla nödvändiga resurser behöver, som gör det paketering Resource Manager-mallen tillräckligt enklare.
+Se till att använda en tillräcklig tidsperiod som utvärderar vilka är de bästa sätten att visa upp din produkt. Mer specifikt runt alla nödvändiga resurser behöver, som gör det paketering Resource Manager-mallen tillräckligt enklare.
 
 Om du vill fortsätta med vårt exempel för brandväggen kanske arkitekturen du behöver en offentlig IP-URL för din tjänst och en annan offentlig IP-URL för webbplatsen som din brandvägg skyddar. Varje IP distribueras på en virtuell dator och ansluten tillsammans med en nätverkssäkerhetsgrupp + nätverksgränssnitt.
 

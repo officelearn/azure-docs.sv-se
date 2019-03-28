@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b1e6ffc985c35b6711b8e602dbb877e840ab3f1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992387"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517020"
 documentType: LandingData
 title: Azure Database for MariaDB-dokumentation
 metadata:
@@ -14,7 +14,7 @@ metadata:
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 02/25/2018
+  ms.date: 03/25/2019
 abstract:
   description: Azure Database for MariaDB är en relationsdatabastjänst baserad på MariaDB-servermotorn för öppen källkod.  Det är en fullständigt hanterad databas som en tjänst som används för att hantera verksamhetskritiska arbetsbelastningar med förutsägbar prestanda och dynamisk skalbarhet. Utveckla program med Azure Database for MariaDB och använd valfria verktyg för plattform och öppen källkod. Lär dig hur du använder Azure Database for MariaDB med våra snabbstarter, självstudier och exempel.
 sections:
@@ -38,7 +38,7 @@ sections:
   - type: paragraph
     text: 'Lär dig hur du utformar din databas och utvecklar appar:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Utforma en databas&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
 - title: Exempel

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096783"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517274"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader i samband med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Den visar hur du visar beräknade kostnad trent för den aktuella kalendermånaden för övningen. Artikeln beskriver också hur du visar månad hittills kostnad per resurs i laboratoriet.
@@ -71,7 +71,7 @@ DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange en utgif
    - Ange en **rikta kostnaden**. Till exempel hur mycket du planerar att spendera på den här övningen under den tidsperioden som du har definierat.
    - Välj om du vill aktivera eller inaktivera eventuella tröskelvärde du vill rapporteras – i steg om 25% – upp till 125% av dina angivna **rikta kostnaden**.
       - **Meddela**: När det här tröskelvärdet har uppnåtts, visas ett meddelande med en webhook-URL som du anger.
-      - **Vykreslit v grafu**: När den här tröskeln uppfylls resultatet ritas på kostnaden trend diagrammet som du kan visa, enligt beskrivningen i [visa diagrammet månatliga uppskattade kostnaden Trend](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Vykreslit v grafu**: När den här tröskeln uppfylls ritas resultaten på kostnaden trend diagrammet som du kan visa, enligt beskrivningen i visa diagrammet månatliga uppskattade kostnaden Trend.
    - Om du väljer att **meddela** när tröskelvärdet är uppfyllt, måste du ange en webhook-URL. I området kostnaden integreringar väljer **Klicka här för att lägga till en integration**. Ange en **Webhooksadressen** i Konfigurera meddelandefönstret och välj sedan **OK**.
 
        ![Konfigurera meddelandefönstret](./media/devtest-lab-configure-cost-management/configure-notification.png)

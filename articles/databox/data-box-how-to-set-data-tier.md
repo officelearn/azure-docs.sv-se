@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118382"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517155"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Använda Azure Data Box för att skicka data till lämplig Azure Storage blob-nivå
 
@@ -27,7 +27,7 @@ Azure storage kan tre olika nivåer att lagra data på det mest kostnadseffektiv
 
 Lågfrekventa lagringsnivån är för sällan använda data som behöver lagras i minst 30 dagar. Lagringskostnaden för kalla nivån är lägre än för frekvent lagringsnivå men avgifter för dataåtkomst är hög jämfört med frekvent nivå.
 
-Azure arkivlagring är offline och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna. Den här nivån är avsedd för data som finns kvar i arkivering lagringsutrymmet i minst 180 dagar. Mer information om var och en av de här nivåerna och prismodellen går du till [jämförelse av lagringsnivåerna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers).
+Azure arkivlagring är offline och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna. Den här nivån är avsedd för data som finns kvar i arkivering lagringsutrymmet i minst 180 dagar. Mer information om var och en av de här nivåerna och prismodellen går du till [jämförelse av lagringsnivåerna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 
 Data från Data Box har överförts till en lagringsnivå som är associerad med storage-konto. När du skapar ett lagringskonto kan du ange åtkomstnivån som frekvent eller lågfrekvent. Beroende på åtkomstmönstret av din arbetsbelastning och kostnad kan flytta du dessa data från den standardlagringsnivån till en annan lagringsnivå.
 

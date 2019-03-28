@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: cbc28ce13d08ee8665be642d9db6b1f236b380d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870137"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518855"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Omvandla text till tal med .NET Core
 
@@ -236,6 +236,6 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
 * [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

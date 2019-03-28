@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: magattus
-ms.openlocfilehash: 78969b2b0ff50e45990d131ad3ce5b63c92d20b2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3aefe2ff3891857ec3588e4b48f53876c5c90aa2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373097"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516985"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection
 
-Content delivery network ger DDoS protection avsiktligt. Utöver de globala capactiy att absorbera volumentric attacker Azure CDN har ytterligare DDoS-skydd som beskrivs nedan, för utan extra kostnad.
+Content delivery network ger DDoS protection avsiktligt. Utöver den globala kapaciteten att absorbera överför attacker, Azure CDN har ytterligare DDoS-skydd som beskrivs nedan, för utan extra kostnad.
 
 ## <a name="azure-cdn-from-microsoft"></a>Azure CDN från Microsoft
 

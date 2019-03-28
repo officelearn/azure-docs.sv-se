@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2019
+ms.date: 03/26/2019
 ms.author: monhaber
-ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089003"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517988"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Vad är anpassningsbara programkontroller i Security Center?
-Anpassningsbar programkontroll är en intelligent, automatiserad slutpunkt till slutpunkt vitlistning lösning från Azure Security Center. Det hjälper dig att styra vilka program kan köras på din virtuella dator i Azure, vilket bland annat, hjälper till att skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning att analysera programmen som körs på dina virtuella datorer och hjälper dig att tillämpa de specifika vitlisteregler med den här intelligensen. Den här funktionen förenklar processen med att konfigurera och underhålla användningsprinciper för listan över tillåtna program, så att du kan:
+Anpassningsbar programkontroll är en intelligent, automatiserad slutpunkt till slutpunkt vitlistning lösning från Azure Security Center. Det hjälper dig att styra vilka program kan köras på din Azure- och icke - Azure (Windows och Linux), som bland annat, hjälper till att skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning att analysera programmen som körs på dina virtuella datorer och hjälper dig att tillämpa de specifika vitlisteregler med den här intelligensen. Den här funktionen förenklar processen med att konfigurera och underhålla användningsprinciper för listan över tillåtna program, så att du kan:
 
 - Blockera eller Varna vid försök att köra skadliga program, inklusive de som annars kan missas av program mot skadlig kod.
 - Uppfylla organisationens säkerhetsprincip som anger att bara licensierade program får användas.
@@ -34,8 +34,11 @@ Anpassningsbar programkontroll är en intelligent, automatiserad slutpunkt till 
 - Förhindra vissa verktyg som inte tillåts i din organisation.
 - Aktivera IT för att kontrollera åtkomsten till känsliga data via appanvändning.
 
+> [!NOTE]
+> Anpassningsbara programkontroller stöds i endast granskningsläge för icke-Azure och Linux-datorer.
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hur fungerar anpassningsbara programkontroller?
-Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade grupper med virtuella datorer. Den här funktionen är endast tillgänglig för Windows-datorer (alla versioner, klassisk eller Azure Resource Manager). Följ stegen nedan för att konfigurera listan över tillåtna program i Security Center:
+Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade grupper med virtuella datorer. Den här funktionen är tillgänglig för både Azure och icke - Azure Windows (alla versioner, klassisk eller Azure Resource Manager) och virtuella Linux-datorer och servrar. Följ stegen nedan för att konfigurera listan över tillåtna program i Security Center:
 
 1. Öppna instrumentpanelen för **Security Center**.
 2. Välj **Anpassningsbara programkontroller** i den vänstra rutan under **Avancerat molnskydd**.
@@ -64,10 +67,10 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
    Listan innehåller:
 
-   - **NAMN**: namnet på prenumerationen och gruppen
-   - **Virtuella datorer**: antalet virtuella datorer i gruppen
-   - **TILLSTÅND**: tillståndet för rekommendationer
-   - **ALLVARLIGHETSGRAD**: Rekommendationernas allvarlighetsgrad
+   - **Gruppnamn**: Namnet på prenumerationen och gruppen
+   - **Virtuella datorer och datorer**: Antalet virtuella datorer i gruppen
+   - **Tillstånd**: tillståndet för rekommendationer
+   - **Allvarlighetsgrad**: allvarlighetsgraden för rekommendationer
 
 2. Klicka på en grupp för att öppna den **skapa regler för programkontroll** alternativet.
 
@@ -102,8 +105,8 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
    Listan innehåller:
 
-   - **Namn på**: namnet på prenumerationen och gruppen
-   - **Virtuella datorer**: antalet virtuella datorer i gruppen
+   - **Gruppnamn**: namnet på prenumerationen och gruppen
+   - **Virtuella datorer och datorer**: antalet virtuella datorer i gruppen
    - **Läget**: Granskningsläget loggas försök att köra program; Framtvinga kommer inte att program ska köras
    - **Aviseringar**: aktuella överträdelser
 
@@ -146,14 +149,14 @@ Security Center rekommenderar enbart att användningsprinciper för lista över 
 ![Rekommendation](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 Listan innehåller:
-- **NAMN**: namnet på prenumerationen och gruppen
-- **Virtuella datorer**: antalet virtuella datorer i gruppen
+- **Gruppnamn**: namnet på prenumerationen och gruppen
+- **Virtuella datorer och datorer**: antalet virtuella datorer i gruppen
 
 Azure Security Center kan du definiera en princip för lista över tillåtna på icke-rekommenderas grupper med virtuella datorer samt. Följ samma principer som beskrevs, om du vill konfigurera en princip för listan över tillåtna program på dessa grupper samt.
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig att använda anpassningsbar programkontroll i Azure Security Center för att lista godkända program som körs i virtuella Azure-datorer. I följande avsnitt kan du lära dig mer om Azure Security Center:
+I det här dokumentet lärde du dig att använda anpassningsbar programkontroll i Azure Security Center att vitlista godkända program som körs i Azure och icke - Azure. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d1b5125c2e3904900adb0a121d60cba8a1731d43
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499649"
+ms.locfileid: "58516900"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
@@ -84,6 +84,9 @@ Listan över resurser uppdateras för att återspegla borttagningen.
 
 Med uppdateringsfunktionen kan du uppdatera innehållet i en lokal resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. De nya filerna används sedan för att uppdatera innehållet i den lokala resursen på enheten. 
 
+> [!NOTE]
+> Behörigheter och åtkomstkontrollistor (ACL) bevaras inte över en uppdatering. 
+
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
 1.  Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
@@ -107,7 +110,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 Om ett fel uppstår genereras en avisering. Aviseringen innehåller detaljerad information om orsaken och rekommendationen för att åtgärda problemet. Aviseringen innehåller också en länk till en fil med en fullständig sammanfattning av felen, inklusive de filer som inte kunde uppdateras eller tas bort.
 
 >[!IMPORTANT]
-> I den här förhandsversionen ska du inte uppdatera fler än en resurs åt gången.
+> I den här versionen, uppdatera inte fler än en enda resurs åt gången.
 
 ## <a name="sync-storage-keys"></a>Synkronisera lagringsnycklar
 

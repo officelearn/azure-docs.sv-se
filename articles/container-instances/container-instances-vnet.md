@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372420"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517325"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
-[Azure-nätverk](../virtual-network/virtual-networks-overview.md) tillhandahåller säkra, privata nätverk, inklusive filtrering, Routning och peering för din Azure och lokala resurser. Genom att distribuera behållargrupper i Azure-nätverk, kommunicera din behållare säkert med andra resurser i det virtuella nätverket.
+[Azure-nätverk](../virtual-network/virtual-networks-overview.md) tillhandahåller säkra, privata nätverk för Azure och lokala resurser. Genom att distribuera behållargrupper i Azure-nätverk, kommunicera din behållare säkert med andra resurser i det virtuella nätverket.
 
 Behållargrupper som distribuerats till en Azure-nätverk möjliggör scenarier som:
 
@@ -34,7 +34,6 @@ Behållargrupper som distribuerats till en Azure-nätverk möjliggör scenarier 
 Vissa begränsningar gäller när du distribuerar behållargrupper till ett virtuellt nätverk.
 
 * För att distribuera grupper med behållare till ett undernät måste får inte undernätet innehålla några andra typer av resurser. Ta bort alla befintliga resurser från ett befintligt undernät innan du distribuerar behållargrupper till den, eller skapa ett nytt undernät.
-* Behållargrupper som distribueras till ett virtuellt nätverk stöder för närvarande inte offentliga IP-adresser eller DNS-namnetiketter.
 * Du kan inte använda en [hanterad identitet](container-instances-managed-identity.md) i en behållargrupp som distribueras till ett virtuellt nätverk.
 * På grund av de ytterligare nätverksresurser som ingår är distribuera en behållargrupp till ett virtuellt nätverk vanligtvis något långsammare än att distribuera en behållarinstans som standard.
 
@@ -46,10 +45,14 @@ Den här funktionen är i förhandsversion, gäller följande begränsningar nä
 
 Behållaren resursgränser kan skilja sig från gränser för icke-nätverksanslutna container instances i dessa regioner. För närvarande endast Linux-behållare har stöd för den här funktionen. Windows-stöd planeras.
 
-### <a name="unsupported-network-resources-and-features"></a>Nätverk som inte stöds resurser och funktioner
+### <a name="unsupported-networking-scenarios"></a>Nätverk scenarier som inte stöds 
 
-* Azure Load Balancer
-* Virtuell nätverkspeering
+* **Azure Load Balancer** -placera en Azure-belastningsutjämnare framför behållarinstanser på en nätverksansluten behållargrupp stöds inte
+* **Virtuell nätverkspeering** – du kan inte peer-koppla ett virtuellt nätverk som innehåller ett undernät som delegerats till Azure Container Instances till ett annat virtuellt nätverk
+* **Routningstabeller** -användardefinierade vägar kan inte ställas in i ett undernät som delegerats till Azure Container Instances
+* **Nätverkssäkerhetsgrupper** -utgående säkerhetsregler i NSG: er som tillämpas för ett undernät som delegerats till Azure Container Instances som inte används 
+* **Offentliga IP-Adressen eller DNS-etikett** -behållargrupper som distribueras till ett virtuellt nätverk stöder för närvarande inte vilket exponerade behållare direkt för internet med en offentlig IP-adress eller ett fullständigt kvalificerat domännamn
+* **Intern namnmatchning** -namnmatchning för Azure-resurser i det virtuella nätverket via den interna Azure DNS stöds inte
 
 **Nätverks-ta bort resursen** kräver [ytterligare steg](#delete-network-resources) när du har distribuerat behållargrupper till det virtuella nätverket.
 

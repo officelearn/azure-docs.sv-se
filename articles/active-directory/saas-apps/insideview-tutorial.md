@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ab85ae10a9d57bf3e263d49532675f60cd84f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165925"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudier: Azure Active Directory-integrering med InsideView
 
@@ -91,7 +91,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med InsideView, måst
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare InsideView](#creating-a-insideview-test-user)**  – du har en motsvarighet för Britta Simon i InsideView som är länkad till en Azure AD-representation av användaren.
+1. **[Skapa en testanvändare InsideView](#creating-an-insideview-test-user)**  – du har en motsvarighet för Britta Simon i InsideView som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
@@ -254,4 +254,3 @@ När du klickar på panelen InsideView i åtkomstpanelen du bör få automatiskt
 [201]: ./media/insideview-tutorial/tutorial_general_201.png
 [202]: ./media/insideview-tutorial/tutorial_general_202.png
 [203]: ./media/insideview-tutorial/tutorial_general_203.png
-

@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: f804cfd693a37099edc22e7f4861d6d7e1af0fc7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651121"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518685"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
 > * [Med cellfunktioner](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Med skriptåtgärder](apache-spark-python-package-installation.md)
 
-Lär dig hur du använder skriptåtgärder för att konfigurera en [Apache Spark](https://spark.apache.org/) -kluster i HDInsight (Linux) för att använda externa communityn har bidragit med **python** paket som inte är inkluderat out-of the box i klustret.
+Lär dig hur du använder skriptåtgärder för att konfigurera en [Apache Spark](https://spark.apache.org/) -kluster i HDInsight för att använda externa, communityn har bidragit med **python** paket som inte är inkluderat out-of the box i klustret.
 
 > [!NOTE]  
 > Du kan också konfigurera en Jupyter-anteckningsbok med hjälp av `%%configure` magic att använda externa paket. Anvisningar finns i [använda externa paket med Jupyter notebooks i Apache Spark-kluster på HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -48,7 +48,7 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 * **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel Apache Hadoop YARN ResourceManager, Apache Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [vad är nytt i Apache Hadoop-klusterversionerna från HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Anpassade komponenter** -du, som en användare i klustret, kan installera eller använda i din arbetsbelastning någon komponent som är tillgänglig i diskussionsgruppen eller skapats av dig.
 
-> [!WARNING]   
+> [!IMPORTANT]   
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
 >
 > Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske kan lösa problemet eller de kan be dig att engagera tillgängliga kanaler för tekniker med öppen källkod som där djup kompetens för den tekniken hittas. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ https://apache.org ](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/).
@@ -56,33 +56,52 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Använda externa paket med Jupyter-anteckningsböcker
 
-1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
+1. Från den [Azure-portalen](https://portal.azure.com/), navigera till ditt kluster.  
 
-2. Spark-klusterbladet, klickar du på **skriptåtgärder** i den vänstra rutan. Använd skripttypen ”anpassad” och ange ett eget namn för skriptåtgärden. Kör skriptet på den **huvud- och worker noder** och lämna parametrar fältet tomt. Bash-skript kan refereras från: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Gå till dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Med ditt kluster som valts i den vänstra rutan under **inställningar**väljer **skriptåtgärder**.
 
-   > [!NOTE]  
-   > Det finns två python installationer i klustret. Spark använder Anaconda python-installationen finns på `/usr/bin/anaconda/bin` och får som standard i Python 2.7-miljön. Om du vill använda Python 3.x och installera paket i kerneln PySpark3 använder sökvägen till den `conda` körbara för den miljön och Använd den `-n` parametern för att ange miljön. Till exempel kommandot `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installerar den `ggplot` paketet i Python 3.5 miljö med hjälp av den `conda-forge` kanal.
+3. Välj **+ Skicka ny**.
 
-3. Öppna en PySpark Jupyter-anteckningsbok
+4. Ange följande värden för den **skicka skriptåtgärd** fönster:  
+
+
+    |Parameter | Värde |
+    |---|---|
+    |Skripttyp | Välj **– anpassade** från den nedrullningsbara listan.|
+    |Namn |Ange `tensorflow` i textrutan.|
+    |Bash-skript-URI |Ange `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` i textrutan. |
+    |Nodtyper | Välj den **Head**, och **Worker** kryssrutorna. |
+
+    `tensorflowinstall.sh` innehåller följande kommandon:
+
+    ```bash
+    #!/usr/bin/env bash
+    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    ```
+
+5. Välj **Skapa**.  Gå till dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+
+6. Vänta på att skriptet ska slutföras.  Den **skriptåtgärder** fönstret kommer tillstånd **kan skicka nya skriptåtgärder efter den aktuella klusteråtgärden har slutförts** medan skriptet körs.  En förloppsindikator visas från Ambari UI **bakgrundsåtgärder** fönster.
+
+7. Öppna en PySpark Jupyter-anteckningsbok.  Se [skapa en Jupyter-anteckningsbok på Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) anvisningar.
 
     ![Skapa en ny Jupyter-anteckningsbok](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Skapa en ny Jupyter-anteckningsbok")
 
-4. En ny anteckningsbok skapas och öppnas med namnet Untitled.pynb. Klicka på anteckningsbokens namn högst upp och ange ett trevligt namn.
+8. Du får nu `import tensorflow` och köra en hello world-exemplet. Ange följande kod:
 
-    ![Ange ett namn för anteckningsboken](./media/apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Ange ett namn för anteckningsboken")
-
-5. Du får nu `import tensorflow` och köra en hello world-exemplet. 
-
-    Kopiera följande kod:
-
-        import tensorflow as tf
-        hello = tf.constant('Hello, TensorFlow!')
-        sess = tf.Session()
-        print(sess.run(hello))
+    ```
+    import tensorflow as tf
+    hello = tf.constant('Hello, TensorFlow!')
+    sess = tf.Session()
+    print(sess.run(hello))
+    ```
 
     Resultatet ser ut så här:
     
     ![TensorFlow kodkörning](./media/apache-spark-python-package-installation/execution.png "köra TensorFlow-kod")
+
+> [!NOTE]  
+> Det finns två python installationer i klustret. Spark använder Anaconda python-installationen finns på `/usr/bin/anaconda/bin` och får som standard i Python 2.7-miljön. Om du vill använda Python 3.x och installera paket i kerneln PySpark3 använder sökvägen till den `conda` körbara för den miljön och Använd den `-n` parametern för att ange miljön. Till exempel kommandot `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installerar den `ggplot` paketet i Python 3.5 miljö med hjälp av den `conda-forge` kanal.
 
 ## <a name="seealso"></a>Se även
 * [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)

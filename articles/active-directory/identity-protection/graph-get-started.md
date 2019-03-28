@@ -4,7 +4,7 @@ description: Lär dig hur du frågar Microsoft Graph för en lista över riskhä
 services: active-directory
 keywords: identitetsskydd för Azure active directory, riskhändelse, säkerhetsproblem, säkerhetsprinciper, Microsoft Graph
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295546"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517461"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
-Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Det finns tre API: er som visar information om riskfylld användare och inloggningar. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Andra API: et **riskyUsers**, kan du fråga Microsoft Graph för information om användare Identity Protection har identifierats som risk. Den tredje API **inloggning från**, kan du fråga Microsoft Graph information om Azure AD-inloggningar med specifika egenskaper som rör risktillstånd, information och nivå. Den här artikeln kommer du igång med [ansluter till Microsoft Graph](#Connect-to-Microsoft-Graph) och [frågor till dessa API: er](#Query-the-APIs). En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/) eller specifika referensdokumentationen för dessa API: er:
+Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Det finns tre API: er som visar information om riskfylld användare och inloggningar. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Andra API: et **riskyUsers**, kan du fråga Microsoft Graph för information om användare Identity Protection har identifierats som risk. Den tredje API **inloggning från**, kan du fråga Microsoft Graph information om Azure AD-inloggningar med specifika egenskaper som rör risktillstånd, information och nivå. Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och frågor till dessa API: er. En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/) eller specifika referensdokumentationen för dessa API: er:
 
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877878"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516977"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -37,6 +37,7 @@ När din video har laddats upp, kodar Video Indexer kan du kan också videon (be
 - Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
 - Indexering tillgångar i Media Services har samma begränsningar som indexering från URL
+- Video Indexer har en maximal varaktighet högst 4 timmar för en enskild fil
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.

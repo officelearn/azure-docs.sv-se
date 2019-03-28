@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 8e82e0ebd988ab82e9090a83a061f36dfdb40341
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f04a4ca8c0b160dc2bcc762cc1c570737dc945d5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318231"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505654"
 ---
-Det här exemplet kräver Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Det här exemplet kräver Azure PowerShell. Kör `Get-Module -ListAvailable Az` att se om det har installerats. Om du behöver installera, se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). 
 
-Kör `Connect-AzureRmAccount` för att skapa en anslutning med Azure. 
+Kör `Connect-AzAccount` för att skapa en anslutning med Azure. 

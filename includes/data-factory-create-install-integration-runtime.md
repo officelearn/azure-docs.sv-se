@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b0289f5771663f3800ff4e58ba5c0528eb89cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124447"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505714"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
@@ -23,7 +23,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 2. Skapa Integration Runtime med egen värd. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
+   Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
    ```
 
    Här är exempel på utdata:
@@ -40,7 +40,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 3. Kör följande kommando för att hämta statusen för din skapade Integration Runtime. Kontrollera att värdet för egenskapen **State** är inställd på **NeedRegistration**. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
    ```
 
    Här är exempel på utdata:
@@ -65,7 +65,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 4. Kör följande kommando som används för att hämta autentiseringsnycklarna för att registrera en lokal Integration Runtime med Azure Data Factory-tjänsten i molnet: 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
    Här är exempel på utdata:

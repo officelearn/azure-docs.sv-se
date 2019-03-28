@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446593"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517308"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -24,22 +24,14 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
-
-  > [!IMPORTANT]  
-  > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Ett Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * En webbläsare
 
 ## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Från den [Azure-portalen](https://portal.azure.com/), Välj ditt kluster.  Se [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) anvisningar. Klustret har öppnats i ett nytt portalblad.
 
-2. Välj ditt HDInsight-kluster och välj sedan **Ambari-vyer** från den **snabblänkar** avsnittet.
-
-    ![Snabblänkar-avsnittet i portalen](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    När du uppmanas att autentisera använder klusterinloggning (standard `admin`) konto och lösenord som du angav när du skapade klustret.
+2. Från **Klusterinstrumentpaneler**väljer **Ambari-vyer**. När du uppmanas att autentisera använder klusterinloggning (standard `admin`) konto och lösenord som du angav när du skapade klustret.
 
 3. I listan med vyer, Välj __Hive-vy__.
 
@@ -81,30 +73,30 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
    * `SELECT`: Väljer en uppräkning av alla rader där kolumnen t4 innehåller värdet [fel].
 
-     > [!IMPORTANT]  
-     > Lämna den __databasen__ valet __standard__. I exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
+   > [!IMPORTANT]  
+   > Lämna den __databasen__ valet __standard__. I exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
 
-5. Starta frågan med den **kör** knappen under kalkylbladet. Knappen blir orange och texten ändras till **stoppa**.
+5. För att starta frågan markerar **kör** under kalkylbladet. Knappen blir orange och texten ändras till **stoppa**.
 
 6. När frågan har slutförts, den **resultat** fliken visas resultatet av åtgärden. Följande text är resultatet av frågan:
 
         loglevel       count
         [ERROR]        3
 
-    Du kan använda den **loggar** fliken för att visa loggningsinformation som skapats för jobbet.
+    Du kan använda den **LOG** fliken för att visa loggningsinformation som skapats för jobbet.
 
    > [!TIP]  
-   > Hämta eller spara resultatet från den **spara resultaten** dialogrutan från listrutan längst upp till vänster på den **Frågeprocessresultat** avsnittet.
+   > Hämta eller spara resultatet från den **åtgärder** listrutan i dialogrutan som visas under den **resultat** fliken.
 
 ### <a name="visual-explain"></a>Visual förklara
 
 Om du vill visa en visualisering av frågeplanen, Välj den **Visual förklara** fliken under kalkylbladet.
 
-Den **Visual förklara** vy av frågan kan vara lättare att förstå flödet av komplexa frågor. Du kan se en textbaserade motsvarigheten till den här vyn genom att använda den **förklara** knappen i frågeredigeraren.
+Den **Visual förklara** vy av frågan kan vara lättare att förstå flödet av komplexa frågor.
 
 ### <a name="tez-ui"></a>Tez UI
 
-Om du vill visa Tez UI för frågan, Välj den **Tez** fliken under kalkylbladet.
+Om du vill visa Tez UI för frågan, Välj den **Tez UI** fliken under kalkylbladet.
 
 > [!IMPORTANT]  
 > Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez. 

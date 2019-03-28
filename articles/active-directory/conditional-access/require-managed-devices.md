@@ -3,7 +3,7 @@ title: Hur – kräver hanterade enheter för åtkomst till molnet appen med vil
 description: Lär dig hur du konfigurerar principer för Azure Active Directory (Azure AD) enhetsbaserad villkorlig åtkomst som kräver hanterade enheter för åtkomst till appen i molnet.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c468f149a8005f2452ba49afbb447c3304c3d4b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170538"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517359"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv att hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 

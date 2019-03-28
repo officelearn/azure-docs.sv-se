@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4ff99cab168abeb0bbeeb8b29de0ea0285c255b0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457976"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505698"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered AKV-integreringen
 Om du vill använda Azure Key Vault-integrering för att konfigurera SQL Server-dator, finns det flera förutsättningar: 
@@ -29,8 +29,10 @@ Om du vill använda Azure Key Vault-integrering för att konfigurera SQL Server-
 
 I följande avsnitt beskrivs dessa krav och den information du behöver samla in för att senare Kör PowerShell-cmdletar.
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 ### <a id="install"></a> Installera Azure PowerShell
-Kontrollera att du har installerat den senaste Azure PowerShell SDK. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Kontrollera att du har installerat den senaste Azure PowerShell SDK. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Registrera ett program i Azure Active Directory
 
@@ -49,7 +51,7 @@ Därefter registrera ett program med AAD. Detta ger dig ett huvudkonto för tjä
 
 * Program-ID och hemligheten också används för att skapa en autentiseringsuppgift i SQL Server.
 
-* Du måste auktorisera den här nya klient-ID som har följande åtkomstbehörighet: **hämta**, **wrapKey**, **unwrapKey**. Detta görs med de [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet. Mer information finns i [översikt över Azure Key Vault](../articles/key-vault/key-vault-overview.md).
+* Du måste auktorisera den här nya klient-ID som har följande åtkomstbehörighet: **hämta**, **wrapKey**, **unwrapKey**. Detta görs med de [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet. Mer information finns i [översikt över Azure Key Vault](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Skapa ett nyckelvalv
 Du behöver åtkomst till ett nyckelvalv för att kunna använda Azure Key Vault kan du lagra nycklar som du ska använda för kryptering i den virtuella datorn. Om du inte redan har konfigurerat ditt nyckelvalv kan du skapa en genom att följa stegen i den [komma igång med Azure Key Vault](../articles/key-vault/key-vault-overview.md) artikeln. Innan du slutför stegen nedan finns information du behöver samla in under den här uppsättningen upp som behövs senare när du aktiverar Azure Key Vault-integrering på din SQL-VM.

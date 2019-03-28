@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38c8e98d92c21e3dc7d37337466dc79c85d0a15f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401111"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517920"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Självstudier: Etablera Azure Data Box-Gateway i Hyper-V
 
@@ -136,7 +136,9 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 18. På sidan **Ange namn och plats** anger du ett **Namn** och en **Plats** (du kan bläddra till en) för datadisken. Klicka på **Nästa**.
 
     ![Ange namn och plats sida](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. På sidan **Konfigurera disk** väljer du alternativet **Skapa en ny tom virtuell hårddisk** och anger storleken till **2 TB** (eller mer). 2 TB är minimikravet, men du kan alltid etablera en större disk. Observera att du inte kan komprimera disken när den har etablerats.  Du kan dock expandera disken genom att lägga till en datadisk. Klicka på **Nästa**.
+19. På sidan **Konfigurera disk** väljer du alternativet **Skapa en ny tom virtuell hårddisk** och anger storleken till **2 TB** (eller mer). 
+    
+    2 TB är minimikravet, men du kan alltid etablera en större disk. Observera att du inte kan komprimera disken när den har etablerats. Försök att minska disk resulterar i förlust av lokala data på enheten. Du kan dock expandera disken genom att lägga till en datadisk. Klicka på **Nästa**.
 
     ![Konfigurera disken](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. På sidan **Sammanfattning** läser du informationen om din virtuella datadisk, och om allt stämmer klickar du på **Slutför** för att skapa disken. Guiden stängs och en virtuell hårddisk läggs till i datorn.

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 831a72fff0931d116a669060b160f51fde6e1d3e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: 309ef92b33d5bbdf8e8aed6b162ed9428a669c87
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572798"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505740"
 ---
 ## <a name="verify-the-output"></a>Verifiera utdata
 Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
@@ -27,7 +27,7 @@ Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta
 
 När du tar bort en resursgrupp tas alla resurser inklusive datafabriker i den bort. Kör följande kommando om du vill ta bort hela resursgruppen: 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 Obs! Det kan ta en stund att ta bort en resursgrupp. Ha tålamod under processen
@@ -35,5 +35,5 @@ Obs! Det kan ta en stund att ta bort en resursgrupp. Ha tålamod under processen
 Om du bara vill ta bort datafabriken och inte hela resursgruppen kör du följande kommando: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```

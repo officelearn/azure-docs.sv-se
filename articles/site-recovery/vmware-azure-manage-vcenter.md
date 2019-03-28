@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855137"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518090"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Hantera VMware vCenter-server
 
@@ -108,7 +108,7 @@ Flytta några virtuella datorer till en ny vCenter:
 4. Nu kan skydda den migrerade virtuella datorer med [att välja ny vCenter när du aktiverar skydd](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Om antalet virtuella datorer som migreras är **högre** att antalet virtuella datorer kvar i den gamla vCenter uppdaterar IP-adressen för den nya vCenter med hjälp av instruktionerna [här](#modify-vcenter-ip-address-port). För några virtuella datorer som ska finnas kvar på den gamla vCenter [inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault), och starta  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)**.
+> Om antalet virtuella datorer som migreras är **högre** att antalet virtuella datorer kvar i den gamla vCenter uppdaterar IP-adressen för den nya vCenter med hjälp av anvisningarna här. För några virtuella datorer som ska finnas kvar på den gamla vCenter [inaktivera replikering](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [lägga till nya vCenter-information till konfigurationsservern](#add-vmware-server-to-the-vault), och starta  **[Skyddsaktivering](vmware-azure-tutorial.md#enable-replication)**.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

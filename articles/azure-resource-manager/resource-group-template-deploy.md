@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403116"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518566"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
 
@@ -47,7 +47,7 @@ I exemplen i den här artikeln används distribution av resursgrupper. Mer infor
 
 Du behöver en mall för distribution. Om du inte redan har en, hämta och spara en [exempelmall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) från lagringsplatsen för Azure Quickstart-mallar. Det lokala filnamnet som används i den här artikeln är **c:\MyTemplates\azuredeploy.json**.
 
-Om du inte använder den [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) för att distribuera mallar, måste du installera Azure PowerShell och Anslut till Azure:
+Om du använder Azure Cloud shell för att distribuera mallar, måste du installera Azure PowerShell och Anslut till Azure:
 
 - **Installera Azure PowerShell-cmdlets på den lokala datorn.** Mer information finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Anslut till Azure med hjälp av [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Om du har flera Azure-prenumerationer kan du också behöva köra [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Mer information finns i [använder flera Azure-prenumerationer](/powershell/azure/manage-subscriptions-azureps).

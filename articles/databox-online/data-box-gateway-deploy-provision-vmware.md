@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 61fc72fe295fc292f944d6fea0f67fce0d537c32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402339"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517787"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudier: Etablera Azure Data Box-Gateway i VMware
 
@@ -139,7 +139,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 15. På sidan **Select storage** (Välj lagring) väljer du ett datalager du vill använda för att etablera den virtuella datorn. Klicka på **Nästa**.
 
     ![Välj lagringssidan](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj **SCSI-hårddisk** som ska läggas till. I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats.
+16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj **SCSI-hårddisk** som ska läggas till. I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats. Försök att minska disk resulterar i förlust av lokala data på enheten. 
 
     ![Anpassa inställningssidan](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 

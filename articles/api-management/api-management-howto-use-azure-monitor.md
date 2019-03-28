@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454812"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517954"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -37,7 +37,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -173,7 +173,7 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 }  
 ```
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap   | Typ | Beskrivning |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolesk | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
 | time | date-time | Tidstämpel för mottagande av HTTP-begäran av gatewayen |
@@ -184,7 +184,7 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ”Id för API Management-resursen /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| resourceId | sträng | ID för API Management-resursen /SUBSCRIPTIONS/\<prenumeration > /RESOURCEGROUPS/\<resursgrupp >/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<namn > |
 | properties | objekt | Egenskaper för aktuell begäran |
 | metod | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |

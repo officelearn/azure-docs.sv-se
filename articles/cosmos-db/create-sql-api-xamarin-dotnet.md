@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 06dd24b9909da9c3358c876a71de7d0df45a5223
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585332"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517121"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en att göra-app med Xamarin med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -31,7 +31,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 > [!NOTE]
 > Exempelkod för ett helt kanonisk Xamarin-exempelapp som visar flera Azure-erbjudanden, däribland CosmosDB, finns på GitHub [här](https://github.com/xamarinhq/app-geocontacts). Den här appen demonstrerar visning av geografiskt spridda kontakter, och gör att dessa kontakter kan uppdatera sin plats.
 
-Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, en dokumentdatabas och en samling med Azure Portal. Du kan sedan skapa och distribuera en att göra-lista i webbappen som bygger på [SQL .NET API](sql-api-sdk-dotnet.md) och [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) med hjälp av [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) och [MVVM-arkitekturmönster](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, en dokumentdatabas och en samling med Azure Portal. Du kan sedan skapa och distribuera en att göra-lista i webbappen som bygger på [SQL .NET API](sql-api-sdk-dotnet.md) och [Xamarin](https://docs.microsoft.com/xamarin/) med hjälp av [Xamarin.Forms](https://docs.microsoft.com/xamarin/) och [MVVM-arkitekturmönster](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Att göra-app i Xamarin som körs på iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 

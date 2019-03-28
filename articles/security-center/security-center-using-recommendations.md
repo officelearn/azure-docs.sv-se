@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402770"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517699"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center-rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera en säkerhetsprincip för och implementera rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsangrepp. 
 
-Security Center körs automatiskt kontinuerlig sökningar för att analysera säkerhetsläget hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera säkerhetskontrollerna som behövs. Security Center uppdaterar rekommendationerna var 24: e timme.
+Security Center körs automatiskt kontinuerlig sökningar för att analysera säkerhetsläget hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera säkerhetskontrollerna som behövs. Security Center uppdaterar sina rekommendationer inom 24 timmar, med följande undantag:
+
+- Konfiguration av operativsystemet säkerhetsrekommendationer uppdateras inom 48 timmar
+- Problem med rekommendationer om endpoint Protection uppdateras inom 8 timmar
 
 ## <a name="scenario"></a>Scenario
 Det här scenariot visar hur du använder Security Center för att minska risken för en säkerhetsincident genom att övervaka Security Center-rekommendationer och vidta åtgärder. Scenariot använder fiktiva företag, Contoso och roller som visas i Security Center [planerings- och bruksanvisning](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). I det här fallet vill vi fokusera på rollerna för följande personer:

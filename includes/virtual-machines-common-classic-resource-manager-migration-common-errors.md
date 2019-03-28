@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319749"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505728"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-resurser från Azures klassiska distributionsmodell till Azure Resource Manager-stacken.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Lista över fel
 
@@ -22,7 +24,7 @@ I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-res
 | Migrering stöds inte för distributionen {deployment-name} i HostedService {hosted-service-name} eftersom det är en PaaS-distribution (Web/Worker). |Det här inträffar när en distribution innehåller en web/worker-roll. Eftersom migrering bara stöds för Virtual Machines bör du ta bort web/worker-rollen från distributionen. Försök sedan igen. |
 | Det gick inte att distribuera mallen {template-name}. CorrelationId={guid} |I serverdelen av migreringstjänsten använder vi Azure Resource Manager-mallar för att skapa resurser i Azure Resource Manager-stacken. Eftersom mallar är idempotenta kan du vanligtvis lugnt göra ett nytt migreringsförsök för att komma förbi felet. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-supportability/how-to-create-azure-support-request.md) och ge dem CorrelationId. <br><br> **Obs!** När incidenten spåras av supportteamet, försök inte någon självhantering minskning eftersom det kan få oönskade konsekvenser för din miljö. |
 | Det virtuella nätverket {virtual-network-name} finns inte. |Det här kan inträffa om du har skapat det virtuella nätverket på nya Azure Portal. Det faktiska namnet på det virtuella nätverket följer mönstret "Grupp * <VNET name>" |
-| Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget {extension-name} som inte stöds i Azure Resource Manager. Du bör avinstallera det från den virtuella datorn innan du fortsätter med migreringen. |XML-tillägg som BGInfo 1.* stöds inte i Azure Resource Manager. Därför kan de inte heller migreras. Om tilläggen är kvar på den virtuella datorn avinstalleras de automatiskt innan migreringen slutförs. |
+| Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget {extension-name} som inte stöds i Azure Resource Manager. Du bör avinstallera det från den virtuella datorn innan du fortsätter med migreringen. |XML-tillägg som BGInfo-1. \* stöds inte i Azure Resource Manager. Därför kan de inte heller migreras. Om tilläggen är kvar på den virtuella datorn avinstalleras de automatiskt innan migreringen slutförs. |
 | Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget VMSnapshot/VMSnapshotLinux, som för närvarande inte stöds för migrering. Avinstallera det från den virtuella datorn och lägg tillbaka det via Azure Resource Manager när migreringen är klar |I det här fallet är den virtuella datorn konfigurerad för Azure Backup. Eftersom det inte är för närvarande, följer du anvisningarna på https://aka.ms/vmbackupmigration |
 | Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget {extension-name} vars status inte har rapporteras från den virtuella datorn. Den virtuella datorn kan därför inte migreras. Se till att tilläggets status rapporteras eller avinstallera tillägget från den virtuella datorn och försök att migrera igen. <br><br> Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget {extension-name} som rapporterar hanterarstatus: {handler-status}. Den virtuella datorn kan därför inte migreras. Se till att tilläggets hanterarstatus som rapporteras är {handler-status} eller avinstallera det från den virtuella datorn och försök att migrera igen. <br><br> Den virtuella datoragenten för den virtuella datorn {vm-name} i HostedService {hosted-service-name} rapporterar övergripande agentstatus Inte redo. Den virtuella datorn kan därför inte migreras, om den har ett migreringsbart tillägg. Se till att den virtuella datoragenten rapporterar övergripande agentstatus Redo. Referera till https://aka.ms/classiciaasmigrationfaqs. |Azure-gästagenten och virtuella datortillägg måste ha utgående Internetåtkomst till den virtuella datorns lagringskonto för att kunna ange status. Vanliga orsaker till fel kan vara <li> en nätverkssäkerhetsgrupp som blockerar utgående åtkomst till Internet <li> Om det virtuella nätverket har lokala DNS-servrar och DNS-anslutningen bryts <br><br> Om en status som inte stöds fortsätter att visas kan du avinstallera tilläggen om du vill hoppa över kontrollen och gå vidare med migreringen. |
 | Migrering stöds inte för distributionen {deployment-name} i HostedService {hosted-service-name} eftersom den har flera tillgänglighetsuppsättningar. |För närvarande går det bara att migrera värdbaserade tjänster med högst 1 tillgänglighetsuppsättning. Du kan undvika problemet genom att flytta ytterligare tillgänglighetsuppsättningar och virtuella datorer i de här tillgänglighetsuppsättningarna till en annan värdbaserad tjänst. |
@@ -44,7 +46,7 @@ Det här kan hända när datadiskens logiska storlek inte är synkroniserad med 
 
 #### <a name="verifying-the-issue"></a>Kontrollera problemet
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Åtgärda problemet
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

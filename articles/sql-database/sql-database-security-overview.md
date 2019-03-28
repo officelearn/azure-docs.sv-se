@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213933"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519144"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -100,12 +100,16 @@ Threat detection förbättrar granskning genom att analysera granskningsloggarna
 
 SQL Database skyddar kundernas data genom att kryptera data i rörelse med [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server använder kryptering (SSL/TLS) på hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras ”under överföringen” mellan klienten och servern oavsett inställningen för **Encrypt** eller **TrustServerCertificate** i anslutningssträngen.
+
+Som bästa praxis rekommenderar att i ditt programs anslutning sträng som du anger en krypterad anslutning och _**inte**_ lita på servercertifikatet. Detta gör att i ditt program för att verifiera servercertifikatet och innebär att ditt program från att vara sårbar för mannen i de mellersta typen av attackerna.
+
+Till exempel när du använder ADO.NET-drivrutinen detta görs **Encrypt = True** och **TrustServerCertificate = False**. Om du har fått anslutningssträngen från Azure portal, har de korrekta inställningarna.
+
 > [!IMPORTANT]
-> Azure SQL Database tillämpar kryptering (SSL/TLS) på hela tiden för alla anslutningar, vilket säkerställer att alla data krypteras ”under överföringen” mellan databasen och klienten. Detta inträffar oavsett inställningen för **Encrypt** eller **TrustServerCertificate** i anslutningssträngen.
+> Observera att vissa icke-Microsoft drivrutiner inte kan använda TLS som standard eller förlitar sig på en äldre version av TLS (< 2.0) för att kunna fungera. I det här fallet möjligt SQL Server fortfarande att ansluta till databasen. Vi rekommenderar dock att du utvärderar säkerhetsriskerna med att tillåta sådana drivrutiner och program för att ansluta till SQL-databas, särskilt om du lagrar känsliga data. 
 >
-> I anslutningssträngen för ditt program, kontrollera att du anger en krypterad anslutning och _inte_ att lita på servercertifikatet (detta är för ADO.NET-drivrutinen **Encrypt = True** och  **TrustServerCertificate = False**). Det innebär att ditt program från en mannen i mitten-attack, genom att kräva programmet för att kontrollera server och framtvinga kryptering. Om du har fått anslutningssträngen från Azure portal, har de korrekta inställningarna.
->
-> Information om TLS och anslutning finns i [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Mer information om TLS och anslutning finns [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent datakryptering (kryptering i vila)
 

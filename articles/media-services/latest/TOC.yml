@@ -53,6 +53,7 @@ items:
     - name: Transformeringar och jobb
       href: transforms-jobs-concept.md
     - name: Media Encoder Standard-format
+      displayName: containers, codecs
       href: media-encoder-standard-formats.md
     - name: Generera anpassningsbar bithastighetsstege automatiskt
       href: autogen-bitrate-ladder.md
@@ -259,9 +260,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure-moln och -regioner
     href: azure-clouds-regions.md
-ms.openlocfilehash: c6e3c3f8b0496e95357abd4814773489f4956755
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6b4d60510fa285290d92d7e9d6a7c5c2166bcd3f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516951"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578714"

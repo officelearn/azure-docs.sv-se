@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361106"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577330"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -46,11 +46,13 @@ Arbetsytan och ser en lista över beräkningsmål som du kan använda för att t
 
 Du kan registrera modeller med arbetsytan. Du använder en modell som är registrerade och bedömnings-skript för att skapa en avbildning. Du kan sedan distribuera avbildningen till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera avbildningen till en Azure IoT Edge-enhet som en modul.
 
-Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användarna följande roller:
+Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbetsyta, kan du styra åtkomsten till den genom att tilldela användare till följande roller:
 
 * Ägare
 * Deltagare
 * Läsare
+
+Mer information om dessa roller finns i den [hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md) artikeln.
 
 När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 

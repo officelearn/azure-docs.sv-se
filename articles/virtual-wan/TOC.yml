@@ -21,10 +21,14 @@ items:
     href: virtual-wan-office365-overview.md
 - name: Instruktionsguider
   items:
+  - name: Dirigera trafik från en virtuell hubb till en NVA
+    items:
+    - name: Azure Portal
+      href: virtual-wan-route-table-portal.md
+    - name: Azure PowerShell
+      href: virtual-wan-route-table.md
   - name: Virtuella WAN-partners - automatisering
     href: virtual-wan-configure-automation-providers.md
-  - name: Dirigera trafik från en virtuell hubb till en NVA
-    href: virtual-wan-route-table.md
 - name: Referens
   items:
   - name: Azure PowerShell
@@ -49,9 +53,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
-ms.openlocfilehash: dc6ffdb5f87f68424b4367ecb845852019a7380f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 555af48950df4afab512951a7c3ae53e41663427
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407807"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579741"

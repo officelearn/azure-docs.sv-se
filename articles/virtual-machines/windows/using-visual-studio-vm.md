@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 03/15/2019
+ms.date: 03/28/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3d269db8ada2b939f53f3efadc696941fd830d5d
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b9bfa49a94bca7f80cacedea0a08b1c0a6128ef8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439370"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619568"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
@@ -33,8 +33,8 @@ Avbildningar för de senaste huvudversioner, Visual Studio 2017 och Visual Studi
 
 | Slutversionen                                              | Utgåvor                     |     Produktversion      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: Förhandsversion (RC3)                        |           Enterprise         |    Version 16.0.0 RC3    |
-| Visual Studio 2017: Senaste (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.9      |
+|     Visual Studio 2019: Förhandsversion (RC4)                        |           Enterprise         |    Version 16.0.0 RC4    |
+| Visual Studio 2017: Senaste (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.10     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.22     |
 |   Visual Studio 2015: Senaste (Aktualizace 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             Ingen             | (Har gått ut för att underhålla)  |

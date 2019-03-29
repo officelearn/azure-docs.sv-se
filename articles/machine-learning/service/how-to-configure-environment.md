@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361803"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577568"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -315,7 +315,9 @@ När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide
    1. På den **bibliotek** fliken **starta om**.
       
    Även överväga:
-   + Vissa paket, till exempel `psutil`, kan orsaka konflikter Databricks under installationen. För att undvika dessa fel kan installera paket genom att du låser lib-versionen, till exempel `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + I Automl konfigurationen när du använder Azure Databricks Lägg till följande parametrar:
+    1. ```max_concurrent_iterations``` baserat på antalet arbetarnoder i klustret. 
+    2. ```spark_context=sc``` #databricks/spark standard spark-kontext. 
    + Eller, om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
 
 Om installationen slutfördes korrekt visas importerade biblioteket bör se ut som något av följande:

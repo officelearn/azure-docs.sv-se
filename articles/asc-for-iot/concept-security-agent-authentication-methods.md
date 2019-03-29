@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541819"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577808"
 ---
 # <a name="security-agent-authentication-methods"></a>Security-agenten autentiseringsmetoder 
 
@@ -41,10 +41,12 @@ De två metoderna för att AzureIoTSecurity agenten ska utföra autentisering:
 
  - **Modulen** autentiseringsläge<br>
    Modulen är autentiserad oberoende av enhetstvillingen.
-   Den information som krävs för den här typen av autentisering har definierats i av filen Authentication.config för C# och LocalConfiguration.json för C.
+   Använd den här autentiseringstypen om du vill ha säkerhetsagenten att använda en dedikerad autentiseringsmetod via säkerhetsmodul (endast för den symmetriska nyckeln).
         
  - **Enheten** autentiseringsläge<br>
-    I den här metoden autentiseras säkerhetsagenten först mot enheten. När den första autentiseringen ASC för IoT-agenten utför **Rest** anrop till IoT-hubben med hjälp av Rest-API med autentiseringsinformationen för enheten. ASC för IoT-agenten begär sedan autentiseringsmetoden för nätverkssäkerhet modulen och data från IoT Hub. I det sista steget utför ASC för IoT-agenten en autentisering mot ASC för IoT-modulen.    
+    I den här metoden autentiserar säkerhetsagenten först med enhetens identitet. När den första autentiseringen ASC för IoT-agenten utför en **REST** anrop till IoT-hubben med hjälp av REST-API med autentiseringsinformationen för enheten. ASC för IoT-agenten begär sedan autentiseringsmetoden för nätverkssäkerhet modulen och data från IoT Hub. I det sista steget utför ASC för IoT-agenten en autentisering mot ASC för IoT-modulen.
+    
+    Använd den här autentiseringstypen om du vill ha säkerhetsagenten om du vill återanvända en befintlig enhet-autentiseringsmetod (självsignerade certifikat eller symmetrisk nyckel). 
 
 Se [Security agent installationsparametrar](#security-agent-installation-parameters) att lära dig hur du konfigurerar.
                                 
@@ -55,7 +57,7 @@ Se [Security agent installationsparametrar](#security-agent-installation-paramet
 
 ## <a name="security-agent-installation-parameters"></a>Parametrar för installation av agent
 
-När [distribuerar en säkerhetsagenten](select-deploy-agent.md), autentisering-information om måste anges som argument.
+När [distribuerar en säkerhetsagenten](how-to-deploy-agent.md), autentisering-information om måste anges som argument.
 De här argumenten finns dokumenterade i följande tabell.
 
 
@@ -111,5 +113,5 @@ Redigera _LocalConfiguration.json_ med följande parametrar:
 
 ## <a name="see-also"></a>Se också
 - [Säkerhetsöversikt för agenter](security-agent-architecture.md)
-- [Distribuera säkerhetsagenten](select-deploy-agent.md)
+- [Distribuera säkerhetsagenten](how-to-deploy-agent.md)
 - [Rå säkerhetsdata för åtkomst](how-to-security-data-access.md)

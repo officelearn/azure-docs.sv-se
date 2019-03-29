@@ -1,5 +1,5 @@
 ---
-title: Säkerhetsguiden för Azure AD-roller i PIM | Microsoft Docs
+title: Säkerhetsguiden för Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
 description: Beskriver säkerhetsguiden som du kan använda för att konvertera permanenta Privilegierade rolltilldelningar för Azure AD till kvalificerade med hjälp av Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208766"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576368"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Säkerhetsguiden för Azure AD-roller i PIM
 
-Om du är den första personen som kör Azure AD Privileged Identity Management (PIM) för din organisation kan visas med en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.
+Om du är den första personen som kör Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för din organisation kan visas med en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.
 
 ## <a name="wizard-overview"></a>Översikt över guiden
 
@@ -65,9 +65,9 @@ Det andra steget i guiden ger dig möjlighet att ändra administratörens rollti
 
     ![Meddelanden](./media/pim-security-wizard/notification-completion.png)
 
-Om du vill konvertera andra Privilegierade rolltilldelningar till berättigade kan köra du guiden igen. Om du vill använda PIM-gränssnittet i stället för att guiden finns i [tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md).
+Om du vill konvertera andra Privilegierade rolltilldelningar till berättigade kan köra du guiden igen. Om du vill använda PIM-gränssnittet i stället för att guiden finns i [tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
+- [Tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md)
 - [Bevilja åtkomst till andra administratörer att hantera PIM](pim-how-to-give-access-to-pim.md)

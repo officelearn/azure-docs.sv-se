@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884735"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620010"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics på Media Services-plattformen 
 
@@ -40,8 +40,6 @@ Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en me
 
 ### <a name="indexer"></a>Indexerare
 Du kan göra innehåll sökbart och generera textning spårar med Azure Media Indexer. Förhandsversion av Azure Media Indexer 2 har jämfört med den tidigare versionen stöd för snabbare indexering och bredare språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska, portugisiska och arabiska. Mer information och exempel finns i [bearbeta videor med Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
-### <a name="hyperlapse"></a>Videostabilisering
-Microsoft Hyperlapse kombinerar videostabiliserings och tidsfördröjning funktionen för att skapa snabb, använda videor från ditt innehåll för långa. Förutom att skapa tidsfördröjning video kan använda du Videostabilisering för att skapa stabil videor från skakiga videor som hämtats via mobiltelefoner och kameror. Mer information och exempel finns i [Hyperlapse mediefiler med Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Rörelsedetektor
 Du kan använda Rörelseidentifiering för att identifiera rörelse i en video med stillastående bakgrunder. Detta gör det möjligt att söka efter falska positiva identifieringar på rörelsehändelser som identifieras av övervakningskameror. Mer information och exempel finns i [Rörelseidentifiering för Azure Media Analytics](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Ansiktsigenkänning
@@ -53,7 +51,7 @@ Du kan konvertera textinnehåll i videofiler till redigerbara och sökbara digit
 ### <a name="scalable-face-redaction"></a>Skalbar ansiktsredigering
 Azure Media Redactor är en Media Analytics-mediebearbetare som erbjuder skalbara ansiktsredigering i molnet. Med hjälp av ansiktsredigering kan ändra du videon om du vill minska ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i nyhetsmedier eller om allmän säkerhet är inblandad. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men i den här tjänsten ansiktsredigering tar bara några få enkla steg. Mer information finns i den [redigera ansikten med Azure Media Analytics](media-services-face-redaction.md) artikeln.
 ### <a name="content-moderation"></a>Innehållsmoderering
-Azure Content Moderator kan du använda datorstödd moderering för dina videor. Du kanske exempelvis vill identifiera möjliga vuxet eller olämpligt innehåll i videor och granska flaggade innehållet av mänskliga moderering-team. Manuellt kontrollera videor för oönskade innehåll är en tidskrävande och dyrt aktivitet. Med den här tjänsten och associerade med granskningsverktygen kan kombinera du datorstödd moderering med human-i-the-loop funktioner för bästa resultat på ett effektivt och kostnadseffektivt sätt. Mer information finns i den [bearbeta videor med Azure Content Moderator](media-services-content-moderation.md) artikeln.
+Azure Content Moderator kan du använda datorstödd moderering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet. Manuellt kontrollera videor för oönskade innehåll är en tidskrävande och dyrt aktivitet. Med den här tjänsten och associerade med granskningsverktygen kan kombinera du datorstödd moderering med human-i-the-loop funktioner för bästa resultat på ett effektivt och kostnadseffektivt sätt. Mer information finns i den [bearbeta videor med Azure Content Moderator](media-services-content-moderation.md) artikeln.
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 Media Analytics kan hjälpa organisationer och företag få djupare förståelse från nya insikter från video och mer hantera effektivt stora volymer av videoinnehåll. Här följer flera scenarier:

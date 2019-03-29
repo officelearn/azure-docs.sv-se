@@ -1,21 +1,21 @@
 ---
-title: Ansluta till FTP-server – Azure Logic Apps | Microsoft Docs
+title: Ansluta till FTP-server – Azure Logic Apps
 description: Skapa, övervaka och hantera filer på en FTP-server med Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913367"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576334"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -28,10 +28,11 @@ Med Azure Logic Apps och FTP-anslutningsappen kan skapa du automatiserade uppgif
 
 Du kan använda utlösare som få svar från FTP-servern och göra utdata som är tillgängliga för andra åtgärder. Du kan använda Kör åtgärder i dina logic apps för att hantera filer på FTP-servern. Du kan också ha andra åtgärder som använder utdata från FTP-åtgärder. Om du regelbundet får filer från FTP-servern kan skicka du e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> FTP-anslutningsappen stöder bara filer som är 50 MB eller mindre om du inte använder [meddelande storlekar i åtgärder](../logic-apps/logic-apps-handle-large-messages.md). För närvarande kan använda du inte storlekar för utlösare.
->
-> Dessutom FTP-anslutningsappen stöder bara explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS. 
+## <a name="limits"></a>Begränsningar
+
+* FTP-åtgärder stöder endast filer som är *50 MB eller mindre* om du inte använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md), vilket gör att du överskrider den här gränsen. För närvarande stöder FTP-utlösare inte storlekar.
+
+* FTP-anslutningsappen stöder bara explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,7 +52,7 @@ Du kan använda utlösare som få svar från FTP-servern och göra utdata som ä
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-1. För tom logic apps i sökrutan anger du ”ftp” som filter. Välj utlösaren som du vill under listan över utlösare. 
+1. För tom logic apps i sökrutan anger du ”ftp” som filter. Välj utlösaren som du vill under listan över utlösare.
 
    ELLER
 
@@ -82,7 +83,7 @@ Den här utlösaren startar en logikapparbetsflöde när utlösaren identifierar
 
 **Enterprise exempel**: Du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som beskriver kundorder. Du kan sedan använda en FTP-åtgärd som **hämta filinnehåll**, så du kan hämta den ordning innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
 
-När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+När du begär innehåll, kan inte utlösare hämta filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
 
 * Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
 
@@ -121,7 +122,7 @@ Nu när logikappen har en utlösare, lägga till åtgärder som du vill köra n�
 
 Den här åtgärden hämtar innehållet från en fil på en FTP-server när den filen läggs till eller uppdateras. Till exempel kan du lägga till utlösaren från exemplet ovan och en åtgärd som hämtar dess innehåll när den filen läggs till eller redigeras. 
 
-När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+När du begär innehåll, kan inte utlösare hämta filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
 
 * Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
 
@@ -151,7 +152,7 @@ Här är ett exempel som visar den här åtgärden: **Hämta innehåll**
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/ftpconnector/).
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska de [anslutningsappens-referenssida](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Få support
 

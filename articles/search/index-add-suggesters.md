@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497441"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577134"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Lägg till förslagsställare till ett index för typeahead i Azure Search
 
-En **förslagsställare** är en konstruktion i en [Azure Search-index](search-what-is-an-index.md) som har stöd för en ”sökning-som-du-type”-upplevelse. Den innehåller en lista med fält som du vill aktivera typeahead fråga indata. Det finns två varianter av typeahead: *automatisk komplettering* slutförs den term eller en fras som du skriver, *förslag* ger en kort lista med resultat. 
+En **förslagsställare** är en konstruktion i en [Azure Search-index](search-what-is-an-index.md) som har stöd för en ”sökning-som-du-type”-upplevelse. Den innehåller en lista med fält som du vill aktivera typeahead fråga indata. I ett index i samma förslagsställare har stöd för ett eller båda av dessa två typeahead varianter: *automatisk komplettering* slutförs den term eller en fras som du skriver, *förslag* ger en kort lista med resultat. 
 
-I den här Xbox-söksidan tar automatisk komplettering objekt dig till en ny sida med sökresultat för den frågan, medan de faktiska resultaten som tar dig till en sida för det specifika spelet förslagen. Du kan begränsa Komplettera automatiskt till ett objekt i ett sökfält eller ange en lista som den som visas här. Förslag, kan du ge någon del av ett dokument som bäst beskriver resultatet.
+Följande skärmbild illustrerar både typeahead-funktionerna. I den här Xbox-söksidan tar automatisk komplettering objekt dig till en ny sida med sökresultat för den frågan, medan de faktiska resultaten som tar dig till en sida för det specifika spelet förslagen. Du kan begränsa Komplettera automatiskt till ett objekt i ett sökfält eller ange en lista som den som visas här. Förslag, kan du ge någon del av ett dokument som bäst beskriver resultatet.
 
 ![Visual jämförelse av automatisk komplettering och föreslagna frågor](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual jämförelse av automatisk komplettering och föreslagna frågor")
 
 För att implementera dessa beteenden i Azure Search, finns det ett index och fråga komponent. 
 
-+ Lägg till en förslagsställare i ett index. Du kan använda portalen, REST API eller .NET SDK för att skapa en förslagsställare. 
++ Indexkomponenten är en förslagsställare. Du kan använda portalen, REST API eller .NET SDK för att skapa en förslagsställare. 
 
-+ Ange ett förslag eller sutocomplete åtgärd på en fråga. 
++ Frågekomponenten är en åtgärd som anges på query-fråga (åtgärd förslag eller Komplettera automatiskt). 
 
 > [!Important]
-> Automatisk komplettering är för närvarande i förhandsversion, finns i förhandsversion REST API: er och SDK för .NET och stöds inte för produktionsprogram. 
+> Automatisk komplettering är för närvarande i förhandsversion, finns i förhandsversion REST API: er och .NET SDK. Det är inte avsett för program i produktion. 
 
 Sök-som-du-type-stöd är aktiverat på basis av per fält. Du kan implementera båda typeahead beteenden inom samma söklösning om du vill att en upplevelse liknar det som anges i skärmbilden. Både begäranden mål den *dokument* samling specifikt index och -svar returneras när en användare har tillhandahållit Indatasträngen på minst tre tecken.
 
@@ -77,7 +77,7 @@ När en förslagsställare har skapats kan du lägga till den [förslag API](htt
 
 ### <a name="use-the-net-sdk"></a>Använda .NET SDK
 
-I C#, definiera en [förslagsställare klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Förslagsställare är en samling, men det kan bara ta ett objekt.
+I C#, definiera en [förslagsställare klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). En förslagsställare är en samling som bara kan ta ett objekt. Se till att lägga till `using System.Collections.Generic;` så att du kan skapa en lista med objekt. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Den använder en sandbox Azure Search-tjänst och ett förinstallerade index så
 Vi rekommenderar följande exempel för att se hur begäranden formuleras.
 
 > [!div class="nextstepaction"]
-> [Exempel på sökfråga kompletterat (förhandsversion)](search-autocomplete-tutorial.md) 
+> [Förslag och automatisk komplettering exempel](search-autocomplete-tutorial.md) 

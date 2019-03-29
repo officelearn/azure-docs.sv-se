@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481883"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621081"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -26,7 +26,16 @@ Läs mer om IoT Edge-körningen i [förstå Azure IoT Edge-körningen och dess a
 Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Windows x64 (AMD/Intel) system. Windows support förhandsvisas just nu.
 
 > [!NOTE]
-> Med hjälp av Linux-behållare på Windows-System är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
+> Ett känt problem i Windows operativsystem förhindrar övergång vila och viloläge energinivåer när IoT Edge-moduler (isolerad processen Windows Nano Server-behållare) körs. Det här problemet påverkar batteritid på enheten.
+>
+> Som en lösning kan du använda kommandot `Stop-Service iotedge` att stoppa alla IoT Edge-moduler som körs innan du använder dessa energinivåer. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Med Linux är-behållare på Windows-system inte en rekommenderad eller stöds produktionskonfiguration för Azure IoT Edge. Det kan dock användas för utveckling och testning. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382562"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578534"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
 
-Azure Load Balancer kan du skala dina program och skapa hög tillgänglighet för dina tjänster. Belastningsutjämnare kan användas för inkommande samt utgående scenarier och innehåller med låg fördröjning och högt dataflöde och kan skalas upp till miljontals flöden för alla TCP och UDP-tillämpningar. 
+Med Azure Load Balancer kan du skala dina program och göra dina tjänster högtillgängliga. Belastningsutjämnare kan användas för inkommande samt utgående scenarier och innehåller med låg fördröjning och högt dataflöde och kan skalas upp till miljontals flöden för alla TCP och UDP-tillämpningar. 
 
 Den här artikeln fokuserar på Standard Load Balancer.  En mer allmän översikt för Azure Load Balancer, granska [översikt över Standardbelastningsutjämnare](load-balancer-overview.md) samt.
 
@@ -73,6 +73,9 @@ Dessutom, när hela serverdelspoolen [avsökningar ned](load-balancer-custom-pro
 Granska [hälsoavsökningar för belastningsutjämnaren](load-balancer-custom-probe-overview.md) mer information.
 
 ### <a name="az"></a>Tillgänglighetszoner
+
+>[!IMPORTANT]
+>Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) Närliggande ämnen, inklusive i någon särskild regioninformation.
 
 Standard Load Balancer stöder ytterligare funktioner i regioner där Availability Zones är tillgängligt.  Dessa funktioner är inkrementell säkerhetskopiering mot alla Standard Load Balancer tillhandahåller.  Tillgänglighetszoner konfigurationer är tillgängliga för offentliga och interna Standard Load Balancer.
 
@@ -211,10 +214,10 @@ Standard belastningsutjämnare är tillgängliga med ett serviceavtal på 99,99%
 
 ## <a name="pricing"></a>Prissättning
 
-Standard Load Balancer användningen debiteras.
+Standard Load Balancer-användning debiteras.
 
-- Antalet konfigurerade regler för belastningsutjämning och utgående (inkommande NAT-regler räknas inte mot det totala antalet regler)
-- Mängden data som bearbetas regel för inkommande och utgående oavsett. 
+- Antalet konfigurerade belastningsutjämningsregler och utgående regler (inkommande NAT-regler räknas inte till det totala antalet regler).
+- Mängden inkommande och utgående data som bearbetas oavsett regel. 
 
 Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-priser](https://azure.microsoft.com/pricing/details/load-balancer/).
 

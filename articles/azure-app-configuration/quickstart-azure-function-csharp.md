@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226716"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579588"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
 
@@ -45,13 +45,19 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
 
-1. Öppna *Function1.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
+1. Högerklicka på projektet och välj **hantera NuGet-paket**. På den **Bläddra** fliken, söka och Lägg till följande NuGet-paketen i projektet. Om du inte kan hitta dem, väljer du den **inkludera förhandsversion** markerar du kryssrutan.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Öppna *Function1.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Uppdatera metoden `Run` till att använda App Configuration genom att anropa `builder.AddAzureAppConfiguration()`.
+3. Uppdatera metoden `Run` till att använda App Configuration genom att anropa `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(

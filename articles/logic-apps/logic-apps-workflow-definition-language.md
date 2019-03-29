@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734648"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620844"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schemareferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -41,7 +41,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | definition | Ja | Från elementet för din arbetsflödesdefinition |
-| $schema | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| $schema | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Nej | Versionsnumret för din arbetsflödesdefinitionen som är ”1.0.0.0” som standard. Ange ett värde som ska användas för att identifiera och verifiera rätt definitionen när du distribuerar ett arbetsflöde. |
 | parameters | Nej | Definitioner för en eller flera parametrar som skickar data i ditt arbetsflöde <p><p>Maximal parametrar: 50 |
 | utlösare | Nej | Definitioner för en eller flera utlösare som instansierar arbetsflödet. Du kan definiera mer än en utlösare, men endast med Definitionsspråk för arbetsflödet, inte visuellt med Logikappdesignern. <p><p>Maximal utlösare: 10 |
@@ -72,8 +72,8 @@ Här är den allmänna strukturen för en parameterdefinition:
 
 | Element | Krävs | Typ | Beskrivning |
 |---------|----------|------|-------------|
-| typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. | Typen för parametern |
-| Standardvärde | Nej | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
+| typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
+| Standardvärde | Ja | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
 | allowedValues | Nej | Samma som `type` | En matris med värden som parametern kan acceptera |
 | metadata | Nej | JSON-objekt | Övriga parametern detaljer, till exempel namnet eller en läsbar beskrivning för din logikapp eller ett designläge data som används av Visual Studio eller andra verktyg |
 ||||

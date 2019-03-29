@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432149"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622084"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributionsmodellen för Resource Manager
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Kontrollera att du har följande innan du fortsätter ytterligare
 * IP-adressintervall som används för att konfigurera peerings (Azure privat, Azure offentlig och Microsoft). Granska ip-adress tilldelning av exemplen i den [ExpressRoute routning kravsidan](expressroute-routing.md) att få en förståelse för hur ip-adresser mappas till gränssnitt på din sida och på ExpressRoute-sida. Du kan få information om peering-konfigurationen genom att granska den [konfigurationssidan i ExpressRoute-peering](expressroute-howto-routing-arm.md).
 * Information från ditt nätverksteam / anslutningsleverantör på MAC-adresserna för gränssnitt som används med dessa IP-adresser.
 * Du måste ha den senaste PowerShell-modulen för Azure (version 1,50 eller senare).
+
+> [!NOTE]
+> Om nivå 3 tillhandahålls av leverantören och ARP-tabeller är tom i portal/utdata nedan, uppdaterar du konfigurationen krets med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration på din krets. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Hämta ARP-tabeller för ExpressRoute-krets
 Det här avsnittet innehåller anvisningar om hur du kan visa ARP-tabeller per peering med hjälp av PowerShell. Du eller din anslutningsleverantör måste ha konfigurerat peer-kopplingen innan du går vidare. Varje krets har två sökvägar (primär eller sekundär). Du kan kontrollera ARP-tabell för varje sökväg oberoende av varandra.

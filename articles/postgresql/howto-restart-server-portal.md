@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168783"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621838"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Starta om Azure Database for PostgreSQL-server med Azure portal
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -22,7 +22,7 @@ Den tid som krävs för att slutföra en omstart är beroende av PostgreSQL åte
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:
-- En [Azure Database for PostgreSQL-server och databas](quickstart-create-server-database-portal.md)
+- En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md)
 
 ## <a name="perform-server-restart"></a>Utföra omstart av servern
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517954"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622203"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -77,21 +77,28 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitet. M
 
 Så här konfigurerar du varningar:
 
-1. Välj **Aviseringar (klassisk)** på menyraden långt ned på sidan.
+1. Välj **aviseringar** på menyraden långt ned på sidan.
 
-    ![aviseringar](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![aviseringar](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Välj **Lägg till metrisk varning**.
-3. Ange ett **namn** på varningen.
-4. Välj **Ej auktoriserad begäran** som mått som ska övervakas.
-5. Välj **E-postägare, deltagare och läsare**.
-6. Tryck på **OK**.
-7. Försök anropa konferens-API utan API-nyckel. Du får en e-postavisering som ägare till den här API Management-tjänsten. 
+2. Klicka på en **ny aviseringsregel** för den här aviseringen.
+3. Klicka på **Lägg till villkor**.
+4. Välj **mått** i signaltyp nedrullningsbar listruta.
+5. Välj **obehörig Gateway begära** signal att övervaka.
 
-    > [!TIP]
-    > Varningsregeln kan också anropa en webbhook eller en Azure Logic App när den utlöses.
+    ![aviseringar](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. I den **konfigurera signallogiken** visa, ange ett tröskelvärde efter som aviseringen ska aktiveras och klicka på **klar**.
+
+    ![aviseringar](./media/api-management-azure-monitor/threshold.png)
+
+7. Välj en befintlig åtgärdsgrupp eller skapa en ny. I exemplet nedan visas skickas ett e-postmeddelande till administratörerna. 
+
+    ![aviseringar](./media/api-management-azure-monitor/action-details.png)
+
+8. Ange ett namn, beskrivning av regeln och välj allvarlighetsgraden. 
+9. Tryck på **skapa varningsregel**.
+10. Prova att anropa konferens-API utan API-nyckel. Aviseringen utlöses skickas ett e-postmeddelande till administratörer. 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 

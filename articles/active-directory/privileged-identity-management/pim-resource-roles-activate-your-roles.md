@@ -1,5 +1,5 @@
 ---
-title: Aktivera Mina roller för Azure-resurs i PIM | Microsoft Docs
+title: Aktivera Mina roller för Azure-resurs i PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att aktivera din Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002051"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575814"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 
-Använda Azure AD Privileged Identity Management (PIM), kan berättigade rollmedlemmar för Azure-resurser schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer).
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan berättigade rollmedlemmar för Azure-resurser schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer).
 
 Den här artikeln gäller för medlemmar som behöver aktivera sin Azure-resurs-roll i PIM.
 
@@ -38,7 +38,7 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
 1. Klicka på **Mina roller**.
 
-    ![Azure AD-katalogroller och Azure-resursroller - Mina roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Azure AD-roller och Azure-resursroller - Mina roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Klicka på **Azure-resursroller** att se en lista över dina berättigade Azure-resursroller.
 
@@ -84,7 +84,7 @@ Följ dessa steg när du har aktiverat för att använda dina Azure-resursroller
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-katalogroller och Azure-resursroller.
+1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-roller och Azure-resursroller.
 
 1. Klicka på **Azure-resursroller**.
 
@@ -100,9 +100,9 @@ Du kan visa statusen för väntande förfrågningar om att aktivera.
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på **Mina förfrågningar** att se en lista över dina Azure AD directory-roll och rollen för Azure-resurs-begäranden.
+1. Klicka på **Mina förfrågningar** att se en lista över dina Azure AD-rollen och Azure-resursrollen begär.
 
-    ![Azure AD-katalogroller och Azure-resursroller - Mina begäranden](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Azure AD-roller och Azure-resursroller - Mina begäranden](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Bläddra till höger för att visa den **begär Status** kolumn.
 
@@ -138,4 +138,4 @@ Om du får ett meddelande om att en Azure-resurs är låst när du försöker ak
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utöka eller förnya Azure-resursroller i PIM](pim-resource-roles-renew-extend.md)
-- [Aktivera mitt Azure AD-katalogroller i PIM](pim-how-to-activate-role.md)
+- [Aktivera Azure AD-roller i PIM](pim-how-to-activate-role.md)

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 1/4/2019
+ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03cfecb2faaacbe1017fb4e7acfa3c475c18a9ab
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886566"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620028"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.Android-appar med hjälp av Azure Notification Hubs
 
@@ -28,7 +28,7 @@ ms.locfileid: "57886566"
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin.Android-app. Du skapar en tom Xamarin.Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM). Du använder meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns tillgänglig i exemplet [NotificationHubs-app][GitHub].
+I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin.Android-app. Du skapar en tom Xamarin.Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM). Du använder meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns i den [NotificationHubs app](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) exemplet.
 
 I den här självstudien gör du följande:
 
@@ -112,8 +112,15 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
         </intent-filter>
     </receiver>
     ```
+2. Lägg till följande uttryck **innan programmet** element. 
 
-2. Samla in följande information för Android-appen och meddelandehubben:
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. Samla in följande information för Android-appen och meddelandehubben:
 
    * **Lyssna anslutningssträng**: På instrumentpanelen i [Azure Portal] väljer du **Visa anslutningssträngar**. Kopiera `DefaultListenSharedAccessSignature`-anslutningssträngen för det här värdet.
    * **Hubbnamn**: Namnet på hubben från [Azure Portal]. Till exempel *mynotificationhub2*.
@@ -131,13 +138,61 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. Lägg till en instansvariabel till den `MainActivity.cs*` som ska användas för att visa en varningsruta när appen körs:
+6. Lägg till följande egenskaper till MainActivity-klassen. TAGG-variabeln används för att visa en varningsruta när appen körs:
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. I `MainActivity.cs` lägger du till följande kod i `OnCreate` efter `base.OnCreate(savedInstanceState)`:
+7. Lägga till följande metod i klassen MainActivity. Kontrollerar den om **Google Play-tjänster** är tillgängliga på enheten. 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. Lägga till följande metod i klassen MainActivity som skapar en meddelandekanal.
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. I `MainActivity.cs` lägger du till följande kod i `OnCreate` efter `base.OnCreate(savedInstanceState)`:
 
     ```csharp
     if (Intent.Extras != null)
@@ -151,6 +206,9 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. Skapa en ny klass, `MyFirebaseIIDService`, på samma sätt som du skapade klassen `Constants`.
 9. Lägg till följande using-uttryck i `MyFirebaseIIDService.cs`:
@@ -201,6 +259,9 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.OS;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. Lägg till följande ovanför klassdeklarationen och gör så att klassen ärver från `FirebaseMessagingService`:
 
@@ -236,12 +297,18 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 

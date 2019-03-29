@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2356a7e5426037ffe9fc8b304ac113f4a3fe2a17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103357"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574848"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
@@ -39,6 +39,7 @@ Connector för Windows-brandväggen kan du enkelt ansluta dina brandväggar logg
 1. I Sentinel-Azure-portalen väljer **datainsamling** och klicka sedan på den **Windows-brandväggen** panelen. 
 1. Välj vilka datatyper som du vill spela.
 1. Klicka på **Installera**.
+6. Om du vill använda relevanta schemat i Log Analytics för Windows-brandväggen, Sök efter **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Verifiera anslutningen
 

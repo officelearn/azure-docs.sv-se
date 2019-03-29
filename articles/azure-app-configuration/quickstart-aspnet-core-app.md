@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487557"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578126"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -93,13 +93,15 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
     Den här hemligheten nås med konfigurations-API. Ett kolon (:) fungerar i Konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se [konfigurationen av miljön](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Öppna Program.cs och uppdatera den `CreateWebHostBuilder` metod du använder Appkonfiguration genom att anropa den `config.AddAzureAppConfiguration()` metoden.
+4. Öppna *Program.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. Uppdatera den `CreateWebHostBuilder` metod du använder Appkonfiguration genom att anropa den `config.AddAzureAppConfiguration()` metoden.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
             .UseStartup<Startup>();
     ```
 
-5. Öppna Index.cshtml i vyerna > Home directory och Ersätt innehållet med följande kod:
+6. Öppna Index.cshtml i vyerna > Home directory och Ersätt innehållet med följande kod:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     </html>
     ```
 
-6. Öppna _Layout.cshtml i vyerna > delad directory och Ersätt innehållet med följande kod:
+7. Öppna _Layout.cshtml i vyerna > delad directory och Ersätt innehållet med följande kod:
 
     ```html
     <!DOCTYPE html>

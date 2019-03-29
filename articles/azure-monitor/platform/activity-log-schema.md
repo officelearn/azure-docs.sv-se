@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868552"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622220"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
 Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
@@ -358,6 +358,7 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 | correlationId | Ett GUID i formatet för strängen. |
 | beskrivning |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
+| category | Alltid ”Avisera” |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper är det namnet på resursgruppen som innehåller aviseringen själva. |
 | resourceProviderName |Namnet på resursprovidern för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper är det namnet på resursprovidern för aviseringen själva. |
@@ -556,6 +557,7 @@ Den här kategorin innehåller posten några aviseringar som genereras av Azure 
 | beskrivning |Statisk textbeskrivning av säkerhetshändelsen. |
 | eventDataId |Unik identifierare för säkerhetshändelsen. |
 | EventName |Eget namn på säkerhetshändelsen. |
+| category | Alltid ”säkerhet” |
 | id |Unikt resurs-ID för säkerhetshändelsen. |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” eller ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen. |

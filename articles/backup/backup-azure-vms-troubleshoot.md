@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5e84c22285d1cdec9678c8bf33dab1568d333cd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005711"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621591"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -69,7 +69,7 @@ Du kan felsöka fel vid användning av Azure Backup med informationen som visas 
 | Typ av lagringskonto som angetts för återställningsåtgärden är inte online: <br>Kontrollera att lagringskontot som angetts i återställningsåtgärden är online. |Det här felet kan inträffa på grund av ett tillfälligt fel i Azure Storage eller på grund av ett avbrott. Välj ett annat lagringskonto. |
 | Resursgruppens kvot har uppnåtts: <br>Ta bort några resursgrupper i Azure Portal eller kontakta Azure-supporten om du vill höja gränsen. |Ingen |
 | Det valda undernätet finns inte: <br>Välj ett undernät som finns. |Ingen |
-| Backup-tjänsten har inte behörighet att komma åt resurser i din prenumeration. |För att lösa det här felet kan återställa diskar med hjälp av stegen i [återställa säkerhetskopierade diskar](backup-azure-arm-restore-vms.md#create-new-restore-disks). Därefter använder du PowerShell steg i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#restore-an-azure-vm). |
+| Backup-tjänsten har inte behörighet att komma åt resurser i din prenumeration. |För att lösa det här felet kan återställa diskar med hjälp av stegen i [återställa säkerhetskopierade diskar](backup-azure-arm-restore-vms.md#restore-disks). Därefter använder du PowerShell steg i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Säkerhetskopieringen eller återställningen tar tid
 Om din säkerhetskopia tar mer än 12 timmar, eller Återställ tar mer än 6 timmar, granska [bästa praxis](backup-azure-vms-introduction.md#best-practices) och [prestandaöverväganden](backup-azure-vms-introduction.md#backup-performance)

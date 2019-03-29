@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620588"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 
@@ -39,7 +39,7 @@ Följande bild illustrerar detaljerade steg i livscykeln för en runbook. Den in
 1. I Azure-portalen väljer du **Automation** och klicka sedan på namnet på ett automation-konto.
 2. På navmenyn väljer **Runbooks**.
 3. På den **Runbooks** sidan, Välj en runbook och klicka sedan på **starta**.
-4. Om runbooken har parametrar uppmanas du att ange värden med en textruta för varje parameter. Mer information om parametrar finns i [Runbookparametrar](#Runbook-parameters).
+4. Om runbooken har parametrar uppmanas du att ange värden med en textruta för varje parameter. Mer information om parametrar finns i [Runbookparametrar](#runbook-parameters).
 5. På den **jobbet** kan du kan visa statusen för runbook-jobbet.
 
 ## <a name="start-a-runbook-with-powershell"></a>Starta en runbook med PowerShell
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Om runbook kräver parametrar och sedan måste du ange dem som en [hash-tabell](https://technet.microsoft.com/library/hh847780.aspx). Nyckeln för hash-tabellen matchar parameternamnet och värdet är parametervärdet. I följande exempel visas hur du startar en runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbookparametrar](#Runbook-parameters) nedan.
+Om runbook kräver parametrar och sedan måste du ange dem som en [hash-tabell](https://technet.microsoft.com/library/hh847780.aspx). Nyckeln för hash-tabellen matchar parameternamnet och värdet är parametervärdet. I följande exempel visas hur du startar en runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbookparametrar](#runbook-parameters) nedan.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

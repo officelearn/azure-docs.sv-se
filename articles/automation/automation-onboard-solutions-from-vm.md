@@ -4,17 +4,17 @@ description: Lär dig hur du publicerar Azure-datorer med lösningar som uppdate
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837770"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619738"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar från Azure-datorer som uppdateringshantering, ändringsspårning och inventering
 
@@ -26,7 +26,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Aktivera lösningar
 
-Gå till en befintlig virtuell dator. Under **OPERATIONS**väljer **uppdateringshantering**, **inventering**, eller **ändringsspårning**. Den virtuella datorn kan finnas i valfri region oavsett platsen för ditt Automation-konto.
+Gå till en befintlig virtuell dator. Under **OPERATIONS**väljer **uppdateringshantering**, **inventering**, eller **ändringsspårning**. Den virtuella datorn kan finnas i valfri region oavsett platsen för ditt Automation-konto. När onboarding en lösning från en virtuell dator som du behöver ha den `Microsoft.OperationalInsights/workspaces/read` behörighet för att avgöra om den virtuella datorn har publicerats i en arbetsyta. Läs om ytterligare behörigheter som krävs i allmänhet i [behörigheter som krävs för att publicera datorer](automation-role-based-access-control.md#onboarding).
 
 Se till att aktivera lösningen för den virtuella datorn endast **aktivera för den här virtuella datorn** har valts. Att publicera flera datorer i lösningen, Välj **aktivera för virtuella datorer i den här prenumerationen**, och välj sedan **klickar du på datorer för att aktivera**. Mer information hur du publicera flera datorer på samma gång finns [publicera uppdateringshantering, ändringsspårning och inventering lösningar](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bo
 
 1. Öppna ditt Automation-konto från Azure-portalen och på Automation-konto väljer du sidan **länkade arbetsytan** under avsnittet **relaterade resurser** till vänster.
 
-1. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
+2. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
 
    ![Avlänka arbetsytssidan](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Ett meddelande visas där du bekräftar att du vill fortsätta.
 
-1. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
+3. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
 
 Om du använder lösningen för uppdateringshantering, kan om du vill du ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 

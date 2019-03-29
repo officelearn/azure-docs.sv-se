@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775330"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620649"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
 När du [Välj en prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att du kan också öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal faktureringsenheter. Den här artikeln beskriver hur du allokera dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörning, indexering och lagring.
 
-Resurskonfigurationen är tillgänglig när du ställer in en tjänst på den [Basic-nivån](https://aka.ms/azuresearchbasic) eller någon av de [Standard-nivåerna](search-limits-quotas-capacity.md). För tjänster på dessa nivåer, kapacitet köps i steg om *Sök enheter* (su) där varje partition och repliken räknas som en SU. 
+Resurskonfigurationen är tillgänglig när du ställer in en tjänst på den [Basic-nivån](https://aka.ms/azuresearchbasic) eller någon av de [Standard- eller Lagringsoptimerade nivå](search-limits-quotas-capacity.md). För tjänster på dessa nivåer, kapacitet köps i steg om *Sök enheter* (su) där varje partition och repliken räknas som en SU. 
 
 Med färre SUs-resultat i en proportionellt lägre kostnader. Fakturering har aktiverats för förutsatt att tjänsten har ställts in. Om du tillfälligt inte använder en tjänst, är det enda sättet att undvika fakturering som tar bort tjänsten och sedan återskapa den när du behöver den.
 
@@ -81,7 +81,7 @@ Sökprogram behöver i allmänhet fler repliker än partitioner, särskilt när 
 
 En grundläggande tjänst kan ha exakt en partition och upp till tre repliker i maximalt begränsa tre SUS. Endast justerbara resursen är repliker. Du behöver minst två repliker för hög tillgänglighet på frågor.
 
-Alla tjänster som standard kan anta följande kombinationer av repliker och partitioner, omfattas av 36 SU-gränsen. 
+Alla Standard- och Lagringsoptimerade söktjänster kan anta följande kombinationer av repliker och partitioner, omfattas av 36 SU-gränsen. 
 
 |   | **1 partition** | **2 partitioner** | **3 partitioner** | **4 partitioner** | **6 partitioner** | **12 partitioner** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Allmänna rekommendationer för hög tillgänglighet är:
 
 Servicenivåavtal (SLA) för Azure Search riktas på frågeåtgärder och uppdateringar av index som består av att lägga till, uppdatera eller ta bort dokument.
 
-Basic-nivån överkant på en partition och tre repliker. Om du vill ha flexibiliteten svara omedelbart på grund av variationer i efterfrågan på både indexerings- och dataflöde du något av Standard-nivåerna.
+Basic-nivån överkant på en partition och tre repliker. Om du vill ha flexibiliteten svara omedelbart på grund av variationer i efterfrågan på både indexerings- och dataflöde du något av Standard-nivåerna.  Om du hittar dina lagringsbehov växer mycket snabbare än din frågedataflöde kan du överväga att en av de Lagringsoptimerade nivåerna.
 
 ### <a name="index-availability-during-a-rebuild"></a>Indexet tillgänglighet under återskapas
 

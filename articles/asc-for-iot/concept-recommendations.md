@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541864"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576213"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541864"
 > ASC för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT tillhandahåller baseras på pågående lösning analys och följande rekommendationer när det behövs för att förbättra och skydda dina enheter, driftstatus och övergripande IoT Hub-miljön. 
+ASC för IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta. Säkerhetsrekommendationer är användbara och syftar till att hjälpa kunderna att som uppfyller till säkerhetsmetoder.
 
+Du hittar en lista över rekommendationer som kan utlösas på din IoT Hub och/eller IoT-enheter i den här artikeln.
 
-## <a name="device-recommendations"></a>Rekommendationer för enhet
+## <a name="recommendations-for-iot-devices"></a>Rekommendationer för IoT-enheter
 
-Rekommendationer för enhet ger insikter och förslag för att förbättra säkerheten för enheten och beteende. 
+Rekommendationer för enhet ger insikter och förslag för att förbättra säkerhetspositionen för enheten. 
 
 | Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ Rekommendationer för enhet ger insikter och förslag för att förbättra säke
 | Medel   | Tillåtande brandväggsregel i utdata-kedjan hittades    | Agent       | En regel i brandväggen har hittats som innehåller ett Tillåtande mönster för en mängd olika IP-adresser eller portar.                                                                                   |
 | Medel   | Det gick inte att baslinjen validering av systemet           | Agent       | Enheten är inte kompatibel med [riktmärken för CIS-Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>Operativa rekommendation
+### <a name="operational-recommendations-for-iot-devices"></a>Operativa rekommendationer för IoT-enheter
 
-Operativa rekommendationer ger insikter och förslag för att förbättra agentkonfiguration.
+Operativa rekommendationer ger insikter och förslag för att förbättra säkerhetskonfiguration för agenten.
 
 | Severity | Namn                                    | Datakälla | Beskrivning                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Operativa rekommendationer ger insikter och förslag för att förbättra agentk
 | Låg      | Security twin konfigurationskonflikt    | Agent       | Konflikter identifierades i twin säkerhetskonfiguration.                           |
 
 
-## <a name="iot-hub-recommendations"></a>IoT Hub-rekommendationer
+## <a name="recommendations-for-iot-hub"></a>Rekommendationer för IoT Hub
 
 Rekommendationen aviseringar ger insikt och förslag på åtgärder för att förbättra säkerhetspositionen för din miljö.  
 

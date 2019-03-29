@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309136"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620884"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -104,7 +104,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka prog
 
 Du har tre alternativ för att lagra dina loggar:
 
-* **Storage-konto**: Storage-konton är bäst för loggar när loggar lagras under en längre period och granskat när det behövs.
+* **Lagringskonto**: Storage-konton är bäst för loggar när loggar lagras under en längre period och granskat när det behövs.
 * **Händelsehubbar**: Händelsehubbar är ett bra alternativ för att integrera med andra säkerhet och händelsehantering (SEIM) hanteringsverktyg för att få meddelanden om dina resurser.
 * **Azure Monitor-loggar**: Azure Monitor-loggar är bäst för allmän realtidsövervakning av ditt program eller leta efter trender.
 
@@ -131,7 +131,7 @@ Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser
 
 ### <a name="enable-logging-through-the-azure-portal"></a>aktivera loggning via Azure Portal
 
-1. Hitta din resurs i Azure-portalen och klicka på **diagnostikloggar**.
+1. Hitta din resurs i Azure-portalen och välj **diagnostikinställningar**.
 
    Tre loggar är tillgängliga för Application Gateway:
 
@@ -139,21 +139,15 @@ Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser
    * Prestandaloggen
    * Brandväggslogg
 
-2. Om du vill börja samla in data klickar du på **Aktivera diagnostik**.
+2. Om du vill börja samla in data, Välj **slå på diagnostik**.
 
    ![Aktivera diagnostik][1]
 
-3. Den **diagnostikinställningar** bladet innehåller inställningarna för diagnostiska loggar. I det här exemplet lagras loggarna i Log Analytics. Klicka på **konfigurera** under **Log Analytics** att konfigurera din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
+3. På sidan **Diagnostikinställningar** kan du göra inställningar för de diagnostiska loggarna. I det här exemplet lagras loggarna i Log Analytics. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 
    ![Börjar konfigurationsprocessen][2]
 
-4. Välj en befintlig Log Analytics-arbetsyta eller skapa en ny. Det här exemplet använder en befintlig.
-
-   ![Alternativ för Log Analytics-arbetsytor][3]
-
-5. Bekräfta inställningarna och klicka på **spara**.
-
-   ![Diagnostik inställningsbladet med val][4]
+5. Skriv ett namn för inställningarna, kontrollerar du inställningarna och välj **spara**.
 
 ### <a name="activity-log"></a>Aktivitetslogg
 
@@ -295,8 +289,8 @@ Brandväggsloggen skapas endast om du har aktiverat det för varje application g
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
-* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST-API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
+* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera åtkomst, prestanda och loggar från brandväggen
 
@@ -334,7 +328,7 @@ Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräkna
 
    Du kan filtrera på en per backend-pool regelbundet visar felfria/defekta värdar i en specifik serverdelspool.
 
-Bläddra till en application gateway under **övervakning** klickar du på **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
+Bläddra till en application gateway under **övervakning** Välj **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
 
 I följande bild kan se du ett exempel med tre mått som visas för de senaste 30 minuterna:
 
@@ -348,11 +342,11 @@ Du kan börja Varningsregler baserat på mått för en resurs. En avisering kan 
 
 I följande exempel visar hur du skapar en varningsregel som skickar ett e-postmeddelande till en administratör efter dataflöde överträdelser ett tröskelvärde:
 
-1. Klicka på **Lägg till metrisk varning** att öppna den **Lägg till regel** bladet. Du kan också nå det här bladet från måttbladet.
+1. Välj **Lägg till metrisk varning** att öppna den **Lägg till regel** sidan. Du kan också nå den här sidan från sidan mått.
 
    ![Knappen ”Lägg till metrisk varning”][6]
 
-2. På den **Lägg till regel** bladet fylla i namn, villkor, så meddelar avsnitt och klickar på **OK**.
+2. På den **Lägg till regel** , fylla i namn, villkor, och meddela avsnitt och välj **OK**.
 
    * I den **villkor** Väljaren, Välj något av fyra värden: **Större än**, **är större än eller lika med**, **mindre än**, eller **mindre än eller lika med**.
 
@@ -360,7 +354,7 @@ I följande exempel visar hur du skapar en varningsregel som skickar ett e-postm
 
    * Om du väljer **e-postägare, deltagare och läsare**, e-postmeddelandet kan vara dynamiska baserat på de användare som har åtkomst till resursen. I annat fall kan du ange en kommaavgränsad lista över användare i den **administratören email(s)** box.
 
-   ![Lägg till regel][7]
+   ![Lägg till regel sida][7]
 
 Om tröskelvärdet överskrids, kommer ett e-postmeddelande som liknar det i följande bild:
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317756"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621744"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -79,12 +79,14 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor är pågående arbete.
 
 * Den [Premium-kodare](../previous/media-services-premium-workflow-encoder-formats.md) och äldre [mediebearbetare för analys](../previous/media-services-analytics-overview.md) (förhandsversion av Azure Media Services Indexer 2, Ansiktsredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 preview kan omedelbart använda AudioAnalyzer förinställda i v3-API: et.  Den nya förinställningen innehåller fler funktioner än äldre Media Indexer 1 eller 2. 
-* Många av de avancerade funktionerna i Media Encoder Standard i v2 API: er är för närvarande inte tillgängliga i v3, till exempel:
+* Många av de [avancerade funktioner för Media Encoder Standard i v2](../previous/media-services-advanced-encoding-with-mes.md) API: er är för närvarande inte tillgängliga i v3, till exempel:
     * Avklippta (för på begäran och live-scenario)
     * Gå till tillgångar
     * Överlägg
     * Beskärning
     * Miniatyr spriter
+    * Infoga en tyst ljudspår när indata har inget ljud
+    * Lägga till en video spåra när indata har ingen bild
 * Direktsända händelser med transkodning för närvarande stöder inte bakgrundsbild infogning mitten stream och ad insättning via API-anrop. 
 
 > [!NOTE]

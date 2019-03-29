@@ -1,5 +1,5 @@
 ---
-title: Utför en åtkomstgranskning av min Azure-resursroller i PIM | Microsoft Docs
+title: Utför en åtkomstgranskning av min Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig hur du utför en åtkomstgranskning av din Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a8ef3d0ff602ce4580755db0ada97fcf7cdbbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208239"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575087"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure-resursroller i PIM
-Privileged Identity Management (PIM) för Azure-resurser förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
 
 Om du har tilldelats en administrativ roll kan privilegierad rolladministratör för din organisation be dig att regelbundet kontrollera att du fortfarande behöver rollen för jobbet. Du kan få ett e-postmeddelande som innehåller en länk eller du kan gå direkt till den [Azure-portalen](https://portal.azure.com). Följ stegen i den här artikeln för att utföra själv granska av dina tilldelade roller.
 
@@ -54,4 +54,4 @@ Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Utför en åtkomstgranskning av Mina Azure AD-roller i PIM](pim-how-to-perform-security-review.md)

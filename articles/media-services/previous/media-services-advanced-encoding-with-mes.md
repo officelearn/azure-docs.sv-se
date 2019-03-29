@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850368"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576300"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utföra avancerade encoding genom att anpassa MES-förinställningar 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850368"
 
 Det här avsnittet visar hur du anpassar förinställningar för Media Encoder Standard. Den [Encoding med Media Encoder Standard med anpassade förinställningar](media-services-custom-mes-presets-with-dotnet.md) avsnittet visar hur du använder .NET för att skapa ett kodningsjobb och ett jobb som kör den här uppgiften. När du har ändrat en förinställning kan du ange anpassade förinställningar för kodning uppgift. 
 
->[!NOTE]
->Om du använder en XML-förinställning, se till att bevara ordningen på element, som visas i XML-exemplen nedan (till exempel KeyFrameInterval bör föregå SceneChangeDetection).
->
+Om du använder en XML-förinställning, se till att bevara ordningen på element, som visas i XML-exemplen nedan (till exempel KeyFrameInterval bör föregå SceneChangeDetection).
 
-I det här avsnittet är de anpassade förinställningar som utför följande kodningsuppgifter visas.
+> [!NOTE] 
+> Många av de avancerade Media Services v2-funktionerna i Media Encoder Standard är för närvarande inte tillgängliga i v3. Mer information finns i [funktionen luckor](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Stöd för relativa storleken
 

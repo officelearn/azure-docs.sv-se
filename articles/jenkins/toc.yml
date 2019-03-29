@@ -18,6 +18,9 @@ items:
       href: install-jenkins-solution-template.md
   - name: 2. Konfigurera
     items:
+    - name: Skala med Azure Container Instances
+      href: /azure/container-instances/container-instances-jenkins
+      maintainContext: true
     - name: Skala med Azure VM-agenter
       href: jenkins-azure-vm-agents.md
   - name: 3. Implementera CI/CD
@@ -35,9 +38,6 @@ items:
         href: execute-cli-jenkins-pipeline.md
       - name: Distribuera en app från GitHub till App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Skapa med hjälp av Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
     - name: Använd Jenkins med Azure DevOps
       href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
       maintainContext: true
@@ -73,9 +73,9 @@ items:
   - name: Jenkins-arkitektur
     href: /azure/architecture/reference-architectures/jenkins/
     maintainContext: true
-ms.openlocfilehash: 2cfd843c0a7fc11a98d2450cc5ec499cdc1f580e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c83891a0037f009d539f2d1101697a554f478b1d
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438688"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621370"

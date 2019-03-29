@@ -1,6 +1,6 @@
 ---
-title: Godkänn eller neka begäranden för Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig mer om att godkänna eller neka begäranden för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Godkänn eller neka begäranden för Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att godkänna eller neka begäranden för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,32 +16,32 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244989"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576802"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Godkänn eller neka begäranden för Azure AD-katalogroller i PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Godkänn eller neka begäranden för Azure AD-roller i PIM
 
-Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Delegerad godkännare har 24 timmar att godkänna förfrågningar. Om en begäran inte godkänns inom 24 timmar, måste behörig användare igen att skicka en ny begäran. Tidsfönstret 24-timmars godkännande kan inte konfigureras.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Delegerad godkännare har 24 timmar att godkänna förfrågningar. Om en begäran inte godkänns inom 24 timmar, måste behörig användare igen att skicka en ny begäran. Tidsfönstret 24-timmars godkännande kan inte konfigureras.
 
-Följ stegen i den här artikeln att godkänna eller neka begäranden för Azure AD-katalogroller.
+Följ stegen i den här artikeln att godkänna eller neka begäranden för Azure AD-roller.
 
 ## <a name="view-pending-requests"></a>Visa väntande begäranden
 
-Som en delegerad godkännaren får du ett e-postmeddelande när en begäran om Azure AD directory roll är väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
+Som en delegerad godkännaren får du ett e-postmeddelande när en begäran för Azure AD-rollen är väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **godkänna förfrågningar**.
 
-    ![PIM-Azure AD-katalogroller - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![PIM-Azure AD-roller – roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Du ser en lista över begäranden väntar på ditt godkännande.
 

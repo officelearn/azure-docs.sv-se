@@ -1,6 +1,6 @@
 ---
-title: Bjud in extern gäster och tilldela administratörsroller i Azure AD - Privileged Identity Management | Microsoft Docs
-description: Lär dig mer om att bjuda in gästanvändare och tilldela administratörsroller i Azure Active Directory i Azure AD Privileged Identity Management.
+title: Bjuda in gäster och tilldela Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du bjuder in externa gästanvändare och tilldela roller i Azure-resurs i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853264"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576887"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>Bjud in gästanvändare och tilldela Azure resursåtkomst i PIM
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gästanvändare och tilldela Azure-resursroller i PIM
 
 Azure Active Directory (Azure AD) business-to-business (B2B) är en uppsättning funktioner i Azure AD som gör det möjligt för företag att samarbeta med externa gästanvändare (gäster) och leverantörer med hjälp av ett konto. När du kombinerar B2B med Azure AD Privileged Identity Management (PIM) kan fortsätta du att tillämpa dina krav på efterlevnad och styrning på gäster. Du kan till exempel använda funktionerna PIM för Azure identity uppgifter med gäster:
 
@@ -95,7 +95,7 @@ Använda PIM kan du Bjud in Gäst och gör dem tillgängliga för en Azure-resur
 
 1. Om du vill bjuda in en gäst, klickar du på **bjuda in**.
 
-    ![Bjud in en gäst](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Bjud in gäst](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. När du har valt en gäst, klickar du på **bjuda in**.
 

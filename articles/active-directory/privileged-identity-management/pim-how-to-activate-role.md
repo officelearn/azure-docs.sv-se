@@ -1,6 +1,6 @@
 ---
-title: Aktivera mitt Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig hur du aktiverar Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Aktivera Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du aktiverar Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,38 +14,38 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542769"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576828"
 ---
-# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Aktivera mitt Azure AD-katalogroller i PIM
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera Azure AD-roller i PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
 
 Om du har gjorts kan en administrativ roll, som innebär att du kan aktivera rollen när du behöver utföra Privilegierade åtgärder. Till exempel om du hanterar ibland Office 365-funktioner kan kan din organisations Privilegierade rolladministratörer inte göra du permanent Global administratör, eftersom rollen påverkar andra tjänster för. I stället gör de du berättigad till Azure AD-roller, till exempel Exchange Online-administratör. Du kan begära för att aktivera rollen när du behöver ha dess behörighet, och du har administratören kan styra för en förutbestämd tidsperiod.
 
-Den här artikeln är för administratörer som behöver aktivera sina Azure AD directory-rollen i PIM.
+Den här artikeln är för administratörer som behöver aktivera sina Azure AD-rollen i PIM.
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
-När du behöver utföra på en Azure AD directory-roll kan du begära aktivering med hjälp av den **Mina roller** navigeringsalternativet i PIM.
+När du behöver utföra på en Azure AD-roll kan du begära aktivering med hjälp av den **Mina roller** navigeringsalternativet i PIM.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till PIM-panelen på instrumentpanelen finns i [börja använda PIM](pim-getting-started.md).
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
-1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-katalogroller.
+1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-roller.
 
-    ![Azure AD-katalogroller - Mina roller](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD-roller – Mina roller](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Hitta en roll som du vill aktivera.
 
-    ![Azure AD-katalogroller - listan roller](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD-roller – lista Mina roller](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Klicka på **aktivera** att öppna rutan rollen aktivering.
 
@@ -87,11 +87,11 @@ Du kan visa statusen för väntande förfrågningar om att aktivera.
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **Mina förfrågningar** att se en lista över dina önskemål.
 
-    ![Azure AD-katalogroller - Mina begäranden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD-roller – Mina begäranden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Inaktivera en roll
 
@@ -101,7 +101,7 @@ Om du har slutfört din administratörsåtgärder tidigt, kan du inaktivera en r
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **Mina roller**.
 
@@ -115,7 +115,7 @@ Om du inte behöver aktivering av en roll som kräver godkännande kan avbryta d
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **Mina förfrågningar**.
 

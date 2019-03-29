@@ -1,5 +1,5 @@
 ---
-title: Roller som du inte kan hantera i PIM - Azure | Microsoft Docs
+title: Roller som du inte kan hantera i PIM - Azure Active Directory | Microsoft Docs
 description: Beskriver de roller som du inte kan hantera i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181583"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579554"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Roller som du inte kan hantera i PIM
 
-Azure AD Privileged Identity Management (PIM) gör det möjligt för dig att hantera [Azure AD-katalogroller](../users-groups-roles/directory-assign-admin-roles.md) och alla [Azure-resursroller](../../role-based-access-control/built-in-roles.md). Dessa roller inkluderar även din anpassade roller som är kopplade till dina hanteringsgrupper, prenumerationer, resursgrupper och resurser. Det finns dock några roller som du inte kan hantera. Den här artikeln beskrivs de roller som du inte kan hantera i PIM.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det möjligt för dig att hantera [Azure AD-roller](../users-groups-roles/directory-assign-admin-roles.md) och alla [Azure-resursroller](../../role-based-access-control/built-in-roles.md). Dessa roller inkluderar även din anpassade roller som är kopplade till dina hanteringsgrupper, prenumerationer, resursgrupper och resurser. Det finns dock några roller som du inte kan hantera. Den här artikeln beskrivs de roller som du inte kan hantera i PIM.
 
 ## <a name="classic-subscription-administrator-roles"></a>Administratörsroller för klassiska prenumerationer
 
@@ -44,5 +44,5 @@ Roller i Exchange Online eller SharePoint Online, förutom Exchange-administrat�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
+- [Tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md)
 - [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)

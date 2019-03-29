@@ -1,7 +1,7 @@
 ---
 title: OData-uttryckssyntax för filter och order-by-satser – Azure Search
 description: Filter och order by uttryck OData-syntax för Azure Search-frågor.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541068"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578415"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData-uttryckssyntax för filter och order by-satser i Azure Search
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Hitta alla hotell med namn som är lika med antingen Roach motel ”eller” Budget hotell'):  
+Hitta alla hotels med namnet 'Roach motel ”eller” Budget hotell'). Fraser innehåller blanksteg, vilket är en standard-avgränsare. Om du vill ange en avgränsare åsidosättning omger du den nya avgränsaren med enkla citattecken som en del av filteruttryck:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Hitta alla hotels med taggen ”wifi' eller 'pool”:
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Hitta en matchning på flera taggar, 'värmas upp handdukar rack' eller 'hairdryer ingår ”. Kom ihåg att ange ett alternativt avgränsare när utrymme saknas används fungerar då inte. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Hitta alla hotels utan taggen ”motel” eller ”utrustning”:  

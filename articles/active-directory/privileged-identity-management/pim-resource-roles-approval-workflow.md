@@ -1,5 +1,5 @@
 ---
-title: Godkänn eller neka begäranden för Azure-resursroller i PIM | Microsoft Docs
+title: Godkänn eller neka begäranden för Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att godkänna eller neka begäranden för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5ecb55dd2798241ca0ae1754ecf95a79f8aeb134
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245583"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575121"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Godkänn eller neka begäranden för Azure-resursroller i PIM
 
-Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Delegerad godkännare har 24 timmar att godkänna förfrågningar. Om en begäran inte godkänns inom 24 timmar, måste behörig användare igen att skicka en ny begäran. Tidsfönstret 24-timmars godkännande kan inte konfigureras.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Delegerad godkännare har 24 timmar att godkänna förfrågningar. Om en begäran inte godkänns inom 24 timmar, måste behörig användare igen att skicka en ny begäran. Tidsfönstret 24-timmars godkännande kan inte konfigureras.
 
 Följ stegen i den här artikeln att godkänna eller neka begäranden för Azure-resursroller.
 
@@ -84,4 +84,4 @@ Här är lite information om arbetsflödesmeddelanden:
 
 - [Utöka eller förnya Azure-resursroller i PIM](pim-resource-roles-renew-extend.md)
 - [E-postmeddelanden i PIM](pim-email-notifications.md)
-- [Godkänn eller neka begäranden för Azure AD-katalogroller i PIM](azure-ad-pim-approval-workflow.md)
+- [Godkänn eller neka begäranden för Azure AD-roller i PIM](azure-ad-pim-approval-workflow.md)

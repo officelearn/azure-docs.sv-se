@@ -1,5 +1,5 @@
 ---
-title: Tilldela Azure-resursroller i PIM | Microsoft Docs
+title: Tilldela Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig hur du tilldelar Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086198"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578670"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Tilldela Azure-resursroller i PIM
 
-Azure AD PIM kan hantera inbyggda Azure-resursroller, samt anpassade roller, inklusive (men inte begränsat till):
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan hantera inbyggda Azure-resursroller, samt anpassade roller, inklusive (men inte begränsat till):
 
 - Ägare
 - Administratör för användaråtkomst
@@ -129,4 +129,4 @@ Följ dessa steg om du vill uppdatera eller ta bort en rolltilldelning.
 
 - [Utöka eller förnya Azure-resursroller i PIM](pim-resource-roles-renew-extend.md)
 - [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)
-- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
+- [Tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md)

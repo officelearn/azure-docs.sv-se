@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541255"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621931"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-mall referens för datamodell
 Det här avsnittet beskriver entiteten och Skriv garantier för vanliga objekt som används i datamodellerna för utvecklarportalsmallar i Azure API Management.  
@@ -162,7 +162,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Header"></a> Rubrik  
  Det här avsnittet beskrivs de `parameter` representation.  
   
-|Egenskap |Beskrivning|Type|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|-----------------|----------|  
 |`name`|sträng|Parameternamnet.|  
 |`description`|sträng|Beskrivning av parameter.|  
@@ -239,7 +239,7 @@ Developer-portalen är inte tillgänglig på nivån för förbrukning.
 ##  <a name="Parameter"></a> Parametern  
  Det här avsnittet beskrivs de `parameter` representation.  
   
-|Egenskap |Beskrivning|Type|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|-----------------|----------|  
 |`name`|sträng|Parameternamnet.|  
 |`description`|sträng|Beskrivning av parameter.|  

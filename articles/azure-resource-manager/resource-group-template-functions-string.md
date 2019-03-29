@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762848"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621422"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
@@ -414,12 +414,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
-| stringFalse | Bool | False |
-| objectTrue | Bool | True |
-| objectFalse | Bool | False |
-| arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| stringTrue | Booleskt | True |
+| stringFalse | Booleskt | False |
+| objectTrue | Booleskt | True |
+| objectFalse | Booleskt | False |
+| arrayTrue | Booleskt | True |
+| arrayFalse | Booleskt | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -592,9 +592,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Booleskt | True |
+| objectEmpty | Booleskt | True |
+| stringEmpty | Booleskt | True |
 
 ## <a name="endswith"></a>endsWith
 
@@ -655,12 +655,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| startsTrue | Booleskt | True |
+| startsCapTrue | Booleskt | True |
+| startsFalse | Booleskt | False |
+| endsTrue | Booleskt | True |
+| endsCapTrue | Booleskt | True |
+| endsFalse | Booleskt | False |
 
 ## <a name="first"></a>första
 
@@ -1404,12 +1404,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| startsTrue | Booleskt | True |
+| startsCapTrue | Booleskt | True |
+| startsFalse | Booleskt | False |
+| endsTrue | Booleskt | True |
+| endsCapTrue | Booleskt | True |
+| endsFalse | Booleskt | False |
 
 ## <a name="string"></a>sträng
 
@@ -1809,7 +1809,7 @@ I följande exempel visar hur du skapar ett unikt namn för ett lagringskonto ba
     ...
 ```
 
-Om du vill skapa ett nytt unikt namn varje gång du distribuerar en mall och inte avsikt att uppdatera resursen kan du använda den [utcNow](#utcnow) funktion med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcNow).
+Om du vill skapa ett nytt unikt namn varje gång du distribuerar en mall och inte avsikt att uppdatera resursen kan du använda den [utcNow](#utcnow) funktion med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Returvärde
 

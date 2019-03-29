@@ -7,23 +7,20 @@ manager: vijayts
 keywords: Återställ säkerhetskopia. Så här återställer du; återställningspunkt;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
-ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3b32418361b992b91aa96579a0cf1f84d8b9d312
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315393"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620418"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
 Den här artikeln beskrivs hur du återställer Azure VM-data från återställningspunkter som lagras i [Azure Backup](backup-overview.md) Recovery Services-valv.
 
-För att återställa en virtuell dator Kontrollera att du har de nödvändiga [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet.
 
-> [!NOTE]
-> Om du inte har [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet som du kan utföra [återställa disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) och skapa virtuell dator med [distribuera mall](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funktionen.
 
 ### <a name="restore-options"></a>Återställningsalternativ
 
@@ -39,6 +36,13 @@ Azure Backup innehåller ett antal sätt att återställa en virtuell dator.
 > Du kan också återställa specifika filer och mappar på en Azure-dator. [Läs mer](backup-azure-restore-files-from-vm.md).
 >
 > Om du kör den [senaste versionen](backup-instant-restore-capability.md) av Azure Backup för virtuella Azure-datorer (även kallat omedelbar återställning), ögonblicksbilder sparas i upp till sju dagar och du kan återställa en virtuell dator från ögonblicksbilder innan säkerhetskopierade data skickas till valvet. Om du vill återställa en virtuell dator från en säkerhetskopia från de senaste sju dagarna, går det snabbare att återställa från ögonblicksbilden och inte från valvet.
+
+## <a name="before-you-start"></a>Innan du börjar
+
+Återställa en virtuell dator (skapa en ny virtuell dator) kontrollera att du har den rätt rollbaserad åtkomstkontrollen (RBAC) [behörigheter](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för åtgärden återställa en virtuell dator.
+
+Om du inte har behörighet, kan du [återställa en disk](#restore-disks), och när disken har återställts kan du [använda mallen](#use-templates-to-customize-a-restored-vm) som skapades som en del av återställningen ska skapa en ny virtuell dator.
+
 
 
 ## <a name="select-a-restore-point"></a>Välj en återställningspunkt
@@ -61,7 +65,7 @@ Azure Backup innehåller ett antal sätt att återställa en virtuell dator.
 
 2. Ange inställningar för dina valda alternativ.
 
-## <a name="create-new-create-a-vm"></a>Skapa ny – skapa en virtuell dator
+## <a name="create-a-vm"></a>Skapa en virtuell dator
 
 Som en av de [återställningsalternativ](#restore-options), kan du snabbt skapa en virtuell dator med grundläggande inställningar från en återställningspunkt.
 
@@ -76,7 +80,7 @@ Som en av de [återställningsalternativ](#restore-options), kan du snabbt skapa
 6. I **återställningskonfiguration**väljer **OK**. I **återställa**, klickar du på **återställa** som utlöser återställningen.
 
 
-## <a name="create-new-restore-disks"></a>Skapa ny återställning av diskar
+## <a name="restore-disks"></a>Återställ diskar
 
 Som en av de [återställningsalternativ](#restore-options), kan du skapa en disk från en återställningspunkt. Sedan med disken, kan du göra något av följande:
 
@@ -132,11 +136,11 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 --- | ---
 **Återställa virtuella datorer med hjälp av Hybrid Use Benefit** | Om en virtuell Windows-dator använder [Hybrid Använd förmånen (HUB) licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md), återställa diskarna och skapa en ny virtuell dator med hjälp av den angivna mallen (med **licenstyp** inställd **Windows_Server**) , eller PowerShell.  Den här inställningen kan också användas när du har skapat den virtuella datorn.
 **Återställa virtuella datorer under en Azure i datacentret** | Om valvet använder GRS och det primära datacentret för den virtuella datorn stängs av, stöder Azure Backup återställa säkerhetskopierade virtuella datorer till parat datacenter. Du väljer ett lagringskonto i parat datacenter och återställa som vanligt. Azure Backup använder beräkningstjänsten på parad plats för att skapa den återställda virtuella datorn. [Läs mer](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) om datacenter återhämtning.
-**Återställa en enda domänkontrollant virtuell dator i en enda domän** | Återställa den virtuella datorn som andra virtuella datorer. Tänk på följande:<br/><br/> ROM en Active Directory-perspektiv, Azure VM är som andra virtuella datorer.<br/><br/> Directory Services återställningsläge (DSRM) är också tillgängligt, så att alla scenarion för återställning av Active Directory är genomförbart. [Läs mer](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) om säkerhetskopiering och återställning för virtualiserade domänkontrollanter.
-**Återställa flera virtuella datorer för domänkontrollanter i en enda domän** | f andra domänkontrollanter i samma domän kan nås över nätverket, domänkontrollanten kan återställas som en virtuell dator. Om det är den sista återstående domänkontrollanten i domänen eller en återställning i ett isolerat nätverk utförs, använda en [skog recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Återställa en enda domänkontrollant virtuell dator i en enda domän** | Återställa den virtuella datorn som andra virtuella datorer. Tänk på följande:<br/><br/> Azure VM är som andra virtuella datorer från en Active Directory-perspektiv.<br/><br/> Directory Services återställningsläge (DSRM) är också tillgängligt, så att alla scenarion för återställning av Active Directory är genomförbart. [Läs mer](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) om säkerhetskopiering och återställning för virtualiserade domänkontrollanter.
+**Återställa flera virtuella datorer för domänkontrollanter i en enda domän** | Om andra domänkontrollanter i samma domän kan nås över nätverket, kan domänkontrollanten återställas som en virtuell dator. Om det är den sista återstående domänkontrollanten i domänen eller en återställning i ett isolerat nätverk utförs, använda en [skog recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Återställa flera domäner i en skog** | Vi rekommenderar en [skog recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Bare metal-återställning** | Den största skillnaden mellan virtuella datorer i Azure och lokala hypervisorer är att det finns inga VM-konsolen i Azure. En konsol krävs för vissa scenarier, till exempel återställa med hjälp av en återställning utan operativsystem (BMR)-typ av säkerhetskopiering. Återställning av virtuella datorer från valvet är dock en fullständig ersättning för BMR.
-**Återställa virtuella datorer med särskilda nätverkskonfigurationer** | Särskilda nätverkskonfigurationer innefattar virtuella datorer med hjälp av interna eller externa load balancing, med flera nätverkskort eller flera reserverade IP-adresser. Du kan återställa dessa virtuella datorer med hjälp av den [återställa diskalternativ](#create-new-restore-disks). Det här alternativet gör en kopia av de virtuella hårddiskarna till det angivna lagringskontot du kan sedan skapa en virtuell dator med en [interna](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) eller [externa](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) belastningsutjämnare, [flera nätverkskort](../virtual-machines/windows/multiple-nics.md), eller [flera reserverade IP-adresser](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), i enlighet med din konfiguration.
+**Återställa virtuella datorer med särskilda nätverkskonfigurationer** | Särskilda nätverkskonfigurationer innefattar virtuella datorer med hjälp av interna eller externa load balancing, med flera nätverkskort eller flera reserverade IP-adresser. Du kan återställa dessa virtuella datorer med hjälp av den [återställa diskalternativ](#restore-disks). Det här alternativet gör en kopia av de virtuella hårddiskarna till det angivna lagringskontot du kan sedan skapa en virtuell dator med en [interna](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) eller [externa](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) belastningsutjämnare, [flera nätverkskort](../virtual-machines/windows/multiple-nics.md), eller [flera reserverade IP-adresser](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), i enlighet med din konfiguration.
 **Nätverkssäkerhetsgrupp (NSG) på NIC/undernät** | Azure VM backup stöder säkerhetskopiering och återställning för NSG information på virtuellt nätverk, undernät och NIC-nivå.
 
 ## <a name="track-the-restore-operation"></a>Spåra återställningen

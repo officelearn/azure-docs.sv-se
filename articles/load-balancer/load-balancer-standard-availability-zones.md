@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 2c4503b6ff065e98c49fe3f4e06b63cbeb7d1770
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652752"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579367"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
 Har stöd för Azure Load Balancer Standard-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md) scenarier. Flera nya begrepp är tillgängliga med Standard Load Balancer, vilket gör att du kan optimera tillgänglighet i ditt scenario för slutpunkt till slutpunkt genom att justera resurser med zoner och fördela dem i olika zoner.  Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) råd om Tillgänglighetszoner är vilka regioner stöder för närvarande Tillgänglighetszoner och andra relaterade begrepp och produkter. Tillgänglighetszoner i kombination med Standard Load Balancer är en omfattande och flexibel funktionsuppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och grundläggande scenario [designvägledning](#design).
 
->[!NOTE]
->Granska [Tillgänglighetszoner](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
+>[!IMPORTANT]
+>Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) Närliggande ämnen, inklusive i någon särskild regioninformation.
 
 ## <a name="concepts"></a> Tillgänglighetszoner begrepp som tillämpas på belastningsutjämnare
 
@@ -33,7 +33,7 @@ Det finns ingen direkt relation mellan belastningshanterare och faktiska infrast
 
 Funktioner för en belastningsutjämnare resource uttrycks som en klientdel, en regel, en hälsoavsökning och en definition för backend-poolen.
 
-I samband med Availability Zones beskrivs beteende och egenskaperna för en belastningsutjämnare-resurs som zonredundant eller zonindelade.  Zonredundant och zonindelade beskriver zonality för en egenskap.  I samband med belastningsutjämnaren, zonredundant alltid innebär *alla zoner* och zonindelade sätt, vilket ger tjänsten till en *samma zon*.
+I samband med Availability Zones beskrivs beteende och egenskaperna för en belastningsutjämnare-resurs som zonredundant eller zonindelade.  Zonredundant och zonindelade beskriver zonality för en egenskap.  I samband med belastningsutjämnaren, zonredundant alltid innebär *flera zoner* och zonindelade innebär att isolera tjänsten till en *samma zon*.
 
 Stöd för både offentliga och interna belastningsutjämnare zonredundant och zonindelade och båda kan dirigera trafik mellan zoner efter behov (*belastningsutjämning mellan zoner*).
 
@@ -53,9 +53,12 @@ När du använder flera klienter, granska [flera klienter för belastningsutjäm
 
 #### <a name="zone-redundant-by-default"></a>Zonredundant som standard
 
+>[!IMPORTANT]
+>Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) Närliggande ämnen, inklusive i någon särskild regioninformation.
+
 I en region med Azure Availability Zones är en Standard Load Balancer-klientdel zonredundant som standard.  En enda frontend IP-adress kan överleva zon fel och kan användas för att nå alla medlemmar i serverdelspool oavsett zonen. Detta innebär inte hitless datasökväg, men alla återförsök eller reestablishment lyckas. DNS-redundans scheman inte behövs. Den frontend IP-adress hanteras samtidigt av flera oberoende infrastruktur distributioner i flera Tillgänglighetszoner.  Zonredundant innebär att alla inkommande eller utgående flöden betjänas av flera Tillgänglighetszoner i en region samtidigt med hjälp av en IP-adress.
 
-En eller flera Tillgänglighetszoner kan misslyckas och datasökvägen kvarstår så länge som en zon i regionen förblir felfritt. Zonredundant konfigurationen är standard och kräver inga ytterligare åtgärder.  När en region får möjlighet att stöd för Tillgänglighetszoner, blir en befintlig klientdel zonredundant automatiskt.
+En eller flera Tillgänglighetszoner kan misslyckas och datasökvägen kvarstår så länge som en zon i regionen förblir felfritt. Zonredundant konfigurationen är standard och kräver inga ytterligare åtgärder.  
 
 Använd följande skript för att skapa en zonredundant offentlig IP-adress för interna Standard Load Balancer. Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger du till den **sku** avsnitt för att dessa mallar.
 
@@ -96,7 +99,7 @@ Använd följande skript för att skapa en zonredundant frontend IP-adress för 
                 ],
 ```
 
-#### <a name="optional-zone-guarantee"></a>Valfritt zon garanti
+#### <a name="optional-zone-isolation"></a>Valfritt zon isolering
 
 Du kan välja att ha en klientdel att garantera att en zon, vilket kallas en *zonindelad klientdel*.  Det innebär att alla inkommande eller utgående flöden hanteras av en enskild zon i en region.  Dina klientdelsservrar delar öde med hälsotillståndet för zonen.  Datasökvägen påverkas inte av fel i zoner än där det var säkert. Du kan använda zonindelad klienter för att exponera en IP-adress per Tillgänglighetszon.  Dessutom du kan använda zonindelad klienter direkt eller, när klientdelen består av offentliga IP-adresser, integrera dem med en DNS-belastningsutjämning produkt som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda en enda DNS-namn som matchar en klient med flera zonindelad IP-adresser.  Du kan också använda det för att exponera per zon belastningsutjämnade slutpunkter individuellt övervaka varje zon.  Om du vill att blanda dessa koncept (zonredundant och zonindelade för samma serverdel) kan du granska [flera klienter för Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -147,7 +150,7 @@ Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger 
                 ],
 ```
 
-### <a name="cross-zone-load-balancing"></a>Mellan zoner belastningsutjämning
+### <a name="cross-zone-load-balancing"></a>Cross-zone Load-Balancing
 
 Mellan zoner belastningsutjämning är möjligheten för Load Balancer att nå en serverdelens slutpunkt i alla zoner och är oberoende av klient- och dess zonality.
 
@@ -205,6 +208,9 @@ Undvika att introducera oönskade mellan zoner beroenden, som kommer upphäver t
   - När en zon returnerar programmets förstår hur att Konvergera på ett säkert sätt?
 
 ### <a name="zonalityguidance"></a> Zonredundant jämfört med zonindelad
+
+>[!IMPORTANT]
+>Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) Närliggande ämnen, inklusive i någon särskild regioninformation.
 
 Zonredundant kan ange en zon-oberoende och vid samma tid elastiska alternativet med en enda IP-adress för tjänsten.  Det kan minska komplexiteten i sin tur.  Zonredundant också har mobilitetstjänsten i flera zoner och kan användas på ett säkert sätt på resurser i alla zoner.  Det är även framtidssäkrat i regioner utan Tillgänglighetszoner, där du kan begränsa ändringar som krävs när en region få Tillgänglighetszoner.  Konfigurationen syntaxen för en zonredundant IP-adress eller en klientdel lyckas i alla regioner, inklusive de som saknar Tillgänglighetszoner.
 

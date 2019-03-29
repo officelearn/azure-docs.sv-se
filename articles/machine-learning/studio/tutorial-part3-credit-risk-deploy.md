@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839025"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620522"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Självstudie 3: Distribuera en kreditriskmodell – Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ När webbtjänsten används kommer användarens data in via modulen **Webbtjäns
 Resultaten returneras till användaren från webbtjänsten via modulen **Webbtjänstens utdata**.
 
 > [!TIP]
-> På det sätt som förutsägelseexperimentet har konfigurerats, returneras hela resultatet från modulen [Poängmodell][score-model]. Detta inkluderar alla indata plus kreditriskvärdet och bedömningen av sannolikheten. Men du kan returnera något annat om du vill – du kan till exempel returnera enbart kreditriskvärdet. Gör detta genom att infoga modulen [Projektkolumner][project-columns] mellan [Poängmodell][score-model] och **Webbtjänstens utdata** för att ta bort kolumner som du inte vill att webbtjänsten ska returnera. 
+> På det sätt som förutsägelseexperimentet har konfigurerats, returneras hela resultatet från modulen [Poängmodell][score-model]. Detta inkluderar alla indata plus kreditriskvärdet och bedömningen av sannolikheten. Men du kan returnera något annat om du vill – du kan till exempel returnera enbart kreditriskvärdet. Gör detta genom att infoga en [Välj kolumner] [ select-columns] modulen mellan [Poängmodell] [ score-model] och **Web service utdata**att ta bort kolumner som du inte vill webbtjänsten ska returneras. 
 > 
 > 
 
@@ -267,4 +267,4 @@ Du kan också skapa ett anpassat program som får åtkomst till webbtjänsten me
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542241"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578228"
 documentType: LandingData
-title: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT
+title: Dokumentation om förhandsversionen av ASC för IoT
 metadata:
-  title: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT – självstudier, snabbstarter | Microsoft Docs
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: Dokumentation om förhandsversionen av ASC för IoT – självstudier, snabbstarter | Microsoft Docs
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Använd förhandsversionen av Azure Security Center för IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg. 
+  description: Använd förhandsversionen av ASC för IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg. 
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -32,19 +32,19 @@ sections:
     - image:
         src: media/index/deploy.svg
       text: Aktivera ASC för IoT
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image:
         src: media/index/get-started.svg
       text: Komma igång med ASC för IoT
-      href: /azure/ascforiot/quickstart-getting-started
-- title: Steg för steg-självstudier
+      href: /azure/asc-for-iot/getting-started
+- title: Instruktionsguider
   items:
   - type: paragraph
     text: Lär dig att definiera säkerhetsprinciper, skydda dina enheter mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">Identifiera hot med ASC för IoT</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Identifiera hot med ASC för IoT</a>
 - title: Utveckla dina färdigheter med Microsoft Learn
   items:
   - type: list

@@ -1,6 +1,6 @@
 ---
-title: Hämta åtkomstgranskningsresultaten efter grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du hämtar åtkomstgranskningsresultat för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
+title: Hämta åtkomstgranskningsresultaten efter grupper eller program i åtkomstgranskningar - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du hämtar åtkomstgranskningsresultat för medlemmar i gruppen eller programmet åtkomst i Azure Active Directory-åtkomstgranskningar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839652"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578721"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Hämta åtkomstgranskningsresultaten efter grupper eller program i Azure AD-Åtkomstgranskningar
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Hämta åtkomstgranskning resultaten efter grupper eller program i Azure AD-åtkomstgranskningar
 
 Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program.  En användare som tillhör den **Global administratör**, **Användaradministratör**, **säkerhetsadministratör** eller **säkerhetsläsare** rollen kan även läsa resultaten av en åtkomstgranskning.  Om du vill tilldela användare till någon av dessa roller, en privilegierad rolladministratör kan använda Azure AD PIM för att berättiga en användare att aktivera rollen eller en Global administratör kan permanent [tilldela en användare till rollen](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 

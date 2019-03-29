@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486027"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574985"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
 
@@ -175,7 +175,7 @@ Kommandot Synkronisera synkroniserar innehållet i en källkatalog i en katalog 
 
 > [!NOTE] 
 > Använd den `--delete-destination` flaggan med försiktighet. Aktivera den [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du aktiverar delete beteende synkroniserade att förhindra oavsiktliga borttagningar i ditt konto. 
-
+>
 > När `--delete-destination` har angetts till SANT, AzCopy tar bort filer som inte finns i källan från målet utan någon uppmaning till användaren. Om du vill uppmanas att bekräfta använda `--delete-destination=prompt`.
 
 Om du vill synkronisera det lokala filsystemet till storage-konto, använder du följande kommando:

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621642"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -94,7 +94,7 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
   
     2. För **metoden**väljer **POST**. 
     3. För **brödtext**, ange `{"message":"Start my IR"}`. 
-    4. För **autentisering**väljer **MSI** för att använda den hanterade identitet för din ADF, se [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikeln för mer information.
+    4. För **autentisering**väljer **MSI** för att använda den hanterade identitet för din ADF, se [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikeln för mer information.
     5. För **Resource**, ange `https://management.azure.com/`.
     
        ![ADF Web aktivitetsschemat SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ Följande avsnitt innehåller steg för att skapa en PowerShell-runbook. Skripte
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Skapa scheman för din runbook för att starta/stoppa Azure-SSIS IR
 
-I det föregående avsnittet har du skapat din Azure Automation-runbook som kan starta eller stoppa Azure-SSIS IR. I det här avsnittet skapar du två scheman för din runbook. När du konfigurerar det första schemat kan du ange **starta** för **ÅTGÄRDEN**. På samma sätt när du konfigurerar den andra mallen kan du ange **stoppa** för **ÅTGÄRDEN**. Detaljerade steg för att skapa scheman, se [skapa ett schema](../automation/automation-schedules.md#creating-a-schedule) artikeln.
+I det föregående avsnittet har du skapat din Azure Automation-runbook som kan starta eller stoppa Azure-SSIS IR. I det här avsnittet skapar du två scheman för din runbook. När du konfigurerar det första schemat kan du ange **starta** för **ÅTGÄRDEN**. På samma sätt när du konfigurerar den andra mallen kan du ange **stoppa** för **ÅTGÄRDEN**. Detaljerade steg för att skapa scheman, se [skapa ett schema](../automation/shared-resources/schedules.md#creating-a-schedule) artikeln.
 
 1. I **Runbook** väljer **scheman**, och välj **+ Lägg till ett schema** i verktygsfältet. 
 

@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762933"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621280"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
+I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, **Standard**, eller **Lagringsoptimerade**.  **Standard** och **Lagringsoptimerade** är tillgängliga i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och sedan konverteras till en av de högsta betalda nivåerna för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning.
+
+> [!NOTE]
+> Tjänstnivåer Lagringsoptimerade finns för närvarande finns som förhandsversion till rabatterade priser för testning och experimentering med målet att samla in feedback. Slutlig prissättning kommer att tillkännages senare när de här nivåerna är allmänt tillgängliga. Vi rekommenderar mot att använda de här nivåerna för program i produktion.
 
 Nivåerna återspeglar egenskaperna för den maskinvara som är värd för den tjänsten (i stället funktioner) och hjälp av:
 
@@ -42,11 +45,16 @@ I följande tabell visas de tillgängliga nivåerna. Andra informationskällor n
 |-----|-------------|
 |Kostnadsfri | Delas med andra prenumeranter. Icke-skalbart, begränsad till 3 index och 50 MB lagringsutrymme. |
 |Basic | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
-|Standard 1 (S1) | Från S1 på dig dedikerade datorer med mer lagring och bearbetning av kapacitet på alla nivåer. Partitionsstorlek är 25 GB/partition (högst 300 GB dokument per tjänst) för S1. |
-|Standard 2 (S2) | Liknar S1 men med 100 GB/partitioner (max 1,2 TB dokument per tjänst) |
-|Standard 3 (S3) | 200 GB/partition (max 2,4 TB dokument per tjänst). |
+|Standard 1 (S1) | Från S1 på dig dedikerade datorer med mer lagring och bearbetning av kapacitet på alla nivåer. Partitionsstorlek är 25 GB/partition (högst 300 GB per tjänst) för S1. |
+|Standard 2 (S2) | Liknar S1 men med 100 GB/partitioner (max 1,2 TB per tjänst) |
+|Standard 3 (S3) | 200 GB/partition (max 2,4 TB per tjänst) |
 |Standard 3 Högdensitet (S3 HD) | Högdensitetssampling är en *som är värd för läge* för S3. Den underliggande maskinvaran är optimerad för ett stort antal mindre index, avsett för scenarion med flera klientorganisationer. S3 HD har samma per enhet avgiften som S3 men maskinvaran som är optimerat för snabb läsning på ett stort antal mindre index.|
+|Lagringsoptimerade 1 (L1) | 1 TB/partition (max 12 TB per tjänst) |
+|Lagringsoptimerade 2 (L2) | 2 TB/partition (högst 24 TB per tjänst) |
 
+> [!NOTE] 
+> Lagringsoptimerade-nivåerna erbjuder större lagringskapacitet till en lägre kostnad per TB än Standard-nivåerna.  Primär Nackdelen är högre svarstid som bör du kontrollera efter dina specifika programkrav.  Mer information om prestandaöverväganden för den här nivån finns [prestanda och optimering överväganden](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Så fungerar debiteringen
 
@@ -56,7 +64,7 @@ Det finns tre sätt att betala i Aure Search i Azure Search och det är fast och
 
 Minimiavgiften är den första sökenheten (1 repliken x 1 partition) för tjänsten, och den här mängden är konstant för livslängden för tjänsten eftersom tjänsten inte kan köras på något mindre än den här konfigurationen. 
 
-I följande skärmbild per priser anges för Free, Basic och S1 (S2 och S3 visas inte). Om du har skapat en grundläggande tjänst eller en standardtjänst din månatliga kostnad skulle genomsnittlig värdet som visas för *pris-1* och *pris-2* respektive. Enhet kostnader gå upp för varje nivå eftersom beräkningskapacitet kraft och lagring är högre på varje efterföljande nivåer.
+I följande skärmbild per priser anges för Free, Basic och S1 (S2, S3, L1 och L2 visas inte). Om du har skapat en **grundläggande**, **Standard**, eller **Lagringsoptimerade** tjänsten, din månatliga kostnad skulle genomsnittlig värdet som visas för *pris-1*och *pris-2* respektive. Enhet kostnader gå upp för varje nivå eftersom beräkningskapacitet kraft och lagring är högre på varje efterföljande nivå.
 
 ![Per pris för basenheten](./media/search-sku-tier/per-unit-pricing.png "Per pris för basenheten")
 
@@ -117,7 +125,7 @@ I Azure Search kapacitet är strukturerad som *repliker* och *partitioner*.
 + Partitioner lagra index och automatiskt dela sökbara data: två partitioner dela ditt index i en halv finns det tre partitioner i tre delar och så vidare. Vad gäller kapacitet, *partitionera storlek* är den primära särskiljande funktionen på nivåerna.
 
 > [!NOTE]
-> Alla **Standard** nivåerna support [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra balans. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Kostnadsfria** nivåer ger inte dedikerade resurser: databehandling resurser som delas av flera prenumeranter.
+> Alla **Standard** och **Lagringsoptimerade** nivåerna support [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller Storage](search-performance-optimization.md) genom att ändra balans. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Kostnadsfria** nivåer ger inte dedikerade resurser: databehandling resurser som delas av flera prenumeranter.
 
 ### <a name="more-about-service-limits"></a>Mer om tjänstbegränsningar
 
@@ -125,7 +133,7 @@ Tjänsterna värdresurser, till exempel index, indexerare och så vidare. Varje 
 
 ## <a name="consumption-patterns"></a>Mönster för förbrukning
 
-De flesta kunder börjar med den **kostnadsfri** tjänsten, som de hålla på obestämd tid och väljer sedan en av de **Standard** nivåer för allvarliga arbetsbelastningar för utveckling eller produktion. 
+De flesta kunder börjar med den **kostnadsfri** tjänsten, som de hålla på obestämd tid och väljer sedan en av de **Standard** eller **Lagringsoptimerade** nivåer för allvarliga utveckling eller produktionsarbetsbelastningar. 
 
 ![Azure search-nivåer](./media/search-sku-tier/tiers.png "Azure search prisnivåer")
 
@@ -147,6 +155,15 @@ Portalen och prissättning sidor lägga fokus i partitionsstorlek och lagring, m
 > [!NOTE]
 > Tidigare dokumentet gränser har ersättning men kan inte längre gäller för nya tjänster. Mer information om villkor som dokumentet begränsningar gäller fortfarande finns [tjänstbegränsningar: dokumentera gränser](search-limits-quotas-capacity.md#document-limits).
 >
+
+Optimerad lagringsnivåer, **L1 L2**, är perfekta för program med stora mängder datakrav, men ett relativt lågt antal användare där minimerar svarstid inte är högsta prioritet.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| Partitionsstorlek|  1 TB | 2 TB |  |  |  |  |  |
+| begränsningar för index och indexerare| 10 | 10 |  |  |  |  |  |
+
+*L2* har två gånger övergripande lagringskapacitet till en *L1*.  Välj nivå baserat på den maximala mängden data som du tror att du behöver i ditt index.  Den *L1* nivån partitionerar skala upp i steg om 1 TB till högst 12 TB, medan den *L2* ökar med 2 TB per partition upp till 24 TB.
 
 ## <a name="evaluate-capacity"></a>Utvärdera kapacitet
 
@@ -174,16 +191,17 @@ Under förutsättning att exemplet är både representant och tio procent av hel
 
 Vissa kunder föredrar att börja med dedikerade resurser som kan hantera större sampling och bearbetningstider och sedan utveckla realistisk uppskattningar av index antal, storlek och ställa frågor till volymer under utvecklingen. Inledningsvis är en tjänst etableras baserat på en gissning bästa uppskattning och som utvecklingsprojektet utvecklas team kännedom vanligtvis om den befintliga tjänsten är över eller under kapacitet för planerade produktionsarbetsbelastningar. 
 
-1. [Granska tjänstbegränsningar på varje nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) att avgöra om antalet index som du kan ha stöd för lägre nivåer. I den **grundläggande**-**S1**- **S2** nivåer, index-gränserna är 15-50-200 respektive.
+1. [Granska tjänstbegränsningar på varje nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) att avgöra om antalet index som du kan ha stöd för lägre nivåer. I den **grundläggande**-**S1**-**S2** nivåer, index-gränserna är 15-50-200 respektive.  Den **Lagringsoptimerade** nivån har en gräns på 10 index eftersom det är designer för ett lågt antal mycket stora index.
 
 1. [Skapa en tjänst på en faktureringsbara nivå](search-create-service-portal.md):
 
     + Starta ont om **grundläggande** eller **S1** om du är i början av din inlärningskurva.
     + Starta hög på **S2** eller till och med **S3**om storskaliga indexerings- och belastning är självklart.
+    + Lagringsoptimerade, på **L1** eller **L2**, om du indexerar en stor mängd data och fråga belastningen är relativt låg, t.ex ett internt affärsprogram.
 
 1. [Skapa ett första index](search-create-index-portal.md) att avgöra hur källdata översätts till ett index. Det här är det enda sättet att uppskatta Indexstorlek.
 
-1. [Övervaka lagring, tjänstbegränsningar, fråga volym och svarstid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsade frågor och svarstid för sökning; alla som kan hjälpa dig välja om du är på rätt nivå. Förutom portal mätvärden, du kan konfigurera djupövervakning, till exempel genomklickning analys, genom att aktivera [söktrafikanalys](search-traffic-analytics.md). 
+1. [Övervaka lagring, tjänstbegränsningar, fråga volym och svarstid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsade frågor och svarstid för sökning; alla som kan hjälpa dig välja om du har valt rätt nivå. Förutom portal mätvärden, du kan konfigurera djupövervakning, till exempel genomklickning analys, genom att aktivera [söktrafikanalys](search-traffic-analytics.md). 
 
 Index antal och storlek är lika relevant för din analys eftersom maximala har nått via fullständig användning av lagring (partitioner) eller genom att högsta gräns för hur resurser (index, indexerare och så vidare), beroende på vilket som inträffar först. Portalen kan du hålla koll på båda, som visar aktuell användning och gränser sida vid sida på sidan Översikt.
 
@@ -197,8 +215,9 @@ Frågor per sekund (QPS) är ett mått som får tydlighet under inställning av 
 
 Standard-nivåerna kan leverera en balans mellan repliker till partitioner, stöd för frågan ha via ytterligare repliker för att läsa in belastningsutjämning och ytterligare partitioner för parallell bearbetning. Du kan finjustera prestanda när tjänsten har etablerats.
 
-Kunder som förväntar sig att strong varaktigt fråga volymer från början bör tänka på högre nivåer, med mer kraftfulla maskinvara. Du kan sedan koppla partitioner och -repliker eller växla till en lägre nivå-tjänst, om det gick inte att Materialisera volymerna fråga. Läs mer om hur du beräknar frågedataflöde [Azure Search-prestanda och optimering](search-performance-optimization.md).
+Kunder som förväntar sig stark varaktig ställa frågor till volymer från början bör högre **Standard** nivåer, med mer kraftfulla maskinvara. Du kan sedan koppla partitioner och -repliker eller växla till en lägre nivå-tjänst, om det gick inte att Materialisera volymerna fråga. Läs mer om hur du beräknar frågedataflöde [Azure Search-prestanda och optimering](search-performance-optimization.md).
 
+Lagringsoptimerade smidiga mot stora mängder data-arbetsbelastningar, stöd för mer övergripande index tillgänglig lagring, där frågan svarstidskrav är något Avslappnad nivåer.  Ytterligare repliker bör fortfarande användas för att läsa in belastningsutjämning och ytterligare partitioner för parallell bearbetning. Du kan finjustera prestanda när tjänsten har etablerats.
 
 **Servicenivåavtal**
 
@@ -216,7 +235,7 @@ Den **kostnadsfri** nivå och preview funktioner levereras inte med [serviceavta
 
 Börja med en **kostnadsfri** nivå och skapa ett första index med en delmängd av dina data för att förstå dess egenskaper. Datastrukturen i Azure Search är ett vägar i inverterad index där storlek och komplexitet ett vägar i inverterad index bestäms av innehållet. Kom ihåg att med hög redundant innehåll tenderar att resultera i ett index som är mindre än mycket oregelbunden innehåll. Det är därför innehåll egenskaper i stället för storleken på den datauppsättning som anger index lagringskrav.
 
-När du har en inledande uppfattning om Indexstorlek, [etablera en fakturerbar tjänst](search-create-service-portal.md) på en av nivåerna som beskrivs i den här artikeln, antingen **grundläggande** eller en **Standard** nivå. Lätta artificiella villkor i datadelmängder och [återskapa index](search-howto-reindex.md) att inkludera alla data som ska vara sökbart.
+När du har en inledande uppfattning om Indexstorlek, [etablera en fakturerbar tjänst](search-create-service-portal.md) på en av nivåerna som beskrivs i den här artikeln, antingen **grundläggande**, **Standard**, eller **Lagringsoptimerade** nivå. Lätta alla artificiella begränsningar om storlek för data och [återskapa index](search-howto-reindex.md) att inkludera alla data som ska vara sökbart.
 
 [Allokera partitioner och -repliker](search-capacity-planning.md) som behövs för att få de prestanda och skalbarhet som du behöver.
 

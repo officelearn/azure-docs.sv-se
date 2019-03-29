@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538569"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579418"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -24,7 +24,7 @@ Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten
 | **Antalet partitioner** | Ange den här egenskapen när du skapar för att definiera hur många [partitioner](../event-hubs/event-hubs-features.md#partitions) för enhet-till-moln händelsepåfyllning. |
 | **Kvarhållningstid**  | Den här egenskapen anger hur länge i dagar som meddelanden ska bevaras av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
 
-IoT Hub kan kvarhållning av data i den inbyggda Händelsehubbar högst 7 dagar. Du kan ange kvarhållningstid under skapandet av din IoT-hubb. Storleken för kvarhållning av data i IoT Hub beror på nivån för IoT hub och typ av enhet. När det gäller storlek, kan den inbyggda Event Hubs behåller meddelanden av den maximala meddelandestorleken upp till minst 24 timmars kvot. Till exempel för 1 S1-enhet som IoT Hub ger tillräckligt med lagringsutrymme för att behålla minst storlek 400K meddelanden med 4k var och en. Om dina enheter skickar mindre meddelanden, kan de bevaras under längre tid (upp till 7 dagar) beroende på hur mycket lagringsutrymme som förbrukas. Vi garanterar att bevara data under den angivna kvarhållningstiden minst.
+IoT Hub kan kvarhållning av data i den inbyggda Händelsehubbar högst 7 dagar. Du kan ange kvarhållningstid under skapandet av din IoT-hubb. Tiden för datakvarhållning i IoT Hub beror på nivån för IoT hub och typ av enhet. När det gäller storlek, kan den inbyggda Event Hubs behåller meddelanden av den maximala meddelandestorleken upp till minst 24 timmars kvot. Till exempel för 1 S1-enhet som IoT Hub ger tillräckligt med lagringsutrymme för att behålla minst storlek 400K meddelanden med 4k var och en. Om dina enheter skickar mindre meddelanden, kan de bevaras under längre tid (upp till 7 dagar) beroende på hur mycket lagringsutrymme som förbrukas. Vi garanterar att bevara data under den angivna kvarhållningstiden minst.
 
 IoT Hub hjälper dig att hantera konsumentgrupper på det inbyggda enhet till molnet får slutpunkt.
 

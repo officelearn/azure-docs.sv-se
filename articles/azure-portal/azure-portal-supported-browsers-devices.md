@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888761"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576402"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Vilka webbläsare och enheter för Azure-portalen
-Du kan köra den [Azure-portalen](https://portal.azure.com) på skrivbordet för alla moderna tablet-enheter och webbläsare.
+# <a name="supported-devices"></a>Enheter som stöds
 
-### <a name="supported-devices"></a>Enheter som stöds
-Azure-portalen fungerar perfekt på moderna datorer, Mac-datorer och surfplattor. Om du vill hantera Azure-resurser från en mobil enhet kan du prova Azure-mobilappen som är tillgänglig på iPhone- och Android. Mer information finns i [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+Den [Azure-portalen](https://portal.azure.com) är en webbaserad konsol och kan köras i webbläsaren i alla moderna skrivbord och surfplatteenheter. Om du vill hantera Azure-resurser från en mobil enhet kan du prova den [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/). Den är tillgänglig för iOS och Android.
 
-### <a name="supported-browsers"></a>Webbläsare som stöds
+## <a name="recommended-browsers"></a>Rekommenderade webbläsare
+
 Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med operativsystemet. Följande webbläsare stöds:
 
 * Microsoft Edge (senaste versionen)
@@ -36,4 +35,3 @@ Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel me
 * Safari (senaste versionen, endast Mac)
 * Chrome (senaste versionen)
 * Firefox (senaste versionen)
-

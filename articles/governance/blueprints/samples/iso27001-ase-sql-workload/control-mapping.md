@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014195"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579707"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mappning av kontroll av Azure skisser ISO 27001 skissen exemplet
 
@@ -122,7 +122,7 @@ Förstå där dina Azure-resurser kan ha icke-optimala kryptografiska konfigurat
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 händelseloggning
 
-Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela sju [Azure Policy](../../../policy/overview.md) definitioner som granska loggar inställningar på Azure-resurser. En tilldelad princip granskar även om virtuella datorer inte skickar loggar till en angiven log analytics-arbetsyta.
+Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela sju [Azure Policy](../../../policy/overview.md) definitioner som gransknings-och inställningar på Azure-resurser. En tilldelad princip granskar även om virtuella datorer inte skickar loggar till en angiven log analytics-arbetsyta.
 
 - [Förhandsversion]: Granska beroende Agentdistribution - VM Image (OS) inte finns i listan
 - [Förhandsversion]: Granska beroende Agentdistribution i VMSS - VM Image (OS) inte finns i listan
@@ -189,8 +189,8 @@ Nu när du har granskat kontroll mappningen av ISO 27001 App Service Environment
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om den [skiss livscykeln](../../concepts/lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](../../concepts/sequencing-order.md).
-- Ta reda på hur du får använda [skiss resource låsning](../../concepts/resource-locking.md).
-- Lär dig hur du [uppdatera befintliga tilldelningar](../../how-to/update-existing-assignments.md).
+- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541661"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576453"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Snabbstart: Konfigurera din IoT-lösning
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller en förklaring av hur du utför inledande konfigur
 
 ASC för IoT ger omfattande slutpunkt till slutpunkt för Azure-baserade IoT-lösningar.
 
-Med ASC för IoT. Du kan övervaka hela IoT-lösningen i en instrumentpanel, visa alla dina IoT-enheter, IoT-plattformar och backend-resurser i Azure.
+Med ASC för IoT, kan du övervaka hela IoT-lösningen i en instrumentpanel, visa alla dina IoT-enheter, IoT-plattformar och backend-resurser i Azure.
 
 När du har aktiverat på din IoT-hubb, identifierar ASC för IoT automatiskt andra Azure-tjänster också ansluten till din IoT-hubb och relaterade till din IoT-lösning.
 
@@ -50,7 +50,7 @@ Lägg till ny resurs i din IoT-lösning genom att göra följande:
 2. Välj och öppna **resurser** under **Security** menyn till vänster. 
 3. Välj **Lägg till resurser**.
 4. Välj resurser som hör till din IoT-lösning.
-4. Klicka på **Lägg till**. 
+5. Klicka på **Lägg till**. 
 
 Grattis! Du har lagt till en ny resurs till din IoT-lösning.
 

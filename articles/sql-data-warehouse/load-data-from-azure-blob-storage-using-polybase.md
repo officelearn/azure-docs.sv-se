@@ -2,20 +2,20 @@
 title: 'Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse | Microsoft Docs'
 description: Självstudien används Azure portal och SQL Server Management Studio för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466537"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620197"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse
 
@@ -80,7 +80,7 @@ Följ de här stegen om du vill skapa ett tomt SQL-informationslager.
 
 6. Klicka på **prestandanivå** att ange om informationslagret är Gen1 och Gen2 och antalet informationslagerenheter. 
 
-7. Den här självstudien väljer **Gen1** i SQL Data Warehouse. Skjutreglaget är som standard anges till **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. Den här självstudien väljer **Gen2** i SQL Data Warehouse. Skjutreglaget är inställt på **DW1000c** som standard.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Namnet bör vara ungefär så här: **mynewserver-20180430.database.windows.net**. |
-    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
+    | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 

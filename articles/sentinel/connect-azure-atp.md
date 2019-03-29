@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242181"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574951"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Samla in data från Azure Advanced Threat Protection (ATP)
 
@@ -46,6 +46,7 @@ Om Azure ATP distribueras och mata in dina data, misstänkt aviseringarna kan en
 
 2. Klicka på **Anslut**.
 
+6. Om du vill använda relevanta schemat i Log Analytics för Azure ATP-aviseringar, Sök efter **SecurityAlert**.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet lärde du dig att ansluta Azure Advanced Threat Protection till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403705"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620095"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudier: Förbereda för distribution av Azure Data Box-Gateway
 
@@ -101,8 +101,11 @@ Om du vill skapa en resurs för Data Box-gatewayen, gör du följande i Azure-po
     |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Läs mer om [Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md).     |
 
 5. Ange eller Välj följande **instans information**.
-   | Namnet | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |   
-    | Region | Den här versionen är är östra USA, Sydostasien och Västeuropa tillgängliga för att distribuera din resurs. För myndigheter i Azure government-regioner som anges i den [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) är tillgängliga. <br> Välj en plats som är närmast den geografiska region där du vill distribuera enheten. |
+
+    |Inställning  |Värde  |
+    |---------|---------|
+    |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |   
+    |Region     |Den här versionen är är östra USA, Sydostasien och Västeuropa tillgängliga för att distribuera din resurs. För myndigheter i Azure government-regioner som anges i den [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) är tillgängliga. <br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
     
     ![Skapa Data Box Gateway-resursen](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

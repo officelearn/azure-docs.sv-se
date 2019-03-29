@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure AD-Åtkomstgranskningar? | Microsoft Docs
-description: Med Azure Active Directory-Åtkomstgranskningar kan kontrollera du gruppmedlemskap och programåtkomst åtkomst för att uppfylla styrning, riskhantering och efterlevnadsinitiativ i din organisation.
+title: Vad är åtkomstgranskningar? - Azure Active Directory | Microsoft Docs
+description: Med Azure Active Directory-åtkomstgranskningar kan kontrollera du gruppmedlemskap och programåtkomst åtkomst för att uppfylla styrning, riskhantering och efterlevnadsinitiativ i din organisation.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845162"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576130"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-Åtkomstgranskningar?
+# <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomst granskar?
 
-Azure Active Directory (Azure AD)-Åtkomstgranskningar kan organisationer effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Användarens åtkomst kan granskas regelbundet att kontrollera att rätt personer ha fortsatt åtkomst.
+Azure Active Directory (Azure AD)-åtkomstgranskningar kan organisationer effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Användarens åtkomst kan granskas regelbundet att kontrollera att rätt personer ha fortsatt åtkomst.
 
 Här är en video som ger en snabb översikt över åtkomstgranskningar:
 
@@ -42,7 +42,7 @@ Azure AD kan du samarbeta internt inom organisationen och med användare från e
 
 ## <a name="when-to-use-access-reviews"></a>När du ska använda åtkomst går igenom?
 
-- **För många användare i Privilegierade roller:** Det är en bra idé att kontrollera hur många användare har administrativ åtkomst, hur många av dem är globala administratörer och om det finns några bjuds in gäster eller partners som inte har tagits bort som har tilldelats att göra en administrativ åtgärd. Du kan certifiera om rollen tilldelning av användare i [Azure AD-katalogroller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , till exempel globala administratörer eller [Azure-resursroller](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som administratör för användaråtkomst i den [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upplevelse.
+- **För många användare i Privilegierade roller:** Det är en bra idé att kontrollera hur många användare har administrativ åtkomst, hur många av dem är globala administratörer och om det finns några bjuds in gäster eller partners som inte har tagits bort som har tilldelats att göra en administrativ åtgärd. Du kan certifiera om rollen tilldelning av användare i [Azure AD-roller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , till exempel globala administratörer eller [Azure-resursroller](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som administratör för användaråtkomst i den [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upplevelse.
 - **När automation är omöjligt:** Du kan skapa regler för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper, men vad händer om HR data är inte i Azure AD eller om användare fortfarande behöver åtkomst efter att ha lämnat gruppen för att träna sina ersättning? Du kan sedan skapa en granskning på den gruppen för att se till att de som fortfarande behöver åtkomst bör ha fortsatt åtkomst.
 - **När en grupp används för ett nytt syfte:** Om du har en grupp som ska synkroniseras till Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i teamet försäljningsgruppen, skulle det vara praktiskt att be gruppägare att granska gruppmedlemskap före gruppen som används i en annan risk co chning.
 - **Företag kritiska dataåtkomst:** för vissa resurser, kan det krävas att ställa personer utanför IT-avdelningen att regelbundet logga ut och ge en motivering på varför de behöver åtkomst i granskningssyfte.
@@ -52,13 +52,13 @@ Azure AD kan du samarbeta internt inom organisationen och med användare från e
 
 ## <a name="where-do-you-create-reviews"></a>Där skapas granskningar?
 
-Beroende på vad du vill granska, skapar du din åtkomstgranskning i Azure AD-Åtkomstgranskningar, Azure AD-företagsappar (i förhandsversion) eller Azure AD PIM.
+Beroende på vad du vill granska, skapar du din åtkomstgranskning i Azure AD åtkomst till granskningar, Azure AD-företagsappar (i förhandsversion) eller Azure AD PIM.
 
 | Behörighet för åtkomst av användare | Granskare kan vara | Granska som skapats i | Granskare-upplevelse |
 | --- | --- | --- | --- |
-| Medlemmar i gruppen</br>Office-gruppmedlemmar | Angivna granskare</br>Gruppägare</br>Själv granska | Azure AD-Åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanel |
-| Tilldelad till en ansluten app | Angivna granskare</br>Själv granska | Azure AD-Åtkomstgranskningar</br>Azure AD-företagsappar (i förhandsversion) | Åtkomstpanel |
-| Azure AD-katalogroll | Angivna granskare</br>Själv granska | Azure AD PIM | Azure Portal |
+| Medlemmar i gruppen</br>Office-gruppmedlemmar | Angivna granskare</br>Gruppägare</br>Själv granska | Azure AD-åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanel |
+| Tilldelad till en ansluten app | Angivna granskare</br>Själv granska | Azure AD-åtkomstgranskningar</br>Azure AD-företagsappar (i förhandsversion) | Åtkomstpanel |
+| Azure AD-roll | Angivna granskare</br>Själv granska | Azure AD PIM | Azure Portal |
 | Azure-resurs-roll | Angivna granskare</br>Själv granska | Azure AD PIM | Azure Portal |
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -90,11 +90,11 @@ Följ dessa steg om du vill aktivera att åtkomstgranskningar.
 
 1. Klicka på **Åtkomstgranskningar**.
 
-    ![Alla tjänster - Åtkomstgranskningar](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Alla tjänster - åtkomstgranskningar](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. I listan över navigeringsfönstret klickar du på **publicera** att öppna den **publicera åtkomstgranskningar** sidan.
 
-    ![Publicera Åtkomstgranskningar](./media/access-reviews-overview/onboard-button.png)
+    ![Publicera åtkomstgranskningar](./media/access-reviews-overview/onboard-button.png)
 
 1. Klicka på **skapa** att aktivera åtkomst går du igenom i den aktuella katalogen.
 

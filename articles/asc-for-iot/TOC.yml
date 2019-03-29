@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Säkerhetsagenter
     href: security-agent-architecture.md
+  - name: Edge-säkerhetsmodul
+    href: security-edge-architecture.md
   - name: Förutsättningar för tjänsten
     href: service-prerequisites.md
   - name: Komma igång med ASC för IoT
@@ -23,26 +25,8 @@ items:
   - name: Skapa anpassade säkerhetsaviseringar
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Självstudier
-  items:
-  - name: Distribuera säkerhetsagenter
-    items:
-    - name: Distribuera en C#-baserad säkerhetsagent på en Windows-enhet
-      href: tutorial-deploy-windows-cs.md
-    - name: Distribuera en C#-baserad säkerhetsagent på en Linux-enhet
-      href: tutorial-deploy-linux-cs.md
-    - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
-      href: tutorial-deploy-linux-c.md
-  - name: Undersöka en enhet
-    href: tutorial-investigate-device.md
-  - name: Skicka dina egna säkerhetsmeddelanden
-    href: tutorial-send-security-messages.md
 - name: Begrepp
   items:
-  - name: Vilken agent ska jag distribuera?
-    href: select-deploy-agent.md
-  - name: Konfigurera säkerhetsagenter
-    href: concept-agent-configuration.md
   - name: Autentisering av säkerhetsagent
     href: concept-security-agent-authentication-methods.md
   - name: Säkerhetsmodul
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Säkerhetsrekommendationer
     href: concept-recommendations.md
+  - name: Prissättning och associerade kostnader
+    href: concept-pricing.md
 - name: Instruktionsguider
   items:
+  - name: Vilken agent ska jag distribuera?
+    items:
+    - name: Välj en agent för att distribuera
+      href: how-to-deploy-agent.md
+    - name: Distribuera en C#-baserad säkerhetsagent på en Windows-enhet
+      href: how-to-deploy-windows-cs.md
+    - name: Distribuera en C#-baserad säkerhetsagent på en Linux-enhet
+      href: how-to-deploy-linux-cs.md
+    - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
+      href: how-to-deploy-linux-c.md
+  - name: Distribuera Edge-säkerhetsmodul
+    href: how-to-deploy-edge.md
+  - name: Konfigurera säkerhetsagenter
+    href: how-to-agent-configuration.md
+  - name: Skicka dina egna säkerhetsmeddelanden
+    href: how-to-send-security-messages.md
   - name: Få åtkomst till råsäkerhetsdata
     href: how-to-security-data-access.md
-  - name: Ändra en säkerhetsmodultvilling
-    href: how-to-modify-security-module-twin.md
+  - name: Undersöka en enhet
+    href: how-to-investigate-device.md
 - name: Resurser
   items:
   - name: Vanliga frågor och svar
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Regional tillgänglighet
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541338"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575172"

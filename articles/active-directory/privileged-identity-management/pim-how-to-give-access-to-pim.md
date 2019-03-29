@@ -1,5 +1,5 @@
 ---
-title: Bevilja åtkomst till andra administratörer att hantera PIM - Azure | Microsoft Docs
+title: Bevilja åtkomst till andra administratörer att hantera PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att bevilja åtkomst till andra myndigheter att hantera Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d8cb77cda97c3141987fa8b0ea39541ace6db3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191749"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579622"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Bevilja åtkomst till andra administratörer att hantera PIM
 
-Den globala administratören som gör Azure AD Privileged Identity Management (PIM) för en organisation att automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan hämtar skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och Säkerhetsläsare har skrivskyddad åtkomst till PIM. Om du vill bevilja åtkomst till PIM, kan den första användaren tilldela andra användare till den **privilegierad Rolladministratör** roll.
+Den globala administratören som gör Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för en organisation att automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan hämtar skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och Säkerhetsläsare har skrivskyddad åtkomst till PIM. Om du vill bevilja åtkomst till PIM, kan den första användaren tilldela andra användare till den **privilegierad Rolladministratör** roll.
 
 > [!NOTE]
 > Hantera PIM kräver Azure MFA. Eftersom Microsoft-konton inte kan registrera dig för Azure MFA, en användare som loggar in med ett Microsoft-konto inte åtkomst till PIM.
@@ -36,11 +36,11 @@ Kontrollera att det finns alltid minst två användare i en privilegierad Rollad
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **roller**.
 
-    ![PIM-Azure AD-katalogroller - roller](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![PIM-Azure AD-roller – roller](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Klicka på den **privilegierad Rolladministratör** roll att öppna sidan medlemmar.
 
@@ -74,7 +74,7 @@ Innan du tar bort någon från rollen privilegierad Rolladministratör kan du al
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **roller**.
 

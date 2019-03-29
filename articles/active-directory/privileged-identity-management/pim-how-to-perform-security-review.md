@@ -1,6 +1,6 @@
 ---
-title: Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig hur du utför en åtkomstgranskning av din Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Utför en åtkomstgranskning av Mina Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du utför en åtkomstgranskning av din Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c7b3905d05e62bd3f11ef4de7f966e6bf9340f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178914"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578338"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM
-Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
+# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Utför en åtkomstgranskning av Mina Azure AD-roller i PIM
+Azure Active Directory (AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
 
 Om du har tilldelats en administrativ roll kan privilegierad rolladministratör för din organisation be dig att regelbundet kontrollera att du fortfarande behöver rollen för jobbet. Du kan få ett e-postmeddelande som innehåller en länk eller du kan gå direkt till den [Azure-portalen](https://portal.azure.com). Följ stegen i den här artikeln för att utföra själv granska av dina tilldelade roller.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541939"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575155"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Vanliga och frågor svar om ASC för IoT  
 
@@ -77,7 +77,7 @@ Detaljerad information för distribution av installation och agenten kan hittas 
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Vilka är de beroenden och krav för agenten?
 
-ASC för IoT stöder en mängd olika plattformar. Se [stöds enhetsplattformar](select-deploy-agent.md) verifiering av stöd för specifika enheter. 
+ASC för IoT stöder en mängd olika plattformar. Se [stöds enhetsplattformar](how-to-deploy-agent.md) verifiering av stöd för specifika enheter. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Vilka data som samlas in av agenten?
 
@@ -97,9 +97,9 @@ Ja. Agenten överförs data räknas i din IoT Hub-kvot.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Vad är nästa steg? Jag har installerat en agent och ser inte några aktiviteter eller loggar
 
-1. Kontrollera den [agenttypen passar avsedda OS-plattform för din enhet](select-deploy-agent.md)
+1. Kontrollera den [agenttypen passar avsedda OS-plattform för din enhet](how-to-deploy-agent.md)
 
-1. Bekräfta de [agenten körs på enheten](concept-agent-configuration.md).
+1. Bekräfta de [agenten körs på enheten](how-to-agent-configuration.md).
 
 2. Kontrollera den [tjänsten har aktiverats](quickstart-onboard-iot-hub.md) till **Security** i IoT Hub. 
 

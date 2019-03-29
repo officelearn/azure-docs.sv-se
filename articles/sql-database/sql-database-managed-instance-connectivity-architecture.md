@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486792"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621557"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database 
 
@@ -107,7 +107,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 | Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
-|hantering  |80, 443, 12000|TCP     |Alla              |Internet   |Tillåt |
+|hantering  |80, 443, 12000|TCP     |Alla              |AzureCloud  |Tillåt |
 |mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT *  |Tillåt |
 
 > Kontrollera att det finns endast en regel för inkommande trafik för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterad instans etablering via ARM-distributioner kan misslyckas om inkommande och utgående regler konfigureras separat för varje portar. 

@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521711"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578891"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella datorer i Azure med PowerShell
 
-Den här artikeln förklarar hur du säkerhetskopierar och återställer en Azure virtuell dator i en [Azure Backup](backup-overview.md) Recovery Services-valv med PowerShell-cmdletar. 
+Den här artikeln förklarar hur du säkerhetskopierar och återställer en Azure virtuell dator i en [Azure Backup](backup-overview.md) Recovery Services-valv med PowerShell-cmdletar.
 
 I den här artikeln lär du dig hur du:
 
@@ -24,10 +24,7 @@ I den här artikeln lär du dig hur du:
 > * Skapa ett Recovery Services-valv och ange valvets sammanhang.
 > * definierar en säkerhetskopieringspolicy
 > * applicerar säkerhetskopieringspolicyn för att skydda flera virtuella datorer
-> * Utlösa en säkerhetskopiering på begäran för de skyddade virtuella datorerna innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra de [krav](backup-azure-arm-vms-prepare.md) att förbereda miljön för att skydda dina virtuella datorer. 
-
-
-
+> * Utlösa en säkerhetskopiering på begäran för de skyddade virtuella datorerna innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra de [krav](backup-azure-arm-vms-prepare.md) att förbereda miljön för att skydda dina virtuella datorer.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -44,8 +41,6 @@ Objekthierarkin summeras i följande diagram.
 
 Granska den **Az.RecoveryServices** [cmdlet-referens för](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) referens i Azure-biblioteket.
 
-
-
 ## <a name="set-up-and-register"></a>Konfigurera och registrera
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Börja:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Alias och cmdlets för Azure Backup, Azure Site Recovery och Recovery Services-valv visas. Följande bild är ett exempel på vad som ska visas. Det är inte en fullständig lista över cmdletar.
 
@@ -147,6 +142,18 @@ Innan du aktiverar skydd på en virtuell dator använder [Set-AzRecoveryServices
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Ändra inställningarna för lagringsreplikering
+
+Använd [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) kommando för att ange lagringskonfigurationen för replikering av valvet till LRS/GRS
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Lagringsredundans kan ändras om det finns inga objekt att säkerhetskopiera skyddas i valvet.
+
 ### <a name="create-a-protection-policy"></a>Skapa en skyddsprincip
 
 När du skapar ett Recovery Services-valv medföljer standardskydd och principer för kvarhållning. Principen för standardskydd utlöser ett säkerhetsjobb varje dag vid en viss tidpunkt. Principen för standardskydd håller kvar den dagliga återställningspunkten i 30 dagar. Du kan använda standardprincipen för att snabbt skydda den virtuella datorn och redigera principen senare med annan information.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Om du använder Azure Government-molnet kan sedan använda värdet ff281ffe-705c-4f53-9f37-a40e6f2c68f3 för parametern ServicePrincipalName i [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Ändra en skyddsprincip
 
 Använd för att ändra skyddsprincipen [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) ändra SchedulePolicy eller RetentionPolicy objekt.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Konfigurera kvarhållning av omedelbar återställning ögonblicksbild
+
+> [!NOTE]
+> Från Az PS version 1.6.0 eller senare och senare, kan en uppdatera kvarhållningsperioden för omedelbar återställning ögonblicksbild i principen med hjälp av Powershell
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+Standardvärdet är 2 kan användaren ange värdet med minst 1 och max 5. För veckovis säkerhetskopiering principerna är inställd på 5 perioden och kan inte ändras.
 
 ## <a name="trigger-a-backup"></a>Utlösa en säkerhetskopia
 
@@ -672,7 +691,7 @@ $rp[0]
 
 Utdata ser ut ungefär så här:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill använda PowerShell för att interagera med dina Azure-resurser finns i PowerShell-artikeln [distribuera och hantera säkerhetskopiering för Windows Server](backup-client-automation.md). Om du hanterar DPM-säkerhetskopior som finns i artikeln [distribuera och hantera säkerhetskopiering för DPM](backup-dpm-automation.md). 
+Om du vill använda PowerShell för att interagera med dina Azure-resurser finns i PowerShell-artikeln [distribuera och hantera säkerhetskopiering för Windows Server](backup-client-automation.md). Om du hanterar DPM-säkerhetskopior som finns i artikeln [distribuera och hantera säkerhetskopiering för DPM](backup-dpm-automation.md).

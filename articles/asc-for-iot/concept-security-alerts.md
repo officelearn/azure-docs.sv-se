@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f39fee9b59dfec643a640a4e17460ed9199c858f
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542074"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579452"
 ---
 # <a name="asc-for-iot-security-alerts"></a>ASC för IoT-säkerhetsvarningar
 
@@ -27,8 +27,15 @@ ms.locfileid: "58542074"
 > ASC för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+ASC för IoT analyserar kontinuerligt dina IoT-lösning med avancerade analyser och hotinformation för att varna dig om skadlig aktivitet.
+Dessutom kan du skapa anpassade varningar utifrån dina kunskaper om förväntade enhetsbeteende.
+En avisering bör fungerar som en indikator för comprise, och undersökas och åtgärdas.
 
-## <a name="device-alerts"></a>Enhetsaviseringar
+Du hittar en lista över inbyggda aviseringar som kan utlösas på din IoT Hub och/eller IoT-enheter i den här artikeln.
+Bredvid inbyggda avisering kan du definiera anpassade varningar utifrån förväntade Hub och/eller enhetsbeteende i ASC för IoT.
+Mer information finns i [skapa anpassade varningar](quickstart-create-custom-alerts.md).
+
+## <a name="built-in-alerts-for-iot-devices"></a>Inbyggda aviseringar för IoT-enheter
 
 | Severity | Namn                                                   | Datakälla | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -72,7 +79,7 @@ ms.locfileid: "58542074"
 | Låg      | Bash-historiken rensas                                   | Agent       | Bash historik rensad. Angripare kan dölja sina egna kommandon från visas i loggarna                                                                                                                                                                                                                                                                                                                                                   |
 | Låg      | Det gick inte brute-force                                      | Agent       | Flera misslyckade inloggningsförsök har identifierat. Ett försök och misslyckade brute force angrepp gjordes på enheten.                                                                                                                                                                                                                                                                                                                                                  |
 
-## <a name="iot-hub-alerts"></a>IoT Hub-aviseringar
+## <a name="built-in-alerts-for-iot-hub"></a>Inbyggda aviseringar för IoT Hub
 
 | Severity | Namn                                                                         | Beskrivning                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -88,4 +95,4 @@ ms.locfileid: "58542074"
 
 - [Översikt](overview.md)
 - [Få åtkomst till dina säkerhetsdata](how-to-security-data-access.md)
-- [Undersöka en enhet](tutorial-investigate-device.md)
+- [Undersöka en enhet](how-to-investigate-device.md)

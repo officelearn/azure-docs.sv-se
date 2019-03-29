@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444510"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578934"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -21,7 +21,7 @@ Generell användning v2-konton stöder de senaste funktionerna i Azure Storage o
 Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller Blob storage-konton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI.
 
 > [!IMPORTANT]
-> Uppgradera en allmänna v1- eller Blob storage-lagringskonto till gpv2 är permanent och kan inte ångras.
+> Uppgradera en allmänna v1- eller Blob storage-konto till gpv2 är permanent och kan inte ångras.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Uppgradera med Azure portal
 

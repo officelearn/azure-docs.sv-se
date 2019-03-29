@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994421"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621659"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -37,7 +37,11 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 
 **Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs. Om du använder Azure Import/Export-tjänsten för att importera stora mängder data finns det dock en kostnad som är kopplad till inkommande data. Mer information om kostnaden finns i [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Arbetsflöde för säkerhetskopiering offline i Azure Backup). Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
 
-**Datakryptering** – Datakryptering möjliggör säker överföring och lagring av dina data i det offentliga molnet. Krypteringslösenfrasen lagras på lokalt och överförs eller lagras aldrig i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
+**Datakryptering**:
+- Lokalt, information som överförs krypteras på den lokala datorn med hjälp av AES256. De data som överförs skyddas av HTTPS mellan lagring och säkerhetskopiering. ISCSI-protokollet skyddar de data som överförs mellan säkerhetskopiering och användare-dator. Säkra tunnlar används för att skydda iSCSI-kanalen.
+- Data i Azure är krypterade i vila med lösenfras som du anger när du konfigurerar säkerhetskopiering för lokalt till Azure backup. Lösenfras eller nyckel det aldrig överförs eller lagras i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
+- För virtuella Azure-datorer krypteras data vid återställning av med Storage Service Encryption (SSE). Backup krypterar automatiskt data innan de lagras. Azure-lagring dekrypterar data innan de hämtas.
+- Säkerhetskopiering har även stöd för Azure virtuella datorer som krypterats med Azure Disk Encryption (ADE). [Läs mer](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Programkonsekvent säkerhetskopiering** – En programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 
@@ -83,10 +87,10 @@ I följande tabell visas de Azure Backup-komponenter som stöds för Linux.
 
 **Komponent** | **Linux (Azure-godkänt)**
 --- | ---
-Azure Backup-agent (MARS) | Nej (endast Windows-baserad agent)
-System Center DPM | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
+Azure Backup-agent (MARS) | Ingen (Windows-baserad agent endast)
+System Center DPM | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> VM-återställningar av Hyper-V och VMWare Linux-gästdatorer</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
 Azure Backup Server | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
-Säkerhetskopiering av virtuella IaaS-datorer i Azure | Appkonsekvent säkerhetskopiering använder [ramverket för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/><br/> [Återställning på filnivå](backup-azure-restore-files-from-vm.md)<br/><br/> [Skapa en virtuell dator från en återställd disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Skapa en virtuell dator från en återställningspunkt](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
+Säkerhetskopiering av virtuella IaaS-datorer i Azure | Appkonsekvent säkerhetskopiering använder [ramverket för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/><br/> [Återställning på filnivå](backup-azure-restore-files-from-vm.md)<br/><br/> [Skapa en virtuell dator från en återställd disk](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Skapa en virtuell dator från en återställningspunkt](backup-azure-arm-restore-vms.md#create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använda virtuella Premium Storage-datorer med Azure Backup
 Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid state-hårddisk) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium Storage och andra disktyper finns i artikeln [Välj en disktyp](../virtual-machines/windows/disks-types.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e394f6025f7898aad7dde7b1acefd9f95029a554
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541999"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576647"
 ---
 # <a name="access-your-security-data"></a>Få åtkomst till dina säkerhetsdata 
 
@@ -39,20 +39,20 @@ Konfigurera vilka Log Analytics-arbetsyta används:
 
 Öppna Log Analytics-arbetsytan efter konfigurationen:
 
-1. Välj en avisering i ASC för IoT. 
+1. Välj en avisering eller en rekommendation i ASC för IoT. 
 2. Klicka på **ytterligare undersökningar**, klicka sedan på **att se vilka enheter som har den här aviseringen Klicka här och visa kolumnen DeviceId**.
 
 Mer information om hämtning av data från Log Analytics finns [Kom igång med frågor i Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 
-Säkerhetsaviseringar lagras i den **ASCforIoT.SecurityAlert** tabell i konfigurerade Log Analytics-arbetsytan.
+Säkerhetsaviseringar lagras i _AzureSecurityOfThings.SecurityAlert_ tabellen i Log Analytics-arbetsytan som konfigurerats för ASC för IoT-lösning.
 
-Använd följande grundläggande kql frågor för att börja utforska säkerhetsaviseringar.
+Vi har angett ett antal användbara frågor som hjälper dig att komma igång med att utforska säkerhetsaviseringar.
 
-### <a name="sample-records-query"></a>Exempelfråga poster
+### <a name="sample-records"></a>Exempelposter
 
-Så här väljer slumpmässigt några poster: 
+Välj ett fåtal poster i slumpmässig
 
 ```
 // Select a few random records
@@ -69,17 +69,15 @@ SecurityAlert
 | take 3
 ```
 
-#### <a name="sample-query-results"></a>Exemplet frågeresultat 
-
 | TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Beskrivning                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Råstyrkeattack lyckades           | En Brute-force attack på enheten har slutförts        |    {”Fullständig källadress” ”: [\"10.165.12.18:\"]”, ”användarnamn” ”: [\"\"]”, ”DeviceId”: "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Genomförd lokal inloggning på enhet      | En lyckad lokal inloggning till enheten har identifierats     | {”Fjärradress” ”:”?, ”Remote Port” ”:”, ”lokal Port” ”:”, ”inloggningsgränssnitt”: ”/ bin/su”, ”inloggnings Process-Id”: "28207", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Misslyckat inloggningsförsök lokalt på enheten  | Ett misslyckat lokala inloggningsförsök till enheten har identifierats |  {”Fjärradress” ”:”?, ”Remote Port” ”:”, ”lokal Port” ”:”, ”inloggningsgränssnitt”: ”/ bin/su”, ”inloggnings Process-Id”: "22644", "User Name": "attacker", "DeviceId": "IoT-Device-Linux" } |
 
-### <a name="device-summary-query"></a>Sammanfattning av frågan för enhet
+### <a name="device-summary"></a>Sammanfattning av enhet
 
-Använd den här kql-fråga för att välja ett antal olika säkerhetsaviseringar upptäckte förra veckan av IoT Hub, enhet, allvarlighetsgrad, typ av avisering.
+Välj antal distinkta säkerhetsaviseringar som identifierats föregående vecka av IoT Hub, enhet, allvarlighetsgrad, typ av avisering.
 
 ```
 // Select number of distinct security alerts detected last week by 
@@ -94,19 +92,16 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="device-summary-query-results"></a>Sammanfattning av frågeresultat för enhet
-
-| IoTHubId | DeviceId| AlertSeverity| DisplayName | Antal |
-|----------|---------|------------------|---------|---------|
-|/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Råstyrkeattack lyckades           | 9   |    
+| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Antal |
+|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Råstyrkeattack lyckades           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel        | Misslyckat inloggningsförsök lokalt på enheten  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | Genomförd lokal inloggning på enhet      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel        | Krypto mynt Miner                     | 4   |
-|
 
-### <a name="iot-hub-summary"></a>IoT Hub-sammanfattning
+### <a name="iot-hub-summary"></a>Översikt över IoT-hubb
 
-Använd den här kql frågan för att välja ett antal olika enheter som hade aviseringar under den senaste veckan av IoT hub, allvarlighetsgrad, typ av avisering:
+Välj ett antal olika enheter som hade aviseringar under den senaste veckan av IoT Hub, allvarlighetsgrad, typ av avisering
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -121,8 +116,6 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="iot-hub-summary-query-results"></a>Sammanfattning av IoT Hub-frågeresultat
-
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hög          | Råstyrkeattack lyckades           | 1          |    
@@ -130,6 +123,58 @@ SecurityAlert
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Hög          | Genomförd lokal inloggning på enhet      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medel        | Krypto mynt Miner                     | 1          |
 
+## <a name="security-recommendations"></a>Säkerhetsrekommendationer
+
+Säkerhetsrekommendationer lagras i _AzureSecurityOfThings.SecurityRecommendation_ tabellen i Log Analytics-arbetsytan som konfigurerats för ASC för IoT-lösning.
+
+Vi tillhandahåller ett antal användbara frågor kan du börja utforska säkerhetsrekommendationer.
+
+### <a name="sample-records"></a>Exempelposter
+
+Välj ett fåtal poster i slumpmässig
+
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+    
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Beskrivning | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En brandväggsregel hittades som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En brandväggsregel hittades som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+
+### <a name="device-summary"></a>Sammanfattning av enhet
+
+Välj antalet distinkta active säkerhetsrekommendationer genom IoT Hub, enhet, rekommendation allvarlighetsgrad och typen.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
+```
+
+| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Antal |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Hög          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel        | 4   |
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -137,3 +182,4 @@ SecurityAlert
 - Läs ASC för IoT [översikt](overview.md)
 - Läs mer om ASC för IoT [arkitektur](architecture.md)
 - Förstå och utforska [ASC för IoT-aviseringar](concept-security-alerts.md)
+- Förstå och utforska [ASC för IoT-rekommendation](concept-recommendations.md)

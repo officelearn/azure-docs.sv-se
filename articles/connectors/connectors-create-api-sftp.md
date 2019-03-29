@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910292"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578381"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
@@ -27,10 +27,18 @@ Att automatisera uppgifter som att övervaka, skapa, skicka och ta emot filer p�
 * Hämta filinnehåll och metadata.
 * Extrahera Arkiv till mappar.
 
-Jämfört med den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md), SFTP-anslutningsappen kan läsa eller skriva filer upp till 50 MB i storlek om du inte använder [meddelande storlekar i åtgärder](../logic-apps/logic-apps-handle-large-messages.md). För närvarande kan använda du inte storlekar för utlösare. För filer upp till 1 GB i storlek, Använd den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md). För filer som är större än 1 GB, kan du använda den SFTP-SSH connector plus [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). 
-
 Du kan använda utlösare som övervakar händelser på din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför olika uppgifter på din SFTP-server. Du kan också ha andra åtgärder i din logikapp använda utdata från SFTP-åtgärder. Om du regelbundet hämta filer från din SFTP-server, kan du exempelvis skicka e-postaviseringar om filerna och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Begränsningar
+
+* SFTP-åtgärder kan läsa eller skriva filer som är *50 MB eller mindre* om du inte använder [meddelande storlekar i åtgärder](../logic-apps/logic-apps-handle-large-messages.md), vilket gör att du överskrider den här gränsen. För närvarande stöder SFTP-utlösare inte storlekar.
+
+* För filer *upp till 1 GB*, använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md).
+
+* För filer *större än 1 GB*, Använd den SFTP-SSH anslutningsverktyget plus [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
+
+Andra skillnader mellan SFTP-anslutningsappen och den SFTP-SSH-anslutningen, granska [jämför SFTP-SSH jämfört med SFTP](../connectors/connectors-sftp-ssh.md#comparison) i SFTP-SSH-artikeln.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

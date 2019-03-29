@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 4fd7fb68fd2eb8be0c1c109d76cff341faba9391
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541662"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576232"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller en förklaring på hur du aktiverar ASC för IoT-f
 ## <a name="prerequisites-for-enabling-the-service"></a>Förutsättningar för att aktivera tjänsten
 
 - Log Analytics-arbetsyta
-  - Två typer av information lagras som standard i Log Analytics-arbetsytan med av ASC för IoT; **säkerhetsaviseringar** och **rekommendationer**. 
+  - Två typer av information lagras som standard i Log Analytics-arbetsytan av ASC för IoT; **säkerhetsaviseringar** och **rekommendationer**. 
   - Du kan välja att lägga till lagring av en typ för ytterligare information, **råhändelser**. Observera att lagra **råhändelser** innebär ytterligare lagringskostnader i Log Analytics. 
 - IoT Hub (standard-nivån eller senare)
 

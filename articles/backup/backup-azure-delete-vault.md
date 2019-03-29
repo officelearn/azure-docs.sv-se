@@ -6,62 +6,53 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439013"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620125"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
 Den här artikeln beskrivs hur du tar bort en [Azure Backup](backup-overview.md) Recovery Services-valv. Den innehåller instruktioner för att ta bort beroenden och sedan ta bort ett valv och ta bort ett valv automatiskt.
 
 
-
-
 ## <a name="before-you-start"></a>Innan du börjar
 
 Innan du börjar är det viktigt att förstå att du inte kan ta bort ett Recovery Services-valv som innehåller servrar som registrerats i den eller som innehåller säkerhetskopierade data.
 
-
-- Ta bort ett valv utan problem, Avregistrerar servrar i den och tar bort vault-data.
+- Om du vill ta bort ett valv smidigt avregistrera servrar i den, ta bort valvet data och ta sedan bort valvet.
+- Om du försöker ta bort ett valv som fortfarande har beroenden, utfärdas ett felmeddelande. och du måste manuellt ta bort valv-beroenden, inklusive:
+    - Säkerhetskopierade objekt
+    - Skyddade servrar
+    - Säkerhetskopiera hanteringsservrar (Azure Backup Server, DPM) ![väljer du ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Om du inte vill behålla några data i Recovery Services-valvet och vill ta bort valvet, kan du ta bort valvet automatiskt.
 - Om du försöker ta bort ett valv, men inte kan konfigureras fortfarande valvet för att ta emot säkerhetskopierade data.
 
-Lär dig hur du ta bort ett valv, finns i avsnittet [ta bort ett valv från Azure-portalen](#delete-a-vault-from-the-azure-portal). Om avsnittet [ta bort valvet automatiskt](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Om du är osäker på vad som finns i valvet och du måste se till att du tar bort valvet, finns i avsnittet [ta bort valvet beroenden och ta bort valvet](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Ta bort ett valv i Azure Portal
 
-1. Öppna listan över Recovery Services-valv i portalen.
-2. Välj det valv som du vill ta bort från listan. Instrumentpanelen för valvet öppnas.
+1. Öppna instrumentpanelen för valvet.  
+2. I instrumentpanelen, klickar du på **ta bort**. Kontrollera att du vill ta bort.
 
     ![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. I instrumentpanelen för valvet klickar du på **ta bort**. Kontrollera att du vill ta bort.
+Om du får ett felmeddelande, ta bort [Säkerhetskopiera objekt](#remove-backup-items), [infrastrukturservrar](#remove-backup-infrastructure-servers), och [återställningspunkter](#remove-azure-backup-agent-recovery-points), och ta sedan bort valvet.
 
-    ![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![ta bort vault-fel](./media/backup-azure-delete-vault/error.png)
 
-2. Om det finns beroenden av valv, den **valv fel vid borttagning av** visas: 
-
-    ![Valvborttagningsfel](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - Följ dessa instruktioner för att ta bort beroenden innan du tar bort valvet, granska
-    - [Följ de här instruktionerna](#delete-the-recovery-services-vault-by-force) du använder PowerShell för att ta bort valvet automatiskt. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Ta bort Recovery Services-valvet automatiskt
 
+Du kan ta bort ett valv automatiskt med PowerShell. Framtvingad borttagning innebär att valvet och alla associerade säkerhetskopieringsdata raderas.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan använda PowerShell för att ta bort ett Recovery Services-valv automatiskt. Det innebär att valvet och alla associerade säkerhetskopieringsdata raderas. 
 
-> [!Warning]
-> När du använder PowerShell för att ta bort ett Recovery Services-valv, måste du kontrollera att du vill ta bort alla säkerhetskopierade data i valvet.
->
-
-Ta bort ett Recovery Services-valv:
+Ta bort ett valv automatiskt:
 
 1. Logga in på Azure-prenumerationen med den `Connect-AzAccount` , och följer den på skärmen riktningar.
 
@@ -90,28 +81,18 @@ Ta bort ett Recovery Services-valv:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Om valvet inte är tom, får du felmeddelandet ”går inte att ta bort valvet eftersom det finns befintliga resurser i det här valvet”. Om du vill ta bort en behållare i ett valv, gör du följande:
+9. Om valvet inte är tom, får du felmeddelandet ”går inte att ta bort valvet eftersom det finns befintliga resurser i det här valvet”. Om du vill ta bort ett objekt i ett valv, gör du följande:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Logga in till din prenumeration i Azure-portalen och kontrollera att valvet har tagits bort.
+10. Kontrollera att valvet tas bort i Azure-portalen.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Ta bort valvet beroenden och ta bort valv
+## <a name="remove-vault-items-and-delete-the-vault"></a>Ta bort valvet objekt och ta bort valvet
 
-Du kan manuellt ta bort valvet beroenden, enligt följande:
-
-- I den **Säkerhetskopieringsobjekt** -menyn, ta bort beroenden:
-    - Säkerhetskopieringar i Azure Storage (Azure Files)
-    - SQL Server i Virtuella Azure-säkerhetskopieringar
-    - Säkerhetskopior av virtuella Azure-datorer
-- I den **infrastruktur för säkerhetskopiering** menyn, ta bort beroenden:
-    - Säkerhetskopior av Microsoft Azure Backup Server (MABS)
-    - System Center DPM-säkerhetskopieringar
-
-![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+Följande procedur innehåller några exempel för att ta bort säkerhetskopieringsdata och infrastrukturservrar. När allt har tagits bort från ett valv, kan du ta bort den.
 
 ### <a name="remove-backup-items"></a>Ta bort objekt att säkerhetskopiera
 
@@ -200,12 +181,13 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Ta bort valvet när du tar bort beroenden
 
 1. När alla beroenden har tagits bort, bläddra till den **Essentials** fönstret i menyn för valvet.
-
-    - Det bör inte finnas någon **Säkerhetskopiera objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt** visas.
-    - Om objekt visas fortfarande i valvet kan du ta bort dem.
+2. Kontrollera att det inte finns någon **Säkerhetskopiera objekt**, **säkerhetskopiera hanteringsservrar**, eller **replikerade objekt** visas. Om objekt visas fortfarande i valvet kan du ta bort dem.
 
 2. När det finns inga fler objekt i valvet, på instrumentpanelen för valvet klickar du på **ta bort**.
 

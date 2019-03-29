@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903631"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619840"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig komponentöverskridande transaktionsdiagnostik
 
@@ -32,7 +32,7 @@ Komponenterna är oberoende av varandra distribuerbar delar av programmet distri
 * Komponenterna kan vara olika Application Insights-instrumenteringsnycklar (även om prenumerationer skiljer sig) eller olika roller som rapporterar till en enda Application Insights-instrumenteringsnyckeln. Den nya miljön visas information för alla komponenter, oavsett hur de har ställts in.
 
 > [!NOTE]
-> * **Saknas relaterat objektlänkar?** Alla relaterad telemetri finns i den [upp](#cross-component-transaction-chart) och [nedre](#all-telemetry-with-this-Operation-Id) avsnitt i den vänstra sidan. 
+> * **Saknas relaterat objektlänkar?** Alla relaterad telemetri finns i den [upp](#cross-component-transaction-chart) och [nedre](#all-telemetry-with-this-operation-id) avsnitt i den vänstra sidan. 
 
 ## <a name="transaction-diagnostics-experience"></a>Upplev transaktionsdiagnostik
 Den här vyn har fyra viktiga delar: resulterar lista, ett komponentöverskridande transaktion diagram, en tidssekvensen lista över all telemetri som är relaterade till den här åtgärden och informationsfönstret för alla valda telemetriobjekt till vänster.

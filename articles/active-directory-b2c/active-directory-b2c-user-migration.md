@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484720"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621323"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar din identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsprovider till Azure AD B2C. Artikeln är inte avsedd att köras förebyggande, men i stället beskriver några scenarier. Utvecklaren är ansvarig för lämpligheten för varje metod.
@@ -257,7 +257,7 @@ För att spåra lösenordsändringen måste använda du en Azure-tabell. När du
 ### <a name="41-update-your-application-setting"></a>4.1: Uppdatera din programinställning
 1. Testa demon RESTful-API genom att öppna `AADB2C.UserMigration.sln` i Visual Studio.
 
-1. I den `AADB2C.UserMigration.API` projektet öppnar den *appsettings.json* fil. Ersätter inställningen med den som konfigurerats i [steg 2.2](#step-22-configure-the-application-settings):
+1. I den `AADB2C.UserMigration.API` projektet öppnar den *Web.config* fil. Ersätter inställningen med den som konfigurerats i [steg 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {

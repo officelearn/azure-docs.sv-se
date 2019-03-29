@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541894"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575223"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Kom igång med Azure Security Center (ASC) för IoT 
 
@@ -67,7 +67,7 @@ Genom att utnyttja ASC för IoT förbättrad säkerhetsfunktioner, till exempel 
 1. Om din IoT-hubb har inga registrerade enheter [registrera en ny enhet](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Skapa en modul för maskinvarusäkerhet azureiotsecurity](quickstart-create-security-twin.md) för dina enheter.
 1. Installera agenten på en Azure-simulerad enhet i stället för att installera på en enhet, [snurra upp en ny Azure virtuell dator (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) i en zon som är tillgängliga. 
-1. [Distribuera en ASC för IoT-säkerhetsagenten](tutorial-deploy-linux-cs.md) på din IoT-enhet eller en ny virtuell dator.
+1. [Distribuera en ASC för IoT-säkerhetsagenten](how-to-deploy-linux-cs.md) på din IoT-enhet eller en ny virtuell dator.
 1. Följ anvisningarna för [trigger_events](https://aka.ms/iot-security-github-trigger-events) att köra en simulering av märker att ofarliga attacker.
 1. Kontrollera ASC för IoT-aviseringar som svar på simulerade attacker i föregående steg. 
     - Börja verifieringen fem minuter när skriptet har körts.
@@ -79,4 +79,4 @@ Genom att utnyttja ASC för IoT förbättrad säkerhetsfunktioner, till exempel 
 - Konfigurera din [lösning](quickstart-configure-your-solution.md)
 - [Skapa säkerhetsmoduler](quickstart-create-security-twin.md)
 - Konfigurera [anpassade aviseringar](quickstart-create-custom-alerts.md)
-- [Distribuera en säkerhetsagenten](select-deploy-agent.md)
+- [Distribuera en säkerhetsagenten](how-to-deploy-agent.md)

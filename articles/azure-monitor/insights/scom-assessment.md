@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082848"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621778"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -297,7 +297,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 
 *Varför visas endast de översta 10 rekommendationerna?* Istället för att ge dig en fullständig, överväldigande lista över aktiviteter, rekommenderar vi att du kan fokusera på adressering prioriterade rekommendationer först. När du har gått dem blir ytterligare rekommendationer tillgängliga. Om du vill se en detaljerad lista kan visa du alla rekommendationer med hjälp av Loggsökning.
 
-*Finns det ett sätt att ignorera en rekommendation?* Ja, se den [Ignorera rekommendationer](#Ignore-recommendations).
+*Finns det ett sätt att ignorera en rekommendation?* Ja, se den [Ignorera rekommendationer](#ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Nästa steg

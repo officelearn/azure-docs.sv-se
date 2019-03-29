@@ -1,17 +1,17 @@
 ---
 title: Starta om Azure Database för MySQL med Azure-portalen
-description: Den här artikeln beskrivs hur du kan starta om en Azure Database for MySQL-server med Azure Portal.
+description: Den här artikeln beskrivs hur du kan starta om en Azure Database for MySQL-server med Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 6cf6679dc6398b112ffc964f50986b2ab30aba47
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882492"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621413"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Starta om Azure Database för MySQL med Azure-portalen
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for MySQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -22,7 +22,7 @@ Den tid som krävs för att slutföra en omstart är beroende av MySQL-återstä
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:
-- En [Azure Database for MySQL-server och databas](quickstart-create-mysql-server-database-using-azure-portal.md)
+- En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Utföra omstart av servern
 

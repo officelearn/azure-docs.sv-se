@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842465"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620163"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -44,6 +44,8 @@ Delta i Microsofts molnmarknadsplats kräver medlemskap till Microsoft Partner N
 Efter registreringen kan du registrera Microsoft Partner Network-ID för din organisation. Du behöver detta under steg 3 när du skickar in din marketplace-registreringsformuläret.
 *   Lär dig mer om fördelarna med den [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Om din organisation har ett befintligt medlemskap, kommer du ansluta din organisation under registreringen. Om du använder [Partnercenter](https://partnercenter.microsoft.com/partner/home), kommer du att kunna se ID i Partnercenter-konto. Om du använder [Partner medlemskap Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), kommer du att kunna se den i ditt medlemskap Partnercenter-konto. 
+
+Skapa ett ärende med Microsoft [partner support](https://partner.microsoft.com/support) för problem med registrering på MPN.
 
 ---
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242327"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575138"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>Samla in data från Azure Active Directory
 
@@ -42,7 +42,7 @@ Azure Sentinel kan du samla in data från [Azure Active Directory](../active-dir
 
 2. Bredvid loggarna som du vill spela in Azure Sentinel, klickar du på **Connect**.
 
-
+6. Om du vill använda relevanta schemat i Log Analytics för Azure AD-aviseringar, Sök efter **SigninLogs** och **AuditLogs**.
 
 
 

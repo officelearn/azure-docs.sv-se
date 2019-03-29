@@ -1,6 +1,6 @@
 ---
 title: PowerShell, exempel – återställ och säkerhetskopiera Azure SQL-databas | Microsoft Docs
-description: Azure PowerShell-exempelskript för att återställa en enkel Azure SQL-databas från geo-redundanta säkerhetskopieringar
+description: Azure PowerShell-exempelskript för att återställa en enskild Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhetskopieringar
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883618"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621353"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Använd PowerShell och återställ en enkel Azure SQL-databas från säkerhetskopior
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd PowerShell för att återställa en enskild Azure SQL-databas till en tidigare tidpunkt
 
-Det här PowerShell-skriptexemplet återställer en Azure SQL-databas från en geo-redundant säkerhetskopia, återställer en borttagen Azure SQL-databas till den senaste säkerhetskopian och återställer en Azure SQL-databas till en viss tidpunkt.  
+Det här PowerShell-Skriptexemplet återställer en Azure SQL-databas till en viss tidpunkt.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

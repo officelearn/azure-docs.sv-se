@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886684"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575104"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps
 
@@ -27,10 +27,16 @@ Att automatisera uppgifter som att övervaka, skapa, skicka och ta emot filer p�
 * Hämta filinnehåll och metadata.
 * Extrahera Arkiv till mappar.
 
-Jämfört med den [SFTP-anslutningsappen](../connectors/connectors-create-api-sftp.md), den SFTP-SSH-anslutningen kan läsa eller skriva filer upp till *1 GB* i storlek genom att hantera data i 50 MB delar. Åtgärder kan använda för filer som är större än 1 GB, [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). Mer skillnader, granska [jämför SFTP-SSH jämfört med SFTP](#comparison) senare i den här artikeln.
-
 Du kan använda utlösare som övervakar händelser på din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför olika uppgifter på din SFTP-server. Du kan också ha andra åtgärder i din logikapp använda utdata från SFTP-åtgärder. Om du regelbundet hämta filer från din SFTP-server, kan du exempelvis skicka e-postaviseringar om filerna och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Begränsningar
+
+* SFTP-SSH åtgärder kan läsa eller skriva filer som är *1 GB eller mindre* genom att hantera data som *50 MB delar*, inte 1 GB delar.
+
+* För filer *större än 1 GB*, åtgärder kan använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH utlösare stöd inte för närvarande för storlekar.
+
+Mer skillnader, granska [jämför SFTP-SSH jämfört med SFTP](#comparison) senare i nästa avsnitt.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-anslutningsappen där den SFTP-SSH-anslutningen har dessa funktioner:
 
-* Använder den <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteket, vilket är ett bibliotek med öppen källkod Secure Shell (SSH) som har stöd för .NET. 
+* Använder den <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteket, vilket är ett bibliotek med öppen källkod Secure Shell (SSH) som har stöd för .NET.
 
   > [!NOTE]
   >
   > SFTP-SSH anslutningen-stöder *endast* dessa privata nycklar, format, algoritmer och fingeravtryck:
-  > 
+  >
   > * **Privat nyckel format**: RSA (Rivest Shamir-Adleman) och DSA (Digital Signature Algorithm) nycklar i både OpenSSH och ssh.com format
   > * **Krypteringsalgoritmer**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC, CBC-AES-192 och AES-256-CBC
   > * **Fingeravtryck**: MD5
 
-* Läser eller skriver filer upp till *1 GB* i storlek jämfört med SFTP-anslutningsappen, men hanterar data i 50 MB delar, inte 1 GB delar. För filer som är större än 1 GB, åtgärder kan också använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). För närvarande stöder utlösare inte storlekar.
+* Åtgärder kan läsa eller skriva filer *upp till 1 GB* jämfört med SFTP-anslutningsappen, men hanterar data i 50 MB delar, inte 1 GB delar. För filer som är större än 1 GB, åtgärder kan också använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH utlösare stöd inte för närvarande för storlekar.
 
 * Innehåller den **skapa mapp** som skapar en mapp på den angivna sökvägen på SFTP-server.
 
 * Innehåller den **Byt namn på filen** åtgärden, byter namn på en fil på SFTP-servern.
 
-* Cachelagrar anslutningen till SFTP-server *för upp till 1 timme*, vilket förbättrar prestanda och minskar antalet försök att ansluta till servern. Om du vill ange varaktigheten för detta beteende för cachelagring, redigera den <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> -egenskapen i SSH-konfigurationen på din SFTP-server. 
+* Cachelagrar anslutningen till SFTP-server *för upp till 1 timme*, vilket förbättrar prestanda och minskar antalet försök att ansluta till servern. Om du vill ange varaktigheten för detta beteende för cachelagring, redigera den <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> -egenskapen i SSH-konfigurationen på din SFTP-server.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

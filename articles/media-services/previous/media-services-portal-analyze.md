@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259694"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619449"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina medier med Azure Portal 
 > [!NOTE]
@@ -73,11 +73,6 @@ Ett eget namn som hjälper dig identifiera jobbet. [Detta](media-services-portal
 
 ### <a name="output-file"></a>Utdatafil
 Ett eget namn som hjälper dig identifiera utdata-innehåll. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse är en HP som skapar smooth timelapse-video från första personen eller åtgärd kamera innehåll.  Mer information finns i [detta](media-services-hyperlapse-content.md) avsnitt. Det här avsnittet ger viss information om alternativ som du anger för den här MP.
-
-![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Hastighet
 Ange den hastighet med vilken hastighet indatavideon ska ha. Utdata är en stabila och timelapse-återgivning av indatavideo.

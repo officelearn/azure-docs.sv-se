@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520572"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620605"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera Azure Search-tjänsten med PowerShell
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520572"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Du kan köra PowerShell-cmdlets och skript på Windows, Linux, eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) att skapa och konfigurera [Azure Search](https://docs.microsoft.com/azure/search/). Den [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) modulen utökar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) med fullständig paritet till den [Azure Search Management REST API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **Az.Search**, du kan utföra följande uppgifter:
+Du kan köra PowerShell-cmdlets och skript på Windows, Linux, eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) att skapa och konfigurera Azure Search. Den **Az.Search** modulen utökar Azure PowerShell] med fullständig paritet till den [Azure Search Management REST API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **Az.Search**, du kan utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * [Visa en lista över söktjänster i din prenumeration](#list-search-services)
 > * [Få information om en specifik söktjänst](#get-search-service-information)
 > * [Skapa eller ta bort en tjänst](#create-or-delete-a-service)
-> * Återskapa admin API-nycklar
+> * [Återskapa admin API-nycklar](#regenerate-admin-keys)
 > * [Skapa eller ta bort api-frågenycklarna](#create-or-delete-query-keys)
 > * [Skala en tjänst genom att öka eller minska repliker och partitioner](#scale-replicas-and-partitions)
 
-PowerShell kan inte användas för att ändra namn, region eller nivå för din tjänst. Dedikerade resurser allokeras när en tjänst har skapats. Ändra den underliggande maskinvaran (plats eller nod-typ) kräver en ny tjänst. Det finns inga verktyg eller API: er för att överföra innehåll. Alla innehållshantering är via [REST](https://docs.microsoft.com/rest/api/searchservice/) eller [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API: er, och du vill flytta index, måste du återskapa och läsa in dem på en ny tjänst. 
+PowerShell kan inte användas för att ändra namn, region eller nivå för din tjänst. Dedikerade resurser allokeras när en tjänst har skapats. Ändra den underliggande maskinvaran (plats eller nod-typ) kräver en ny tjänst. Det finns inga verktyg eller API: er för att överföra innehåll från en tjänst till en annan. Alla innehållshantering är via [REST](https://docs.microsoft.com/rest/api/searchservice/) eller [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API: er, och du vill flytta index, måste du återskapa och läsa in dem på en ny tjänst. 
 
 Det finns inga dedikerade PowerShell-kommandon för innehållshantering, kan du skriva PowerShell-skript som anropar REST- eller .NET för att skapa och läsa in index. Den **Az.Search** modulen ensamt tillhandahåller inte de här åtgärderna.
 

@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003715"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578653"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -108,9 +108,7 @@ Agentbaserad identifiering är ett alternativ som är tillgängliga ovanpå inst
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
 
-I fall med den [en metod för identifiering av tid](https://docs.microsoft.com/azure/migrate/concepts-collector), för att samla in prestandadata, statistiknivån i vCenter-servern måste vara inställd på 3. Ange värdet till den här nivån skulle samla in ett stort antal felsökning av data som lagras i vCenter Server-databas. Det kan därför orsaka vissa prestandaproblem på vCenter-servern. Det skulle vara ska påverkas minimalt på ESXi-värden.
-
-Vi har introducerat kontinuerlig profilering av prestandadata (som finns i förhandsversion). Med kontinuerlig profilering finns inte längre behöver ändra vCenter Server statistiknivån att göra en utvärdering för prestandabaserad. Insamlingsprogrammet kommer nu att profilera de lokala datorerna för att mäta prestandadata för de virtuella datorerna. Detta skulle ha nästan noll prestandapåverkan på ESXi-värdar och på vCenter-servern.
+Med kontinuerlig profilering av prestandadata finns behöver du inte ändrar i vCenter Server statistiknivån att göra en utvärdering för prestandabaserad. Insamlingsprogrammet ska profilera de lokala datorerna för att mäta prestandadata för de virtuella datorerna. Detta skulle ha nästan noll prestandapåverkan på ESXi-värdar och på vCenter-servern.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Var finns insamlade data lagrade och hur länge?
 

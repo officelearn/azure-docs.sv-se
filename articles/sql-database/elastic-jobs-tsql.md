@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522068"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621506"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -408,19 +408,19 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 
 |Lagrad procedur  |Beskrivning  |
 |---------|---------|
-|sp_add_job     |     Lägger till ett nytt jobb.    |
-|sp_update_job    |      Uppdaterar ett befintligt jobb.   |
-|sp_delete_job     |      Tar bort ett befintligt jobb.   |
-|sp_add_jobstep    |    Lägger till ett steg i ett jobb.     |
-|sp_update_jobstep     |     Uppdaterar ett jobbsteg.    |
-|sp_delete_jobstep     |     Tar bort ett jobbsteg.    |
-|sp_start_job    |  Startar köra ett jobb.       |
-|sp_stop_job     |     Stoppar en jobbkörning.   |
-|sp_add_target_group    |     Lägger till en målgrupp.    |
-|sp_delete_target_group     |    Tar bort en målgrupp.     |
-|sp_add_target_group_member     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
-|sp_delete_target_group_member     |     Tar bort en mål medlem från en målgrupp.    |
-|sp_purge_jobhistory    |    Tar bort historikposter för ett jobb.     |
+|[sp_add_job](#sp_add_job)     |     Lägger till ett nytt jobb.    |
+|[sp_update_job](#sp_update_job)    |      Uppdaterar ett befintligt jobb.   |
+|[sp_delete_job](#sp_delete_job)     |      Tar bort ett befintligt jobb.   |
+|[sp_add_jobstep](#sp_add_jobstep)    |    Lägger till ett steg i ett jobb.     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     Uppdaterar ett jobbsteg.    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     Tar bort ett jobbsteg.    |
+|[sp_start_job](#sp_start_job)    |  Startar köra ett jobb.       |
+|[sp_stop_job](#sp_stop_job)     |     Stoppar en jobbkörning.   |
+|[sp_add_target_group](#sp_add_target_group)    |     Lägger till en målgrupp.    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    Tar bort en målgrupp.     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Tar bort en mål medlem från en målgrupp.    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Tar bort historikposter för ett jobb.     |
 
 
 
@@ -1195,13 +1195,13 @@ Följande vyer som är tillgängliga i den [jobb databasen](sql-database-job-aut
 
 |Visa  |Beskrivning  |
 |---------|---------|
-|jobs_executions     |  Visar jobbhistorik körning.      |
+|[jobs_executions](#jobs_executions-view)     |  Visar jobbhistorik körning.      |
 |[Jobb](#jobs-view)     |   Visar alla jobb.      |
-|job_versions     |   Visar alla jobbversioner.      |
+|[job_versions](#job_versions-view)     |   Visar alla jobbversioner.      |
 |[jobbsteg](#jobsteps-view)     |     Visar alla steg i den aktuella versionen av varje jobb.    |
-|jobstep_versions     |     Visar alla steg i alla versioner av varje jobb.    |
-|target_groups     |      Visar alla målgrupper.   |
-|target_group_members     |   Visar alla medlemmar i alla målgrupper.      |
+|[jobstep_versions](#jobstep_versions-view)     |     Visar alla steg i alla versioner av varje jobb.    |
+|[target_groups](#target_groups-view)     |      Visar alla målgrupper.   |
+|[target_group_members](#target_groups_members-view)     |   Visar alla medlemmar i alla målgrupper.      |
 
 
 ### <a name="jobsexecutions-view"></a>Visa jobs_executions
@@ -1347,4 +1347,3 @@ Visar alla medlemmar i alla målgrupper.
 
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell.md)
 - [Auktorisering och behörigheter för SQLServer](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
-  

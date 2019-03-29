@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373157"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576766"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimera prestanda för Apache Kafka HDInsight-kluster
 
@@ -66,7 +66,7 @@ Storage-diskar har begränsad IOPS (antal Input/Output åtgärder Per sekund) oc
 
 ### <a name="number-of-topics-and-partitions"></a>Antal ämnen och partitioner
 
-Kafka producenter skriva till ämnen. Kafka-konsumenter läsa från ämnen. Ett ämne är associerad med en logg som är en datastruktur på disken. Kafka lägger till poster från en producenter i slutet av en logg i avsnittet. En logg i avsnittet består av många partitioner som finns på flera filer. De här filerna är, i sin tur fördelade på flera Kafka-klusternoder. Konsumenter läsa från Kafka-avsnitt i sina takt och och kan välja sin position (förskjutning) i avsnittet loggen.
+Kafka producenter skriva till ämnen. Kafka-konsumenter läsa från ämnen. Ett ämne är associerad med en logg som är en datastruktur på disken. Kafka lägger till poster från en producenter i slutet av en logg i avsnittet. En logg i avsnittet består av många partitioner som finns på flera filer. De här filerna är, i sin tur fördelade på flera Kafka-klusternoder. Konsumenter läser från Kafka-avsnitt i sina takt och kan välja sin position (förskjutning) i avsnittet loggen.
 
 Varje partition för Kafka är en loggfil på systemet och producent trådar kan skriva till flera loggar samtidigt. Eftersom varje konsument-tråd läser meddelanden från en partition, hanteras förbrukar från flera partitioner på samma sätt kan för samt i parallellt.
 

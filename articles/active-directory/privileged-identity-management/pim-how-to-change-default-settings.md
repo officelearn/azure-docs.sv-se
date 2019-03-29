@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure AD directory rollinställningar i PIM | Microsoft Docs
-description: Lär dig hur du konfigurerar inställningar för Azure AD directory roll i Azure AD Privileged Identity Management (PIM).
+title: Konfigurera inställningar för Azure AD-rollen i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du konfigurerar inställningar för Azure AD-rollen i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162551"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576870"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Konfigurera Azure AD directory rollinställningar i PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Konfigurera inställningar för Azure AD-rollen i PIM
 
-En administratör av Privilegierade roller kan anpassa Azure AD Privileged Identity Management (PIM) i deras organisation, inklusive ändra upplevelsen för en användare som är att aktivera en berättigad rolltilldelning.
+En administratör av Privilegierade roller kan anpassa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) i deras organisation, inklusive ändra upplevelsen för en användare som är att aktivera en berättigad rolltilldelning.
 
 ## <a name="open-role-settings"></a>Öppna rollinställningar
 
-Följ stegen nedan för att öppna inställningarna för en Azure AD directory-roll.
+Följ stegen nedan för att öppna inställningarna för en Azure AD-roll.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-katalogroller**.
+1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **Inställningar**.
 
-    ![Azure AD-katalogroller - inställningar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Azure AD-roller – inställningar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Klicka på **roller**.
 
 1. Klicka på den roll som du vill konfigurera inställningarna.
 
-    ![Azure AD-katalogroller - inställningar för roller](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD-roller – inställningar för roller](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Det finns flera inställningar som du kan konfigurera på inställningssidan för varje roll. De här inställningarna påverkar endast användare som är **berättigade** tilldelningar, inte **permanent** tilldelningar.
 
@@ -76,8 +76,8 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
   * Molnprogramadministratör
   * Efterlevnadsadministratör
   * Administratör för villkorsstyrd åtkomst
-  * Administratör för CRM-tjänst
-  * Godkännare av åtkomst till Customer LockBox
+  * CRM-tjänstadministratör
+  * Customer LockBox åtkomst godkännaren
   * Katalogskrivare
   * Exchange-administratör
   * Global administratör
@@ -92,19 +92,19 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
 
 Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 
-## <a name="require-approval"></a>Godkännande krävs
+## <a name="require-approval"></a>Kräv godkännande
 
 Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. Ange den **kräver godkännande** växla till **aktiverad**. Fönstret expanderar med alternativ att välja godkännare.
 
-    ![Azure AD-katalogroller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD-roller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Om du **inte** anger alla godkännare, Privilegierade Rolladministratörer blir standard godkännare. Administratörer med privilegierad roll krävs för att godkänna **alla** aktiveringsbegäranden för den här rollen.
 
 1. Om du vill ange godkännare, klickar du på **Välj godkännare**.
 
-    ![Azure AD-katalogroller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD-roller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Välj en eller flera godkännare och klicka sedan på **Välj**. Du kan välja användare eller grupper. Minst 2 godkännare rekommenderas. Självgodkännande är inte tillåtet.
 
@@ -117,5 +117,5 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
-- [Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM](pim-how-to-configure-security-alerts.md)
+- [Tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md)
+- [Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM](pim-how-to-configure-security-alerts.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232438"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620707"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarki för land/Region som används av Azure Traffic Manager för geografisk routningsmetod
 
@@ -57,7 +57,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - ES(Spain)
 
-        - Fi(Finland)
+        - FI(Finland)
 
         - FO (Färöarna)
 
@@ -125,13 +125,14 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - Sk(Slovakia)
 
-        - SM (San Marino)
+        - SM(San Marino)
 
         - UA(Ukraine)
+            - Regionen för Krim
 
         - VA (Vatikanstaten)
 
-        - XJ (Jan Mayen)
+        - XJ(Jan Mayen)
 
         - XK(Kosovo)
 
@@ -159,7 +160,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - QA(Qatar)
 
-        - Sy(Syria)
+        - SY(Syria)
 
         - SA (Saudiarabien)
 
@@ -203,9 +204,9 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - CA-NT(Northwest Territories)
 
-            - CA-nu(Nunavut)
+            - CA-NU(Nunavut)
 
-            - CA-on(Ontario)
+            - CA-ON(Ontario)
 
             - CA-PE(Prince Edward Island)
 
@@ -215,11 +216,11 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - CA-YT(Yukon Territory)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
-        - Cu(Cuba)
+        - CU(Cuba)
 
-        - Cw(CuraÃ§AO)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -259,25 +260,25 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - PM (Saint Pierre och Miquelon)
 
-        - PR (Puerto Rico)
+        - PR(Puerto Rico)
 
-        - SA (El Salvador)
+        - SV(El Salvador)
 
-        - SX (Sint Maarten)
+        - SX(Sint Maarten)
 
         - TC (Turks och Caicosöarna)
 
         - TT (Trinidad och Tobago)
 
-        - UM (US Öar)
+        - UM(U.S. Öar)
 
         - US(United States)
 
-            - US-Ak(Alaska)
+            - US-AK(Alaska)
 
             - US-AL(Alabama)
 
-            - US-ar(Arkansas)
+            - US-AR(Arkansas)
 
             - US-AZ(Arizona)
 
@@ -289,21 +290,21 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - USA-DC(District of Columbia)
 
-            - US-de(Delaware)
+            - US-DE(Delaware)
 
             - US-FL(Florida)
 
             - US-GA(Georgia)
 
-            - US-Hi(Hawaii)
+            - US-HI(Hawaii)
 
             - US-IA(Iowa)
 
             - US-ID(Idaho)
 
-            - US-il(Illinois)
+            - US-IL(Illinois)
 
-            - US-in(Indiana)
+            - US-IN(Indiana)
 
             - US-KS(Kansas)
 
@@ -327,11 +328,11 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - US-MT(Montana)
 
-            - USA-NC(North Carolina)
+            - US-NC(North Carolina)
 
-            - USA-ND(North Dakota)
+            - US-ND(North Dakota)
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
             - USA-NH(New Hampshire)
 
@@ -355,7 +356,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - USA-SC(South Carolina)
 
-            - USA-SD(South Dakota)
+            - US-SD(South Dakota)
 
             - US-TN(Tennessee)
 
@@ -381,7 +382,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - VI (US Jungfruolja Islands)
 
-        - XE (Sint Eustatius)
+        - XE(Sint Eustatius)
 
         - XS(Saba)
 
@@ -439,7 +440,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - MV(Maldives)
 
-        - My(Malaysia)
+        - MY(Malaysia)
 
         - NP(Nepal)
 
@@ -457,7 +458,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - TM(Turkmenistan)
 
-        - Tw(Taiwan)
+        - TW(Taiwan)
 
         - UZ(Uzbekistan)
 
@@ -487,7 +488,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - CM(Cameroon)
 
-        - KA (Kap Verde)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -551,7 +552,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - SH (Sankta Helena, Ascension, Tristan da Cunha)
 
-        - SL (Sierra Leone)
+        - SL(Sierra Leone)
 
         - SN(Senegal)
 
@@ -601,7 +602,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - EC(Ecuador)
 
-        - FK (Falklandsöarna)
+        - FK(Falkland Islands)
 
         - GF (Franska Guyana)
 
@@ -635,7 +636,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - AU-SA(South Australia)
 
-            - AU-tas(Tasmania)
+            - AU-TAS(Tasmania)
 
             - AU-VIC(Victoria)
 
@@ -643,11 +644,11 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - CK (Cooköarna)
 
-        - Fj(Fiji)
+        - FJ(Fiji)
 
         - FM(Micronesia)
 
-        - Gu(Guam)
+        - GU(Guam)
 
         - HM (Heardön och McDonaldöarna)
 

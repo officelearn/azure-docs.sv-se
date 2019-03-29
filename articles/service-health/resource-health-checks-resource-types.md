@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770356"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620758"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure resource health
 Nedan visas en fullständig lista över alla kontroller som utförs genom resource health av resurstyper.
@@ -51,10 +51,15 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Är servern som är värd för den här virtuella datorn upp och körs?</li><li>Har värd-OS startar slutförts?</li><li>Den virtuella behållaren etablerats och påslagen?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
+|Utförda kontroller|
+|---|
+|<ul><li>Har det varit pipelinekörning fel?</li><li>Klustret som är värd för Data Factory felfria?</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Utförda kontroller|
 |---|
-|<ul><li>Har användarna råkat ut för problem att skicka eller lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb inte slutföra system fel?</li></ul>|
+|<ul><li>Har användarna råkat ut för problem att skicka eller lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb inte slutföra på grund av systemfel?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Användare ha uppstått problem med att överföra data till Data Lake Store?</li><li>Användare ha uppstått problem som hämtar data från Data Lake Store?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/Services
+|Utförda kontroller|
+|---|
+|<ul><li>Database migration service kunde inte etablera?</li><li>Har database migration service stoppats på grund av inaktivitet eller på användarens begäran?</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|Utförda kontroller|
+|---|
+|<ul><li>Är servern inte tillgänglig på grund av underhåll?</li><li>Är servern inte tillgänglig på grund av omkonfiguration?</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|Utförda kontroller|
+|---|
+|<ul><li>Är servern inte tillgänglig på grund av underhåll?</li><li>Är servern inte tillgänglig på grund av omkonfiguration?</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|Utförda kontroller|
+|---|
+|<ul><li>Är servern inte tillgänglig på grund av underhåll?</li><li>Är servern inte tillgänglig på grund av omkonfiguration?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Utförda kontroller|
 |---|
 |<ul><li>Är IoT hub igång?</li></ul>|
@@ -73,15 +97,40 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Det har förekommit några databasen eller samling förfrågningar som inte visas på grund av ett Azure Cosmos DB-tjänsten otillgänglighet?</li><li>Det har förekommit alla begäranden om dokument visas inte på grund av ett Azure Cosmos DB-tjänsten otillgänglighet?</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|Utförda kontroller|
+|---|
+|<ul><li>Event Hubs-namnområdet har drabbats användargenererade fel?</li><li>Event Hubs-namnområdet håller på att uppgraderas?</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/Clusters
+|Utförda kontroller|
+|---|
+|<ul><li>Är kärntjänsterna tillgängliga på HDInsight-kluster?</li><li>HDInsight-kluster kan åt nyckel för BYOK-kryptering i vila?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Utförda kontroller|
 |---|
 |<ul><li>Begäranden till nyckelvalvet misslyckas på grund av problem med Azure KeyVault-plattformen?</li><li>Är begäranden till nyckelvalvet begränsas på grund av för många förfrågningar som kunden har gjort?</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|Utförda kontroller|
+|---|
+|<ul><li>Är Application Gateway försämrad prestanda?</li><li>Finns Application Gateway?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Utförda kontroller|
 |---|
 |<ul><li>Är den VPN-tunneln ansluten?</li><li>Är anslutningen konfigurationskonflikter?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås den lokala VPN-enheten?</li><li>Finns det matchningsfel i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|Utförda kontroller|
+|---|
+|<ul><li>Är ExpressRoute-kretsen felfri?</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|Utförda kontroller|
+|---|
+|<ul><li>Ytterdörren serverdelar svarar med fel på hälsoavsökningar?</li><li>Fördröjs konfigurationsändringar?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Utförda kontroller|
@@ -91,7 +140,12 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Utförda kontroller|
 |---|
-|<ul><li> Runtime-åtgärder som registrering, installation eller skicka utföras i namnområdet?</li></ul>|
+|<ul><li>Runtime-åtgärder som registrering, installation eller skicka utföras i namnområdet?</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/Workspaces
+|Utförda kontroller|
+|---|
+|<ul><li>Finns det indexering fördröjningar för arbetsytan?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Utförda kontroller|
@@ -101,7 +155,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Utförda kontroller|
 |---|
-|<ul><li>Är värdens operativsystem igång?</li><li>Är workspaceCollection kan nås från utanför datacentret?</li><li>Finns Power BI-Resursprovidern?</li><li>Är PowerBI Service tillgänglig i aktuell region?</li></ul>|
+|<ul><li>Är värdens operativsystem igång?</li><li>Är workspaceCollection kan nås från utanför datacentret?</li><li>Finns Power BI-Resursprovidern?</li><li>Är Power BI-tjänsten tillgänglig i aktuell region?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Utförda kontroller|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541834"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574760"
 ---
 # <a name="asc-for-iot-prerequisites"></a>ASC för IoT-krav
 
@@ -59,7 +59,7 @@ Kontrollera din IoT Hub-plats för att verifiera tjänsttillgänglighet innan du
 
 ## <a name="supported-platforms-for-agents"></a>Plattformar som stöds för agenter 
 
-ASC för IoT-agenter stöder en växande lista med enheter och plattformar. Se den [stöds plattformslistan](select-deploy-agent.md) att kontrollera biblioteket befintligt eller planerat enheten.  
+ASC för IoT-agenter stöder en växande lista med enheter och plattformar. Se den [stöds plattformslistan](how-to-deploy-agent.md) att kontrollera biblioteket befintligt eller planerat enheten.  
 
 ## <a name="next-steps"></a>Nästa steg
 - [Översikt](overview.md)

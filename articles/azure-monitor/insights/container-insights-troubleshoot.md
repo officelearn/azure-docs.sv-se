@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985758"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577065"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
 
 När du konfigurerar övervakning av ditt Azure Kubernetes Service (AKS)-kluster med Azure Monitor för behållare kan du kan stöta på ett problem som förhindrar insamling av data eller rapporterar status. Den här artikeln beskriver några vanliga problem och felsökning.
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Behörighetsfel under onboarding- eller update-åtgärd
+När du aktiverar Azure Monitor för behållare eller uppdaterar ett kluster för att stödja samla in mått, kan du få ett felmeddelande liknar följande: *klienten < användarens identitet >' med objektet har inte id ”< användarens objectId >” behörighet att utföra åtgärden ”Microsoft.Authorization/roleAssignments/write' över område*
+
+Under onboarding eller uppdatering, beviljar den **övervakning mått Publisher** rolltilldelning har påbörjats på klusterresursen. Användaren initierar processen att aktivera Azure Monitor för behållare eller uppdateringen för insamling av mått måste ha åtkomst till den **Microsoft.Authorization/roleAssignments/write** behörighet på AKS-kluster resurs-omfattningen. Endast medlemmar i den **ägare** och **administratör för användaråtkomst** inbyggda roller beviljas åtkomst till den här behörigheten. Om dina säkerhetsprinciper behöver tilldela detaljerade behörigheter på kolumnnivå, vi rekommenderar att du ser [anpassade roller](../../role-based-access-control/custom-roles.md) och tilldela den till användare som behöver den. 
+
+Du kan också manuellt bevilja den här rollen från Azure portal genom att utföra följande steg:
+
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver **Kubernetes**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Kubernetes**.
+3. I listan över Kubernetes-kluster, väljer du ett i listan.
+2. I den vänstra menyn klickar du på **åtkomstkontroll (IAM)**.
+3. Välj **+ Lägg till** att lägga till en rolltilldelning och välj den **övervakning mått Publisher** roll och under den **Välj** skriver **AKS** till Filtrera resultatet för just kluster tjänsthuvudnamn som definierats i prenumerationen. Välj det i listan som är specifik för klustret.
+4. Välj **spara** Slutför tilldela rollen. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor för behållare har aktiverats men inte rapporterar någon information
 Om Azure Monitor för behållare har aktiverats och konfigurerats, men du kan inte visa statusinformation eller inga resultat som returneras från en loggfråga, kan du diagnostisera problemet genom att följa dessa steg: 

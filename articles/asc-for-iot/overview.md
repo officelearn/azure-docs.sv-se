@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 9ca55a1c977b887e8d1ea51186068e57627e78f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542029"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578823"
 ---
-# <a name="introducing-asc-for-iot"></a>Introduktion till ASC för IoT 
+# <a name="introducing-asc-for-iot"></a>Introduktion till ASC för IoT
 
 > [!IMPORTANT]
 > ASC för IoT är för närvarande i offentlig förhandsversion.
@@ -45,7 +45,7 @@ Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbetsb
 
 ### <a name="adaptive-threat-prevention"></a>Adaptivt skydd
 
-Använd ASC för IoT för att övervaka kontinuerligt säkerheten för datorer, nätverk och Azure-tjänster, inklusive Azure IoT-lösningen från edge-enheter till program. Du kan välja att använda från hundratals inbyggda säkerhetsutvärderingar eller skapa egna i den centrala ASC för IoT Hub-instrumentpanelen. Optimera dina säkerhetsinställningar och förbättra din säkerhet rangordna användbara rekommendationer mellan virtuella datorer, nätverk, appar och data. Med nya IoT-funktioner kan du nu minska risken för angrepp för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas. 
+Använd ASC för IoT för att övervaka kontinuerligt säkerheten för datorer, nätverk och Azure-tjänster, inklusive Azure IoT-lösningen från edge-enheter till program. Du kan välja att använda från hundratals inbyggda säkerhetsutvärderingar eller skapa egna i den centrala ASC för IoT Hub-instrumentpanelen. Optimera dina säkerhetsinställningar och förbättra din säkerhet rangordna användbara rekommendationer mellan virtuella datorer, nätverk, appar och data. Med nya IoT-funktioner kan du nu minska risken för angrepp för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Intelligent hotidentifiering och svar
 

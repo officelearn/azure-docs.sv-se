@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122020"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621676"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
 
@@ -26,12 +26,16 @@ Med Azure Backup-tjänsten kan du säkerhetskopiera data till Microsoft Azure-mo
 Azure Backup ger följande viktiga fördelar:
 
 - **Avlasta lokal säkerhetskopiering**: Azure Backup är en enkel lösning för att säkerhetskopiera dina lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar. 
-- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Med Azure Backup får du oberoende och isolerade säkerhetskopior, vilket skyddar originaldata från att förstöras oavsiktligt. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Det är enkelt att konfigurera och skala, säkerhetskopiorna optimeras och du kan återställa vid behov.
+- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Med Azure Backup får du oberoende och isolerade säkerhetskopior, vilket skyddar originaldata från att förstöras oavsiktligt. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Konfiguration och skalbarhet är enkla, säkerhetskopior är optimerade och kan du enkelt återställa efter behov.
 - **Enkel skalning** – Azure Backup använder Azure-molnets underliggande kraft och obegränsade storlek för att tillhandahålla hög tillgänglighet – utan underhåll och omkostnad för övervakning. 
-- **Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför eller debiterar data som överförs.
+- **Få obegränsad dataöverföring**: Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför eller att ta betalt för de data som överförs.
     - Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
     - Om du utför en initial säkerhetskopiering offline med Azure Import/Export-tjänsten för att importera stora mängder data, finns det dock en kostnad som är kopplad till inkommande data.  [Läs mer](backup-azure-backup-import-export.md). 
-- **Skydda data**: Datakryptering möjliggör säker överföring och lagring av data i det offentliga molnet. Krypteringslösenfrasen lagras på lokalt och överförs eller lagras aldrig i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
+- **Skydda data**:
+    - Lokalt, information som överförs krypteras på den lokala datorn med hjälp av AES256. De data som överförs skyddas av HTTPS mellan lagring och säkerhetskopiering. ISCSI-protokollet skyddar de data som överförs mellan säkerhetskopiering och användare-dator. Säkra tunnlar används för att skydda iSCSI-kanalen.
+    - Data i Azure är krypterade i vila med lösenfras som du anger när du konfigurerar säkerhetskopiering för lokalt till Azure backup. Lösenfras eller nyckel det aldrig överförs eller lagras i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
+    - För virtuella Azure-datorer krypteras data vid återställning av med Storage Service Encryption (SSE). Backup krypterar automatiskt data innan de lagras. Azure-lagring dekrypterar data innan de hämtas.
+    - Säkerhetskopiering har även stöd för Azure virtuella datorer som krypterats med Azure Disk Encryption (ADE). [Läs mer](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Programkonsekvent säkerhetskopiering**: Programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 - **Behålla kort- och långsiktiga data**: Du kan använda Recovery Services-valv för kortsiktig och långsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara den så länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. [Läs mer](backup-introduction-to-azure-backup.md#backup-and-retention)om hur den här begränsningen påverkar dina säkerhetskopieringsbehov.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup är det kostnadsfritt att använda lokala lagringsenheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Du betalar alltså bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
@@ -56,7 +60,7 @@ Bestäm dina behov för affärskontinuitet och haveriberedskap med hjälp av tab
 
 **Mål** | **Detaljer** | **Jämförelse**
 --- | --- | --- 
-**Säkerhetskopiera/bevara data** | Säkerhetskopierade data kan bevaras och lagras i flera dagar, månader eller år, om det behövs i efterlevnadssyfte. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery har inte lika detaljerad anpassning.
+**Säkerhetskopiera/bevara data** | Säkerhetskopierade data kan bevaras och lagras i flera dagar, månader eller år, om det behövs i efterlevnadssyfte. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery kan inte samma finjustera.
 **Mål för återställningspunkt (RPO)** | Mängden godtagbar dataförlust om en återställning krävs. | Säkerhetskopieringar har större variation vad gäller mål för återställningspunkter.<br/><br/> Säkerhetskopieringar av virtuella datorer har vanligtvis ett återställningspunktmål på en dag, medan säkerhetskopieringar av databaser har återställningspunktmål på så lite som 15 minuter.<br/><br/> Site Recovery tillhandahåller låga återställningspunktmål eftersom replikeringen är kontinuerlig eller frekvent, vilket innebär att deltat mellan källa och replikering är litet.
 **Mål för återställningstid (RTO)** |Hur lång tid det tar att slutföra en återställning. | På grund av det större återställningspunktmålet är mängden data som en säkerhetskopieringslösning behöver bearbeta normalt mycket högre, vilket leder till längre mål för återställningstid. Det kan till exempel ta dagar att återställa data från band, beroende på hur lång tid det tar att överföra bandet från den externa platsen. 
 
@@ -66,7 +70,7 @@ Azure Backup kan säkerhetskopiera både lokala datorer och virtuella Azure-dato
 
 **Dator** | **Säkerhetskopieringsscenario**
 --- | ---
-**Lokal säkerhetskopiering** |  1) Kör Azure Backup Microsoft Azure Recovery Services-agenten (MARS) på lokala Windows-datorer för att säkerhetskopiera enskilda filer och systemtillstånd. <br/><br/>2) Säkerhetskopiera lokala datorer till en säkerhetskopieringsserver (System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)) och konfigurera sedan säkerhetskopieringsservern så att den säkerhetskopierar till ett Azure Backup Recovery Services-valv i Azure.
+**Lokal säkerhetskopiering** |  1) Kör Azure Backup Microsoft Azure Recovery Services-agenten (MARS) på lokala Windows-datorer för att säkerhetskopiera enskilda filer och systemtillstånd. <br/><br/>2) säkerhetskopiering av lokala datorer till en sekundär server (System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)) och sedan konfigurera backup-servern att säkerhetskopiera till ett Azure Backup Recovery Services-valv i Azure.
 **Virtuella Azure-datorer** | 1) Aktivera säkerhetskopiering av enskilda virtuella Azure-datorer. När du aktiverar säkerhetskopiering installerar Azure Backup ett tillägg på Azure VM-agenten som körs på den virtuella datorn. Agenten säkerhetskopierar hela den virtuella datorn.<br/><br/> 2) Kör MARS-agenten på en virtuell Azure-dator. Detta är användbart om du vill säkerhetskopiera enskilda filer och mappar på den virtuella datorn.<br/><br/> 3) Säkerhetskopiera en virtuell Azure-dator till en DPM-server eller MABS som körs i Azure. Säkerhetskopiera sedan DPM-servern eller MABS till ett valv med hjälp av Azure Backup. 
 
 
@@ -75,10 +79,10 @@ Azure Backup kan säkerhetskopiera både lokala datorer och virtuella Azure-dato
 
 
 
-Fördelarna med att säkerhetskopiera datorer och appar till MABS/DPM-lagring och sedan säkerhetskopiera DPM/MABS-lagring till ett valv är följande:
+Fördelar med säkerhetskopiering av datorer och appar till MABS/DPM-lagring och sedan säkerhetskopiera DPM/MABS-lagring till ett valv är följande:
 
 - Vid säkerhetskopiering till MABS/DPM ingår programmedvetna säkerhetskopior som är optimerade för vanliga program som SQL Server, Exchange och SharePoint. Dessutom ingår fil-/mapp-/volymsäkerhetskopior och säkerhetskopiering av systemtillstånd för datorer (utan operativsystem).
-- På lokala datorer behöver du inte installera MARS-agenten på varje dator som du vill säkerhetskopiera. Alla datorer som kör DPM/MABS-skyddsagenten och MARS-agenten körs endast på MABS/DPM.
+- På lokala datorer behöver du inte installera MARS-agenten på varje dator som du vill säkerhetskopiera. Varje dator som kör DPM/MABS-skyddsagenten och MARS-agenten körs på MABS/DPM endast.
 - Du får större flexibilitet och mer detaljerade schemaläggningsalternativ för säkerhetskopiering.
 - Du kan hantera säkerhetskopior för flera datorer som du grupperar i skyddsgrupper i en enda konsol. Detta är särskilt användbart för program som är nivåindelade över flera datorer och som behöver säkerhetskopieras tillsammans.
 

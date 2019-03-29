@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842863"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577551"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Lägga till anpassade analysverktyg i ett Azure Search-index
 
 En *anpassat analysverktyg* är en viss typ av [text analyzer](search-analyzers.md) som består av en användardefinierad kombination av befintliga tokenizer och valfritt filter. Du kan anpassa textbearbetning i sökmotorn att uppnå specifika resultat genom att kombinera tokenizers och filter på nya sätt. Du kan till exempel skapa ett anpassat analysverktyg med en *char filter* att ta bort HTML-kod innan Textinmatningar är tokeniserad.
 
- Du kan definiera flera anpassade analysverktyg varierar kombination av filter, men varje fält kan bara använda en analyzer för indexering analys och en för search-analys. En illustration av hur en kund analyzer ser ut finns i [anpassad analyzer exempel](search-analyzers.md#Example1).
+ Du kan definiera flera anpassade analysverktyg varierar kombination av filter, men varje fält kan bara använda en analyzer för indexering analys och en för search-analys. En illustration av hur en kund analyzer ser ut finns i [anpassad analyzer exempel](search-analyzers.md#Custom-analyzer-example).
 
 ## <a name="overview"></a>Översikt
 

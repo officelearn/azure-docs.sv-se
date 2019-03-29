@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433118"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578636"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -32,7 +32,11 @@ Följande tabell sammanfattar typerna av innehåll och filformat som stöds av Q
 
 ## <a name="data-source-locations"></a>Data-källplatser
 
-Endast offentliga URL: er är giltiga för alla datakällor. Inte in datakällor som kräver autentisering. Du kan ladda ned filen från den autentiserade platsen och sedan använda alternativet ladda upp filer för att extrahera frågor och svar.
+De flesta data-källplatser måste du ange offentliga URL: er eller filer som inte kräver autentisering. 
+
+[SharePoint-data source platser](../How-to/add-sharepoint-datasources.md) tillåts att ge autentiserad filer. SharePoint-resurser måste vara filer, inte webbsidor. 
+
+Om du har en autentiserad fil eller URL: en är ett alternativ är att hämta filen från den autentiserade platsen till den lokala datorn sedan att lägga till filen från lokalt datorn i kunskapsbasen. 
 
 ## <a name="faq-urls"></a>Vanliga frågor och svar-URL: er
 

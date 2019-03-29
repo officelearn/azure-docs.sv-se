@@ -1,5 +1,5 @@
 ---
-title: Multifaktorautentisering (MFA) och PIM - Azure | Microsoft Docs
+title: Multifaktorautentisering (MFA) och PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig hur Azure AD Privileged Identity Management (PIM) verifierar multifaktorautentisering (MFA).
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187261"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578806"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Multifaktorautentisering (MFA) och PIM
 
 Vi rekommenderar att du kräver multifaktorautentisering (MFA) för alla administratörer. Detta minskar risken för angrepp på grund av ett olämpligt lösenord.
 
-Du kan kräva att användarna slutföra MFA-kontrollen när de loggar in. Du kan också kräva att användarna slutföra MFA-kontrollen när de aktiverar en roll i Azure AD Privileged Identity Management (PIM). Det här sättet om användaren inte slutföra MFA-kontrollen när de loggat in, uppmanas de att göra detta av PIM.
+Du kan kräva att användarna slutföra MFA-kontrollen när de loggar in. Du kan också kräva att användarna slutföra MFA-kontrollen när de aktiverar en roll i Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Det här sättet om användaren inte slutföra MFA-kontrollen när de loggat in, uppmanas de att göra detta av PIM.
 
 > [!IMPORTANT]
 > Just nu, Azure MFA fungerar bara med arbets- eller skolkonton, inte Microsoft-konton (vanligtvis ett personligt konto som används för att logga in på Microsoft-tjänster som Skype, Xbox, Outlook.com, osv.). Därför kan alla som använder ett Microsoft-konto inte en berättigad administratör eftersom de inte kan använda MFA för att aktivera sina roller. Om dessa användare behöver att fortsätta att hantera arbetsbelastningar med ett Microsoft-konto, gör du dem till permanenta administratörer för tillfället.
@@ -40,5 +40,5 @@ Du kan också ha din identitetsprovider som ansvarar för MFA genom att använda
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Konfigurera inställningar för Azure AD-rollen i PIM](pim-how-to-change-default-settings.md)
 - [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)

@@ -1,6 +1,6 @@
 ---
-title: Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig hur du slutför en åtkomstgranskning för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM) och visa resultaten
+title: Slutför en åtkomstgranskning för Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du slutför en åtkomstgranskning för Azure AD-roller i Azure AD Privileged Identity Management (PIM) och visa resultaten
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190355"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619190"
 ---
-# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM
-Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).
+# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure AD-roller i PIM
+Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).
 
 När åtkomstgranskningsperiod är över, eller alla användare är klar med sin egen granska, följer du stegen i den här artikeln för att hantera granskningen och se resultaten.
 
@@ -55,5 +55,5 @@ Om du inte är intresserad av att granska ytterligare kan du ta bort den. Den **
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Starta en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-start-security-review.md)
-- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Starta en åtkomstgranskning för Azure AD-roller i PIM](pim-how-to-start-security-review.md)
+- [Utför en åtkomstgranskning av Mina Azure AD-roller i PIM](pim-how-to-perform-security-review.md)

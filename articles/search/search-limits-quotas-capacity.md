@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780413"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620657"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
-Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**, eller **Standard** prisnivåer.
+Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**,  **Standard**, eller **Lagringsoptimerade** prisnivåer.
 
 + **Kostnadsfria** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration.
 
 + **Grundläggande** tillhandahåller dedikerade resurser för produktionsarbetsbelastningar i mindre skala.
 
 + **Standard** körs på dedikerade virtuella datorer med mer lagring och bearbetning av kapacitet på alla nivåer. Standard finns i fyra nivåer: S1, S2, S3 och S3 HD.
+
++ **Optimerad lagring** körs på dedikerade virtuella datorer med mer totalt lagringsutrymme, lagring, bandbredd och minne än **Standard**. Optimerad lagring finns i två nivåer: L1 och L2
+
+> [!NOTE]
+> Tjänstnivåer Lagringsoptimerade finns för närvarande finns som förhandsversion till rabatterade priser för testning och experimentering med målet att samla in feedback. Slutlig prissättning kommer att tillkännages senare när de här nivåerna är allmänt tillgängliga. Vi rekommenderar mot att använda de här nivåerna för program i produktion.
 
   S3 High Density (S3 HD) är utformat för specifika arbetsbelastningar: [multitenans](search-modeling-multitenant-saas-applications.md) och stora mängder små index (en miljon dokument per index, tre tusen index per tjänst). Den här nivån ger inte den [indexeraren funktionen](search-indexer-overview.md). På S3 HD måste datainmatning använda push-metoden, med hjälp av API-anrop till skicka data från källa till index. 
 
@@ -42,13 +47,13 @@ Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, do
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |
-| Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximal [förslagsställare](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
-| Maximal [poängprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
-| Maximal funktioner per profil |8 |8 |8 |8 |8 |8 |
+| Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
+| Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximal [förslagsställare](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Maximal [poängprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Maximal funktioner per profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> bastjänster som skapats efter sent 2017 har en ökad gräns på 15 index, datakällor och indexerare. Tjänster som skapades tidigare har 5. Nivån Basic är endast SKU: N med en lägre gräns på 100 fält per index.
 
@@ -98,16 +103,16 @@ Grundläggande tjänster som skapats efter sent 2017 har en ökad gräns på 15 
 
 Resurskrävande åtgärder, till exempel bildanalys i Azure blob-indexering eller bearbetning av naturligt språk i kognitiv sökning har kortare maximala körs gånger så att andra indexerade jobb ryms. Om ett indexeringsjobb inte kan slutföras inom den maximala tiden som tillåts, kan du försöka köra det enligt ett schema. Scheduler håller reda på status för indexering. Om en schemalagd indexeringsjobb avbryts av någon anledning, kan indexeraren ta vid där det senast slutade vid nästa schemalagda körning.
 
-| Resurs | Kostnadsfria&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
-| Maximal kompetens <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |
-| Maximala indexering belastningen per anrop |10 000 dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Gäller inte |
-| Maximal körtid <sup>5</sup> | 1 – 3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |
-| Maximal körtid för kognitiv sökning kompetens eller blob-indexering med bildanalys <sup>5</sup> | 3 – 10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |
-| BLOB-indexeraren: storlek för maximal blob, MB |16 |16 |128 |256 |256 |Gäller inte  |
-| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från en blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Gäller inte |
+| Resurs | Kostnadsfria&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
+| Maximal kompetens <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
+| Maximala indexering belastningen per anrop |10 000 dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Begränsas bara av maximalt antal dokument |Gäller inte |Obegränsad |Obegränsad |
+| Maximal körtid <sup>5</sup> | 1 – 3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
+| Maximal körtid för kognitiv sökning kompetens eller blob-indexering med bildanalys <sup>5</sup> | 3 – 10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
+| BLOB-indexeraren: storlek för maximal blob, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
+| BLOB-indexeraren: maximala antalet tecken innehåll extraheras från en blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Gäller inte |4 miljoner |4 miljoner |
 
 <sup>1</sup> kostnadsfria tjänster har indexeraren maximal körningstid för 3 minuter för blob-källor och 1 minut för alla andra datakällor.
 
@@ -124,6 +129,8 @@ Resurskrävande åtgärder, till exempel bildanalys i Azure blob-indexering elle
 Frågor per sekund uppskattningar måste ha utvecklats oberoende av alla kunder. Indexstorlek och komplexitet, fråga storleken och komplexiteten och mängden trafik är primära faktorerna för frågor per sekund. Det går inte att erbjuda meningsfulla beräkningar när sådana faktorer är okänd.
 
 Uppskattningar är mer förutsägbar i tjänster som körs på dedikerade resurser (nivåerna Basic och Standard). Du kan beräkna Indexlagring mer noggrant eftersom du har kontroll över flera parametrar. Anvisningar om hur du metoden uppskattning finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
+
+För Lagringsoptimerade-nivåer, bör du förväntar dig ett lägre frågedataflöde och högre svarstid än Standard-nivåerna.  Metoder för att uppskatta den frågeprestanda du får är samma som Standard-nivåerna.
 
 ## <a name="data-limits-cognitive-search"></a>Databegränsningar (kognitiv sökning)
 

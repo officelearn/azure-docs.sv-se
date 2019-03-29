@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884553"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579571"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
 Lär dig svar på vanliga frågor om Azure Resource Health.
@@ -50,7 +50,7 @@ Ja, identifierar Resource Health rotorsaken inom någon av dessa kategorier när
 I portalen visas användarinitierade åtgärder med hjälp av en blå meddelandeikon när planerade och oplanerade händelser visas med en röd varningsikon. Mer information finns i den [Resource Health översikt](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kan jag integrera Resurshälsa med min övervakningsverktyg?
-Resource health är en tjänst som utformats för att hjälpa dig att diagnostisera och lösa problem i Azure-tjänsten som påverkar dina resurser. Du kan använda Resource Health-API: et för att programmässigt få hälsostatus, rekommenderar vi du använder mått för att övervaka dina resurser. När ett problem har identifierats Resource Health hjälper dig att avgöra den bakomliggande orsaken och hjälper dig att åtgärder och lösa dem. Besök [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) mer information om hur du kan använda mått för att kontrollera dina resurser.
+Resource health har [Förhandsgranska support](resource-health-alert-arm-template-guide.md) för aktivitetsloggen efter aviseringar. Aktivitetsloggen aviseringar Använd [åtgärdsgrupper](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) att meddela användare att en avisering har utlösts. Åtgärdsgrupper stöder ett antal aviseringskanaler, till exempel e-post, SMS, webhook och ITSM-åtgärder.
 
 ## <a name="where-do-i-find-resource-health"></a>Var hittar jag Resource Health?
 När du loggar in på Azure Portal, finns det flera sätt att komma åt Resource Health:
@@ -67,13 +67,7 @@ Listan över hälsokontroller och resurstyper som stöds via Resource Health fin
 När du kontrollerar hälsotillståndet för en resurs, direkt under hälsostatus du kan klicka på **Rapportera felaktig hälsostatus**. Innan du skickar in rapporten, har du möjlighet att med ytterligare information om varför du tycker att nuvarande hälsostatus är felaktig.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Är Resource Health tillgänglig för alla Azure-regioner? 
-Resource health är tillgängligt i över alla Azure-regioner förutom följande regioner:
-- Virginia (USA-förvaltad region)
-- US Gov, Iowa
-- US DoD, östra
-- US DoD, centrala
-- Centrala Tyskland
-- Nordöstra Tyskland
+Resource health är tillgängligt i alla Azure-regioner.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Hur skiljer sig Resource Health från Azure-status eller Service Health-instrumentpanelen?
 Den information som tillhandahålls av Resource Health är mer specifik än vad som tillhandahålls av Azure-status eller Service Health-instrumentpanelen.

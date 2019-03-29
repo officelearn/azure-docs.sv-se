@@ -1,6 +1,6 @@
 ---
-title: Använda Azure AD-Åtkomstgranskningar för att hantera användare uteslutna från principer för villkorlig åtkomst | Microsoft Docs
-description: Lär dig för att hantera användare som har undantagits från principer för villkorlig åtkomst med Åtkomstgranskningar för Azure Active Directory (AD Azure)
+title: Använda åtkomstgranskningar för att hantera användare uteslutna från principer för villkorlig åtkomst – Azure Active Directory | Microsoft Docs
+description: Lär dig för att hantera användare som har undantagits från principer för villkorlig åtkomst med åtkomstgranskningar för Azure Active Directory (AD Azure)
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892733"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577143"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-Åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
-I en perfekt värld följer alla användare åtkomst principer för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Den här artikeln beskrivs några exempel där undantag kan krävas och hur du som IT-administratören kan hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis sådana undantag granskas regelbundet med hjälp av Azure Active Directory (Azure AD)-Åtkomstgranskningar.
+I en perfekt värld följer alla användare åtkomst principer för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Den här artikeln beskrivs några exempel där undantag kan krävas och hur du som IT-administratören kan hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis sådana undantag granskas regelbundet med hjälp av Azure Active Directory (Azure AD)-åtkomstgranskningar.
 
 > [!NOTE]
 > En giltig Azure AD Premium P2, Enterprise Mobility + Security E5 betald eller utvärderingslicens krävs för att använda Azure AD-åtkomstgranskningar. Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
@@ -44,7 +44,7 @@ Ett annat exempel kanske du har en princip för villkorlig åtkomst som [block �
 
 ## <a name="why-are-exclusions-challenging"></a>Varför är undantag utmanande?
 
-I Azure AD kan du begränsa principer för villkorlig åtkomst till en uppsättning användare. Du kan också utesluta vissa av dessa användare genom att välja katalogroller, enskilda användare eller gäster av användare. Det är viktigt att komma ihåg att när dessa undantag har konfigurerats, principens avsikt inte kan tillämpas på de aktuella användarna. Om dessa undantag har konfigurerats som antingen en lista med enskilda användare eller via en äldre lokala säkerhetsgrupp så det begränsar synligheten för den här undantagslistan (användare inte kanske vet av dess finns) och IT-administratörens kontroll över den (användare kan ansluta till den säkerhetsgrupp för att hoppa över principen). Användare som är kvalificerade för undantaget i taget kan dessutom inte längre behövs eller vara berättigad till den.
+I Azure AD kan du begränsa principer för villkorlig åtkomst till en uppsättning användare. Du kan också utesluta vissa av dessa användare genom att välja Azure AD-roller, enskilda användare eller gäster av användare. Det är viktigt att komma ihåg att när dessa undantag har konfigurerats, principens avsikt inte kan tillämpas på de aktuella användarna. Om dessa undantag har konfigurerats som antingen en lista med enskilda användare eller via en äldre lokala säkerhetsgrupp så det begränsar synligheten för den här undantagslistan (användare inte kanske vet av dess finns) och IT-administratörens kontroll över den (användare kan ansluta till den säkerhetsgrupp för att hoppa över principen). Användare som är kvalificerade för undantaget i taget kan dessutom inte längre behövs eller vara berättigad till den.
 
 Det finns en kort lista med användare som kringgår principen i början av ett undantag. Framöver kommer fler och fler användare som är undantagna och listan växer. Det finns ett behov av att granska listan och bekräfta att var och en av dessa användare fortfarande ska undantas vid en viss tidpunkt. Hantera listan från en teknisk synvinkel kan vara relativt enkelt, men vem som gör affärsbeslut och hur du ser till att det är allt granskningsbara?
 

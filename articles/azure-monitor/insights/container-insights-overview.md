@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: f292ad5802af6765ec26df7de1aa271e1214e0e9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: a31380c8581503a340c55c374afc02c6e1fa290b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983021"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577177"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor för översikt över behållare
 
@@ -31,9 +31,12 @@ Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne
 Azure Monitor för behållare innehåller flera fördefinierade vyer som visar som förvaras behållararbetsbelastningar och vad påverkar prestanda hälsotillståndet för övervakade Kubernetes-klustret så att du kan:  
 
 * Identifiera AKS-behållare som körs på noden och deras genomsnittsanvändningen av processor och minne. Den här kunskapen kan hjälpa dig att identifiera flaskhalsar för resurser.
-* Identifiera processor och minne användning av behållargrupper och behållare i Azure Container Instances.  * Identifiera där behållaren finns i en domänkontrollant eller en pod. Med hjälp av den här kunskapen kan du visa kontrollantens eller pod's övergripande prestanda.
+* Identifiera processor och minne användning av behållargrupper och behållare i Azure Container Instances.  
+* Identifiera där behållaren finns i en domänkontrollant eller en pod. Med hjälp av den här kunskapen kan du visa kontrollantens eller pod's övergripande prestanda.
 * Granska arbetsbelastningar som körs på värden som inte är relaterade till de processer som standard som har stöd för poden Resursanvändning.
 * Förstå beteendet för klustret under genomsnittliga och högsta belastning. Den här kunskapen kan hjälpa dig att identifiera kapacitetsbehov och avgöra den maximala belastningen kan klustret hantera. 
+
+Du kan också konfigurera aviseringar för att proaktivt meddela dig eller registrera den när överskrider din tröskelvärden för användning av processor och minne på noderna eller behållare.  
 
 ## <a name="how-do-i-access-this-feature"></a>Hur kommer jag åt den här funktionen?
 Du kan komma åt Azure Monitor för behållare två sätt, från Azure Monitor eller direkt från det valda AKS-klustret. Från Azure Monitor som du har distribuerat en global översikt över alla behållare, som övervakas och som inte, så att du kan söka och filtrera i dina prenumerationer och resursgrupper, och visa sedan detaljnivåerna i Azure Monitor för behållare från det valda behållaren.  I annat fall kan du helt enkelt hittar funktionen direkt från en vald AKS-behållare från sidan AKS.  

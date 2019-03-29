@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig hur du konfigurerar säkerhetsaviseringar för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du konfigurerar säkerhetsaviseringar för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cb78d048559a011756362b58848c5e91ca40dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172390"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577237"
 ---
-# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM
 
-Azure AD Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses, visas det i PIM-instrumentpanelen. Välj vilken avisering du vill se en rapport som visar den användare eller de roller som utlöste aviseringen.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses, visas det i PIM-instrumentpanelen. Välj vilken avisering du vill se en rapport som visar den användare eller de roller som utlöste aviseringen.
 
 ![Säkerhetsaviseringar PIM - skärmbild](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 
-Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogroller, samt hur du åtgärdar och hur du förhindrar. Allvarlighetsgrad har följande betydelse:
+Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt hur du åtgärdar och hur du förhindrar. Allvarlighetsgrad har följande betydelse:
 
 * **Hög**: Kräver omedelbara åtgärder på grund av en Policyöverträdelse.
 * **Medel**: Kräver inte omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
@@ -130,4 +130,4 @@ Du kan anpassa vissa av säkerhetsvarningar i PIM att arbeta med din miljö och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Konfigurera inställningar för Azure AD-rollen i PIM](pim-how-to-change-default-settings.md)

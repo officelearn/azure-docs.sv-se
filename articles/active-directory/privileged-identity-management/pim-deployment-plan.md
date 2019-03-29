@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Distribuera Privileged Identity Management (PIM) – Azure Active Directory | Microsoft Docs
 description: Beskriver hur du planerar distributionen av Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227039"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578211"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
-Den här stegvisa guiden beskriver hur du planerar distributionen av Azure AD Privileged Identity Management (PIM) i din organisation.
+Den här stegvisa guiden beskriver hur du planerar distributionen av Azure Active Directory (Azure AD) Privileged Identity Management (PIM) i din organisation.
 
 > [!TIP]
 > I det här dokumentet visas objekt som markerats som:
@@ -79,7 +79,7 @@ Mer information finns i [vad är Azure AD Privileged Identity Management?](pim-c
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>Roller som kan hanteras av PIM
 
-**Azure AD-roller** – dessa roller är alla directory-roller i Azure Active Directory (till exempel Global administratör, Exchange-administratörer och säkerhetsadministratörer). Du kan läsa mer om rollerna och deras funktioner i [behörigheter för administratör i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Om du vill ha hjälp med att bestämma vilka roller till dina administratörer finns i [minst Privilegierade roller av aktivitet](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD-roller** – dessa roller finns i Azure Active Directory (till exempel Global administratör, Exchange-administratörer och säkerhetsadministratörer). Du kan läsa mer om rollerna och deras funktioner i [behörigheter för administratör i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Om du vill ha hjälp med att bestämma vilka roller till dina administratörer finns i [minst Privilegierade roller av aktivitet](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure-resursroller** – dessa roller är länkade till en Azure-resurs, resursgrupp, prenumeration eller hanteringsgrupp. PIM ger just-in-time-åtkomst till både inbyggda roller som ägare, administratör för användaråtkomst och deltagare, samt [anpassade roller](../../role-based-access-control/custom-roles.md). Läs mer om Azure-resursroller [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md).
 
@@ -294,7 +294,7 @@ Nu när du har identifierat testanvändarna kan du använda det här steget för
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Konfigurera PIM för Azure AD-roller
 
-1. [Konfigurera rollinställningar för Azure AD directory](pim-how-to-change-default-settings.md) baserat på vad du planerat.
+1. [Konfigurera inställningar för Azure AD-rollen](pim-how-to-change-default-settings.md) baserat på vad du planerat.
 
 1. Gå till **Azure AD-roller**, klickar du på **roller**, och väljer sedan den roll som du precis har konfigurerat.
 

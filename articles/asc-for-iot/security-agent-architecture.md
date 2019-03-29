@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541879"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578466"
 ---
 # <a name="security-agent-reference-architecture"></a>Referensarkitektur för Security-agenten
 
@@ -32,15 +32,15 @@ ASC för IoT innehåller Referensarkitektur för säkerhetsagenter som loggar in
 
 Security agenter är utformade att fungera i en begränsad IoT-miljö och är mycket anpassningsbara när det gäller värden som de tillhandahåller jämfört med de resurser de använder.
 
-Security agenter stöd för följande funktioner för IoT-lösningen:
+Security agenter stöd för följande funktioner:
 
-- Samla in råa säkerhetshändelser från det underliggande Operativsystemet (Linux, Windows). Läs mer om tillgängliga säkerhetsuppdateringar datainsamlare i [ASC för IoT-agentkonfiguration](concept-agent-configuration.md).
+- Samla in råa säkerhetshändelser från det underliggande operativsystemet (Linux, Windows). Läs mer om tillgängliga säkerhetsuppdateringar datainsamlare i [ASC för IoT-agentkonfiguration](how-to-agent-configuration.md).
 
 - Aggregera raw säkerhetshändelser i meddelanden som skickas via IoT hub.
 
 - Autentisera med befintliga enhetsidentitet och en dedikerad modulen identitet. Se [Security agent autentiseringsmetoder](concept-security-agent-authentication-methods.md) vill veta mer.
 
-- Konfigurera via en fjärranslutning med hjälp av den **ascforiot** modultvilling. Mer information finns i [konfigurera en ASC för IoT-agenten](concept-agent-configuration.md).
+- Konfigurera via en fjärranslutning med hjälp av den **azureiotsecurity** modultvilling. Mer information finns i [konfigurera en ASC för IoT-agenten](how-to-agent-configuration.md).
 
 ASC för IoT-säkerhet agenter har utvecklats som projekt för öppen källkod och är tillgängliga från GitHub: 
 
@@ -62,10 +62,8 @@ I den här artikeln har du lärt dig om ASC för IoT security agent-arkitekturen
 
 Om du vill fortsätta att komma igång med ASC för IoT-distributionen, Använd följande artiklar:
 
-
+- Förstå [Security agent autentiseringsmetoder](concept-security-agent-authentication-methods.md)
+- Välj och distribuera en [security-agenten](how-to-deploy-agent.md)
 - Granska ASC för IoT [tjänsten krav](service-prerequisites.md)
 - Lär dig hur du [aktivera ASC för IoT-tjänsten i din IoT-hubb](quickstart-onboard-iot-hub.md)
-- Använda Snabbstart för att [konfigurera din lösning](quickstart-configure-your-solution.md)
-- Förstå [Security agent autentiseringsmetoder](concept-security-agent-authentication-methods.md)
-- Välj och distribuera en [security-agenten](select-deploy-agent.md)
 - Mer information om tjänsten från den [ASC för IoT vanliga frågor och svar](resources-frequently-asked-questions.md)

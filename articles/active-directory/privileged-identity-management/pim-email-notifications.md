@@ -1,5 +1,5 @@
 ---
-title: E-postmeddelanden i PIM - Azure | Microsoft Docs
+title: E-postmeddelanden i PIM - Azure Active Directory | Microsoft Docs
 description: Beskriver e-postaviseringar i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905179"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576955"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
-Azure AD Privileged Identity Management (PIM) får du reda på när viktiga händelser inträffar, till exempel när en roll tilldelas eller aktiveras. PIM håller dig informerad genom att skicka e-postmeddelanden du och andra deltagare. Dessa e-postmeddelanden kan också innehålla länkar till relevanta uppgifter, sådana aktivera eller förnya en roll. Den här artikeln beskriver hur dessa e-postmeddelanden som ska se ut när de skickas och som tar emot dem.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) får du reda på när viktiga händelser inträffar, till exempel när en roll tilldelas eller aktiveras. PIM håller dig informerad genom att skicka e-postmeddelanden du och andra deltagare. Dessa e-postmeddelanden kan också innehålla länkar till relevanta uppgifter, sådana aktivera eller förnya en roll. Den här artikeln beskriver hur dessa e-postmeddelanden som ska se ut när de skickas och som tar emot dem.
 
 ## <a name="sender-email-address-and-subject-line"></a>Avsändaren e-postadress och ämne rad
 
@@ -101,5 +101,5 @@ Nedan visas ett exempel e-postmeddelande som skickas när en användare har till
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
-- [Godkänn eller neka begäranden för Azure AD-katalogroller i PIM](azure-ad-pim-approval-workflow.md)
+- [Konfigurera inställningar för Azure AD-rollen i PIM](pim-how-to-change-default-settings.md)
+- [Godkänn eller neka begäranden för Azure AD-roller i PIM](azure-ad-pim-approval-workflow.md)

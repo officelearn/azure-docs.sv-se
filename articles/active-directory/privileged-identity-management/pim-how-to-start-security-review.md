@@ -1,6 +1,6 @@
 ---
-title: Starta en åtkomstgranskning för Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig mer om att starta en åtkomstgranskning för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Starta en åtkomstgranskning för Azure AD-roller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att starta en åtkomstgranskning för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f2e3249d1b7ad0efc16dd0b9ced26379c3cae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174477"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575002"
 ---
-# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Starta en åtkomstgranskning för Azure AD-katalogroller i PIM
-Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska riskerna med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomstgranskningar om du vill ställa administratörer att granska de roller som användare har fått. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure AD Privileged Identity Management (PIM).
+# <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>Starta en åtkomstgranskning för Azure AD-roller i PIM
+Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska riskerna med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomstgranskningar om du vill ställa administratörer att granska de roller som användare har fått. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Starta en åtkomstgranskning
 > [!NOTE]
@@ -80,6 +80,6 @@ Tills granskningsperioden är över, kan du påminna användarna om att slutför
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
 
-- [Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-complete-review.md)
-- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Slutför en åtkomstgranskning för Azure AD-roller i PIM](pim-how-to-complete-review.md)
+- [Utför en åtkomstgranskning av Mina Azure AD-roller i PIM](pim-how-to-perform-security-review.md)
 - [Starta en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-start-access-review.md)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897575"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621693"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kvoter och begränsningar i Azure Media Services v3
 
@@ -25,23 +25,25 @@ Den här artikeln beskrivs kvoter och begränsningar i Azure Media Services v3.
 | Resurs | Standardgräns | 
 | --- | --- | 
 | Tillgångar per Azure Media Services-konto | 1,000,000|
-| Dynamiska Manifestfilter|100|
+| Filter för dynamiskt manifest|100|
 | JobInputs per jobb | 50 (fast)|
-| JobOutputs per jobb/TransformOutputs i en transformering | 20 (fast) |
+| JobOutputs per jobb | 20 (fast) |
+| TransformOutputs i en transformering | 20 (fast) |
 | Filer per JobInput|10 (fast)|
 | Filstorlek| I vissa situationer kan finns det en gräns för maximal filstorlek för bearbetning i Media Services. <sup>(1)</sup> |
 | Jobb per Media Services-konto | 500 000 <sup>(2)</sup> (fast)|
-| Visa en lista över transformeringar|Sidbryta i svaret med 1000 transformeringar per sida|
+| Visa en lista över transformeringar|Sidbryta svaret med 1 000 transformeringar per sida|
 | Visa en lista över jobb|Sidbryta svaret med 500 jobb per sida|
-| Live-händelser per Media Services-konto |5|
+| Livehändelser per Media Services-konto |5|
 | Media Services-konton för en enskild prenumeration | 25 (fast) |
-| Live-utdata i körningstillstånd per LiveEvent |3|
+| Live utdata i körningstillstånd per Live-händelse |3|
+| Max Live utdata varaktighet | 25: e timme |
 | Lagringskonton | 100<sup>(4)</sup> (fast) |
 | Slutpunkter för direktuppspelning (stoppas eller köra) per Media Services-konto|2 (fast)|
 | Principer för direktuppspelning | 100 <sup>(3)</sup> |
 | Transformeringar per Media Services-konto | 100 (fast)|
 | Unikt Streaming positionerare som är associerad med en tillgång i taget | 100<sup>(5)</sup> (fast) |
-| Innehåll viktiga princip |30 | 
+| Princip för innehållsnyckel |30 | 
 
 <sup>1</sup> den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller dock i Azure Media Services baserat på de storlekar som används av tjänsten. Om källfilen är större än 260 GB, misslyckas sannolikt ditt jobb. Om du har 4K-innehåll som är större än 260 GB gränsen kontaktar du oss på amshelp@microsoft.com för möjliga lösningar för ditt scenario.
 

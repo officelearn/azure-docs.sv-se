@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541849"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579384"
 ---
-# <a name="security-module"></a>Modul för maskinvarusäkerhet
+# <a name="security-module"></a>Säkerhetsmodul
 
 > [!IMPORTANT]
 > ASC för IoT är för närvarande i offentlig förhandsversion.
@@ -35,16 +35,18 @@ För IoT-lösningar som skapats i Azure, spela enhetstvillingar en viktig roll i
 
 ASC för IoT erbjuder fullständig integrering med din befintliga IoT plattform för enhetshantering, så att du kan hantera säkerhetsstatusen enheten samt kontrollera användning av befintliga funktioner för kontroll av enheter. Integration uppnås genom att använda IoT-hubben twin mekanism.  
 
-Läs mer om begreppet [enhet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) twins i Azure IoT Hub. 
+Läs mer om begreppet [enhetstvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) i Azure IoT Hub. 
 
 ## <a name="security-module-twins"></a>Security modultvillingar
 
-ASC för IoT upprätthåller en security modultvillingen för varje enhet i tjänsten. Modultvilling security innehåller all information som rör enhetssäkerhet för varje specifik enhet i din lösning. Egenskaper för enhet security underhålls i en dedikerad security modultvilling för säkrare kommunikation och för att aktivera uppdateringar och underhåll som kräver färre resurser.  
+ASC för IoT upprätthåller en security modultvillingen för varje enhet i tjänsten.
+Modultvilling security innehåller all information som rör enhetssäkerhet för varje specifik enhet i din lösning.
+Egenskaper för enhet security underhålls i en dedikerad security modultvilling för säkrare kommunikation och för att aktivera uppdateringar och underhåll som kräver färre resurser.  
 
-Se [skapa security modultvilling](quickstart-create-security-twin.md) och [konfigurera säkerhetsagenter](concept-agent-configuration.md) om du vill lära dig mer om att skapa, anpassa och konfigurera läsningen. Se [förstå modultvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) vill veta mer om begreppet modultvillingar i IoT Hub. 
+Se [skapa security modultvilling](quickstart-create-security-twin.md) och [konfigurera säkerhetsagenter](how-to-agent-configuration.md) om du vill lära dig mer om att skapa, anpassa och konfigurera läsningen. Se [förstå modultvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) vill veta mer om begreppet modultvillingar i IoT Hub. 
  
 
 ## <a name="see-also"></a>Se också
 - [ASC för förhandsversionen av IoT](overview.md)
-- [Distribuera säkerhetsagenter](select-deploy-agent.md)
+- [Distribuera säkerhetsagenter](how-to-deploy-agent.md)
 - [Security-agenten autentiseringsmetoder](concept-security-agent-authentication-methods.md)

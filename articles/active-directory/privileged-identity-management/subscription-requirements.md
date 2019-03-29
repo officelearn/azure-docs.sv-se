@@ -1,5 +1,5 @@
 ---
-title: Licenskrav för att använda PIM - Azure | Microsoft Docs
+title: Licensiera kraven för att använda PIM - Azure Active Directory | Microsoft Docs
 description: Beskriver licenskraven som använder Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177263"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576164"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licenskrav gäller för att använda PIM
 
@@ -45,7 +45,7 @@ Varje administratör eller användare som interagerar med eller tar emot en för
 - Administratörer med Azure AD-roller som hanteras med hjälp av PIM
 - Administratörer med Azure-resursroller hanteras med hjälp av PIM
 - Administratörer som har tilldelats rollen privilegierad Rolladministratör
-- Användare som är tilldelade som kan hanteras med hjälp av PIM för katalogroller
+- Användare som tilldelats som berättigad till Azure AD-roller som hanteras med hjälp av PIM
 - Användare kan godkänna/avvisa förfrågningar i PIM
 - Användare som är tilldelade till en Azure-resurs-roll med just-in-time eller direkt (tidsbaserade) tilldelningar  
 - Användare som är tilldelade till en åtkomstgranskning

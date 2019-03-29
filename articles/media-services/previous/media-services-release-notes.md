@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499088"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621438"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 
 Dessa informationstexter för Azure Media Services sammanfatta ändringar från tidigare versioner och kända problem.
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Vi vill gärna höra från våra kunder så att vi kan fokusera på att åtgärda problem som påverkar dig. Om du vill rapportera ett problem eller Ställ frågor, skicka ett inlägg i den [Azure Media Services MSDN-Forum]. 
 
@@ -42,13 +42,12 @@ Vi vill gärna höra från våra kunder så att vi kan fokusera på att åtgärd
 | Vissa klienter kan stöta på ett problem för upprepningar tagg i manifestet Smooth Streaming. |Mer information finns i [i det här avsnittet](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar inte med Azure Cache för Redis. |Om du försöker att serialisera objektet SDK AssetCollection om du vill lägga till den i Azure Cache för Redis genereras ett undantag. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API-versionshistorik
 Information om versionshistorik för Media Services REST API finns i den [Azure Media Services REST API-referens].
 
 ## <a name="december-2018"></a>December 2018
 
-Den [Media Hyperlapse förhandsversion](media-services-hyperlapse-content.md) funktion i Azure Media Services snart dras in. Från och med 19 December 2018, kommer Media Services inte längre göra ändringar eller förbättringar i Media Hyperlapse. Den 29 mars 2019 blir den indragna och inte längre tillgänglig.
+Kommer snart att dras tillbaka Media Hyperlapse förhandsgranskningsfunktion i Azure Media Services. Från och med 19 December 2018, kommer Media Services inte längre göra ändringar eller förbättringar i Media Hyperlapse. Den 29 mars 2019 blir den indragna och inte längre tillgänglig.
 
 ## <a name="october-2018"></a>Oktober 2018
 
@@ -260,7 +259,6 @@ Följande nya funktioner har meddelats:
 
 * [En förhandsgranskning av live encoding med Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Dynamiska manifest](media-services-dynamic-manifest-overview.md)
-* [En förhandsversion av Azure Media Hyperlapse mediebearbetare](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>April 2015-versionen
 ### <a name="general-media-services-updates"></a>Allmän Media Services-uppdateringar

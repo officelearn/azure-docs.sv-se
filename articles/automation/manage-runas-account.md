@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/12/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109349"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578619"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -30,8 +30,10 @@ Det finns två typer av kör som-konton:
   * Skapar en Automation-anslutningstillgång med namnet *AzureRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller applicationId, tenantId, subscriptionId och certifikatets tumavtryck.
 
 * **Azure klassiska kör som-konto** – det här kontot används för att hantera klassiska distributionsresurserna för modellen.
+  * Skapar ett hanteringscertifikat i prenumerationen
   * Skapar en Automation-certifikattillgång med namnet *AzureClassicRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
   * Skapar en Automation-anslutningstillgång med namnet *AzureClassicRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller prenumerationsnamnet, subscriptionId och certifikattillgångens namn.
+  * Måste vara en medadministratör för prenumerationen för att skapa eller förnya
   
   > [!NOTE]
   > Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration inte Azure klassiska kör som-kontot skapas. Azure kör som-kontot skapades fortfarande. Läs mer om CSP-prenumerationer i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
@@ -52,6 +54,10 @@ Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privi
 <sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om Azure AD-klient **användare kan registrera program** alternativet i **användarinställningar**sidan är inställd på **Ja**. Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD.
 
 Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till global administratör/medadministratör rollen för prenumerationen läggs som gäst. I så fall kan du få en `You do not have permissions to create…` varning på den **Lägg till Automation-konto** sidan. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
+
+## <a name="permissions-classic"></a>Behörigheter för att konfigurera klassiska kör som-konton
+
+Om du vill konfigurera eller förnya klassiskt kör som-konton, måste du ha den **medadministratör** roll på prenumerationsnivån. Läs mer om klassisk behörigheter i [Azure klassiska prenumerationsadministratörer](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Skapa ett kör som-konto i portalen
 
@@ -197,10 +203,10 @@ Det här PowerShell-skriptet har stöd för följande konfigurationer:
         return
     }
 
-    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
 
     # Import-Module Az.Automation
-    # Enable-AzureRmAlias 
+    # Enable-AzureRmAlias
 
 
     Connect-AzureRmAccount -Environment $EnvironmentName 
@@ -357,7 +363,7 @@ Du förnyar certifikatet genom att göra följande:
 
     ![Förnya certifikat för Kör som-konto](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn. 
+1. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn.
 
 ## <a name="limiting-run-as-account-permissions"></a>Begränsar behörigheterna kör som-konto
 
@@ -394,4 +400,3 @@ Du kan snabbt lösa dessa problem med Kör som-kontot genom att ta bort och åte
 
 * Läs mer om tjänstens huvudnamn, [programobjekt och tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md).
 * Mer information om certifikat och Azure-tjänster finns i [Certifikatöversikt för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

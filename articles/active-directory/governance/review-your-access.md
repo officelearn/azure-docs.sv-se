@@ -1,6 +1,6 @@
 ---
-title: Granska åtkomst själv till grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du granskar din egen åtkomst till grupper eller program i Azure Active Directory-Åtkomstgranskningar.
+title: Granska åtkomst själv till grupper eller program i åtkomstgranskningar - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du granskar din egen åtkomst till grupper eller program i Azure Active Directory-åtkomstgranskningar.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f90a5aa3f201fa5d1578ac63526be26377aedf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731216"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576317"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst själv till grupper eller program i Azure AD-Åtkomstgranskningar
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst själv till grupper eller program i Azure AD-åtkomstgranskningar
 
-Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till grupper eller program i Azure AD och andra Microsoft Online Services med en funktion som kallas Azure AD-Åtkomstgranskningar.
+Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till grupper eller program i Azure AD och andra Microsoft Online Services med en funktion som kallas åtkomst till Azure AD-åtkomstgranskningar.
 
 Den här artikeln beskriver hur du granskar du din egen åtkomst till en grupp eller ett program.
 
@@ -44,11 +44,11 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
     ![MyApps-portalen](./media/review-your-access/myapps-access-panel.png)
 
-1. I det övre högra hörnet på sidan klickar du på symbolen användaren som visar organisationens namn och standard. Om mer än en organisation visas, väljer du den organisation som har begärt en åtkomstgranskning.
+1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
 1. Till höger på sidan klickar du på den **Åtkomstgranskningar** ikonen för att visa en lista över väntande åtkomstgranskningar.
 
-    Om panelen inte visas, det finns inga åtkomstgranskningar att utföra för organisationen och ingen åtgärd krävs just nu.
+    Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
     ![Åtkomstgranskningar lista](./media/review-your-access/access-reviews-list.png)
 

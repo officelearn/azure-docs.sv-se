@@ -1,6 +1,6 @@
 ---
-title: Skapa en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du skapar en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
+title: Skapa en åtkomstgranskning av grupper eller program – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du skapar en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure Active Directory-åtkomstgranskningar.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847390"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576214"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
 Åtkomst till grupper och program för anställda och gäster ändras med tiden. För att minska riskerna med inaktuella åtkomsttilldelningar kan kan administratörer använda Azure Active Directory (AD Azure) för att skapa åtkomstgranskningar för gruppmedlemmar eller programåtkomst. Om du vill granska regelbundet tillgång kan skapa du också återkommande åtkomstgranskningar. Mer information om dessa scenarier finns i [hantera användaråtkomst](manage-user-access-with-access-reviews.md) och [hantera gäståtkomst](manage-guest-access-with-access-reviews.md).
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
-1. Logga in på Azure-portalen och öppna den [Åtkomstgranskningar sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Logga in på Azure-portalen och öppna den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Klicka på **kontroller**.
 
@@ -130,7 +130,7 @@ Baserat på dina val i vid slutförande-inställningar, autotillämpad ska köra
 
 ## <a name="create-reviews-via-apis"></a>Skapa granskningar via API: er
 
-Du kan också skapa åtkomstgranskningar med API: er. Vad du gör för att hantera åtkomst går igenom i grupper och användare i Azure-portalen kan också göras med hjälp av Microsoft Graph API: er. Mer information finns i den [Azure AD-Åtkomstgranskningar API-referens](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Finns ett kodexempel i [exempel för att hämta Azure AD-Åtkomstgranskningar via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Du kan också skapa åtkomstgranskningar med API: er. Vad du gör för att hantera åtkomst går igenom i grupper och användare i Azure-portalen kan också göras med hjälp av Microsoft Graph API: er. Mer information finns i den [API-referens för Azure AD-åtkomstgranskningar](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Finns ett kodexempel i [exempel för att hämta Azure AD-åtkomst går igenom via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Nästa steg
 

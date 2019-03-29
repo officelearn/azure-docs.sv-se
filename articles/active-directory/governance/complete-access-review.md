@@ -1,6 +1,6 @@
 ---
-title: Slutför en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du slutför en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
+title: Slutför en åtkomstgranskning av grupper eller program – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du slutför en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure Active Directory-åtkomstgranskningar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729618"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579605"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
 Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte får ett e-postmeddelande kan du skicka dem instruktionerna [granska åtkomst till grupper eller program](perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men inte har accepterat inbjudan inte får ett e-postmeddelande från åtkomstgranskningar, eftersom de måste du acceptera en inbjudan innan du granskat.) När du åtkomstgranskningen är slut eller om en administratör slutar åtkomstgranskningen, följer du stegen i den här artikeln för att se och tillämpa resultaten.
 

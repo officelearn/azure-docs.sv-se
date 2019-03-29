@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482107"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622050"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -57,13 +57,11 @@ Följande avsnitt en lista över operativsystem som stöds för beroendeagenten 
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
-I följande avsnitt en lista över operativsystem som stöds för beroendeagenten på Red Hat Enterprise Linux, CentOS Linux och Oracle Linux (med RHEL Kernel).  
+Följande avsnitt en lista över operativsystem som stöds för beroendeagenten i Linux.  
 
 - Endast standardversioner och SMP Linux-kernelversioner stöds.
 - Avvikande kernelversioner, som exempelvis PAE och Xen, stöds inte för någon Linux-distribution. Till exempel stöds ett system med release-sträng med ”2.6.16.21-0.8-xen” inte.
 - Anpassade kernelversioner inklusive omkompileringar av standardkernelversioner, stöds inte.
-- CentOSPlus kernel stöds.
-- Oracle Unbreakable Enterprise Kernel (UEK) beskrivs i ett senare avsnitt i den här artikeln.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

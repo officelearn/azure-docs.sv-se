@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268200"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620867"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa textdata i Azure Monitor-loggar
 Vissa loggdata som samlas in av Azure Monitor innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
@@ -55,7 +55,7 @@ Fördelar med att den här metoden är följande:
  
 Nackdelar med att den här metoden är följande:
 
-- Kräver mer komplexa frågor. Detta kan undvikas genom att använda [functions för att simulera en tabell](#Use-function-to-simulate-a-table).
+- Kräver mer komplexa frågor. Detta kan undvikas genom att använda [functions för att simulera en tabell](#use-function-to-simulate-a-table).
 - Måste replikera parsning logiken i flera frågor. Dela logik via funktioner.
 - Kan skapa overhead när du kör komplex logik mot mycket stora post skalningsuppsättningar (miljarder poster).
 

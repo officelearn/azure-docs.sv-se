@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900870"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579350"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -39,7 +39,7 @@ Meddelanden skickas till och tas emot från *köer*. Med köer kan du lagra medd
 
 ![Kö](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Meddelanden i köer är beställs och tidsstämplas när de ankommer. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i  *pull*-läge, vilket levererar meddelanden på begäran.
+Meddelanden i köer sorteras och tidsstämplad anländer. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull* läge, som levererar meddelanden på begäran.
 
 ## <a name="topics"></a>Ämnen
 

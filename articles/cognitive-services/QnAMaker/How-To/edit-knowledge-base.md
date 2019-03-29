@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314882"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577212"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
 QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla en enkel att använda redigering upplevelse.
+
+<a name="add-datasource"></a>
 
 ## <a name="edit-your-knowledge-base-content"></a>Redigera din kunskapsbas-innehåll
 
@@ -52,7 +54,7 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
 
 ## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
 
-Välj **Lägg till frågor och svar om par** att lägga till en ny rad i tabellen knowledge base.
+På den **inställningar** väljer **Lägg till frågor och svar om par** att lägga till en ny rad i tabellen knowledge base.
 
 ![Lägg till frågor och svar om par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

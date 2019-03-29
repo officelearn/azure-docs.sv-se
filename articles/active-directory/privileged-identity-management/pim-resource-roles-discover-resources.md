@@ -1,5 +1,5 @@
 ---
-title: Identifiera Azure-resurser du hanterar i PIM | Microsoft Docs
+title: Identifiera Azure-resurser du hanterar i PIM - Azure Active Directory | Microsoft Docs
 description: Lär dig att identifiera Azure-resurser kan hantera i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 01/23/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90bd76470f5c06eb0e73615a358312b46d8be4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 717cec41f152f0ebe3120b25db76cd684f39cbe3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195404"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575019"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Identifiera Azure-resurser du hanterar i PIM
 
-Du kan använda Azure AD Privileged Identity Management (PIM), för att förbättra skydd av dina Azure-resurser. Det här är användbart att organisationer som redan använder PIM för att skydda Azure AD-katalogroller och hantering av grupp och prenumeration ägare som vill skydda produktionsresurser.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan bättre du skydd av dina Azure-resurser. Det här är användbart att organisationer som redan använder PIM för att skydda Azure AD-roller och hantering av grupp och prenumeration ägare som vill skydda produktionsresurser.
 
 När du först ställa in PIM för Azure-resurser, måste du identifiera och markerar resurserna som ska skyddas med PIM. Det finns ingen gräns för hur många resurser som du kan hantera med PIM. Vi rekommenderar dock att börja med dina viktigaste resurser (produktion).
 

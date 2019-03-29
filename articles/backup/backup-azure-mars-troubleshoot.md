@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008152"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621625"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -60,7 +60,7 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Säkerhetskopieringar kan inte köras enligt schemat
 Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om manuella säkerhetskopieringar fungera utan problem, kan du prova följande åtgärder:
 
-- Kontrollera schema för säkerhetskopiering av Windows Server inte står i konflikt med Azure-filer och mappar schema för säkerhetskopiering.
+- Kontrollera schema för säkerhetskopiering av Windows Server inte står i konflikt med Azure filer och mappar schema för säkerhetskopiering.
 - Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**. Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**. Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken. Kontrollera att statusen är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan och klicka på **OK**. På den **Allmänt** går du till fliken **säkerhetsalternativ** och se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **lokala Gruppen Administratörer** på servern.
 
 - Se om PowerShell 3.0 eller senare är installerat på servern. Kör följande kommando för att kontrollera PowerShell-version och kontrollera att den *större* versionsnumret är lika med eller större än 3.

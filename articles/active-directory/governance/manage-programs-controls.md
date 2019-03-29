@@ -1,6 +1,6 @@
 ---
-title: Hantera program och kontroller för Azure AD-Åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du skapar fler program för varje styrning, riskhantering och regelefterlevnad initiativ i din organisation kan samla och ordna Azure Active Directory-Åtkomstgranskningar som kontroller.
+title: Hantera program och kontroller för åtkomstgranskningar - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du skapar fler program för varje styrning, riskhantering och regelefterlevnad initiativ i din organisation kan samla och ordna Azure Active Directory-åtkomstgranskningar som kontroller.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895191"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577271"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Hantera program och kontroller för Azure AD-Åtkomstgranskningar
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Hantera program och kontroller för Azure AD-åtkomstgranskningar
 
 Azure Active Directory (Azure AD) innehåller åtkomstgranskningar för gruppmedlemmar och programåtkomst. Dessa exempel på kontroller Kontrollera tillsyn för vem som har åtkomst till din organisations gruppmedlemskap och program. Organisationer kan använda dessa kontroller för att effektivt hantera sina styrning, riskhantering och efterlevnadskrav.
 

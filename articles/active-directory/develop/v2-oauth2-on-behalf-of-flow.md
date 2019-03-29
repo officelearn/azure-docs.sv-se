@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445763"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576938"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
 
@@ -72,8 +72,8 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | `grant_type` | Krävs | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Krävs | Programmet (klient)-ID som den [programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) eller nya [App-registreringar (förhandsversion) portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) har tilldelats din app. |
-| `client_secret` | Krävs | Programhemlighet som du skapade för din app i portalen som du använde för att registrera din app. |
+| `client_id` | Krävs | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
+| `client_secret` | Krävs | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
 | `assertion` | Krävs | Värdet för den token som används i begäran. |
 | `scope` | Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
 | `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
@@ -104,7 +104,7 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | `grant_type` | Krävs | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Krävs | Programmet (klient)-ID som den [programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) eller nya [App-registreringar (förhandsversion) portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) har tilldelats din app. |
+| `client_id` | Krävs |  Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
 | `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Krävs | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
 | `assertion` | Krävs | Värdet för den token som används i begäran. |
@@ -205,7 +205,7 @@ För tillfället har inte stöd för personliga Microsoft-kontosystemet kombiner
 
 #### <a name="pre-authorized-applications"></a>Förauktoriserade program
 
-En ny funktion i förhandsversionen av portalen program är ”förauktoriserade program”. På så sätt kan indikerar en resurs att ett visst program alltid har behörighet att ta emot vissa omfång. Detta är främst användbart för att skapa anslutningar mellan en frontend-klient och en backend-resurs smidigare. En resurs kan deklarera flera förauktoriserade program – alla sådana program kan begära dessa behörigheter i en OBO flow och tar emot dem utan att användaren som ger sitt medgivande.
+En funktion i application-portalen är ”förauktoriserade program”. På så sätt kan indikerar en resurs att ett visst program alltid har behörighet att ta emot vissa omfång. Detta är främst användbart för att skapa anslutningar mellan en frontend-klient och en backend-resurs smidigare. En resurs kan deklarera flera förauktoriserade program – alla sådana program kan begära dessa behörigheter i en OBO flow och tar emot dem utan att användaren som ger sitt medgivande.
 
 #### <a name="admin-consent"></a>Administratörsmedgivande
 

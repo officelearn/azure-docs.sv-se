@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117208"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578160"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -30,10 +30,10 @@ PowerShell och PowerShell Workflow-runbooks i Azure Automation stöder indatapar
 
 | **Egenskap** | **Beskrivning** |
 |:--- |:--- |
-| Type |Krävs. Datatypen som förväntat för parametervärdet. Valfri .NET är giltig. |
-| Namn |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan enbart innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
-| Obligatorisk |Valfri. Anger om ett värde måste anges för parametern. Om du väljer  **\$SANT**, och sedan ett värde måste anges när runbooken startar. Om du väljer  **\$FALSKT**, och sedan ett värde är valfritt. |
-| Standardvärde |Valfri. Anger ett värde som används för parametern om ett värde inte skickas när runbooken startar. Ett standardvärde kan ställas in för valfri parameter och görs automatiskt parametern valfritt oavsett den obligatoriska inställningen. |
+| `Type` |Krävs. Datatypen som förväntat för parametervärdet. Valfri .NET är giltig. |
+| `Name` |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan enbart innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
+| `Mandatory` |Valfri. Anger om ett värde måste anges för parametern. Om du väljer  **\$SANT**, och sedan ett värde måste anges när runbooken startar. Om du väljer  **\$FALSKT**, och sedan ett värde är valfritt. |
+| `Default value` |Valfri. Anger ett värde som används för parametern om ett värde inte skickas när runbooken startar. Ett standardvärde kan ställas in för valfri parameter och görs automatiskt parametern valfritt oavsett den obligatoriska inställningen. |
 
 Windows PowerShell har stöd för flera attribut för indataparametrar än de som anges här, t.ex validering, alias, och parametern anger. Azure Automation stöder för närvarande endast de föregående indataparametrarna.
 
@@ -94,11 +94,11 @@ Du kan använda den [ **Write-Output** ](/powershell/module/microsoft.powershell
 
    | **Egenskap** | **Beskrivning** |
    |:--- |:--- |
-   | Namn |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan enbart innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
-   | Beskrivning |Valfri. Beskrivning av syftet med indataparameter. |
-   | Type |Valfri. Datatypen som kan förväntas för parametervärdet. Typer av parameterdefinitioner som stöds är **sträng**, **Int32**, **Int64**, **Decimal**, **booleskt**,  **DateTime**, och **objektet**. Om datatypen inte är markerad standard **sträng**. |
-   | Obligatorisk |Valfri. Anger om ett värde måste anges för parametern. Om du väljer **Ja**, och sedan ett värde måste anges när runbooken startar. Om du väljer **inga**, och sedan ett värde inte krävs när runbooken startar och du kan endast ange ett standardvärde. |
-   | Standardvärde |Valfri. Anger ett värde som används för parametern om ett värde inte skickas när runbooken startar. Ett standardvärde kan anges för en parameter som inte är obligatoriskt. Om du vill ange ett standardvärde, Välj **anpassad**. Det här värdet används om inte ett annat värde anges när runbooken startar. Välj **ingen** om du inte vill ange några standardvärdet. |
+   | `Name` |Krävs. Namnet på parametern. Detta måste vara unika inom en runbook och kan enbart innehålla bokstäver, siffror eller understreck. Det måste börja med en bokstav. |
+   | `Description` |Valfri. Beskrivning av syftet med indataparameter. |
+   | `Type` |Valfri. Datatypen som kan förväntas för parametervärdet. Typer av parameterdefinitioner som stöds är **sträng**, **Int32**, **Int64**, **Decimal**, **booleskt**,  **DateTime**, och **objektet**. Om datatypen inte är markerad standard **sträng**. |
+   | `Mandatory` |Valfri. Anger om ett värde måste anges för parametern. Om du väljer **Ja**, och sedan ett värde måste anges när runbooken startar. Om du väljer **inga**, och sedan ett värde inte krävs när runbooken startar och du kan endast ange ett standardvärde. |
+   | `Default Value` |Valfri. Anger ett värde som används för parametern om ett värde inte skickas när runbooken startar. Ett standardvärde kan anges för en parameter som inte är obligatoriskt. Om du vill ange ett standardvärde, Välj **anpassad**. Det här värdet används om inte ett annat värde anges när runbooken startar. Välj **ingen** om du inte vill ange några standardvärdet. |
 
     ![Lägg till nya indata](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Skapa två parametrar med följande egenskaper som används av den **Get-AzureRmVm** aktivitet:

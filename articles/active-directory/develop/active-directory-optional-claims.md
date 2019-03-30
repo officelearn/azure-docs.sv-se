@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185459"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652577"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
@@ -50,7 +50,7 @@ Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-o
 
 ## <a name="standard-optional-claims-set"></a>Standard valfria anspråk set
 
-Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan. Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)nedan. Observera att när du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet. Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
+Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan. Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)nedan. Observera att när du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet. Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
 
 > [!NOTE]
 > Flesta av dessa anspråk kan tas med i JWTs för v1.0 och v2.0 token, men inte SAML-tokens, utom där annat anges i kolumnen tokentypen. Dessutom valfria anspråk finns endast stöd för AAD-användare för närvarande, har MSA-stöd lagts till. När MSA har valfria anspråk som har stöd för på v2.0-slutpunkten, anger kolumnen användartyp om ett anspråk är tillgänglig för en AAD eller MSA-användare. 

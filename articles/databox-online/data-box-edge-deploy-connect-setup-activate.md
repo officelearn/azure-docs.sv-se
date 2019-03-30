@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403484"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629148"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Självstudier: Ansluta, konfigurera och aktivera Azure Data Box Edge 
 
@@ -75,7 +75,7 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
     ![Lokala Användargränssnittet ”enhetsnamn” webbsida](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Valfritt) I den vänstra rutan väljer **nätverksinställningar** och konfigurerar sedan inställningarna.  
-    Finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1 Gbit/s-nätverksgränssnitt. PORT 3, PORT 4, 5 PORT och PORT 6 är alla 25 Gbit/s-nätverksgränssnitt som kan också fungera som 10 Gbit/s-nätverksgränssnitt. PORT 1 konfigureras automatiskt som en endast management port och PORT 2 till 6 för PORTEN är alla dataportar. Den **nätverksinställningar** är enligt nedan.
+    Det finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1 Gbit/s-nätverksgränssnitt. PORT 3, PORT 4, 5 PORT och PORT 6 är alla 25 Gbit/s-nätverksgränssnitt som kan också fungera som 10 Gbit/s-nätverksgränssnitt. PORT 1 konfigureras automatiskt som en endast management port och PORT 2 till 6 för PORTEN är alla dataportar. Den **nätverksinställningar** är enligt nedan.
     
     ![Lokala Användargränssnittet ”nätverksinställningar” webbsida](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
 
         ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. I den vänstra rutan väljer **Molninställningar**, och sedan aktivera din enhet med Data Box Edge-tjänsten i Azure-portalen.
+5. (Valfritt) I den vänstra rutan väljer **Lagringsinställningar** att konfigurera storage-känslighet på din enhet. Den här funktionen är för närvarande en förhandsversion. Som standard lagring på enheten är inte flexibel och det finns data går förlorade om en datadisk misslyckas på enheten. När du aktiverar alternativet flexibel lagring på enheten ska konfigureras och enheten klarar att fel på en datadisk utan att förlora data. Konfigurera lagringen som elastiska minskar användbar kapacitet för din enhet.
+
+    > [!IMPORTANT] 
+    > Elasticiteten kan endast konfigureras innan du aktiverar enheten. 
+
+    ![Local web UI "Storage settings" page](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. I den vänstra rutan väljer **Molninställningar**, och sedan aktivera din enhet med Data Box Edge-tjänsten i Azure-portalen.
     
     1. I den **aktiveringsnyckeln** anger aktiveringsnyckeln som du fick i [hämta aktiveringsnyckeln](data-box-edge-deploy-prep.md#get-the-activation-key) för Data Box Edge.
     2. Välj **Använd**.
@@ -132,7 +139,7 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Du kan behöva vänta flera minuter när uppdateringen har slutförts. Sidan att uppdateras för att indikera att enheten har aktiverats.
+    4. Du kan behöva vänta några minuter när uppdateringen har slutförts. Sidan att uppdateras för att indikera att enheten har aktiverats.
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 

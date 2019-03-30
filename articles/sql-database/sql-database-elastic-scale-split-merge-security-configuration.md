@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593326"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651676"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
 
@@ -83,17 +83,17 @@ Klientcertifikat krävs för att autentisera begäranden till tjänsten. Välj d
 3. [Uppdatera CA-certifikat i Tjänstekonfigurationsfilen](#update-ca-certificate-in-service-configuration-file)
 4. [Utfärda klientcertifikat](#issue-client-certificates)
 5. [Skapa PFX-filer för klientcertifikat](#create-pfx-files-for-client-certificates)
-6. [Importera klientcertifikatet](#Import-Client-Certificate)
+6. [Importera klientcertifikatet](#import-client-certificate)
 7. [Kopiera Certifikattumavtryck för klienten](#copy-client-certificate-thumbprints)
 8. [Konfigurera tillåtna klienter i Tjänstekonfigurationsfilen](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Använda befintliga certifikat
 1. [Hitta Certifikatutfärdarens offentliga nyckel](#find-ca-public-key)
-2. [Ladda upp CA-certifikat till Molntjänsten](#Upload-CA-certificate-to-cloud-service)
-3. [Uppdatera CA-certifikat i Tjänstekonfigurationsfilen](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Kopiera Certifikattumavtryck för klienten](#Copy-Client-Certificate-Thumbprints)
+2. [Ladda upp CA-certifikat till Molntjänsten](#upload-ca-certificate-to-cloud-service)
+3. [Uppdatera CA-certifikat i Tjänstekonfigurationsfilen](#update-ca-certificate-in-service-configuration-file)
+4. [Kopiera Certifikattumavtryck för klienten](#copy-client-certificate-thumbprints)
 5. [Konfigurera tillåtna klienter i Tjänstekonfigurationsfilen](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Konfigurera klienten Återkallningskontrollen för lövcertifikatet](#Configure-Client-Certificate-Revocation-Check)
+6. [Konfigurera klienten Återkallningskontrollen för lövcertifikatet](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
 Åtkomst till Tjänsteslutpunkter kan begränsas till specifika intervall med IP-adresser.

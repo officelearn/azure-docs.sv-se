@@ -4,7 +4,7 @@ description: Bästa praxis för dataserialisering och hur den påverkar löpande
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 43d19e5c69733689be184f06b853fa4e488dd51e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 55cbd869e7434469ebddd7af493c91bfedafc594
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871731"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665686"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Hur dataserialisering påverkar en uppgradering av programmet
 I en [löpande uppgradering av programmet](service-fabric-application-upgrade.md), uppgraderingen gäller för en delmängd av noderna, en uppgraderingsdomän i taget. Vissa uppgraderingsdomäner finns på den nya versionen av ditt program under den här processen och vissa uppgraderingsdomäner finns på den äldre versionen av ditt program. Den nya versionen av ditt program måste kunna läsa den gamla versionen av dina data under distributionen, och den gamla versionen av ditt program måste kunna läsa den nya versionen av dina data. Om dataformatet inte är kompatibel med framåt och bakåt, misslyckas uppgraderingen eller ännu värre data kan försvinna eller skadas. Den här artikeln beskriver vad som utgör din dataformat och erbjuder rekommendationer för att säkerställa att dina data är framåt och bakåt kompatibel.

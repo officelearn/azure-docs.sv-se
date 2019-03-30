@@ -4,7 +4,7 @@ description: Hur du kan skydda dina tjänster mot korrekt och okontrollerad fel.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051922"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667216"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
 Testningsscenarier i Azure Service Fabric kan utvecklare oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interleaving av klienten arbetsbelastning och fel kan behövas. Interleaving av klienten arbetsbelastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. Beroende kontrollnivå som ger möjlighet att testa kan det vara vid en viss arbetsbelastning körningen exakt. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
@@ -27,12 +27,12 @@ Testningsscenarier i Azure Service Fabric kan utvecklare oroa dig inte om hanter
 ## <a name="sample-custom-scenario"></a>Anpassade Exempelscenario
 Det här testet visas ett scenario som interleaves arbetsbelastningen i företag med [fel korrekt och okontrollerad](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Fel bör orsakas i mitten av tjänståtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbetsbelastningar: A, B, C och D. varje motsvarar en uppsättning av arbetsflöden och kan beräkning, lagring, eller en blandning. För enkelhetens skull, kommer vi abstrahera ut arbetsbelastningarna i vårt exempel. De olika fel som körs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbetsbelastningar: A, B, C och D. Varje motsvarar en uppsättning av arbetsflöden och kan beräkning, lagring, eller en blandning. För enkelhetens skull, kommer vi abstrahera ut arbetsbelastningarna i vårt exempel. De olika fel som körs i det här exemplet är:
 
 * RestartNode: Okontrollerad fel att simulera en omstart av datorn.
 * RestartDeployedCodePackage: Okontrollerad fel att simulera värdprocess för tjänsten kraschar.
 * RemoveReplica: Korrekt fel att simulera repliken tas bort.
-* En MovePrimary: Korrekt fel att simulera repliken flyttar utlöstes av Service Fabric-belastningsutjämnare.
+* MovePrimary: Korrekt fel att simulera repliken flyttar utlöstes av Service Fabric-belastningsutjämnare.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

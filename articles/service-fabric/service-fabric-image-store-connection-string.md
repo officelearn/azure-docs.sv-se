@@ -4,7 +4,7 @@ description: Förstå bild store-anslutningssträng
 services: service-fabric
 documentationcenter: .net
 author: alexwun
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 5f69de9ba9a3226209a339c6f6fa778d9ded9755
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051004"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667557"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Om inställningen ImageStoreConnectionString
 
@@ -39,7 +39,7 @@ Det finns tre möjliga typer av avbildningen Store-providers och deras motsvaran
 
 Providertyp som används i produktion är tjänsten bild Store, som är en tillståndskänslig beständiga systemtjänst som du ser i Service Fabric Explorer. 
 
-![Bild Store-tjänsten][img_is]
+![Image Store Service][img_is]
 
 Som är värd för avbildningen Store i en systemtjänst i själva klustret eliminerar externa beroenden för paketdatabasen och ger oss mer kontroll över ort lagringsutrymme. Framtida förbättringar runt bilden Store är sannolikt att rikta bild Store-providern först, om inte exklusivt. Anslutningssträngen för avbildning Store tjänstleverantör har inte någon unik information eftersom klienten är redan ansluten till målklustret. Klienten behöver bara veta att protokoll som riktar in sig på system-tjänsten ska användas.
 

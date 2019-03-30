@@ -4,7 +4,7 @@ description: Lär dig hur du uppgraderar den konfiguration som kör ett friståe
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855184"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665621"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uppgradera konfigurationen av ett fristående kluster 
 
@@ -73,13 +73,13 @@ Ett klustercertifikat används för autentisering mellan klusternoderna. Förnya
 
 Fyra alternativen stöds:  
 
-* Enkel certifikatuppgraderingen: sökvägen för uppgraderingen är certifikat (primär) -> certifikatet B (primär) -> certifikatet C (primär) ->...
+* Enskilt certifikat uppgradering: Sökvägen för uppgraderingen är certifikat (primär) -> certifikatet B (primär) -> certifikatet C (primär) ->...
 
-* Dubbla certifikatuppgraderingen: sökvägen för uppgraderingen är certifikat (primär) -> certifikat (primär) och B (sekundär) -> certifikatet B (primär) > certifikatet B (primär) och C (sekundär) -> certifikatet C (primär) ->...
+* Dubbla certifikatuppgraderingen: Sökvägen för uppgraderingen är certifikat (primär) -> certifikat (primär) och B (sekundär) -> certifikatet B (primär) > certifikatet B (primär) och C (sekundär) -> certifikatet C (primär) ->...
 
-* Av Typuppgradering av certifikat: tumavtryck för certifikat configuration <>--Vanligtnamn-baserade Certifikatkonfiguration. Till exempel certifikatets tumavtryck (primär) och tumavtryck B (sekundär) -> certifikatet CommonName C.
+* Certifikatuppgraderingen typ: Tumavtryck för certifikat configuration <>--Vanligtnamn-baserade Certifikatkonfiguration. Till exempel certifikatets tumavtryck (primär) och tumavtryck B (sekundär) -> certifikatet CommonName C.
 
-* Utfärdaren tumavtryck för uppgradering av certifikat: sökvägen för uppgraderingen är certifikat-CN = A, IssuerThumbprint = IT1 (primär) certifikat-CN -> = A, IssuerThumbprint = IT1 IT2 (primär) certifikat-CN -> = A, IssuerThumbprint = IT2 (primär).
+* Certifikatet utfärdare tumavtryck uppgradering: Sökvägen för uppgraderingen är certifikat-CN = A, IssuerThumbprint = IT1 (primär) certifikat-CN -> = A, IssuerThumbprint = IT1 IT2 (primär) -> certifikat-CN = A, IssuerThumbprint = IT2 (primär).
 
 
 ## <a name="next-steps"></a>Nästa steg

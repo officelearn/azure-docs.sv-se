@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307912"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652424"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Felsökning av vanliga problem med indexerare i Azure Search
 
 Indexerare kan hamna i ett antal problem vid indexering av data till Azure Search. Huvudkategorier för felet är:
 
-* [Ansluta till en datakälla](#Data-Source-Connection-Errors)
-* [Dokumentbearbetning](#Document-Processing-Errors)
-* [Inmatning av dokumentet till ett index](#Index-Errors)
+* [Ansluta till en datakälla](#data-source-connection-errors)
+* [Dokumentbearbetning](#document-processing-errors)
+* [Inmatning av dokumentet till ett index](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>Anslutningsfel för data källan
 

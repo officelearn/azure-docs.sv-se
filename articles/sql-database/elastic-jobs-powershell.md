@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840825"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666801"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Aktivera förhandsversionen för elastiska jobb för din prenumeration
 
-Om du vill använda elastiska jobb registrerar du funktionen i din Azure-prenumeration genom att köra följande kommando (detta behöver bara köras en gång för varje prenumeration du vill använda elastiska jobb i):
+Registrera funktionen i Azure-prenumerationen genom att köra följande kommando för att använda elastiska jobb. Kör det här kommandot en gång för den prenumeration som du vill etablera elastisk jobbagent. Prenumerationer som endast innehåller databaser som är mål för jobbet behöver inte registreras.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652458"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuera resurser med Resource Manager-mallar och Azure Portal
 
@@ -134,7 +134,8 @@ På portalen kan du spara en mall på Azure-kontot och distribuera om den senare
    ![Distribuera sparade mallen](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill visa granskningsloggar, se [granskningsåtgärder med Resource Manager](./resource-group-audit.md).
-* Felsökning av vanliga fel beskrivs [visa distributionsåtgärder](./resource-manager-deployment-operations.md).
-* Om du vill exportera en mall från en distribution eller en resursgrupp, se [exportera Azure Resource Manager-mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* I distributionen på ett säkert sätt din tjänst i flera regioner, se [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- Om du vill visa granskningsloggar, se [granskningsåtgärder med Resource Manager](./resource-group-audit.md).
+- Felsökning av vanliga fel beskrivs [visa distributionsåtgärder](./resource-manager-deployment-operations.md).
+- Om du vill exportera en mall från en distribution eller en resursgrupp, se [exportera Azure Resource Manager-mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- I distributionen på ett säkert sätt din tjänst i flera regioner, se [Azure Deployment Manager](./deployment-manager-overview.md).

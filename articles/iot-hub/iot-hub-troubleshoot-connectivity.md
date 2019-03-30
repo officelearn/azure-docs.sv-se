@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240175"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648827"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Identifiera och felsöka kopplar bort med Azure IoT Hub
 
@@ -32,7 +32,7 @@ Aktivera diagnostik för IoT Hub för att logga enheten anslutningshändelser oc
 1. Välj **diagnostikinställningar**.
 1. Välj **slå på diagnostik**.
 1. Aktivera **anslutningar** loggar samlas in.
-1. För enklare analys, aktivera **skicka till Log Analytics** ([finns i prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exempel under [lösa anslutningsfel](#Resolve-connectivity-errors).
+1. För enklare analys, aktivera **skicka till Log Analytics** ([finns i prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exempel under [lösa anslutningsfel](#resolve-connectivity-errors).
 
    ![Rekommenderade inställningar][2]
 
@@ -40,15 +40,14 @@ Mer information finns i [övervaka hälsotillståndet för Azure IoT Hub och dia
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Konfigurera aviseringar för den _anslutna enheter_ antal mått
 
-Om du vill få aviseringar när Koppla från enheter, konfigurera aviseringar för den **anslutna enheter** mått.
+Om du vill få aviseringar när Koppla från enheter, konfigurera aviseringar för den **anslutna enheter (förhandsversion)** mått.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Bläddra till din IoT-hubb.
-1. Välj **aviseringar (klassisk)**.
-1. Välj **Lägg till måttavisering (klassisk)**.
-1. Fyll i formuläret och välj **OK**.
-
-   ![Rekommenderade metrisk varning][3]
+1. Välj **aviseringar**.
+1. Välj **ny aviseringsregel**.
+1. Välj **Lägg till villkor**, välj sedan ”anslutna enheter (förhandsversion)”.
+1. Slut ställa in din önskade trösklar och avisering alternativ genom att följande anvisningarna.
 
 Mer information finns i [vad är klassiska aviseringar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 

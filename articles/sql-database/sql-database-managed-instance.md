@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/29/2019
+ms.openlocfilehash: b5417787472b332e38db002067920153d554fdb0
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454749"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668508"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -48,6 +48,9 @@ Hanterade instans kombinerar de bästa funktionerna som finns både i Azure SQL 
 |Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggda [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kunden kan konfigureras kvarhållningsperiod <br>Användarinitierad [säkerhetskopior](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Tidpunkt för återställning till tidpunkt databasen](sql-database-recovery-using-backups.md#point-in-time-restore) funktion |
 |**Säkerhet och efterlevnad** | **Hantering**|
 |Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-server-huvudkonton (inloggningar)</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
+
+> [!IMPORTANT]
+> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 I följande tabell visas de viktigaste funktionerna i hanterade instanser:
 
@@ -237,5 +240,5 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Mer information om konfiguration av virtuellt nätverk finns i [hanterad instanskonfiguration av virtuellt nätverk](sql-database-managed-instance-connectivity-architecture.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapa en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudiekurs med hjälp av Azure Database Migration Service (DMS) för migrering finns i [hanterad instans-migrering med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
 - Information om priser finns i [SQL Database managed instance priser](https://azure.microsoft.com/pricing/details/sql-database/managed/).

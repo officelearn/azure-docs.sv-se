@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110502"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648910"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -22,10 +22,6 @@ När du [redundansväxla](site-recovery-failover.md) Azure virtuella datorer fr�
 
 - Återaktivera skyddet av de virtuella datorerna i den sekundära regionen så att de börjar replikera till den primära regionen.
 - När återaktiveringen av skyddet har slutförts och de virtuella datorerna replikeras, kan du växla över dem från sekundär till primär region.
-
-> [!WARNING]
-> Om du har [migreras](migrate-overview.md#what-do-we-mean-by-migration) datorer från primärt till den sekundära regionen flyttas den virtuella datorn till en annan resursgrupp eller ta bort den virtuella Azure-datorn kan du inte återaktivera skyddet för den virtuella datorn eller inte återställa.
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 1. VM-redundans från primärt till sekundära region måste bekräftas.

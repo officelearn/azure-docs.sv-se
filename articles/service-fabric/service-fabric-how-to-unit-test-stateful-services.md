@@ -3,8 +3,8 @@ title: Utveckla enhetstester för tillståndskänsliga tjänster i Azure Service
 description: Lär dig hur du utvecklar enhetstester för tillståndskänslig Service Fabric-tjänster.
 services: service-fabric
 documentationcenter: .net
-author: charleszipp
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
-ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093913"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669120"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Skapa enhetstester för tillståndskänsliga tjänster
 Enhetstestning Service Fabric tillståndskänsliga tjänster ger vanliga misstag som inte skulle nödvändigtvis fångas upp av konventionella program eller domänspecifika Enhetstestning. Det finns vissa saker som ska finnas i åtanke när du utvecklar enhetstester för tillståndskänsliga tjänster.

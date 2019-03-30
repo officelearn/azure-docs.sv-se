@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286456"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665669"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -38,6 +38,167 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. Om du letar efter objekt som är äldre än sex månader kan du hitta dem i den [Arkiveringsjobb för vad som är nytt i Azure Active Directory](whats-new-archive.md).
 
 ---
+
+## <a name="march-2019"></a>Mars 2019
+
+### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Identitetsramverk och anpassad princip för stöd i Azure Active Directory B2C är nu tillgänglig (GA)
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** B2C – konsumentidentitetshantering  
+**Produkten kapacitet:** B2B/B2C
+
+Nu kan du skapa anpassade principer i Azure AD B2C, inklusive följande uppgifter, som stöds i skala och under serviceavtal för Azure:
+
+- Skapa och överför anpassad autentisering användaren resor med hjälp av anpassade principer.
+
+- Beskriv användaren resor stegvisa som utbyten mellan Anspråksproviders.
+
+- Definiera villkorlig branchning i utbildning för användaren.
+
+- Omvandla och mappa anspråk för användning i fatta beslut i realtid och kommunikation.
+
+- Använda REST API-aktiverade tjänster i din utbildning för anpassad autentisering-användaren. Till exempel med e-postleverantörer, CRM och upphovsrättsskyddad auktorisering system.
+
+- Federera med identitetsleverantörer som är kompatibla med OpenIDConnect-protokollet. Till exempel med flera innehavare Azure AD, konto-leverantörer via sociala nätverk eller verifiering av två faktorer providers.
+
+Mer information om hur du skapar anpassade principer finns i [kommentarer för utvecklare för anpassade principer i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-developer-notes-custom) och läsa [Alex Simon blogginlägg, inklusive fallstudier](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-custom-policies-to-build-your-own-identity-journeys/ba-p/382791).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2019"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - mars 2019
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** Tredjepartsintegration
+
+I mars 2019 har vi lagt till stöd för dessa 14 nya appar med Federation i app-galleriet:
+
+[ISEC7 Mobile Exchange ombud](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](https://docs.microsoft.com/azure/active-directory/saas-apps/eplatform-tutorial), [Fulcrum](https://docs.microsoft.com/azure/active-directory/saas-apps/fulcrum-tutorial), [ExcelityGlobal](https://docs.microsoft.com/azure/active-directory/saas-apps/excelityglobal-tutorial), [Förklaring granskning prissystem](https://docs.microsoft.com/azure/active-directory/saas-apps/explanation-based-auditing-system-tutorial), [Läs](https://docs.microsoft.com/azure/active-directory/saas-apps/lean-tutorial), [Powerschool prestanda frågor](https://docs.microsoft.com/azure/active-directory/saas-apps/powerschool-performance-matters-tutorial), [Cinode](https://cinode.com/), [Iris Intranät](https://docs.microsoft.com/azure/active-directory/saas-apps/iris-intranet-tutorial), [Empactis](https://docs.microsoft.com/azure/active-directory/saas-apps/empactis-tutorial), [SmartDraw](https://docs.microsoft.com/azure/active-directory/saas-apps/smartdraw-tutorial), [Confirmit vyer](https://docs.microsoft.com/azure/active-directory/saas-apps/confirmit-horizons-tutorial), [Aktivitetsse](https://docs.microsoft.com/azure/active-directory/saas-apps/tas-tutorial)
+
+Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="new-zscaler-and-atlassian-provisioning-connectors-in-the-azure-ad-gallery---march-2019"></a>Nya Zscaler och Atlassians etablering anslutningar i Azure AD-galleriet – mars 2019
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** App-etablering  
+**Produkten kapacitet:** Tredjepartsintegration
+
+Automatisera skapa, uppdatera och ta bort användarkonton för följande appar:
+
+[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](http://aka.ms/ZscalerBetaProvisioning), [Zscaler en](https://aka.ms/ZscalerOneProvisioning), [Zscaler två](http://aka.ms/ZscalerTwoProvisioning), [Zscaler tre](http://aka.ms/ZscalerThreeProvisioning), [Zscaler ZSCloud ](http://aka.ms/ZscalerZSCloudProvisioning), [Atlassians molnet](http://aka.ms/atlassianCloudProvisioning)
+
+Läs mer om hur du bättre skydda din organisation via automatisk användarkontoetablering [automatisera användaretablering för SaaS-program med Azure AD](http://aka.ms/ProvisioningDocumentation).
+
+---
+
+### <a name="restore-and-manage-your-deleted-office-365-groups-in-the-azure-ad-portal"></a>Återställa och hantera dina borttagen Office 365-grupper i Azure AD-portalen
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Grupphantering  
+**Produkten kapacitet:** Samarbete
+
+Du kan nu visa och hantera dina Office 365-grupper som har tagits bort från Azure AD-portalen. Den här ändringen hjälper dig att se vilka grupper som är tillgängliga för att återställa, tillsammans med så att du permanent ta bort alla grupper som inte krävs för din organisation.
+
+Mer information finns i [återställning har upphört att gälla eller borttagna grupper](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore).
+
+---
+
+### <a name="single-sign-on-is-now-available-for-azure-ad-saml-secured-on-premises-apps-through-application-proxy-public-preview"></a>Enkel inloggning är nu tillgängligt för Azure AD SAML-säkrad lokala appar via programproxy (offentlig förhandsversion)
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** App Proxy  
+**Produkten kapacitet:** Åtkomstkontroll
+
+Nu kan du ange en enkel inloggning (SSO)-upplevelse för on-premises, SAML-autentiserade appar, tillsammans med fjärråtkomst till de här apparna via programproxy. Läs mer om hur du ställer in SAML SSO med dina lokala [SAML enkel inloggning för lokala program med Application Proxy (förhandsversion)](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps).
+
+---
+
+### <a name="client-apps-in-request-loops-will-be-interrupted-to-improve-reliability-and-user-experience"></a>Klientappar i begäran loopar avbryts för att förbättra tillförlitlighet och användarupplevelse
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Autentiseringar (inloggningar)  
+**Produkten kapacitet:** Användarautentisering
+
+Klientappar kan felaktigt utfärda hundratals samma inloggningsbegäranden under en kort tidsperiod. Dessa begäranden oavsett om de är lyckades eller inte, alla bidra till en dålig användarupplevelse och förhöjd arbetsbelastningar för IDP: N, ökar svarstiden för alla användare och minska tillgängligheten för IDP: N.
+
+Den här uppdateringen skickar en `invalid_grant` fel: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` på klientappar som utfärda duplicerade flera gånger under en kort tidsperiod, utanför omfattningen för normal drift. Klientappar som stöta på det här problemet ska visa en interaktiv prompt, eftersom användaren måste logga in igen. Mer information om den här ändringen och om hur du åtgärdar din app om det här felet finns i [vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
+
+---
+
+### <a name="new-audit-logs-user-experience-now-available"></a>Ny granskningsloggar användarupplevelse nu tillgänglig
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Övervakning och rapportering
+
+Vi har skapat en ny Azure AD **granskningsloggar** sidan för att förbättra läsbarheten och hur du söker efter din information. Se den nya **granskningsloggar** väljer **granskningsloggar** i den **aktivitet** avsnitt av Azure AD.
+
+![Ny granskningsloggar på sidan med exempel info](media/whats-new/audit-logs-page.png)
+
+Mer information om den nya **granskningsloggar** sidan ser [granska aktivitetsrapporter i Azure Active Directory-portalen](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#audit-logs).
+
+---
+
+### <a name="new-warnings-and-guidance-to-help-prevent-accidental-administrator-lockout-from-misconfigured-conditional-access-policies"></a>Nya varningar och vägledning för att förhindra oavsiktlig administratör utelåsning från felkonfigurerad principer för villkorlig åtkomst
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Villkorlig åtkomst  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+
+För att förhindra att administratörer av misstag låser sig av sina egna klienter via felkonfigurerad principer för villkorlig åtkomst, har vi skapat nya varningar och uppdaterade riktlinjer i Azure-portalen. Mer information om nya vägledning finns i [vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+
+---
+
+### <a name="improved-end-user-terms-of-use-experiences-on-mobile-devices"></a>Förbättrad slutanvändarens användningsvillkor upplevelser för användning på mobila enheter
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Användningsvillkor  
+**Produkten kapacitet:** Styrning
+
+Vi har uppdaterat våra befintliga villkor för användning upplevelser för att förbättra hur du kan granska och godkänna användningsvillkoren på en mobil enhet. Du kan nu Zooma in och ut, gå tillbaka, ladda ned informationen och välj hyperlänkar. Läs mer om de uppdaterade villkoren för användning, [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+
+---
+
+### <a name="new-azure-ad-activity-logs-download-experience-available"></a>Hämta upplevelse som är tillgängliga för nya Azure AD-aktivitetsloggar
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Övervakning och rapportering
+
+Du kan nu hämta stora mängder aktivitetsloggar direkt från Azure-portalen. Den här uppdateringen kan du:
+
+- Hämta upp till 250 000 rader.
+
+- Få ett meddelande när nedladdningen är klar.
+
+- Anpassa ditt filnamn.
+
+- Fastställa din utdataformat JSON- eller CSV.
+
+Mer information om den här funktionen finns i [snabbstarten: Ladda ned en granskningsrapport med Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
+
+---
+
+### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Icke-bakåtkompatibel ändring: Uppdateringar till villkorsutvärdering av Exchange ActiveSync (EAS)
+
+**Typ:** Förändringsplan  
+**Tjänstekategori:** Villkorlig åtkomst  
+**Produkten kapacitet:** Åtkomstkontroll
+
+Vi håller på att uppdatera hur Exchange ActiveSync (EAS) utvärderar följande villkor:
+
+- Användarplats, baserat på land, region eller IP-adress
+
+- Inloggningsrisk
+
+- Enhetsplattform
+
+Om du har tidigare använt dessa villkor i principer för villkorlig åtkomst kan du vara medveten om att villkoret beteende kan ändras. Till exempel om du tidigare använt platsvillkoret för användare i en princip, kanske du upptäcker principen nu hoppas över baserat på platsen för dina användare.
+
+---
+
 ## <a name="february-2019"></a>Februari 2019
 
 ### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurerbar Azure AD SAML-tokenkryptering (allmänt tillgänglig förhandsversion) 
@@ -45,7 +206,7 @@ Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. O
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  
 **Produkten kapacitet:** Enkel inloggning
- 
+
 Du kan nu konfigurera alla SAML-appar som stöds för att ta emot krypterad SAML-tokens. När konfigureras och används med en app, krypterar de utgivna SAML-intyg med hjälp av en offentlig nyckel som hämtas från ett certifikat som lagras i Azure AD i Azure AD.
 
 Läs mer om hur du konfigurerar SAML-tokenkryptering, [konfigurera Azure AD-SAML-tokenkryptering](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
@@ -70,7 +231,7 @@ Mer information om hur du skapar en åtkomstgranskning med hjälp av Azure AD-Å
 **Tjänstekategori:** Företagsappar  
 **Produkten kapacitet:** Tredjepartsintegration
  
-I januari 2019 har vi lagt till stöd för dessa 27 nya appar med Federation i app-galleriet:
+I februari 2019 har vi lagt till stöd för dessa 27 nya appar med Federation i app-galleriet:
 
 [Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MindTickle](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [FAT FINGER](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [ IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), Klicka på behörighet, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [seismisk ](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [Resurs A dröm](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [webMethods integrering molnet](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [Knowledge var som helst LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [OU Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [Periscope Data](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [Netop Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud av Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [ClickUp produktivitet plattform](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
 
@@ -138,7 +299,7 @@ Läs mer om hur du väljer specifika versioner för sidelement i [Azure AD B2C h
 **Tjänstekategori:** B2C – konsumentidentitetshantering  
 **Produkten kapacitet:** B2B/B2C
 
-Du kan nu uttryckligen ställa in din organisations lösenordskomplexitet för slutanvändarna, i stället för att använda din ursprungliga Azure AD-lösenordsprincip. Från den **egenskaper** bladet för dina användare flöden (kallades tidigare din inbyggda principer), som du kan välja ett lösenordskomplexitet **enkel** eller **stark**, eller så kan du Skapa en **anpassad** kraven.
+Du kan nu ställa in din organisations lösenordskomplexitet för dina slutanvändare, i stället för att använda din ursprungliga Azure AD-lösenordsprincip. Från den **egenskaper** bladet för dina användare flöden (kallades tidigare din inbyggda principer), som du kan välja ett lösenordskomplexitet **enkel** eller **stark**, eller så kan du Skapa en **anpassad** kraven.
 
 Mer information om konfiguration av lösenord komplexiteten krav finns i [konfigurera komplexitetskrav för lösenord i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
 
@@ -384,7 +545,7 @@ Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azu
 **Produkten kapacitet:** Styrning
  
 
-Administratörer kan nu aktivera den **upphör att gälla medgivanden** alternativ för att göra användningsvillkor upphör att gälla för alla användare baserat på ditt angivna återkommande schema. Schemat kan vara årligen, bi årligen, Kvartalsvis eller varje månad. Användningsvillkoren förnyas och måste användarna godkänna.
+Administratörer kan nu aktivera den **upphör att gälla medgivanden** alternativ för att göra användningsvillkor upphör att gälla för alla användare baserat på ditt angivna återkommande schema. Schemat kan vara årligen, bi årligen, Kvartalsvis eller varje månad. När användningsvillkoren upphör att gälla, måste användarna måste godkänna.
 
 Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
 
@@ -684,129 +845,3 @@ Som en del av vår uppdaterade SAML-baserad konfiguration av Användargränssnit
 - Ett sätt att ange NameID-Format för SAML-appar och ett sätt att ange NameID-värde som Katalogtillägg.
 
 Om du vill aktivera den här uppdaterade vyn klickar du på den **testa vår nya upplevelsen** länken högst upp på den **enkel inloggning** sidan. Mer information finns i [Självstudie: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
-
----
-
-## <a name="august-2018"></a>Augusti 2018
-
-### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Ändringar i Azure Active Directory IP-adressintervall
-
-**Typ:** Förändringsplan  
-**Tjänstekategori:** Annat  
-**Produkten kapacitet:** Plattform
-
-Vi presenterar större IP-adressintervall till Azure AD, vilket innebär att om du har konfigurerat Azure AD-IP-adressintervall för brandväggar, routrar eller Nätverkssäkerhetsgrupperna, måste du uppdatera dem. Vi gör den här uppdateringen så att du inte behöver ändra din brandvägg eller router Network Security grupper IP-konfigurationer för intervallet igen när Azure AD lägger till nya slutpunkter. 
-
-Nätverkstrafik flyttas till dessa nya områden under de kommande två månaderna. Om du vill fortsätta med undvika avbrott i tjänsten, måste du lägga till de här uppdaterade värden till IP-adresser innan den 10 September 2018:
-
-- 20.190.128.0/18 
-
-- 40.126.0.0/18 
-
-Vi rekommenderar starkt att inte ta bort de gamla IP-adressintervall tills all din nätverkstrafik har flyttats till de nya intervall. Uppdateringar om flytten och vill veta när du tar bort de gamla intervall, se [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
-
----
-
-### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Ändringsmeddelande: Auktoriseringskoder längre inte tillgängliga för återanvändning 
-
-**Typ:** Förändringsplan  
-**Tjänstekategori:** Autentiseringar (inloggningar)  
-**Produkten kapacitet:** Användarautentisering
-
-Från och med 15 November 2018, att Azure AD sluta acceptera tidigare autentisering-koder för appar. Ändringen security hjälper dig att ta med Azure AD i enlighet med OAuth-specifikationen och tillämpas på både v1 och v2-slutpunkter.
-
-Om din app återanvänder auktoriseringskoder för att hämta token för flera resurser, rekommenderar vi att du använda koden för att få en uppdateringstoken och sedan använda den uppdateringstoken för att hämta ytterligare token för andra resurser. Auktoriseringskoder kan bara användas en gång, men uppdateringstoken kan användas flera gånger i flera resurser. En app som försöker att återanvända en Autentiseringskod under flödet för OAuth-kod får ett invalid_grant-fel.
-
-Det här och andra protokoll-relaterade ändringar finns i [en fullständig lista över vad som är nytt för autentisering](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
- 
----
-
-### <a name="converged-security-info-management-for-self-service-password-sspr-and-multi-factor-authentication-mfa"></a>Hantering av konvergerad säkerhetsinformation för återställning av självbetjäningslösenord och Multi-Factor Authentication (MFA)
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** SSPR  
-**Produkten kapacitet:** Användarautentisering
- 
-Den här nya funktionen hjälper människor att hantera deras säkerhetsinformation (till exempel, telefonnummer, mobilapp och så vidare) för SSPR och MFA i en enda plats och erfarenheter. jämfört med tidigare, där den har utförts på två olika platser.
-
-Den här konvergerade upplevelsen fungerar även för personer som använder SSPR eller MFA. Även om organisationen inte framtvinga MFA eller SSPR-registrering, kan personer fortfarande registrera MFA eller SSPR info säkerhetsmetoder tillåts av din organisation från portalen Mina appar.
-
-Det här är en valbar offentlig förhandsversion. Administratörer kan aktivera den nya upplevelsen (om det behövs) för en vald grupp eller för alla användare i en klient. Läs mer om konvergerade upplevelse, den [konvergerat experience-bloggen](https://cloudblogs.microsoft.com/enterprisemobility/2018/08/06/mfa-and-sspr-updates-now-in-public-preview/)
-
----
-
-### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nya HTTP-Only-cookies i Microsoft Azure Active Directory-programproxyappar
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** App Proxy  
-**Produkten kapacitet:** Åtkomstkontroll
-
-Det finns en ny inställning som kallas, **HTTP-Only Cookies** i dina appar i programproxyn. Den här inställningen ger extra säkerhet, inklusive flaggan HTTPOnly i HTTP-Svarsrubrik för båda Application Proxy åtkomst- och sessionsprinciper cookies, Stopp åtkomst till cookien från ett skript på klientsidan och förhindrar ytterligare åtgärder som att kopiera eller Ändra cookien. Även om den här flaggan inte har använts tidigare, cookies har alltid varit krypterat och överförs med hjälp av en SSL-anslutning för att skydda mot felaktig ändringar.
-
-Den här inställningen är inte kompatibelt med appar som använder ActiveX-kontroller, till exempel Remote Desktop. Om du är i det här fallet rekommenderar vi att du stänger av den här inställningen.
-
-Mer information om inställningen HTTP-Only Cookies finns i [publicera program med Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-publish-azure-portal).
-
----
-
-### <a name="privileged-identity-management-pim-for-azure-resources-supports-management-group-resource-types"></a>Privileged Identity Management (PIM) för Azure-resurser stöder hanteringsgruppsresurstyper
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Privileged Identity Management  
-**Produkten kapacitet:** Privileged Identity Management
- 
-Inställningar för aktivering och tilldelning av just-In-Time kan nu användas Hanteringsgruppen resurstyper, precis som du redan har gjort för prenumerationer, resursgrupper och resurser (till exempel virtuella datorer, Apptjänster med mera). Vem som helst med en roll med administratörsåtkomst för en Hanteringsgrupp kan dessutom identifiera och hantera resursen i PIM.
-
-Mer information om PIM och Azure-resurser finns i [identifiera och hantera Azure-resurser med hjälp av Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-discover-resources)
- 
----
-
-### <a name="application-access-preview-provides-faster-access-to-the-azure-ad-portal"></a>Programåtkomst (förhandsversion) ger snabbare åtkomst till Microsoft Azure Active Directory-portalen
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Privileged Identity Management  
-**Produkten kapacitet:** Privileged Identity Management
- 
-När du aktiverar en roll med hjälp av PIM idag, kan det ta över 10 minuter för behörigheterna som ska börja gälla. Om du väljer att använda programåtkomst, som finns för närvarande i förhandsversion, Administratörer kan komma åt Azure AD-portalen när aktiveringsbegäran har slutförts.
-
-Programåtkomst stöder för närvarande bara Azure AD-portalen och Azure-resurser. Läs mer om PIM och programåtkomst [vad är Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
- 
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2018"></a>Nya federerade appar finns tillgängliga i appgalleriet för Microsoft Azure Active Directory – augusti 2018
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** Företagsappar  
-**Produkten kapacitet:** Tredjepartsintegration
- 
-I augusti 2018 har vi lagt till dessa 16 nya appar med stöd för app-galleriet:
-
-[Hornbill](https://docs.microsoft.com/azure/active-directory/saas-apps/hornbill-tutorial), [Bridgeline som har delats upp](https://docs.microsoft.com/azure/active-directory/saas-apps/bridgelineunbound-tutorial), [sås Labs - Mobile- och Web testning](https://docs.microsoft.com/azure/active-directory/saas-apps/saucelabs-mobileandwebtesting-tutorial), [Meta nätverk Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial), [sätt att göra](https://docs.microsoft.com/azure/active-directory/saas-apps/waywedo-tutorial), [Spotinst](https://docs.microsoft.com/azure/active-directory/saas-apps/spotinst-tutorial), [ProMaster (genom Inlogik)](https://docs.microsoft.com/azure/active-directory/saas-apps/promaster-tutorial), SchoolBooking, [4me](https://docs.microsoft.com/azure/active-directory/saas-apps/4me-tutorial), [dokumentation](https://docs.microsoft.com/azure/active-directory/saas-apps/DOSSIER-tutorial), [N2F - telekommunikation rapporter](https://docs.microsoft.com/azure/active-directory/saas-apps/n2f-expensereports-tutorial), [Comm100 Live-chatt](https://docs.microsoft.com/azure/active-directory/saas-apps/comm100livechat-tutorial), [SafeConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/safeconnect-tutorial), [ZenQMS](https://docs.microsoft.com/azure/active-directory/saas-apps/zenqms-tutorial), [eLuminate](https://docs.microsoft.com/azure/active-directory/saas-apps/eluminate-tutorial), [ Dovetale](https://docs.microsoft.com/azure/active-directory/saas-apps/dovetale-tutorial).
-
-Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="native-tableau-support-is-now-available-in-azure-ad-application-proxy"></a>Inbyggd Tableau-support finns nu i Microsoft Azure Active Directory-programproxy
-
-**Typ:** Ändrad funktion  
-**Tjänstekategori:** App Proxy  
-**Produkten kapacitet:** Åtkomstkontroll
-
-Med vår uppdateringen från OpenID Connect beviljande via OAuth 2.0-protokollet för vår förautentisering-protokollet kan behöver du inte längre någon ytterligare konfiguration för att använda Tableau med Application Proxy. Den här ändringen av protokollet hjälper också till Application Proxy bättre stöd för mer moderna appar med hjälp av endast HTTP-omdirigeringar, som ofta stöds i JavaScript och HTML-taggar.
-
-Läs mer om våra inbyggt stöd för bland annat Tableau, [Azure AD-programproxyn nu med inbyggt stöd för bland annat Tableau](https://blogs.technet.microsoft.com/applicationproxyblog/2018/08/14/azure-ad-application-proxy-now-with-native-tableau-support).
-
----
-
-### <a name="new-support-to-add-google-as-an-identity-provider-for-b2b-guest-users-in-azure-active-directory-preview"></a>Ny support för att lägga till Google som en identitetsprovider för B2B-gästanvändare i Azure Active Directory (förhandsversion)
-
-**Typ:** Ny funktion  
-**Tjänstekategori:** B2B  
-**Produkten kapacitet:** B2B/B2C
-
-Genom att konfigurera federation med Google i din organisation, kan du låta inbjudna Gmail användarna loggar in din delade appar och resurser med hjälp av sina befintliga Google-konto utan att behöva skapa en personlig Account (MSA: er) eller ett Azure AD-konto.
-
-Det här är en valbar offentlig förhandsversion. Läs mer om Google federation [lägga till Google som en identitetsleverantör för B2B-gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-
----

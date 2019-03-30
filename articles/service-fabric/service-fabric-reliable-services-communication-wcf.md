@@ -1,10 +1,10 @@
 ---
-title: Tillförlitliga WCF Services kommunikation stack | Microsoft Docs
-description: Inbyggda WCF kommunikation stacken i Service Fabric ger-klienttjänsten WCF-kommunikation för Reliable Services.
+title: Reliable Services WCF-kommunikationsstack | Microsoft Docs
+description: Den inbyggda WCF-kommunikationsstack i Service Fabric ger-klienttjänsten WCF-kommunikation för Reliable Services.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749937"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670584"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserad kommunikation stacken för Reliable Services
-Reliable Services framework kan tjänsten författare välja stacken kommunikation som de vill använda för den här tjänsten. De kan ansluta kommunikation stacken valfri via den **ICommunicationListener** returnerades från den [CreateServiceReplicaListeners eller CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) metoder. Ramen tillhandahåller en implementering av kommunikation stacken baserat på Windows Communication Foundation (WCF) för tjänsten programutvecklare som vill använda WCF-baserad kommunikation.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserade kommunikationsstack för Reliable Services
+Reliable Services-framework kan tjänsten författare till väljer kommunikationsstack som de vill använda för sina tjänster. De kan ansluta kommunikation stack för valfri via den **ICommunicationListener** returnerades från den [CreateServiceReplicaListeners eller CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) metoder. Ramverket innehåller en implementering av kommunikationsstack baserat på Windows Communication Foundation (WCF) för tjänsten författare som vill använda WCF-baserad kommunikation.
 
-## <a name="wcf-communication-listener"></a>Lyssnare för WCF-kommunikation
+## <a name="wcf-communication-listener"></a>WCF Communication Listener
 WCF-specifika implementeringen av **ICommunicationListener** tillhandahålls av den **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** klass.
 
-Att ange Säg har vi ett servicekontrakt av typen `ICalculator`
+Att ange anta att vi har ett tjänstekontrakt av typen `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -38,7 +38,7 @@ public interface ICalculator
 }
 ```
 
-Vi kan skapa en lyssnare för WCF-kommunikation i tjänsten på följande sätt.
+Vi kan skapa en WCF-kommunikationslyssnaren i tjänsten på följande sätt.
 
 ```csharp
 
@@ -64,8 +64,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Skrivning av klienter för stacken för WCF-kommunikation
-För att skriva klienter att kommunicera med tjänster med hjälp av WCF ramen innehåller **WcfClientCommunicationFactory**, vilket är WCF-specifika implementering av [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Skriva klienter för WCF-kommunikationsstack
+För att skriva klienter att kommunicera med tjänster med hjälp av WCF ramverket ger **WcfClientCommunicationFactory**, som är den WCF-specifik implementeringen av [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -77,7 +77,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-Kommunikationskanalen WCF kan nås från den **WcfCommunicationClient** skapas av den **WcfCommunicationClientFactory**.
+Kommunikationskanalen WCF kan nås från den **WcfCommunicationClient** skapats av den **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -91,7 +91,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Klientkoden kan använda den **WcfCommunicationClientFactory** tillsammans med den **WcfCommunicationClient** som implementerar **ServicePartitionClient** att avgöra den tjänsten endpoint och kommunicera med tjänsten.
+Klientkoden kan använda den **WcfCommunicationClientFactory** tillsammans med den **WcfCommunicationClient** som implementerar **ServicePartitionClient** att fastställa den tjänsten endpoint och kommunicera med tjänsten.
 
 ```csharp
 // Create binding
@@ -119,12 +119,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> Standard ServicePartitionResolver förutsätter att klienten körs i samma kluster som för tjänsten. Om det inte är fallet, skapa ett ServicePartitionResolver-objekt och ange klustret anslutningens slutpunkter.
+> Standard ServicePartitionResolver förutsätter att klienten körs i samma kluster som tjänsten. Om det inte är fallet, kan du skapa ett ServicePartitionResolver-objekt och skicka in klusterslutpunkter för anslutningen.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Fjärrproceduranrop med Reliable Services fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Att säkra kommunikationen för Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
+* [Fjärrproceduranrop med Reliable Services-fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
+* [Webb-API med OWIN Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Säker kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

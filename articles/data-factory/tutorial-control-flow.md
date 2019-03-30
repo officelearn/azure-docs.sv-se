@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551644"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649228"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
+
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas vill du skicka information om den lyckade åtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas vill du skicka information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
 
 En översikt på hög nivå över scenariot: ![Översikt](media/tutorial-control-flow/overview.png)
@@ -56,6 +57,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     John|Doe
     Jane|Doe
     ```
+
 2. Använd verktyg som till exempel [Azure Storage Explorer](https://storageexplorer.com/) till att skapa containern **adfv2branch** och för att ladda upp filen **input.txt** till containern.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt
@@ -73,7 +75,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2015/2017.
 1. Klicka på **Verktyg** -> **NuGet Package Manager** -> **Package Manager Console**.
 2. Kör följande kommandon i **Package Manager Console** för att installera paket. Referera till [Microsoft.Azure.Management.DataFactory-nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) med information.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -139,6 +141,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2015/2017.
     ```
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
+
 Skapa en ”CreateOrUpdateDataFactory”-funktion i filen Program.cs:
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
+
 Skapa en ”StorageLinkedServiceDefinition”-funktion i filen Program.cs:
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**. Mer information om vilka egenskaper som stöds finns i avsnittet om [länkade tjänstegenskaper för Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties).
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 I det här avsnittet skapar du två datauppsättningar: en för källan och en för mottagaren. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Skapa en datauppsättning för Azure Blob-källan
+
 Lägg till följande kod i **Main**-metoden som skapar en **Azure-blobdatauppsättning**. Mer information om vilka egenskaper som stöds finns i avsnittet om [egenskaper för Azure-blobdatauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg. Den beskriver:
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>Skapa en C#-klass: EmailRequest
+
 Skapa en klass med namnet **EmailRequest** i C#-projektet. Detta definierar vilka egenskaper pipelinen skickar i brödtexten i begäran när du skickar ett e-postmeddelande. I den här självstudiekursen skickar pipelinen fyra egenskaper från pipelinen till e-postmeddelandet:
 
 - **Meddelande**: e-postmeddelandets brödtext. Vid en lyckad kopiering innehåller egenskapen information om körningen (antal data som skrivits). Vid en misslyckad kopiering innehåller egenskapen information om felet.
@@ -289,10 +296,13 @@ Skapa en klass med namnet **EmailRequest** i C#-projektet. Detta definierar vilk
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>Skapa slutpunkter för e-postarbetsflödet
+
 För att utlösa utskicket av ett e-postmeddelande använder du [Logic Apps](../logic-apps/logic-apps-overview.md) för att definiera arbetsflödet. Mer information om hur du skapar ett Logic App-arbetsflöde finns i [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Lyckat e-postarbetsflöde 
+
 Skapa ett Logic App-arbetsflöde med namnet `CopySuccessEmail`. Definiera arbetsflödesutlösaren som `When an HTTP request is received`, och lägg till en `Office 365 Outlook – Send an email`-åtgärd.
 
 ![Lyckat e-postarbetsflöde](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ För begärandeutlösaren fyller du i `Request Body JSON Schema` med följande J
     "type": "object"
 }
 ```
+
 Detta ligger i linje med klassen **EmailRequest** som du skapade i föregående avsnitt. 
 
 Din begäran ska se ut så här i Logic App Designer:
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Arbetsflöde för e-postmeddelande om misslyckad kopiering 
+
 Klona **CopySuccessEmail** och skapa ett till Logic Apps-arbetsflöde för **CopyFailEmail**. `Request Body JSON schema` är samma i begärandeutlösaren. Ändra formatet för ditt e-postmeddelande som `Subject` för att skapa ett e-postmeddelande om att kopieringen misslyckats. Här är ett exempel:
 
 ![Logic App Designer – arbetsflöde för e-postmeddelande om misslyckad kopiering](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
+
 Lägg till följande kod i Main-metoden som skapar en pipeline med en kopieringsaktivitet och egenskapen dependsOn. I den här självstudiekursen innehåller pipelinen en aktivitet: kopieringsaktiviteten, vilken tar Blob-datauppsättningen som en källa och en annan Blob-datauppsättning som mottagare. När kopieringsaktiviteten lyckas eller misslyckas anropas olika e-poståtgärder.
 
 I denna pipeline kan du använda följande funktioner:
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 Lägg till följande kod för att skapa pipelinen i **Main**-metoden:
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>Parametrar
+
 Den första delen av pipelinen definierar parametrar. 
 
 - sourceBlobContainer – parameter i pipelinen som används av blob-datauppsättningen för källan.
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>Webbaktivitet
+
 Webbaktiviteten tillåter anrop till valfri REST-slutpunkt. Mer information om aktiviteten finns i [Webbaktivitet](control-flow-web-activity.md). Denna pipeline använder en webbaktivitet för att anropa Logic Apps arbetsflöde för e-post. Du skapar två webbaktiviteter: en som anropar **CopySuccessEmail**-arbetsflödet och en som anropar **CopyFailWorkFlow**.
 
 ```csharp
@@ -481,6 +500,7 @@ Webbaktiviteten tillåter anrop till valfri REST-slutpunkt. Mer information om a
             }
         }
 ```
+
 I URL-egenskapen klistrar du in URL för begärandeslutpunkterna från ditt Logic Apps-arbetsflöde. I textegenskapen skickar du en instans av klassen EmailRequest. E-postbegäran innehåller följande egenskaper:
 
 - Meddelande – skicka värdet `@{activity('CopyBlobtoBlob').output.dataWritten`. Hämtar en egenskap för den tidigare kopieringsaktiviteten och skickar värdet för dataWritten. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
@@ -491,6 +511,7 @@ I URL-egenskapen klistrar du in URL för begärandeslutpunkterna från ditt Logi
 Med den här koden skapas ett nytt aktivitetsberoende, beroende på den föregående kopieringsaktiviteten.
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
+
 Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Main-klass 
+
 Din sista Main-metod bör se ut så här. Skapa och kör programmet för att utlösa en pipelinekörning!
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Övervaka en pipelinekörning
+
 1. Lägg till följande kod i **Main**-metoden för att kontinuerligt kontrollera status för pipelinekörningen tills den har slutat att kopiera data.
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>Kör koden
+
 Skapa och starta programmet och kontrollera sedan pipelinekörningen.
 Konsolen skriver ut förloppet för skapandet av datafabriken, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Sedan kontrolleras status för pipelinekörningen. Vänta tills du ser information om körningen av kopieringsaktiviteten med storlek för lästa/skrivna data. Använd sedan verktyg som Azure Storage Explorer för att kontrollera de blob(ar) som kopierats till outputBlobPath från inputBlobPath som du angav i variablerna.
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudien har du fått: 
 
 > [!div class="checklist"]

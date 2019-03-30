@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445831"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651516"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -38,7 +38,7 @@ Den **ClaimsTransformation** elementet innehåller följande attribut:
 | Attribut |Krävs | Beskrivning |
 | --------- |-------- | ----------- |
 | Id |Ja | En identifierare som används för att unikt identifiera anspråksomvandling. Identifieraren refereras från andra XML-element i principen. |
-| TransformationMethod | Ja | Transformering metoden att använda den omvandling av anspråk. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#Claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
+| TransformationMethod | Ja | Transformering metoden att använda den omvandling av anspråk. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -80,7 +80,7 @@ Den **InputClaim** elementet innehåller följande attribut:
 | Attribut |Krävs | Beskrivning |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Ja | En referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema i principen. |
-| TransformationClaimType |Ja | En identifierare för att referera till en transformation Anspråkstypen. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#Claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
+| TransformationClaimType |Ja | En identifierare för att referera till en transformation Anspråkstypen. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -95,7 +95,7 @@ Den **indataparametrar** elementet innehåller följande element:
 | Attribut | Krävs |Beskrivning |
 | --------- | ----------- |----------- |
 | Id | Ja | En identifierare som är en referens till en parameter för metoden anspråk omvandling. Varje metod för omvandling av anspråk har en egen uppsättning egenskapsvärden. Finns i tabellen för omvandling av anspråk för en fullständig lista över de tillgängliga värdena. |
-| Datatyp | Ja | Vilken typ av data för parametern, till exempel sträng, Boolean, Int eller datum/tid enligt uppräkningen DataType i anpassad princip för XML-schema. Den här typen används för att utföra aritmetiska åtgärder på rätt sätt. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#Claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
+| Datatyp | Ja | Vilken typ av data för parametern, till exempel sträng, Boolean, Int eller datum/tid enligt uppräkningen DataType i anpassad princip för XML-schema. Den här typen används för att utföra aritmetiska åtgärder på rätt sätt. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
 | Värde | Ja | Ett värde som skickades ordagrant till transformeringen. Vissa av värdena är valfri, några av dem du välja från metoden anspråk omvandling. |
 
 ### <a name="outputclaims"></a>OutputClaims
@@ -113,7 +113,7 @@ Den **OutputClaim** elementet innehåller följande attribut:
 | Attribut |Krävs | Beskrivning |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Ja | En referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema i principen.
-| TransformationClaimType | Ja | En identifierare för att referera till en transformation Anspråkstypen. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#Claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
+| TransformationClaimType | Ja | En identifierare för att referera till en transformation Anspråkstypen. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
  
 Om inkommande anspråk och utdata-anspråket är samma typ (sträng eller booleskt värde), kan du använda samma inkommande anspråk som utdata-anspråket. I det här fallet ändrar anspråkstransformering inkommande anspråk med värdet.
 

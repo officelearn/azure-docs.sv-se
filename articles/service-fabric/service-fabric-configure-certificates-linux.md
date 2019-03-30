@@ -4,7 +4,7 @@ description: Konfigurera certifikat för din app med Service Fabric-körningen p
 services: service-fabric
 documentationcenter: NA
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 503b0dffa00c6cba973f4bc51d8e3b2f3a7b8c57
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c0580b75544a9613bc8caf2faaac11ba1ba6708e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200419"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667148"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certifikat och säkerhet i Linux-kluster
 
@@ -72,7 +72,7 @@ I följande XML-visas en **TransportSettings** avsnitt baserat på det här form
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>Med hjälp av X509_2 SecurityCredentialsType
+### <a name="using-x5092-securitycredentialstype"></a>Using X509_2 SecurityCredentialsType
 
 Med Java-SDK kan du ange **X509_2** för den **SecurityCredentialsType**. Detta motsvarar den `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) typ av `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 

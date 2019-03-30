@@ -3,8 +3,8 @@ title: Kör en Azure Service Fabric-tjänst under system- och lokala säkerhetsk
 description: Lär dig mer om att köra ett Service Fabric-program under system- och lokala säkerhetskonton.  Skapa säkerhetsobjekt och tillämpa kör som-principen för att köra dina tjänster på ett säkert sätt.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
-ms.openlocfilehash: f454ec7805db0a79f9346f252809c9d7f6869734
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 28cd1162d7cae2b3a16062bdf18a2971e1f05aad
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871019"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664445"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Köra tjänster som ett lokalt användarkonto eller kontot Lokalt system
 Med hjälp av Azure Service Fabric kan skydda du program som körs i klustret under olika användarkonton. Service Fabric-program körs under kontot som Fabric.exe processen körs under som standard. Service Fabric ger också möjlighet att köra program under ett lokalt konto för användaren eller systemet. Typer av lokala system som stöds är **Lokalanvändare**, **NetworkService**, **LocalService**, och **LocalSystem**.  Om du använder Service Fabric på ett fristående kluster för Windows, kan du köra en tjänst under [Active Directory-domänkonton](service-fabric-run-service-as-ad-user-or-group.md) eller [gruppen hanterade tjänstkonton](service-fabric-run-service-as-gmsa.md).

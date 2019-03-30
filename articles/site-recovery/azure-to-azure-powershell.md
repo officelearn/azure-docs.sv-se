@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869419"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652084"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 Fabric-objektet i valvet representerar en Azure-region. Primär fabric-objektet har skapats för att representera den Azure-region som virtuella datorer som skyddas i valvet tillhör. I det här exemplet i den här artikeln är den virtuella datorn som skyddas i regionen östra USA.
 
-- Bara en infrastrukturresurs objekt kan skapas per region. 
+- Bara en infrastrukturresurs objekt kan skapas per region.
 - Om du redan har aktiverat Site Recovery-replikering för en virtuell dator i Azure-portalen, skapar Site Recovery en fabric-objektet automatiskt. Om det finns ett fabric-objekt för en region, kan du inte skapa en ny.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>Återaktivering av skydd och återställning efter fel till källregionen
+
 Starta omvänd replikering för det replikeringsskyddade objektet med hjälp av cmdleten Update AzureRmRecoveryServicesAsrProtectionDirection efter en redundansväxling när du är redo att gå tillbaka till den ursprungliga regionen.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+När återaktiveringen av skyddet har slutförts, kan du initiera redundans i omvänd riktning (västra USA till östra USA) och växla tillbaka till källregionen.
 
 ## <a name="next-steps"></a>Nästa steg
 Visa den [referens för Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) att lära dig hur du kan utföra andra uppgifter som att skapa Återställningsplaner och testa redundans för återställningsplan via PowerShell.

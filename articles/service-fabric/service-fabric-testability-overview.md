@@ -4,7 +4,7 @@ description: Den här artikeln beskriver Fault Analysis Service i Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425246"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662361"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till Fault Analysis Service
 Fault Analysis Service har utformats för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med Fault Analysis Service du medföra meningsfulla fel och köra fullständig testscenarier mot dina program. Dessa fel och scenarier utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under hela dess livslängd i en kontrollerad, säker och konsekvent sätt.
@@ -46,9 +46,9 @@ När ett fel åtgärd eller test-scenario initieras, skickas ett kommando till F
 ## <a name="testing-distributed-systems"></a>Testa distribuerade system
 Service Fabric gör jobbet med skriva och hantera distribuerade skalbara program som är betydligt enklare. Fault Analysis Service gör att du testar ett distribuerat program på samma sätt enklare. Det finns tre huvudsakliga problem som behöver lösas vid testning:
 
-1. Simulera/genererar fel som kan uppstå i verkliga scenarier: en av de viktiga delarna av Service Fabric är att den kan distribuerade program efter olika fel. Om du vill testa att programmet ska kunna återställa från de här felen, måste vi dock en mekanism för att simulera/generera dessa verkliga fel i en kontrollerad testmiljö.
-1. Möjligheten att generera korrelerade fel: grundläggande fel i systemet, till exempel nätverksfel och datorn fel är enkla att skapa individuellt. Genererar ett stort antal scenarier som kan ske i verkligheten till följd av interaktion mellan dessa enskilda fel är icke-trivialt.
-1. Enhetlig upplevelse över olika nivåer av utveckling och distribution: det finns många fault injection system som kan utföra olika typer av fel. Upplevelse i alla dessa är dålig när du flyttar från en utvecklare scenarier, till samma tester som körs i stora testmiljöer, kan användas för test i produktion.
+1. Simulera/genererar fel som kan uppstå i verkliga scenarier: En av de viktiga delarna av Service Fabric är att den kan distribuerade program efter olika fel. Om du vill testa att programmet ska kunna återställa från de här felen, måste vi dock en mekanism för att simulera/generera dessa verkliga fel i en kontrollerad testmiljö.
+1. Du kan generera korrelerade fel: Grundläggande fel i systemet, till exempel nätverksfel och datorn fel är enkla att skapa individuellt. Genererar ett stort antal scenarier som kan ske i verkligheten till följd av interaktion mellan dessa enskilda fel är icke-trivialt.
+1. Enhetlig upplevelse över olika nivåer av utveckling och distribution: Det finns många fault injection system som kan utföra olika typer av fel. Upplevelse i alla dessa är dålig när du flyttar från en utvecklare scenarier, till samma tester som körs i stora testmiljöer, kan användas för test i produktion.
 
 Det finns många sätt att lösa dessa problem, ett system som gör samma sak med nödvändiga garantier--hela vägen från en miljö med en ruta developer, testa i produktionskluster – saknas. Fault Analysis Service hjälper programutvecklare koncentrera dig på Testa sina affärslogik. Fault Analysis Service innehåller alla funktioner som behövs för att testa interaktionen för tjänsten med det underliggande distribuerade systemet.
 

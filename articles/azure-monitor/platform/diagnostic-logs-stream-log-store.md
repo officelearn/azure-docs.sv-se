@@ -1,6 +1,6 @@
 ---
-title: Stream Azure diagnostikloggar till Log Analytics
-description: Lär dig mer om att strömma Azure diagnostikloggar till Log Analytics-arbetsytan.
+title: Stream, Azure-diagnostikloggar till Log Analytics-arbetsyta i Azure Monitor
+description: Lär dig mer om att strömma Azure diagnostikloggar till Log Analytics-arbetsytan i Azure Monitor.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351575"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630793"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream, Azure-diagnostikloggar till Log Analytics-arbetsyta i Azure Monitor
 
-**[Azure diagnostikloggar](diagnostic-logs-overview.md)**  kan strömmas i nära realtid till Azure Log Analytics-portalen, PowerShell-cmdletar eller Azure CLI.
+**[Azure diagnostikloggar](diagnostic-logs-overview.md)**  kan strömmas i nära realtid till en Log Analytics-arbetsyta i Azure Monitor med portalen, PowerShell-cmdletar eller Azure CLI.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Vad du kan göra med diagnostik loggar i Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Vad du kan göra med diagnostik loggar i en Log Analytics-arbetsyta
 
-Azure Log Analytics är en flexibel sökning och analys loggverktyget som hjälper dig att få insyn i obearbetad data som genereras från Azure-resurser. Vissa funktioner är följande:
+Azure Monitor innehåller ett flexibelt log frågor och analys-verktyg som hjälper dig att få insyn i obearbetad data som genereras från Azure-resurser. Vissa funktioner är följande:
 
-* **Loggsökning** -skrivning avancerade frågor över dina loggdata, korrelera loggar från olika källor, och även generera diagram som kan fästas på instrumentpanelen i Azure.
-* **Aviseringar** – identifiera när en eller flera händelser som matchar en viss fråga och få ett meddelande med en e-post eller webhook-anrop.
-* **Lösningar** -använda fördefinierade vyer och instrumentpaneler som ger dig omedelbar insyn i dina loggdata.
+* **Loggfråga** -skrivning avancerade frågor över dina loggdata, korrelera loggar från olika källor och skapa diagram som kan fästas på instrumentpanelen i Azure.
+* **Aviseringar** – identifiera när en eller flera händelser som matchar en viss fråga och få ett meddelande med en e-post eller webhook-anrop med hjälp av Azure Monitor-aviseringar.
 * **Avancerade analyser** – Använd maskininlärning och mönstret matchande algoritmer för att identifiera eventuella problem som visas med dina loggar.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Kunna strömma diagnostikloggar till Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Kunna strömma diagnostikloggar till Log Analytics-arbetsyta
 
 Du kan aktivera strömning av diagnostikloggar programmässigt, via portalen, eller med hjälp av den [Azure Monitor REST API: er](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställning i som du anger en Log Analytics-arbetsyta och loggkategorier och mått som du vill skicka i till arbetsytan. En diagnostik **loggkategori** är en typ av logg som en resurs kan ge.
 
@@ -42,9 +41,8 @@ Log Analytics-arbetsytan behöver inte finnas i samma prenumeration som resursen
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Stream diagnostikloggar med hjälp av portalen
-1. I portalen, gå till Azure Monitor och klicka på **diagnostikinställningar**
+1. I portalen, gå till Azure Monitor och klicka på **diagnostikinställningar** i den **inställningar** menyn.
 
-    ![Avsnittet av Azure Monitor övervakning](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Du kan också filtrera listan efter resursgruppen eller resursen. Klicka sedan på den resurs som du vill ange en diagnostikinställning.
 
@@ -97,9 +95,9 @@ Du kan lägga till ytterligare kategorier diagnostikloggen genom att lägga till
 
 Den `--resource-group` argumentet är bara krävs om `--workspace` är inte ett objekt-ID.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hur jag för att fråga data i Log Analytics?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Hur jag för att fråga efter data från en Log Analytics-arbetsyta?
 
-På bladet Loggsökning i portalen eller Advanced Analytics-upplevelse som en del av Log Analytics kan du fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics. Det finns även [flera lösningar för Azure-resurser](../../azure-monitor/insights/solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Log Analytics.
+Du kan fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics i bladet loggar i Azure Monitor-portalen. Det finns även [flera övervakningslösningar för Azure-resurser](../../azure-monitor/insights/solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Azure Monitor.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Känd begränsning: kolumngräns i AzureDiagnostics
 Eftersom många resurser skicka datatyper skickas till samma tabell (_AzureDiagnostics_), schemat för den här tabellen är en uppsättning scheman för alla de olika datatyper som samlas in. Till exempel om du har skapat diagnostikinställningar för insamling av följande datatyper som alla skickas till samma arbetsyta:

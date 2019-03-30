@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521473"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661794"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -39,7 +39,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 >
 > Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
 > [!NOTE]
-> Det här avsnittet gäller för Azure SQL Database-servrar som är värd för enkla databaser och elastiska pooler och SQL Data Warehouse-databaser. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Det här avsnittet gäller för Azure SQL Database-servrar som är värd för enkla databaser och elastiska pooler, SQL Data Warehouse-databaser, Azure Database for MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL. För enkelhetens skull används SQL-databas när du refererar till SQL Database, SQL Data Warehouse, Azure Database för MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 

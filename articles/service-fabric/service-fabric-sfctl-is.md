@@ -4,7 +4,7 @@ description: Beskriver Service Fabric CLI sfctl är kommandon.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276340"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661606"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Fråga efter och skicka kommandon till tjänsten infrastruktur.
@@ -44,11 +44,11 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 | --service-id | Identiteten för infrastruktur-tjänst. <br><br> Det här är det fullständiga namnet på tjänsten infrastruktur utan att den ”fabric\:” URI-schema. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -67,11 +67,11 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 | --service-id | Identiteten för infrastruktur-tjänst. <br><br> Det här är det fullständiga namnet på tjänsten infrastruktur utan att den ”fabric\:” URI-schema. Den här parametern krävs endast för det kluster som har mer än en instans av infrastruktur-tjänsten körs. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

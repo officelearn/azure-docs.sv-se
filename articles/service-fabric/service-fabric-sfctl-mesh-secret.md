@@ -4,7 +4,7 @@ description: Beskriver de hemliga kommandona för Service Fabric CLI sfctl nät.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e2dc9f815fc578bbe1f01b6b64327ccf23a1aebb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: acc5862a8794da4fde991025eacfcccf6e16916a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285132"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661215"
 ---
-# <a name="sfctl-mesh-secret"></a>sfctl nät hemlighet
+# <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Hämta och ta bort nät hemliga resurser.
 
 ## <a name="commands"></a>Kommandon
@@ -30,7 +30,7 @@ Hämta och ta bort nät hemliga resurser.
 | --- | --- |
 | delete | Tar bort den hemliga resursen. |
 | lista | Visar en lista över alla hemliga resurser. |
-| Visa | Hämtar den hemliga resursen med det angivna namnet. |
+| visa | Hämtar den hemliga resursen med det angivna namnet. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl nät secret delete
 Tar bort den hemliga resursen.
@@ -43,11 +43,11 @@ Tar bort den angivna hemliga resursen och alla dess namngivna värden.
 | --- | --- |
 | --name -n [krävs] | Namnet på hemligheten. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -58,11 +58,11 @@ Visar en lista över alla hemliga resurser.
 
 Hämtar information om alla hemliga resurser i en viss resursgrupp. Informationen omfattar beskrivningen och andra egenskaper för hemlighet.
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -79,11 +79,11 @@ Hämtar information om den hemliga resursen med det angivna namnet. Informatione
 | --- | --- |
 | --name -n [krävs] | Namnet på hemligheten. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

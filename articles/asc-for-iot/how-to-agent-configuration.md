@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580710"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649381"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudier: Konfigurera säkerhetsagenter
 
@@ -42,7 +42,7 @@ ASC för Iot's security agent twin konfigurationsobjekt är ett .json format-obj
 
 De här konfigurationerna hjälper dig att anpassa agenten för varje scenario som krävs. Exempelvis är automatiskt exkludera vissa händelser eller behålla energiförbrukningen så möjligt genom att konfigurera dessa egenskaper.  
 
-Använd ASC för agentkonfiguration för IoT-säkerhet [schemat](https://github.com/azure/asc-for-iot-schemas/security/module/twin) att göra ändringar.  
+Använd ASC för agentkonfiguration för IoT-säkerhet [schemat](https://aka.ms/iot-security-github-module-schema) att göra ändringar.  
 
 ## <a name="configuration-objects"></a>Konfigurationsobjekt 
 
@@ -64,7 +64,7 @@ Agenten startar inte om konfigurationsobjektet inte stämmer överens med schema
 
 ## <a name="configuration-schema-and-validation"></a>Konfigurationsschemat och validering 
 
-Se till att validera konfigurationen av agenten mot detta [schemat](https://github.com/Azure/asc-for-iot/schema/security_module_twin). En agent startar inte om konfigurationsobjektet inte stämmer överens med schemat.
+Se till att validera konfigurationen av agenten mot detta [schemat](https://aka.ms/iot-security-github-module-schema). En agent startar inte om konfigurationsobjektet inte stämmer överens med schemat.
 
  
 Om medan agenten körs ändras konfigurationsobjektet till en ogiltiga konfiguration (konfigurationen inte matchar schemat), kommer att ignorera ogiltig konfiguration av agenten och kommer att fortsätta använda den aktuella konfigurationen. 

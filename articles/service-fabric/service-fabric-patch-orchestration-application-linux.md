@@ -4,7 +4,7 @@ description: Programmet att automatisera uppdatering av operativsystemet på ett
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285160"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668202"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Uppdatera operativsystemet Linux i Service Fabric-klustret
 
@@ -41,13 +41,13 @@ Patch orchestration appen tillhandahåller följande funktioner:
 
 Appen patch orchestration består av följande delkomponenter:
 
-- **Tjänsten Coordinator**: den här tillståndskänsliga tjänsten ansvarar för att:
+- **Tjänsten Coordinator**: Den här tillståndskänsliga tjänsten ansvarar för att:
     - Samordna OS Uppdateringsjobbet på hela klustret.
     - Lagra resultatet av slutförda åtgärder för uppdatering av operativsystem.
-- **Nod-agenttjänsten**: den tillståndslösa tjänsten körs på alla noder i Service Fabric-klustret. Tjänsten är ansvarig för:
+- **Nod-agenttjänsten**: Den tillståndslösa tjänsten körs på alla noder i Service Fabric. Tjänsten är ansvarig för:
     - Startprogram för Nodagentens daemon på Linux.
     - Övervaka tjänsten daemon.
-- **Daemon för nod-agenten**: den här Linux-daemon-tjänst körs på en högre nivå behörighet (rot). Däremot körs Node Agent-tjänsten och Coordinator-tjänsten vid privilegium på lägre nivå. Tjänsten ansvarar för att utföra följande uppdateringsjobb på alla noder i klustret:
+- **Daemon för nod-agenten**: Den här Linux-daemon-tjänsten körs på en högre nivå behörighet (rot). Däremot körs Node Agent-tjänsten och Coordinator-tjänsten vid privilegium på lägre nivå. Tjänsten ansvarar för att utföra följande uppdateringsjobb på alla noder i klustret:
     - Inaktivera automatisk uppdatering av operativsystem på noden.
     - Hämta och installera uppdatering av operativsystem enligt principen har användaren har angett.
     - Startar om datorn efter installationen av OS-uppdateringen om det behövs.
@@ -130,11 +130,11 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 |**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal resultat för uppdatering, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Uppdateringarna är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Uppdateringarna är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för uppdatering.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Uppdateringarna är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Uppdateringarna är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för uppdatering.)
 | UpdateOperationTimeOutInMinutes | Int <br>(Standard: 180)                   | Anger tidsgränsen för uppdateringen åtgärder (ladda ned eller installera). Om åtgärden inte har slutförts inom den angivna tidsgränsen, avbryts.       |
-| RescheduleCount      | Int <br> (Standard: 5).                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om Operativsystemet.          |
-| RescheduleTimeInMinutes  | Int <br>(Standard: 30). | Intervallet då tjänsten schemalägger om Operativsystemet uppdatera om felet kvarstår. |
-| UpdateFrequency           | Kommaseparerad sträng (standard: ”varje vecka, Onsdag 7:00:00”)     | Frekvensen för att installera uppdateringar av Operativsystemet på klustret. Format och möjliga värden är: <br>-Månads-, DD,: mm: ss, till exempel varje månad, 5, 12:22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att update inte bör göras.  <br><br> Hela tiden är i UTC.|
+| RescheduleCount      | Int <br> (Standard: 5)                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om Operativsystemet.          |
+| RescheduleTimeInMinutes  | Int <br>(Standard: 30) | Intervallet då tjänsten schemalägger om Operativsystemet uppdatera om felet kvarstår. |
+| UpdateFrequency           | Kommaseparerad sträng (standard: ”Vecka, Onsdag 7:00:00”)     | Frekvensen för att installera uppdateringar av Operativsystemet på klustret. Format och möjliga värden är: <br>-Månads-, DD,: mm: ss, till exempel varje månad, 5, 12:22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att update inte bör göras.  <br><br> Hela tiden är i UTC.|
 | UpdateClassification | Kommaseparerad sträng (standard: ”securityupdates”) | Typ av uppdateringar som ska installeras på noderna i klustret. Godkända värden är securityupdates, alla. <br> -securityupdates - installeras endast säkerhetsuppdateringar <br> -alla - skulle installera alla tillgängliga uppdateringar från apt.|
 | ApprovedPatches | Kommaseparerad sträng (standard ”:”) | Det här är listan över godkända uppdateringar som ska installeras på klusternoderna. Kommaavgränsad lista innehåller godkända paket och du kan också önskat målversion.<br> till exempel ”: apt utils = 1.2.10ubuntu1, python3 jwt, apt transport https < 1.2.194, libsystemd0 > = 229 4ubuntu16” <br> Ovanstående installeras <br> -apt utils med version 1.2.10ubuntu1 om den är tillgänglig i apt-cache. Om den här specifika versionen är inte tillgänglig, är det en icke-alternativ. <br> -python3 jwt-uppgraderingar till senast tillgängliga versionen. Om paketet inte är tillgänglig, är det en icke-alternativ. <br> -apt-transport-https-uppgraderingar på högsta version som är mindre än 1.2.194. Om den här versionen inte är tillgänglig, är det en icke-alternativ. <br> -libsystemd0 uppgraderingar till högsta version som är större än lika med 229 4ubuntu16. Om en sådan version inte finns, är det en icke-alternativ.|
 | RejectedPatches | Kommaseparerad sträng (standard ”:”) | Det här är listan över uppdateringar som inte ska installeras på noderna i klustret <br> till exempel: ”bash, sudo” <br> Föregående filtrerar ut bash, sudo från att ta emot uppdateringar. |
@@ -223,7 +223,7 @@ Fält | Värden | Information
 -- | -- | --
 OperationResult | 0 – lyckades<br> 1 – slutfördes med fel<br> 2 – misslyckades<br> 3 – avbröts<br> 4 – avbröts med tidsgräns | Visar resultatet av övergripande åtgärden (vanligtvis som rör installation av en eller flera uppdateringar).
 Resultatkod | Samma som OperationResult | Det här fältet visar resultatet av installationen igen för en enskild uppdatering.
-Åtgärdstyp | 1 – installation<br> 0 – Sök efter och ladda ned.| Installationen är den enda OperationType som visas i resultaten som standard.
+OperationType | 1 – installation<br> 0 – Sök efter och ladda ned.| Installationen är den enda OperationType som visas i resultaten som standard.
 UpdateClassification | Standardvärdet är ”securityupdates” | Typ av uppdateringar som installeras under uppdateringen
 UpdateFrequency | Standardvärdet är ”varje vecka, Onsdag 7:00:00” | Uppdatera frekvens som konfigurerats för den här uppdateringen.
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger en omstart krävdes för att slutföra installationen av uppdateringar.
@@ -305,7 +305,7 @@ A. Den tid som krävs av patch orchestration appen beror huvudsakligen på följ
 
 F. **Hur gör patch orchestration app avgör vilka uppdateringar finns säkerhetsuppdateringar.**
 
-A. Patch orchestration appen använder distribution-specifik logik för att bestämma vilka uppdateringar bland de tillgängliga uppdateringarna som säkerhetsuppdateringar. Till exempel: I ubuntu appen söker efter uppdateringar från Arkiv $RELEASE-säkerhet, $RELEASE-uppdateringar ($RELEASE = xenial eller linux standard grundläggande slutversionen). 
+A. Patch orchestration appen använder distribution-specifik logik för att bestämma vilka uppdateringar bland de tillgängliga uppdateringarna som säkerhetsuppdateringar. Exempel: I ubuntu appen söker efter uppdateringar från Arkiv $RELEASE-säkerhet, $RELEASE-uppdateringar ($RELEASE = xenial eller linux standard grundläggande slutversionen). 
 
  
 F. **Hur kan jag för att låsa in på en specifik version av paketet?**

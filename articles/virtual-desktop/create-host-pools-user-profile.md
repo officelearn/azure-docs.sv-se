@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403722"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628987"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användare profil resurs för en värd-pool
+# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användarprofilresurs för en värdpool
 
 Windows Virtual Desktop förhandsversionen av tjänsten erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte lösningen användarens profil Disk (UPD) och upphör att gälla i framtida versioner av virtuella Windows-skrivbordet.
 
-Det här avsnittet kommer berättar hur du ställer in en resurs FSLogix profil behållare för en värd-pool.
+Det här avsnittet kommer berättar hur du ställer in en resurs FSLogix profil behållare för en värd-pool. Allmän dokumentation om FSLogix finns i den [FSLogix plats](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Skapa en ny virtuell dator som fungerar som en filresurs
 
@@ -48,14 +48,14 @@ Här följer allmänna instruktioner om hur du förbereder en virtuell dator att
 6. Söker du efter gruppen som du har lagt till de session virtuella datorerna och kontrollera att gruppen har **fullständig kontroll**.
 7. När du lägger till säkerhetsgruppen, högerklicka på mappen, Välj **egenskaper**väljer **delning**, kopiera sedan ned den **nätverkssökvägen** ska användas för senare.
 
-Bästa metoder för behörigheter finns i följande [FSLogix dokumentation](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Mer information om behörigheter finns i den [FSLogix dokumentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Konfigurera behållaren FSLogix profil
 
 För att konfigurera de virtuella datorerna med FSLogix-programvara, gör du följande på varje dator som är registrerad till poolen värden:
 
 1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
-2. Starta en webbläsare och gå till följande [länk](https://go.microsoft.com/fwlink/?linkid=2084562) att hämta FSLogix-agenten. Som en del av den offentliga förhandsversionen av virtuella Windows-skrivbordet får du en licensnyckel för att aktivera FSLogix programvaran. Nyckeln är LicenseKey.txt-filen som ingår i ZIP-filen FSLogix agent.
+2. Starta en webbläsare och gå till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) att hämta FSLogix-agenten. Som en del av den offentliga förhandsversionen av virtuella Windows-skrivbordet får du en licensnyckel för att aktivera FSLogix programvaran. Nyckeln är LicenseKey.txt-filen som ingår i ZIP-filen FSLogix agent.
 3. Installera agenten FSLogix.
 4. Gå till **programfiler** > **FSLogix** > **appar** att bekräfta att agenten installerad.
 5. Kör från start-menyn **RegEdit** som administratör. Gå till **datorn\\HKEY_LOCAL_MACHINE\\programvara\\FSLogix\\profiler**

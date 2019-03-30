@@ -4,7 +4,7 @@ description: Beskriver sfctl store-kommandon för Service Fabric CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 65dcceb2e55ec0927630b32670d2f915a01903bf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275235"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667955"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Utföra grundläggande nivå filåtgärder på avbildningsarkivet kluster.
@@ -29,7 +29,7 @@ Utföra grundläggande nivå filåtgärder på avbildningsarkivet kluster.
 |Kommando|Beskrivning|
 | --- | --- |
 | delete | Tar bort befintliga bild lagra innehållet. |
-| rot-info | Hämtar innehållsinformationen i avbildningsarkivet roten. |
+| root-info | Hämtar innehållsinformationen i avbildningsarkivet roten. |
 | stat | Hämtar innehåll bildinformation store. |
 
 ## <a name="sfctl-store-delete"></a>sfctl store delete
@@ -44,11 +44,11 @@ Tar bort befintliga store innehållet hittas inom den angivna avbildningen lagra
 | --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -65,11 +65,11 @@ Returnerar information om avbildningsarkivet innehåll i roten på avbildningsar
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -87,11 +87,11 @@ Returnerar information om store innehållet i på den angivna contentPath. Conte
 | --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

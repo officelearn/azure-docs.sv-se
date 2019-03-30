@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 49bc3c22eecf804e6930899478fe3be189677382
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630619"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -534,4 +534,4 @@ Om överföringen lyckas visas visas egenskaperna för den nyckel som du just la
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu använda den här HSM-skyddad nyckel i ditt nyckelvalv. Mer information finns i den **om du vill använda en maskinvarusäkerhetsmodul (HSM)** i avsnittet den [komma igång med Azure Key Vault](key-vault-overview.md) självstudien.
+Du kan nu använda den här HSM-skyddad nyckel i ditt nyckelvalv. Mer information finns i den här priser och funktioner [jämförelse](https://azure.microsoft.com/pricing/details/key-vault/).

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084089"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652339"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -43,7 +43,7 @@ Mer information finns i [Azure Active Directory-versioner](../fundamentals/activ
 
 ## <a name="publish-your-application-in-azure"></a>Publicera dina program i Azure
 
-Den här artikeln är avsedd för personer som publicerar en app med det här scenariot för första gången. Vi går igenom hur du kommer igång med både program- och PingAccess, utöver publicering stegen. Om du redan har konfigurerat båda tjänsterna, men du vill uppdatera dig om publicering stegen, kan du hoppa över kopplingsinstallationen av och gå vidare till [lägga till din app i Azure AD med Application Proxy](#add-your-app-to-Azure-AD-with-Application-Proxy).
+Den här artikeln är avsedd för personer som publicerar en app med det här scenariot för första gången. Vi går igenom hur du kommer igång med både program- och PingAccess, utöver publicering stegen. Om du redan har konfigurerat båda tjänsterna, men du vill uppdatera dig om publicering stegen, kan du hoppa över kopplingsinstallationen av och gå vidare till [lägga till din app i Azure AD med Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Eftersom det här scenariot är ett partnerskap mellan Azure AD och PingAccess, några av instruktionerna finns på webbplatsen Ping Identity.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962833"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651131"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klassrumslabb. Den också visar hur du visar alla klassrum-labb i ett labbkonto. 
@@ -32,14 +32,14 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 2. Välj **logga in**. Välj eller ange en **användar-ID** som är medlem av den **Labbskaparen** roll i laboratoriet kontot och ange lösenord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Utför följande i fönstret **Nytt labb**: 
     1. Ange ett **namn** på ditt labb. 
-    2. Ange maximal **antal virtuella datorer** i laboratoriet. Du kan öka eller minska antalet virtuella datorer i labbet senare. 
+    2. Ange maximalt **antal virtuella datorer** i labbet. Du kan öka eller minska antalet virtuella datorer i labbet senare. 
     6. Välj **Spara**.
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
-    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. 
+    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. För närvarande **små**, **medel**, **stora**, och **GPU** storlekar tillåts.
     2. Välj den **region** där du vill att de virtuella datorerna ska skapas. 
-    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. 
+    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. Om du väljer en Linux-avbildning, ser du ett alternativ för att aktivera anslutning till fjärrskrivbord för den. Mer information finns i [aktivera anslutning till fjärrskrivbord för Linux](how-to-enable-remote-desktop-linux.md).
     4. Välj **Nästa**.
 
         ![Ange VM-specifikationer](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Följande steg är valfria i den här självstudien: 
     1. Starta mallen för den virtuella datorn genom att välja **Starta**.
-    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
+    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en Linux VM-mallen kan välja du om du vill ansluta med SSH eller RDP (om RDP har aktiverats).
     3. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
     4. **Stoppa** den virtuella datorn.  
     5. Ange en **beskrivning** för mallen
@@ -103,7 +103,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     ![Välja labbet](../media/how-to-manage-classroom-labs/select-three-dots.png)
 2. Välj **Ta bort**. 
 
-    ![Ta bort knapp](../media/how-to-manage-classroom-labs/delete-button.png)
+    ![Knappen Ta bort](../media/how-to-manage-classroom-labs/delete-button.png)
 3. På den **Delete lab** dialogrutan **ta bort**. 
 
     ![Ta bort dialogrutan](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)

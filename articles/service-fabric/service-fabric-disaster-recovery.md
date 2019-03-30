@@ -4,7 +4,7 @@ description: Azure Service Fabric innehåller funktioner som är nödvändiga f�
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a95187cf00b92596e3674ad4cf4f0f578e47bd9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0804095a9e12e91d6b0fa88b626b006b78bdf3a5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098159"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670820"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveriberedskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver några vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Här beskrivs även åtgärder och åtgärder som ska vidtas om en katastrof har inträffat ändå. Målet är att begränsa eller eliminera risken för avbrott eller dataförluster när de uppstår fel, planerat eller i annat fall sker.

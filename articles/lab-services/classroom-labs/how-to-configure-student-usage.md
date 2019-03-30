@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181630"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650105"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Konfigurera inställningar och principer
 Den här artikeln beskriver hur du lägga till användare i labbet, hämta dem registrerad labbet, antalet timmar som de kan använda den virtuella datorn och mycket mer. 
@@ -44,14 +44,20 @@ Använd någon av följande metoder för att skicka registreringslänken för st
 Om den **begränsa åtkomsten** har aktiverats för labbet, endast användare i listan över användare som kan använda registreringslänken för att registrera till labbet. Det här alternativet är aktiverat som standard. 
 
 ### <a name="send-email-to-users"></a>Skicka e-post till användare
+Azure Lab Services tillåter lärare att e-labb inbjudningar till alla eller valda studenter utan att använda en annan e-postklient. Lärare kan hovra över enskilda student i listan för att se postikonen e-för varje elev eller välj en eller flera studenter och Använd **skicka inbjudan** i verktygsfältet. Den här funktionen skickar ett e-postmeddelande med en registreringslänk och ett meddelande (i förekommande fall) har lagts till av Lärarens. När inbjudan har skickats inbjudan tillståndet ändras till **inbjudan har skickats** så att lärare kan hålla reda på vilka studenter redan fått registreringslänken och det datum då den skickades.
+
 1. Växla till **användarvyn** om du inte är på sidan redan. 
-2. Välj specifika eller alla användare i listan. Välj specifika användare genom att markera kryssrutor i den första kolumnen i listan. För att välja alla användare, markerar du kryssrutan framför titeln på den första kolumnen (**namn**) eller markera alla kryssrutor för alla användare i listan.
-3. Välj **skicka inbjudan** i verktygsfältet. Du kan även hovra med musen över en student-namnet i listan och skicka e-postikonen. 
+2. Välj specifika eller alla användare i listan. Välj specifika användare genom att markera kryssrutor i den första kolumnen i listan. För att välja alla användare, markerar du kryssrutan framför titeln på den första kolumnen (**namn**) eller markera alla kryssrutor för alla användare i listan. Du kan se status för den **inbjudan tillstånd** i den här listan.  I följande bild, inbjudan-status för alla studenter är inställd på **inbjudan har inte skickats**. 
+
+    ![Välj elever](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Välj den **e-postikonen / kuvert-** i någon av raderna (eller) Välj **skicka inbjudan** i verktygsfältet. Du kan även hovra med musen över en Elevens namn i listan för att se postikonen e. 
 
     ![Skicka registreringslänk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
 4. På den **skicka registreringslänk via e-post** utför de här stegen: 
     1. Skriv ett **valfritt meddelande** som du vill skicka till elever. E-postmeddelandet innehåller den automatiskt registreringslänken. 
-    2. På den **skicka registreringslänk via e-post** väljer **skicka**. 
+    2. På den **skicka registreringslänk via e-post** väljer **skicka**. Du ser status för inbjudan ändrar till **skickar inbjudan** och sedan till **inbjudan har skickats**. 
+        
+        ![Inbjudningar som skickas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Hämta registreringslänk
 1. Växla till den **användare** genom att välja **användare** på den vänstra menyn. 

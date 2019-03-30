@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076283"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649660"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
@@ -101,7 +101,7 @@ Utdata är en JSON-objekt för alla slutpunkter som din hubb enheten och tjänst
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Lista över tillåtna enheter-slutpunkter för direktuppspelning
 
-Som vi redan nämnt [tidigare](#Overview), enheten skapar en utgående anslutning till slutpunkten för direktuppspelning av IoT Hub under enheten strömmar initiation process. Dina brandväggar på enheten eller nätverket måste tillåta utgående anslutning till strömmande gatewayen via port 443 (Observera att kommunikationen sker via en WebSocket-anslutning som har krypterats med TLS).
+Som vi redan nämnt [tidigare](#overview), enheten skapar en utgående anslutning till slutpunkten för direktuppspelning av IoT Hub under enheten strömmar initiation process. Dina brandväggar på enheten eller nätverket måste tillåta utgående anslutning till strömmande gatewayen via port 443 (Observera att kommunikationen sker via en WebSocket-anslutning som har krypterats med TLS).
 
 Värdnamnet för slutpunkten för direktuppspelning av enheten finns på Azure IoT Hub-portalen under fliken Översikt. ![Alternativ text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "enheten stream slutpunkter")
 

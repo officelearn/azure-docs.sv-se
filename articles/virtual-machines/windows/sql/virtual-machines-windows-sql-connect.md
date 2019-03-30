@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331392"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650861"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
@@ -138,7 +138,7 @@ I följande tabell visas kraven för att ansluta till SQL Server som körs i en 
 |---|---|
 | [Aktivera SQL Server-autentiseringsläget](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server-autentisering behövs för att ansluta till den virtuella datorn via en fjärranslutning om du har konfigurerat Active Directory i ett virtuellt nätverk. |
 | [Skapa en SQL-inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Om du använder SQL-autentisering, måste en SQL-inloggning med ett användarnamn och lösenord som också har behörighet till måldatabasen. |
-| [Aktivera TCP/IP-protokollet](#manualTCP) | SQL Server måste tillåta anslutningar via TCP. |
+| [Aktivera TCP/IP-protokollet](#manualtcp) | SQL Server måste tillåta anslutningar via TCP. |
 | [Aktivera brandväggsregel för SQL Server-port](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Brandväggen på den virtuella datorn måste tillåta inkommande trafik på SQL Server-porten (standard 1433). |
 | [Skapa en nätverkssäkerhetsgruppregel för TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Du måste tillåta den virtuella datorn ska ta emot trafik på SQL Server-porten (standard 1433) om du vill ansluta via internet. Lokala och virtuella nätverk-endast anslutningar kräver inte detta. Det här är det enda steg som krävs i Azure-portalen. |
 

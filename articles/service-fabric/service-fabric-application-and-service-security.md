@@ -3,8 +3,8 @@ title: Lär dig mer om säkerhet för Azure Service Fabric-program | Microsoft D
 description: En översikt över hur du kör på ett säkert sätt mikrotjänstprogram på Service Fabric. Lär dig hur du kör skriptet för tjänster och Start under olika konton, autentisera och auktorisera användare, hantera programhemligheter, säkra kommunikationer, Använd en API-gateway och säker data i vila.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: mfussell
-ms.openlocfilehash: fd90bdba94a985a2a3529f605972217382b23b2a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.author: aljo
+ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670429"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program- och Tjänstsäkerhet
 En arkitektur för mikrotjänster kan ge [många fördelar](service-fabric-overview-microservices.md). Hantering av säkerhet för mikrotjänster, men är en utmaning och skiljer sig från traditionella oflexibla tillämpningar säkerhetshantering. 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78f19fcca51bb9c14fd05013834599c3e0f12779
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182378"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662116"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Självstudier: Migrera SQL Server till en Azure SQL Database managed instance med DMS
 
@@ -152,9 +152,9 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. På sidan **Information om migreringsmål** anger du anslutningsinformationen för målet, som är den företablerade hanterade Azure SQL Database-instansen som du ska migrera databasen **AdventureWorks2012** till.
 
-    Om du inte redan har etablerat den hanterade Azure SQL Database-instansen väljer du **Nej** för att få en länk som hjälper dig att etablera instansen. Du kan ändå fortsätta med att skapa projektet och sedan, när den hanterade Azure SQL Database-instansen är klar, gå tillbaka till specifika projektet att utföra migreringen.
+    Om du inte redan har etablerat den hanterade Azure SQL Database-instansen väljer du [länken](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) som hjälper dig att etablera instansen. Du kan ändå fortsätta med att skapa projektet och sedan, när den hanterade Azure SQL Database-instansen är klar, gå tillbaka till specifika projektet att utföra migreringen.
 
-       ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+     ![Välja mål](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. Välj **Spara**.
 

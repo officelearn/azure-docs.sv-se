@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905162"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651499"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -63,9 +63,9 @@ Arkitekturen i modeller av neurala nätverk som du skapar i Azure Machine Learni
 + Definiera särskilda anslutningar, till exempel faltningar och vikt delning paket.
 + Ange olika aktivering funktioner.
 
-Information om syntaxen för specifikation finns [struktur specifikationen](#Structure-specifications).
+Information om syntaxen för specifikation finns [struktur specifikationen](#structure-specifications).
 
-Exempel på Definiera neurala nätverk för vissa vanliga machine learning-uppgifter från simplex till fler, komplexa finns [exempel](#Examples-of-Net#-usage).
+Exempel på Definiera neurala nätverk för vissa vanliga machine learning-uppgifter från simplex till fler, komplexa finns [exempel](#examples-of-net-usage).
 
 ## <a name="general-requirements"></a>Allmänna krav
 

@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894588"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652492"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Skapa och distribuera logikappar med Azure Resource Manager-mallar
 
-Azure Logic Apps ger Azure Resource Manager-mallar som du kan använda, inte bara att skapa logikappar för automatisering av arbetsflöden, men också att definiera resurser och parametrar som används för distribution. Du kan använda den här mallen för dina egna affärsscenarier eller anpassa mallen så att den uppfyller dina krav. Läs mer om den [Resource Manager-mall för logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) och [Azure Resource Manager-mall strukturen och syntaxen](../azure-resource-manager/resource-group-authoring-templates.md). JSON-syntax och egenskaper finns i [Microsoft.Logic resurstyper](/azure/templates/microsoft.logic/allversions).
+Azure Logic Apps ger Azure Resource Manager-mallar som du kan använda, inte bara att skapa logikappar för automatisering av arbetsflöden, men också att definiera resurser och parametrar som används för distribution.
+Du kan använda den här mallen för dina egna affärsscenarier eller anpassa mallen så att den uppfyller dina krav. Läs mer om den [Resource Manager-mall för logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) och [Azure Resource Manager-mall strukturen och syntaxen](../azure-resource-manager/resource-group-authoring-templates.md). JSON-syntax och egenskaper finns i [Microsoft.Logic resurstyper](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>Definiera logikappen
-
 Det här exemplet logikappsdefinitionen körs en gång i timmen och pingar den plats som anges i den `testUri` parametern.
-Mallen använder parametervärden för namn för logikappen (```logicAppName```) och på plats för att pinga för testning (```testUri```). Läs mer om [definierar dessa parametrar i mallen](#define-parameters). Mallen ställs även platsen för logikappen till samma plats som Azure-resursgruppen. 
+Mallen använder parametervärden för namn för logikappen (```logicAppName```) och på plats för att pinga för testning (```testUri```). Läs mer om [definierar dessa parametrar i mallen](#define-parameters).
+Mallen ställs även platsen för logikappen till samma plats som Azure-resursgruppen.
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ Mallen använder parametervärden för namn för logikappen (```logicAppName```)
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ Mallen använder parametervärden för namn för logikappen (```logicAppName```)
 
 Här följer beskrivningar av parametrar i mallen:
 
-| Parameter | Beskrivning | Exempel för JSON-definition | 
-| --------- | ----------- | ----------------------- | 
+| Parameter | Beskrivning | Exempel för JSON-definition |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | Definierar namnet logikappens mallen som skapas. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Definierar platsen för att pinga för testning. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Definierar platsen för att pinga för testning. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 Läs mer om [REST API för Logic Apps-arbetsflödet definitions- och egenskaper](https://docs.microsoft.com/rest/api/logic/workflows) och [att skapa logikappsdefinitioner med JSON](logic-apps-author-definitions.md).
@@ -93,7 +94,8 @@ Om du vill skapa och distribuera automatiskt en logic app till Azure, Välj **di
 
 [![Distribuera till Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Den här åtgärden loggar du in på Azure-portalen där du kan ange dina logic Apps information och göra ändringar i mallen eller parametrar. Till exempel uppmanas Azure-portalen du för dessa uppgifter:
+Den här åtgärden loggar du in på Azure-portalen där du kan ange dina logic Apps information och göra ändringar i mallen eller parametrar.
+Till exempel uppmanas Azure-portalen du för dessa uppgifter:
 
 * Namn på Azure-prenumeration
 * Resursgruppen som du vill använda
@@ -110,13 +112,13 @@ Den här åtgärden loggar du in på Azure-portalen där du kan ange dina logic 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-```
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 44a9784e47772c5a2ae1335aa048a4d3b86073eb
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577128"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649194"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudier: Azure Active Directory-integrering med Pega system
 
@@ -207,7 +207,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pega sy
 
     a. Kopiera den **enhetens identifiering** och klistra in den i **identifierare** -textrutan i den **SAML grundkonfiguration** i Azure-portalen.
 
-    b.  Kopiera den **Assertion konsument Service (ACS) plats** och klistra in den i **svars-URL** textrutan textrutan i den **grundkonfiguration SAML** i Azure-portalen.
+    b. Kopiera den **Assertion konsument Service (ACS) plats** och klistra in den i **svars-URL** -textrutan i den **grundkonfiguration SAML** i Azure-portalen.
 
     c. Välj **inaktivera Begär signering**.
 

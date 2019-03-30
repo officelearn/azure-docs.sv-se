@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003242"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648564"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -43,15 +43,15 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * En bugg har åtgärdats i PartitionKey för Hash-V2.
 
-### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * Tillagt stöd för sammansatt index.
 * En bugg har åtgärdats i global endpoint manager för att tvinga uppdatering.
 * En bugg har åtgärdats för upsertar med villkoren i direkt-läge.
 
-### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 * En bugg har åtgärdats i cacheminnet för gateway-adress.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0

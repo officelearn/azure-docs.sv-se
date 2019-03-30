@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286592"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652526"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -82,7 +82,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. När ditt program visas i listan över företagsprogram, markerar du det och klickar på **enkel inloggning**.
 3. Ange läge för enkel inloggning **integrerad Windows-autentisering**.  
 4. Ange den **intern program-SPN** på programservern. I det här exemplet är SPN för vårt publicerade program http/www.contoso.com. Den här SPN måste finnas i listan över tjänster som anslutningen kan ge delegerade autentiseringsuppgifter. 
-5. Välj den **delegerad inloggningsidentitet** för anslutningstjänsten att använda för användare. Mer information finns i [arbeta med olika lokala och molnidentiteter](#Working-with-different-on-premises-and-cloud-identities)
+5. Välj den **delegerad inloggningsidentitet** för anslutningstjänsten att använda för användare. Mer information finns i [arbeta med olika lokala och molnidentiteter](#working-with-different-on-premises-and-cloud-identities)
 
    ![Avancerade programkonfiguration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

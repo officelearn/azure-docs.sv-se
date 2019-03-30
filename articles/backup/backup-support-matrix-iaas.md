@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518498"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649819"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -129,7 +129,7 @@ I följande tabell sammanfattas stöd för säkerhetskopiering under VM-hanterin
 Återställa till en befintlig virtuell dator | Använd alternativet för Ersätt disk.
 Återställa en disk med storage-konto som är aktiverad för Azure Storage Service Encryption (SSE) | Stöds ej.<br/><br/> Återställa till ett konto som inte har aktiverat SSE.
 Återställa till blandade storage-konton | Stöds ej.<br/><br/> Baserat på typ av lagringskonto, blir alla återställda diskar premium eller standard och inte blandat.
-Återställ till lagringskontot genom att använda zonredundant lagring (ZRS) | Stöds ej.
+Återställ till lagringskontot genom att använda zonredundant lagring (ZRS) | Stöds (för virtuell dator som är säkerhetskopierade efter Jan 2019 och var [tillgänglighetszon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga)
 Återställa en virtuell dator direkt till en tillgänglighetsuppsättning | Du kan återställa disken och använda set-alternativ för tillgänglighet i mallen för hanterade diskar.<br/><br/> Stöds inte för ohanterade diskar. Återställ disken för ohanterade diskar och skapa en virtuell dator i tillgänglighetsuppsättningen.
 Återställa säkerhetskopia av ohanterade virtuella datorer efter uppgradering till hanterade virtuella datorn| Stöds.<br/><br/> Du kan återställa diskar och sedan skapa en hanterad virtuell dator.
 Återställa en virtuell dator för att återställa platsen innan den virtuella datorn har migrerats till managed disks | Stöds.<br/><br/> Du återställer till ohanterade diskar (standard), konvertera de återställda diskarna till hanterade diskar och skapa en virtuell dator med hanterade diskar.
@@ -149,6 +149,7 @@ Säkerhetskopiera virtuella datorer som distribueras i en [skalningsuppsättning
 Säkerhetskopiera virtuella datorer som distribueras från den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Som publicerats av Microsoft, tredje part) |  Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (från tredje part) |   Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
 Säkerhetskopiera virtuella datorer som migreras till Azure  | Stöds.<br/><br/> VM-agenten måste installeras på den migrerade datorn för att säkerhetskopiera den virtuella datorn.
+Säkerhetskopiera virtuella datorer konsekvens | som inte stöds. <br/><br/>Azure Backup stöder inte konsekvens.
 
 
 
@@ -165,6 +166,7 @@ Diskar med Write Accelerator-aktiverade | Stöds ej.<br/><br/> Om du kör den se
 Säkerhetskopiera deduplicerade diskar | Stöds ej.
 Lägg till disk till skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
+Delad lagring| Säkerhetskopiera virtuella datorer med CSV- eller Scale-Out File Server rekommenderas inte. CSV-skrivarna är sannolikt att misslyckas.
 
 ## <a name="vm-network-support"></a>Stöd för VM-nätverk
 

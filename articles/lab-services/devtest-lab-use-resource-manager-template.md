@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: eaa285318a868d0ccee07d830e1cc1be18f457a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181562"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648443"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med en Azure Resource Manager-mall 
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver flera virtuella datorer jämfört med enskild VM Res
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Flera virtuella datorer jämfört med enskild VM Resource Manager-mallar
-Det finns två sätt att skapa virtuella datorer i labb med hjälp av en Resource Manager-mall: etablera Microsoft.DevTestLab/labs/virtualmachines resursen eller etablera Microsoft.Commpute/virtualmachines resursen. Var och en används i olika scenarier och kräver olika behörigheter.
+Det finns två sätt att skapa virtuella datorer i labb med hjälp av en Resource Manager-mall: etablera Microsoft.DevTestLab/labs/virtualmachines resursen eller etablera Microsoft.Compute/virtualmachines resursen. Var och en används i olika scenarier och kräver olika behörigheter.
 
 - Resource Manager-mallar som använder en resurstyp för Microsoft.DevTestLab/labs/virtualmachines (såsom anges i egenskapen ”resurser” i mallen) kan etablera enskilda lab virtuella datorer. Varje virtuell dator visas sedan som ett enskilt objekt i listan över virtuella datorer med Labb:
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577134"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650469"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Lägg till förslagsställare till ett index för typeahead i Azure Search
 
@@ -77,7 +77,7 @@ När en förslagsställare har skapats kan du lägga till den [förslag API](htt
 
 ### <a name="use-the-net-sdk"></a>Använda .NET SDK
 
-I C#, definiera en [förslagsställare klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). En förslagsställare är en samling som bara kan ta ett objekt. Se till att lägga till `using System.Collections.Generic;` så att du kan skapa en lista med objekt. 
+I C#, definiera en [förslagsställare objektet](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` är en samling, men det kan bara ta ett objekt. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

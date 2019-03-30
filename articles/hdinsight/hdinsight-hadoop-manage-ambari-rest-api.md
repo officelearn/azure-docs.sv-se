@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38d845e133b5ae1a091fd9fee698b2bf801135e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a56cc0c575a6e50a38aea91c8fc2e1855617457f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880610"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648392"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -306,7 +306,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
    Ändra och sedan ange nedanstående kommandon:
 
    * Ersätt `livy2-conf` med önskad-komponenten.
-   * Ersätt `INITIAL` med faktiskt värde hämtades för `tag` från [hämta alla konfigurationer](#Get-all-configurations).
+   * Ersätt `INITIAL` med faktiskt värde hämtades för `tag` från [hämta alla konfigurationer](#get-all-configurations).
 
      **EN. Bash**  
      ```bash

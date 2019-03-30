@@ -4,7 +4,7 @@ description: Säkerhetskopiera och återställa funktionen i Service Fabric för
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 8a276f26367e66f55b8fc10dbcba2429dc2e5450
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666587"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhetskopiering på begäran i Azure Service Fabric
 
@@ -101,7 +101,7 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
   FailureError            :
   ```
 - **Lyckade**, **fel**, eller **Timeout**: En begärda säkerhetskopiering på begäran kan utföras på något av följande tillstånd:
-  - **Lyckade**: En _lyckades_ säkerhetskopiering tillstånd anger att partition tillståndet har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
+  - **Success**: En _lyckades_ säkerhetskopiering tillstånd anger att partition tillståndet har säkerhetskopierats. Svaret innehåller _BackupEpoch_ och _BackupLSN_ för partitionen tillsammans med tiden i UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -121,7 +121,7 @@ Säkerhetskopiering på begäran-begäranden kan ha följande tillstånd:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Tidsgräns för**: En _Timeout_ säkerhetskopiering tillstånd anger att det inte gick att skapa systemtillståndet partition inom en viss tid. Standardvärdet för timeout är 10 minuter. Starta en ny säkerhetskopiering begäran med på begäran med större [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
+  - **Timeout**: En _Timeout_ säkerhetskopiering tillstånd anger att det inte gick att skapa systemtillståndet partition inom en viss tid. Standardvärdet för timeout är 10 minuter. Starta en ny säkerhetskopiering begäran med på begäran med större [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) i det här scenariot.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z

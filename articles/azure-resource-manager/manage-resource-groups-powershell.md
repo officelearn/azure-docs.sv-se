@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 6f416f1de6baca7fe79ea2a5dddfb8f8eb5f5120
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825096"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651792"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure PowerShell
 
@@ -85,6 +85,10 @@ För att verifiera en distribution av resursgrupper kan se [Test-AzResourceGroup
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuera en resursgrupp och resurser
 
 Du kan skapa en resursgrupp och distribuera resurser i gruppen med hjälp av Resource Manager-mall. Mer information finns i [skapa resursgrupp och distribuera resurser](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+
+## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen misslyckas
+
+Den här funktionen kallas även *återställning vid fel*. Mer information finns i [omdistribuera när distributionen misslyckas](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Flytta till en annan resursgrupp eller prenumeration
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652390"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
@@ -28,7 +28,7 @@ För de flesta prenumerationer kan du ladda ned din faktura från den [Azure-por
 
 Endast vissa roller har behörighet att visa fakturor, till exempel kontoadministratör eller företagsadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
 
-Om du har en [Microsoft kundavtal](#Check-your-access-to-a-Microsoft-Customer-Agreement), du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att hämta fakturor. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Om du har en [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement), du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att hämta fakturor. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-your-azure-invoices-pdf"></a>Hämta din Azure-fakturor (PDF)
 

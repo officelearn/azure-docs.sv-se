@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar programmet och tjänstinställningar m
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 202999ed6521cd3013685742b0dec92ef30fc8bc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499853"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665975"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Här följer några exempel på program och tjänstens manifest för ett Service Fabric-program med en ASP.NET-kärnans webbklient och en tillståndskänslig backend-server. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Snabbstart för Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.

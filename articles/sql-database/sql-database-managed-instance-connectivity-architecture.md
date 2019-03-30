@@ -4,7 +4,7 @@ description: Läs mer om Azure SQL Database-hanterad instans kommunikation och a
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621557"
+ms.locfileid: "58651320"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database 
 
@@ -110,7 +110,8 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 |hantering  |80, 443, 12000|TCP     |Alla              |AzureCloud  |Tillåt |
 |mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT *  |Tillåt |
 
-> Kontrollera att det finns endast en regel för inkommande trafik för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterad instans etablering via ARM-distributioner kan misslyckas om inkommande och utgående regler konfigureras separat för varje portar. 
+> [!IMPORTANT]
+> Se till att det finns bara en inkommande regel för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterad instans etablering via ARM-distributioner kommer att misslyckas om inkommande och utgående regler konfigureras separat för varje port. Om dessa portar finns i separata regler kan misslyckas distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI – UNDERNÄT refererar till IP-adressintervall för undernätet i formuläret 10.x.x.x/y. Du hittar den här informationen i Azure-portalen i undernätsegenskaperna för.
 

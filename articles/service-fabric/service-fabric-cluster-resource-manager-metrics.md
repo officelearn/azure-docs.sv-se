@@ -4,7 +4,7 @@ description: Mer information om hur du konfigurerar och använder mått i Servic
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093357"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661708"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
 *Mått* vilka resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel bevaka minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat användningsområde är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e4585e8e1a809824e63f917fed1cc8a9cfa646a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202936"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660264"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -81,7 +81,7 @@ När en grupp upphör att gälla, är gruppen bort en dag efter utgångsdatum. E
 
 ![Gruppen borttagning av e-postaviseringar](./media/groups-lifecycle/deletion-notification.png)
 
-Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välja **Återställ grupp** eller med hjälp av PowerShell-cmdletar, enligt beskrivningen i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
+Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välja **Återställ grupp** eller med hjälp av PowerShell-cmdletar, enligt beskrivningen i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md). Observera som 30-dagars gruppen återställning perioden inte kan anpassas.
     
 Om gruppen som du återställa innehåller dokument, SharePoint-webbplatser och andra beständiga objekt, kan det ta upp till 24 timmar att fullständigt återställa gruppen och dess innehåll.
 

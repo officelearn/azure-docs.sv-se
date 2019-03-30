@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116206"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651759"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,7 +170,7 @@ Med hjälp av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/p
 * Om dina källdata finns i **Azure Blob eller Azure Data Lake Store**, och detta format är kompatibelt med PolyBase kan du kopiera direkt till Azure SQL Data Warehouse med PolyBase. Se **[direkt kopia med PolyBase](#direct-copy-using-polybase)** med information.
 * Om dina källdatalagret och format inte stöds ursprungligen av PolyBase, kan du använda den **[mellanlagrad kopiering med PolyBase](#staged-copy-using-polybase)** funktionen i stället. Det ger dig också bättre genomströmning genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob storage. Den sedan läser in data till SQL Data Warehouse.
 
-Ange den `allowPolyBase` egenskap **SANT** som visas i följande exempel för Azure Data Factory för att använda PolyBase för att kopiera data till Azure SQL Data Warehouse. När du anger allowPolyBase till true anger du PolyBase specifika egenskaper med hjälp av den `polyBaseSettings` Egenskapsgruppen. se den [SqlDWSink](#SqlDWSink) finns mer information om egenskaper som du kan använda med polyBaseSettings.
+Ange den `allowPolyBase` egenskap **SANT** som visas i följande exempel för Azure Data Factory för att använda PolyBase för att kopiera data till Azure SQL Data Warehouse. När du anger allowPolyBase till true anger du PolyBase specifika egenskaper med hjälp av den `polyBaseSettings` Egenskapsgruppen. se den [SqlDWSink](#sqldwsink) finns mer information om egenskaper som du kan använda med polyBaseSettings.
 
 ```JSON
 "sink": {

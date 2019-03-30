@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314848"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651081"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 
@@ -34,8 +34,8 @@ Den här uppgraderingen gäller för Compute Optimized Gen1 nivån informationsl
 ## <a name="before-you-begin"></a>Innan du börjar
 
 1. Kontrollera om din [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) stöds för GEN1 till GEN2 migrering. Obs automatisk migrering datumen. Planera din manuell migrering före startdatumet automatiserad process för att undvika konflikter med den automatiska processen.
-2. Om du är i en region som inte stöds ännu kan fortsätta att söka efter din region som ska läggas till eller [uppgradera med hjälp av restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) till en region som stöds.
-3. Om din region stöds [uppgradera via Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. Om du är i en region som inte stöds ännu kan fortsätta att söka efter din region som ska läggas till eller [uppgradera med hjälp av restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) till en region som stöds.
+3. Om din region stöds [uppgradera via Azure portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Välj den föreslagna prestandanivån** för datalagret baserat på din aktuella prestandanivå på Compute Optimized Gen1 nivån med hjälp av mappningen nedan:
 
    | Optimerad Gen1 Beräkningsnivån | Beräkningsnivån optimerade Gen2 |

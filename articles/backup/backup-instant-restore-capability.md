@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578908"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652679"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
 > [!NOTE]
-> Baserat på feedback från användare byter vi namn **VM-säkerhetskopieringsstack V2** till **omedelbar återställning** att minska förvirring med Azure Stack-funktioner.
+> Baserat på feedback från användare byter vi namn **VM-säkerhetskopieringsstack V2** till **omedelbar återställning** att minska förvirring med Azure Stack-funktioner.<br/><br/> Alla Azure backup användare har nu uppgraderats till **omedelbar återställning**.
 
 Den nya modellen för omedelbar återställning innehåller följande funktionsförbättringar:
 
@@ -60,15 +60,25 @@ Inkrementella ögonblicksbilder lagras i Virtuella datorns lagringskonto som anv
 >[!NOTE]
 > Ögonblicksbild kvarhållning har åtgärdats till 5 dagar för principer för varje vecka.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med Azure portal
+## <a name="configure-snapshot-retention"></a>Konfigurera kvarhållning av ögonblicksbild
 
-**Alla Azure backup användare har nu uppgraderats till omedelbar återställning**.
+### <a name="using-azure-portal"></a>Använda Azure Portal
 
 I Azure-portalen kan du se ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
 
 ![Kapaciteten för omedelbar återställning](./media/backup-azure-vms/instant-restore-capability.png)
 
-Om du vill konfigurera ögonblicksbild kvarhållning av säkerhetskopior med Powershell, referera till [det här dokumentet](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### <a name="using-powershell"></a>Använda PowerShell
+
+>[!NOTE]
+> Från Az PowerShell version 1.6.0 eller senare och senare, kan du uppdatera kvarhållningsperioden för omedelbar återställning ögonblicksbild i principen med hjälp av PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+Standard ögonblicksbild kvarhållning för varje princip har angetts till 2 dagar. Användaren kan ändra värdet till minst 1 och högst fem dagar. För varje vecka principer har ögonblicksbild kvarhållning åtgärdats till 5 dagar.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

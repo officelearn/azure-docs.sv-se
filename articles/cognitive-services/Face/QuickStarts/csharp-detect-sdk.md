@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372139"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630709"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med .NET SDK för ansiktsigenkänning
 
@@ -32,11 +32,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **FaceDetection**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
-1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Klicka på den **Bläddra** fliken och markera **inkludera förhandsversion**; Sök efter och installera följande paket:
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Klicka på fliken **Bläddra** och välj **Inkludera förhandsversion**. Leta sedan reda på och installera följande paket:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. Kontrollera att du har installerat de senaste versionerna av alla NuGet-paket för ditt projekt. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Klicka på den **uppdateringar** fliken och installera de senaste versionerna av eventuella paket som visas.
 
 ## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
 
@@ -50,21 +48,21 @@ Lägg till följande `using`-instruktioner överst i *Program.cs*-filen.
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Lägg till följande fält i klassen **Program**. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey`-fältet med värdet för din prenumerationsnyckel, och du kanske måste ändra `faceEndpoint`-strängen så att den innehåller rätt regionsidentifierare. Du behöver även ange `localImagePath`- och/eller `remoteImageUrl`-värden till sökvägar som pekar på faktiska bildfiler.
+Lägg till den **programmet** klassen med följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey`-fältet med värdet för din prenumerationsnyckel, och du kanske måste ändra `faceEndpoint`-strängen så att den innehåller rätt regionsidentifierare. Du behöver även ange `localImagePath`- och/eller `remoteImageUrl`-värden till sökvägar som pekar på faktiska bildfiler.
 
 Fältet `faceAttributes` är helt enkelt en matris med vissa typer av attribut. Det anger vilken information som ska hämtas om de identifierade ansiktena.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### <a name="create-and-use-the-face-client"></a>Skapa och använda ansikts-API-klienten
 
-Lägg nu till följande kod i metoden **Main** i klassen **Program**. Då konfigureras ansikts-API-klienten.
+Lägg sedan till den **Main** -metoden för den **programmet** klassen med följande kod. Då konfigureras ansikts-API-klienten.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
 I metoden **Main** lägger du även till följande kod för att använda den nya ansikts-API-klienten för att identifiera ansikten i en fjärransluten eller lokal bild. Identifieringsmetoden definieras härnäst. 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
@@ -82,9 +80,9 @@ Definiera sedan metoden **GetFaceAttributes**. Den returnerar en sträng med rel
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-Definiera slutligen metoden **DisplayAttributes** för att skriva ansiktsattributdata till konsolutdata.
+Definiera slutligen metoden **DisplayAttributes** för att skriva ansiktsattributdata till konsolutdata. Därefter kan du stänga den klass och namnområde.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## <a name="run-the-app"></a>Kör appen
 

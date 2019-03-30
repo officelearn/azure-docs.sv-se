@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579758"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648273"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Anger vertikal automatisk skalning med VM-skalningsuppsättning
 
@@ -98,6 +98,7 @@ Det första du behöver göra är att skapa ett Azure Automation-konto som är v
 * [Autentisera runbooks med ett ”Kör som”-konto i Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importera vertikal skalning i Azure Automation-runbooks till din prenumeration
+
 Runbooks som behövs för att lodrätt skalning av VM-skalningsuppsättningar har redan publicerats i Azure Automation Runbook-galleriet. Om du vill importera följer dem till din prenumeration du stegen i den här artikeln:
 
 * [Runbook- och modulgallerier för Azure Automation](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ De runbooks som ska importeras visas. Välj aktuell runbook baserat på om du vi
 ![Runbookgalleri][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Lägg till en webhook i din runbook
+
 När du har importerat runbooks, lägga till en webhook för runbooken så att den kan aktiveras via en avisering från en skalningsuppsättning för virtuell dator. För att skapa en webhook för din Runbook beskrivs i den här artikeln:
 
 * [Azure Automation-webhookar](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ När du har importerat runbooks, lägga till en webhook för runbooken så att d
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Lägga till en avisering till din skalningsuppsättning för virtuell dator
+
 Nedan anges ett PowerShell-skript som visar hur du lägger till en avisering till en virtuell datorskalning. Se följande artikel för att hämta namnet på mått som ska utlösa aviseringen på: [Azure Monitor autoskalning vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Mer information om hur du skapar aviseringar finns i följande artiklar:
 * [Azure Monitor plattformsoberoende CLI quickstart-exempel](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Sammanfattning
+
 Den här artikeln visade enkla exempel för lodrät skalning. Med dessa byggstenar - Automation-konto, runbooks, webhooks, aviseringar – kan du ansluta en rad olika händelser med en anpassad uppsättning åtgärder.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

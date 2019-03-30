@@ -4,7 +4,7 @@ description: En översikt över med hjälp av defragmentering eller späcka som 
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086793"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661658"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastningen i Service Fabric
 Den Service Fabric Cluster Resource Manager standardstrategi för att hantera inläsningsmåtten i klustret är att fördela belastningen. Se till att noder används jämnt undviker heta och kalla vinklar som leder till både konkurrens och oanvänt resurser. Distribuera arbetsbelastningar i klustret är också den säkraste när det gäller kvarvarande fel eftersom det garanterar att ett fel inte ta ut en stor del av en viss arbetsbelastning. 

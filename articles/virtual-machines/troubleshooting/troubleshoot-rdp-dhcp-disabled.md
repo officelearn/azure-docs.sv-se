@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213458"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652288"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Kan inte använda RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten har inaktiverats
 
@@ -27,7 +27,6 @@ Den här artikeln beskriver ett problem där det går inte att fjärrskrivbord t
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Symtom
-
 Du kan inte göra en RDP-anslutning en virtuell dator i Azure eftersom DHCP-klienttjänsten har inaktiverats på den virtuella datorn. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen, visas den virtuella datorn startas normalt och väntar på autentiseringsuppgifter i inloggningsskärmen. Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att DHCP-klienttjänsten inte är igång eller inte går att starta. Följande ett exempel logga:
 
 **Loggar namnet**: System </br>
@@ -98,7 +97,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 1. Ansluta till [Seriekonsolen](serial-console-windows.md) och öppna en PowerShell-instans.
 2. Hämta det Övervakare för processen genom att köra följande skript:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 3. Försök att ansluta till den virtuella datorn med hjälp av fjärrskrivbord.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP-klienttjänsten kraschar eller låser sig
+
 1. Om status för tjänsten har fastnat i den **startar** eller **stoppar** tillstånd, försök att stoppa tjänsten:
 
         sc stop DHCP
@@ -205,5 +205,3 @@ Lös problemet genom att använda seriell kontroll för att aktivera DHCP eller 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa ditt problem.
-
-

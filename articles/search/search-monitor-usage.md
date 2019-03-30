@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652305"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -98,7 +98,7 @@ Loggning är aktiverad när du sparar profilen. Behållare skapas endast när de
 
 Det tar en timme innan behållarna som visas i Blob storage. Det finns en blob, per timme per behållare. 
 
-Du kan använda [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) eller en annan JSON-redigerare för att visa filerna. 
+Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) eller en annan JSON-redigerare för att visa filerna. 
 
 ### <a name="example-path"></a>Exempel på sökväg
 

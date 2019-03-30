@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e22acc697e837bab91c8b9c32c1fe35f1a7bce1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824529"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632991"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -23,7 +23,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
 3. Klicka på **Iot Hub** i listan till höger. Du ser den första skärmen för att skapa en IoT-hubb.
 
-   ![Skärmbild som visar hur du skapar en hubb i Azure-portalen](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   ![Skapa en hubb i Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
    Fyll i fälten.
 
@@ -39,7 +39,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
 4. Klicka på **Nästa: Storlek och skalning** för att fortsätta att skapa IoT-hubben.
 
-   ![Skärmbild som visar inställningsstorlek och skala för en ny IoT-hubb med Azure-portalen](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+   ![Ange storlek och skala för en ny IoT hub med Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
    På den här skärmen kan du ta standardvärdena och klicka bara på **Granska + skapa** längst ned på sidan. 
 
@@ -53,6 +53,6 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
 5. Klicka på **Granska + skapa** och granska dina val. Du ser något som liknar den här skärmen.
 
-   ![Skärmbild – Granska informationen för att skapa den nya IoT-hubben](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+   ![Granska informationen för att skapa den nya IoT-hubben](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 6. Klicka på **Skapa** för att skapa din nya IoT-hubb. Det tar några minuter att skapa hubben.

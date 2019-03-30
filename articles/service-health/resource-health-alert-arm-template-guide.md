@@ -6,18 +6,21 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7bfd94cb4940c33cb72a39827f67d04a5540ccdb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663442"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
 
 Den här artikeln visar hur du skapar Resource Health Aktivitetsloggaviseringar genom programmering med Azure Resource Manager-mallar och Azure PowerShell.
 
 Azure Resource Health håller dig informerad om aktuell och historisk hälsotillståndet för dina Azure-resurser. Azure Resource Health-aviseringar kan meddela dig i nära realtid när resurserna har en ändring i deras hälsostatus. Skapa Resource Health Tillåt aviseringar programmässigt användare att skapa och anpassa aviseringar gruppvis.
+
+> [!NOTE]
+> Resource Health-aviseringar är för närvarande i förhandsversion.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

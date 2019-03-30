@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309426"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649094"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en själv testa klient om du vill kontrollera en Azure VM-avbildning
 
 Använd den här artikeln som en vägledning för att skapa en klienttjänsten som förbrukar själv testa API: et. Du kan använda API: et själv testa för att kontrollera en virtuell dator (VM) för att säkerställa att de uppfyller de senaste publicering kraven för Azure Marketplace. Den här klienttjänsten kan du testa en virtuell dator innan du skickar in ditt erbjudande för Microsoft-certifiering.
-
 
 ## <a name="development-and-testing-overview"></a>Utveckling och testning översikt
 
@@ -41,13 +40,11 @@ Anvisningar för att skapa en själv testa klient är:
 
 När du har skapat klienten kan testa du den mot den virtuella datorn.
 
-
 ### <a name="self-test-client-authorization"></a>Själv testa klientautentisering
 
 Följande diagram visar hur auktorisering fungerar för tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat).
 
 ![Processen för klient-auktorisering](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>Klienten själv testa API
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 I följande tabell beskrivs de API-fält.
@@ -83,11 +79,9 @@ I följande tabell beskrivs de API-fält.
 |  PortNo            |  Öppna portnummer för att ansluta till den virtuella datorn. Portnumret är vanligtvis `22` för Linux och `5986` för Windows.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>Använda API: et
 
 Du kan använda själv testa API: et med PowerShell eller cURL.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Använd PowerShell för att använda API: et på Linux-operativsystem
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 Följande skärmdump visar ett exempel för att anropa API: et i PowerShell.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ Följ dessa steg för att anropa API: et med cURL:
 2. Metoden är Post innehållstypen är JSON, enligt följande kodavsnitt.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 Följande skärmbild visar ett exempel på hur du använder curl för att anropa API: et.
 
 ![Anropa API: T med curl-kommando](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Använd följande steg för att välja Azure AD-klient där du vill skapa ditt p
    I följande steg ska du innehavarens namn (eller katalognamnet) eller klient-ID (eller katalog-ID).
 
    **Hämta klientinformation:**
-  
+
    I **översikt av Azure Active Directory**, Sök efter ”egenskaper” och välj sedan **egenskaper**. Med följande skärmdump som exempel:
 
    - **Namn på** -klientnamn eller katalognamn
@@ -284,7 +278,7 @@ Använd följande steg för att registrera klientappen.
 14. Klicka på **Välj**.
 15. Välj **Done** (Klar).
 16. Under **inställningar**väljer **egenskaper**.
-17. Under **egenskaper**, rulla ned till **med flera innehavare**. Välj **Ja**.  
+17. Under **egenskaper**, rulla ned till **med flera innehavare**. Välj **Ja**.
 
     ![Konfigurera flera innehavare för app](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ Du kan använda någon av följande program för att skapa och få en token med 
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 Skicka följande parametrar i begärandetexten:
 
 ```
@@ -364,7 +359,7 @@ Följande skärmdump visar ett exempel på hur du använder curl-kommando för a
 
 Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd för att den [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) slutpunkten med en nyttolast i följande format:
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd för att den [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) slutpunkten med en nyttolast i följande format:
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>Skicka klienten apptoken till API: et
 
 Skicka token själv testa API: et med följande kod i auktoriseringshuvudet:
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Testa själv testa klienten
@@ -445,7 +438,7 @@ Följande kodavsnitt visar testresultaten i JSON-format.
 
 **Testresultat för en virtuell Windows-dator:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ Följande kodavsnitt visar testresultaten i JSON-format.
 
 **Testresultat för en Linux-VM:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",

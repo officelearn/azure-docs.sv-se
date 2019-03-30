@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351498"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630554"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -30,7 +30,7 @@ Det här avsnittet ger en kort översikt över Azure Media Services-begrepp och 
 
 Om du vill börja hantera, kryptera, kodning, analysera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto och ladda upp dina digitala filer till **tillgångar**.
 
-- [Molnöverföring och lagring](storage-account-concept.md)
+- [Uppladdning till och lagring i molnet](storage-account-concept.md)
 - [Koncept för tillgångar](assets-concept.md)
 
 ## <a name="encoding"></a>Kodning
@@ -78,21 +78,21 @@ Du kan använda Media Services **dynamiska manifest** att strömma endast en spe
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
 - [Principer för direktuppspelning](streaming-policy-concept.md)
-- [Viktiga Innehållsprinciper](content-key-policy-concept.md)
+- [Principer för innehållsnycklar](content-key-policy-concept.md)
 - [Innehållsskydd](content-protection-overview.md)
 - [Dynamiska manifest](filters-dynamic-manifest-overview.md)
 - [Filter](filters-concept.md)
 
 ## <a name="live-streaming"></a>Liveuppspelning
 
-Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. **Live-händelser** ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en **direktsänd händelse**, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. När du har dataströmmen väl flödar till den **direktsänd händelse**, kan du påbörja strömningshändelsen genom att skapa en **tillgången**, **Live utdata**, och **Strömningspositionerare** . **Live utdata** arkiverar dataströmmen till den **tillgången** och gör den tillgänglig för visning via den **Strömningsslutpunkt**. En **direktsänd händelse** kan vara något av två typer: **direktautentisering** och **direktsänd kodning**.
+Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. **Livehändelser** ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en **direktsänd händelse**, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. När du har dataströmmen väl flödar till den **direktsänd händelse**, kan du påbörja strömningshändelsen genom att skapa en **tillgången**, **Live utdata**, och **Strömningspositionerare** . **Live utdata** arkiverar dataströmmen till den **tillgången** och gör den tillgänglig för visning via den **Strömningsslutpunkt**. En **direktsänd händelse** kan vara något av två typer: **direktautentisering** och **direktsänd kodning**.
 
 Följande bild illustrerar arbetsflödet direkt typ:
 
 ![direktautentisering](./media/live-streaming/pass-through.svg)
 
 - [Direktsänd strömning översikt](live-streaming-overview.md)
-- [Händelser och Live utdata](live-events-outputs-concept.md)
+- [Livehändelser och liveutdata](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -102,6 +102,11 @@ Om du vill se förloppet för jobbet, bör du använda **Event Grid**. Media Ser
 
 - [Hantera Event Grid-händelser](reacting-to-media-services-events.md)
 - [Scheman](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+Övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program fungerar med Azure Monitor.
+
 - [Mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md)
 - [Scheman för diagnostikloggar](media-services-diagnostic-logs-schema.md)
 
@@ -109,8 +114,13 @@ Om du vill se förloppet för jobbet, bör du använda **Event Grid**. Media Ser
 
 Du kan använda Azure Media Player för att spela upp mediainnehåll strömmas av Media Services på en mängd olika webbläsare och enheter. Azure Media Player används branschstandarder som HTML5, Media käll-tillägg (MSE) och tillägg EME (Encrypted Media) för att ge en avancerad och anpassningsbar direktuppspelning. 
 
-- [Översikt över Azure Media Player](use-azure-media-player.md)
+- [Azure Media Player-översikt](use-azure-media-player.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ladda upp, koda och strömma med Media Services](stream-files-tutorial-with-api.md)
+* [Koda fjärrfil och strömma video – REST](stream-files-tutorial-with-rest.md)
+* [Koda överförda filen och strömma video – .NET](stream-files-tutorial-with-api.md)
+* [Stream live – .NET](stream-live-tutorial-with-api.md)
+* [Analysera din video – .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamisk kryptering – .NET](protect-with-aes128.md)
+* [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 

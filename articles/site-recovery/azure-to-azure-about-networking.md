@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001093"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651551"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -48,10 +48,10 @@ Om du använder en Webbadressbaserad brandväggsproxy för att styra utgående a
 
 **URL** | **Detaljer**  
 --- | ---
-*.blob.core.windows.net | Krävs för att data kan skrivas till cachelagringskontot i källregionen från den virtuella datorn.
+*.blob.core.windows.net | Krävs för att data kan skrivas till cachelagringskontot i källregionen från den virtuella datorn. Om du vet alla cache storage-konton för dina virtuella datorer, kan du lista över tillåtna URL: er för specifika storage-konto (t.ex.: cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
 login.microsoftonline.com | Krävs för autentisering och auktorisering till Site Recovery-tjänstens webbadresser.
-*.hypervrecoverymanager.windowsazure.com | Krävs så att Site Recovery service-kommunikation kan ske från den virtuella datorn.
-*.servicebus.windows.net | Krävs så att Site Recovery övervakning och diagnostik data kan skrivas från den virtuella datorn.
+*.hypervrecoverymanager.windowsazure.com | Krävs så att Site Recovery service-kommunikation kan ske från den virtuella datorn. Du kan använda den motsvarande ”Site Recovery IP” om din brandväggsproxy har stöd för IP-adresser.
+*.servicebus.windows.net | Krävs så att Site Recovery övervakning och diagnostik data kan skrivas från den virtuella datorn. Du kan använda motsvarande ”Site Recovery övervakning av IP-adress” om din brandväggsproxy har stöd för IP-adresser.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 

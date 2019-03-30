@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170708"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Självstudier: Azure Active Directory-integrering med IriusRisk
 
@@ -89,7 +89,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med IriusRisk, måste
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare IriusRisk](#create-a-iriusrisk-test-user)**  – du har en motsvarighet för Britta Simon i IriusRisk som är länkad till en Azure AD-representation av användaren.
+1. **[Skapa en testanvändare IriusRisk](#create-an-iriusrisk-test-user)**  – du har en motsvarighet för Britta Simon i IriusRisk som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 

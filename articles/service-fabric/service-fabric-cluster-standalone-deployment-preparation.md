@@ -4,7 +4,7 @@ description: Dokumentation för att förbereda miljön och skapa klusterkonfigur
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317200"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664828"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda distributionen av Service Fabric fristående kluster
 
@@ -42,10 +42,10 @@ Det enklaste sättet att tänka på de här koncepten är att tänka på FD som 
 
 När du anger ud i ClusterConfig.json, väljer du namnet för varje UD. Till exempel är följande namn giltiga:
 
-* ”upgradeDomain”: ”UD0”
-* ”upgradeDomain”: ”UD1A”
-* ”upgradeDomain”: ”DomainRed”
-* ”upgradeDomain”: ”Blue”
+* "upgradeDomain": "UD0"
+* "upgradeDomain": "UD1A"
+* "upgradeDomain": ”DomainRed”
+* "upgradeDomain": ”Blue”
 
 Mer information om FD och ud finns [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md).
 

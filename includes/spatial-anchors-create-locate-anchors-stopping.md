@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 8e02067b32d9404a5bbdf7362b2cc32712b96250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d6886996d926ce778600dfa1d69caaa1c7ac004
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907777"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632719"
 ---
 ## <a name="pause-reset-or-stop-the-session"></a>Pausa, återställa eller stoppa sessionen
 
-Om du vill stoppa sessionen tillfälligt, kan du anropa stop (). Då slutar att alla Övervakare och bearbetning av miljön, även om du anropar ProcessFrame(). Du kan sedan anropa Start() för att återuppta bearbetningen. När de återställs, underhålls miljödata som redan hämtats i sessionen.
+Stoppa sessionen tillfälligt, du kan anropa `Stop()`. Då slutar att alla Övervakare och bearbetning av miljön, även om du anropar ProcessFrame(). Du kan sedan anropa `Start()` att återuppta bearbetningen. När de återställs, underhålls miljödata som redan hämtats i sessionen.

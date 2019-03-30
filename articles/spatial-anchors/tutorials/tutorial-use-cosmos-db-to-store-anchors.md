@@ -1,5 +1,5 @@
 ---
-title: Självstudie – delning över sessioner och enheter med Azure Spatial ankare och en serverdel för Azure Cosmos DB | Microsoft Docs
+title: Självstudie – dela Azure Spatial ankare flera sessioner och enheter med ett Azure Cosmos DB-serverdel | Microsoft Docs
 description: I den här självstudien får lära du att dela Azure Spatial ankare identifierare i Android/iOS-enheter i Unity med en backend tjänst och Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286405"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628928"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Självstudier: Dela mellan sessioner och enheter med Azure Spatial ankare och en serverdel för Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudier: Dela Azure Spatial ankare flera sessioner och enheter med ett Azure Cosmos DB-serverdel
 
-I den här självstudien får du lära dig hur du använder [Azure Spatial ankare](../overview.md) till:
-
-- Skapa fästpunkter under en session och leta sedan upp dem i en annan session, på samma enhet eller på ett annat. Den andra sessionen kan exempelvis vara en annan dag.
-- Skapa fästpunkter som är tillgängliga för flera enheter på samma plats och på samma gång.
+I den här självstudien får du lära dig hur du använder [Azure Spatial ankare](../overview.md) att skapa fästpunkter under en session och leta sedan upp dem i en annan session, på samma enhet eller på ett annat. Den andra sessionen kan exempelvis vara en annan dag. Dessa samma ankare kan också finnas av flera enheter på samma plats och på samma gång.
 
 ![GIF som illustrerar objektet persistence](./media/persistence.gif)
 

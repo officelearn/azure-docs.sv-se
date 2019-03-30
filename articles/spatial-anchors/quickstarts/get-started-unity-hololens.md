@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2c29d9860f1c8fc4f0f6d9f4d84c06e8ade8dee5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286983"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629485"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Snabbstart: Skapa en HoloLens Unity-app som använder Azure Spatial ankare
 
@@ -35,7 +35,7 @@ För att slutföra den här snabbstarten behöver du:
 
 
 - Behöver du en Windows-dator där <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> eller senare och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> eller senare är installerat. Visual Studio-installationen måste innehålla den **Universal Windows Platform-utveckling** arbetsbelastning. Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
-- Du behöver en HoloLens enhet där [utvecklarläget](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. [Uppdatering för Windows 10 oktober 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (även kallat RS5) måste vara installerad på enheten. Om du vill uppdatera till den senaste versionen på HoloLens, öppna den **inställningar** app, gå till **uppdatering och säkerhet**, och välj sedan **söka efter uppdateringar**.
+- Du behöver en HoloLens enhet där [utvecklarläget](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. [Uppdatering för Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (även kallat RS5) måste vara installerad på enheten. Om du vill uppdatera till den senaste versionen på HoloLens, öppna den **inställningar** app, gå till **uppdatering och säkerhet**, och välj sedan **söka efter uppdateringar**.
 - På din app, måste du aktivera den **SpatialPerception** kapaciteten. Den här inställningen finns under **Versionsinställningar** > **Player-inställningar** > **publiceringsinställningarna**  >   **Funktioner**.
 - På din app, måste du aktivera **virtuella verklighet stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns under **Versionsinställningar** > **Player-inställningar** > **XR inställningar**.
 

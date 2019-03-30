@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210517"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665057"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Hantera dina inställningar för tvåstegsverifiering
 Den här artikeln ger svar på frågor om hur du uppdaterar inställningar för tvåstegsverifiering verifieringen eller Multi-Factor authentication. Om du har problem med loggar in på ditt konto, se [har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) för hjälp med felsökning.
@@ -50,7 +50,7 @@ Om du klickar på länken inte fungerar för dig, du kan också få till den **y
     ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Jag vill ändra mitt telefonnummer eller lägga till ett sekundärt tal
-Det är viktigt att du konfigurerar ett telefonnummer för sekundär autentisering.  Eftersom din primära telefonnummer och din mobilapp har förmodligen samma telefonen kan är det sekundära telefonnumret det enda sättet som du kommer att kunna komma åt ditt konto om din telefon tappas bort eller blir stulen.
+Det är viktigt att du konfigurerar ett telefonnummer för sekundär autentisering.  Eftersom din primära telefonnummer och din mobilapp har förmodligen samma telefonen kan är det sekundära telefonnumret det snabbaste sättet som du kommer att kunna komma åt ditt konto om din telefon tappas bort eller blir stulen.
 
 > [!NOTE]
 > Om du inte har åtkomst till ditt primära telefonnummer och behöver hjälp med att komma in på ditt konto, se den [har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) artikeln för mer hjälp.  

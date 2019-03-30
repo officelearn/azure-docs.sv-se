@@ -8,19 +8,21 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893568"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649716"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Utveckla för Azure Files med C++
+
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Om den här självstudiekursen
+
 I de här självstudierna lär du dig att utföra grundläggande åtgärder på Azure Files. Genom sampel som är skrivna i C++, lär du dig att skapa resurser och kataloger, ladda upp, lista och ta bort filer. Om du är nybörjare på Azure Files, kommer att gå igenom begreppen i avsnitten som följer förstå exemplen.
 
 * Skapa och ta bort Azure-filresurser
@@ -34,6 +36,7 @@ I de här självstudierna lär du dig att utföra grundläggande åtgärder på 
 > Eftersom Azure Files kan nås över SMB, går det att skriva enkla program som har åtkomst till Azure-filresursen med standard C++-i/o-klasser och funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage C++ SDK, som använder den [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) att kommunicera med Azure Files.
 
 ## <a name="create-a-c-application"></a>Skapa ett C++-program
+
 Om du vill skapa exemplen behöver du installerar Azure Storage-klientbiblioteket 2.4.0 för C++. Du bör också skapat ett Azure storage-konto.
 
 För att du har installerat Azure Storage-klienten 2.4.0 för C++ kan använda du någon av följande metoder:
@@ -41,11 +44,13 @@ För att du har installerat Azure Storage-klienten 2.4.0 för C++ kan använda d
 * **Linux:** Följ instruktionerna den [Azure Storage-klientbiblioteket för C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sidan.
 * **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet-Pakethanteraren &gt; Pakethanterarkonsolen**. Skriv följande kommando i den [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
   
-```
+
+```powershell
 Install-Package wastorage
 ```
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Konfigurera programmet att använda Azure Files
+
 Lägg till följande ingår satser längst upp i källfilen C++ där du vill hantera Azure Files:
 
 ```cpp
@@ -54,6 +59,7 @@ Lägg till följande ingår satser längst upp i källfilen C++ där du vill han
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en anslutningssträng för Azure storage
+
 Om du vill använda fillagring, måste du ansluta till Azure storage-kontot. Det första steget är att konfigurera en anslutningssträng som vi använder för att ansluta till ditt lagringskonto. Nu ska vi definiera en statisk variabel för att göra detta.
 
 ```cpp
@@ -63,6 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 ```
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Ansluta till ett Azure storage-konto
+
 Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen för lagring. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.
 
 ```cpp
@@ -72,6 +79,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
+
 Alla filer och kataloger i en Azure-filresurs finns i en behållare som kallas en **dela**. Ditt storage-konto kan ha så många resurser som gör att din kapacitet. För att få åtkomst till en resurs och dess innehåll kan behöva du använda en Azure Files-klient.
 
 ```cpp
@@ -99,6 +107,7 @@ if (share.create_if_not_exists()) {
 Nu **dela** innehåller en referens till en resurs med namnet **my-sample-share**.
 
 ## <a name="delete-an-azure-file-share"></a>Ta bort en Azure-filresurs
+
 Tar bort en resurs gör du genom att anropa den **delete_if_exists** metod på ett cloud_file_share-objekt. Här är exempelkod som gör detta.
 
 ```cpp
@@ -111,6 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Skapa en katalog
+
 Du kan sortera lagring genom att placera filer i underkataloger i stället för att alla i rotkatalogen. Azure Files kan du skapa så många kataloger som ditt konto tillåter. Koden nedan skapar en katalog med namnet **my-sample-directory** under rotkatalogen samt en undermapp som heter **min exempel underkatalog**.
 
 ```cpp
@@ -127,6 +137,7 @@ subdirectory.create_if_not_exists();
 ```
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
+
 Ta bort en katalog är en enkel uppgift, men det bör noteras att du inte kan ta bort en katalog som fortfarande innehåller filer eller andra kataloger.
 
 ```cpp
@@ -149,6 +160,7 @@ directory.delete_directory_if_exists();
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
+
 Hämtar en lista över filer och kataloger i en resurs görs enkelt genom att anropa **list_files_and_directories** på en **cloud_file_directory** referens. Komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_file_and_directory_item**, måste du anropa den **list_file_and_directory_item.as_file** metod för att hämta en **cloud_file**  objekt, eller **list_file_and_directory_item.as_directory** metod för att hämta en **cloud_file_directory** objekt.
 
 Följande kod visar hur du hämtar och returnerar URI: N för varje objekt i rotkatalogen i resursen.
@@ -175,6 +187,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Överför en fil
+
 Åtminstone innehåller en rotkatalog där filer kan finnas i en Azure-filresurs. I det här avsnittet lär du dig att överföra en fil från lokal lagring till rotkatalogen för en resurs.
 
 Det första steget i att ladda upp en fil är att hämta en referens till katalogen där det ska finnas. Du gör detta genom att anropa den **get_root_directory_reference** -metoden i resurs-objektet.
@@ -207,6 +220,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Hämta en fil
+
 För att hämta filer, hämta en filreferens först och sedan anropa den **download_to_stream** metod för att överföra filens innehåll till ett dataströmsobjekt som du sedan kan spara till en lokal fil. Du kan också använda den **download_to_file** metod för att hämta innehållet i en fil till en lokal fil. Du kan använda den **download_text** metod för att hämta innehållet i en fil som en textsträng.
 
 I följande exempel används den **download_to_stream** och **download_text** metoder för att demonstrera laddar ned filerna som skapades i föregående avsnitt.
@@ -232,6 +246,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Ta bort en fil
+
 En annan vanliga Azure Files-åtgärden kan ta bort filen. Följande kod tar du bort en fil med namnet my-sample-filen-3 lagras under rotkatalogen.
 
 ```cpp
@@ -249,6 +264,7 @@ file.delete_file_if_exists();
 ```
 
 ## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Ange kvot (största storleken) för en Azure-filresurs
+
 Du kan ange kvoten (eller maxstorleken) för en filresurs, i gigabyte. Du kan också kontrollera hur mycket data som lagras på resursen för närvarande.
 
 Genom att ange kvoten för en resurs kan du begränsa den totala storleken på filerna som lagras på resursen. Om den totala storleken på filerna som lagras på resursen överskrider kvoten som angetts för resursen kan klienterna inte öka storleken på befintliga filer eller skapa nya filer såvida inte dessa filer är tomma.
@@ -280,6 +296,7 @@ if (share.exists())
 ```
 
 ## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generera en signatur för delad åtkomst för en fil eller filresurs
+
 Du kan generera en signatur för delad åtkomst (SAS) för en filresurs eller för en enskild fil. Du kan också skapa en princip för delad åtkomst på en filresurs för att hantera signaturer för delad åtkomst. Vi rekommenderar att du skapar en princip för delad åtkomst eftersom det ger dig möjlighet att återkalla signaturen för delad åtkomst om det behövs.
 
 I följande exempel skapar vi en princip för delad åtkomst på en resurs och använder sedan principen för att ange begränsningarna för en signatur för delad åtkomst på en fil i resursen.
@@ -346,7 +363,9 @@ if (share.exists())
 
 }
 ```
+
 ## <a name="next-steps"></a>Nästa steg
+
 Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 
 * [Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp)

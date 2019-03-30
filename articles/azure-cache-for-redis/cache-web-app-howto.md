@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 100d2e4cb57f2b2d0278540a0382fb845dbba53c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090482"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649024"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snabbstart: Skapa en ASP.NET-webbapp 
 
@@ -97,7 +97,7 @@ Nu ska skapa du cachen för appen.
 
 I det här avsnittet uppdaterar du programet så att det stöder en ny vy som visar ett enkelt test mot Azure Cache for Redis.
 
-* [Uppdatera web.config-filen med en appinställning för cachen](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Uppdatera web.config-filen med en appinställning för cachen](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Konfigurera appen till att använda StackExchange.Redis-klienten
 * Uppdatera HomeController och layout
 * Lägga till en ny RedisCache-vy

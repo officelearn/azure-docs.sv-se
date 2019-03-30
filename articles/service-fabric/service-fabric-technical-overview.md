@@ -4,7 +4,7 @@ description: En översikt över terminologi för Service Fabric. Beskriver vikti
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: d9012ff37693b406d4e91560c880d6bed66c051b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498306"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668456"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric-terminologi
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan [Service Fabric-värdkluster som helst](service-fabric-deploy-anywhere.md): Azure i ett lokalt datacenter eller på någon annan molnleverantör.  Service Fabric är orchestrator som driver [Azure Service Fabric nät](/azure/service-fabric-mesh). Du kan använda valfritt ramverk för att skriva dina tjänster och välj var du vill köra programmet från miljön välja mellan flera alternativ. Den här artikeln beskriver de termer som används av Service Fabric för att förstå de termer som används i dokumentationen.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313352"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629367"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -33,7 +33,7 @@ Innan du börjar måste du [skapa ett lagringskonto](../../storage/common/storag
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
+För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics-arbetsytan). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.

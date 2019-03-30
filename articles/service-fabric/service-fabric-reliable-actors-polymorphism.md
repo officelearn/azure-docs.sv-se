@@ -1,10 +1,10 @@
 ---
-title: Polymorfism inom ramen för Reliable Actors | Microsoft Docs
-description: Skapa hierarkier av .NET-gränssnitt och typer i Reliable Actors framework återanvända funktioner och API-definitioner.
+title: Polymorfism i Reliable Actors framework | Microsoft Docs
+description: Skapa hierarkier av .NET-gränssnitt och typer inom ramen för Reliable Actors kan återanvända funktioner och API-definitioner.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f03330bbbf2c1c7f92310211058f7ef8858f1941
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209346"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662966"
 ---
-# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism inom ramen för Reliable Actors
-Reliable Actors framework kan du skapa aktörer med många av samma teknik som du vill använda i objektorienterad design. En av dessa tekniker är polymorfism som tillåter typer och gränssnitt för att ärva från flera generaliserad överordnade. Arv inom ramen för Reliable Actors följer vanligtvis .NET modellen med några ytterligare begränsningar. Vid Java-/ Linux följer Java-modellen.
+# <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism i Reliable Actors framework
+Reliable Actors-framework kan du skapa aktörer använder många av samma teknik som du vill använda i objektorienterad design. En av dessa tekniker är polymorfism, vilket gör att typer och gränssnitt för att ärva från mer generaliserad föräldrar. Arv inom ramen för Reliable Actors följer Allmänt .NET-modellen med några ytterligare begränsningar. Vid Java/Linux följer det Java-modellen.
 
 ## <a name="interfaces"></a>Gränssnitt
-Reliable Actors framework måste du definiera minst ett gränssnitt implementeras av aktören-typen. Det här gränssnittet används för att generera en proxyklass som kan användas av klienter för att kommunicera med dina aktörer. Gränssnitt kan ärvas från andra gränssnitt, förutsatt att varje gränssnitt som implementeras av en aktörstyp av och alla dess överordnade slutligen härledas från IActor(C#) eller Actor(Java). IActor(C#) och Actor(Java) är definierad på plattform basgränssnitt för aktörer i ramverk .NET och Java. Därför klassiska polymorfism exemplet med hjälp av former kan se ut ungefär så här:
+Reliable Actors-ramverket måste du definiera minst en gränssnittet implementeras av din typ av aktör. Det här gränssnittet används för att generera en proxyklass som kan användas av klienter för att kommunicera med dina aktörer. Gränssnitt kan ärvas från andra gränssnitt, förutsatt att varje gränssnitt som implementeras av en typ av aktör och alla dess överordnade slutligen drar av IActor (C#) eller Actor(Java). IActor (C#) och Actor(Java) är definierad av plattformen grundläggande gränssnitt för aktörerna i ramverk .NET och Java respektive. Därför i klassiska polymorfism exempel som använder former kan se ut ungefär så här:
 
-![Gränssnittet hierarki för formen aktörer][shapes-interface-hierarchy]
+![Hierarki för gränssnittet för form aktörer][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Typer
-Du kan också skapa en hierarki av aktören typer som härletts från aktören basklass som tillhandahålls av plattformen. Du kanske har en bas för former, `Shape`(C#) eller `ShapeImpl`(Java) typ:
+Du kan också skapa en hierarki av aktör typer som härletts från aktören basklassen som tillhandahålls av plattformen. När det gäller former, kan du ha en base `Shape`(C#) eller `ShapeImpl`(Java) typ:
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -92,10 +92,10 @@ public class Circle extends ShapeImpl implements Circle
 }
 ```
 
-Observera den `ActorService` -attributet i aktörstyp. Det här attributet anger tillförlitliga aktören framework att den automatiskt skapar en tjänst som värd för aktörer av den här typen. I vissa fall kanske du vill skapa en bastyp som endast är avsedd för att dela funktioner med undertyper och aldrig används för att skapa en instans av konkreta aktörer. I sådana fall kan du använda den `abstract` nyckelord för att indikera att du aldrig skapar en aktör baserat på den typen.
+Obs den `ActorService` aktörstypen-attributet. Det här attributet anger Reliable Actor-ramverket att den automatiskt skapar en tjänst som värd för aktörer av den här typen. I vissa fall kanske du vill skapa en bastyp som endast är avsedd för att dela funktioner med undertyper och aldrig används för att skapa en instans av konkreta aktörer. I sådana fall bör du använda den `abstract` nyckelord att indikera att du aldrig skapar en aktör baserat på den typen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [hur Reliable Actors framework utnyttjar Service Fabric-plattformen](service-fabric-reliable-actors-platform.md) att tillhandahålla tillförlitlighet, skalbarhet och konsekvent tillstånd.
+* Se [hur ramen för Reliable Actors använder Service Fabric-plattformen](service-fabric-reliable-actors-platform.md) att tillhandahålla tillförlitlighet, skalbarhet och konsekvent tillstånd.
 * Lär dig mer om den [aktören livscykel](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->

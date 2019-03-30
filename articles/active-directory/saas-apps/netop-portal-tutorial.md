@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891026"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Självstudier: Azure Active Directory-integrering med Netop Portal
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Netop
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Lämna **Namnrymd** tom.
+    c. I den **Namespace** textrutan typ https://secure.netop.com.
 
     d. Välj Källa som **Attribut**.
 
@@ -154,7 +154,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Netop
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Konfigurera enkel inloggning för Netop Portal
 
-För att konfigurera enkel inloggning på **Netop Portal**-sidan behöver du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Netop Portal](mailto:casemanager@netop.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **Netop Portal** sida, måste du laddade ned **Federation Metadata XML** och inloggnings-URL från Azure-portalen. Följ instruktionerna i steg3 av dokumentationen [här](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) konfigurerar NetOp Portal för Azure AD-autentisering.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

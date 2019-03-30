@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287187"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648581"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
 Microsoft hjälper sänka på ingångsnivå kostnaden för att köra ett data warehouse.  Compute lägre nivåer kan hantera krävande frågor är nu tillgängliga för Azure SQL Data Warehouse. Läs hela tillkännagivandet [lägre compute nivå av support för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Nytt erbjudande är tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds, kan befintliga Gen1 informationslager uppgraderas till Gen2 via antingen:
 
 - **Automatiska uppgraderingen:** Automatiska uppgraderingar starta inte så snart som tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region, ska enskilda DW-uppgraderingar äga rum under ditt valda underhållsschema.
-- [**Lokal uppgradera till Gen2:**](#Self-upgrade-to-Gen2) Du kan styra när du ska uppgradera genom att göra en lokal uppgradera till Gen2. Om din region inte stöds ännu, kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
+- [**Lokal uppgradera till Gen2:**](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en lokal uppgradera till Gen2. Om din region inte stöds ännu, kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Automatiserad schema och tabellen för Region tillgänglighet
 

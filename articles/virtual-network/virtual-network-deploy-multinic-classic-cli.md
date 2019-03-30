@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953385"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650027"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Skapa en virtuell dator (klassisk) med flera nätverkskort med den klassiska Azure CLI
 
@@ -30,7 +30,7 @@ ms.locfileid: "46953385"
 Du kan skapa virtuella datorer (VM) i Azure och koppla flera nätverksgränssnitt (NIC) till var och en av dina virtuella datorer. Flera nätverkskort kan du aktivera uppdelning av trafiktyper på nätverkskort. Till exempel kan ett nätverkskort kommunicera med Internet, medan en annan kommunicerar endast med interna resurser som inte är ansluten till Internet. Möjligheten att separera trafik över flera nätverkskort krävs för många virtuella nätverksenheter, till exempel program och lösningar för WAN-optimering.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du utför de här stegen med hjälp av den [Resource Manager-distributionsmodellen](../virtual-machines/linux/multiple-nics.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du utför de här stegen med hjälp av den [Resource Manager-distributionsmodellen](../virtual-machines/linux/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -51,7 +51,7 @@ Backend-virtuella datorer beror på att skapa följande resurser:
 ### <a name="step-1---start-your-script"></a>Steg 1 – starta skriptet
 Du kan hämta den fullständiga bash-skript används [här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Utför följande steg om du vill ändra skriptet så att det fungerar i din miljö:
 
-1. Ändra värdena för variabler nedan baserat på en befintlig resursgrupp som distribueras ovan i [krav](#Prerequisites).
+1. Ändra värdena för variabler nedan baserat på en befintlig resursgrupp som distribueras ovan i [krav](#prerequisites).
 
     ```azurecli
     location="useast2"

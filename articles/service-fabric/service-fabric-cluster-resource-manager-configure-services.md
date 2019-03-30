@@ -4,7 +4,7 @@ description: Lär dig mer om att beskriva en Service Fabric-tjänst genom att an
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 55d75bb0bae4bf3feb370b7fdf4d80dc43bdc0ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736897"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661555"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurera klusterinställningar resource manager för Service Fabric-tjänster
 Service Fabric Cluster Resource Manager kan finmaskig kontroll över de regler som styr varje person med namnet på tjänsten. Varje namngiven tjänst kan ange regler för hur den ska allokeras i klustret. Varje namngiven tjänst kan också definiera en uppsättning mått som läggs till rapporten, inklusive hur viktiga de är till den tjänsten. Konfigurera services delar upp till tre olika aktiviteter:

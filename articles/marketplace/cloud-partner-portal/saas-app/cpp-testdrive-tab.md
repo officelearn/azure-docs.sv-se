@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993101"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649041"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-program Test Drive-fliken
 
@@ -53,7 +53,7 @@ Det finns fyra olika typer av Provkörningar, var och en baserat på vilken typ 
 |     Azure Resource Manager               |    Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar den här typen av Test Drive är sådana som använder endast Azure-resurser.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Värdbaserad             |       En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.             |         [Värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Logikapp              |       En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.            |      [Logic App-provkörning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Testa Power BI består av en inbäddad länk till en anpassade instrumentpanel. En produkt som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp är din inbäddade Power BI-URL.          |        [Power BI-provkörning](#Power-BI-test-drive)           |
+|       Power BI             |         Testa Power BI består av en inbäddad länk till en anpassade instrumentpanel. En produkt som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp är din inbäddade Power BI-URL.          |        [Power BI-provkörning](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI-provkörning
 

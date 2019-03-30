@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4a4ec51430242cc3e3d6a0b801f2b4be7858ab50
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516117"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671877"
 ---
 <!-- put the ## header in the file that includes this file -->
 
 I det här avsnittet ska skapa du en enhetsidentitet i identitetsregistret i IoT hub. En enhet kan inte ansluta till IoT Hub om den inte har en post i identitetsregistret. Mer information finns i avsnittet ”identitetsregistret” i den [utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md) 
 
-1. Öppna i navigeringsmenyn din IoT-hubb **IoT-enheter**, klicka sedan på **Lägg till** att registrera en ny enhet i IoT hub.
+1. Öppna i navigeringsmenyn din IoT-hubb **IoT-enheter**och välj sedan **Lägg till** att registrera en ny enhet i IoT hub.
 
     ![Skapa en enhetsidentitet i portalen](./media/iot-hub-include-create-device/create-identity-portal.png)
 
-1. Ange ett namn för den nya enheten, till exempel **myDeviceId**, och klicka på **spara**. Den här åtgärden skapar en ny enhetsidentitet för IoT-hubben.
+1. Ange ett namn för den nya enheten, till exempel **myDeviceId**, och välj **spara**. Den här åtgärden skapar en ny enhetsidentitet för IoT-hubben.
 
    ![Lägg till en ny enhet](./media/iot-hub-include-create-device/create-a-device.png)
 

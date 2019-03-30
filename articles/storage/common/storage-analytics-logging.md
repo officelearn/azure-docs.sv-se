@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351339"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652067"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-loggning
 
@@ -27,7 +27,6 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäran
 >  Loggningen i Storage Analytics finns för närvarande endast för Blob, Queue och Table-tjänster. Dock stöds inte premium storage-konto.
 
 ## <a name="requests-logged-in-logging"></a>Begäranden som har loggat in loggning
-
 ### <a name="logging-authenticated-requests"></a>Autentiserade loggningsbegäranden
 
  Följande typer av autentiserade begäranden loggas:
@@ -63,13 +62,13 @@ Om du har ett stort antal loggdata med flera filer för varje timme, kan du anv�
 
 De flesta bläddrat storage-verktyg kan du visa metadata för blobar; Du kan också läsa den här informationen med hjälp av PowerShell eller via programmering. Följande PowerShell-kodavsnitt är ett exempel på att filtrera listan över loggblobarna genom namn för att ange en tid och metadata för att identifiera de loggar som innehåller **skriva** åtgärder.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Du kan ange de storage-tjänster som du vill logga in och kvarhållningsperioden
 
  Följande kommando växlar loggning för läsning, skriva och ta bort begäranden i kö-tjänst i din standardkontot för lagring med kvarhållning inställd på fem dagar:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Följande kommando växlar stänga av loggning för tabelltjänsten i standardkontot för lagring:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Information om hur du konfigurerar finns Azure PowerShell-cmdletar för att arbeta med din Azure-prenumeration och hur du väljer standardkontot för lagring att använda, i: [Hur du installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Aktivera Storage logging programmässigt  
+
  Förutom att använda Azure portal eller Azure PowerShell-cmdletar för att styra Storage loggning kan använda du också en av API: erna för Azure Storage. Du kan till exempel använda Lagringsklientbiblioteket om du använder ett .NET-språk.  
 
  Klasserna **CloudBlobClient**, **CloudQueueClient**, och **CloudTableClient** alla har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar en **ServiceProperties** objektet som en parameter. Du kan använda den **ServiceProperties** objekt för att konfigurera Storage loggning. Till exempel följande C# kodfragment visar hur du ändrar vad loggas och kvarhållningsperioden för kön loggning:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  I följande exempel visas hur du kan hämta loggdata för Kötjänsten för de timmar som börjar vid 09 kl 10 AM och 11 kl 20 maj 2014. Den **/S** parametern orsakar AzCopy för att skapa en lokal mapp-struktur som baseras på datum och tider i loggfilsnamn; den **/V** parametern orsakar AzCopy för att producera utförliga utdata; den **/Y** parametern orsakar AzCopy för att skriva över eventuella lokala filer. Ersätt **< yourstorageaccount\>**  med namnet på ditt lagringskonto och Ersätt **< yourstoragekey\>**  med din lagringskontonyckel.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  När du har hämtat dina loggdata, ser du vilka loggposter i filerna. Dessa loggfiler använda avgränsat textformat så många läser verktyg kan parsa, inklusive Microsoft Message Analyzer (Mer information finns i guiden [övervakning, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering, ad söker innehållet i loggfilerna. Läs mer om Storage Logging loggfilsformat och innehåll, [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) och [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Loggformatet för Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
 * [Lagringsanalys loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Mätvärden i Storage Analytics (klassisk)](storage-analytics-metrics.md)

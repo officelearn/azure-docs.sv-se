@@ -4,7 +4,7 @@ description: Beskriver Service Fabric CLI sfctl nät volym kommandon.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cbd16ca66002446b3907c1ecaa6c0b334b35dc57
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285223"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668746"
 ---
-# <a name="sfctl-mesh-volume"></a>sfctl nät volym
+# <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Hämta och ta bort volymen resurser.
 
 ## <a name="commands"></a>Kommandon
@@ -30,7 +30,7 @@ Hämta och ta bort volymen resurser.
 | --- | --- |
 | delete | Tar bort volymresursen. |
 | lista | Visar en lista över alla resurser som volym. |
-| Visa | Hämtar volymresursen med det angivna namnet. |
+| visa | Hämtar volymresursen med det angivna namnet. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl nät volym delete
 Tar bort volymresursen.
@@ -43,11 +43,11 @@ Tar bort volymresursen som identifieras av namnet.
 | --- | --- |
 | --name -n [krävs] | Namnet på volymen. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -58,11 +58,11 @@ Visar en lista över alla resurser som volym.
 
 Hämtar information om alla volym-resurser i en viss resursgrupp. Informationen omfattar beskrivningen och andra egenskaper för volymen.
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -79,11 +79,11 @@ Hämtar information om volym-resurs med det angivna namnet. Informationen omfatt
 | --- | --- |
 | --name -n [krävs] | Namnet på volymen. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

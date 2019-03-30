@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: ee7c471cdd76829abc03fa4578d09b8a7303cb38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891441"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648528"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Kostnader för programvara som inte ingår i Azure Reserved VM Instances
 
@@ -69,15 +69,15 @@ Om du inte har en Azure Hybrid Use Benefit på dina reserverade VM-instanser, ä
 Du kan få kostnaden för var och en av mätarnas via Azure RateCard-API. Information om hur du hämtar priserna för en mätare som azure finns i [få information om priset och metadata för resurser som används i en Azure-prenumeration](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Mer information om reservationer för Azure finns i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Hantera reservationer för Azure](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

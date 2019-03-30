@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 123c05470f8f162095b92c0894716c7b5d2a92b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091825"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648779"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -47,7 +47,7 @@ När du öppnar Eclipse HDInsight verktyget identifierar automatiskt om du har i
 
 ![Automatisk installation av Scala plugin-programmet](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-Användaren kan antingen [logga in på Azure-prenumeration](#Sign-in-to-your-Azure-subscription), eller [länka ett HDInsight-kluster](#Link-a-cluster) med Ambari användarnamn/lösenord eller domänanslutna autentiseringsuppgift som ska starta. 
+Användaren kan antingen [logga in på Azure-prenumeration](#sign-in-to-your-azure-subscription), eller [länka ett HDInsight-kluster](#link-a-cluster) med Ambari användarnamn/lösenord eller domänanslutna autentiseringsuppgift som ska starta. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 1. Starta Eclipse IDE och öppna Azure Explorer. På den **fönstret** menyn och välj **Show View**, och välj sedan **andra**. I dialogrutan som öppnas, expandera **Azure**väljer **Azure Explorer**, och välj sedan **OK**.

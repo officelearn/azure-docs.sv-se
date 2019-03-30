@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336277"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661232"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -47,6 +47,11 @@ Om du observerar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died
 ## <a name="fpgas"></a>FPGA:er
 
 Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
+
+## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
+
+Tensor Flow automatiserad maskininlärning stöder för närvarande inte tensor flow version 1.13. Installera detta medför paketberoenden slutar att fungera. Vi arbetar för att åtgärda detta i en framtida version. 
+
 
 ## <a name="databricks"></a>Databricks
 

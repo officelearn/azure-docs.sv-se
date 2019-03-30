@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519637"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662232"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -39,7 +39,7 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 
 Läs mer om nyheterna med Azure Speech Services.
 
-* Mars 2019 – är en ny slutpunkt för text till tal som returnerar en fullständig lista över röster som är tillgängliga i vissa regioner nu tillgänglig. Mer information finns i [text till tal-API-referens (REST)](rest-text-to-speech.md).
+* Mars 2019 – är en ny slutpunkt för tal som returnerar en fullständig lista över röster som är tillgängliga i vissa regioner nu tillgänglig. Nya regioner stöds nu för text till tal. Mer information finns i [text till tal-API-referens (REST)](rest-text-to-speech.md).
 * Februari 2019 - är tal SDK 1.3.0 med stöd för [Unity (beta)](quickstart-csharp-unity.md). Lagt till stöd för den `AudioInput` klass, där du kan välja strömningskälla som ljud. En fullständig lista över förbättringar och kända problem finns i [viktig](releasenotes.md).
 * December 2018 - är tal SDK 1.2.0 med stöd för [Python](quickstart-python.md) och [Node.js](quickstart-js-node.md), samt Ubuntu 18.04 LTS. Mer information finns i [viktig](releasenotes.md).
 

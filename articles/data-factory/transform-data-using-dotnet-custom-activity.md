@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855877"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652101"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Aktuell version](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ Se följande artiklar om du är nybörjare på Azure Batch-tjänsten:
 * [Ny AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet för att skapa en Azure Batch-pool.
 
 ## <a name="azure-batch-linked-service"></a>Tjänsten Azure Batch länkad
+
 Följande JSON definierar ett exempel på Azure Batch-länkad tjänst. Mer information finns i [Compute miljöer som stöds av Azure Data Factory](compute-linked-services.md)
 
 ```json
@@ -114,7 +116,7 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 &#42;Egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
 > [!NOTE]
-> Om du skickar länkade tjänster som referenceObjects i anpassad aktivitet, är det en bra säkerhetsrutin att skicka ett Azure Key Vault aktiverat länkad tjänst (eftersom den inte innehåller någon säker strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från nyckel Valvet från koden. Du kan se ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) att referenser AKV aktiverade länkade tjänsten hämtar autentiseringsuppgifterna från Key Vault och sedan får åtkomst till lagringen i koden.  
+> Om du skickar länkade tjänster som referenceObjects i anpassad aktivitet, är det en bra säkerhetsrutin att skicka ett Azure Key Vault aktiverat länkad tjänst (eftersom den inte innehåller någon säker strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från nyckel Valvet från koden. Du kan se ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) att referenser AKV aktiverade länkade tjänsten hämtar autentiseringsuppgifterna från Key Vault och sedan får åtkomst till lagringen i koden.
 
 ## <a name="custom-activity-permissions"></a>Behörigheter för anpassad aktivitet
 
@@ -147,7 +149,6 @@ Du kan direkt köra ett kommando med en anpassad aktivitet. I följande exempel 
 ## <a name="passing-objects-and-properties"></a>Skicka objekt och egenskaper
 
 Detta exempel visar hur du kan använda referenceObjects och extendedProperties för att skicka Data Factory-objekt och användardefinierade egenskaper till ditt anpassade program.
-
 
 ```json
 {
@@ -191,15 +192,15 @@ Detta exempel visar hur du kan använda referenceObjects och extendedProperties 
 
 När aktiviteten körs lagras referenceObjects och extendedProperties i följande filer som har distribuerats till samma mapp för körning av SampleApp.exe:
 
-- activity.json
+- `activity.json`
 
   Lagrar extendedProperties och egenskaperna för den anpassade aktiviteten.
 
-- linkedServices.json
+- `linkedServices.json`
 
   Lagrar en matris med länkade tjänster som har definierats i egenskapen referenceObjects.
 
-- datasets.json
+- `datasets.json`
 
   Lagrar en matris med datauppsättningar som har definierats i egenskapen referenceObjects.
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 Du kan starta en pipelinekörning med hjälp av följande PowerShell-kommando:
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 Om pipelinen är igång kan kontrollera du utförande-utdatan med hjälp av följande kommandon:
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 Den **stdout** och **stderr** av ditt anpassade program sparas i den **adfjobs** behållare i Azure Storage länkade tjänsten du definierade när du skapar Azure Batch länkade Tjänsten med en GUID för uppgiften. Du kan få detaljerad sökväg från aktiviteten kör utdata som visas i följande kodavsnitt:
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 Om du vill använda innehåll för stdout.txt i underordnade aktiviteter kan du hämta sökvägen till filen stdout.txt i uttrycket ”\@activity('MyCustomActivity').output.outputs [0]”.
 
-  > [!IMPORTANT]
-  > - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat.
-  > - För länkade tjänster som använder den lokala Integration Runtime definierats känslig information som nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna är kvar i kundens privata nätverk. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs.
+> [!IMPORTANT]
+> - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat.
+> - För länkade tjänster som använder den lokala Integration Runtime definierats känslig information som nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna är kvar i kundens privata nätverk. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs.
 
 ## <a name="pass-outputs-to-another-activity"></a>Pass utdata till en annan aktivitet
 
@@ -311,10 +314,10 @@ Känsliga egenskapsvärden som är utsedd till typen *SecureString*, enligt viss
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Med ändringar som införs i den anpassade aktiviteten för Data Factory V2, kan
 
 I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivitet och Data Factory version 1 (anpassad) DotNet-aktivitet:
 
-
 |Skillnader      | Anpassad aktivitet      | version 1 (anpassad) DotNet-aktivitet      |
 | ---- | ---- | ---- |
 |Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .NET-DLL      |
@@ -344,7 +346,6 @@ I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivit
 |Skicka information från aktiviteten till anpassad logik      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata datauppsättningar      |
 |Hämta information i anpassad logik      |Parsar activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .NET SDK (.NET bildruta 4.5.2)      |
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .NET-DLL      |
-
 
 Om du har befintliga .NET-kod som skrivits för en version 1 (anpassad) DotNet-aktiviteten kan behöva du ändra koden att fungera med den aktuella versionen av den anpassade aktiviteten. Uppdatera din kod genom att följa riktlinjerna på hög nivå:
 
@@ -358,6 +359,7 @@ Om du har befintliga .NET-kod som skrivits för en version 1 (anpassad) DotNet-a
 Ett mer komplett exempel på hur slutpunkt till slutpunkt DLL-filen och pipeline exemplet beskrivs i Data Factory version 1 artikeln [Använd anpassade aktiviteter i en Azure Data Factory-pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en Data Factory-anpassad aktivitet, se [ Data Factory anpassad aktivitet, exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning i Azure Batch
+
 Du kan också skapa ett Azure Batch-pool med **Autoskala** funktionen. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en formel för automatisk skalning baserat på antalet väntande aktiviteter.
 
 Exemplet formeln här uppnår på följande: När poolen skapas, börjar det med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd. Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.

@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994181"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630472"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
 Den här artikeln innehåller vanliga anslutningsproblem med punkt-till-plats-som kan uppstå. Det diskuterar även möjliga orsaker och lösningar för dessa problem.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN-klientfel: Det gick inte att hitta något certifikat
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Fel för VPN-klienten: Det gick inte att hitta något certifikat
 
 ### <a name="symptom"></a>Symtom
 
 När du försöker ansluta till ett Azure-nätverk med hjälp av VPN-klienten, visas följande felmeddelande visas:
 
-**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Fel 798)**
+**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Error 798)**
 
 ### <a name="cause"></a>Orsak
 
@@ -41,7 +41,7 @@ Det här problemet uppstår om klientcertifikatet saknas från **certifikat – 
 
 Följ dessa steg för att lösa problemet:
 
-1. Öppna Certifikathanteraren: Klicka på **starta**, typ **hantera datorcertifikat**, och klicka sedan på **hantera datorcertifikat** i sökresultatet.
+1. Öppna Hanteraren för certifikat: Klicka på **starta**, typ **hantera datorcertifikat**, och klicka sedan på **hantera datorcertifikat** i sökresultatet.
 
 2. Se till att följande certifikat är på rätt plats:
 
@@ -58,13 +58,13 @@ Läs mer om hur du installerar klientcertifikatet [generera och exportera certif
 > [!NOTE]
 > När du importerar klientcertifikatet inte väljer den **aktivera starkt skydd av den privata nyckeln** alternativet.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN-klientfel: det mottagna meddelandet var oväntad eller felaktigt formaterat
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Fel för VPN-klienten: Det mottagna meddelandet var oväntad eller felaktigt formaterat
 
 ### <a name="symptom"></a>Symtom
 
 När du försöker ansluta till ett Azure-nätverk med hjälp av VPN-klienten, visas följande felmeddelande visas:
 
-**Det mottagna meddelandet var oväntad eller felaktigt formaterat. (Fel 0x80090326)**
+**Det mottagna meddelandet var oväntad eller felaktigt formaterat. (Error 0x80090326)**
 
 ### <a name="cause"></a>Orsak
 
@@ -81,7 +81,7 @@ Följ dessa steg för att lösa problemet:
 1. Ta bort användardefinierade vägen i Gateway-undernätet. Kontrollera att UDR vidarebefordrar all trafik korrekt.
 2. Kontrollera status för rotcertifikat i Azure portal för att se om det har återkallats. Om det inte har återkallats du försök ta bort rotcertifikat och reupload. Mer information finns i [skapa certifikat](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN-klientfel: en certifikatkedja bearbetas men avslutades 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Fel för VPN-klienten: En certifikatkedja bearbetas men avslutades 
 
 ### <a name="symptom"></a>Symtom 
 
@@ -101,7 +101,7 @@ När du försöker ansluta till ett Azure-nätverk med hjälp av VPN-klienten, v
 
 2. Försök att ta bort certifikaten och installera om dem om certifikat som redan är på plats. Den **azuregateway -*GUID*. cloudapp.net** certifikat finns i VPN-klientkonfigurationspaketet som du laddade ned från Azure-portalen. Du kan använda filen archivers för att extrahera filerna från paketet.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Hämta fel: mål-URI har inte angetts
+## <a name="file-download-error-target-uri-is-not-specified"></a>Fel vid hämtning av filen: Mål-URI har inte angetts
 
 ### <a name="symptom"></a>Symtom
 
@@ -117,7 +117,7 @@ Det här problemet inträffar på grund av en felaktig gateway-typen.
 
 Typ av VPN-gateway måste vara **VPN**, och VPN-typ måste vara **RouteBased**.
 
-## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN-klientfel: Azure VPN-anpassat skript misslyckades 
+## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Fel för VPN-klienten: Azure VPN-anpassat skript misslyckades 
 
 ### <a name="symptom"></a>Symtom
 
@@ -197,7 +197,7 @@ När du försöker spara ändringarna för VPN-gateway i Azure-portalen, visas f
 
 Det här problemet beror på att namnet på certifikatet innehåller ett ogiltigt tecken, till exempel ett blanksteg. 
 
-## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Fel när Azure portal: VPN-paketet filhämtningsfel 503
+## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal fel: VPN-paketet filhämtningsfel 503
 
 ### <a name="symptom"></a>Symtom
 
@@ -209,7 +209,7 @@ När du försöker hämta konfigurationspaketet för VPN-klienten, visas följan
 
 Det här felet kan orsakas av tillfälliga nätverksproblem. Försök att hämta VPN-klientpaketet igen efter några minuter.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN Gateway-uppgraderingen: alla punkt till plats klienter kan inte ansluta
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN Gateway-uppgraderingen: Alla punkt till plats som klienter kan inte ansluta
 
 ### <a name="cause"></a>Orsak
 
@@ -217,7 +217,7 @@ Om certifikatet är mer än 50 procent via livslängden och certifikatet för ko
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att distribuera om punkten till plats paketet på alla klienter.
+Lös problemet genom att ladda ned och distribuera om pekar på platsen paketet på alla klienter.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>För många VPN-klienter är anslutna på samma gång
 
@@ -302,7 +302,7 @@ Det här problemet kan uppstå om VPN-klienten inte får vägarna från Azure VP
 
 Du löser problemet, [återställa Azure VPN gateway](vpn-gateway-resetgw-classic.md). För att säkerställa att de nya vägarna används, måste punkt-till-plats-VPN-klienterna laddas ned igen efter det virtuella nätverkets peering har konfigurerats.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: ”funktionen återkallade certifikat kunde inte kontrollera återkallade certifikat eftersom servern för certfikatåterkallning var offline. (Fel 0x80092013) ”
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: ”Funktionen återkallade certifikat kunde inte kontrollera återkallade certifikat eftersom servern för certfikatåterkallning var offline. (Fel 0x80092013) ”
 
 ### <a name="causes"></a>Orsaker
 Det här felmeddelandet visas om klienten inte kommer åt http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.crl.  Från Återkallelsekontrollen kräver åtkomst till dessa två platser.  Det här problemet inträffar vanligtvis på den klient som har en konfigurerad proxyserver. I vissa miljöer om begäranden inte ska via proxyservern kommer den att nekas på Gränsbrandväggen.
@@ -311,7 +311,7 @@ Det här felmeddelandet visas om klienten inte kommer åt http://crl3.digicert.c
 
 Kontrollera inställningarna för proxyservern, kontrollerar du att klienten kan komma åt http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.crl.
 
-## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN-klientfel: Anslutningen kunde inte på grund av en princip som konfigurerats på RAS/VPN-servern. (Fel 812)
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Fel för VPN-klienten: Anslutningen kunde inte på grund av en princip som konfigurerats på RAS/VPN-servern. (Fel 812)
 
 ### <a name="cause"></a>Orsak
 
@@ -327,7 +327,7 @@ Se till att RADIUS-server är korrekt konfigurerad. Mer information finns i [int
 
 Rotcertifikatet har inte installerats. Rotcertifikatet installeras i klientens **certifikat från betrodda** lagra.
 
-## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>VPN-klientfel: Fjärranslutningen skapades inte eftersom försök VPN-tunnlar misslyckades. (Fel 800) 
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Fel för VPN-klienten: Fjärranslutningen skapades inte eftersom det gick inte att försök VPN-tunnlar. (Fel 800) 
 
 ### <a name="cause"></a>Orsak
 
@@ -343,7 +343,7 @@ Uppdatera NIC-drivrutinen:
 4. Om Windows inte hittar en ny drivrutin, kan du söka efter en på enhetstillverkarens webbplats och följ instruktionerna.
 5. Starta om datorn och försök igen.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fel: fel vid hämtning av mål-URI inte har angetts ”fil”
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fel: 'Filhämtningsfel mål-URI har inte angetts.
 
 ### <a name="cause"></a>Orsak
 

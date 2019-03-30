@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620142"
+ms.locfileid: "58650163"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka säkerhetsvarningar SDK
 
@@ -92,7 +92,7 @@ Skicka säkerhetsvarningar utan att använda ASC för IoT-agenten med hjälp av 
 
 Använda en av följande API: er för att skicka enhetens data från dina enheter för bearbetning av ASC för IoT, för att markera meddelanden för rätt routning till ASC för IoT-process-pipelinen. Meddelanden som skickas på detta sätt ska bearbetas och visas som säkerhetsinformation i ASC för IoT inom både IoT Hub eller Azure Security Center. 
 
-Alla data som skickas, även om markerats med rubriken rätt måste också vara kompatibel med den [ASC för IoT meddelande schemat](https://github.com/Azure/ASC-for-IoT-Schemas). 
+Alla data som skickas, även om markerats med rubriken rätt måste också vara kompatibel med den [ASC för IoT meddelande schemat](https://aka.ms/iot-security-schemas). 
 
 ### <a name="send-security-message-api"></a>Skicka security meddelande API
 

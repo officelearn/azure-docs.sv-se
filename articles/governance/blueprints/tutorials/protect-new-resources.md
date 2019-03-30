@@ -4,16 +4,16 @@ description: Lär dig att använda Azure skisser resurslås skrivskyddad och ta 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855770"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629220"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Skydda nya resurser med Azure skisser resurslås
 
@@ -40,7 +40,7 @@ Börja med att skapa nya skissdefinitionen.
 
 1. Från den **komma igång** sidan till vänster, Välj den **skapa** knappen _skapa en skiss_.
 
-1. Hitta den **tom exempel** skissen exempel överst på sidan och väljer **använda det här exemplet**.
+1. Hitta den **tom skiss** skissen exempel överst på sidan och väljer **starta med tom skiss**.
 
 1. Ange den _grunderna_ av skiss exemplet:
 
@@ -81,7 +81,7 @@ Börja med att skapa nya skissdefinitionen.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -182,6 +182,8 @@ Tilldelningen skapade resursgruppen _TestingBPLocks_ och storage-kontot som dist
 
    Skisstilldelningen skapas en [neka tilldelning](../../../role-based-access-control/deny-assignments.md) på den distribuerade resursgruppen för att tvinga den _skrivskyddad_ skissen lock-läge. Neka tilldelningen förhindrar att någon med rätt behörighet på den _rolltilldelningar_ fliken från att utföra specifika åtgärder. Neka tilldelningen påverkar _alla huvudkonton_.
 
+   Läs om hur exkludera ett huvudnamn för från en tilldelning av neka [skisser resource låsning](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Välj neka tilldelningen och välj sedan den **nekad behörighet** sidan till vänster.
 
    Neka tilldelningen förhindrar alla åtgärder med den **\*** och **åtgärd** konfiguration, men tillåter läsbehörighet genom att exkludera  **\* /läsa**via **NotActions**.
@@ -221,9 +223,9 @@ När du är klar med den här självstudien tar du bort följande resurser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md)
-- Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md)
-- Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md)
+- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

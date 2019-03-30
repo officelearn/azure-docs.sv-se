@@ -1,6 +1,6 @@
 ---
-title: Optimera din SQL Server-miljö med Azure Log Analytics | Microsoft Docs
-description: Du kan använda SQL-hälsokontroll-lösning med Azure Log Analytics för att utvärdera risker och bedöm hälsotillståndet i dina miljöer med regelbundna intervall.
+title: Optimera din SQL Server-miljö med Azure Monitor | Microsoft Docs
+description: Med Azure Monitor kan använda du SQL-hälsokontroll-lösningen för att utvärdera risker och bedöm hälsotillståndet i dina miljöer med regelbundna intervall.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372479"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629126"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Azure Monitor
 
 ![SQL-hälsokontroll symbol](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -40,24 +40,24 @@ När du har lagt till lösningen och en utvärdering är klar, sammanfattande in
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Hälsokontrollen för SQL-lösning kräver en version som stöds av .NET Framework 4 vara installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten.  
+* Hälsokontrollen för SQL-lösning kräver en version som stöds av .NET Framework 4 vara installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
 * Lösningen har stöd för SQL Server version 2012, 2014 och 2016.
 * En Log Analytics-arbetsyta för att lägga till den SQL-hälsokontroll lösningen från Azure marketplace i Azure-portalen.  För att kunna installera lösningen måste du vara administratör eller bidragsgivare i Azure-prenumeration.
 
   > [!NOTE]
-  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Log Analytics-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
+  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
   >
   >
 
-Om du vill utföra hälsokontroll mot din SQL Server-servrar, kräver de en agent och en anslutning till Log Analytics med någon av följande metoder:
+Om du vill utföra hälsokontroll mot din SQL Server-servrar, kräver de en agent och en anslutning till Azure Monitor med någon av följande metoder:
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte är redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
-2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, kan servern ha flera värdar med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
+2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Azure Monitor, kan servern ha flera värdar med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande vara övervakas av Operations Manager.  
 3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbetsyta.  
 
-Agenten på vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, SQL-servern vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
+Agenten på vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, SQL-servern vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Azure Monitor.  Data skrivs inte till Operations Manager-databaserna.  
 
-Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operations Manager kör som-konto. Se [Operations Manager kör som-konton för Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) nedan för mer information.
+Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operations Manager kör som-konto. Se [Operations Manager kör som-konton för Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) nedan för mer information.
 
 ## <a name="sql-health-check-data-collection-details"></a>SQL-hälsokontroll data samling information
 SQL-hälsokontroll samlar in data från följande källor med hjälp av agent som du har aktiverat:
@@ -157,43 +157,37 @@ Inte nödvändigtvis. Rekommendationerna baseras på de kunskaper och erfarenhet
 Varje rekommendation innehåller information om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementerar rekommendationen är lämplig för dig, baserat på typen av dina IT-tjänster och affärsbehoven för din organisation.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Använd rekommendationer för hälsokontroll fokus-området
-Innan du kan använda en lösning i Log Analytics, måste du ha installerat lösningen.  När den har installerats kan du visa sammanfattning av rekommendationer med hjälp av SQL-hälsokontroll panelen på sidan lösning i Azure-portalen.
+Innan du kan använda en lösning i Azure Monitor, måste du ha installerat lösningen.  När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av SQL-hälsokontroll panelen på den **översikt** sidan för Azure Monitor i Azure-portalen.
 
 Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-3. Välj en arbetsyta i fönstret Log Analytics-prenumerationer och klicka sedan på den **översikt** panelen.  
+2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Monitor**.
+3. I den **Insights** avsnittet i menyn och välj **mer**.  
 4. På den **översikt** klickar du på den **SQL-hälsokontroll** panelen.
 5. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
 6. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av SQL-hälsokontroll rekommendationer](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, registrera senare utvärderingar som rekommenderar åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
 
 ## <a name="ignore-recommendations"></a>Ignorera rekommendationer
-Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analytics använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
+Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Monitor använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Att identifiera rekommendationer som kommer att ignoreras
-1. I Azure-portalen på sidan Log Analytics-arbetsyta för din valda arbetsyta klickar du på den **Loggsökning** panelen.
+1. I Azure Monitor-menyn klickar du på **loggar**.
 2. Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
-    Här är en skärmbild som visar loggsökningsfrågan:<br><br> ![misslyckade rekommendationer](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Här är en skärmbild som visar log-frågan:<br><br> ![misslyckade rekommendationer](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Du skapar och använder en IgnoreRecommendations.txt textfil
 1. Skapa en fil med namnet IgnoreRecommendations.txt.
-2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill Log Analytics för att ignorera på separata rader och sedan spara och stäng filen.
-3. Placera filen i följande mapp på varje dator där du vill att Log Analytics för att ignorera rekommendationer.
+2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill att Azure Monitor för att ignorera på separata rader och sedan spara och stäng filen.
+3. Placera filen i följande mapp på varje dator där du vill att Azure Monitor för att ignorera rekommendationer.
    * På datorer med Microsoft Monitoring Agent (anslutet direkt eller via Operations Manager) - *SystemDrive*: \Program\Microsoft Monitoring Agent\Agent
    * På hanteringsservern för Operations Manager - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server
    * På hanteringsservern för Operations Manager 2016 - *SystemDrive*: \Program\Microsoft System Center 2016\Operations Manager\Server
@@ -203,14 +197,8 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 2. Du kan använda följande Loggsökning frågor för att lista alla ignorerade rekommendationer.
 
     ```
-    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-
-    >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
-    >
-    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
 3. Om du senare bestämmer att du vill ta bort IgnoreRecommendations.txt filer om du vill visa ignorerade rekommendationer, eller du kan ta bort RecommendationIDs från dem.
 
 ## <a name="sql-health-check-solution-faq"></a>SQL-hälsokontroll lösning vanliga frågor och svar
@@ -263,4 +251,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.
+* [Loggar frågor](../log-query/log-query-overview.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.

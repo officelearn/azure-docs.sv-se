@@ -4,7 +4,7 @@ description: Lär dig hur du ställer in Azure Monitor-loggar för att visualise
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483173"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670514"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurera Azure Monitor-loggar för ett kluster
 
 Azure Monitor-loggar är vår rekommendation att övervaka klustret händelser. Du kan ställa in Log Analytics-arbetsytan via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du behåller en uppdaterad Resource Manager-mall för distributionen för framtida användning kan du använda samma mall för att ställa in miljön för Azure Monitor-loggar. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med aktiverat Diagnostikfunktionen. Om du inte har åtkomst på prenumerationsnivå i kontot som du distribuerar till, distribuera med hjälp av PowerShell eller Resource Manager-mallen.
 
 > [!NOTE]
-> Du måste ha diagnostik som är aktiverade för att visa händelser för kluster- eller plattform-nivå för att konfigurera Azure Monitor-loggar att övervaka ditt kluster. Referera till [hur du ställer in diagnostik i Windows-kluster](service-fabric-diagnostics-event-aggregation-wad.md) och [hur du ställer in diagnostik i Linux-kluster](service-fabric-diagnostics-event-aggregation-lad.md) mer
+> Du måste ha diagnostik som är aktiverade för att visa händelser för kluster- eller plattform-nivå för att konfigurera Azure Monitor-loggar att övervaka ditt kluster. Referera till [hur du ställer in diagnostik i Windows-kluster](service-fabric-diagnostics-event-aggregation-wad.md) och [hur du ställer in diagnostik i Linux-kluster](service-fabric-diagnostics-oms-syslog.md) mer
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Om du vill lägga till en Log Analytics-arbetsyta när du har distribuerat ett k
 Om du använder Windows, fortsätter du med följande steg för att ansluta Azure Monitor-loggar till lagringskontot där dina klusterhändelser lagras. 
 
 >[!NOTE]
->Aktivera den här upplevelsen för Linux-kluster finns inte ännu. 
+>Service Fabric-analys-lösningen har endast stöd för Windows-kluster. Linux-kluster finns i vår artikel på [hur du ställer in Azure Monitor-loggar för Linux-kluster](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ansluta Log Analytics-arbetsytan till ditt kluster 
 

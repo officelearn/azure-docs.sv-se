@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540609"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652567"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Azure Monitor
 
@@ -54,9 +54,11 @@ För Azure Monitor för att samla in dessa Azure Diagnostics-loggar, finnas logg
 För virtuella datorer, har du möjlighet att installera den [Log Analytics-agenten](../../azure-monitor/learn/quick-collect-azurevm.md) till din virtuella dator för att aktivera ytterligare insikter. Förutom att kunna analysera IIS-loggar och händelseloggar, kan du utföra ytterligare analys, inklusive konfiguration av ändringsspårning, SQL-bedömning och kontroll av uppdateringar.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Aktivera Azure-diagnostik på en virtuell dator för händelseloggen och IIS logga samling
+
 Du kan använda följande procedur för att aktivera Azure-diagnostik i en virtuell dator för händelseloggen och IIS Logginsamling med hjälp av Microsoft Azure-portalen.
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Aktivera Azure-diagnostik på en virtuell dator med Azure portal
+
 1. Installera VM-agenten när du skapar en virtuell dator. Om den virtuella datorn redan, kontrollerar du att VM-agenten är redan installerad.
 
    * I Azure-portalen går du till den virtuella datorn, väljer **valfri konfiguration**, sedan **diagnostik** och ange **Status** till **på** .
@@ -72,6 +74,7 @@ Du kan använda följande procedur för att aktivera Azure-diagnostik i en virtu
    6. Klicka på **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Aktivera Azure-diagnostik i en webbroll för IIS-logg- och händelsedata samling
+
 Referera till [hur att aktivera diagnostik i en molntjänst](../../cloud-services/cloud-services-dotnet-diagnostics.md) allmänna anvisningar om hur du aktiverar Azure-diagnostik. Anvisningarna nedan använder den här informationen och anpassa den för användning med Log Analytics.
 
 Med Azure-diagnostik aktiverat:
@@ -80,11 +83,12 @@ Med Azure-diagnostik aktiverat:
 * Windows-händelseloggar överförs inte som standard.
 
 ### <a name="to-enable-diagnostics"></a>Aktivera diagnostik
+
 Aktivera Windows-händelseloggar eller ändra scheduledTransferPeriod, konfigurera Azure Diagnostics med XML-konfigurationsfilen (diagnostics.wadcfg), som visas i [steg 4: Skapa konfigurationsfilen diagnostik och installera tillägget](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Följande exempel konfigurationsfil samlar in IIS-loggar och alla händelser från program- och systemloggarna:
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +112,7 @@ Följande exempel konfigurationsfil samlar in IIS-loggar och alla händelser fr�
 
 Se till att din ConfigurationSettings anger ett storage-konto, som i följande exempel:
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -119,6 +123,7 @@ Den **AccountName** och **AccountKey** värden finns i Azure-portalen i exempeli
 När den uppdaterade diagnostiska konfigurationen tillämpas i din molntjänst och skrivs diagnostik till Azure Storage, är du redo att konfigurera Log Analytics-arbetsytan.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Använd Azure portal för att samla in loggar från Azure Storage
+
 Du kan använda Azure-portalen för att konfigurera en Log Analytics-arbetsyta i Azure Monitor för att samla in loggar för följande Azure-tjänster:
 
 * Service Fabric-kluster
@@ -161,7 +166,7 @@ Skriptet använder cmdletar för klassiska virtuella datorer.
 
 Granska följande skriptexempel, kopiera, ändra det efter behov, spara exemplet som en PowerShell-skriptfil och kör sedan skriptet.
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -194,6 +199,7 @@ Granska följande skriptexempel, kopiera, ändra det efter behov, spara exemplet
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Samla in loggar och mått för Azure-tjänster](collect-azure-metrics-logs.md) för Azure-tjänster som stöds.
 * [Aktivera lösningar](../../azure-monitor/insights/solutions.md) att ge insikter i data.
 * [Använda sökfrågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data.

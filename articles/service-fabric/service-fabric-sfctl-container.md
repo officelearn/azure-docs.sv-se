@@ -4,7 +4,7 @@ description: Beskriver sfctl container-kommandon för Service Fabric CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274912"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663714"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Kör behållaren relaterade kommandon på en klusternod.
@@ -28,7 +28,7 @@ Kör behållaren relaterade kommandon på en klusternod.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| anropa api | Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet. |
+| invoke-api | Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet. |
 | loggar | Hämtar behållarloggarna för behållare som har distribuerats på en Service Fabric-nod för det givna code-paketet. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl behållaren anropa API: er
@@ -44,16 +44,16 @@ Anropa behållare API i en behållare som distribueras på en Service Fabric-nod
 | --container-api-uri-sökväg [krävs] | Behållaren REST API-URI-sökväg, Använd {id} i stället för behållar-namn/id. |
 | --Nodnamnet [krävs] | Namnet på noden. |
 | --manifest-tjänstnamnet [krävs] | Namnet på ett tjänstmanifest som registrerats som en del av en typ av program i ett Service Fabric-kluster. |
-| ---api-behållaren | HTTP-begärandetexten för REST API-behållare. |
+| --container-api-body | HTTP-begärandetexten för REST API-behållare. |
 | --container-api-content-type | Innehållstyp för REST API-behållare som standard ”application/json”. |
 | --container-api-http-verb | HTTP-verb för REST API-behållare som standard GET. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -74,11 +74,11 @@ Hämtar behållarloggarna för behållare som har distribuerats på en Service F
 | --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. ”alla” för att visa de fullständiga loggarna. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

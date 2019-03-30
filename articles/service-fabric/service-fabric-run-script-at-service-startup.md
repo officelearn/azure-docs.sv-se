@@ -3,8 +3,8 @@ title: Köra ett skript när en Azure Service Fabric-tjänsten startar | Microso
 description: Lär dig hur du konfigurerar en princip för Service Fabric-tjänstens konfigurationsstartpunkt och köra ett skript på tid att starta tjänsten.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838450"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660399"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
 Innan en Service Fabric-tjänst som körbara startas kan det bli nödvändigt att köra vissa konfiguration eller installation arbete.  Till exempel konfigurera miljövariabler. Du kan ange ett skript köras innan tjänsten körbara som startas i tjänstmanifestet för tjänsten. Konfigurera en princip för RunAs för tjänstens konfigurationsstartpunkt du kan ändra vilket konto körs installationsprogrammets under.  En separat konfigurationsstartpunkten kan du köra privilegierad konfigurationen för en kort tidsperiod, så tjänstevärden körbara inte behöver köra med höga privilegier under längre tid.

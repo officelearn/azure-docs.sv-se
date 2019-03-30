@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631151"
 ---
 ## <a name="set-up-your-device"></a>Konfigurera enheten
+
+Öppna projektet i i Unity, den `Unity` mapp.
+
+![Unity-fönstret](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Konfigurera en Android-enhet
 
@@ -31,7 +35,9 @@ I den **Inspector** fönstret, ange den `Sharing Anchors Service url` (från ASP
 
 Spara scenen genom att välja **Arkiv** > **Spara**.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>Distribuera appen till en Android-enhet
+## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
+
+### <a name="deploy-to-android-device"></a>Distribuera till Android-enhet
 
 Logga in på din Android-enhet och ansluta den till datorn med hjälp av en USB-kabel.
 
@@ -41,9 +47,9 @@ Under **scener i skapa**, markera kryssrutan bredvid den `AzureSpatialAnchorsPlu
 
 Se till att **exportera projekt** inte är markerade. Välj **skapa och köra**. Du uppmanas att spara din `.apk` fil. Du kan välja ett namn för den.
 
-Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första alternativet kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. Det andra alternativet, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter.
+Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad gör jag. Du kommer till exempel bli ombedd att flytta din enhet för att samla in miljöinformation. Vid ett senare tillfälle kommer du placera en fästpunkt i hela världen, vänta medan den upp och så vidare.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>Distribuera appen till en iOS-enhet
+### <a name="deploy-to-an-ios-device"></a>Distribuera till en iOS-enhet
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
@@ -51,6 +57,6 @@ Under **scener i skapa**, markera kryssrutan bredvid den `AzureSpatialAnchorsPlu
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första alternativet kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. Det andra alternativet, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter.
+Följ instruktionerna i appen. Du kan välja **Skapa & resurs fästpunkt** eller **hitta delade ankare**. Det första scenariot kan du skapa en fästpunkt som kan finnas senare på samma enhet eller på ett annat. I det andra scenariot, kan om du redan har kört appen, på samma enhet eller på ett annat du hitta tidigare delade fästpunkter. När du väljer ditt scenario hjälper appen dig med ytterligare instruktioner runt vad gör jag. Du kommer till exempel bli ombedd att flytta din enhet för att samla in miljöinformation. Vid ett senare tillfälle kommer du placera en fästpunkt i hela världen, vänta medan den upp och så vidare.
 
 Stoppa appen i Xcode genom att välja **stoppa**.

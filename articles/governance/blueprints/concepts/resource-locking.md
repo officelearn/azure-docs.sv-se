@@ -4,17 +4,17 @@ description: Läs mer om låsning alternativen för att skydda resurser när du 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855420"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630724"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
@@ -56,11 +56,56 @@ En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför kan neka tilldelningar neka åtgärdens på skiss resurser inte kanske omedelbart i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exkludera ett huvudnamn för från en neka-tilldelning
+
+I vissa scenarier för design eller security, kan det vara nödvändigt att utesluta ett huvudnamn för från den [neka tilldelning](../../../role-based-access-control/deny-assignments.md) skisstilldelningen skapar. Detta görs i REST-API genom att lägga till upp till fem värden till den **excludedPrincipals** matrisen i den **Lås** egenskapen när [skapa tilldelningen](/rest/api/blueprints/assignments/createorupdate).
+Det här är ett exempel på en brödtext i begäran som innehåller **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Följ den [skydda nya resurser](../tutorials/protect-new-resources.md) självstudien.
-- Lär dig mer om den [skiss livscykeln](lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](sequencing-order.md).
-- Lär dig hur du [uppdatera befintliga tilldelningar](../how-to/update-existing-assignments.md).
-- Lös problem vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).
+- Lär dig mer om [livscykeln för en skiss](lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

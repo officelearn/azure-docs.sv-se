@@ -3,8 +3,8 @@ title: Planera en distribution för Azure Service Fabric-kluster | Microsoft Doc
 description: Läs mer om att planera och förbereda för en distribution av Service Fabric-kluster till Azure i produktionsmiljön.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: ryanwi
-ms.openlocfilehash: d29f9af4201eee41720fe60cc9b7a21abc7fc63d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: aljo
+ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450161"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663246"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för distribution av ett kluster
 

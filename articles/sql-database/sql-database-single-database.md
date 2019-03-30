@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/29/2019
+ms.openlocfilehash: 19fa1797e2765a642aac19f55f0906ba9aef61a8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431123"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660297"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -54,6 +54,9 @@ Mer information finns i [lösa Transact-SQL-skillnader vid migrering till SQL Da
 ## <a name="security"></a>Säkerhet
 
 SQL Database erbjuder en uppsättning [inbyggd säkerhet och efterlevnad](sql-database-security-overview.md) funktioner för att hjälpa programmet att uppfylla olika krav för säkerhet och efterlevnad.
+
+> [!IMPORTANT]
+> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Nästa steg
 

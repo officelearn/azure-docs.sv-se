@@ -4,7 +4,7 @@ description: Beskriver Service Fabric CLI sfctl fristående klusterkommandon.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275490"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668525"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Hantera fristående Service Fabric-kluster.
@@ -41,14 +41,14 @@ Klusterkonfigurationen innehåller egenskaper för klustret som innehåller olik
 
 |Argument|Beskrivning|
 | --- | --- |
-| --configuration-api-versionen [krävs] | API-versionen av fristående json klusterkonfigurationen. |
+| --configuration-api-version [Required] | API-versionen av fristående json klusterkonfigurationen. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -65,22 +65,22 @@ Verifiera Uppgraderingsparametrar för angiven konfiguration och börja uppgrade
 | --- | --- |
 | --kluster-config [krävs] | Klusterkonfigurationen. |
 | --programmet hälsoprinciper | JSON-kodad ordlista med par med programtypnamn och Maxprocent defekta innan du höjer fel. |
-| --förändrade defekta noder | Högsta tillåtna procentandel förändrade hälsotillstånd försämring under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
-| --hälsotillstånd – Kontrollera-försök | Hur lång tid mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfri.  Standard\: PT0H0M0S. |
-| --hälsotillstånd – Kontrollera-stabil | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --hälsotillstånd – Kontrollera-vänta | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du startar hälsotillståndet kontrollerar processen.  Standard\: PT0H0M0S. |
+| --delta-unhealthy-nodes | Högsta tillåtna procentandel förändrade hälsotillstånd försämring under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
+| --health-check-retry | Hur lång tid mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfri.  Standard\: PT0H0M0S. |
+| --health-check-stable | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --health-check-wait | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du startar hälsotillståndet kontrollerar processen.  Standard\: PT0H0M0S. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-| --felaktiga program | Högsta tillåtna procentandel program som är felaktiga under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
+| --unhealthy-applications | Högsta tillåtna procentandel program som är felaktiga under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
 | --defekta noder | Högsta tillåtna procentandel av defekta noder under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
 | --upgrade-domain-delta-unhealthy-nodes | Högsta tillåtna procentandel uppgraderingsdomän delta hälsotillstånd försämring under uppgraderingen. Tillåtna värden är heltalsvärden från noll till 100. |
-| --uppgraderingen domäntidsgräns | Hur lång tid varje domän har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --Tidsgräns för uppgradering | Hur lång tid övergripande uppgraderingen har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --upgrade-domain-timeout | Hur lång tid varje domän har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --upgrade-timeout | Hur lång tid övergripande uppgraderingen har slutförts innan FailureAction körs.  Standard\: PT0H0M0S. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -106,11 +106,11 @@ Klusterkonfigurationen uppgradera information om Erhåll status för ett fristå
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

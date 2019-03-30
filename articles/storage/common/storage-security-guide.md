@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369759"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650129"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -46,7 +46,7 @@ Här följer ämnena i den här artikeln:
 * Med hjälp av [Lagringsanalys](#storage-analytics) granska åtkomst till Azure Storage
 
   Det här avsnittet beskrivs hur du hittar information i storage analytics-loggar för en begäran. Vi ta en titt på verkliga lagringsanalys loggdata och se hur att avläsa om en begäran skickas med lagringskontonyckeln med en signatur för delad åtkomst eller anonymt och om den lyckades eller misslyckades.
-* [Aktivera webbläsarbaserade klienter med CORS](#Cross-Origin-Resource-Sharing-CORS)
+* [Aktivera webbläsarbaserade klienter med CORS](#cross-origin-resource-sharing-cors)
 
   Det här avsnittet handlar om hur du tillåter cross-origin resource sharing (CORS). Vi kommer att tala om korsdomänåtkomst och hur du hanterar med CORS-funktioner som är inbyggda i Azure Storage.
 

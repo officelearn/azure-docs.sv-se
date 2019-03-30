@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214307"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670843"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
 
@@ -149,11 +149,14 @@ Det finns två automatiska justeringsaspekter som är [tillgängliga i SQL Datab
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
-Vi lägger också till funktionen för [anpassningsbar frågebearbetning](/sql/relational-databases/performance/adaptive-query-processing) i SQL Database-familjen, inklusive överlagrad körning för tabellvärdesfunktioner med flera instruktioner, minnesfeedback i batchläge och anpassningsbara kopplingar i batchläge. De olika funktionerna med anpassningsbar frågebearbetning tillämpar liknande ”Läs och anpassa”-teknik, vilket bidrar till förmågan att hantera prestandaproblem som berör historiskt olösbara optimeringsproblem.
+Vi lägger också till funktionen för [anpassningsbar frågebearbetning](/sql/relational-databases/performance/intelligent-query-processing) i SQL Database-familjen, inklusive överlagrad körning för tabellvärdesfunktioner med flera instruktioner, minnesfeedback i batchläge och anpassningsbara kopplingar i batchläge. De olika funktionerna med anpassningsbar frågebearbetning tillämpar liknande ”Läs och anpassa”-teknik, vilket bidrar till förmågan att hantera prestandaproblem som berör historiskt olösbara optimeringsproblem.
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad
 
 SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](sql-database-security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet.
+
+> [!IMPORTANT]
+> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -242,7 +245,7 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
 - [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställa tekniska frågor
 - [Feedback](https://aka.ms/sqlfeedback): Rapportera buggar och förslag
 - [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQLServer

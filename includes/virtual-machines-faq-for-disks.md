@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407809"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671891"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -219,7 +219,7 @@ Ja, du kan välja att redundansväxla till en virtuell dator med Managed Disks.
 
 **Finns det några konsekvenserna av migrering på Azure-datorer som skyddas av Azure Site Recovery via replikering från Azure till Azure?**
 
-Ja. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Managed Disks är för närvarande bara tillgängligt som en tjänst i offentlig förhandsversion.
+Ja. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Managed Disks finns för närvarande som allmänt tillgänglig.
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på storage-konton som eller krypterats till managed disks?**
 
@@ -339,7 +339,7 @@ Ja.
 
 **Vad är den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten?**
 
-Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB.
+Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB. Stöd för större diskar upp till 32 TiB kommer snart.
 
 **Vad är den rekommenderade VM-storlekar för större diskstorlekar (> 4 TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
 

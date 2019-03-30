@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575223"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648324"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Kom igång med Azure Security Center (ASC) för IoT 
 
@@ -53,7 +53,7 @@ Om du vill aktivera övervakning av din enhet Använd Identitetshantering, enhet
 
 1. [Aktivera ASC för IoT-tjänsten på IoT Hub](quickstart-onboard-iot-hub.md)
 1. Om din IoT-hubb har inga registrerade enheter [registrera en ny enhet](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Skapa en modul för maskinvarusäkerhet ascforiot](quickstart-create-security-twin.md) för dina enheter. 
+1. [Skapa en azureiotsecurity säkerhetsmodul för dina enheter](quickstart-create-security-twin.md) för dina enheter. 
 1. Definiera enhets- och normalt via [anpassade aviseringar](quickstart-create-custom-alerts.md). 
 1. Utföra tester för att verifiera status för tjänsten och system. 
 1. Utforska [aviseringar](concept-security-alerts.md), [rekommendationer](concept-recommendations.md), och [djupdykning använda Log Analytics](how-to-security-data-access.md) med hjälp av IoT Hub. 
@@ -69,8 +69,7 @@ Genom att utnyttja ASC för IoT förbättrad säkerhetsfunktioner, till exempel 
 1. Installera agenten på en Azure-simulerad enhet i stället för att installera på en enhet, [snurra upp en ny Azure virtuell dator (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) i en zon som är tillgängliga. 
 1. [Distribuera en ASC för IoT-säkerhetsagenten](how-to-deploy-linux-cs.md) på din IoT-enhet eller en ny virtuell dator.
 1. Följ anvisningarna för [trigger_events](https://aka.ms/iot-security-github-trigger-events) att köra en simulering av märker att ofarliga attacker.
-1. Kontrollera ASC för IoT-aviseringar som svar på simulerade attacker i föregående steg. 
-    - Börja verifieringen fem minuter när skriptet har körts.
+1. Kontrollera ASC för IoT-aviseringar som svar på simulerade attacker i föregående steg. Börja verifieringen fem minuter när skriptet har körts.
 1. Utforska [aviseringar](concept-security-alerts.md), [rekommendationer](concept-recommendations.md), och [djupdykning använda Log Analytics](how-to-security-data-access.md) med hjälp av IoT Hub. 
 
 ## <a name="next-steps"></a>Nästa steg

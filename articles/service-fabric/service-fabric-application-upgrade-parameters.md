@@ -4,7 +4,7 @@ description: Beskriver parametrar som är relaterade till uppgraderingen av ett 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099200"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670625"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
 Den här artikeln beskrivs de olika parametrar som gäller under uppgraderingen av en Azure Service Fabric-program. Programuppgraderingsparametrar styra timeout och hälsokontroller av slutpunkter som tillämpas under uppgraderingen och de ange de principer som måste användas när uppgraderingen misslyckas. Programparametrar gäller för uppgraderingar med hjälp av:
@@ -94,11 +94,12 @@ Service Fabric programuppgraderingar med hjälp av Service Fabric CLI-användnin
 
 | Parameter | Beskrivning |
 | --- | --- |
-| program-id  |ID för det program som ska uppgraderas. <br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric”: URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ' ~' tecken. Om programnamnet är till exempel ”fabric: / myapp/app1 ', programidentiteten skulle vara” myapp ~ app1' i 6.0 + och ”myapp/app1' i tidigare versioner.|
+| program-id  |ID för det program som ska uppgraderas. <br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric”: URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den '\~' tecken. Om programnamnet är till exempel ”fabric: / myapp/app1 ', programidentiteten skulle vara” myapp\~app1' i 6.0 + och ”myapp/app1' i tidigare versioner.|
 application-version |Versionen av programmet skriver som mål för uppgradering.|
 parameters  |En JSON-kodad lista över program parametern åsidosättningar för att användas när du uppgraderar programmet.|
 
 ### <a name="optional-parameters"></a>Valfria parametrar
+
 | Parameter | Beskrivning |
 | --- | --- |
 Standard-service-hälsa-policy | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) kodad specifikation av hälsoprincip som används som standard för att utvärdera hälsan för en typ av tjänst. Kartan är tomt som standard. |

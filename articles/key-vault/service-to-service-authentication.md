@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097914"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629859"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET
 
@@ -101,7 +101,7 @@ Du använder Azure CLI för lokal utveckling:
 
 Använd `az account get-access-token` att kontrollera åtkomst.  Om du får ett felmeddelande, kontrollerar du att steg 1 har slutförts. 
 
-Om Azure CLI inte är installerat i standardkatalogen kan ett felmeddelande reporting som `AzureServiceTokenProvider` det går inte att hitta sökvägen för Azure CLI.  Använd den **AzureCLIPath**miljövariabeln definiera Azure CLI-installationsmappen. `AzureServiceTokenProvider` lägger till den katalog som anges i den **AzureCLIPath** miljövariabeln till den **sökväg** miljövariabeln vid behov.
+Om Azure CLI inte är installerat i standardkatalogen kan ett felmeddelande reporting som `AzureServiceTokenProvider` det går inte att hitta sökvägen för Azure CLI.  Använd den **AzureCLIPath** miljövariabeln definiera Azure CLI-installationsmappen. `AzureServiceTokenProvider` lägger till den katalog som anges i den **AzureCLIPath** miljövariabeln till den **sökväg** miljövariabeln vid behov.
 
 Om du är inloggad på Azure CLI med hjälp av flera konton eller ditt konto har åtkomst till flera prenumerationer, måste du ange specifika prenumerationen som ska användas.  Om du vill göra det använder du:
 

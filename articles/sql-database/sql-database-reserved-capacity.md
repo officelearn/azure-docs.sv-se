@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 8066285e90903870937f28a62ef9fe8b2f6be55c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005496"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650265"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -70,6 +70,8 @@ Om du behöver reserverad kapacitet reservation att avbryta din SQL-databas, det
 
 Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
 
+Läs mer om hur du exchange- eller återbetalning reservationer [Reservation utbyte och återbetalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
 flexibilitet för vCore-storlek kan du skala upp eller ned inom en prestandanivå och region, utan att förlora fördelen reserverad kapacitet. SQL-databas som reserverad kapacitet ger dig flexibiliteten att tillfälligt flytta dina frekvent databaser mellan pooler och enskilda databaser som en del av din normal drift (inom samma region och prestanda nivå) utan att förlora reserverad kapacitet Dra. Du kan effektivt hantera prestanda toppar utan överskrider din budget genom att lagra en icke tillämpade buffert i din reservation.
@@ -92,4 +94,3 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

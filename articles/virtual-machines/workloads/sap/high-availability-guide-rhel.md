@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226665"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652509"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
 
@@ -231,9 +231,9 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    </code></pre>
 
 1. **[A]**  Skapa delade kataloger
@@ -330,7 +330,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -355,7 +355,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[1]**  Installera SAP NetWeaver ASCS  
 
-   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS, till exempel <b>nw1 ascs</b>, <b>10.0.0.11</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>00</b>.
+   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS, till exempel <b>nw1 ascs</b>, <b>10.0.0.7</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>00</b>.
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
@@ -382,7 +382,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
@@ -411,7 +411,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[2]**  Installera SAP NetWeaver ÄNDARE  
 
-   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE, till exempel <b>nw1 aers</b>, <b>10.0.0.12</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>02</b>.
+   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE, till exempel <b>nw1 aers</b>, <b>10.0.0.8</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>02</b>.
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
@@ -576,14 +576,11 @@ Stegen nedan förutsätter att du installerar application server på en annan se
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
-   # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Skapa katalogen sapmnt

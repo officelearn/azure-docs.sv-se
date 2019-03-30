@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772916"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652137"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Några tillgängliga alternativ är:
 
 - HDInsight-kluster som skapades innan det fanns stöd för integrering av virtuella nätverk med Data Lake Storage Gen1 måste återskapas för att ge stöd för den här nya funktionen.
  
-- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Skapa därefter HDInsight-klustret innan du slutligen återaktiverar regeln för virtuella nätverk eller avmarkera **Allow access from all networks and services (Tillåt åtkomst från alla nätverk och tjänster)**. Mer information finns i avsnittet [Undantag](##Exceptions).
+- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Skapa därefter HDInsight-klustret innan du slutligen återaktiverar regeln för virtuella nätverk eller avmarkera **Allow access from all networks and services (Tillåt åtkomst från alla nätverk och tjänster)**. Mer information finns i avsnittet [Undantag](#exceptions).
 
 - Integrering av virtuella nätverk med Data Lake Storage Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   

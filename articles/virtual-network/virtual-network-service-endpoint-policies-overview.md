@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104496"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652594"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
 
@@ -145,7 +145,7 @@ Principer för tjänstslutpunkter för virtuella nätverk ger följande fördela
 - **Peer-kopplade, anslutna eller flera virtuella nätverk**: Om du vill filtrera trafik i peer-kopplade virtuella nätverk ska slutpunktsprinciper tillämpas individuellt på dessa virtuella nätverk.
 - **Filtrering av Internettrafik med nätverksutrustning eller Azure Firewall**: Filtrera Azure-tjänsttrafik med principer över slutpunkter och filtrera resten av Internet- eller Azure-trafiken via utrustning eller Azure Firewall. 
 - **Filtrering av trafik på Azure-tjänster som distribueras i virtuella nätverk**: Under förhandsversionen stöds inte tjänstslutpunktsprinciper för hanterade Azure-tjänster som distribueras i det virtuella nätverket. 
- Se [begränsningar](#Limitations) för specifika tjänster.
+ Se [begränsningar](#limitations) för specifika tjänster.
 - **Filtrering av trafik till Azure-tjänster från lokal plats**: Tjänstslutpunktsprinciper tillämpas endast på trafiken från undernät som är associerade med principerna. För att tillåta åtkomst till specifika Azure-tjänstresurser från en lokal plats ska trafik filtreras med hjälp av virtuella nätverksinstallationer eller brandväggar.
 
 ## <a name="logging-and-troubleshooting"></a>Loggning och felsökning

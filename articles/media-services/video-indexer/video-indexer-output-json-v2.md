@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314883"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650100"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
-
-> [!Note]
-> Video Indexer-API:t v1 blev inaktuellt den 1 augusti 2018. Nu bör du använda Video Indexer-API:t v2. <br/>Om du vill utveckla med Video Indexer-API:er v2 läser du instruktionerna [här](https://api-portal.videoindexer.ai/). 
 
 När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter, ocrs, ansikten, ämnen, block, osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
 
@@ -163,7 +160,7 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |etiketter|Den [etiketter](#labels) dimension.|
 |skärmbilder|Den [skärmbilder](#shots) dimension.|
 |varumärken|Den [varumärken](#brands) dimension.|
-|audioEffects|Den [audioEffects](#audioEffects) dimension.|
+|audioEffects|Den [audioEffects](#audioeffects) dimension.|
 |sentiment|Den [sentiment](#sentiments) dimension.|
 |visualContentModeration|Den [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualContentModeration|Den [textualContentModeration](#textualcontentmoderation) dimension.|
@@ -550,7 +547,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 |SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
 |SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Namn|Beskrivning|
 |---|---|

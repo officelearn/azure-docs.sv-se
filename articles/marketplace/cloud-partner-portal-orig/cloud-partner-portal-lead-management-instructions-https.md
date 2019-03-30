@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894129"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648358"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera lead-hantering med hjälp av en HTTPS-slutpunkt
 
@@ -48,8 +48,8 @@ Du kan använda en HTTPS-slutpunkt för att hantera Azure Marketplace och AppSou
 
 7. Använd någon av följande steg för att konfigurera den **begär JSON-Brödtextsschema**:
 
-   - Kopiera den [JSON-schema](#JSON-schema) i slutet av den här artikeln till den **begär JSON-Brödtextsschema** textrutan.
-   - Välj **Generera schemat genom att använda en exempelnyttolast**. I den **Skriv eller klistra in en JSON-exempelnyttolast** textrutan, klistra in den [exempel JSON](#JSON-example). Välj **klar** att skapa schemat.
+   - Kopiera den [JSON-schema](#json-schema) i slutet av den här artikeln till den **begär JSON-Brödtextsschema** textrutan.
+   - Välj **Generera schemat genom att använda en exempelnyttolast**. I den **Skriv eller klistra in en JSON-exempelnyttolast** textrutan, klistra in den [exempel JSON](#json-example). Välj **klar** att skapa schemat.
 
    >[!Note]
    >I det här läget i flödet kan du ansluta till ett CRM-system eller konfigurera ett e-postmeddelande.

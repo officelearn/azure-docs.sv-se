@@ -4,7 +4,7 @@ description: Beskriver kommandona Service Fabric CLI för distribution av sfctl-
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b25384d8f3c6e41b6c5cca723d41b79f00b17494
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285447"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668474"
 ---
-# <a name="sfctl-mesh-deployment"></a>sfctl nät distribution
+# <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Skapa Service Fabric blandar resurser.
 
 ## <a name="commands"></a>Kommandon
@@ -40,11 +40,11 @@ Skapar en distribution av Service Fabric-nät resurser.
 | --input-yaml-filer [krävs] | CSV-relativ/absolut sökvägar till alla yaml-filer eller relativ/absoluta sökvägen till katalogen (rekursiv) som innehåller yaml-filer. |
 | – parametrar | En relativ/absolut sökväg till yaml-fil eller ett json-objekt som innehåller parametrar som ska åsidosättas. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

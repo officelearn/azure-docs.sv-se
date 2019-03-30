@@ -1,5 +1,5 @@
 ---
-title: Förstå användningen av Azure-reservationer för prenumeration med användningsbaserad betalning | Microsoft Docs
+title: Förstå användningen av Azure reservationer för prenumeration med användningsbaserad betalning | Microsoft Docs
 description: Lär dig hur du läser din användning för att förstå hur Azure reservation för prenumerationen med användningsbaserad betalning används.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883788"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652543"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Förstå användningen av Azure reservation för prenumerationen med användningsbaserad betalning
 
@@ -64,7 +64,7 @@ Filtrera på **ytterligare information** och skriver i din **reservations-ID**. 
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Användning för SQL Database och Cosmos DB reserverad kapacitetsreservationer
 
-I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt. 
+I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt.
 
 Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell:
 
@@ -93,6 +93,10 @@ Filtrera på **ytterligare information** och skriver i din **reservations-ID**. 
 2. **ConsumptionMeter** är mätnings-ID för SQL Database-resursen.
 3. Den **mätnings-Id** är mätning reservation. Kostnaden för den här mätaren är $0. Alla SQL Database-resurser som uppfyller kraven för reservationsrabatten visar den här mätnings-ID i CSV-filen.
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
@@ -104,9 +108,3 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
-
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

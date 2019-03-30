@@ -1,10 +1,10 @@
 ---
-title: Tillförlitliga aktörer timers och påminnelser | Microsoft Docs
+title: Reliable Actors timers och påminnelser | Microsoft Docs
 description: Introduktion till timers och påminnelser för Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206799"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667437"
 ---
 # <a name="actor-timers-and-reminders"></a>Aktören timers och påminnelser
-Aktörer kan schemalägga regelbunden arbete på själva genom att registrera timers eller påminnelser. Den här artikeln visar hur du använder timers och påminnelser och förklarar skillnaderna mellan dem.
+Aktörer kan schemalägga regelbunden arbete på själva genom att registrera timers och påminnelser. Den här artikeln visar hur du använder timers och påminnelser och förklarar skillnaderna mellan dem.
 
-## <a name="actor-timers"></a>Aktören timers
-Aktören timers ger en enkel omslutning runt en .NET eller Java timer så att callback-metoderna respekterar samtidighet bygger garanterar att aktörer runtime tillhandahåller.
+## <a name="actor-timers"></a>Timers aktör
+Aktören timers tillhandahåller en enkel omslutning runt en .NET och Java timer för att säkerställa att callback-metoderna respekterar samtidighet tur-baserade garanterar att aktörer runtime tillhandahåller.
 
-Aktörer kan använda den `RegisterTimer`(C#) eller `registerTimer`(Java) och `UnregisterTimer`(C#) eller `unregisterTimer`(Java)-metoder på basklass för att registrera och avregistrera sina timers. Exemplet nedan visar hur du använder timer-API: er. API: erna liknar .NET timer eller Java-timern. I det här exemplet när timern förfaller aktörer runtime anropar den `MoveObject`(C#) eller `moveObject`(Java)-metoden. Metoden är säkert att respektera bygger samtidighet. Detta innebär att inga andra aktören metoder eller timer/påminnelse återanrop pågår förrän den här återanrop körning.
+Aktörer kan använda den `RegisterTimer`(C#) eller `registerTimer`(Java) och `UnregisterTimer`(C#) eller `unregisterTimer`(Java) metoder på basklass för att registrera och avregistrera sina timers. Exemplet nedan visar användningen av timer API: er. API: erna är mycket lika .NET timer eller Java-timer. I det här exemplet när timern förfaller aktörer runtime anropar den `MoveObject`(C#) eller `moveObject`(Java)-metoden. Metoden är säkert att respektera tur-baserade samtidigheten. Detta innebär att ingen annan aktör metoder eller timer/påminnelse återanrop pågår förrän den här återanrop är slutfört.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -127,16 +127,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-Timern nästa period startar när återanropet är slutfört. Detta innebär att timern har stoppats medan återanropet körs och är igång när återanropet är klar.
+Nästa period av timern startar när är återanropet som slutfört. Detta innebär att timern har stoppats medan återanropet som körs och är igång när motringningen är klar.
 
-Aktörer runtime sparar ändringar som gjorts i aktören Tillståndshanterare när återanropet är klar. Om ett fel uppstår i Spara tillståndet, aktören objektet inaktiveras och en ny instans aktiveras.
+Aktörer runtime sparar ändringar i aktören State Manager när motringningen är klar. Om ett fel uppstår i Spara tillståndet, aktören objektet inaktiveras och en ny instans aktiveras.
 
-Alla stoppas när aktören inaktiveras som en del av skräpinsamling. Inga timer-återanrop anropas efter. Aktörer runtime behåller dessutom inte någon information om timers som kördes före inaktivering. Det är aktören att registrera alla timers som krävs när den aktiveras i framtiden. Mer information finns i avsnittet på [aktören skräpinsamling](service-fabric-reliable-actors-lifecycle.md).
+Alla stoppas när aktören inaktiveras som en del av skräpinsamling. Inga timer-återanrop anropas efter detta. Aktörer runtime behåller dessutom information om timers som kördes innan inaktivering. Det är upp till aktören för att registrera eventuella timers som den behöver, när den aktiveras i framtiden. Mer information finns i avsnittet på [aktören skräpinsamling](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Aktören påminnelser
-Påminnelser är en mekanism för att utlösa beständiga återanrop på en aktör vid angivna tidpunkter. Deras funktioner liknar timers. Men till skillnad från timers, påminnelser utlöses i alla fall tills aktören Avregistrerar dem explicit eller aktören uttryckligen tas bort. Mer specifikt utlöses påminnelser över aktören avaktiveringar och växling vid fel eftersom aktörer runtime kvarstår information om den aktören påminnelser med aktören tillståndsprovidern. Observera att tillförlitligheten hos påminnelser är knutna till tillförlitlighet garantier tillstånd som tillståndsprovidern aktören. Det innebär att för aktörer vars beständighet är inställd på None, påminnelser inte kommer att utlösa en efter en redundansväxling. 
+Påminnelser är en mekanism för att utlösa beständiga återanrop på en aktör vid angivna tidpunkter. Deras funktioner liknar timers. Men till skillnad från timers, påminnelser utlöses i alla fall tills aktören Avregistrerar uttryckligen dem eller aktören uttryckligen tar bort. Mer specifikt utlöses påminnelser i aktören avaktiveringar och växling vid fel eftersom aktörer runtime kvarstår information om den aktör påminnelser med tillståndsprovider för aktören. Observera att tillförlitligheten för påminnelser är knutna till tillförlitlighet garantier tillstånd som tillståndsprovider aktör. Det innebär att för aktörer vars sessionslägets beständighet är inställt på Ingen, påminnelserna inte utlöses efter en redundansväxling. 
 
-Om du vill registrera en påminnelse om en aktör anropar den `RegisterReminderAsync` metoden som angetts i basklassen, som visas i följande exempel:
+Registrera en påminnelse genom en aktör anropar den `RegisterReminderAsync` metod som tillhandahålls på basklassen, som visas i följande exempel:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -167,9 +167,9 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-I det här exemplet `"Pay cell phone bill"` är påminnelse namn. Detta är en sträng som aktören används för att unikt identifiera en påminnelse. `BitConverter.GetBytes(amountInDollars)`(C#) är den kontext som är associerad med påminnelsen. Den skickas tillbaka till aktören som ett argument till påminnelse motringning, d.v.s. `IRemindable.ReceiveReminderAsync`(C#) eller `Remindable.receiveReminderAsync`(Java).
+I det här exemplet `"Pay cell phone bill"` heter påminnelse. Det här är en sträng som aktören använder för att unikt identifiera en påminnelse. `BitConverter.GetBytes(amountInDollars)`(C#) är den kontext som är associerad med påminnelsen. Den skickas tillbaka till aktören som ett argument till påminnelse-motringning, dvs. `IRemindable.ReceiveReminderAsync`(C#) eller `Remindable.receiveReminderAsync`(Java).
 
-Aktörer som använder påminnelser måste implementera den `IRemindable` gränssnitt som visas i exemplet nedan.
+Aktörer som använder påminnelser måste implementera de `IRemindable` gränssnitt som visas i exemplet nedan.
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
@@ -210,11 +210,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-När en påminnelse utlöses körningsmiljön Reliable Actors ska anropa den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metoden på aktören. En aktören kan registrera flera påminnelser och `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metoden anropas när någon av dessa påminnelser utlöses. Aktören kan använda påminnelse namn som skickas till den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metod för att ta reda på vilka påminnelse utlöstes.
+När en påminnelse utlöses Reliable Actors-runtime anropar den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metod på aktören. En aktör kan registrera flera påminnelser och `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metoden anropas när någon av dessa påminnelser utlöses. Aktören kan använda påminnelse namn som skickas till den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-metod för att ta reda på vilka påminnelse utlöstes.
 
-Aktörer runtime sparar aktören tillstånd när den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-anropet har slutförts. Om ett fel uppstår i Spara tillståndet, aktören objektet inaktiveras och en ny instans aktiveras.
+Aktörer runtime sparar aktören körningstillstånd när den `ReceiveReminderAsync`(C#) eller `receiveReminderAsync`(Java)-anropet har slutförts. Om ett fel uppstår i Spara tillståndet, aktören objektet inaktiveras och en ny instans aktiveras.
 
-Om du vill avregistrera en påminnelse om en aktör anropar den `UnregisterReminderAsync`(C#) eller `unregisterReminderAsync`(Java)-metoden, som visas i exemplen nedan.
+Om du vill avregistrera en påminnelse en aktör anropar den `UnregisterReminderAsync`(C#) eller `unregisterReminderAsync`(Java)-metod som du ser i exemplen nedan.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -225,9 +225,9 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Enligt ovan, den `UnregisterReminderAsync`(C#) eller `unregisterReminderAsync`(Java) metoden godkänner ett `IActorReminder`(C#) eller `ActorReminder`(Java) gränssnitt. Aktören basklass stöder en `GetReminder`(C#) eller `getReminder`(Java)-metod som används för att hämta den `IActorReminder`(C#) eller `ActorReminder`(Java)-gränssnittet genom att passera i påminnelse namn. Det är praktiskt eftersom aktören inte behöver bevara den `IActorReminder`(C#) eller `ActorReminder`(Java) gränssnitt som returnerades från den `RegisterReminder`(C#) eller `registerReminder`(Java)-anrop.
+Enligt ovan, den `UnregisterReminderAsync`(C#) eller `unregisterReminderAsync`(Java)-metoden godkänner en `IActorReminder`(C#) eller `ActorReminder`(Java)-gränssnittet. Aktören basklass stöder en `GetReminder`(C#) eller `getReminder`(Java)-metod som kan användas för att hämta den `IActorReminder`(C#) eller `ActorReminder`(Java)-gränssnittet genom att ange namnet på påminnelse. Detta är praktiskt eftersom aktören inte behöver bevara den `IActorReminder`(C#) eller `ActorReminder`(Java)-gränssnitt som returnerades från den `RegisterReminder`(C#) eller `registerReminder`(Java)-anrop.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om tillförlitlig aktören händelser och återinträde:
+Läs mer om Reliable Actor-händelser och återinträde:
 * [Aktören händelser](service-fabric-reliable-actors-events.md)
-* [Aktören återinträde](service-fabric-reliable-actors-reentrancy.md)
+* [Återinträde av aktör](service-fabric-reliable-actors-reentrancy.md)

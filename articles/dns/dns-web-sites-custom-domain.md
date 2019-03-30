@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117157"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665958"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudier: Skapa DNS-poster i en anpassad domän för en webbapp 
 
@@ -173,7 +173,7 @@ set-AzWebApp `
 Öppna en webbläsare och gå till `http://www.<your domainname>` och `http://<you domain name>`.
 
 > [!NOTE]
-> Se till att du inkluderar prefixet `http://`. Annars kan webbläsaren försöka förutsäga en URL åt dig.
+> Kontrollera att du inkluderar den `http://` prefix, annars webbläsaren kan försöka att förutsäga en URL för dig!
 
 Du bör se samma sida för båda URL:er. Exempel:
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106652"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652158"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudier: Packa upp, Anslut och lås Azure Data Box-Disk
 
@@ -90,7 +90,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. Kör `DataBoxDiskUnlock.exe` och ange nyckeln du hämtade i [Ansluta till diskar och hämta nyckeln](#Connect-to-disks-and-get-the-passkey). Diskens tilldelade enhetsbeteckning visas. Ett exempel på utdata visas nedan.
+6. Kör `DataBoxDiskUnlock.exe` och ange nyckeln du hämtade i [Ansluta till diskar och hämta nyckeln](#connect-to-disks-and-get-the-passkey). Diskens tilldelade enhetsbeteckning visas. Ett exempel på utdata visas nedan.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
      OpenSSL is already installed.
      ```
 
-6. Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure-portalen som du hämtade i [Ansluta till diskar och hämta nyckeln](#Connect-to-disks-and-get-the-passkey). Du kan också ange en lista med BitLocker-krypterade volymer som ska låsas upp. Nyckeln och volymlistan ska anges inom enkla citattecken. 
+6. Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure-portalen som du hämtade i [Ansluta till diskar och hämta nyckeln](#connect-to-disks-and-get-the-passkey). Du kan också ange en lista med BitLocker-krypterade volymer som ska låsas upp. Nyckeln och volymlistan ska anges inom enkla citattecken. 
 
     Ange följande kommando.
  

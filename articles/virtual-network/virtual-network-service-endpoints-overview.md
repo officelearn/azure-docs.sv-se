@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 45ac09b84aca44f6739a0e29994986200424fc5c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310548"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669341"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -84,7 +84,7 @@ Tjänstslutpunkter har följande fördelar:
 - Tjänstslutpunkter konfigureras i ett undernät i ett virtuellt nätverk. Slutpunkter fungerar med valfri typ av beräkningsinstans som körs inom det undernätet.
 - Du kan konfigurera flera tjänstslutpunkter för alla Azure-tjänster som stöds (till exempel Azure Storage eller Azure SQL Database) i ett undernät.
 - För Azure SQL Database måste virtuella nätverk finnas i samma region som Azure-tjänstresursen. Om du använder GRS- och RA-GRS-konton för Azure Storage måste det primära kontot finnas i samma region som det virtuella nätverket. För alla andra tjänster kan Azure-serviceresurser säkras mot virtuella nätverk i en region. 
-- Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#Provisioning).
+- Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
 ### <a name="considerations"></a>Överväganden
@@ -132,7 +132,7 @@ Det tillkommer inga extra avgifter för att använda tjänstslutpunkter. Dagens 
 
 Det finns ingen begränsning av det totala antalet tjänstslutpunkter i ett virtuellt nätverk.
 
-För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finnas begränsningar av antalet undernät för att skydda resursen. Mer information finns i dokumentationen för de olika tjänsterna i [Nästa steg](#next-steps).
+Vissa Azure-tjänster, till exempel Azure Storage-konton, kan det finnas begränsningar av antalet undernät som används för att skydda resursen. Mer information finns i dokumentationen för de olika tjänsterna i [Nästa steg](#next-steps).
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Principer för tjänstslutpunkter för virtuella nätverk 
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268795"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630603"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -84,7 +84,12 @@ Se [schemat exempel](#event-schema-examples) fram.
 
 ### <a name="track-level-events"></a>Spåra på händelser
 
-Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
+Spåra på händelser aktiveras per spår. 
+
+> [!NOTE]
+> Alla servernivå spåra händelser aktiveras när en live-kodare är ansluten.
+
+Spåra på servernivå händelsetyper är:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
@@ -92,7 +97,7 @@ Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media-servern tar emot första data-segmentet för varje spår i stream eller anslutning. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server identifierar ljud och video strömmar är inte synkroniserade. Använda som en varning eftersom användarupplevelsen inte påverkas. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media-server identifierar någon av de två videoflöden som kommer från externa kodaren är inte synkroniserade. Använda som en varning eftersom användarupplevelsen inte påverkas. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt.<br/><br/>När kodaren anslöts inledningsvis, fortsätter pulsslag händelsen att generera var 20 SEK om kodaren fortfarande är ansluten eller inte. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server identifierar avbrott i den inkommande kursen. |
 
 Se [schemat exempel](#event-schema-examples) fram.
@@ -615,9 +620,9 @@ Dataobjektet har följande egenskaper:
 | overlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
 | DiscontinuityCount | heltal | Antal avbrott som observerats under de senaste 20 sekunder. |
 | NonIncreasingCount | heltal | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
-| unexpectedBitrate | Bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
+| unexpectedBitrate | bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
 | state | sträng | Status för live-händelse. |
-| felfri | Bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
+| felfri | bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 

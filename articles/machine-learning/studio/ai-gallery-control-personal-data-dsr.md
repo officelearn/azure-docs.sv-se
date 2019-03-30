@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 1b1583731f9b95bea7fe64efe628b05bb7b9a476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118041"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648117"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort i produkten användardata från Azure AI-galleriet
 
@@ -80,7 +80,7 @@ Returnerar ett svar som:
 
 Catalog-API: et lagrar information om publicerade entiteter i Azure AI-galleriet som du kan också visa direkt på den [AI-galleriet webbplats](https://gallery.azure.ai/). 
 
-Om du vill visa publicerade entiteter finns följande URL ersätter `[AuthorId]` med ID: T för författaren som hämtades i [hämta ett författare ID](#get-an-author-ID) ovan.
+Om du vill visa publicerade entiteter finns följande URL ersätter `[AuthorId]` med ID: T för författaren som hämtades i [hämta ett författare ID](#get-an-author-id) ovan.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

@@ -4,7 +4,7 @@ description: Beskriver Service Fabric CLI sfctl nät tjänsterepliken kommandon.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: bcf4b8d013783a9fbdb62bcdb8737680bfce7640
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285090"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662439"
 ---
-# <a name="sfctl-mesh-service-replica"></a>sfctl nät service-replik
+# <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Få information om repliker och lista replikeringar av en viss tjänst i en resurs för en.
 
 ## <a name="commands"></a>Kommandon
@@ -29,7 +29,7 @@ Få information om repliker och lista replikeringar av en viss tjänst i en resu
 |Kommando|Beskrivning|
 | --- | --- |
 | lista | Visar en lista över alla repliker av en tjänst. |
-| Visa | Hämtar den angivna repliken av tjänsten för ett program. |
+| visa | Hämtar den angivna repliken av tjänsten för ett program. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl nät tjänsterepliken lista
 Visar en lista över alla repliker av en tjänst.
@@ -43,11 +43,11 @@ Hämtar information om alla repliker av en tjänst. Informationen omfattar beskr
 | --appens namn---programnamn [krävs] | Namnet på programmet. |
 | --Tjänstnamn [krävs] | Namnet på tjänsten. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -66,11 +66,11 @@ Hämtar information om tjänsterepliken med det angivna namnet. Informationen om
 | --name -n [krävs] | Namnet på tjänsterepliken. |
 | --Tjänstnamn [krävs] | Namnet på tjänsten. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |

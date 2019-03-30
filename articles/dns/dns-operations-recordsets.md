@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888822"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651251"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure PowerShell
 
@@ -93,7 +93,7 @@ Att ha sett i detalj hur du kan skapa ”A”-poster, visas i följande exempel 
 
 I varje fall visar vi hur du skapar en post som innehåller en enda post. I tidigare exempel för ”A” poster kan anpassas till skapar post uppsättningar av andra typer som innehåller flera poster med metadata, eller att skapa tom postuppsättningar.
 
-Vi ger inte ett exempel för att skapa en SOA-postuppsättning eftersom SOAs skapas och tas bort med varje DNS-zon och kan inte skapas eller tas bort separat. Dock [SOA kan ändras, som visas i en senare exempel](#to-modify-an-SOA-record).
+Vi ger inte ett exempel för att skapa en SOA-postuppsättning eftersom SOAs skapas och tas bort med varje DNS-zon och kan inte skapas eller tas bort separat. Dock [SOA kan ändras, som visas i en senare exempel](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Skapa en AAAA-postuppsättning med en post
 

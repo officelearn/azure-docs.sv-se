@@ -4,7 +4,7 @@ description: Beskrivning och innehållet i det Azure Service Fabric fristående 
 services: service-fabric
 documentationcenter: .net
 author: maburlik
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141619"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661623"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Innehåll i Service Fabric fristående paketet för Windows Server
 I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric fristående paketet, hittar du följande filer:
@@ -52,7 +52,7 @@ I den [ned](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric frist
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Ett kluster exempel konfigurationsfil som innehåller alla inställningar för klustret säker, flera datorer (eller virtuell dator), inklusive information för varje nod i det säkra klustret. Klustret skyddas med [Grupphanterade tjänstkonton](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Konfigurationsexempel för kluster
-Senaste versionerna av klustret Konfigurationsmallar finns på GitHub-sida: [Konfigurationsexempel för fristående kluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Senaste versionerna av klustret Konfigurationsmallar finns på GitHub-sida: [Konfiguration av fristående kluster exempel](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Oberoende Runtime-paketet
 Senaste körningspaketet laddas ned automatiskt under distributionen av klustret från [Hämta länk - Service Fabric-körningen – Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).

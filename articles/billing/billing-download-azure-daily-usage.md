@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872662"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648854"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och hämta din Azure-användning och kostnader
 
@@ -28,7 +28,7 @@ Om du är EA-kund eller har en [Microsoft kundavtal](#check-your-access-to-a-mic
 
 Endast vissa roller har behörighet att hämta information om Azure-användning, till exempel kontoadministratör eller företagsadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
 
-Om du har en [Microsoft kundavtal](#Check-your-access-to-a-Microsoft-Customer-Agreement), du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att visa dina Azure-användning och kostnader. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Om du har en [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement), du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att visa dina Azure-användning och kostnader. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Ladda ned användning från Azure Kontocenter (.csv)
 

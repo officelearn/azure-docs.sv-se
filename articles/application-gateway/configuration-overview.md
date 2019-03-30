@@ -1,118 +1,129 @@
 ---
 title: Azure Application Gateway configuration-översikt
-description: Den här artikeln innehåller information om hur du konfigurerar de olika komponenterna i Azure Application Gateway
+description: Den här artikeln beskriver hur du konfigurerar komponenterna i Azure Application Gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519756"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629637"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
-Programgateway består av flera komponenter som kan konfigureras på olika sätt för att utföra olika scenarier. Den här artikeln beskriver hur varje komponent som ska konfigureras.
+Azure Application Gateway består av flera komponenter som du kan konfigurera på olika sätt för olika scenarier. Den här artikeln visar hur du konfigurerar varje komponent.
 
-![application-gateway-components](./media/configuration-overview/configuration-overview1.png)
+![Flödesschema för Application Gateway-komponenter](./media/configuration-overview/configuration-overview1.png)
 
-På bilden ovan illustrerar konfigurationen av ett program med 3 lyssnare. Första två är lyssnare för flera platser för `http://acme.com/*` och `http://fabrikam.com/*`respektive. Båda lyssnar på port 80. Den tredje lyssnaren är en grundläggande lyssnare med från slutpunkt till slutpunkt SSL-avslutning. 
+Den här bilden illustrerar ett program som har tre lyssnare. De första två är lyssnare för flera platser för `http://acme.com/*` och `http://fabrikam.com/*`respektive. Båda lyssna på port 80. Tredje är en grundläggande lyssnare som har slutpunkt till slutpunkt Secure Sockets Layer (SSL)-avslutning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure-nätverk och dedikerade undernät
 
-Application gateway är en särskild distribution i det virtuella nätverket. I det virtuella nätverket krävs ett dedikerat undernät för application gateway. Du kan ha flera instanser av en angiven programdistribution gateway i det här undernätet. Du kan även distribuera andra application gatewayer i undernätet, men du kan inte distribuera någon annan resurs i application gateway-undernätet.  
+En application gateway är en särskild distribution i det virtuella nätverket. I det virtuella nätverket krävs ett dedikerat undernät för application gateway. Du kan ha flera instanser av en viss application gateway-distribution i ett undernät. Du kan även distribuera andra application gatewayer i undernätet. Men du kan inte distribuera någon annan resurs i application gateway-undernätet.
 
-> [!NOTE]   
-> Blanda Standard_v2 och Standard Application Gateway i samma undernät stöds inte.
+> [!NOTE]
+> Du kan inte blanda Standard_v2 och Standard Azure Application Gateway i samma undernät.
 
 #### <a name="size-of-the-subnet"></a>Storleken på undernätet
 
-Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fem IP-adresser – fyra första och sista IP-adress – i varje undernät för intern användning. Till exempel om en application gateway är inställd på 15 instanser och ingen privat klientdels-IP-adress, måste sedan minst 20 IP-adresser i undernät – fem IP-adresser för intern användning och 15 IP-adresser för 15-instanserna av application gateway. Därför i det här fallet en/27 undernät storlek eller högre krävs. Om du har 27 instanser och en IP-adress för klientdelen privata IP-konfiguration, och sedan 33 IP-adresser måste utföras - 27 IP-adresser för 27-instanserna av application gateway, en IP-adress för privat klientdels-IP och fem IP-adresser för intern användning. Därför i det här fallet en /26 undernät storlek eller högre krävs.
+Application Gateway förbrukar 1 privat IP-adress per instans, plus en annan privat IP-adress om en privat frontend IP-adress har konfigurerats.
 
-Det rekommenderas att använda minst en/28 undernätets storlek. Detta ger dig 11 användbara adresser. Om programbelastningen kräver mer än 10 instanser, bör du överväga en/27 eller/26 undernätets storlek.
+Azure också reserverar 5 IP-adresser i varje undernät för intern användning: 4 första och sista IP-adresser. Anta exempelvis att 15 application gateway-instanser med ingen privat frontend-IP-adress. Du behöver minst 20 IP-adresser för det här undernätet: 5 för intern användning och 15 för application gateway-instanser. Så du behöver en/27 undernät eller större.
 
-#### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Nätverkssäkerhetsgrupper som stöds på Application Gateway-undernät
+Överväg ett undernät som har 27 application gateway-instanser och en IP-adress för en privat frontend IP-adress. I det här fallet behöver du 33 IP-adresser: 27 för application gateway-instanserna, 1 för privata klientdelen och 5 för internt bruk. Så du behöver en /26 undernät eller större.
 
-Nätverkssäkerhetsgrupper (NSG) stöds i Application Gateway-undernät med följande begränsningar: 
+Vi rekommenderar att du använder undernätets storlek på minst/28. Den här storleken ger dig 11 användbara IP-adresser. Om programbelastningen kräver mer än 10 IP-adresser, Överväg en/27 eller/26 undernätets storlek.
 
-- Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer går externa entiteter, inklusive kunderna till dessa gateways, inte att initiera alla ändringar på dessa slutpunkter.
+#### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Nätverkssäkerhetsgrupper i Application Gateway-undernät
 
-- Det går inte att blockera utgående internet-anslutning. Utgående standardregler i NSG: N kan redan ansluten till internet. Vi rekommenderar att du inte tar bort utgående standardregler och att du inte skapar andra utgående regler som nekar utgående internet-anslutning.
+Nätverkssäkerhetsgrupper (NSG) stöds på Application Gateway. Men det finns flera begränsningar:
 
-- Trafik från taggen AzureLoadBalancer måste tillåtas.
+- Du måste ta med undantag för inkommande trafik på portar 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Intervallet måste anges för Azures infrastrukturkommunikation. De här portarna är skyddade (låsta) med Azure-certifikat. Externa entiteter, inklusive kunderna till dessa gateways kan inte initiera ändringar på dessa slutpunkter utan rätt certifikat på plats.
+
+- Det går inte att blockera utgående internet-anslutning. Utgående standardregler i NSG tillåta anslutning till internet. Vi rekommenderar att du:
+
+  - Ta inte bort utgående standardregler.
+  - Skapa inte andra utgående regler som nekar utgående internet-anslutning.
+
+- Trafik från den **AzureLoadBalancer** taggen måste tillåtas.
 
 ##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Lista över tillåtna Application Gateway-åtkomst till några käll-IP-adresser
 
-Det här scenariot kan göras med NSG: er på application gateway-undernätet. Följande begränsningar försätts i undernät i listan prioritetsordning:
+Använd NSG: er på Application Gateway-undernät i det här scenariot. Placera följande begränsningar i undernät i det här prioritetsordning:
 
-1. Tillåt inkommande trafik från källa IP/IP-adressintervall.
-2. Tillåt inkommande begäranden från alla källor till portar 65503 65534 för [kommunikation för backend-hälsotillstånd](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Intervallet måste anges för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunderna till dessa gateways, inte initiera alla ändringar på dessa slutpunkter.
-3. Tillåt inkommande Azure belastningsutjämnare avsökningar (taggen AzureLoadBalancer) och inkommande trafik i virtuella nätverk (taggen VirtualNetwork) på den [NSG](https://docs.microsoft.com/azure/virtual-network/security-overview).
-4. Blockera alla andra inkommande trafik med en neka alla-regeln.
+1. Tillåt inkommande trafik från en källa IP/IP-adressintervall.
+2. Tillåt inkommande begäranden från alla källor till portar 65503 65534 för [backend-hälsotillstånd kommunikation](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Intervallet måste anges för Azures infrastrukturkommunikation. De här portarna är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat på plats, kan inte externa enheter initiera ändringar på dessa slutpunkter.
+3. Tillåt inkommande Azure Load Balancer kontrollerar (*AzureLoadBalancer* tagg) och inkommande trafik för virtuellt nätverk (*VirtualNetwork* tagg) på den [nätverkssäkerhetsgrupp](https://docs.microsoft.com/azure/virtual-network/security-overview).
+4. Blockera all annan inkommande trafik med hjälp av en regel för neka alla.
 5. Tillåt utgående trafik till internet för alla mål.
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Användardefinierade vägar som stöds på Application Gateway-undernät
 
-Vid v1-SKU stöds användardefinierade vägar (Udr) på application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation. Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
+V1-SKU stöds användardefinierade vägar (Udr) för i Application Gateway-undernät, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation. Du kan till exempel skapa en UDR i Application Gateway-undernät för att peka mot en brandväggsinstallation för paketinspektion. Men du måste kontrollera att paketet kan nå sin destination efter granskning. I annat fall kan leda till felaktig hälsoavsökning eller beteende för routning av nätverkstrafik. Detta inkluderar inlärda eller standardvägar för 0.0.0.0/0 som sprids via Azure ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
-När det gäller v2 stöds-SKU, udr: er i application gateway-undernätet inte. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Udr: er stöds inte på Application Gateway-undernät för v2-SKU. Mer information finns i [automatisk skalning och zonredundans för Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
 
 > [!NOTE]
-> Udr: er i application gateway-undernätet leder hälsostatus i den [vyn för backend-hälsotillstånd](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) ska visas som **okänd** och leder också failue för generering av application gateway-loggar och mått. Det rekommenderas att du inte använder udr: er i application gateway-undernätet för att kunna visa hälsotillstånd för serverdel, loggar och mått.
+> Udr: er i Application Gateway-undernät orsakar hälsostatus i den [backend-hälsotillstånd visa](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) ska visas som ”okänt”. Det gör även generation av Application Gateway-loggar och mått misslyckas. Vi rekommenderar att du inte använder udr: er på Application Gateway-undernät så att du kan visa backend-hälsotillstånd, loggar och mått.
 
-## <a name="frontend-ip"></a>Frontend-IP
+## <a name="front-end-ip"></a>Frontend-IP
 
-Du kan konfigurera programgatewayen så att den antingen har en offentlig IP-adress eller en privat IP-adress eller båda. Offentlig IP-adress krävs när du är värd för en serverdel som krävs för att användas av klienter via internet via en internetuppkopplad VIP. Offentlig IP-adress krävs inte för en intern slutpunkt som inte exponeras till Internet, även känd som en intern belastningsutjämnare (ILB) slutpunkt. Det kan vara praktiskt att konfigurera gatewayen med en ILB för interna affärsprogram som inte är exponerade för Internet. Det är också användbart för tjänster och nivåer i ett affärsprogram med flera nivåer som finns vid en säkerhetsgräns som inte är exponerad för Internet men som fortfarande kräver distribution med resursallokering (round-robin), sessionsvaraktighet eller SSL-avslut (Secure Sockets Layer).
+Du kan konfigurera programgatewayen om du vill ha en offentlig IP-adress, en privat IP-adress eller båda. En offentlig IP-adress krävs om du agerar värd för en serverdel som klienter måste ha åtkomst via internet via en internet-ansluten virtuell IP (VIP). 
 
-Endast en offentlig IP-adress eller en privat IP-adress stöds. Du kan välja frontend-IP för när du skapar Programgatewayen. 
+En offentlig IP-adress krävs inte för en intern slutpunkt som inte exponeras till internet. Som kallas en *interna belastningsutjämnare* (ILB) slutpunkt. En Programgateway ILB är användbart för interna line-of-business-program som inte är exponerad för internet. Det är också användbart för tjänster och nivåer i ett flerskiktat program inom en säkerhetsgräns som inte är exponerad för internet men som kräver resursallokering läsa in distribution, sessionsvaraktighet eller SSL-avslutning.
 
-- Vid en offentlig IP-adress kan du välja att skapa en ny offentlig IP-adress eller Använd en befintlig offentlig IP på samma plats som Application Gateway. Om du skapar en ny offentlig IP-adress, kan inte IP-adresstypen som valts (statisk eller dynamisk) ändras senare. Mer information finns i [Statiska och dynamiska offentliga IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
+Endast 1 offentlig IP-adress eller 1 privat IP-adress stöds. Du kan välja frontend IP-Adressen när du skapar programgatewayen.
 
-- Du kan välja att ange en privat IP-adress från det undernät som Application Gateway har skapats vid en privat IP-adress. Om inte anges explicit väljs en skadlig IP-adress automatiskt från undernätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare (ILB) slutpunkt.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
+- Du kan skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP på samma plats som application gateway för en offentlig IP-adress. Om du skapar en ny offentlig IP-adress i IP-adresstyp som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [Statiska eller dynamiska offentliga IP-adressen](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
-En Frontend IP är kopplad till *lyssnare* som söker efter inkommande begäranden på Frontend-IP.
+- Du kan ange en privat IP-adress från det undernät där programgatewayen skapas för en privat IP-adress. Om du inte anger något, väljs en skadlig IP-adress automatiskt från undernätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+
+En frontend IP-adress är kopplad till en *lyssnare*, som söker efter inkommande begäranden på frontend IP-Adressen.
 
 ## <a name="listeners"></a>Lyssnare
 
-En lyssnare är en logisk enhet som söker efter inkommande anslutningsbegäranden, använder port, protokoll, värddator och IP-adress. Därför när du konfigurerar lyssnaren måste du ange dessa värden för port, protokoll, värd och IP-som är samma som de motsvarande värdena i den inkommande begäran på gatewayen. När du skapar en Programgateway med hjälp av Azure portal kan skapa du också en standard-lyssnare genom att välja det protokoll och port för lyssnaren. Du kan också välja om du vill aktivera stöd för HTTP2 på lyssnaren. När Application Gateway har skapats kan du redigera inställningen för den här standard-lyssnaren (*appGatewayHttpListener*/*appGatewayHttpsListener*) och/eller skapa nya lyssnare.
+En lyssnare är en logisk enhet som söker efter inkommande anslutningsbegäranden genom att använda port, protokoll, värddator och IP-adress. När du konfigurerar lyssnaren, måste du ange värden för dessa som matchar de motsvarande värdena i den inkommande begäran på gatewayen.
+
+När du skapar en Programgateway med hjälp av Azure portal kan skapa du också en standard-lyssnare genom att välja det protokoll och port för lyssnaren. Du kan välja om du vill aktivera stöd för HTTP2 på lyssnaren. När du har skapat application gateway kan du redigera inställningarna för den standard-lyssnaren (*appGatewayHttpListener*/*appGatewayHttpsListener*) eller skapa nya lyssnare.
 
 ### <a name="listener-type"></a>Lyssnaren typ
 
-Du kan välja mellan [grundläggande eller multisite lyssnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners) när du skapar en ny lyssnare. 
+När du skapar en ny lyssnare kan du välja mellan [ *grundläggande* och *multisite*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
 
-- Om du är värd för en enda plats bakom en Programgateway, väljer du grundläggande lyssnare. Lär dig [hur du skapar en Programgateway med grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Om du är värd för en enda plats bakom en Programgateway, väljer du grundläggande. Lär dig [hur du skapar en Programgateway med en grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Om du konfigurerar mer än ett webbprogram eller flera underdomäner i samma överordnade domän på samma application gateway-instans, väljer du lyssnare för flera platser. För lyssnare för flera platser behöver du dessutom ange ett värdnamn. Det beror på att Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att vara värd för flera webbplatser på samma offentliga IP-adress och port.
+- Om du konfigurerar mer än ett webbprogram eller flera underdomäner i samma överordnade domän på samma application gateway-instans, väljer du lyssnare för flera platser. För en lyssnare för flera platser, måste du också ange ett värdnamn. Det beror på att Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att vara värd för flera webbplatser på samma offentliga IP-adress och port.
 
 #### <a name="order-of-processing-listeners"></a>Bearbetningsordning för lyssnare
 
-När det gäller v1-SKU: er bearbetas lyssnare i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först. Lyssnare för flera platser bör därför konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
+I v1-SKU: n bearbetas lyssnare i angiven ordning. Om en grundläggande lyssnare matchar en inkommande begäran, bearbetar lyssnaren begäran först. Konfigurera lyssnare för flera platser innan du grundläggande lyssnare för att se till att trafiken dirigeras till rätt serverdel.
 
-När det gäller v2-SKU: er bearbetas lyssnare för flera platser innan du grundläggande lyssnare.
+I v2-SKU: n bearbetas lyssnare för flera platser innan du grundläggande lyssnare.
 
-### <a name="frontend-ip"></a>Frontend-IP
+### <a name="front-end-ip"></a>Frontend-IP
 
-Välj den frontend IP-Adressen som du vill associera med den här lyssnaren. Lyssnaren lyssnar på den inkommande begäran på denna IP-adress.
+Välj den frontend IP-adress som du vill associera med den här lyssnaren. Lyssnaren ska lyssna på inkommande begäranden på denna IP-adress.
 
-### <a name="frontend-port"></a>Frontend-Port
+### <a name="front-end-port"></a>Frontend-port
 
-Välj frontend-port. Du kan välja från befintliga portar eller skapa en ny. Du kan välja ett värde mellan den [tillåtna portintervall](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). På så sätt kan du inte bara använda välkända portar, till exempel 80 och 443, men någon tillåtet anpassad port lämplig för din användning. En port kan antingen användas för offentliga internetuppkopplade lyssnare eller privata riktade lyssnare.
+Välj frontend-porten. Välj en befintlig port eller skapa en ny. Välj ett värde mellan den [tillåtna portintervall](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Du kan använda inte bara välkända portar, till exempel 80 och 443, men alla tillåtna anpassade portar som är lämpligt. En port kan användas för lyssnare för offentliga eller privata-ansluten lyssnare.
 
 ### <a name="protocol"></a>Protokoll
 
-Du måste välja mellan HTTP och HTTPS-protokollet. 
+Välj HTTP eller HTTPS:
 
-- Om du väljer HTTP flödar trafiken mellan klienten och programmet gatewayen okrypterade.
+- Om du väljer HTTP är trafiken mellan klienten och application gateway okrypterad.
 
-- Välj HTTPS om du är intresserad av [Secure Sockets Layer (SSL)-avslutning](https://docs.microsoft.com/azure/application-gateway/overview) eller [från slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Om du väljer HTTPS trafik mellan klienten och programmet gateway krypteras och SSL-anslutningen avslutas vid application gateway.  Om du vill från slutpunkt till slutpunkt SSL-kryptering, måste du även välja HTTPS-protokollet när du konfigurerar *serverdelens HTTP-inställningen*. Det säkerställer att trafiken krypteras igen när de överförs från Programgatewayen till serverdelen.
+- Välj HTTPS om du vill [SSL-avslutning](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) eller [slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafik mellan klienten och application gateway är krypterad. Och SSL-anslutningen avslutas vid application gateway. Om du vill slutpunkt till slutpunkt SSL-kryptering, du måste välja HTTPS och konfigurera den **backend-HTTP** inställningen. Detta säkerställer att trafik krypteras igen när de överförs från programgatewayen till backend-server.
 
-  Om du vill konfigurera Secure Sockets Layer (SSL)-avslutning och SSL-kryptering från slutpunkt till slutpunkt, krävs ett certifikat som ska läggas till lyssnaren för att aktivera Application Gateway att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik. 
+Om du vill konfigurera SSL-avslutning och slutpunkt till slutpunkt SSL-kryptering, måste du lägga till ett certifikat i lyssnaren för att aktivera application gateway att härleda en symmetrisk nyckel. Detta styrs av specifikationen för SSL-protokollet. Den symmetriska nyckeln som används för att kryptera och dekryptera den trafik som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här formatet kan du exportera den privata nyckeln som används av gatewayen för att kryptera och dekryptera trafiken.
 
 #### <a name="supported-certificates"></a>Certifikat som stöds
 
@@ -122,7 +133,7 @@ Se [certifikat som stöds för SSL-avslutning](https://docs.microsoft.com/azure/
 
 #### <a name="http2-support"></a>Stöd för HTTP2
 
-Stöd för HTTP/2-protokollet är tillgängligt för klienter som ansluter till application gateway lyssnare. Kommunikation till serverdels-serverpooler är över HTTP/1.1. Stöd för HTTP/2 är inaktiverad som standard. Följande Azure PowerShell-kodfragmentet kodexempel visar hur du kan aktivera den:
+Stöd för HTTP/2-protokollet är tillgängligt för klienter som ansluter till application gateway lyssnare. Kommunikation till serverdels serverpooler är över HTTP/1.1. Stöd för HTTP/2 är inaktiverad som standard. Följande Azure PowerShell-kodfragmentet visar hur du aktiverar detta:
 
 ```azurepowershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
@@ -132,124 +143,147 @@ $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-#### <a name="websocket-support"></a>Websocket-stöd
+#### <a name="websocket-support"></a>WebSocket-stöd
 
-Websocket-stöd är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Du kan använda WebSockets med både HTTP och HTTPS-lyssnare. 
+WebSocket-stöd är aktiverat som standard. Det finns ingen användarangiven inställning för att aktivera eller inaktivera den. Du kan använda WebSockets med både HTTP och HTTPS-lyssnare.
 
-### <a name="custom-error-page"></a>Anpassad felsida
+### <a name="custom-error-pages"></a>Anpassade felsidor
 
-Anpassade felsidor kan definieras på global nivå samt lyssnare-nivå, men skapar anpassade felsidor för global nivå från Azure-portalen stöds inte för tillfället. Du kan konfigurera en anpassad felsida för ett 403 WAF-fel eller en 502 underhållssidan på nivån lyssnare. Du måste också ange en offentligt tillgänglig blob-URL för den angivna felkoden. Mer information finns i [Skapa anpassad felsida](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Du kan definiera anpassade fel på global nivå eller lyssnare-nivå. Men att skapa anpassade felsidor för global nivå från Azure portal för närvarande stöds inte. Du kan konfigurera en anpassad felsida för ett 403 web application firewall fel eller en 502 underhållssidan på nivån lyssnare. Du måste även ange en offentligt tillgänglig blob-URL för den angivna felkoden. Mer information finns i [Skapa anpassade felsidor i Application Gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
 ![Felkoder för Application Gateway](https://docs.microsoft.com/azure/application-gateway/media/custom-error/ag-error-codes.png)
 
-Använd för att konfigurera en global anpassad felsida [Azure PowerShell för konfiguration](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration) 
+För att konfigurera en global anpassad felsida Se [Azure PowerShell-konfigurationen](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration).
 
 ### <a name="ssl-policy"></a>SSL-princip
 
-Du kan centralisera hanteringen av SSL-certifikat och minska omkostnader för kryptering och dekryptering från en backend-servergrupp. Den här centraliserade SSL även hanterar kan du ange en central SSL-princip som är anpassade till din organisations säkerhetskrav.  Du kan välja mellan standard fördefinierade och anpassade SSL-princip. 
+Du kan centralisera hanteringen av SSL-certifikat och minska kryptering-dekryptering användning för en backend-server-grupp. Centraliserade SSL-hantering kan du ange en central SSL-princip som passar dina säkerhetsbehov. Du kan välja *standard*, *fördefinierade*, eller *anpassade* SSL-princip.
 
-Du kan konfigurera SSL-princip för att styra SSL-protokoll versioner. Du kan konfigurera programgatewayen för att neka TLS 1.0 och TLS1.1 TLS1.2. SSL 2.0 och 3.0 är redan inaktiverad som standard och kan inte konfigureras. Mer information finns i [översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Du kan konfigurera SSL-princip att kontrollen SSL-protokollsversioner. Du kan konfigurera en Programgateway för att neka TLS 1.0 och TLS1.1 TLS1.2. SSL 2.0 och 3.0 inaktiveras som standard och inte kan konfigureras. Mer information finns i [översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
-När du har skapat en lyssnare associera du den med en routningsregel för begäran som anger hur begäran tas emot på lyssnaren ska dirigeras till serverdelen.
+När du skapar en lyssnare kan associera du den med en regel för routning av begäran. Regeln anger hur begäranden som tas emot på lyssnaren dirigeras till backend-servern.
 
-## <a name="request-routing-rule"></a>Begär routningsregel
+## <a name="request-routing-rules"></a>Routningsregler för begäran
 
-När du skapar programgatewayen med hjälp av Azure-portalen måste du skapa en standardregel (*1*), vilket Binder lyssnaren standard (*appGatewayHttpListener*) med Standardpool för serverdelen (*appGatewayBackendPool*) och standard serverdelens HTTP-inställningar (*appGatewayBackendHttpSettings*). När application gateway har skapats kan du kan redigera inställningen för den här Standardregeln och/eller skapa nya regler.
+När du skapar en Programgateway med hjälp av Azure portal kan du skapa en standardregel (*1*). Den här regeln Binder lyssnaren standard (*appGatewayHttpListener*) med den förvalda backend-adresspoolen (*appGatewayBackendPool*) och standard backend-HTTP-inställningarna ( *appGatewayBackendHttpSettings*). När du har skapat gatewayen, kan du redigera inställningarna för Standardregeln eller skapa nya regler.
 
 ### <a name="rule-type"></a>Regeltyp
 
-Du kan välja mellan [grundläggande eller sökvägsbaserad regel](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule) när du skapar en ny regel. 
+När du skapar en regel kan du välja mellan [ *grundläggande* och *sökvägsbaserad*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
 
-- Om du vill vidarebefordra alla begäranden på den associerade lyssnaren (t.ex.: blog.contoso.com/*) till en enda backend-pool väljer du grundläggande lyssnare. 
-- Välj-baserad lyssnare om du vill dirigera begäranden med specifika sökvägar till specifika serverdelspooler. Sökvägsmönster tillämpas endast på sökvägen till URL-Adressen, inte till dess Frågeparametrar.
-
+- Välj basic om du vill vidarebefordra alla begäranden på den associerade lyssnaren (till exempel *blogg<i></i>.contoso.com/\*)* till en enda backend-pool.
+- Välj sökvägsbaserad om du vill dirigera förfrågningar från specifika URL-sökvägar till specifika serverdelspooler. Sökvägsmönster tillämpas endast på sökvägen till URL-Adressen, inte till dess Frågeparametrar.
 
 #### <a name="order-of-processing-rules"></a>Ordningen på bearbetar regler
 
-Vid v1-SKU: er bearbetas matchning av mönster för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel. Därför, om en begäran matchar mönstret i två eller flera sökvägar i Webbadress för sökvägskarta, sedan den sökväg som visas först matchas och begäran vidarebefordras till serverdelen som är associerade med samma sökväg.
+I v1-SKU: n bearbetas matchning av inkommande begäranden i den ordning som sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel. Om en begäran matchar mönstret i två eller flera sökvägar i path-map, matchas den sökväg som visas först. Och begäran vidarebefordras till backend-server som är associerat med denna sökväg.
 
-När det gäller v2-SKU: er innehåller en exakt matchning högre prioritet över den ordning som sökvägarna visas i Webbadress för sökvägskarta. För detta innebär att om en begäran matchar mönstret i två eller flera sökvägar, och sedan begäran vidarebefordras till serverdelen som associeras med samma sökväg som matchar exakt med begäran. Om sökvägen i den inkommande begäranden inte matchar någon sökväg i Webbadress för sökvägskarta, bearbetas sedan matchar mönstret för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel.
+I v2-SKU: n är en exakt matchning högre prioritet än sökväg ordning i Webbadress för sökvägskarta. Om en begäran matchar mönstret i två eller flera sökvägar, vidarebefordras begäran till backend-server som är associerat med den sökväg som exakt matchar begäran. Om sökvägen i den inkommande begäranden inte matchar exakt valfri sökväg på kartan, bearbetas mönstermatchning för begäran i i orderlistan för sökvägen för sökvägsbaserad regel.
 
 ### <a name="associated-listener"></a>Tillhörande lyssnare
 
-Du vill koppla en lyssnare för regeln så att den *begär routningsregel* som är associerade med den *lyssnare* utvärderas för att fastställa den *serverdelspool* som den förfrågan är ska dirigeras.
+Associera en lyssnare för regeln så att den *regeln för routning av begäran* som är associerad med lyssnaren utvärderas för att fastställa backend-poolen för att dirigera begäran till.
 
-### <a name="associated-backend-pool"></a>Associerade backend-Pool
+### <a name="associated-back-end-pool"></a>Tillhörande backend-adresspool
 
-Associera serverdelspoolen som innehåller backend-mål som kommer att fungera begäranden tas emot av lyssnaren. Vid en grundläggande regel tillåts bara en serverdelspool eftersom alla begäranden på den associerade lyssnaren vidarebefordras till den här serverdelspoolen. Lägga till flera serverdelspooler som motsvarar varje URL-sökväg vid en sökvägsbaserad regel. Begäranden som matchar den webbsökväg som anges här, vidarebefordras till motsvarande serverdelspoolen. Lägg även till en Standardpool för serverdelen eftersom de förfrågningar som inte matchar alla URL-sökvägen som angetts i den här regeln ska vidarebefordras till den.
+Associera för regeln backend-poolen som innehåller de backend-mål som betjänar förfrågningar som tar emot lyssnaren.
 
-### <a name="associated-backend-http-setting"></a>Associerade serverdelens HTTP-inställning
+ - För en grundläggande regel tillåts bara en backend-poolen. Alla begäranden på den associerade lyssnaren vidarebefordras till backend-poolen.
 
-Lägg till en backend-HTTP-inställning för varje regel. Förfrågningar kommer att dirigeras från Programgatewayen till backend-mål med portnumret, protokoll och andra inställningar som anges i den här inställningen. Vid en grundläggande regel tillåts endast en serverdelens HTTP-inställning eftersom alla begäranden på den associerade lyssnaren vidarebefordras till de motsvarande backend-mål som använder den här inställningen för HTTP. Lägg till flera serverdelens HTTP-inställningar för varje URL-sökväg vid en sökvägsbaserad regel. Begäranden som matchar den webbsökväg som anges här, vidarebefordras till de motsvarande backend-mål med hjälp av HTTP-inställningarna för varje URL-sökväg. Lägg även till en standardinställning för HTTP eftersom de förfrågningar som inte matchar alla URL-sökvägen som angetts i den här regeln ska vidarebefordras till Standardpool för serverdelen genom att använda standardinställningen för HTTP.
+ - Lägg till flera backend-adresspooler som relaterar till varje URL-sökvägen för en sökvägsbaserad regel. Begäranden som matchar URL-sökvägen som anges vidarebefordras till motsvarande backend-poolen. Lägg även till en standard backend-poolen. Begäranden som inte matchar alla URL-sökvägen i regeln vidarebefordras till poolen.
+
+### <a name="associated-back-end-http-setting"></a>Associerade backend-HTTP-inställning
+
+Lägg till en backend-HTTP-inställning för varje regel. Begäranden dirigeras från programgatewayen till backend-mål med hjälp av portnumret, protokoll och annan information som anges i den här inställningen.
+
+För en grundläggande regel tillåts bara en backend-HTTP-inställning. Alla begäranden på den associerade lyssnaren vidarebefordras till motsvarande backend-mål med hjälp av den här HTTP-inställning.
+
+Lägg till en backend-HTTP-inställning för varje regel. Begäranden dirigeras från programgatewayen till backend-mål med hjälp av portnumret, protokoll och annan information som anges i den här inställningen.
+
+För en grundläggande regel tillåts bara en backend-HTTP-inställning. Alla begäranden på den associerade lyssnaren vidarebefordras till motsvarande backend-mål med hjälp av den här HTTP-inställning.
+
+Lägg till flera backend-HTTP-inställningarna som motsvarar varje URL-sökvägen för en sökvägsbaserad regel. Begäranden som matchar en URL-sökväg i den här inställningen vidarebefordras till motsvarande backend-mål med hjälp av HTTP-inställningarna för varje URL-sökväg. Lägg även till en standardinställning för HTTP. Begäranden som inte matchar alla URL-sökvägen i den här regeln vidarebefordras till den förvalda backend-adresspoolen genom att använda standardinställningen för HTTP.
 
 ### <a name="redirection-setting"></a>Omdirigeringsinställningen
 
-Om omdirigeringen har konfigurerats för en grundläggande regel, kommer alla begäranden på den associerade lyssnaren omdirigeras till omdirigering av mål, vilket innebär att globala omdirigering. Om omdirigeringen har konfigurerats för en sökvägsbaserad regel begäranden endast på en viss plats, till exempel en kundvagn området enligt/kundvagn / *, kommer att omdirigeras till omdirigering av mål, vilket innebär att sökvägsbaserad omdirigering. 
+Om omdirigering har konfigurerats för en grundläggande regel, omdirigeras alla begäranden på den associerade lyssnaren till målet. Det här är *globala* omdirigering. Om omdirigering har konfigurerats för en sökvägsbaserad regel, omdirigeras endast begäranden under en viss plats. Ett exempel är en i kundvagnen område som markerats med */cart/\**. Det här är *sökvägsbaserad* omdirigering.
 
-Information om funktionen för omdirigering finns i [översikt över Mappomdirigering](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Läs mer om omdirigeringar [översikt för omdirigering i Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
-- #### <a name="redirection-type"></a>Omdirigeringstyp
+#### <a name="redirection-type"></a>Omdirigeringstyp
 
-  Välj typ av omdirigering av krävs från: Permanent(301), Temporary(307), Found(302) eller se other(303).
+Välj typ av omdirigering av krävs: *Permanent(301)*, *Temporary(307)*, *Found(302)*, eller *finns i other(303)*.
 
-- #### <a name="redirection-target"></a>Omdirigering av mål
+#### <a name="redirection-target"></a>Omdirigering av mål
 
-  Du kan välja mellan en annan lyssnare eller en extern webbplats som omdirigering av mål. 
+Välj en annan lyssnare eller en extern webbplats som mål för omdirigering.
 
-  - ##### <a name="listener"></a>Lyssnare
+##### <a name="listener"></a>Lyssnare
 
-    Välja lyssnare som omdirigering av mål underlättar vid omdirigering från en lyssnare till en annan lyssnaren på gatewayen. Den här inställningen är obligatorisk när du vill aktivera HTTP till HTTPS-omdirigering, d.v.s. omdirigerings-trafik från käll-lyssnaren som söker efter de inkommande HTTP-begäranden till lyssnare inom ramen för mål som söker efter inkommande HTTPS-begäranden. Du kan också välja frågesträngen och sökväg i den ursprungliga begäran som ska ingå i begäran vidarebefordras till målet för omdirigering.![application-gateway-components](./media/configuration-overview/configure-redirection.png)
+Välj lyssnare som omdirigering av mål att omdirigera trafik från en lyssnare till en annan på gatewayen. Den här inställningen är obligatorisk när du vill aktivera HTTP till HTTPS-omdirigering. Den dirigerar trafik från käll-lyssnaren som söker efter inkommande HTTP-begäranden till mål-lyssnare som söker efter inkommande HTTPS-begäranden. Du kan också välja att inkludera frågesträngen och sökväg från den ursprungliga begäran i begäran som vidarebefordras till målet för omdirigering.
 
-    Mer information om HTTP till HTTPS-omdirigering finns i [HTTP till HTTP-omdirigering med hjälp av portalen](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [HTTP till HTTP-omdirigering med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [HTTP till HTTP-omdirigering med CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+![Dialogrutan för Application Gateway-komponenter](./media/configuration-overview/configure-redirection.png)
 
-  - ##### <a name="external-site"></a>Extern webbplats
+Mer information om HTTP till HTTPS-omdirigering finns:
+- [HTTP-HTTP-omdirigering med hjälp av Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [HTTP-HTTP-omdirigering med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [HTTP till HTTP-omdirigering med hjälp av Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
-    Välj extern webbplats om du vill omdirigera trafik på lyssnaren kopplad till regeln därför att omdirigeras till en extern webbplats. Du kan välja frågesträngen i den ursprungliga begäran som ska ingå i begäran vidarebefordras till målet för omdirigering. Du kan inte vidarebefordra sökvägen i den ursprungliga begäran till den externa platsen.
+##### <a name="external-site"></a>Extern webbplats
 
-    Mer information om omdirigering till extern webbplats finns i [omdirigera trafik till extern webbplats med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell) och [https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+Välj extern webbplats om du vill omdirigera trafik på som är associerat med den här regeln till en extern plats. Du kan välja att inkludera frågesträngen från den ursprungliga begäran i begäran som vidarebefordras till målet för omdirigering. Du kan inte vidarebefordra sökvägen till den externa platsen som fanns i den ursprungliga begäran.
 
-#### <a name="rewrite-http-header-setting"></a>Skriv om HTTP-huvud-inställning
+Mer information om omdirigering finns:
+- [Omdirigera trafik till en extern plats med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
+- [Omdirigera trafik till en extern plats med hjälp av CLI](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
 
-Den här funktionen kan du lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och serverdelen pooler.    Du kan konfigurera den här funktionen endast via PowerShell. Portal och CLI-stöd är inte tillgängligt ännu. Mer information finns i [skriva om HTTP-huvuden](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) översikt och [konfigurera HTTP-huvud omskrivning](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration).
+#### <a name="rewrite-the-http-header-setting"></a>Skriv om HTTP-huvud-inställning
+
+Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och backend-adresspooler. Du kan bara konfigurera den här funktionen via PowerShell. Azure portal och CLI-stöd är inte ännu tillgängliga. Mer information finns i:
+
+ - [Skriv om HTTP-huvuden översikt](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
+ - [Konfigurera HTTP-huvud-omskrivning](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
-Application gateway dirigerar trafik till backend-servrarna med den konfiguration som har angetts i den här komponenten. När du har skapat en HTTP-inställning måste du koppla den med en eller flera be regler för routning.
+Application gateway dirigerar trafik till backend servrarna med den konfiguration som du anger här. När du har skapat en HTTP-inställning måste du associera den med en eller flera routning av begäran regler.
 
-### <a name="cookie-based-affinity"></a>Cookiebaserad tillhörighet
+### <a name="cookie-based-affinity"></a>Cookie-baserad tillhörighet
 
-Den här funktionen är användbart när du vill behålla en användarsession på samma server. Genom att använda gatewayhanterade cookies kan programgatewayen dirigera efterföljande trafik från en användarsession till samma serverdel för bearbetning. Det här är viktigt i de fall där sessionstillstånd har sparats lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet, kommer sedan du inte att kunna använda den här funktionen. Om du vill använda cookie-baserad sessionstillhörighet, bör du kontrollera att klienterna måste ha stöd för cookies. 
+Den här funktionen är användbart när du vill behålla en användarsession på samma server. Gatewayhanterade cookies kan application gateway direkt efterföljande trafiken från en användarsession till samma server för bearbetning. Detta är viktigt när sessionstillstånd har sparats lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet kan använda du inte den här funktionen. Se till att klienterna stöder cookies för att använda den.
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
-Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen kan tillämpas på alla medlemmar i en serverdelspool samband med regelgenereringen. När du har aktiverat, Programgateway ser du till att ta bort registrera instanser av en serverdelspool inte tar emot nya begäranden samtidigt som befintliga begäranden ska slutföras inom en konfigurerad tid. Detta gäller såväl serverdelsinstanser som uttryckligen tas bort från serverdelspoolen med hjälp av ett API-anrop som serverdelsinstanser som rapporteras som skadade enligt hälsoavsökningarna.
+Anslutningstömning hjälper dig att smidigt ta bort serverdelspool medlemmar under planerade service uppdateringar. Du kan använda den här inställningen för alla medlemmar i en serverdelspool samband med regelgenereringen. Det innebär att ta bort registrera instanser av en backend-poolen inte får alla nya begäranden. Under tiden kan ska befintliga begäranden kunna slutföras inom en konfigurerad tid. Anslutningstömning gäller för backend-instanser som uttryckligen tas bort från backend poolen med ett API-anrop. Det gäller även för backend-instanser som har rapporterats som *feltillstånd* av hälsotillståndet avsökningar.
 
 ### <a name="protocol"></a>Protokoll
 
-Application gateway stöder både HTTP och HTTPS-protokoll för dirigering av begäranden till backend-servrarna. Om du väljer HTTP-protokollet trafik du flöden okrypterat fram till backend-servrarna. I sådana fall där okrypterad kommunikation till backend-servrarna inte är en acceptabel bör du välja HTTPS-protokollet. Den här inställningen kombinerade med välja HTTPS-protokollet i lyssnaren kan du aktivera [slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Det låter dig skicka känsliga data säkert till serverdelen i krypterad. Varje serverdels-server i serverdels-poolen som har slutpunkt-till-slutpunkt SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
+Application Gateway stöder både HTTP och HTTPS för dirigering av begäranden till backend servrarna. Om du väljer HTTP är-trafik till backend servrarna okrypterad. Om dekrypterade kommunikation inte är acceptabel kan du välja HTTPS.
+
+Den här inställningen tillsammans med HTTPS i lyssnaren stöder [slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). På så sätt kan du säkert överföra känsliga data krypteras till backend-server. Varje backend-server i backend-poolen som har slutpunkt till slutpunkt SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
 
 ### <a name="port"></a>Port
 
-Det här är den port som backend-servrarna lyssnar på trafik som kommer från Application Gateway. Du kan konfigurera portar mellan 1 och 65535.
+Den här inställningen anger den port där backend servrarna lyssnar på trafik från programgatewayen. Du kan konfigurera portar mellan 1 och 65535.
 
 ### <a name="request-timeout"></a>Timeout för begäran
 
-Hur många sekunder som application gateway som väntar på svar från backend-poolen innan det returneras ett fel som ”tidsgränsen uppnåddes för anslutningen”.
+Den här inställningen är antalet sekunder som application gateway som väntar på svar från backend poolen innan den returnerar felmeddelandet ”anslutning uppnåddes”.
 
-### <a name="override-backend-path"></a>Åsidosätt serverdelssökväg
+### <a name="override-back-end-path"></a>Åsidosätt backend-sökväg
 
-Den här inställningen kan du konfigurera ett valfritt anpassat vidarebefordran sökväg som ska användas när begäran vidarebefordras till serverdelen. Detta kommer att kopiera någon del av den inkommande sökvägen som matchar den anpassade sökväg som angavs i den **åsidosätta sökvägen till serverdelen** fältet vidarebefordrade sökvägen. Se tabellen nedan för att förstå hur funktionen fungerar.
+Den här inställningen kan du konfigurera ett valfritt anpassat vidarebefordran sökväg som ska användas när begäran vidarebefordras till backend-servern. Någon del av den inkommande sökvägen som matchar den anpassad sökvägen i den **åsidosätta sökvägen till serverdelen** kopieras till den vidarebefordrade sökvägen. I följande tabell visar hur den här funktionen fungerar:
 
-- När HTTP-inställning är kopplad till en regel för vidarebefordran av grundläggande begäran:
+- När HTTP-inställning är kopplad till en grundläggande regel som routning av begäran:
 
-  | Ursprungliga begäran  | Åsidosätt serverdelssökväg | Begäran vidarebefordras till serverdelen |
+  | Ursprungliga begäran  | Åsidosätt backend-sökväg | Begäran vidarebefordras till serverdel |
   | ----------------- | --------------------- | ---------------------------- |
   | /Startsida/            | /override/            | / åsidosätta/home /              |
   | / home/secondhome / | /override/            | / åsidosättning/home/secondhome /   |
 
-- När HTTP-inställning är kopplad till en regel för vidarebefordran av sökvägsbaserad begäran:
+- När HTTP-inställning är kopplad till en sökvägsbaserad routning av begäran regel:
 
-  | Ursprungliga begäran           | Sökvägsregeln       | Åsidosätt serverdelssökväg | Begäran vidarebefordras till serverdelen |
+  | Ursprungliga begäran           | Sökvägsregeln       | Åsidosätt backend-sökväg | Begäran vidarebefordras till serverdel |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
   | /pathrule/home /            | /pathrule*      | /override/            | / åsidosätta/home /              |
   | / pathrule/home/secondhome / | /pathrule*      | /override/            | / åsidosättning/home/secondhome /   |
@@ -258,46 +292,54 @@ Den här inställningen kan du konfigurera ett valfritt anpassat vidarebefordran
   | /pathrule/home /            | / pathrule/startsidan * | /override/            | /override/                   |
   | / pathrule/home/secondhome / | / pathrule/startsidan * | /override/            | / åsidosätta/secondhome /        |
 
-### <a name="use-for-app-service"></a>Använd för apptjänst
+### <a name="use-for-app-service"></a>Använd för app service
 
-Det här är en UI-genväg som väljer de två inställningarna som krävs för App service-serverdelen – aktiverar Välj värdnamnet från serverdelsadressen och skapar en ny anpassad avsökning. Orsaken till varför f.d. görs beskrivs i avsnittet för **Välj värdnamnet från serverdelsadressen** inställningen. En ny avsökning skapas där avsökningen huvudet också plockas upp från serverdelen medlems-adress.
+Det här är en UI-genväg som väljer de två inställningarna som krävs för Azure App Service-serverdelen. Det gör att **Välj värdnamnet från backend-adress**, och skapar en ny anpassad avsökning. (Mer information finns i den [Välj värdnamnet från backend-adress](#pick) inställning i den här artikeln.) En ny avsökning skapas och rubriken avsökningen hämtas från medlemmen backend-adress.
 
 ### <a name="use-custom-probe"></a>Använd anpassad avsökning
 
-Den här inställningen används för att associera en [anpassad avsökning](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) med den här inställningen för HTTP. Du kan associera endast en anpassad avsökning med en HTTP-inställning. Om du inte uttryckligen associera en anpassad avsökning sedan [standard avsökningen](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) används för att övervaka hälsotillståndet för serverdelen. Du rekommenderas att du skapar en anpassad avsökning om du vill ha mer detaljerad kontroll över hälsoövervakning av serverdelen.
+Den här inställningen associerar en [anpassad avsökning](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) med en HTTP-inställning. Du kan associera endast en anpassad avsökning med en HTTP-inställning. Om du inte uttryckligen associera en anpassad avsökning i [standard avsökningen](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) används för att övervaka hälsotillståndet för backend-servern. Vi rekommenderar att du skapar en anpassad avsökning för bättre kontroll över hälsoövervakning av dina servrar.
 
-> [!NOTE]   
-> Anpassad avsökning kommer inte att börja övervaka hälsotillståndet för serverdelspoolen, såvida inte den motsvarande HTTP-inställningen är uttryckligen associerad med en lyssnare.
+> [!NOTE]
+> Anpassad avsökning övervaka inte hälsotillståndet för backend poolen, såvida inte den motsvarande HTTP-inställningen är uttryckligen associerad med en lyssnare.
 
-### <a name="pick-host-name-from-backend-address"></a>Välj värdnamn från serverdelsadress
+### <a id="pick"/></a>Välj värdnamnet från backend-adress
 
-Den här funktionen dynamiskt anger den *värden* huvudet i begäran till värdnamnet för serverdelspoolen genom att använda en IP-adress eller fullständigt kvalificerat domännamn (FQDN). Det här är användbart i scenarier där domännamnet för serverdelen skiljer sig från DNS-namnet på application gateway och serverdelen som förlitar sig på en specifik värdrubrik eller ett SNI-tillägg för att matcha mot rätt slutpunkt, som vid tjänster med flera innehavare som serverdelen. Eftersom App service är en tjänst för flera klienter som använder en delad utrymme med en IP-adress, kan en App service nås endast med värdnamn som konfigurerats i inställningarna för anpassad domän. Det anpassade domännamnet är som standard *example.azurewebsites.net*. Därför, om du vill komma åt din App service med application gateway med antingen ett värdnamn som inte uttryckligen har registrerats i App service eller med Application gateway FQDN du behöver åsidosätta värdnamnet i den ursprungliga begäran till App service-värdnamn, genom att Aktivera **Välj värdnamnet från serverdelsadressen** inställningen.
+Den här funktionen dynamiskt anger den *värden* huvudet i begäran till värdnamnet för backend poolen. Den använder en IP-adress eller fullständigt domännamn.
 
-Om du äger en anpassad domän och har mappat befintligt anpassat DNS-namn till App service, behöver du inte aktivera den här inställningen.
+Den här funktionen gör att domännamnet för serverdelen skiljer sig från DNS-namnet på application gateway och backend-servern förlitar sig på en specifik värdrubrik eller Server Name Indication (SNI)-tillägg kunna matcha mot rätt slutpunkt.
 
-> [!NOTE]   
-> Den här inställningen behövs inte för App Service Environment (ASE) eftersom ASE är en särskild distribution. 
+Ett exempel är tjänster med flera innehavare som backend-servern. En app service är en tjänst för flera klienter som använder en delad utrymme med en enda IP-adress. Därför kan en app service endast nås via värdnamn som konfigureras i inställningarna för anpassad domän.
+
+Det anpassade domännamnet är som standard *example.azurewebsites.<i> </i>net*. För att komma åt din app service med hjälp av en Programgateway via ett värdnamn som inte uttryckligen har registrerats i app service eller FQDN för application gateway kan du åsidosätta värdnamnet i den ursprungliga begäran till värdnamn för app service. Om du vill göra detta måste du aktivera den **Välj värdnamnet från serverdelsadressen** inställningen.
+
+För en anpassad domän vars befintligt anpassat DNS-namn är mappad till app service, har du inte aktivera den här inställningen.
+
+> [!NOTE]
+> Den här inställningen behövs inte för App Service Environment för PowerApps, vilket är en särskild distribution.
 
 ### <a name="host-name-override"></a>Åsidosätt för värd-namn
 
-Den här funktionen ersätter den *värden* rubrik i den inkommande begäran på application gateway till värdnamn som du anger här. Till exempel om www\.contoso.com har angetts som den **värdnamn** inställningen, den ursprungliga begäran https://appgw.eastus.cloudapp.net/path1 kommer att ändras till https://www.contoso.com/path1 när begäran vidarebefordras till backend-servern. 
+Den här funktionen ersätter den *värden* rubrik i den inkommande begäran på application gateway med värdnamn som du anger.
 
-## <a name="backend-pool"></a>Serverdelspool
+Till exempel om *www.contoso<i></i>.com* har angetts i den **värdnamn** inställningen, den ursprungliga begäran *https:/<i></i>/appgw.eastus.cloudapp.net/path1* ändras till *https:/<i></i>/www.contoso.com/path1* när begäran vidarebefordras till backend-servern.
 
-En serverdelspool kan vara visade fyra typer av serverdelen medlemmar: en specifik virtuell dator, virtual machine scale Sets, en IP-adressen/FQDN eller en app service. Varje serverdelspool kan peka på flera medlemmar av samma typ. Peka medlemmar av olika typer i samma serverdelspool stöds inte. 
+## <a name="back-end-pool"></a>Backend-poolen
 
-När du skapar en serverdelspool kan behöva du associera det med en eller flera begäran routningsregler. Du måste också konfigurera hälsotillståndsavsökningar för varje serverdelspool på application gateway. När en begäran om routning villkor uppfylls, vidarebefordrar trafik till felfria servrarna (som bestäms av hälsoavsökningarna) i motsvarande serverdelspoolen application gateway.
+Du kan peka en backend-poolen på fyra typer av serverdelen medlemmar: en specifik virtuell dator, en skalningsuppsättning för virtuell dator, en IP-adressen/FQDN eller en app service. Varje serverdelspool kan peka på flera medlemmar av samma typ. Peka på medlemmar av olika typer i samma backend-pool stöds inte.
+
+När du har skapat en backend pool måste du associera den med en eller flera routning av begäran regler. Du måste också konfigurera hälsoavsökningar för varje serverdelspool på application gateway. När ett villkor för routning av begäran är uppfyllt, vidarebefordrar application gateway trafik till felfria servrarna (som bestäms av hälsoavsökningarna) i motsvarande backend-poolen.
 
 ## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-Även om application gateway övervakar hälsotillståndet för alla resurser i serverdelen som standard, bör du skapa en anpassad avsökning för varje serverdelens HTTP-inställning för att få en mer detaljerad kontroll över övervakning av hälsotillstånd. Läs hur du konfigurerar anpassade hälsoavsökning i [anpassad avsökning hälsomiljöer](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+En application gateway övervakar hälsotillståndet för alla resurser i serverdelen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje backend-HTTP-inställning att få bättre kontroll över hälsoövervakning. Läs hur du konfigurerar en anpassad avsökning i [anpassad avsökning hälsomiljöer](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 
-> [!NOTE]   
-> När du skapar en anpassad hälsoavsökning, måste du koppla den till en serverdel HTTP-inställning. Anpassad avsökning kommer inte att börja övervaka hälsotillståndet för serverdelspoolen, såvida inte den motsvarande HTTP-inställningen är uttryckligen associerad med en lyssnare.
+> [!NOTE]
+> När du skapar en anpassad hälsoavsökning, måste du koppla den till en backend-HTTP-inställning. En anpassad avsökning övervaka inte hälsotillståndet för backend poolen, såvida inte den motsvarande HTTP-inställningen är uttryckligen associerad med en lyssnare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om Application Gateway-komponenter kan du:
+Nu när du vet om Application Gateway-komponenter kan du:
 
 - [Skapa en Programgateway i Azure portal](quick-create-portal.md)
 - [Skapa en Programgateway med hjälp av PowerShell](quick-create-powershell.md)

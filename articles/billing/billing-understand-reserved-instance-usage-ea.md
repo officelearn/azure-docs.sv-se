@@ -1,5 +1,5 @@
 ---
-title: Förstå användningen av Azure-reservationer för företag | Microsoft Docs
+title: Förstå användningen av Azure reservationer för företag | Microsoft Docs
 description: Lär dig mer om att läsa din användning för att förstå hur Azure reservation för Enterprise-registreringen tillämpas.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648307"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Förstå användningen av Azure reservation för din Enterprise-registrering
 
@@ -53,7 +53,7 @@ Du kan hämta Enterprise användning CSV-fil från Enterprise portal. Filtrera e
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Användning för SQL Database och Cosmos DB reserverad kapacitetsreservationer
 
-I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt. 
+I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt.
 
 Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell:
 
@@ -64,7 +64,7 @@ Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informati
 |Produkt| SQL Database Gen 4 (2 kärnor)|
 |Region | usaöstra |
 
-### <a name="usage-in-csv-file"></a>Användning i CSV-fil 
+### <a name="usage-in-csv-file"></a>Användning i CSV-fil
 
 Filtrera på **ytterligare information** och skriver i din **reservations-ID**, och välj de nödvändiga **Mätningskategori** – Azure SQL database eller Azure Cosmos DB. Följande skärmbild visar relaterade fält till reservationen.
 
@@ -81,19 +81,20 @@ Din användning av Azure reservation visas också i sammanfattningen för använ
 1. Du debiteras inte för maskinvarukomponent för den virtuella datorn eftersom de omfattas av reservation. För en SQL Database-reservation, visas en rad med **tjänstnamn** reserverad kapacitet som Azure SQL Database.
 2. I det här exemplet kan har du inte Azure Hybrid-förmånen så debiteras du för den Windows-programvara som används med den virtuella datorn.
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) 
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
-
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 

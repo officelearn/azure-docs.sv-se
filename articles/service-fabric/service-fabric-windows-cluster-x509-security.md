@@ -4,7 +4,7 @@ description: Säker kommunikation inom ett Azure Service Fabric-kluster i frist�
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285255"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661453"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows genom att använda X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret genom att använda X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret har skapats.  

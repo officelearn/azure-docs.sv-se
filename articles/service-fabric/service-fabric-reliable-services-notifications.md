@@ -4,7 +4,7 @@ description: Konceptuell dokumentation för Service Fabric Reliable Services-med
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662677"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services-aviseringar
-Meddelanden tillåter klienter att spåra ändringar som görs i ett objekt som de är intresserad av. Två typer av objekt som har stöd för aviseringar: *Reliable State Manager* och *tillförlitlig ordlista*.
+Meddelanden tillåter klienter att spåra ändringar som görs i ett objekt som de är intresserad av. Två typer av objekt stöder meddelanden: *Reliable State Manager* och *tillförlitlig ordlista*.
 
 Vanliga orsaker till med hjälp av meddelanden är:
 
@@ -34,7 +34,7 @@ Meddelanden skickas som en del av tillämpa åtgärder. På grund av att ska med
 ## <a name="reliable-state-manager-notifications"></a>Reliable State Manager-aviseringar
 Reliable State Manager visar meddelanden för följande händelser:
 
-* Transaktionen
+* Transaktion
   * Checka in
 * Tillståndshanteraren
   * Återskapa
@@ -46,9 +46,9 @@ Reliable State Manager spårar de aktuella aktiva transaktionerna. Den enda för
 Reliable State Manager upprätthåller en samling av tillförlitliga tillstånd som tillförlitlig ordlista och tillförlitlig kö. Reliable State Manager utlöses meddelanden när den här samlingen ändras: ett tillförlitlig tillstånd läggs till eller tas bort eller hela samlingen har återskapats.
 Samlingen Reliable State Manager återskapas i tre fall:
 
-* Återställning: När en replik startar den återställer dess tidigare tillstånd från disken. I slutet av recovery används **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de återställda tillförlitlig tillstånd.
-* Fullständig kopia: innan en replik kan ansluta till konfigurationen, så måste den skapas. Ibland kan kräver detta en fullständig kopia av Reliable State Manager tillstånd från den primära repliken ska tillämpas på en inaktiv sekundär replik. Används i Reliable State Manager på den sekundära repliken **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de tillförlitlig tillstånd som det har fått från den primära repliken.
-* Återställ: I katastrofåterställning, repliken återställas från en säkerhetskopia via **RestoreAsync**. I sådana fall kan Reliable State Manager på den primära repliken använder **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de tillförlitlig tillstånd som den har återställts från säkerhetskopian.
+* Återställning: När en replik startar återställer dess tidigare tillstånd från disken. I slutet av recovery används **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de återställda tillförlitlig tillstånd.
+* Fullständig kopia: Innan en replik kan ansluta till konfigurationen, har det ska skapas. Ibland kan kräver detta en fullständig kopia av Reliable State Manager tillstånd från den primära repliken ska tillämpas på en inaktiv sekundär replik. Används i Reliable State Manager på den sekundära repliken **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de tillförlitlig tillstånd som det har fått från den primära repliken.
+* Återställ: I scenarier med haveriberedskap repliken återställas från en säkerhetskopia via **RestoreAsync**. I sådana fall kan Reliable State Manager på den primära repliken använder **NotifyStateManagerChangedEventArgs** innan en händelse som innehåller de tillförlitlig tillstånd som den har återställts från säkerhetskopian.
 
 För att registrera för meddelanden och/eller tillstånd manager-aviseringar, du måste registrera dig med den **TransactionChanged** eller **StateManagerChanged** händelser i Reliable State Manager. En gemensam plats att registrera med dessa händelsehanterare är konstruktorn för din tillståndskänslig tjänst. När du registrerar på konstruktorn kan du inte missar något meddelande som orsakas av en ändring under livslängd **IReliableStateManager**.
 
@@ -109,10 +109,10 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>Tillförlitlig ordlista meddelanden
 Tillförlitlig ordlista innehåller meddelanden för följande händelser:
 
-* Återskapa: Kallas när **ReliableDictionary** har återställts sitt tillstånd från en återställd eller kopierade lokalt läge eller säkerhetskopiering.
-* Rensa: Kallas när tillståndet för **ReliableDictionary** har rensats via den **ClearAsync** metod.
+* Återskapa: Anropas när **ReliableDictionary** har återställts sitt tillstånd från en återställd eller kopierade lokalt läge eller säkerhetskopiering.
+* Rensa: Anropas när tillståndet för **ReliableDictionary** har rensats via den **ClearAsync** metod.
 * Lägg till: Anropas när ett objekt läggs till i **ReliableDictionary**.
-* Uppdatering: Anropas när ett objekt i **IReliableDictionary** har uppdaterats.
+* Uppdatera: Anropas när ett objekt i **IReliableDictionary** har uppdaterats.
 * Ta bort: Anropas när ett objekt i **IReliableDictionary** har tagits bort.
 
 För att få tillförlitlig ordlista meddelanden kan du behöva registrera med den **DictionaryChanged** händelsehanteraren på **IReliableDictionary**. En gemensam plats att registrera med dessa händelsehanterare är i den **ReliableStateManager.StateManagerChanged** Lägg till meddelande.

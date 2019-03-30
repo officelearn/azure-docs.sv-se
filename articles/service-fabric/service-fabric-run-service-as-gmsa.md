@@ -3,8 +3,8 @@ title: Köra ett Azure Service Fabric-tjänsten under ett gMSA-konto | Microsoft
 description: Lär dig hur du kör en tjänst som ett gMSA på ett fristående Service Fabric Windows-kluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: dkkapur
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
-ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: dekapur
+ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666434"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
 Du kan köra en tjänst som ett grupphanterat tjänstkonto (gMSA) med hjälp av en RunAs-princip på ett fristående kluster Windows Server.  Service Fabric-program körs under kontot som Fabric.exe processen körs under som standard. Köra program under olika konton, även i en delad miljö, gör dem säkrare från varandra. Observera att det använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure). Genom att använda ett gMSA kan finns det inga lösenord eller ett krypterat lösenord som lagras i programmanifestet.  Du kan också köra en tjänst som en [Active Directory-användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).

@@ -3,8 +3,8 @@ title: Programscenarier och design | Microsoft Docs
 description: Översikt över kategorier av molnprogram i Service Fabric. Beskriver programmets design som använder tillståndskänsliga och tillståndslösa tjänster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
-ms.openlocfilehash: a84d8fead42f8314decc144f01d8de1dac30bbdf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.author: atsenthi
+ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199484"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668253"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenarier för Service Fabric-program
 Azure Service Fabric är en tillförlitlig och flexibel plattform som hjälper dig att skriva och köra många typer av program och tjänster. Dessa program och mikrotjänster kan vara tillståndslösa eller tillståndskänsliga och de är nätverksbelastning resursen för virtuella datorer för att maximera effektiviteten. Unikt arkitekturen i Service Fabric kan du utföra nära dataanalys i realtid, InMemory-beräkning, parallella transaktioner och händelsebearbetning i dina program. Du kan enkelt skala dina program upp eller ned (verkligen in eller ut), beroende på behoven föränderliga resurs.

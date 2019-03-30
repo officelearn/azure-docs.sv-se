@@ -4,7 +4,7 @@ description: Översikt över funktionen för programgruppen i Service Fabric Clu
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670642"
 ---
 # <a name="introduction-to-application-groups"></a>Introduktion till programgrupper
 Service Fabric Cluster Resource Manager hanterar vanligtvis klusterresurser genom att sprida belastningen (representeras [mått](service-fabric-cluster-resource-manager-metrics.md)) jämnt i hela klustret. Service Fabric hanterar kapaciteten för noderna i klustret och klustret som helhet via [kapacitet](service-fabric-cluster-resource-manager-cluster-description.md). Mått och kapacitetsbehov fungerar bra för många arbetsbelastningar, men mönster som använder olika Service Fabric-programinstanser ibland hämta ytterligare krav. Till exempel vilja:

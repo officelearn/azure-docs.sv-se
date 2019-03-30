@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904311"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650231"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Visa reservationer för Azure i Azure portal
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Visa Azure reservationer i Azure portal
 
-Beroende på prenumerationstyp och behörigheter finns det ett par olika sätt att visa reservationer för Azure-resurser.
+Beroende på prenumerationstyp och behörigheter finns det ett par olika sätt att visa reservationer för Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Visa reservationer som ägare eller läsare
 
@@ -62,15 +62,26 @@ Om du vill hämta data med hjälp av ett API, se [hämta reserverad instans debi
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
+- [Hantera reservationer för Azure](billing-manage-reserved-vm-instance.md)
+
+Köp en serviceplan:
+
 - [Betala i förskott för Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
+
+Köp en plan för programvara:
+
+- [Betala i förskott för Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Förstå användningen av:
+
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Förstå användningen av reserverade för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

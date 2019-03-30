@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 19e94fc65ddc1719c601397adfe77f8f9445e4fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351464"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662133"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -44,19 +44,6 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 * Använd Azure Media Services tillsammans med [API:er för Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
 * Aktivera Azure CDN för att uppnå hög skalning för att bättre hantera omedelbara höga belastningar (till exempel start av en produktlansering). 
 
-## <a name="v3-capabilities"></a>v3-funktioner
-
-v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. 
-
-Den här versionen innehåller följande funktioner:  
-
-* **Transformeringar** som hjälper dig att definiera enkla arbetsflöden för mediebearbetning eller analys. Transformering är ett recept för bearbetning av dina video- och ljudfiler. Du kan sedan använda det flera gånger för att bearbeta alla filer i innehållsbiblioteket, genom att skicka jobb till transformeringen.
-* **Jobb** för att bearbeta (koda eller analysera) dina videor. Ett indatainnehåll kan anges för ett jobb med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
-* **Meddelanden** som övervaka jobbförloppet eller tillstånd eller Live Starta/Stoppa och fel-händelserna. Meddelanden är integrerade med Azure Event Grids meddelandesystem. Du kan enkelt prenumerera på händelser för flera resurser i Azure Media Services. 
-* **Azure Resource Management** mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, Live-händelser med mera.
-* **Rollbaserad åtkomstkontroll** kan ställas in på resurs-nivå, så att du kan låsa åtkomst till specifika resurser som transformeringar och Live-händelser.
-* **Klient-SDK:er** på flera språk: .NET, .NET Core, Python, Go, Java och Node.js.
-
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
 Azure Media Services v3-resursnamn (till exempel tillgångar, jobb, transformeringar) är föremål Azure Resource Manager-namnbegränsningar. I enlighet med Azure Resource Manager är resursnamnen alltid unika. Därför kan du använda alla strängar som unika identifierare (till exempel GUID) för ditt resursnamn. 
@@ -76,6 +63,41 @@ Exempel på det här kan vara att
 * inte returnera frågesträngsdelen av webbadressen (för att ta bort signaturen) för jobbets HTTP-indatawebbadresser.
 
 Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-policy-dotnet-howto.md).
+
+
+## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3? 
+
+Lär dig mer om att koda och paketera, strömma videor på begäran, sända live, analysera dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
+
+### <a name="quickstarts"></a>Snabbstarter  
+
+Snabbstarterna visar grundläggande dag 1 anvisningar för nya kunder kan snabbt komma igång med Media Services.
+
+* [Stream videofiler – .NET](stream-files-dotnet-quickstart.md)
+* [Stream videofiler – CLI](stream-files-cli-quickstart.md)
+* [Stream videofiler – Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>Självstudier 
+
+Självstudierna visar scenario-baserade procedurer för några av de viktigaste uppgifterna för Media Services.
+
+* [Koda fjärrfil och strömma video – REST](stream-files-tutorial-with-rest.md)
+* [Koda överförda filen och strömma video – .NET](stream-files-tutorial-with-api.md)
+* [Stream live – .NET](stream-live-tutorial-with-api.md)
+* [Analysera din video – .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamisk kryptering – .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>Instruktionsguider
+
+Artiklar innehåller exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel, här är några av dem:
+
+* [Skapa ett konto – CLI](create-account-cli-how-to.md)
+* [Använd API:er – CLI](access-api-cli-how-to.md)
+* [Börja utveckla med SDK: er](developers-guide.md)
+* [Koda med HTTPS som indata - jobb .NET](job-input-from-http-how-to.md)  
+* [Övervaka händelser – Portal](monitor-events-portal-how-to.md)
+* [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 
+* [Koda med en anpassad transformering med hjälp av CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

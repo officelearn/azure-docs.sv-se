@@ -4,7 +4,7 @@ description: Service Fabric-kluster som körs på Windows Server och Linux, vilk
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: a968b173357bf8bcb83990b891f38306895b4ca8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967429"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670480"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric-kluster på Azure
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partitionsrepliker och instanser i det större antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrensen för åtkomst till minnet. Om noderna i klustret inte som används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partitionsrepliker och instanser över minskade antalet noder för att bättre utnyttja maskinvaran på varje nod.
@@ -31,9 +31,9 @@ Service Fabric-kluster på Azure är en Azure-resurs som använder och samverkar
 * Virtuella datorer och virtuella nätverkskort
 * VM-skalningsuppsättningar
 * virtuella nätverk
-* Belastningsutjämnare
+* lastbalanserare
 * lagringskonton
-* Offentliga IP-adresser
+* offentliga ip-adresser
 
 ![Service Fabric-kluster][Image]
 

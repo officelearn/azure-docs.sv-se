@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399980"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648647"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
-När du köper en Reservation för Azure kan behöva du använda reservationen i en annan prenumeration, ändra vem som kan hantera reservationen eller ändra omfattningen för reservationen. Du kan också dela upp en reservation i två reservationer att tillämpa vissa av de instanser som du har köpt till en annan prenumeration.
+När du köper en reservation för Azure kan du behöva använda reservationen i en annan prenumeration, ändra vem som kan hantera reservationen eller ändra omfattningen för reservationen. Du kan också dela upp en reservation i två reservationer att tillämpa vissa av de instanser som du har köpt till en annan prenumeration.
 
 Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra inställningen Optimera för reservationen. Rabatten kan använda för virtuella datorer i samma serie eller reservera datacentrets kapacitet för en specifik VM-storlek.
 
@@ -123,12 +123,20 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.m
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
+
+Köp en serviceplan:
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Betala i förskott för Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Köp en plan för programvara:
+- [Betala i förskott för Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Förstå rabatt och användning:
 - [Förstå hur VM-reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
+- [Förstå hur Red Hat Enterprise Linux programvara plan rabatten](../billing/billing-understand-rhel-reservation-charges.md)
 - [Förstå hur SUSE Linux Enterprise software plan rabatten](../billing/billing-understand-suse-reservation-charges.md)
 - [Förstå hur andra reservationen rabatter](billing-understand-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578415"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648511"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData-uttryckssyntax för filter och order by-satser i Azure Search
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - Den `search.in` funktion testar om ett visst strängfält är lika med ett av en specifik lista med värden. Det kan också användas i någon eller samtliga för att jämföra ett värde av ett strängfält samling med en specifik lista med värden. Likheten mellan fälten och varje värde i listan bestäms på ett skiftlägeskänsligt sätt, på samma sätt som för den `eq` operator. Därför ett uttryck som `search.in(myfield, 'a, b, c')` motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, förutom att `search.in` resulterar i mycket bättre prestanda. 
 
-  Den första parametern för den `search.in` funktionen är fältreferensen sträng (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). Den andra parametern är en sträng som innehåller listan med värden, avgränsade med blanksteg och/eller kommatecken. Om du vill använda avgränsarna än blanksteg och kommatecken dina värden innehåller de tecken du kan ange ett valfritt tredje parameter ska `search.in`. 
-
-  Den här tredje parametern är en sträng där varje tecken i strängen eller delmängd av den här strängen behandlas som avgränsare vid parsning av listan över värden i den andra parametern.
+   Den första parametern för den `search.in` funktionen är fältreferensen sträng (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). 
+  
+   Den andra parametern är en sträng som innehåller listan med värden, avgränsade med blanksteg och/eller kommatecken. 
+  
+   Den tredje parametern är en sträng där varje tecken i strängen eller delmängd av den här strängen behandlas som avgränsare vid parsning av listan över värden i den andra parametern. Om du vill använda avgränsarna än blanksteg och kommatecken dina värden innehåller de tecken du kan ange ett valfritt tredje parameter ska `search.in`. 
 
   > [!NOTE]   
   > Vissa scenarier kräver att jämföra ett fält mot ett stort antal konstanta värden. Till exempel kan implementera säkerhetsoptimering med filter kräva att jämföra dokumentfältet-ID: T mot en lista med ID som den begärande användaren beviljas läsbehörighet. I scenarier som detta rekommenderar vi starkt med hjälp av den `search.in` funktionen i stället för en mer komplicerad disjunktion av likhet uttryck. Till exempel använda `search.in(Id, '123, 456, ...')` i stället för `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Hitta alla hotels med namnet 'Roach motel ”eller” Budget hotell'). Fraser innehåller blanksteg, vilket är en standard-avgränsare. Om du vill ange en avgränsare åsidosättning omger du den nya avgränsaren med enkla citattecken som en del av filteruttryck:  
+Hitta alla hotels med namnet 'Roach motel ”eller” Budget hotell'). Fraser innehåller blanksteg, vilket är en standard-avgränsare. Du kan specicfy ett alternativt avgränsare med enkla citattecken som den tredje parametern för frågesträngen:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Hitta alla hotels med taggen ”wifi' eller 'pool”:
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Hitta en matchning på flera taggar, 'värmas upp handdukar rack' eller 'hairdryer ingår ”. Kom ihåg att ange ett alternativt avgränsare när utrymme saknas används fungerar då inte. 
+Hitta en matchning på fraser i en samling, till exempel ”värmas upp handdukar rack' eller 'hairdryer ingår” i taggar. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

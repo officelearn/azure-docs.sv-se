@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445644"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650282"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Ett självsignerat certifikat skapades på den virtuella datorn när den virtuel
    4. Välj **lokala** att hantera och klicka sedan på **Slutför**.
    5. Klicka på **Ok** och expandera sedan den **certifikat - personliga** noder och klicka sedan på **certifikat**. Certifikatet är döpt efter DNS-namnet på den virtuella datorn och slutar med **cloudapp.net**. Högerklicka på certifikatets namn och klicka på **kopiera**.
    6. Expandera den **betrodda rotcertifikatutfärdare** noden och sedan högerklickar du **certifikat** och klicka sedan på **klistra in**.
-   7. För att verifiera, dubbelklicka på certifikatets namn under **betrodda rotcertifikatutfärdare** och kontrollera att det finns några fel och du ser ditt certifikat. Om du vill använda HTTPS-skript som ingår i det här avsnittet för att konfigurera rapportservern, värdet för certifikaten **tumavtryck** måste anges som en parameter för skriptet. **Att hämta tumavtrycksvärde**, Slutför följande. Det finns också ett PowerShell-exempel för att hämta tumavtrycket i avsnittet [använda skript för att konfigurera report server- och HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. För att verifiera, dubbelklicka på certifikatets namn under **betrodda rotcertifikatutfärdare** och kontrollera att det finns några fel och du ser ditt certifikat. Om du vill använda HTTPS-skript som ingår i det här avsnittet för att konfigurera rapportservern, värdet för certifikaten **tumavtryck** måste anges som en parameter för skriptet. **Att hämta tumavtrycksvärde**, Slutför följande. Det finns också ett PowerShell-exempel för att hämta tumavtrycket i avsnittet [använda skript för att konfigurera report server- och HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Dubbelklicka på namnet på certifikatet, till exempel ssrsnativecloud.cloudapp.net.
       2. Klicka på fliken **Information** .

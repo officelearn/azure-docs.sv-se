@@ -4,7 +4,7 @@ description: Lär dig hur du manuellt ta bort Service Fabric tillförlitliga akt
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887399"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666978"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Ta bort tillförlitliga aktörer och deras tillstånd
 Skräpinsamling för inaktiverad aktörer rensar endast aktörobjekt, men tas inte bort data som lagras i en aktör State Manager. När en aktör återaktiveras få dess data igen tillgång till den via State Manager. I fall där aktörer lagra data i State Manager och är inaktiverad men aldrig återaktiverats, kan det vara nödvändigt att rensa sina data.

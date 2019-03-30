@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: de2d8bcbf4ca75ad7278ec9fe47a3f55160b7910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649661"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
@@ -196,7 +196,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till privata och offentliga IP-adresser till Azure-nätverksgränssnitt genom att följa stegen nedan. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationer som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det inte krävs att du gör.
+Du kan lägga till privata och offentliga IP-adresser till Azure-nätverksgränssnitt genom att följa stegen nedan. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationer som beskrivs i den [scenariot](#scenario) i den här artikeln, men det inte krävs att du gör.
 
 1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerad och konfigurerad kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikeln.
 2. Ändra följande $Variables ”values” till namnet på det nätverkskort som du vill lägga till IP-adressen och resursgrupp och plats som nätverkskortet finns i:

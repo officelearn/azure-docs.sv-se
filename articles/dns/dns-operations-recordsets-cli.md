@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963823"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650984"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure CLI
 
@@ -92,7 +92,7 @@ Parametrarna som används för att ange postdata varierar beroende på posttypen
 
 I varje fall visar vi hur du skapar en enskild post. Posten läggs till i den befintliga postuppsättningen eller en uppsättning av poster skapas implicit. Mer information om hur du skapar postuppsättningar och definiera post ange parametern uttryckligen, se [skapa en DNS-postuppsättning](#create-a-dns-record-set).
 
-Vi ger inte ett exempel för att skapa en SOA-postuppsättning eftersom SOAs skapas och tas bort med varje DNS-zon och kan inte skapas eller tas bort separat. Dock [SOA kan ändras, som visas i en senare exempel](#to-modify-an-SOA-record).
+Vi ger inte ett exempel för att skapa en SOA-postuppsättning eftersom SOAs skapas och tas bort med varje DNS-zon och kan inte skapas eller tas bort separat. Dock [SOA kan ändras, som visas i en senare exempel](#to-modify-an-soa-record).
 
 ### <a name="create-an-aaaa-record"></a>Skapa en AAAA-post
 
@@ -207,7 +207,7 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 Varje postuppsättning innehåller en [time to live (TTL)](dns-zones-records.md#time-to-live), [metadata](dns-zones-records.md#tags-and-metadata), och DNS-poster. I följande avsnitt beskrivs hur du ändrar var och en av dessa egenskaper.
 
-### <a name="to-modify-an-a-aaaa-caa-mx-ns-ptr-srv-or-txt-record"></a>Ändra en A, AAAA, CAA, MX, NS, PTR, SRV och TXT-post
+### <a name="to-modify-an-a-aaaa-caa-mx-ns-ptr-srv-or-txt-record"></a>To modify an A, AAAA, CAA, MX, NS, PTR, SRV, or TXT record
 
 Om du vill ändra en befintlig post av typ A, AAAA, CAA, MX, NS, PTR, SRV och TXT, bör du först lägga till en ny post och ta sedan bort den befintliga posten. Detaljerade anvisningar om hur du tar bort och lägga till poster finns i tidigare avsnitt av den här artikeln.
 

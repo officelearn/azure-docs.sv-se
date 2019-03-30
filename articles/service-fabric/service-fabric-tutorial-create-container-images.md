@@ -4,7 +4,7 @@ description: I den här självstudiekursen lär du dig hur du skapar containerav
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0bba3c936463ad4fa8b4d06bf6f9df4f0ce6b863
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752321"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662558"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
@@ -41,7 +41,7 @@ I den här självstudieserien får du lära du dig att:
 > * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -136,7 +136,7 @@ Om du vill se en lista med aktuella avbildningar använder du kommandot [docker 
 docker images
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -166,7 +166,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 När taggningen är färdig verifierar du åtgärden genom att köra ”docker images”.
 
-Resultat:
+Utdata:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -196,7 +196,7 @@ Du kan returnera en lista med avbildningar som push-överförts till Azure-conta
 az acr repository list --name <acrName> --output table
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Result

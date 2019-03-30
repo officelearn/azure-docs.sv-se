@@ -4,7 +4,7 @@ description: Introduktion till Service Fabric Reliable Actors-programmeringsmode
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258069"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668678"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
 Reliable Actors är ett ramverk för Service Fabric-program som baseras på den [virtuella aktören](https://research.microsoft.com/en-us/projects/orleans/) mönster. Reliable Actors-API är en single-threaded programmeringsmodell som bygger på skalbarhet och tillförlitlighet garantier som Service Fabric.
@@ -37,7 +37,7 @@ Service Fabric Reliable Actors är en implementering av designmönstret aktör. 
 * Dina aktörsinstanser blockerar inte anropare med oförutsägbara fördröjningar genom att utfärda i/o-åtgärder.
 
 ## <a name="actors-in-service-fabric"></a>Actors i Service Fabric
-I Service Fabric actors implementeras inom ramen för Reliable Actors: en aktörbaserade med mönstret programramverk som bygger på [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Varje Reliable Actor-tjänst som du skriver är faktiskt en partitionerad, tillståndskänslig och tillförlitlig tjänst.
+I Service Fabric implementerat actors inom ramen för Reliable Actors: En aktörbaserade med mönstret programramverk som bygger på [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Varje Reliable Actor-tjänst som du skriver är faktiskt en partitionerad, tillståndskänslig och tillförlitlig tjänst.
 
 Varje aktör definieras som en instans av en typ av aktör, identiska med det sättet som ett .NET-objekt är en instans av en .NET-typ. Exempelvis kan det finnas en typ av aktör som implementerar funktionerna i en kalkylator och det kan finnas många aktörer av den typen som distribueras på olika noder i ett kluster. Varje sådan skådespelare identifieras unikt genom en aktör-ID.
 

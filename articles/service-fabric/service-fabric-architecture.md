@@ -1,10 +1,10 @@
 ---
 title: Arkitekturen i Azure Service Fabric | Microsoft Docs
-description: Service Fabric är en plattform för distribuerade system som används för att skapa skalbara, tillförlitliga och enkelt hanteras program för molnet. Den här artikeln visar arkitekturen för Service Fabric.
+description: Service Fabric är en distribuerad systemplattform som används för att skapa skalbara, tillförlitliga och enkelt hanterade program för molnet. Den här artikeln visar arkitekturen för Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209978"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664598"
 ---
 # <a name="service-fabric-architecture"></a>Arkitektur för Service Fabric
-Service Fabric bygger med överlappande undersystem. Dessa delsystem kan du skriva program som är:
+Service Fabric har byggts med överlappande undersystem. Dessa delsystem kan du skriva program som är:
 
-* Hög tillgänglighet
+* Med hög tillgänglighet
 * Skalbar
 * Hanterbara
 * Kan testas
@@ -33,34 +33,34 @@ Följande diagram visar viktiga undersystem för Service Fabric.
 
 ![Diagram över Service Fabric-arkitektur](media/service-fabric-architecture/service-fabric-architecture.png)
 
-Möjligheten att säker kommunikation mellan noder i ett kluster är avgörande för ett distribuerat system. Basen för stacken är delsystemet transport, som tillhandahåller säker kommunikation mellan noder. Undersystemet ligger ovanför transporten undersystemet federation som kluster olika noder i en enda entitet (kallas kluster) så att Service Fabric kan identifiera fel, utföra ledande val och ger konsekvent routning. Undersystemet tillförlitlighet lager ovanpå undersystemet federation ansvarar för tillförlitligheten för Service Fabric-tjänster genom mekanismer som replikering, resurshantering och växling vid fel. Undersystemet federation för också delsystemet värd och aktivering, som hanterar livscykeln för ett program på en enda nod. Undersystem för nätverkshantering hanterar livscykeln för program och tjänster. Undersystemet datatillgång hjälper programutvecklare testa sina tjänster via simulerade fel före och efter distribution av program och tjänster till produktionsmiljöer. Service Fabric ger möjlighet att lösa tjänstplatserna via dess undersystemet för kommunikation. Programmet programmeringsmodeller exponeras för utvecklare läggs ovanpå dessa delsystem tillsammans med programmodell att aktivera verktygsuppsättning.
+I ett distribuerat system är möjlighet att kommunicera på ett säkert sätt mellan noder i ett kluster avgörande. Är delsystemet transport, som tillhandahåller säker kommunikation mellan noder till basberäkningspris i stacken. Ovan transport ligger undersystem delsystemet federation, som kluster på olika noder i en enda entitet (med namnet kluster) så att Service Fabric kan upptäcka fel, utföra val av ledare och ger konsekvent routning. Undersystemet tillförlitlighet lagrade ovanpå undersystemet federation ansvarar för tillförlitligheten för Service Fabric-tjänster via mekanismer som till exempel replikering, resurshantering och redundans. Undersystemet för federation också ligger till grund för delsystemet som är värd för och aktivering, som hanterar livscykeln för ett program på en enda nod. Undersystem för nätverkshantering hanterar livscykeln för program och tjänster. Undersystemet för testning hjälper programutvecklare att testa sina tjänster via simulerade fel före och efter distributionen av program och tjänster till produktionsmiljön. Service Fabric ger möjlighet att lösa serviceplatser via dess undersystemet för kommunikation. Programmeringsmodeller för program som är exponerade för utvecklare lagrade ovanpå dessa undersystem tillsammans med programmodell att aktivera verktyg.
 
-## <a name="transport-subsystem"></a>Transport-undersystemet
-Transport-undersystemet implementerar en point-to-point datagram kommunikationskanal. Den här kanalen används för kommunikation inom service fabric-kluster och kommunikation mellan service fabric-kluster och klienter. Den stöder enkelriktade och request-reply-kommunikationsmönster som utgör grunden för att implementera broadcast och multicast i lagret för Federation. Transport-undersystemet skyddar kommunikation med hjälp av X509 certifikat eller Windows-säkerhet. Den här undersystemet används internt av Service Fabric och är inte direkt tillgänglig för utvecklare för programmering.
+## <a name="transport-subsystem"></a>Transport-undersystem
+Transport-undersystemet implementerar en point-to-point datagram kommunikationskanal. Den här kanalen används för kommunikation inom service fabric-kluster och kommunikation mellan service fabric-kluster och klienter. Den stöder enkelriktad och begäran / svar-kommunikationsmönster som lägger grunden för att implementera broadcast- och multicast i Federation-lagret. Transport-undersystemet skyddar kommunikationen med hjälp av X509 certifikat eller Windows-säkerhet. Den här undersystem används internt av Service Fabric och är inte direkt tillgänglig för utvecklare för programmering.
 
-## <a name="federation-subsystem"></a>Undersystemet för Federation
-Du måste ha en konsekvent vy av systemet för att kunna skäl om en uppsättning noder i ett distribuerat system. Undersystemet federation använder de kommunikation primitiver som tillhandahålls av undersystemet transport och häftar samman olika noder i ett enda enhetlig kluster som den kan skäl om. Det ger de distribuerade system primitiver som krävs av andra delsystem - felidentifiering ledande val och konsekvent routning. Undersystemet federation bygger på distribuerade hash-tabeller med en 128-bitars token utrymme. Undersystemet skapar en ringtopologi över noder, med varje nod i ringen som har tilldelats en delmängd av token utrymme för ägarskap. För att upptäcka fel används en leasingmekanism baserat på hjärta beating och skiljedom. Undersystemet federation garanterar även via invecklade koppling och avvikelse protokoll som en enda ägare av en token finns när som helst. Detta ger ledande val och konsekvent routning garantier.
+## <a name="federation-subsystem"></a>Federation-undersystem
+Du måste ha en enhetlig vy av systemet för att kunna anledning om en uppsättning noder i ett distribuerat system. Undersystemet för federation använder kommunikation-primitiver som tillhandahålls av undersystemet transport och häftar samman de olika noderna i en enda enhetlig kluster som den kan anledning om. Det ger de primitiver för distribuerade system som krävs av de andra delsystem - felidentifiering, val av ledare och konsekvent routning. Undersystemet för federation är byggt på distribuerade hash-tabeller med 128-bitars token kan. Undersystemet skapar en ringtopologi över noder, med varje nod i den ring som tilldelas en delmängd av området token för ägarskap. För felidentifiering använder lagret en leasingmekanism baserat på hjärtat beating och skiljedomar. Det garanterar även undersystemet federation via invecklade anslutnings- och avgång protokoll som en enda ägare av en token som finns när som helst. Detta ger val av ledare och konsekvent routning garantier.
 
-## <a name="reliability-subsystem"></a>Tillförlitlighet undersystemet
-Undersystemet tillförlitlighet tillhandahåller en mekanism för att kontrollera tillståndet för en tjänst för Service Fabric hög tillgänglighet med den *replikatorn*, *Failover Manager*, och *resurs Belastningsutjämnaren*.
+## <a name="reliability-subsystem"></a>Tillförlitlighet undersystem
+Undersystemet tillförlitlighet tillhandahåller möjligheten att kontrollera tillståndet för en Service Fabric-tjänst med hög tillgänglighet med den *Replikatorns*, *Redundanshanteraren*, och *resurs Belastningsutjämnaren*.
 
-* Replikatorn säkerställer att tillståndsändringar i replikeringen primära tjänsten automatiskt ska replikeras till sekundära repliker underhålla konsekvensen mellan primära och sekundära repliker i en replikuppsättning för tjänsten. Replikatorn är ansvarig för kvorumhantering av repliker i uppsättningen. Den samverkar med redundansenhet att hämta listan över åtgärder för att replikera och omkonfiguration agenten ger den konfigurationen av replikuppsättningen. Denna konfiguration anger vilka åtgärder som måste replikeras repliker. Service Fabric tillhandahåller en standard replikatorn kallas Fabric replikatorn som kan användas av Programmeringsgränssnitt för modellen för att kontrollera tjänstens tillstånd hög tillgänglighet och tillförlitlig.
-* Failover Manager säkerställer att om noder läggs till i eller tas bort från klustret, omdistribueras belastningen automatiskt över tillgängliga noder. Om en nod i klustret inte klustret automatiskt att konfigurera tjänsten replikerna för att upprätthålla tillgänglighet.
-* Resurshanteraren placerar service repliker över fel domän i klustret och ser till att alla redundansenheter är fungerar. Resurshanteraren balanserar också serviceresurser i den underliggande delade poolen med klusternoder för att uppnå optimal uniform belastningsdistribution.
+* Replikatorn säkerställer att tillståndsändringar i den primära tjänsterepliken automatiskt kommer att replikeras till sekundära repliker, upprätthålla konsekvens mellan primära och sekundära repliker i en replikuppsättning för tjänsten. Replikatorn ansvarar för kvorumhantering av repliker i uppsättningen. Det interagerar med redundansenheten att hämta listan över åtgärder för att replikera och omkonfiguration agenten tillhandahåller det med konfigurationen av replikuppsättningen. Konfigurationen anger vilka repliker åtgärderna måste replikeras. Service Fabric tillhandahåller en standard-replikator kallas i Fabric som kan användas av programming model-API för att kontrollera tjänstens tillstånd med hög tillgänglighet och tillförlitlighet.
+* Hanteraren för redundanskluster säkerställer att när noder läggs till eller tas bort från klustret, omdistribueras belastningen automatiskt tillgängliga noder. Om det inte går att en nod i klustret, konfigurera klustret automatiskt om tjänsten replikerna för att upprätthålla tillgänglighet.
+* Resource Manager placerar tjänsten repliker över fel domän i klustret och ser till att alla redundansenheter är operativa. Resource Manager balanserar också tjänstresurser i underliggande delad pool av noder att uppnå optimal uniform belastningsfördelning.
 
 ## <a name="management-subsystem"></a>Undersystem för nätverkshantering
-Undersystemet management ger slutpunkt till slutpunkt-tjänsten och Livscykelhantering för programmet. PowerShell-cmdlets och administrativa API: er kan du etablera, distribuera, uppdatera, uppgradera och avetablera program utan förlust av tillgänglighet. Undersystem för nätverkshantering utför via följande tjänster.
+Undersystem för nätverkshantering erbjuder slutpunkt till slutpunkt service och Livscykelhantering för program. PowerShell-cmdlets och administrativa API: er låter dig att etablera, distribuera, korrigera, uppgradera och avetablera program utan förlust av tillgängligheten. Undersystem för nätverkshantering utför via följande tjänster.
 
-* **Klusterhanterare**: Detta är den primära tjänsten som interagerar med Failover Manager från tillförlitlighet att placera programmen på noder baserat på placeringen för tjänsten. Hanteraren för filserverresurser i redundans undersystemet säkerställer att begränsningarna aldrig är bruten. Klusterhanteraren hanterar livscykeln för programmen från etableras på avetablera. Den kan integreras med hälsoindikatorn så att programmets tillgänglighet inte är förlorade ur semantiska hälsa under uppgraderingar.
-* **Hälsoindikatorn**: den här tjänsten kan hälsoövervakning av program, tjänster och klustret entiteter. Kluster-enheter (till exempel noder, partitioner för tjänsten och repliker) kan rapportera hälsoinformation sedan samman i arkivet för centraliserad hälsa. Den här hälsoinformation ger en övergripande i tidpunkt hälsa ögonblicksbild av tjänster och noder som distribueras över flera noder i klustret, så att du kan vidta eventuella nödvändiga åtgärder. Hälsotillstånd frågan API: er kan du fråga händelserna hälsotillstånd rapporteras till undersystemet hälsa. Hälsotillstånd frågan API: er returnera rådata hälsa data som lagras i health store eller aggregerad, tolkas hälsa data för ett specifikt kluster-enheten.
-* **Image Store**: den här tjänsten tillhandahåller lagring och distribution av binärfilerna för programmet. Den här tjänsten tillhandahåller en enkel distribuerade filarkivet där programmen har överförts till och hämtas från.
+* **Klusterhanterare**: Det här är den primära tjänsten som interagerar med redundans Manager från tillförlitlighet att placera programmen på noderna efter placeringsbegränsningar för tjänsten. Hanteraren för filserverresurser i undersystemet för redundans garanterar att begränsningarna aldrig är bruten. Cluster manager i hanterar livscykeln för programmen från etablera avetablera. Det integreras med hälsoindikatorn så att programmets tillgänglighet inte är går förlorade från ett perspektiv för semantisk hälsa under uppgraderingar.
+* **Hälsoindikatorn**: Den här tjänsten kan hälsoövervakning av program, tjänster och klustret entiteter. Kluster-entiteter (till exempel noder, tjänstpartitioner och repliker) kan rapportera hälsoinformation som sedan aggregeras till centraliserade health store. Den här hälsoinformation ger en övergripande point-in-time-hälsa ögonblicksbild av de tjänster och noder som är distribuerade över flera noder i klustret, så att du kan vidta alla nödvändiga åtgärder. Hälsotillstånd fråga API: er kan du fråga health-händelser som har rapporterats till undersystemet hälsotillstånd. Hälsotillstånd frågan API: erna returnerar rå health-data som lagras i health store eller den sammanställda tolkas hälsodata för ett specifikt kluster-entitet.
+* **Bild Store**: Den här tjänsten tillhandahåller lagring och distribution av binärfilerna för programmet. Den här tjänsten tillhandahåller en enkel distribuerat filarkiv där programmen överförs till och hämtas från.
 
-## <a name="hosting-subsystem"></a>Värd för undersystemet
-Klusterhanteraren informerar värd undersystemet (som körs på varje nod) vilka tjänster som behövs för att hantera för en viss nod. Undersystemet värd sedan hanterar livscykeln för programmet på noden. Den kommunicerar med tillförlitlighet komponenterna så att replikerna är på rätt plats och att de är felfria.
+## <a name="hosting-subsystem"></a>Som är värd för undersystem
+Cluster manager i informerar värdbaserade undersystemet (som körs på varje nod) vilka tjänster som behövs för att hantera för en viss nod. Undersystemet för värdtjänst hanterar sedan livscykeln för programmet på noden. Det interagerar med tillförlitlighet komponenter så att replikerna är på rätt plats och är felfria.
 
 ## <a name="communication-subsystem"></a>Undersystemet för kommunikation
-Den här undersystemet erbjuder tillförlitlig meddelandehantering inom klustret och service discovery via Naming service. Tjänsten Naming matchar tjänstnamn till en plats i klustret och gör att användarna kan hantera tjänstnamn och egenskaper. Med tjänsten Naming kommunicera klienter på ett säkert sätt med en nod i klustret för att lösa ett tjänstnamn och hämta service metadata. Med en enkel Naming klient API kan utveckla användare av Service Fabric tjänster och klienter som kan lösa klientens aktuella nätverksplats trots nod dynamik eller nytt storlek i klustret.
+Den här undersystem erbjuder tillförlitlig meddelandehantering i klustret och tjänsten identifiering via i namngivningstjänsten. I namngivningstjänsten matchar tjänstnamn till en plats i klustret och gör att användarna kan hantera tjänstnamn och egenskaper. Med tjänsten namngivning av kommunicera klienter på ett säkert sätt med alla noder i klustret för att lösa ett tjänstnamn och hämta tjänstens metadata. Med en enkel namngivning-klient API kan utveckla användare av Service Fabric tjänster och klienter som kan lösa klientens aktuella nätverksplats trots noden dynamik eller nytt storlek på klustret.
 
-## <a name="testability-subsystem"></a>Möjlighet att testa undersystemet
-Möjlighet att testa är en uppsättning med verktyg som utformats för att testa tjänster som bygger på Service Fabric. Verktygen kan utvecklare enkelt medföra meningsfulla fel och kör testscenarier att utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under dess livslängd i en kontrollerad och säkert sätt. Möjlighet att testa innehåller också en mekanism för att köra längre tester som kan iterera via olika möjliga fel utan att förlora tillgänglighet. Detta ger dig testa i produktionsmiljö.
+## <a name="testability-subsystem"></a>Möjligheten att testa undersystem
+Testning är en uppsättning med verktyg som utformats för att testa tjänster som bygger på Service Fabric. Verktygen kan utvecklare enkelt medföra meningsfulla fel och kör test-scenarier för att använda och validera ett stort antal tillstånd och övergångar som en tjänst får under hela dess livslängd på ett kontrollerat och säkert sätt. Möjligheten att testa innehåller också en mekanism för att köra längre tester som kan iterera via olika möjliga fel utan att förlora tillgänglighet. Det ger dig testa i produktionsmiljö.
 

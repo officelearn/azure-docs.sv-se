@@ -8,30 +8,38 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1349a05e1dd235c7b375335ae2c9fed16170a61f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401803"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649400"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
 Azure reservationer hjälpa dig att spara pengar genom att förväg betala för ett år eller tre års virtuella datorer, SQL-databas för beräkning kapacitet, dataflöde för Azure Cosmos DB eller andra Azure-resurser. Betala förväg kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska den virtuella datorn, SQL database beräkning, Azure Cosmos DB, eller annan resurs kostar upp till 72% jämfört med användningsbaserad betalning. Reservationer ger en rabatt på fakturering och påverka inte körtiden för dina resurser.
 
-Du kan köpa en reservation den [Azure-portalen](https://aka.ms/reservations). Mer information finns i följande avsnitt:
+Du kan köpa en reservation den [Azure-portalen](https://aka.ms/reservations). Mer information finns i följande artiklar:
 
-- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Betala i förskott för Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
+Service-planer:
+- [Virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [SQL Database-beräkningsresurser med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
 
-## <a name="why-should-i-buy-a-reservation"></a>Varför ska jag köpa en reservation?
+Programvaruplaner:
+- [Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under lång tid kan ger köpa en reservation dig det billigaste alternativet. Till exempel om du kör kontinuerligt fyra instanser av en tjänst utan en reservation, debiteras du enligt priserna för användningsbaserad betalning. Om du köper en reservation för dessa resurser kan få du direkt rabatten. Resurserna är inte längre debiteras enligt priserna för användningsbaserad betalning.
+## <a name="why-buy-a-reservation"></a>Varför ska jag köpa en reservation?
 
-## <a name="what-charges-does-a-reservation-cover"></a>Vilka avgifter fungerar en reservation cover?
+Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under lång tid kan ger köpa en reservation dig det billigaste alternativet. Till exempel att när du kör kontinuerligt fyra instanser av en tjänst utan en reservation, kommer du att debiteras enligt priserna för användningsbaserad betalning. Om du köper en reservation för dessa resurser kan få du direkt rabatten. Resurserna är inte längre debiteras enligt priserna för användningsbaserad betalning.
+
+## <a name="charges-covered-by-reservation"></a>Avgifter som täcks av reservation
+
+Service-planer:
 
 - Reserverade VM-instans: En reservation täcker endast beräkningskostnader för virtuell dator. Det täcker inte ytterligare kostnader för programvara, nätverk och lagring.
+- Azure Cosmos DB reserverad kapacitet: En reservation täcker dataflödet som etableras för dina resurser. Det täcker inte lagring och nätverk avgifter.
 - SQL Database reserverade vCore: Endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
 - Azure Cosmos DB reserverad kapacitet: En reservation omfattar dataflödet som etableras för dina resurser, den täcker inte kostnader för lagring och nätverk.
 
@@ -49,29 +57,36 @@ En reservationsrabatten gäller bara för resurser som är associerade med Enter
 
 Reservationen sker via den betalningsmetod som är kopplad till prenumerationen. Om du har en prenumeration på Enterprise dras reservation kostnaden från ditt åtagandebelopp. Om ditt saldo för åtagandebeloppet inte täcker kostnaden för reservationen, du debiteras överförbrukning. Om du har en prenumeration med användningsbaserad betalning debiteras då kreditkortet som du har på ditt konto omedelbart. Om du faktureras med faktura visas avgifterna på din nästa faktura.
 
-## <a name="how-is-the-reservation-discount-applied"></a>Hur tillämpas reservationsrabatten?
+## <a name="how-reservation-discount-is-applied"></a>Hur reservationsrabatten tillämpas
 
 Rabatten gäller för Resursanvändning som matchar de attribut som du väljer när du köper reservationen. Attributen innehåller området där de matchande virtuella datorerna, SQL-databaser, Azure Cosmos DB eller andra resurser kör. Till exempel om du vill en reservationsrabatten för fyra Standard D2 virtuella datorer i regionen USA, västra, Välj den prenumeration som där de virtuella datorerna körs. Om de virtuella datorerna körs i olika prenumerationer i din registrering/konto, väljer du området som delad. Delat omfång kan reservationsrabatten tillämpas i alla prenumerationer. Du kan ändra omfånget när du köper en reservation. Mer information finns i [hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 
 En reservationsrabatten gäller bara för resurser som är associerade med Enterprise, betala per användning eller CSP-prenumeration-typer. Resurser som körs i en prenumeration med andra typer av erbjudanden får inte rabatten.
 
-För att bättre förstå hur reservationer påverkar din fakturering, finns i följande avsnitt:
+För att bättre förstå hur reservationer påverkar din fakturering, finns i följande artiklar:
+
+Service-planer:
 
 - [Förstå Azure Reserved VM Instances rabatt](billing-understand-vm-reservation-charges.md)
 - [Förstå Azure reservationsrabatten](billing-understand-vm-reservation-charges.md)
 - [Förstå Azure Cosmos DB-reservationsrabatten](billing-understand-cosmosdb-reservation-charges.md)
+
+Programvaruplaner:
+
+- [Förstå Azure reservationsrabatten och användning för Red Hat](billing-understand-rhel-reservation-charges.md)
 - [Förstå Azure reservationsrabatten och användning för SUSE](billing-understand-suse-reservation-charges.md)
 
-## <a name="what-happens-when-the-reservation-term-expires"></a>Vad händer när reservationsperioden upphör att gälla?
+## <a name="when-the-reservation-term-expires"></a>När reservationsperioden upphör att gälla
 
 I slutet av reservationsperioden fakturering rabatten upphör att gälla och den virtuella datorn, SQL database, Azure Cosmos DB eller annan resurs debiteras enligt avgifterna för betala per användning-som-du gå priset. Azure reservationer inte den automatiska förnyelsen. Om du vill fortsätta få rabatten fakturering, måste du köpa en ny reservation för berättigade tjänster och programvara.
 
-## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Rabatten gäller för olika storlekar med flexibilitet för datorinstanser storlek
+## <a name="discount-applies-to-different-sizes"></a>Rabatten gäller för olika storlekar
 
-När du köper en reservation gälla rabatten andra instanser med attribut som tillhör storleksgruppen samma. Flexibiliteten i rabatt täckning beror på vilken typ av reservation och de attribut som du väljer när du köper reservationen.
+När du köper en reservation gälla rabatten andra instanser med attribut som tillhör storleksgruppen samma. Den här funktionen kallas instans storlek flexibilitet. Flexibiliteten i rabatt täckning beror på vilken typ av reservation och de attribut som du väljer när du köper reservationen.
 
-- Reserverade VM-instanser: När du köper reservationen, om du väljer **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Plan för SUSE Linux Enterprise programvara: Rabatt-täckning är beroende av vcpu: er för de virtuella datorerna där du kör SUSE-programvara. Mer information finns i [förstå hur SUSE Linux Enterprise software plan rabatten](billing-understand-suse-reservation-charges.md).
+Service-planer:
+
+- Reserverade VM-instanser: När du köper reservationen och välj **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - SQL Database reserverad kapacitet: Rabatt täckning beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
 - Azure Cosmos DB reserverad kapacitet: Rabatt-täckning är beroende av det etablerade dataflödet. Mer information finns i [förstå hur ett Azure Cosmos DB-reservationsrabatten tillämpas](billing-understand-cosmosdb-reservation-charges.md).
 

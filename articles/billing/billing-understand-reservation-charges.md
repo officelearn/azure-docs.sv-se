@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure reservationer rabatt | Microsoft Docs
-description: Lär dig hur en reservationsrabatten tillämpas på som kör SQL-databaser.
+title: Förstå reservationer rabatt för Azure SQL-databaser | Microsoft Docs
+description: Lär dig hur en reservationsrabatten tillämpas på med Azure SQL-databaser.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845474"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649449"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Förstå hur ett Azure reservationsrabatten tillämpas på SQL-databaser
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Förstå hur en reservationsrabatten tillämpas på Azure SQL-databaser
 
 När du köper en Azure SQL Database reserverad kapacitet tillämpas i reservationsrabatten automatiskt till SQL-databaser som matchar de attribut och mängden reservationen. En reservation täcker beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga under. Du kan täcka licenskostnaden för SQL-databaser med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Förstå användningen av reserverade för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

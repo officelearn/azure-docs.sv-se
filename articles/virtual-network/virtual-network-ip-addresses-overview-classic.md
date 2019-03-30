@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112610"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652175"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure (klassisk) i Azure
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure: offentliga och privata.
@@ -41,7 +41,7 @@ En offentlig IP-adress är associerat med följande resurstyper:
 * Programgateways
 
 ### <a name="allocation-method"></a>Allokeringsmetod
-När en offentlig IP-adress måste tilldelas till en Azure-resurs, är det *dynamiskt* allokeras från en pool med tillgängliga offentliga IP-adress inom den plats där resursen skapas. Den här IP-adressen frisläpps när resursen har stoppats. Med Molntjänsten, sker detta när alla rollinstanser har stoppats, som kan undvikas genom att använda en *Statiska* (reserverad) IP-adress (se [molntjänster](#Cloud-services)).
+När en offentlig IP-adress måste tilldelas till en Azure-resurs, är det *dynamiskt* allokeras från en pool med tillgängliga offentliga IP-adress inom den plats där resursen skapas. Den här IP-adressen frisläpps när resursen har stoppats. Med Molntjänsten, sker detta när alla rollinstanser har stoppats, som kan undvikas genom att använda en *Statiska* (reserverad) IP-adress (se [molntjänster](#cloud-services)).
 
 > [!NOTE]
 > Listan över IP-adressintervall som offentliga IP-adresser allokeras till Azure-resurser finns i avsnittet [Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).

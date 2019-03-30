@@ -1,5 +1,5 @@
 ---
-title: Förstå SUSE plan rabatt och användning – Azure reservationer | Microsoft Docs
+title: Förstå SUSE reservationsrabatten plan och användning – Azure | Microsoft Docs
 description: Lär dig hur SUSE plan rabatter tillämpas SUSE-programvara på virtuella datorer.
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863482"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649264"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Förstå hur SUSE Linux Enterprise software plan rabatten
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur SUSE Linux Enterprise software reservationsrabatten plan tillämpas för Azure
 
 När du köper en plan för SUSE Linux rabatten automatiskt till distribuerade SUSE virtuella datorer (VM) som matchar reservationen. En plan för SUSE Linux täcker kostnaden för att köra SUSE-programvara på en Azure VM.
 
 Om du vill köpa en lämplig SUSE Linux-plan, måste du förstå vilka SUSE virtuella datorer som du kör och antalet virtuella processorer på de virtuella datorerna. Använd följande avsnitt för att identifiera från en CSV-fil från din användning vad planerar att köpa.
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>Rabatten gäller för olika storlekar på Virtuella datorer med flexibilitet för datorinstanser storlek
+## <a name="discount-applies-to-different-vm-sizes"></a>Rabatten gäller för olika storlekar på Virtuella datorer
 
 Som om reserverade VM-instanser, SUSE planera erbjuda inköp instans storlek flexibilitet. Det innebär att rabatten gäller även när du distribuerar en virtuell dator med ett antal olika virtuella processorer. Rabatten gäller för olika storlekar på Virtuella datorer i plan för programvara.
 
@@ -40,7 +40,7 @@ Om du köper en plan för SUSE Linux Enterprise Server för HPC prioritet för e
 
 Kvoten för 5 eller flera virtuella processorer är 2.6. En reservation för SUSE med en virtuell dator med 5 eller flera virtuella processorer täcker så en enda del av kostnad för programvara med cirka 77%.
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>Förstå din SUSE VM-användning innan du köper en plan för SUSE Linux
+## <a name="understand-suse-vm-usage-before-you-buy"></a>Förstå användningen av SUSE VM innan du köper
 
 Följande tabeller visar programvaruplaner som du kan köpa en reservation för, deras associerade användningsnivå mätare och förhållandena för var och en.
 
@@ -133,6 +133,6 @@ Mer information om reservationer, finns i följande artiklar:
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -3,8 +3,8 @@ title: Tilldela principer för åtkomst till Azure Service Fabric-tjänstslutpun
 description: Lär dig hur du tilldelar säkerhet åtkomstprinciper till HTTP eller HTTPS-slutpunkter i Service Fabric-tjänsten.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: dac15f0b96e9e295f92f250fe387e5b6ba9ae000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: atsenthi
+ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567612"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670412"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhetsåtkomstprincip för HTTP och HTTPS-slutpunkter
 Om du använder en Kör som-princip och tjänstmanifestet deklarerar HTTP-slutpunkt resurser, måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** säkerställer att portar som allokerats till de här slutpunkterna är begränsad till det användarkonto som tjänsten körs under korrekt. I annat fall **http.sys** inte åtkomst till tjänsten och du får fel med anrop från klienten. I följande exempel gäller Customer1-konto till en slutpunkt som kallas **EndpointName**, vilket ger det fullständiga åtkomsträttigheter.
@@ -48,7 +48,8 @@ För en HTTPS-slutpunkt kan du också ange namnet på certifikatet som ska gå t
 > När du använder HTTPS, Använd inte samma port och certifikat för olika tjänstinstanser (oberoende av programmet) som distribuerats till samma nod. Uppgradera två olika tjänster som använder samma port i olika programinstanser resulterar i en uppgraderingen skulle misslyckas. Mer information finns i [uppgradera flera program med HTTPS-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Nästa steg finns i följande artiklar:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Nästa steg finns i följande artiklar:
 * [Förstå programmodellen](service-fabric-application-model.md)
 * [Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md)
 * [Distribuera ett program](service-fabric-deploy-remove-applications.md)

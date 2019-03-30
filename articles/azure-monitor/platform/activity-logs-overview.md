@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088680"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650299"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -35,7 +35,6 @@ Du kan hämta händelser från din aktivitetslogg med Azure portal, CLI, PowerSh
 > [!NOTE]
 > [Nyare aviseringar](../../azure-monitor/platform/alerts-overview.md) ger en förbättrad upplevelse när du skapar och hanterar aktivitet logga Varningsregler.  [Läs mer](../../azure-monitor/platform/alerts-activity-log.md).
 
-
 ## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitetsloggen
 Aktivitetsloggen innehåller flera kategorier av data. Mer information om scheman av dessa kategorier [finns i den här artikeln](../../azure-monitor/platform/activity-log-schema.md). Exempel på dessa är:
 * **Administrativa** – den här kategorin innehåller en post för alla skapa, uppdatera och ta bort åtgärden åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgruppen” varje åtgärd som en användare eller program med hjälp av Resource Manager är utformat som en åtgärd på en viss resurstyp. Om åtgärdstypen är skriva, ta bort eller åtgärden, registreras poster i start- och lyckas eller misslyckas av åtgärden i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar av rollbaserad åtkomstkontroll i en prenumeration.
@@ -48,9 +47,11 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 * **Principen** – den här kategorin innehåller poster för alla gälla åtgärd åtgärder som utförs av Azure Policy. Exempel på typer av händelser som visas i den här kategorin är gransknings- och neka. Varje åtgärd som principen modelleras som en åtgärd på en resurs.
 
 ## <a name="event-schema-per-category"></a>Händelseschema per kategori
+
 [Se den här artikeln för att förstå Händelseschema för aktivitetslogg per kategori.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Vad du kan göra med aktivitetsloggen
+
 Här följer några av de saker som du kan göra med aktivitetsloggen:
 
 ![Azure-aktivitetslogg](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -64,6 +65,7 @@ Här följer några av de saker som du kan göra med aktivitetsloggen:
 * Fråga den via PowerShell-cmdleten, CLI eller REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Fråga i aktivitetsloggen i Azure portal
+
 Du kan visa din aktivitetslogg på flera platser i Azure-portalen:
 * Den **aktivitetsloggen** som du kan komma åt genom att söka efter aktivitetsloggen under **alla tjänster** i det vänstra navigeringsfönstret.
 * **Övervaka** visas som standard i det vänstra navigeringsfönstret. Aktivitetsloggen är en del av Azure Monitor.
@@ -86,6 +88,7 @@ När du har definierat en uppsättning filter kan fästa du en fråga till instr
 För ännu mer kraft du kan klicka på den **loggar** ikon som visar aktivitetsloggdata i den [samla in och analysera aktivitetsloggar lösning](../../azure-monitor/platform/collect-activity-logs.md). Bladet aktivitetslogg erbjuder en grundläggande filter/Bläddra-upplevelse på loggar, men Azure Monitor-loggar funktionen kan du pivotera, fråga och visualisera dina data på ett mer kraftfullt sätt.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportera aktivitetslogg till en Loggprofil
+
 En **Loggprofil** styr hur din aktivitetslogg exporteras. Med en logg-profil kan konfigurera du:
 
 * Där aktivitetsloggen ska skickas (Lagringskonto eller Event Hubs)
@@ -102,13 +105,14 @@ Du kan använda ett lagring eller event hub-namnområde som inte är i samma pre
 >  Du kan för närvarande inte arkivera data till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
 
 > [!WARNING]
-> Formatet på loggdata i storage-kontot ändras till JSON-rader från den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> Formatet på loggdata i storage-kontot ändras till JSON-rader från den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 De här inställningarna kan konfigureras via alternativet ”Export” i bladet aktivitetsloggen i portalen. De kan också konfigureras programmässigt [med hjälp av REST-API i Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdletar eller CLI. En prenumeration kan bara ha en loggprofil.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Konfigurera loggprofiler med Azure portal
+
 Du kan strömma aktivitetsloggen till en Event Hub eller lagra dem i ett Lagringskonto med hjälp av alternativet ”Exportera till Event Hub” i Azure-portalen.
 
 1. Gå till **aktivitetsloggen** med hjälp av menyn på vänster sida av portalen.
@@ -117,7 +121,7 @@ Du kan strömma aktivitetsloggen till en Event Hub eller lagra dem i ett Lagring
 2. Klicka på den **exportera till Event Hub** längst upp på bladet.
 
     ![Exportera-knappen i portalen](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. På bladet som visas, kan du välja:  
+3. På bladet som visas, kan du välja:
    * regioner som du vill exportera händelser
    * Storage-konto som du vill spara händelser
    * antal dagar som du vill behålla dessa händelser i lagring. En inställning på 0 dagar behåller loggarna alltid.
@@ -132,13 +136,13 @@ Du kan strömma aktivitetsloggen till en Event Hub eller lagra dem i ett Lagring
 
 #### <a name="get-existing-log-profile"></a>Hämta befintlig loggprofil
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Lägg till en loggprofil
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -152,7 +156,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Kategori |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
 
 #### <a name="remove-a-log-profile"></a>Ta bort en loggprofil
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -185,6 +190,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Läs mer om aktivitetsloggen (tidigare granskningsloggar)](../../azure-resource-manager/resource-group-audit.md)
 * [Stream Azure-aktivitetsloggen till Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

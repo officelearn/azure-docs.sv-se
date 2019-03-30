@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620125"
+ms.locfileid: "58652231"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -108,7 +108,7 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 
 
 3. I **stoppa säkerhetskopiering** > **Välj ett alternativ**väljer **ta bort säkerhetskopieringsdata**.
-4. Skriv namnet på objektet och klicka på **stoppa säkerhetskopiering**. 
+4. Skriv namnet på objektet och klicka på **stoppa säkerhetskopiering**.
    - Detta verifierar att du vill ta bort objektet.
    - Den **stoppa säkerhetskopiering** knappen aktiveras när du har kontrollerat.
    - Om du behålla och ta inte bort data, kan du inte ta bort valvet.
@@ -126,7 +126,7 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
 ### <a name="remove-backup-infrastructure-servers"></a>Ta bort backup infrastrukturservrar
 
 1. I valvets instrumentpanel klickar du på **infrastruktur för säkerhetskopiering**.
-2. Klicka på **Säkerhetskopieringshanteringsservrar** att visa servrar. 
+2. Klicka på **Säkerhetskopieringshanteringsservrar** att visa servrar.
 
     ![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Den här proceduren ger ett exempel som visar hur du tar bort säkerhetskopierad
     ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . I **stoppa säkerhetskopiering** > **Välj ett alternativ**väljer **ta bort säkerhetskopieringsdata**.
-4. Skriv namnet på objektet och klicka på **stoppa säkerhetskopiering**. 
+4. Skriv namnet på objektet och klicka på **stoppa säkerhetskopiering**.
    - Detta verifierar att du vill ta bort objektet.
    - Den **stoppa säkerhetskopiering** knappen aktiveras när du har kontrollerat.
    - Om du behålla och ta inte bort data, kan du inte ta bort valvet.

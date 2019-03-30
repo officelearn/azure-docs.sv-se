@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649732"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -32,7 +32,7 @@ I de här självstudierna gör du följande:
 > * Skicka en registreringslänk till eleverna
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i någon av dessa roller i labbkontot: Ägare, Labbskaparen eller Deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
+Om du vill konfigurera ett klassrumslabb i ett labbkonto, måste du vara medlem i någon av dessa roller i labbkonto: Ägare, Labbskaparen eller Deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
 
 En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbägare lägger exempelvis till universitetslärare till rollen Labbskaparen. Sedan skapar universitetsläraren labbar med virtuella datorer för deras klasser. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. Detaljerade anvisningar för att lägga till användare till rollen Labbskaparen finns i [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -48,8 +48,8 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
-    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. 
-    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. 
+    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. För närvarande **små**, **medel**, **stora**, och **GPU** storlekar tillåts.
+    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. Om du väljer en Linux-avbildning, ser du ett alternativ för att aktivera anslutning till fjärrskrivbord för den. Mer information finns i [aktivera anslutning till fjärrskrivbord för Linux](how-to-enable-remote-desktop-linux.md).
     4. Välj **Nästa**.
 
         ![Ange VM-specifikationer](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,16 +69,16 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
-   1. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
-   1. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
-   1. Ange en **beskrivning** för mallen
+    1. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en Linux VM-mallen kan välja du om du vill ansluta med SSH eller RDP (om RDP har aktiverats).
+    2. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
+    3. Ange en **beskrivning** för mallen
 9. Välj **Nästa** på mallsidan. 
 10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
-    1. För att publicera mallen omedelbart väljer du **Publicera**.  
+    1. Om du vill publicera mallen omedelbart, Välj **publicera**.  
 
         > [!WARNING]
         > När du väl har publicerat kan du inte ångra publiceringen. 
-    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts finns i avsnittet [Publicera mallen](how-to-create-manage-template.md#publish-the-template-vm) i artikeln om att [hantera klassrumslabb](how-to-manage-classroom-labs.md).
+    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera VM-mallen när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden har slutförts, finns i [publicerar du mallen](how-to-create-manage-template.md#publish-the-template-vm) i avsnittet den [hantera klassrum labs](how-to-manage-classroom-labs.md) artikeln.
 
         ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 
@@ -89,10 +89,10 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
     ![Publicera mall – lyckades](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. **Instrumentpanelen** för labbet visas. 
     
-     ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+    ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Växla till sidan **Virtuella datorer** genom att välja Virtuella datorer på den vänstra menyn eller genom att välja panelen Virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
-     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+    ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
 
@@ -108,15 +108,20 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
     ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Skicka en registreringslänk till eleverna
+## <a name="send-an-email-with-the-registration-link"></a>Skicka ett e-postmeddelande med en registreringslänk
 
 1. Växla till **användarvyn** om du inte är på sidan redan. 
-2. Välj **Hämta registreringslänk** i verktygsfältet.
-1. I dialogrutan **Användarregistrering** väljer du knappen **Kopiera**. Länken kopieras till Urklipp.
+2. Välj specifika eller alla användare i listan. Välj specifika användare genom att markera kryssrutor i den första kolumnen i listan. För att välja alla användare, markerar du kryssrutan framför titeln på den första kolumnen (**namn**) eller markera alla kryssrutor för alla användare i listan. Du kan se status för den **inbjudan tillstånd** i den här listan.  I följande bild, inbjudan-status för alla studenter är inställd på **inbjudan har inte skickats**. 
 
-    ![Registreringslänk](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. I dialogrutan **Användarregistrering** väljer du **Stäng**. 
-2. Dela registreringslänken med en student så att studenten kan registrera sig för klassen.
+    ![Välj elever](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Välj den **e-postikonen / kuvert-** i någon av raderna (eller) Välj **skicka inbjudan** i verktygsfältet. Du kan även hovra med musen över en Elevens namn i listan för att se postikonen e. 
+
+    ![Skicka registreringslänk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
+4. På den **skicka registreringslänk via e-post** utför de här stegen: 
+    1. Skriv ett **valfritt meddelande** som du vill skicka till elever. E-postmeddelandet innehåller den automatiskt registreringslänken. 
+    2. På den **skicka registreringslänk via e-post** väljer **skicka**. Du ser status för inbjudan ändrar till **skickar inbjudan** och sedan till **inbjudan har skickats**. 
+        
+        ![Inbjudningar som skickas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I självstudien skapade du ett klassrumslabb och konfigurerade labbet. Om du vill veta hur en elev kan få åtkomst till en virtuell dator i labbet med hjälp av registreringslänken, går du vidare till nästa självstudie:

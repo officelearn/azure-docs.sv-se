@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339592"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669784"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Fel ”intern watch misslyckades: Se ENOSPC” när du ansluter till ett Node.js-program-felsökning
+
+### <a name="reason"></a>Orsak
+
+Noden som kör en pod med Node.js-program som du försöker ansluta till med en felsökare har överskridit den *fs.inotify.max_user_watches* värde. I vissa fall kan [standardvärdet *fs.inotify.max_user_watches* kanske för liten för att hantera koppla en felsökare direkt till en pod](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Testa
+En tillfällig lösning för det här problemet är att öka värdet för *fs.inotify.max_user_watches* på varje nod i klustret och starta om noden för att ändringarna ska börja gälla.

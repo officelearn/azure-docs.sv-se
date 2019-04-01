@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519722"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670225"
 documentType: LandingData
 title: Dokumentation för Azure Media Services
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>Lär dig att koda, strömma på begäran, sända live och analysera dina videor med Media Services v3.</p>
+      html: <p>Koda, paketera, skydda ditt innehåll, strömma videor på begäran, sänd live och analysera med Media Services v3.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
     - href: /azure/media-services/video-indexer/
-      html: <p>Lär dig att indexera information i video- och ljudfiler med Video Indexer.</p>
+      html: <p>Extrahera information från video- och ljudfiler med Video Indexer.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>Inga nya funktioner läggs till i Media Services v2. Upptäck den senaste Media Services v3-versionen.</p>
+      html: <p>Inga nya funktioner läggs till i Media Services v2. </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Azure Media Services v2 (äldre version)
     - href: /azure/cdn/
-      html: <p>Lär dig hur du använder CDN för att cachelagra statiska objekt och accelerera dynamiskt innehåll som inte kan cachelagras.</p>
+      html: <p>Använd CDN för att cachelagra statiska objekt och accelerera dynamiskt innehåll som inte kan cachelagras.</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>Spela upp medieinnehåll från Microsoft Azure Media Services i en mängd olika webbläsare och enheter.</p>
+      image:
+        src: 
+      title: Azure Media Player

@@ -90,7 +90,7 @@ items:
           href: widevine-license-template-overview.md
         - name: Licenskrav för FairPlay
           href: fairplay-license-overview.md
-    - name: Slutpunkter för direktuppspelning
+    - name: Slutpunkt/ursprung för direktuppspelning
       displayName: origins, cdn
       href: streaming-endpoint-concept.md
     - name: Positionerare för direktuppspelning
@@ -131,10 +131,8 @@ items:
     items:
     - name: Azure Media Player
       href: use-azure-media-player.md
-  - name: Media Services-entiteter
-    items:
-    - name: Sortering, filtrering, växling av entiteter
-      href: entities-overview.md
+  - name: Utveckla med API:er för v3
+    href: entities-overview.md
   - name: Vägledning för migrering från v2 till v3
     href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
@@ -147,10 +145,17 @@ items:
       href: access-api-cli-how-to.md
     - name: Skala mediereserverade enheter – CLI
       href: media-reserved-units-cli-how-to.md
-    - name: Börja utveckla
+    - name: Utveckla med REST
+      items:
+      - name: Ansluta med Postman
+        href: media-rest-apis-with-postman.md
+    - name: Utveckla med SDK:er
       href: developers-guide.md
-    - name: Konfigurera Postman
-      href: media-rest-apis-with-postman.md
+      items:
+      - name: Ansluta med .NET
+        href: configure-connect-dotnet-howto.md
+      - name: Ansluta med Node.js
+        href: configure-connect-nodejs-howto.md
   - name: Överföra innehåll
     items:
     - name: Från HTTPS – .NET
@@ -260,9 +265,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure-moln och -regioner
     href: azure-clouds-regions.md
-ms.openlocfilehash: 6b4d60510fa285290d92d7e9d6a7c5c2166bcd3f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4f40fc3241dd0df881c7777d3e47a8976a364dc5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578714"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755432"

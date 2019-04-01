@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/05/2019
+ms.date: 03/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 161eb302dfa1eb002a49afcd08da1a2795bc81ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170640"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649432"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
 
@@ -45,6 +45,8 @@ Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna följa stegen i den här artikeln behöver du:
@@ -55,13 +57,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 * Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
 
     ```powershell
-    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
-    ```
-
-    Om du har installerat Azure PowerShell Az-modulen, behöver du två ytterligare växlar:
-
-    ```powershell
-    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    Install-Module -Name Az.DeploymentManager -AllowPrerelease -AllowClobber -Force
     ```
 
 * [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer krävs inte, men det gör saker enklare.
@@ -302,10 +298,10 @@ Azure PowerShell kan användas för att distribuera mallarna.
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -321,7 +317,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
     ```azurepowershell
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
@@ -332,7 +328,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
     ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
-    Get-AzureRmDeploymentManagerRollout `
+    Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
         -Verbose

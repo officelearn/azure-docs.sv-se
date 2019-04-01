@@ -97,17 +97,37 @@ items:
     items:
     - name: Lagringskonton
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Auktorisering
-      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Säkerhet
       items:
-      - name: Autentisera med Azure AD
-        href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Auktorisera med delad nyckel
-        href: /rest/api/storageservices/authorize-with-shared-key
-      - name: Auktorisera med SAS
-        href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Anonym åtkomst till blobar
-        href: storage-manage-access-to-resources.md
+      - name: Auktorisering
+        href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Autentisera med Azure AD
+          href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Auktorisera med delad nyckel
+          href: /rest/api/storageservices/authorize-with-shared-key
+        - name: Auktorisera med SAS
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Anonym åtkomst till blobar
+          href: storage-manage-access-to-resources.md
+      - name: Säkerhetsguide
+        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Konfigurera brandväggar och virtuella nätverk
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering för vilande data
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kryptering i vila med kundnycklar
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https
+        href: storage-https-custom-domain-cdn.md
+      - name: Blobar som inte kan ändras
+        href: storage-blob-immutable-storage.md
+      - name: Advanced Threat Protection
+        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Aktivera säker TLS för Azure Storage-klient
+        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Kräv säker överföring
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Dataredundans
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -127,26 +147,6 @@ items:
         href: storage-blob-storage-tiers.md
       - name: Hantera Azure Blob Storage-livscykeln
         href: storage-lifecycle-management-concepts.md
-    - name: Säkerhet
-      items:
-      - name: Säkerhetsguide
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Konfigurera brandväggar och virtuella nätverk
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kryptering för vilande data
-        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kryptering i vila med kundnycklar
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https
-        href: storage-https-custom-domain-cdn.md
-      - name: Blobar som inte kan ändras
-        href: storage-blob-immutable-storage.md
-      - name: Advanced Threat Protection
-        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Aktivera säker TLS för Azure Storage-klient
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kräv säker överföring
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Prestanda och skalning
       items:
       - name: Mål för skalbarhet och prestanda
@@ -295,40 +295,40 @@ items:
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Uppgradera ett lagringskonto
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Bevilja åtkomst till blobdata
-      items:
-      - name: Auktoriseringsalternativ för användare
-        items:
-        - name: Portalen
-          href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI eller PowerShell
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Hantera åtkomstbehörighet med RBAC
-        items:
-        - name: Portalen
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Autentisera med Azure AD
-        items:
-        - name: Autentisera från ett program
-          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Autentisera med hanterade identiteter
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Auktorisera med delad nyckel
-        items:
-        - name: Konfigurera anslutningssträngar
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Använda Azure Storage REST API
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Skydda
       items:
+      - name: Bevilja åtkomst till blobdata
+        items:
+        - name: Auktoriseringsalternativ för användare
+          items:
+          - name: Portalen
+            href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: CLI eller PowerShell
+            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Hantera åtkomstbehörighet med RBAC
+          items:
+          - name: Portalen
+            href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: CLI
+            href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: PowerShell
+            href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autentisera med Azure AD
+          items:
+          - name: Autentisera från ett program
+            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Autentisera med hanterade identiteter
+            href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Auktorisera med delad nyckel
+          items:
+          - name: Konfigurera anslutningssträngar
+            href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          - name: Använda Azure Storage REST API
+            href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Konfigurera brandväggar och virtuella nätverk
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Aktivera säker TLS för Azure Storage-klient
-        href: ../common/storage-security-tls.md
+      - name: Kryptera och dekryptera blobar med Azure Key Vault
+        href: storage-encrypt-decrypt-blobs-key-vault.md
       - name: Kryptering av klientsidan
         items:
         - name: .NET
@@ -337,10 +337,10 @@ items:
           href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Python
           href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Aktivera säker TLS för Azure Storage-klient
+        href: ../common/storage-security-tls.md
       - name: Kräv säker överföring
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Kryptera och dekryptera blobar med Azure Key Vault
-        href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Haveriberedskap
       items:
       - name: Initiera kontoredundans
@@ -558,10 +558,8 @@ items:
       items:
       - name: Säkerhetsguide för analys av stordata
         href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kryptering för vilande data
+      - name: Azure Storage-kryptering
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kryptering för vilande data med kundnycklar
-        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Åtkomstkontroll
         href: data-lake-storage-access-control.md
   - name: Gör så här för att
@@ -576,6 +574,8 @@ items:
       items:
       - name: Konfigurera brandväggar och virtuella nätverk
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Hantera anpassade nycklar för Azure Storage-kryptering
+        href: ../common/storage-service-encryption-customer-managed-keys.md
       - name: Hantera åtkomstbehörighet med RBAC
         href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Ange behörighet för filer och kataloger
@@ -632,9 +632,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videoklipp
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 1f831e742f034d210a59c5723526442114f594ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 78f3ab4e007f5da8986d5e59fdf78905e172d0aa
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446907"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758352"

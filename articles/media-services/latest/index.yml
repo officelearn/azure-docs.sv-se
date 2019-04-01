@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339189"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663663"
 documentType: LandingData
 title: Dokumentation om Azure Media Services v3
 metadata:
@@ -21,24 +21,18 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Lär dig mer om att strömma videor på begäran, sända live och analysera dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare. <br/> SDK:erna är baserade på <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specifikation (Swagger)</a>.
+  description: Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare. <br/> SDK:erna är baserade på <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specifikation (Swagger)</a>.
 sections:
-- items:
+- title: 
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsD
     items:
-    - image:
-        src: 
-      html: <p>Läs mer om grundläggande koncept för Media Services.</p>
-      href: /azure/media-services/latest/concepts-overview/
-      title: Läs mer om koncept
-    - image:
-        src: 
-      html: <p>För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd REST-API, CLI eller en av SDK:erna som stöds.</p>
-      href: /azure/media-services/latest/developers-guide/
-      title: Utveckla med API för v3
+    - title: Läs mer om koncept
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uppladdning till och lagring i molnet</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medieanalys</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketering</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Skydd</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Liveuppspelning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player-klienter</a></p>
+    - title: Utveckla med API för v3
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Börja utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p>
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -47,32 +41,60 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Strömma videofiler
+        src: media/index/dotnet.svg
+      text: Koda och strömma med .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: Koda och strömma med CLI
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Koda och strömma med Node.js
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
     text: 'Lär dig mer om att strömma filer på begäran, sända direkt och analysera dina videoklipp med Media Services v3:'
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Ladda upp, koda och strömma videor
+        src: media/index/dotnet.svg
+      html: <p>Den här självstudien laddar upp en lokal videofil, kodar filen och strömmar det kodade innehållet.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
+      title: Koda uppladdade filer och strömma video
     - image:
-        src: media/index/AMSIcons-live.svg
-      text: Sända direkt
+        src: media/index/dotnet.svg
+      html: <p>Den här självstudien förklarar hur du konfigurerar en live-händelse. Den visar även hur du använder .NET för att skapa en genomströmningstyp av en live-händelse.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
+      title: Sända direkt
     - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analysera dina videor
+        src: media/index/dotnet.svg
+      html: <p>Den här självstudien visar hur du analyserar videor med Azure Media Services-API.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: Analysera din video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: Kryptera dynamiskt med AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Lär dig hur du konfigurerar och använder Media Services-API:er för att dynamiskt kryptera ditt innehåll med multi-DRM (PlayReady, Widevine och FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: Kryptera dynamiskt med multi-DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>Den här självstudien visar hur du kodar en fjärrfil baserat på URL och strömmar videon.</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: Koda fjärrfiler och strömma videor
 - title: Exempel
   items:
   - type: paragraph
-    text: 'Exempel som visar hur du använder API:er för att strömma videor på begäran, sända live och analysera dina videoklipp med Media Services v3:'
+    text: 'Följande GitHub-exempel visar hur du använder API:er för att strömma videor, sända live och analysera dina videoklipp med Media Services v3:'
   - type: list
     style: icon48
     items:

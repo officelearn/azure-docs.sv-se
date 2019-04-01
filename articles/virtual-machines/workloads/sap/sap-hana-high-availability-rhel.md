@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082185"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669052"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -185,7 +185,7 @@ Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutni
 
 > [!IMPORTANT]
 > Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
-> SAP-kommentar [2382421](https://launchpad.support.sap.com/#/notes/2382421) innehåller för närvarande motstridig instruktionen som talar om att ställa in net.ipv4.tcp_timestamps på 1. Ange parametern för virtuella Azure-datorer är placerade bakom Azure Load balancer **net.ipv4.tcp_timestamps** till **0**.
+> Se även SAP anteckning [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Installera SAP HANA
 
@@ -342,7 +342,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[A]**  Konfigurera brandväggen
 
-   Skapa brandväggsregel för Azure loadbalancer avsökningsporten.
+   Skapa brandväggsregel för Azure load balancer avsökningsporten.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -382,14 +382,14 @@ Stegen i det här avsnittet använder följande prefix:
 
    Om du använder SAP HANA 2.0 eller MDC, skapa en klientdatabas för SAP NetWeaver-system. Ersätt **NW1** med SID för SAP-system.
 
-   Logga in som \<hanasid > adm och kör följande kommando:
+   Köra som < hanasid\>adm följande kommando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]**  Konfigurera Systemreplikering på den första noden:
 
-   Logga in som \<hanasid > adm och säkerhetskopiera databaserna:
+   Säkerhetskopiera databaser som < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]**  System Konfigurera replikering på den andra noden:
     
-   Registrera den andra noden för att starta systemreplikering. Logga in som \<hanasid > adm och kör följande kommando:
+   Registrera den andra noden för att starta systemreplikering. Kör följande kommando som < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[1]**  Skapa nödvändiga användarna.
 
-   Logga in som rot och kör följande kommando. Ersätt fetstil strängar (HANA System-ID **HN1** och antal instanser **03**) med värdena för SAP HANA-installation:
+   Kör följande kommando som rot. Ersätt fetstil strängar (HANA System-ID **HN1** och antal instanser **03**) med värdena för SAP HANA-installation:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[A]**  Skapa nyckellagerposten.
 
-   Logga in som rot och kör följande kommando för att skapa en ny keystore-post:
+   Kör följande kommando som rot för att skapa en ny keystore-post:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[1]**  Säkerhetskopiera databasen.
 
-   Logga in som rot och säkerhetskopiera databaserna:
+   Säkerhetskopiera databaserna som rot:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[1]**  Konfigurera Systemreplikering på den första noden.
 
-   Logga in som \<hanasid > adm och skapa den primära platsen:
+   Skapa den primära platsen som < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]**  Konfigurera Systemreplikering på den sekundära noden.
 
-   Logga in som \<hanasid > adm och registrera den sekundära platsen:
+   Registrera den sekundära platsen som < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>

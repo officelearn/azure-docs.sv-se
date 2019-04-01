@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075074"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758119"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
 Den här artikeln visar hur du kan bädda in Video Indexer-widgetar i program. Bädda in två typer av widgetar i ditt program har stöd för video Indexer: **Kognitiva insikter** och **Player**. 
-
-> [!NOTE]
-> Från och med 1 februari 2018 version 1 av den **kognitiva insikter** widget upphör att gälla. Bädda in URL: en version som standard `version=2`.
 
 Från och med version 2, innehåller den grundläggande Webbadressen widget kontots region. Till exempel ett konto i regionen USA, västra genererar: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 |Namn|Definition|Beskrivning|
 |---|---|---|
 |widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** Den **widgetar** URL param stöds inte om **version = 2** används. |
-|version|Versioner av **insikts**widgeten|För att få de senaste insikterna widget uppdateringar kan du lägga till `?version=2` fråga param att bädda in URL: en. Till exempel, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Om du vill få den tidigare versionen tar du bort `version=2` från URL:en.
 
 ### <a name="player-widget"></a>Spelarwidget
 

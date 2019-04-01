@@ -1,207 +1,142 @@
 ---
-title: Innehållsmoderering arbetsflöden från API-konsolen – Content Moderator
+title: Definiera moderering arbetsflöden med REST API-konsolen – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Använd arbetsflödets drift i Azure Content Moderator för att skapa eller uppdatera ett arbetsflöde eller hämta information om arbetsflöde med hjälp av API för granskning.
+description: 'Du kan använda API: er för Azure innehåll Moderator granska för att definiera anpassade arbetsflöden och tröskelvärden baserat på dina principer för innehåll.'
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1c18544a0fd135eb546660c442b865bf1249dfe5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883092"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756583"
 ---
-# <a name="workflows-from-the-api-console"></a>Arbetsflöden från API-konsol
+# <a name="define-and-use-moderation-workflows-rest"></a>Definiera och Använd moderering arbetsflöden (REST)
 
-Använd den [arbetsflödesåtgärder](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) i Azure Content Moderator för att skapa eller uppdatera ett arbetsflöde eller hämta information om arbetsflöde med hjälp av API för granskning. Du kan definiera enkel, komplexa och även kapslade uttryck för dina arbetsflöden genom att använda detta API. Arbetsflöden som visas i granskningsverktyg för ditt team och använda. Arbetsflöden som används av granska API-jobbåtgärder.
+Arbetsflöden är molnbaserade anpassade filter som du kan använda för att hantera innehåll på ett mer effektivt. Arbetsflöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Den här guiden visar hur du använder arbetsflödet REST API: er via API-konsolen kan du skapar och använder arbetsflöden. När du förstår hur API: er kan portera du enkelt dessa anrop till valfri REST-kompatibel plattform.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-1. Gå till den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/). Registrera dig om du inte gjort det ännu. 
-2. I Verktyg för granskning under **inställningar**väljer den **arbetsflöden** fliken som visas i Verktyg för granskning [arbetsflöde självstudien](Review-Tool-User-Guide/Workflows.md).
-
-### <a name="browse-to-the-workflows-screen"></a>Bläddra till skärmen arbetsflöden
-
-Content Moderator-instrumentpanelen, klicka **granska** > **inställningar** > **arbetsflöden**. Du kan se ett standardarbetsflöde.
-
-  ![Standardarbetsflöde](images/default-workflow-listed.PNG)
-
-### <a name="get-the-json-definition-of-the-default-workflow"></a>Hämta JSON-definition för standardarbetsflöde
-
-Välj den **redigera** för arbetsflödet och välj sedan den **JSON** fliken. Du ser följande JSON-uttryck:
-
-    {
-        "Type": "Logic",
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isAdult",
-            "Operator": "eq",
-            "Value": "true",
-            "Type": "Condition"
-            },
-        "Then": {
-        "Perform": [
-        {
-            "Name": "createreview",
-            "CallbackEndpoint": null,
-            "Tags": []
-        }
-        ],
-        "Type": "Actions"
-        }
-    }
-
-## <a name="get-workflow-details"></a>Hämta information om arbetsflöde
-
-Använd den **arbetsflöde – Get** för att få information om ditt befintliga standardarbetsflöde.
-
-I granskningsverktyget, går du till den [autentiseringsuppgifter](Review-Tool-User-Guide/credentials.md#the-review-tool) avsnittet.
-
-### <a name="browse-to-the-api-reference"></a>Bläddra till API-referens
-
-1. I den **autentiseringsuppgifter** väljer [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
-2. När den **arbetsflöde – skapa eller uppdatera** öppnas, gå till den [arbetsflöde – Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) referens.
-
-### <a name="select-your-region"></a>Välj region
-
-För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats.
-
-  ![Arbetsflöde – Get valet](images/test-drive-region.png)
-
-  Den **arbetsflöde – Get** API-konsolen öppnas.
-
-### <a name="enter-parameters"></a>Ange parametrar
-
-Ange värden för **team**, **workflowname**, och **Ocp-Apim-Subscription-Key** (din prenumerationsnyckel):
-
-- **team**: Lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: Namnet på ditt arbetsflöde. Använd `default`.
-- **Ocp-Apim-Subscription-Key**: På den **inställningar** fliken. Mer information finns i [Översikt](overview.md).
-
-  ![Hämta frågeparametrar och rubriker](images/workflow-get-default.PNG)
-
-### <a name="submit-your-request"></a>Skicka din begäran
-  
-Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** visar följande JSON-arbetsflöde:
-
-    {
-        "Name": "default",
-        "Description": "Default",
-        "Type": "Image",
-        "Expression": {
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isadult",
-            "Operator": "eq",
-            "Value": "true",
-            "AlternateInput": null,
-            "Type": "Condition"
-            },
-        "Then": {
-            "Perform": [{
-                "Name": "createreview",
-                "Subteam": null,
-                "CallbackEndpoint": null,
-                "Tags": []
-            }],
-            "Type": "Actions"
-            },
-            "Else": null,
-            "Type": "Logic"
-            }
-    }
-
+- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 
 ## <a name="create-a-workflow"></a>Skapa ett arbetsflöde
 
-I granskningsverktyget, går du till den [autentiseringsuppgifter](Review-Tool-User-Guide/credentials.md#the-review-tool) avsnittet.
+Om du vill skapa eller uppdatera ett arbetsflöde, går du till den **[arbetsflöde – skapa eller uppdatera](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API refererar till sidan och klicka på knappen för din nyckel region (du hittar den i slutpunkts-URL på den **autentiseringsuppgifter**  för den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsol, där du kan enkelt skapa och köra REST API-anrop.
 
-### <a name="browse-to-the-api-reference"></a>Bläddra till API-referens
+![Arbetsflöde – skapa eller uppdatera sidan val](images/test-drive-region.png)
 
-I den **autentiseringsuppgifter** väljer [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). Den **arbetsflöde – skapa eller uppdatera** öppnas.
+### <a name="enter-rest-call-parameters"></a>Ange parametrar för REST-anrop
 
-### <a name="select-your-region"></a>Välj region
+Ange värden för **team**, **workflowname**, och **Ocp-Apim-Subscription-Key**:
 
-För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats.
+- **team**: Lag-ID som du skapade när du ställer in din [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) konto (finns i den **Id** på din granskningsverktyget autentiseringsuppgifter skärmen).
+- **workflowname**: Namnet på ett nytt arbetsflöde för att lägga till (eller ett befintligt namn om du vill uppdatera ett befintligt arbetsflöde).
+- **Ocp-Apim-Subscription-Key**: Din nyckel för Content Moderator. Du hittar den på den **inställningar** fliken den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com).
 
-  ![Arbetsflöde – skapa eller uppdatera sidan val](images/test-drive-region.png)
+![Arbetsflöde – skapa eller uppdatera konsolen frågeparametrar och rubriker](images/workflow-console-parameters.PNG)
 
-  Den **arbetsflöde – skapa eller uppdatera** API-konsolen öppnas.
+### <a name="enter-a-workflow-definition"></a>Ange en arbetsflödesdefinition
 
-### <a name="enter-parameters"></a>Ange parametrar
+1. Redigera den **Begärandetext** om du vill ange JSON-begäran med information om **beskrivning** och **typ** (antingen `Image` eller `Text`).
+2. För **uttryck**, kopiera standardarbetsflödet JSON-uttryck. Din sista JSON-strängen ska se ut så här:
 
-Ange värden för **team**, **workflowname**, och **Ocp-Apim-Subscription-Key** (din prenumerationsnyckel):
-
-- **team**: Lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: Namnet på ett nytt arbetsflöde.
-- **Ocp-Apim-Subscription-Key**: På den **inställningar** fliken. Mer information finns i [Översikt](overview.md).
-
-  ![Arbetsflöde – skapa eller uppdatera konsolen frågeparametrar och rubriker](images/workflow-console-parameters.PNG)
-
-### <a name="enter-the-workflow-definition"></a>Ange arbetsflödesdefinitionen
-
-1. Redigera den **Begärandetext** om du vill ange JSON-begäran med information om **beskrivning** och **typ** (bild eller Text). 
-2. För **uttryck**, kopiera standard arbetsflöde uttrycket från föregående avsnitt, som visas här:
-
+```json
+{
+  "Description":"<A description for the Workflow>",
+  "Type":"Text",
+  "Expression":{
+    "Type":"Logic",
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isAdult",
+      "Operator":"eq",
+      "Value":"true",
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
         {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": 
-                // Copy the default workflow expression from the preceding section
-        }
+          "Name":"createreview",
+          "CallbackEndpoint":null,
+          "Tags":[
 
-    Förfrågans brödtext ser ut som följande JSON-begäran:
-
-        {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": {
-                "Type": "Logic",
-                "If": {
-                    "ConnectorName": "moderator",
-                    "OutputName": "isAdult",
-                    "Operator": "eq",
-                    "Value": "true",
-                    "Type": "Condition"
-                    },
-                "Then": {
-                "Perform": [
-                {
-                    "Name": "createreview",
-                    "CallbackEndpoint": null,
-                    "Tags": [ ]
-                }
-                ],
-                "Type": "Actions"
-                }
-            }
+          ]
         }
- 
+      ],
+      "Type":"Actions"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Du kan definiera enkel, komplexa och även kapslade uttryck för dina arbetsflöden som använder detta API. Den [arbetsflöde – skapa eller uppdatera](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) -dokumentationen finns exempel på mer komplex logik.
+
 ### <a name="submit-your-request"></a>Skicka din begäran
   
 Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** rutan visar `true`.
 
-### <a name="check-out-the-new-workflow"></a>Kolla in det nya arbetsflödet
+### <a name="examine-the-new-workflow"></a>Granska det nya arbetsflödet
 
-I Verktyg för granskning väljer **granska** > **inställningar** > **arbetsflöden**. Ett nytt arbetsflöde visas och är klart att användas.
+I den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/)väljer **inställningar** > **arbetsflöden**. Ett nytt arbetsflöde ska visas i listan.
 
-  ![Granska verktyget listan över arbetsflöden](images/workflow-console-new-workflow.PNG)
-  
-### <a name="review-your-new-workflow-details"></a>Granska din information om nya arbetsflöde
+![Granska verktyget listan över arbetsflöden](images/workflow-console-new-workflow.PNG)
 
-1. Välj den **redigera** för arbetsflödet och välj sedan den **Designer** och **JSON** flikar.
+Välj den **redigera** för arbetsflödet och gå till den **Designer** fliken. Här kan du se en intuitiv representation av JSON-logiken.
 
-   ![Designer fliken för ett valt arbetsflöde](images/workflow-console-new-workflow-designer.PNG)
+![Designer fliken för ett valt arbetsflöde](images/workflow-console-new-workflow-designer.PNG)
 
-2. Om du vill se JSON-vy av arbetsflödet, Välj den **JSON** fliken.
+## <a name="get-workflow-details"></a>Hämta information om arbetsflöde
+
+Om du vill hämta information om ett befintligt arbetsflöde, går du till den **[arbetsflöde – Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)** API refererar till sidan och klicka på knappen för din region (den region där din nyckel administreras).
+
+![Arbetsflöde – Get valet](images/test-drive-region.png)
+
+Ange parametrar för REST-anrop som i avsnittet ovan. Se till att den här gången **workflowname** är namnet på ett befintligt arbetsflöde.
+
+![Hämta frågeparametrar och rubriker](images/workflow-get-default.PNG)
+
+Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** visar arbetsflödet i JSON-format som liknar följande:
+
+```json
+{
+  "Name":"default",
+  "Description":"Default",
+  "Type":"Image",
+  "Expression":{
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isadult",
+      "Operator":"eq",
+      "Value":"true",
+      "AlternateInput":null,
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
+        {
+          "Name":"createreview",
+          "Subteam":null,
+          "CallbackEndpoint":null,
+          "Tags":[
+
+          ]
+        }
+      ],
+      "Type":"Actions"
+    },
+    "Else":null,
+    "Type":"Logic"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Exempel mer komplexa arbetsflöden finns i [översikt för arbetsflöden](workflow-api.md).
-* Lär dig hur du använder arbetsflöden med [innehåll moderering jobb](try-review-api-job.md).
+- Lär dig hur du använder arbetsflöden med [innehåll moderering jobb](try-review-api-job.md).

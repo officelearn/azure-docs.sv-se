@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401927"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756627"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 
@@ -253,7 +253,7 @@ Den här åtgärden säkerhetsnivå för vidarebefordrar inte begäranden till b
 
 | Attribut                               | Beskrivning                                                                                                      | Krävs | Standard     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | Det går inte att timeout-intervall i sekunder innan anropet till serverdelstjänsten. Lägsta värdet är 0 sekunder. Högsta tillåtna värdena är 240 sekunder.| Nej       | 240 sekunder |
+| timeout="integer"                       | Hur lång tid i sekunder att vänta på HTTP-svarshuvuden som returneras av backend-tjänsten innan ett tidsgränsfel utlöses. Lägsta värdet är 0 sekunder. Värden som är större än 240 sekunder är inte kanske hanterades som underliggande nätverksinfrastruktur kan ta bort inaktiva anslutningar efter den tidpunkten. | Nej       | Ingen |
 | follow-redirects="true &#124; false"    | Anger om omdirigeringar från backend-tjänsten är följt av gatewayen eller returneras till anroparen.      | Nej       | false       |
 | buffer-request-body="true &#124; false" | När värdet är ”true” begäran buffras och ska återanvändas på [försök](api-management-advanced-policies.md#Retry). | Nej       | false       |
 

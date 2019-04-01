@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879300"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757236"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera bildinnehåll och leta efter stötande material i C#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Snabbstart: Analysera bilder för stötande innehåll iC#
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du kommer lära dig hur du ska söka efter vuxet eller olämpligt innehåll, extraherbar text och ansikten i syfte att kontrollera potentiellt stötande material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)

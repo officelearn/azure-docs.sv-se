@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094879"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758191"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights Preview
 
@@ -33,7 +33,7 @@ När du etablerar en förhandsversion av Azure Time Series Insights-miljö kan s
 Lär dig [hur du planerar din miljö](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Aktivera inte kall/arkivering egenskaper på det lagringskonto som du ska använda om du använder ett v2-konto.
+> För förhandsversionen, kontrollera att du använder ett allmänt Azure Storage-v1 (GPv1)-konto.  Stöd för GPv2 och senare kommer att läggas till inom en snar framtid.  
 
 Alternativt kan du associera varje förhandsversion av Azure Time Series Insights-miljö med en händelsekälla. Mer information finns i [lägga till en händelsekälla hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) och [Lägg till en IoT hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md). Du anger en tidsstämpel-ID-egenskap och en unik konsumentgrupp under det här steget. På så sätt att miljön har åtkomst till lämplig händelserna.
 

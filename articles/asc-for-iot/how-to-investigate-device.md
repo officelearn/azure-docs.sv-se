@@ -1,6 +1,6 @@
 ---
-title: ASC för undersökning för förhandsversionen för IoT-enhet | Microsoft Docs
-description: Det här hur du hjälper förklarar hur du använder ASC för IoT du undersöker en misstänkt IoT-enhet med Log Analytics.
+title: Azure Security Center för undersökning för förhandsversionen för IoT-enhet | Microsoft Docs
+description: Detta så att vägleda förklarar hur du använder Azure Security Center för IoT du undersöker en misstänkt IoT-enhet med Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580545"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755249"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Undersöka en misstänkt IoT-enhet
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT aviseringar och bevis ange tydligt när IoT-enheter som misstänks för medverkan i misstänkta aktiviteter eller när indikationer finns att en enhet har komprometterats. 
+Azure Security Center (ASC) för IoT aviseringar och bevis ange tydligt när IoT-enheter som misstänks för medverkan i misstänkta aktiviteter eller när indikationer finns att en enhet har komprometterats. 
 
 I den här guiden använder du de undersökning förslag som givits för att fastställa de potentiella riskerna för din organisation, hur du åtgärdar och identifiera de bästa sätten att förhindra att liknande attacker i framtiden.  
 

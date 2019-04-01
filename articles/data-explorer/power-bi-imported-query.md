@@ -3,17 +3,17 @@ title: 'Snabbstart: Visualisera data med hjälp av en fråga som importerats til
 description: 'I den här snabbstarten lär du dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: importera fråga från Azure Data Explorer.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 139b20a2390c7301bd83113c3e98be40846fab22
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858157"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756116"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Snabbstart: Visualisera data med hjälp av en fråga som importerats till Power BI
 
@@ -23,7 +23,7 @@ Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här snabbstarten:
 
@@ -84,4 +84,4 @@ Om du inte längre behöver den rapport som du skapade för den här snabbstarte
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Visualisera data med hjälp av en importerad fråga i Power BI](power-bi-sql-query.md)
+> [Snabbstart: Visualisera data med hjälp av en fråga för importerade i Power BI](power-bi-sql-query.md)

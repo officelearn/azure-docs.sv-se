@@ -3,17 +3,17 @@ title: Ansluta till Azure Data Explorer med ODBC
 description: I den här anvisningen att lära dig hur du skapar en ODBC-anslutning till Datautforskaren i Azure och sedan använda anslutningen för att visualisera data med Tableau.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: ad00ad247b047d4acf97eb5d0e96229949181ecf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739910"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757630"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Ansluta till Azure Data Explorer med ODBC
 
@@ -79,7 +79,7 @@ Nu du har konfigurerat ODBC kan du sätta exempeldata i Tableau.
 
 1. I Tableau Desktop på den vänstra menyn väljer **andra databaser (ODBC)**.
 
-    ![Ansluta till ODBC](media/connect-odbc/connect-odbc.png)
+    ![Ansluta med ODBC](media/connect-odbc/connect-odbc.png)
 
 1. För **DSN**, Välj den datakälla som du skapade för ODBC och välj sedan **logga In**.
 

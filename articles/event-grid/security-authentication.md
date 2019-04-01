@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472814"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755516"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -41,7 +41,9 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 
    Från och med versionen 2018-05-01-preview, Event Grid har stöd för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, Event Grid skickar en `validationUrl` -egenskapen i datamängden i händelsen prenumeration verifiering. För att slutföra handskakningen hitta URL: en i händelsedata och manuellt skickar en GET-begäran till den. Du kan använda antingen en REST-klient eller webbläsaren.
 
-   Den tillhandahållna URL: en är giltig i fem minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
+   Den tillhandahållna URL: en är giltig i fem minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 5 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
+
+    Den här autentiseringsmekanism kräver också webhook-slutpunkt för att returnera ett HTTP-statuskod 200 så att den vet att INLÄGGET för händelsen verifieringen godkändes innan den kan läggas till i läge för manuell verifiering. Om slutpunkten returnerar 200 men inte returnerar verifieringssvaret programmässigt, överföras med andra ord läget till manuell verifiering-läge. Om det finns en hämtning på URL: en för verifiering inom 5 minuter, anses verifiering handskakningen ska lyckas.
 
 ### <a name="validation-details"></a>Verifieringsinformation
 

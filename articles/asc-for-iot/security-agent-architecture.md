@@ -1,6 +1,6 @@
 ---
-title: Så här fungerar ASC för IoT-agenten Säkerhetsarkitektur förhandsversion | Microsoft Docs
-description: Förstå security agent-arkitektur för agenter som används i ASC för IoT-tjänsten.
+title: Förstå Azure Security Center för IoT-agenten Säkerhetsarkitektur förhandsversion | Microsoft Docs
+description: Förstå security agent-arkitektur för agenter som används i Azure Security Center för IoT-tjänsten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81054e95b9f712262fe5fa46453749b54a7ac24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651405"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754166"
 ---
 # <a name="security-agent-reference-architecture"></a>Referensarkitektur för Security-agenten
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-ASC för IoT innehåller Referensarkitektur för säkerhetsagenter som loggar in, bearbeta, sammanställa och skicka säkerhetsdata via IoT hub.
+Azure Security Center (ASC) för IoT innehåller Referensarkitektur för säkerhetsagenter som loggar in, bearbeta, sammanställa och skicka säkerhetsdata via IoT hub.
 
 Security agenter är utformade att fungera i en begränsad IoT-miljö och är mycket anpassningsbara när det gäller värden som de tillhandahåller jämfört med de resurser de använder.
 

@@ -1,186 +1,76 @@
 ---
-title: Moderering av jobb och human-i-the-loop granskningar - Content Moderator
+title: Granskningar, arbetsflöden, och jobb begrepp - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Kombinera datorstödd moderering med funktioner för mänskliga-i-the-loop med Azure Content Moderator granska API för att få bästa resultat för ditt företag.
+description: Lär dig mer om granskningar och arbetsflöden som jobb
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862708"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756295"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>Innehållsmoderering jobb och granskningar
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Innehållsmoderering granskningar och arbetsflöden som jobb
 
-Kombinera datorstödd moderering med funktioner för mänskliga-i-the-loop med hjälp av Azure Content Moderator [granska API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att få bästa resultat för ditt företag.
+Content Moderator kombinerar datorstödd moderering med human-i-the-loop funktioner för att skapa en optimal moderering process för verkliga scenarier. Detta sker via den molnbaserade [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com). I den här guiden lär du dig grundkoncepten i granskningsverktyget: granskningar, arbetsflöden och jobb.
 
-Granska API: et erbjuder de följande sätten att tar med mänsklig övervakning i innehållsmoderering processen:
+## <a name="reviews"></a>Omdömen
 
-* `Job` åtgärder för att starta datorstödd moderering och mänsklig granskning skapas som ett steg.
-* `Review` åtgärder som används för att skapa en mänsklig granskning, utanför moderering steg.
-* `Workflow` åtgärder för att hantera arbetsflöden som automatiserar sökning med tröskelvärden för att skapa en granskning.
+I en granskning innehåll överförs till granskningsverktyget och visas under den **granska** fliken. Härifrån kan användare ändra tillämpade taggar och lägga till sina egna anpassade taggar efter behov. När en användare skickar en granskning, resultaten skickas till en slutpunkt för angivna motringning och innehållet tas bort från platsen.
 
-Den `Job` och `Review` operations godkänna dina återanrop slutpunkter för att ta emot status och resultat.
+![Granska verktyget webbplatsen öppnas i en webbläsare, på fliken Granska](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Den här artikeln beskriver den `Job` och `Review` åtgärder. Läs den [översikt för arbetsflöden](workflow-api.md) för information om hur du skapar, redigerar och få arbetsflödesdefinitioner.
+Finns i den [granska verktyget guide](./review-tool-user-guide/review-moderated-images.md) att komma igång och skapa granskningar eller finns i den [REST API-guiden](./try-review-api-review.md) information om hur du gör programmässigt.
 
-## <a name="job-operations"></a>Jobbåtgärder
+## <a name="workflows"></a>Arbetsflöden
 
-### <a name="start-a-job"></a>Starta ett jobb
-Använd den `Job.Create` att starta en moderering och mänsklig granskning för att skapa jobb. Content Moderator söker igenom innehållet och utvärderar avsedda arbetsflödet. Baserat på resultaten arbetsflöde kan det antingen skapar granskningar eller hoppar över steget. Den skickar även efter moderering aktiviteter och efter taggar i återanrop-slutpunkten.
+Ett arbetsflöde är en molnbaserad anpassade filter för innehåll. Arbetsflöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Med Content Moderator-anslutningen kan ett arbetsflöde automatiskt lägga till taggar för moderering och skapa granskningar med innehållet som skickas.
 
-Indata innehåller följande information:
+### <a name="view-workflows"></a>Visa arbetsflöden
 
-- Granska team-ID.
-- Innehållet som ska vara kontrollerad.
-- Arbetsflödesnamnet. (Standardvärdet är ”standard”-arbetsflödet.)
-- API-återanrop anslutningspunkt meddelanden.
- 
-Följande svar visar identifierare för det jobb som har startats. Du kan använda jobb-ID för att hämta jobbstatus och får detaljerad information.
+Du kan visa dina befintliga arbetsflöden genom att gå till den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och välj **inställningar** > **arbetsflöden**.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![Standardarbetsflöde](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>Hämta jobbstatus för
+Arbetsflöden kan beskrivas helt som JSON-strängar, vilket gör dem tillgängliga via programmering. Om du väljer den **redigera** för arbetsflödet och välj sedan den **JSON** fliken ser du en JSON-uttryck som liknar följande:
 
-Använd den `Job.Get` åtgärden och jobb-ID för att hämta information om ett jobb som körs eller slutförts. Åtgärden returnerar direkt, medan moderering jobbet körs asynkront. Resultaten returneras via återanrop-slutpunkt.
-
-Dina indata inkludera följande information:
-
-- Granska lag-ID: Jobb-ID som returneras av den föregående åtgärden
-
-Svaret innehåller följande information:
-
-- Identifierare för granskning skapas. (Använda detta ID för att få resultat slutlig granskning.)
-- Status för jobbet (slutförd eller pågående): Tilldelade moderering taggar (nyckel / värde-par).
-- Jobbet Körningsrapport.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![Bildgranskning för mänskliga moderatorer](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>Granska åtgärder
-
-### <a name="create-reviews"></a>Skapa granskningar
-
-Använd den `Review.Create` att skapa mänsklig granskning. Du ändra dem någon annanstans eller använda anpassad logik för att tilldela moderering-taggar.
-
-Dina indata till den här åtgärden är:
-
-- Innehåll att granskas.
-- Tilldelade taggar (nyckelvärdepar) för granskning av mänskliga moderatorer.
-
-Följande svar visar identifierare för granskning:
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>Hämta granskningsstatus för
-Använd den `Review.Get` för att få resultaten när en mänsklig granskning för kontrollerad avbildningen har slutförts. Du meddelas via motringningen slutpunkten. 
-
-Åtgärden returnerar två uppsättningar med taggar: 
-
-* De taggar som tilldelats av tjänsten moderering
-* Taggar när mänsklig granskning har slutförts
-
-Dina indata är minst:
-
-- Granska Teamnamn
-- Granska-identifieraren som returneras av den föregående åtgärden
-
-Svaret innehåller följande information:
-
-- Granskningsstatus
-- Taggar (nyckel / värde-par) som bekräftats av mänsklig granskare
-- Taggar (nyckel / värde-par) som tilldelats av tjänsten moderering
-
-Du kan se båda granskare tilldelade taggar (**reviewerResultTags**) och de inledande taggarna (**metadata**) i följande exempelsvar:
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+Finns i den [granska verktyget guide](./review-tool-user-guide/workflows.md) att börja skapa och använda arbetsflöden eller finns i den [REST API-guiden](./try-review-api-workflow.md) information om hur du gör programmässigt.
+
+## <a name="jobs"></a>Jobb
+
+Ett jobb för moderering fungerar som en sorts Omslutning för funktionerna i innehållsmoderering, arbetsflöden och granskningar. Jobbet söker igenom ditt innehåll med bildmoderering Content Moderator API eller API för moderering av text och kontrollerar sedan mot avsedda arbetsflödet. Baserat på resultaten arbetsflöde, den kan eller kan inte skapa en granskning för innehållet i den [granskningsverktyget](./review-tool-user-guide/human-in-the-loop.md). Även om både granskningar och arbetsflöden kan skapas och konfigureras med deras respektive API: er, kan du få en detaljerad rapport över hela processen (som kan skickas till en slutpunkt för angivna återanrop) jobbet API.
+
+Se den [REST API-guiden](./try-review-api-job.md) att komma igång med jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 

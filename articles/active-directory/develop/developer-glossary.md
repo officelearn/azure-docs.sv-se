@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245683ec6c3c2d25f362e035020e162af75e1627
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169929"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650401"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Ordlista för utvecklare för Azure Active Directory
 
@@ -204,7 +204,7 @@ Azure AD-klienter kan skapas/som är associerade med Azure och Office 365-prenum
 
 ## <a name="token-endpoint"></a>tokenslutpunkt
 
-En av slutpunkterna som implementeras av den [auktoriseringsservern](#authorization-server) till support OAuth2 [auktoriseringsbeviljanden](#authorization-grant). Beroende på bevilja, den kan användas till att hämta en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID-token](#ID-token) när det används med den [OpenID Ansluta] [ OpenIDConnect] protokoll.
+En av slutpunkterna som implementeras av den [auktoriseringsservern](#authorization-server) till support OAuth2 [auktoriseringsbeviljanden](#authorization-grant). Beroende på bevilja, den kan användas till att hämta en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID-token](#id-token) när det används med den [OpenID Ansluta] [ OpenIDConnect] protokoll.
 
 ## <a name="user-agent-based-client"></a>Användar-agent-baserad klient
 

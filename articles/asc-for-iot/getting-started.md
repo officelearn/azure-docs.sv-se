@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure Security Center (ASC) för förhandsversionen av IoT | Microsoft Docs
-description: Kom igång förstå det grundläggande arbetsflödet i ASC för IoT-funktioner och -tjänsten.
+description: Kom igång förstå det grundläggande arbetsflödet i Azure Security Center för IoT-funktioner och -tjänsten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648324"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755118"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>Kom igång med Azure Security Center (ASC) för IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Kom igång med Azure Security Center för IoT 
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln innehåller en förklaring av de olika byggstenarna för ASC för IoT-tjänsten och beskriver hur du kommer igång med [aktiverar tjänsten](quickstart-onboard-iot-hub.md). 
+Den här artikeln innehåller en förklaring av de olika byggstenarna i Azure Security Center (ASC) för IoT-tjänsten och beskriver hur du kommer igång med [aktiverar tjänsten](quickstart-onboard-iot-hub.md). 
 
 ASC för IoT kan integreras smidigt i din IoT-hubb för att tillhandahålla säkerhetsanalys av IoT hub-konfiguration, enhetsidentitet och hub-enhet kommunikationsmönster.
 För ökad säkerhet-funktioner ger ASC för IoT agentbaserad insamling av säkerhetsdata från dina IoT-enheter.

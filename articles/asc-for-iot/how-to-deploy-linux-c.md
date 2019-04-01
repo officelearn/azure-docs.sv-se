@@ -1,6 +1,6 @@
 ---
-title: Guide om hur du installerar och distribuerar Linux C-agenten av ASC för IoT-agenten förhandsversionen | Microsoft Docs
-description: Lär dig hur du installerar ASC för IoT-agenten på både 32-bitars och 64-bitars Linux.
+title: Guide om hur du installerar och distribuerar Linux C-agenten i Azure Security Center för IoT-agenten förhandsversionen | Microsoft Docs
+description: Lär dig hur du installerar Azure Security Center för IoT-agenten på både 32-bitars och 64-bitars Linux.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 2b18a09e5b79e7b3d3ea837e937397ac92491f9f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 147813ae096114b4dfc1a20d2e0a70639aa82445
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619857"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754439"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Distribuera ASC för IoT-C-baserade security-agenten för Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT-C-baserade security-agenten för Linux
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här guiden beskriver hur du installerar och distribuerar ASC för IoT-C-baserade säkerhetsagenten på Linux.
+Den här guiden beskriver hur du installerar och distribuerar Azure Security Center (ASC) för IoT-C-baserade säkerhetsagenten på Linux.
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]

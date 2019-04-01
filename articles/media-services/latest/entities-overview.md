@@ -1,6 +1,6 @@
 ---
-title: Filtrering, sortering, växling av Azure Media Services-entiteter – Azure | Microsoft Docs
-description: Den här artikeln beskriver filtrering, sortering, växling av Azure Media Services-entiteter.
+title: 'Utveckla med v3 API: er – Azure | Microsoft Docs'
+description: 'Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,16 +12,38 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745104"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758535"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
+# <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
-## <a name="overview"></a>Översikt
+Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.
+
+## <a name="naming-conventions"></a>Namngivningskonventioner
+
+Azure Media Services v3-resursnamn (till exempel tillgångar, jobb, transformeringar) är föremål Azure Resource Manager-namnbegränsningar. I enlighet med Azure Resource Manager är resursnamnen alltid unika. Därför kan du använda alla strängar som unika identifierare (till exempel GUID) för ditt resursnamn. 
+
+Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', apostrof eller några andra kontrolltecken. Alla andra tecken tillåts. Maxlängden för ett resursnamn är 260 tecken. 
+
+Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+## <a name="v3-api-design-principles"></a>Designprinciper för v3 API
+
+En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3 API:er returnerar inte hemlighet eller autentiseringsuppgifter för en åtgärd av typen **hämta** eller **lista**. Nycklarna är alltid null, tomma eller oberoende av svaret. Du måste anropa en separat åtgärdsmetod för att få hemlighet och autentiseringsuppgifter. Med separata åtgärder kan du ställa in olika RBAC-säkerhetsbehörigheter om vissa API:er hämtar/visar hemligheter medan andra API:er inte gör det. Information om hur du hanterar åtkomst med RBAC finns i dokumentationen om att [hantera åtkomst med RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Exempel på detta kan vara:
+
+* Returnerar inte ContentKey värden i Get för StreamingLocator.
+* Returnerar inte nycklar för begränsning av Get för ContentKeyPolicy.
+* inte returnerar frågan sträng en del av URL-Adressen (för att ta bort signaturen) till URL: er för jobbets HTTP-indata.
+
+Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
 
 Media Services har stöd för följande OData-frågealternativ för Media Services v3 entiteter: 
 
@@ -41,7 +63,7 @@ Operatorn beskrivning:
 
 Egenskaper för entiteter som är av typen Datetime är alltid i UTC-format.
 
-## <a name="page-results"></a>Sidan resultat
+### <a name="page-results"></a>Sidan resultat
 
 Om ett frågesvar innehåller många objekt, tjänsten returnerar en ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultatet. Detta kan användas för att bläddra igenom hela resultatmängden. Du kan inte konfigurera sidstorleken. Sidstorleken varierar beroende på typen av enhet, Läs enskilda avsnitten som följer mer information.
 
@@ -50,9 +72,9 @@ Om entiteter är skapas eller tas bort vid bläddring genom samlingen, visas än
 > [!TIP]
 > Du bör alltid använda nästa länk för att räkna upp samlingen och inte är beroende av en viss storlek.
 
-## <a name="assets"></a>Tillgångar
+### <a name="assets"></a>Tillgångar
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 I följande tabell visas hur filtrering och sortering alternativ kan användas på den [tillgången](https://docs.microsoft.com/rest/api/media/assets) egenskaper: 
 
@@ -77,11 +99,11 @@ var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:0
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### <a name="pagination"></a>Sidbrytning 
+#### <a name="pagination"></a>Sidbrytning 
 
 Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. Sidstorleken är för närvarande 1 000.
 
-#### <a name="c-example"></a>C#-exempel
+##### <a name="c-example"></a>C#-exempel
 
 I följande C#-exempel visar hur du räknar upp via alla tillgångar i kontot.
 
@@ -95,7 +117,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-#### <a name="rest-example"></a>REST-exempel
+##### <a name="rest-example"></a>REST-exempel
 
 Överväg följande exempel visar där $skiptoken används. Kontrollera att du ersätter *amstestaccount* med ditt kontonamn och ange den *api-versionen* värde till den senaste versionen.
 
@@ -137,9 +159,9 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 Fler REST-exempel finns i [tillgångar - listan](https://docs.microsoft.com/rest/api/media/assets/list)
 
-## <a name="content-key-policies"></a>Viktiga innehållsprinciper
+### <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 Följande tabell visar hur dessa alternativ kan användas på den [Innehållsprinciper nyckel](https://docs.microsoft.com/rest/api/media/contentkeypolicies) egenskaper: 
 
@@ -154,7 +176,7 @@ Följande tabell visar hur dessa alternativ kan användas på den [Innehållspri
 |properties.policyId|eq, ne||
 |typ|||
 
-### <a name="pagination"></a>Sidbrytning
+#### <a name="pagination"></a>Sidbrytning
 
 Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För närvarande är sidstorleken 10.
 
@@ -172,9 +194,9 @@ while (currentPage.NextPageLink != null)
 
 REST-exempel finns i [nyckel Innehållsprinciper - lista](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## <a name="jobs"></a>Jobb
+### <a name="jobs"></a>Jobb
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 Följande tabell visar hur dessa alternativ kan användas på den [jobb](https://docs.microsoft.com/rest/api/media/jobs) egenskaper: 
 
@@ -186,7 +208,7 @@ Följande tabell visar hur dessa alternativ kan användas på den [jobb](https:/
 | properties.lastModified | gt, ge, lt, le | Stigande och fallande| 
 
 
-### <a name="pagination"></a>Sidbrytning
+#### <a name="pagination"></a>Sidbrytning
 
 Jobb sidbrytning stöds i Media Services v3.
 
@@ -220,9 +242,9 @@ while (!exit);
 
 REST-exempel finns i [jobb – lista](https://docs.microsoft.com/rest/api/media/jobs/list)
 
-## <a name="streaming-locators"></a>Positionerare för direktuppspelning
+### <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 I följande tabell visar hur dessa alternativ kan användas på StreamingLocator egenskaper: 
 
@@ -241,7 +263,7 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingLocator
 |properties.streamingPolicyName |||
 |typ   |||
 
-### <a name="pagination"></a>Sidbrytning
+#### <a name="pagination"></a>Sidbrytning
 
 Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För närvarande är sidstorleken 10.
 
@@ -259,9 +281,9 @@ while (currentPage.NextPageLink != null)
 
 REST-exempel finns i [Streaming positionerare - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
-## <a name="streaming-policies"></a>Principer för direktuppspelning
+### <a name="streaming-policies"></a>Principer för direktuppspelning
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 I följande tabell visar hur dessa alternativ kan användas på StreamingPolicy egenskaper: 
 
@@ -277,7 +299,7 @@ I följande tabell visar hur dessa alternativ kan användas på StreamingPolicy 
 |properties.noEncryption|||
 |typ|||
 
-### <a name="pagination"></a>Sidbrytning
+#### <a name="pagination"></a>Sidbrytning
 
 Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För närvarande är sidstorleken 10.
 
@@ -296,9 +318,9 @@ while (currentPage.NextPageLink != null)
 REST-exempel finns i [Streaming principer - lista](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 
-## <a name="transform"></a>Transformering
+### <a name="transform"></a>Transformering
 
-### <a name="filteringordering"></a>Filtrering/ordning
+#### <a name="filteringordering"></a>Filtrering/ordning
 
 Följande tabell visar hur dessa alternativ kan användas på den [omvandlar](https://docs.microsoft.com/rest/api/media/transforms) egenskaper: 
 

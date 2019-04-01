@@ -1,6 +1,6 @@
 ---
-title: Skapa anpassade varningar för ASC för förhandsversionen av IoT | Microsoft Docs
-description: Skapa och tilldela anpassade aviseringar för ASC för IoT.
+title: Skapa anpassade varningar för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Skapa och tilldela anpassade aviseringar för Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: fa1825d6f6f6ea5e6c026791aa70dd1b37bdad90
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 40bec01b402d7a597a480a738840cba8f388d88b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574752"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755143"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabbstart: Skapa anpassade varningar
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Använda anpassade säkerhetsgrupper och aviseringar kan dra full nytta av säkerhetsinformation från slutpunkt till slutpunkt och kategoriska enheten kunskap för att säkerställa bättre säkerhet över din IoT-lösning. 
@@ -33,7 +33,7 @@ Använda anpassade säkerhetsgrupper och aviseringar kan dra full nytta av säke
 
 Du vet att dina IoT-enheter som är bäst.
 
-För kunder som reklamklickningar sina förväntade enhetsbeteende kan ASC för IoT kan du att översätta denna kunskap när en princip för beteende och en avisering för varje avvikelse från förväntat, normalt.
+För kunder som reklamklickningar sina förväntade enhetsbeteende kan Azure Security Center (ASC) för IoT kan du att översätta denna kunskap när en princip för beteende och en avisering för varje avvikelse från förväntat, normalt.
 
 ## <a name="security-groups"></a>Säkerhetsgrupper
 

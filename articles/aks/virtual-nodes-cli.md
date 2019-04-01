@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177678"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757424"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -47,9 +47,9 @@ Om providern visas som *NotRegistered*, registrera providern med hjälp av den [
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>Begränsningar för förhandsversion
+## <a name="regional-availability-limitations"></a>Regional tillgänglighet begränsningar
 
-Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
+Följande regioner har stöd för virtuell nod distributioner:
 
 * Australien, östra (Australien)
 * Östra USA (eastus)
@@ -331,6 +331,8 @@ Virtuella noder är ofta en komponent i en skalning lösning i AKS. Mer informat
 
 - [Använda Kubernetes vågrät pod autoskalningen][aks-hpa]
 - [Använda Kubernetes-kluster autoskalningen][aks-cluster-autoscaler]
+- [Kolla in automatisk skalning-exemplen för virtuella noder][virtual-node-autoscale]
+- [Läs mer om Virtual Kubelet-biblioteket för öppen källkod][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -338,6 +340,8 @@ Virtuella noder är ofta en komponent i en skalning lösning i AKS. Mer informat
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

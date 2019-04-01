@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480558"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754252"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervaka användning och uppskattade kostnader i Azure Monitor
 
 > [!NOTE]
 > Den här artikeln beskriver hur du visar användning och uppskattade kostnader över flera Azure övervakningsfunktioner för olika prissättningsmodeller.  Finns i följande artiklar för relaterad information.
-> - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
+> - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
 > - [Analysera dataanvändning i Log Analytics](../../azure-monitor/platform/data-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
 > - [Hantera priser och datavolymer i Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
 
@@ -184,7 +184,7 @@ Om du kör sedan föregående skript som har ``-Action listmigrationdate``, du b
 Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa en egen variant med hjälp av delar av följande skript:
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris som består av alla prenumerations-id som har ```isGrandFatherableSubscription``` SANT och optedInDate inte har ett värde. En andra uppsättning några prenumerationer för närvarande på den nya prismodellen. Och en tredje matris som innehåller bara prenumerations-ID: n i din klient som inte är berättigade till den nya prismodellen:
+Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris som består av alla prenumerations-ID som har ```isGrandFatherableSubscription``` SANT och optedInDate inte har ett värde. En andra uppsättning några prenumerationer för närvarande på den nya prismodellen. Och en tredje matris som innehåller bara prenumerations-ID i din klient som inte är berättigade till den nya prismodellen:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

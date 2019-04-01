@@ -3,17 +3,17 @@ title: Skriv frågor för Azure Data Explorer
 description: I den här anvisningen att lära dig hur du utför grundläggande och mer avancerade frågor för Azure Data Explorer.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961528"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758698"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Skriv frågor för Azure Data Explorer
 
@@ -26,7 +26,7 @@ Du kan köra frågor i den här artikeln på något av två sätt:
 - På Azure Data Explorer *hjälpklustret* att vi har ställts in för att underlätta learning.
     [Logga in på klustret](https://dataexplorer.azure.com/clusters/help/databases/samples) med ett konto för organisationens e-post som är medlem i Azure Active directory.
 
-- På ett eget kluster innehåller som exempeldata StormEvents. Mer information finns i [Snabbstart: skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
+- På ett eget kluster innehåller som exempeldata StormEvents. Mer information finns i [snabbstarten: Skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -72,7 +72,7 @@ Köra frågor på ett eget kluster:
 
 ### <a name="count"></a>count
 
-[**antal**](https://docs.microsoft.com/azure/kusto/query/countoperator): returnerar antalet rader i tabellen.
+[**antal**](https://docs.microsoft.com/azure/kusto/query/countoperator): Returnerar antalet rader i tabellen.
 
 Följande fråga returnerar antalet rader i tabellen StormEvents.
 
@@ -84,7 +84,7 @@ StormEvents | count
 
 ### <a name="take"></a>ta
 
-[**Ta**](https://docs.microsoft.com/azure/kusto/query/takeoperator): returnerar upp till det angivna antalet rader med data.
+[**Ta**](https://docs.microsoft.com/azure/kusto/query/takeoperator): Returnerar upp till det angivna antalet rader med data.
 
 Följande fråga returnerar fem rader från tabellen StormEvents. Nyckelordet *gränsen* är ett alias för *ta.*
 
@@ -99,7 +99,7 @@ StormEvents | take 5
 
 ### <a name="project"></a>Projekt
 
-[**projektet**](https://docs.microsoft.com/azure/kusto/query/projectoperator): väljer en delmängd med kolumner.
+[**project**](https://docs.microsoft.com/azure/kusto/query/projectoperator): Väljer en delmängd med kolumner.
 
 Följande fråga returnerar en specifik uppsättning kolumner.
 
@@ -113,7 +113,7 @@ StormEvents
 
 ### <a name="where"></a>där
 
-[**där**](https://docs.microsoft.com/azure/kusto/query/whereoperator): filtrerar en tabell till underuppsättningen av rader som uppfyller ett predikat.
+[**där**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtrerar en tabell till underuppsättningen av rader som uppfyller ett predikat.
 
 Följande fråga filtrerar data genom att `EventType` och `State`.
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>Sortera
 
-[**Sortera**](https://docs.microsoft.com/azure/kusto/query/sortoperator): Sortera rader i indatatabellen i ordning efter en eller flera kolumner.
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): Sortera rader i indatatabellen i ordning efter en eller flera kolumner.
 
 Följande fråga sorterar data i fallande ordning av `DamageProperty`.
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>längst upp
 
-[**översta**](https://docs.microsoft.com/azure/kusto/query/topoperator): returnerar första *N* poster sorterade efter de angivna kolumnerna.
+[**översta**](https://docs.microsoft.com/azure/kusto/query/topoperator): Returnerar först *N* poster sorterade efter de angivna kolumnerna.
 
 Följande fråga returnerar samma resultat som ovan med en mindre operator.
 
@@ -162,7 +162,7 @@ StormEvents
 
 ### <a name="extend"></a>Utöka
 
-[**utöka**](https://docs.microsoft.com/azure/kusto/query/extendoperator): beräkningarna härledda kolumner.
+[**utöka**](https://docs.microsoft.com/azure/kusto/query/extendoperator): Beräkningarna härledda kolumner.
 
 Följande fråga skapar en ny kolumn genom att beräkna ett värde i varje rad.
 
@@ -180,7 +180,7 @@ Uttryck kan innehålla alla vanliga operatorer (+, -, *, /, %), och det finns et
 
 ### <a name="summarize"></a>Sammanfatta
 
-[**Sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): aggregerar grupper av rader.
+[**Sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator): Aggregerar grupper av rader.
 
 Följande fråga returnerar antalet händelser efter `State`.
 
@@ -213,7 +213,7 @@ Resultatet av en **sammanfatta** åtgärd har:
 
 ### <a name="render"></a>rendering
 
-[**Rendera**](https://docs.microsoft.com/azure/kusto/query/renderoperator): renderas resultatet som en grafisk utdata.
+[**render**](https://docs.microsoft.com/azure/kusto/query/renderoperator): Återger resultatet som en grafisk utdata.
 
 Följande fråga visar ett stapeldiagram.
 
@@ -285,7 +285,7 @@ StormEvents
 
 ### <a name="case"></a>Case()
 
-[**Case()**](https://docs.microsoft.com/azure/kusto/query/casefunction): utvärderar en lista med predikat och returnerar det första resultat uttrycket vars predikatet är uppfyllt eller sista **annan** uttryck. Du kan använda den här operatorn för att kategorisera eller gruppera data:
+[**case()**](https://docs.microsoft.com/azure/kusto/query/casefunction): Utvärderar en lista med predikat och returnerar det första resultat uttrycket vars predikatet är uppfyllt eller sista **annan** uttryck. Du kan använda den här operatorn för att kategorisera eller gruppera data:
 
 Följande fråga returnerar en ny kolumn `deaths_bucket` och grupperar dött med tal.
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): hämtar en matchning för ett reguljärt uttryck från en textsträng.
+[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): Hämtar en matchning för ett reguljärt uttryck från en textsträng.
 
 Följande fråga extraherar specifika attributvärden från en spårning.
 
@@ -320,7 +320,7 @@ Den här frågan använder en **låta** -instruktionen, vilket Binder ett namn (
 
 ### <a name="parsejson"></a>parse_json()
 
-[**parse_json()**](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): tolkar en sträng som ett JSON-värde och returnerar värdet som dynamisk. Det är bättre än med hjälp av den **extractjson()** fungerar när du behöver att extrahera mer än ett element i ett sammansatt JSON-objekt.
+[**parse_json()**](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction): Tolkar en sträng som ett JSON-värde och returnerar värdet som dynamisk. Det är bättre än med hjälp av den **extractjson()** fungerar när du behöver att extrahera mer än ett element i ett sammansatt JSON-objekt.
 
 Följande fråga extraherar JSON-element från en matris.
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): subtraherar angivna timespan från den aktuella UTC-clock-tid.
+[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): Subtraherar angivna timespan från den aktuella UTC-clock-tid.
 
 Följande fråga returnerar data för de senaste 12 timmarna.
 
@@ -374,7 +374,7 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 
 ### <a name="startofweek"></a>startofweek()
 
-[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): returnerar början på veckan som innehåller datum, beräkningsarbete genom en förskjutning om
+[**startofweek()**](https://docs.microsoft.com/azure/kusto/query/startofweekfunction): Returnerar början på veckan som innehåller datum, beräkningsarbete genom en förskjutning om
 
 Följande fråga returnerar början på veckan med olika förskjutningar.
 
@@ -389,7 +389,7 @@ Den här frågan använder den **intervallet** operator, vilket genererar en enk
 
 ### <a name="between"></a>between()
 
-[**between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): matchar indata som är inom intervallet.
+[**between()**](https://docs.microsoft.com/azure/kusto/query/betweenoperator): Matchar indata som är inom intervallet.
 
 Följande fråga filtrerar data efter ett visst datumintervall.
 
@@ -417,7 +417,7 @@ Kusto har många tabular operatorer, vilket beskrivs i andra avsnitt i den här 
 
 ### <a name="parse"></a>parsa
 
-[**parsa**](https://docs.microsoft.com/azure/kusto/query/parseoperator): utvärderar ett stränguttryck och Parsar dess värde i en eller flera beräknade kolumner. Det finns tre sätt att parsa: enkel (standard), regex, och Avslappnad.
+[**parsa**](https://docs.microsoft.com/azure/kusto/query/parseoperator): Utvärderar ett stränguttryck och Parsar dess värde i en eller flera beräknade kolumner. Det finns tre sätt att parsa: enkel (standard), regex, och Avslappnad.
 
 Följande fråga Parsar en spårning och extraherar relevanta värden, med en standard för att enkelt tolka. Uttrycket (kallas StringConstant) är en vanlig strängvärde och matchningen är strikt: utökade kolumner måste matcha de nödvändiga typerna.
 
@@ -510,9 +510,9 @@ Vi har täckt grundläggande aggregeringar som **antal** och **sammanfatta**tidi
 
 ### <a name="top-nested"></a>TOP-nested
 
-[**TOP-kapslad**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): skapar hierarkiska översta resultat, där varje nivå är en detaljnivå baserat på föregående värden.
+[**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): Skapar hierarkiska översta resultat, där varje nivå är en detaljnivå baserat på föregående värden.
 
-Den här operatorn är användbar för instrumentpanelen för visualisering scenarier eller när det är nödvändigt att besvara en fråga som liknar följande: ”hitta topp-N-värdena för K1 (med vissa aggregering); för var och en av dem hitta vad är top-M-värdena för K2 (med en annan aggregering); ..."
+Den här operatorn är användbart för scenarier för visualisering av instrumentpanelen, eller när det är nödvändigt att svara på en fråga som liknar följande: ”Hitta topp-N-värdena för K1 (med vissa aggregering); för var och en av dem hitta vad är top-M-värdena för K2 (med en annan aggregering); ..."
 
 Följande fråga returnerar en hierarkisk tabell med `State` på den översta nivån, följt av `Sources`.
 
@@ -525,9 +525,9 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-### <a name="pivot-plugin"></a>Pivot() plugin-programmet
+### <a name="pivot-plugin"></a>pivot() plugin
 
-[**plugin-programmet för pivot()**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): roterar en tabell genom att aktivera unika värden från en kolumn i indatatabellen i flera kolumner i utdatatabellen. Operatorn utför sammansättningar där de krävs på alla återstående kolumnvärdena i utdata.
+[**pivot() plugin**](https://docs.microsoft.com/azure/kusto/query/pivotplugin): Roterar en tabell genom att aktivera unika värden från en kolumn i indatatabellen i flera kolumner i utdatatabellen. Operatorn utför sammansättningar där de krävs på alla återstående kolumnvärdena i utdata.
 
 Följande fråga använder ett filter och radfälten byter rader till kolumner.
 
@@ -543,7 +543,7 @@ StormEvents
 
 ### <a name="dcount"></a>DCount()
 
-[**DCount()**](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): returnerar en uppskattning av antalet distinkta värden för ett uttrycks i gruppen. Använd [ **antal()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) att räkna alla värden.
+[**dcount()**](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction): Returnerar en uppskattning av antalet distinkta värden för ett uttrycks i gruppen. Använd [ **antal()** ](https://docs.microsoft.com/azure/kusto/query/countoperator) att räkna alla värden.
 
 Följande fråga räknar distinkta `Source` av `State`.
 
@@ -556,7 +556,7 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()**](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): returnerar en uppskattning av antalet distinkta värden för uttryck för rader som predikatet utvärderas till SANT.
+[**dcountif()**](https://docs.microsoft.com/azure/kusto/query/dcountif-aggfunction): Returnerar en uppskattning av antalet distinkta värden för uttryck för rader som predikatet utvärderas till SANT.
 
 Följande fråga räknar de distinkta värdena för `Source` där `DamageProperty < 5000`.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): beräknar den **dcount** HyperLogLog resultaten (genereras av [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)   eller [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): Beräknar den **dcount** HyperLogLog resultaten (genereras av [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) eller [**hll_merge** ](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 Följande fråga använder algoritmen HLL för att generera antalet.
 
@@ -585,7 +585,7 @@ StormEvents
 
 ### <a name="argmax"></a>arg_max()
 
-[**arg_max()**](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): söker efter en rad i den grupp som maximerar ett uttryck och returnerar värdet på ett annat uttryck (eller * att returnera hela raden).
+[**arg_max()**](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction): Söker efter en rad i den grupp som maximerar ett uttryck och returnerar värdet på ett annat uttryck (eller * att returnera hela raden).
 
 Följande fråga returnerar tidpunkten för senaste översvämning rapporten i varje tillstånd.
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): returnerar en dynamisk (JSON)-matris med uppsättning distinkta värden som tar ett uttryck i gruppen.
+[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction): Returnerar en dynamisk (JSON)-matris med uppsättning distinkta värden som tar ett uttryck i gruppen.
 
 Följande fråga returnerar alla tidpunkter när en mängd rapporterades av varje tillstånd och skapar en matris från uppsättningen med distinkta värden.
 
@@ -615,7 +615,7 @@ StormEvents
 
 ### <a name="mvexpand"></a>mvexpand
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): utökar Flervärde samling(ar) från en dynamisk typ kolumn så att varje värde i samlingen hämtar en separat rad. Alla andra kolumner i en utökad rad dupliceras. Det är motsatsen till makelist.
+[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator): Utökar Flervärde samling(ar) från en dynamisk typ kolumn så att varje värde i samlingen hämtar en separat rad. Alla andra kolumner i en utökad rad dupliceras. Det är motsatsen till makelist.
 
 Följande fråga genererar exempeldata genom att skapa en uppsättning och sedan använder den för att demonstrera den **mvexpand** funktioner.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): returnerar en uppskattning för den angivna [**närmaste rangordning: e percentilen**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) från den population som definieras av ett uttryck. Precisionen är beroende av tätheten av befolkningen i regionen i den: e percentilen. Kan endast användas i kontexten för aggregering i [**sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): Returnerar en uppskattning för den angivna [**närmaste rangordning: e percentilen**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) från den population som definieras av ett uttryck. Precisionen är beroende av tätheten av befolkningen i regionen i den: e percentilen. Kan endast användas i kontexten för aggregering i [**sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 Följande fråga beräknar percentilerna för storm varaktighet.
 
@@ -665,7 +665,7 @@ Det här avsnittet beskriver element som hjälper dig att skapa mer komplexa fr�
 
 ### <a name="let"></a>Låt
 
-[**Låt**](https://docs.microsoft.com/azure/kusto/query/letstatement): ger bättre flexibilitet och återanvändning. Den **låta** kan du dela upp ett eventuella komplicerade uttryck i flera delar, var och en bunden till ett namn och sätt ihop dessa delar tillsammans. En **låta** instruktionen kan också användas för att skapa användardefinierade funktioner och vyer (uttryck över tabeller vars resultatet ut en ny tabell). Uttryck bunden av en **låta** kan vara av skalär typ. av tabular typ eller en användardefinierad funktion (lambdas).
+[**let**](https://docs.microsoft.com/azure/kusto/query/letstatement): Ger bättre flexibilitet och återanvändning. Den **låta** kan du dela upp ett eventuella komplicerade uttryck i flera delar, var och en bunden till ett namn och sätt ihop dessa delar tillsammans. En **låta** instruktionen kan också användas för att skapa användardefinierade funktioner och vyer (uttryck över tabeller vars resultatet ut en ny tabell). Uttryck bunden av en **låta** kan vara av skalär typ. av tabular typ eller en användardefinierad funktion (lambdas).
 
 I följande exempel skapar en variabel för tabular typ och använder den i ett efterföljande uttryck.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**Anslut till**](https://docs.microsoft.com/azure/kusto/query/joinoperator): sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): Sammanfoga raderna i två tabeller för att skapa en ny tabell genom att matcha värdena i den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
 
 I följande exempel kopplar ihop två tabeller med en inre koppling.
 
@@ -713,9 +713,9 @@ X
 > [!TIP]
 > Använd **där** och **projekt** operatörer att minska antalet rader och kolumner i tabellerna indata innan kopplingen. Om en tabell alltid är mindre än den andra, kan du använda den som vänster (via rörledningar) sida i kopplingen. Kolumnerna för join-matchning måste ha samma namn. Använd den **projekt** operatör om det behövs för att byta namn på en kolumn i någon av tabellerna.
 
-### <a name="serialize"></a>serialisera
+### <a name="serialize"></a>serialize
 
-[**serialisera**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): Serialiserar raden så du kan använda funktioner som kräver serialiserade data som **row_number()**.
+[**serialize**](https://docs.microsoft.com/azure/kusto/query/serializeoperator): Serialiserar raden så du kan använda funktioner som kräver serialiserade data som **row_number()**.
 
 Följande fråga lyckas eftersom data serialiseras.
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>Frågor mellan databaser och mellan kluster
 
-[Frågor mellan databaser och mellan kluster](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): du kan fråga en databas i samma kluster genom att referera den som `database("MyDatabase").MyTable`. Du kan fråga en databas på ett fjärrkluster genom att referera till den som `cluster("MyCluster").database("MyDatabase").MyTable`.
+[Frågor mellan databaser och mellan kluster](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): Du kan fråga en databas i samma kluster genom att referera den som `database("MyDatabase").MyTable`. Du kan fråga en databas på ett fjärrkluster genom att referera till den som `cluster("MyCluster").database("MyDatabase").MyTable`.
 
 Följande fråga anropas från ett kluster och frågar data från `MyCluster` kluster. Använd dina egna klusternamnet och databasnamnet om du vill köra den här frågan.
 
@@ -755,9 +755,9 @@ cluster("MyCluster").database("Wiki").PageViews
 
 Det här avsnittet innehåller elementen och frågor som visar hur enkelt det är att analysera användarbeteenden i Kusto.
 
-### <a name="activitycountsmetrics-plugin"></a>activity_counts_metrics plugin-programmet
+### <a name="activitycountsmetrics-plugin"></a>activity_counts_metrics plugin
 
-[**plugin-programmet för activity_counts_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): beräknar användbara aktivitetsmått (totalt antal värden, Distinkt antal värden, Distinkt antal för nya värden och aggregerade Distinkt antal). Mått beräknas för varje tidsperiod och de är jämfört med och aggregeras till och med alla tidigare tidsfönster.
+[**activity_counts_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin): Beräknar användbara aktivitetsmått (totalt antal värden, Distinkt antal värden, Distinkt antal för nya värden och aggregerade Distinkt antal). Mått beräknas för varje tidsperiod och de är jämfört med och aggregeras till och med alla tidigare tidsfönster.
 
 Följande fråga analyserar användning genom att beräkna daglig aktivitet antal.
 
@@ -791,7 +791,7 @@ window)
 
 ### <a name="activityengagement-plugin"></a>activity_engagement plugin-programmet
 
-[**plugin-programmet för activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): beräknar aktivitet engagement förhållande baserat på ID-kolumnen under ett skjutfönster tidslinje. **plugin-programmet för activity_engagement** kan användas för att beräkna DAU och WAU MAU (dagliga, veckovisa och månatliga aktiva användare).
+[**plugin-programmet för activity_engagement**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin): Beräknar aktivitet engagement förhållande baserat på ID-kolumnen under ett skjutfönster tidslinje. **plugin-programmet för activity_engagement** kan användas för att beräkna DAU och WAU MAU (dagliga, veckovisa och månatliga aktiva användare).
 
 Följande fråga returnerar förhållandet mellan totalt antal distinkta användare som använder ett program som dagligen jämfört med Totalt antal distinkta användare som använder programmet varje vecka, på rörligt inom sju dagar.
 
@@ -815,9 +815,9 @@ range _day from _start to _end step 1d
 > [!TIP]
 > Vid beräkning av DAU/MAU, ändra datakälla och flytta fönstret perioden (OuterActivityWindow).
 
-### <a name="activitymetrics-plugin"></a>activity_metrics plugin-programmet
+### <a name="activitymetrics-plugin"></a>activity_metrics plugin
 
-[**plugin-programmet för activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningshastighet) baserat på det aktuella period fönstret jämfört med föregående period fönster.
+[**activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): Beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningshastighet) baserat på det aktuella period fönstret jämfört med föregående period fönster.
 
 Följande fråga beräknar omsättning och kvarhållning avgiften för den angivna datauppsättningen.
 
@@ -840,9 +840,9 @@ range _day from _start to _end step 1d
 | render timechart
 ```
 
-### <a name="newactivitymetrics-plugin"></a>new_activity_metrics plugin-programmet
+### <a name="newactivitymetrics-plugin"></a>new_activity_metrics plugin
 
-[**plugin-programmet för new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningsfrekvensen) för kohorten för nya användare. Konceptet med det här pluginprogrammet liknar [**activity_metrics plugin-programmet**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), men fokuserar på nya användare.
+[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): Beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningsfrekvensen) för kohorten för nya användare. Konceptet med det här pluginprogrammet liknar [**activity_metrics plugin-programmet**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), men fokuserar på nya användare.
 
 Följande fråga beräknar ett kvarhållning och omsättning pris med ett vecka over vecka fönster för den nya kohort för användare (användare som anlänt på den första veckan).
 
@@ -862,9 +862,9 @@ range Day from _start to _end step 1d
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
-### <a name="sessioncount-plugin"></a>session_count plugin-programmet
+### <a name="sessioncount-plugin"></a>session_count plugin
 
-[**plugin-programmet för session_count**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): beräknar antalet sessioner baserat på ID-kolumnen över en tidslinje.
+[**session_count plugin**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin): Beräknar antalet sessioner baserat på ID-kolumnen över en tidslinje.
 
 Följande fråga returnerar antalet sessioner. En session anses vara aktiv om ett användar-ID visas minst en gång i en tidsram 100-time-fack titt bak sessionsfönstret är 41-time-platser.
 
@@ -882,9 +882,9 @@ _data
 | render linechart
 ```
 
-### <a name="funnelsequence-plugin"></a>funnel_sequence plugin-programmet
+### <a name="funnelsequence-plugin"></a>funnel_sequence plugin
 
-[**plugin-programmet för funnel_sequence**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): beräknar Distinkt antal användare som har tagit en sekvens av tillstånd; visar fördelningen av föregående och nästa tillstånd som har lett till eller har följt av sekvensen.
+[**funnel_sequence plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin): Beräknar Distinkt antal användare som har tagit en sekvens av stater. Visar fördelningen av föregående och nästa tillstånd som har lett till eller har följt av sekvensen.
 
 Följande fråga visar vilka händelse inträffar före och efter alla storm-händelser i 2007.
 
@@ -898,9 +898,9 @@ StormEvents
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01), datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
 
-### <a name="funnelsequencecompletion-plugin"></a>funnel_sequence_completion plugin-programmet
+### <a name="funnelsequencecompletion-plugin"></a>funnel_sequence_completion plugin
 
-[**plugin-programmet för funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): beräknar tratten för slutförda sekvens steg inom olika tidsperioder.
+[**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Beräknar tratten för slutförda steg inom olika tidsperioder.
 
 Följande fråga kontrollerar slutförande tratten ordningen: `Hail -> Tornado -> Thunderstorm -> Wind` i ”övergripande” gånger på en timme, fyra timmar och en dag (`[1h, 4h, 1d]`).
 

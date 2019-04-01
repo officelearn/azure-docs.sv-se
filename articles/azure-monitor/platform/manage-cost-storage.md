@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295682"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755804"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Hantera användning och kostnader för Log Analytics i Azure Monitor
 
 > [!NOTE]
 > Den här artikeln beskriver hur du kan kontrollera dina kostnader i Log Analytics genom att ange kvarhållningsperioden för data.  Finns i följande artiklar för relaterad information.
 > - [Analysera dataanvändning i Log Analytics](manage-cost-storage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
 > - [Övervaka användning och uppskattade kostnader](usage-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
 
-Log Analytics har utformats för skalning och stöd för insamling av, indexering och lagra stora mängder data per dag från vilken källa som helst i ditt företag eller distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en Log Analytics-arbetsytan inte är bara baserat på mängden data som samlas in, och hur länge du har valt att lagra data som genereras från dina anslutna källor.  
+Log Analytics i Azure Monitor är utformad för att skala och supporten samla in, indexering och lagra stora mängder data per dag från vilken källa som helst i ditt företag eller distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en Log Analytics-arbetsytan inte är bara baserat på mängden data som samlas in, och hur länge du har valt att lagra data som genereras från dina anslutna källor.  
 
 I den här artikeln granskar vi hur du proaktivt övervakar tillväxt för volymen och lagring av data, och definiera gränser för att kontrollera de associerade kostnaderna. 
 
@@ -114,8 +114,6 @@ Om Log Analytics-arbetsytan har tillgång till äldre prisnivåer för att ändr
 
 Om du vill flytta din arbetsyta till aktuell prisnivå kan du behöva [ändra prismodellen i Azure Monitor för övervakning av din prenumeration](usage-estimated-costs.md#moving-to-the-new-pricing-model) som kommer att ändras prisnivån för alla arbetsytor i prenumerationen.
 
-> [!NOTE]
-> Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
 
 > [!NOTE]
 > Du kan läsa mer om [inställningen prisnivån via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) och hur du säkerställer att din ARM-distribution lyckas oavsett om prenumerationen är i äldre eller nya prismodellen. 

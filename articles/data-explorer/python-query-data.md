@@ -3,17 +3,17 @@ title: 'Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Dat
 description: I den här snabbstarten får du lära dig hur du frågar efter data i Azure Data Explorer med hjälp av Python.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 60e51ba42bddd97c8663a035a29b2ff4880acd8c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715128"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758617"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
@@ -21,7 +21,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 Den här snabbstarten är också tillgänglig som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En e-postadress för ett organisationskonto som är medlem i Azure Active Directory (AAD)
 

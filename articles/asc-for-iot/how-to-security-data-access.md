@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till data med hjälp av ASC för förhandsversionen av IoT | Microsoft Docs
-description: Läs mer om hur du kommer åt dina säkerhetsdata för avisering och rekommendationer när du använder ASC för IoT.
+title: Åtkomst till data med hjälp av Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Läs mer om hur du kommer åt dina säkerhetsdata för avisering och rekommendationer när du använder Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576647"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758528"
 ---
 # <a name="access-your-security-data"></a>Få åtkomst till dina säkerhetsdata 
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT lagrar säkerhetsaviseringar, rekommendationer och raw säkerhetsdata (om du väljer att spara den) i Log Analytics-arbetsytan.
+Azure Security Center (ASC) för IoT lagrar säkerhetsaviseringar, rekommendationer och raw säkerhetsdata (om du väljer att spara den) i Log Analytics-arbetsytan.
 
 ## <a name="log-analytics"></a>Log Analytics
 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Beskrivning | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En brandväggsregel hittades som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En brandväggsregel hittades som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En regel i brandväggen har hittats som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medel | Active | Tillåtande brandväggsregel i indata kedjan hittades | En regel i brandväggen har hittats som innehåller ett tillåtande mönster för ett brett intervall av IP-adresser eller portar | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>Sammanfattning av enhet
 

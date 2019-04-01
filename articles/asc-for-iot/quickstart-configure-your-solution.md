@@ -1,6 +1,6 @@
 ---
-title: Konfigurera din ASC för IoT-lösning förhandsversion | Microsoft Docs
-description: Lär dig hur du konfigurerar din IoT-lösning för slutpunkt till slutpunkt som använder ASC för IoT.
+title: Konfigurera Azure Security Center för IoT-lösning förhandsversion | Microsoft Docs
+description: Lär dig hur du konfigurerar din IoT-lösning för slutpunkt till slutpunkt som använder Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2a24db1124ecd9c2437eafee54d856120a77e97f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0fc67f77e907bd0bc939bf95b34ed4daaab29a2d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576453"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756785"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Snabbstart: Konfigurera din IoT-lösning
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln innehåller en förklaring av hur du utför inledande konfiguration av din IoT-säkerhetslösning med ASC för IoT. 
 
-## <a name="asc-for-iot"></a>ASC för IoT
+## <a name="azure-security-center-asc-for-iot"></a>Azure Security Center (ASC) för IoT
 
 ASC för IoT ger omfattande slutpunkt till slutpunkt för Azure-baserade IoT-lösningar.
 

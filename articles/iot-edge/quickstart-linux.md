@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224574"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758660"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet
 
@@ -128,7 +128,7 @@ Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den
 Om du använder Azure IoT Edge på Ubuntu-dator som beskrivs i förutsättningarna, har enheten redan installerat IoT Edge-körningen. Du behöver bara konfigurera din enhet med enhetens anslutningssträng som du hämtade i föregående avsnitt. Du kan göra det här på distans utan att behöva ansluta till den virtuella datorn. Kör följande kommando och byt ut **{device_connection_string}** med din egen sträng.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 Om du kör IoT Edge på din lokala dator eller en ARM32-enhet så måste du installera IoT Edge-körningen och dess förhandskrav på din enhet. Följ anvisningarna i [Installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) och kom sedan tillbaka till den här snabbstarten.

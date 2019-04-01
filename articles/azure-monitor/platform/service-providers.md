@@ -1,6 +1,6 @@
 ---
-title: Log Analytics för tjänsteleverantörer | Microsoft Docs
-description: Log Analytics kan hjälpa att Managed Service Providers (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur.
+title: Azure Monitor för tjänsteleverantörer | Microsoft Docs
+description: Azure Monitor kan hjälpa att Managed Service Providers (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264790"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756571"
 ---
-# <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
-Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
+# <a name="azure-monitor-for-service-providers"></a>Azure Monitor för tjänsteleverantörer
+Log Analytics-arbetsytor i Azure Monitor kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
 
 Stora företag dela många likheter med leverantörer, särskilt när det finns en central IT-teamet som ansvarar för att hantera IT för många olika affärsenheter. För enkelhetens skull det här dokumentet använder termen *tjänstleverantör* men samma funktion är också tillgängligt för företag och andra kunder.
 
-För partner och leverantörer som är en del av den [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programmet, Log Analytics är en av de Azure-tjänsterna finns i [Azure CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+För partner och leverantörer som är en del av den [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programmet, Log Analytics i Azure Monitor är en av de Azure-tjänsterna finns i [Azure CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Arkitekturer för tjänsteleverantörer
 
@@ -70,11 +70,11 @@ Nackdelarna med den här arkitekturen är:
 
 Den tredje arkitekturen blanda mellan de två alternativen. Den är baserad på den första distribuerade arkitektur där loggarna är lokala för varje kund men med någon mekanism för att skapa en central databas av loggar. En del av loggarna hämtas till en central plats för rapportering och analys. Den här delen kan vara litet antal datatyper eller en sammanfattning av aktiviteter, till exempel dagliga statistik.
 
-Det finns två alternativ för att implementera den centrala platsen i Log Analytics:
+Det finns två alternativ för att implementera loggar på en central plats:
 
 1. Central arbetsyta: Tjänstleverantören kan skapa en arbetsyta i dess klient och använda ett skript som använder den [fråge-API](https://dev.loganalytics.io/) med den [Data samling API: et](../../azure-monitor/platform/data-collector-api.md) att flytta data från olika arbetsytor till den här centrala platsen. Ett annat alternativ än ett skript, är att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Powerbi som en central plats: Powerbi kan fungera som den centrala platsen när olika arbetsytor exporterar data till den med hjälp av integrering mellan Log Analytics och [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Powerbi som en central plats: Powerbi kan fungera som den centrala platsen när olika arbetsytor exporterar data till den med hjälp av integrering mellan Log Analytics-arbetsytan och [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg

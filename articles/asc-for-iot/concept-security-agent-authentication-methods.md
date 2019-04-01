@@ -1,6 +1,6 @@
 ---
-title: Autentiseringsmetoder för ASC för förhandsversionen av IoT | Microsoft Docs
-description: Läs mer om de olika autentiseringsmetoderna som är tillgängliga när du använder ASC för IoT-tjänsten.
+title: Autentiseringsmetoder för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Läs mer om de olika autentiseringsmetoderna som är tillgängliga när du använder Azure Security Center för IoT-tjänsten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577808"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758386"
 ---
 # <a name="security-agent-authentication-methods"></a>Security-agenten autentiseringsmetoder 
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här artikeln beskrivs de olika autentiseringsmetoderna som du kan använda med AzureIoTSecurity agent för att autentisera med IoT Hub.
 
-För varje enhet har integrerats i ASC för IoT i IoT Hub krävs en modul för maskinvarusäkerhet. ASC för IoT som för att autentisera enheten kan använda någon av två metoder. Välj den metod som passar bäst för din befintliga IoT-lösning. 
+En modul för maskinvarusäkerhet krävs för varje enhet publicerats till Azure Security Center (ASC) för IoT i IoT Hub. ASC för IoT som för att autentisera enheten kan använda någon av två metoder. Välj den metod som passar bäst för din befintliga IoT-lösning. 
 
 > [!div class="checklist"]
 > * Modulen säkerhetsalternativ

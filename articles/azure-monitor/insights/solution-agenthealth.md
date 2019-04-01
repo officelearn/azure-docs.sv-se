@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983395"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757970"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
-Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Azure Monitor, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsolösning i Azure Monitor
+Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta i Azure Monitor eller en System Center Operations Manager-hanteringsgrupp som är anslutna till Azure Monitor, som är inte svarar och Skicka användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) integrerad med din arbetsyta.
@@ -62,7 +62,7 @@ Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agen
 | Distribution enligt OS-typ | En partition av hur många Windows och Linux-agenter du har i din miljö.|
 | Distribution enligt Agent-version | En partition av olika agentversioner som installerats i din miljö och antalet av vardera.|
 | Distribution enligt Agent-kategori | En partition av olika typer av agenter som skickar händelser för pulsslag: direkta agenter, OpsMgr-agenter eller OpsMgr Management Server.|
-| Distribution enligt hanteringsgrupp | En partition av olika SCOM-hanteringsgrupper i din miljö.|
+| Distribution enligt hanteringsgrupp | En partition av olika Operations Manager Management-grupper i din miljö.|
 | Geoplats för agenter | En partition av olika länder där du har agenter och det sammanlagda antalet agenter som har installerats i varje land.|
 | Antalet installerade Gateways | Antalet servrar som har installerad Log Analytics-gateway och en lista över dessa servrar.|
 
@@ -117,4 +117,4 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [aviseringar i Azure Monitor](../platform/alerts-overview.md) för information om att generera aviseringar från Log Analytics. 
+* Lär dig mer om [aviseringar i Azure Monitor](../platform/alerts-overview.md) för information om att generera aviseringar från loggfrågor. 

@@ -3,17 +3,17 @@ title: 'Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard
 description: I den här snabbstarten lär du dig att mata in (läsa in) data i Azure-datautforskaren med hjälp av .NET Standard SDK.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: 0197ae8077a00111e005e5686efcd2597b995bcb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 327ab46b01e15b77e675e052dbfe8b3453b566a6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007031"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757109"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
 

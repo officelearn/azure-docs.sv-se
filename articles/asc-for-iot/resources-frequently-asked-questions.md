@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om ASC för förhandsversionen av IoT | Microsoft Docs
-description: Hitta svar på vanliga frågor om ASC för IoT-funktioner och -tjänsten.
+title: Vanliga frågor om Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Hitta svar på vanliga frågor om Azure Security Center för IoT-funktioner och -tjänsten.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575155"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755332"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>Vanliga och frågor svar om ASC för IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Security Center för IoT  
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln innehåller en lista över vanliga frågor och svar om ASC för IoT. 
+Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Security Center (ASC) för IoT. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>Tillhandahåller Azure stöd för IoT-säkerhet?
 

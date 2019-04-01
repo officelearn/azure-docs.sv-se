@@ -3,19 +3,19 @@ title: 'Snabbstart: Visualisera data med hjälp av en SQL-fråga i Power BI'
 description: 'I den här snabbstarten lär du dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: en SQL-fråga mot ett Azure Data Explorer-kluster.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977292"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756343"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Snabbstart: Visualisera data med hjälp av Azure Data Explorer-anslutningsappen för Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Snabbstart: Visualisera data med Azure Data Explorer-kopplingen för Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen.
 
@@ -23,7 +23,7 @@ Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här snabbstarten:
 
@@ -69,7 +69,7 @@ Du använder vanligtvis det interna frågespråket med Azure Data Explorer, men 
 
     ![Logga in](media/power-bi-sql-query/sign-in.png)
 
-1. På skärmen **help.kusto.windows.net: exempel** väljer du **Läs in**.
+1. På den **help.kusto.windows.net: Exempel** väljer **belastningen**.
 
     ![Läsa in data](media/power-bi-sql-query/load-data.png)
 
@@ -86,4 +86,4 @@ Om du inte längre behöver den rapport som du skapade för den här snabbstarte
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Visualisera data med hjälp av en importerad fråga i Power BI](power-bi-connector.md)
+> [Snabbstart: Visualisera data med hjälp av en fråga för importerade i Power BI](power-bi-connector.md)

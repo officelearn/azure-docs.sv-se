@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445491"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756816"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
+Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, DevOps-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
 
 ## <a name="built-in-monitoring-roles"></a>Inbyggd övervakning roller
 Azure Monitor inbyggda roller är avsedda att begränsa åtkomsten till resurser i en prenumeration samtidigt som de som ansvarar för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor innehåller två out-of the box-roller: En övervakning läsare och deltagare övervakning.
@@ -38,10 +38,10 @@ Personer som har tilldelats rollen övervakning läsare kan visa alla övervakni
 * Få åtkomst till Application Insights-data och visa data i AI-Analytics.
 * Söka efter Log Analytics-arbetsytedata, inklusive användningsdata för arbetsytan.
 * Visa Log Analytics-hanteringsgrupper.
-* Hämta sökschema Log Analytics.
-* Lista över informationspaket som Log Analytics.
-* Hämta och köra sparade sökningar Log Analytics.
-* Hämta konfiguration för logganalys-lagring.
+* Hämta sökschema i Log Analytics-arbetsyta.
+* Lista över Övervakningspaket i Log Analytics-arbetsyta.
+* Hämta och köra sparade sökningar i Log Analytics-arbetsyta.
+* Hämta lagringskonfiguration för Log Analytics-arbetsytan.
 
 > [!NOTE]
 > Den här rollen ger inte läsbehörighet för loggdata som strömmas till en event hub eller lagras i ett lagringskonto. [Se nedan](#security-considerations-for-monitoring-data) information om hur du konfigurerar åtkomst till dessa resurser.
@@ -57,9 +57,9 @@ Personer som har tilldelats rollen övervakning deltagare kan visa alla övervak
 * Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Skapa webbtester med Application Insights och komponenter.
 * Lista Log Analytics-arbetsyta delade nycklar.
-* Aktivera eller inaktivera informationspaket för Log Analytics.
-* Skapa och ta bort och köra sparade sökningar Log Analytics.
-* Skapa och ta bort konfigurationen för logganalys-lagring.
+* Aktivera eller inaktivera Övervakningspaket i Log Analytics-arbetsyta.
+* Skapa och ta bort och köra sparade sökningar i Log Analytics-arbetsyta.
+* Skapa och ta bort lagringskonfiguration för Log Analytics-arbetsytan.
 
 \*användaren måste också ha behörigheten Listnycklar på målresursen (lagring eller event hub namnrymden) att ange en av loggprofil eller diagnostiska inställningen.
 

@@ -10,20 +10,20 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312250"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756538"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C#
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du kommer lära dig att köra termbaserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Lägg till följande kod i metoden **Main**. Metoden **ScreenText** är en viktig åtgärd. Dess parametrar anger vilka åtgärder för innehållsmoderering som kommer att göras. I det här exemplet konfigureras metoden för att:
 - Identifiera potentiellt olämpligt språk i texten.
 - Normalisera texten och autokorrigera stavfel.
-- Identifiera personligt identifierbar information (PII), till exempel telefonnummer i USA och Storbritannien, e-postadresser och amerikanska postadresser.
+- Identifiera personliga data, t.ex. USA och Storbritannien telefonnummer, e-postadresser, och USA e-postadresser.
 - Använd maskininlärningsbaserade modeller för att klassificera texten i tre kategorier.
 
 Om du vill veta mer om vad de här åtgärderna gör följer du länken i avsnittet [Nästa steg](#next-steps).

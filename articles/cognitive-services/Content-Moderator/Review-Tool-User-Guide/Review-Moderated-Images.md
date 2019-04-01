@@ -1,5 +1,5 @@
 ---
-title: Granska taggade bilder - Content Moderator
+title: Använd content granskningar via granskningsverktyget - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Lär dig hur granskningsverktyget hjälper mänskliga moderatorer att granska bilder i en webbportal.
 services: cognitive-services
@@ -8,39 +8,52 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: e096e65e3016f33361f772a75ab8f71603970a5f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096613"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758492"
 ---
-# <a name="let-human-reviewers-review-images"></a>Låt mänsklig granskare granska bilder
+# <a name="create-human-reviews"></a>Skapa mänsklig granskning
 
-När du har registrerat dig för innehållsmoderering och fick en prenumerationsnyckel, kan du testa avbildningen granska funktioner.
+I den här guiden får du lära dig hur du ställer in [granskar](../review-api.md#reviews) på webbplatsen granska verktyget. Granskningar lagra och visa innehållet för mänskliga moderatorer att utvärdera. Moderatorer kan ändra de tillämpade taggarna och lägga till sina egna anpassade taggar efter behov. När en användare har slutfört en granskning, resultaten skickas till en slutpunkt för angivna återanrop och innehållet tas bort från platsen.
 
-1. Öppna den [verktyg för mänsklig granskning](https://contentmoderator.cognitive.microsoft.com/) och logga in. 
-2. Klicka på fliken försök och ladda upp vissa bilder för att granska.
-3. Klicka på fliken Granska och välj avbildning.
+## <a name="prerequisites"></a>Förutsättningar
 
-   ![Webbläsaren Chrome som visar granskningsverktyget med alternativet granska bild markerat](images/review-images-1.png)
+- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 
-   Det visas bilderna med etiketter som har tilldelats av granskningsverktyget. Bilderna är inte tillgängliga för andra granskare i din grupp när du granskar dem.
+## <a name="image-reviews"></a>Bildomdömen
 
-4. Flytta skjutreglaget ”går igenom om du vill visa” (1) för att justera antalet bilder som visas på skärmen. Klicka på taggade otaggade knapparna eller (2) att sortera avbildningarna i enlighet med detta. Klicka på en tagg (3) för att växla den eller inaktivera.
+1. Gå till den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/)väljer den **försök** fliken och ladda upp vissa bilder för att granska.
+1. När bearbetningen är klar med de överförda bilderna, går du till den **granska** fliken och markera **bild**.
 
-   ![Webbläsaren Chrome som visar granskningsverktyget med taggade bilder för granskning](images/review-images-2.png)
- 
-5. Om du vill se mer information om en bild klickar du på ellipsen i en miniatyr, följt av den **visa information om** alternativet. Om du vill tilldela en undergrupper bilden, Välj den **flytta till** alternativet.
- 
-   ![En bild med alternativet Visa information om markerad](images/review-images-3.png)
+    ![Webbläsaren Chrome som visar granskningsverktyget med alternativet granska bild markerat](images/review-images-1.png)
 
-6. Bläddra moderering bildinformation på sidan.
+    Det visas bilderna med etiketter som har tilldelats av automatisk moderering process. Bilder som du har skickat in via granskningsverktyget visas inte för andra granskare.
 
-   ![En bild med moderering information som visas i ett separat fönster](images/review-images-4.png)
- 
-7. När du har granskat och uppdatera taggen tilldelningar efter behov, klickar du på **nästa** att skicka din granskningar.
+1. Du kan också flytta den **granskningar för att visa** skjutreglaget (1) för att justera antalet bilder som visas på skärmen. Klicka på den **taggade** eller **ej taggade** knappar (2) för att sortera avbildningarna på lämpligt sätt. Klicka på en panel taggen (3) att växla den eller inaktivera.
 
-När du skickar det behöver cirka fem sekunder klickar du på den **föregående** vill gå till föregående sida och granska avbildningar igen. Efter det bilderna inte längre skicka kön och **föregående** knappen är inte längre tillgänglig.
+    ![Webbläsaren Chrome som visar granskningsverktyget med taggade bilder för granskning](images/review-images-2.png)
+
+1. Om du vill se mer information om en bild, klicka på ellipsknappen i miniatyr och välj **visa information om**. Du kan tilldela en avbildning till en undergrupper med den **flytta till** alternativet (se den [team](./configure.md#manage-team-and-subteams) att ta reda på mer om undergrupper).
+
+    ![En bild med alternativet Visa information om markerad](images/review-images-3.png)
+
+1. Bläddra moderering bildinformation på sidan.
+
+    ![En bild med moderering information som visas i ett separat fönster](images/review-images-4.png)
+
+1. När du har granskat och uppdatera taggen tilldelningar efter behov, klickar du på **nästa** att skicka din granskningar. När du skickar det behöver cirka fem sekunder klickar du på den **föregående** vill gå till föregående sida och granska avbildningar igen. Efter det bilderna inte längre skicka kön och **föregående** knappen är inte längre tillgänglig.
+
+## <a name="text-reviews"></a>Textomdömen
+
+Text granskar funktion på samma sätt som bild granskningar. I stället för att överföra innehåll du helt enkelt skriva eller klistra in text (upp till 1 024 tecken). Content Moderator analyserar texten och tillämpar taggar (utöver andra moderering information, t.ex svordomar och personliga data). I textomdömen, du kan växla tillämpade taggar och/eller lägga till anpassade taggar innan du skickar granskningen.
+
+![Skärmbild av granska verktyget visar flaggade text i ett webbläsarfönster för Chrome](../images/reviewresults_text.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här handboken beskrivs hur du skapar och använder granskningar från Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com). Sedan kan du se den [REST API-guiden](../try-review-api-review.md) eller [.NET SDK guide](../moderation-reviews-quickstart-dotnet.md) att lära dig hur du skapar granskningar programmässigt.

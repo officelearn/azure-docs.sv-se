@@ -1,90 +1,86 @@
 ---
-title: Definiera och Använd innehållsmoderering arbetsflöden – Content Moderator
+title: Definiera och använda innehåll arbetsflöden via granskningsverktyget - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 'Du kan använda Azure Content Moderator arbetsflödesdesigner och API: er för att definiera anpassade arbetsflöden och tröskelvärden baserat på dina principer för innehåll.'
+description: Du kan använda Azure Content Moderator Arbetsflödesdesignern för att definiera anpassade arbetsflöden och tröskelvärden baserat på dina principer för innehåll.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8fe380e3015e5b6929aebcb898eef44d6f6bceda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213284"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757400"
 ---
-# <a name="define-test-and-use-workflows"></a>Definiera, testa och använda arbetsflöden
+# <a name="define-and-use-moderation-workflows"></a>Definiera och Använd moderering arbetsflöden
 
-Du kan använda Azure Content Moderator arbetsflödesdesigner och API: er för att definiera anpassade arbetsflöden och tröskelvärden baserat på dina principer för innehåll.
+I den här guiden kommer du lära dig hur du konfigurerar och använder [arbetsflöden](../review-api.md#workflows) på den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) webbplats. Arbetsflöden är molnbaserade anpassade filter som du kan använda för att hantera innehåll på ett mer effektivt. Arbetsflöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Den här guiden visar hur du använder Content Moderator-anslutningen (som ingår som standard) för att filtrera innehåll och ställa in mänsklig granskning i ett scenario med vanliga moderering.
 
-Arbetsflöden Anslut ”” Content Moderator-API: et via anslutningar. Du kan använda API: er om det finns en koppling för det API: et. I det här exemplet använder Content Moderator connector som ingår som standard.
+## <a name="create-a-new-workflow"></a>Skapa ett nytt arbetsflöde
 
-## <a name="browse-to-the-workflows-section"></a>Bläddra till avsnittet om arbetsflöden
+Gå till den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och logga in. På den **inställningar** fliken **arbetsflöden**.
 
-På den **inställningar** fliken **arbetsflöden**.
+![Arbetsflöden som inställning](images/2-workflows-0.png)
 
-  ![Arbetsflöden som inställning](images/2-workflows-0.png)
+På nästa skärm väljer **lägga till arbetsflödet**.
 
-## <a name="start-a-new-workflow"></a>Starta ett nytt arbetsflöde
+![Lägg till ett arbetsflöde](images/2-workflows-1.png)
 
-Välj **lägga till arbetsflödet**.
+### <a name="assign-a-name-and-description"></a>Tilldela ett namn och beskrivning
 
-  ![Lägg till ett arbetsflöde](images/2-workflows-1.png)
+Namnge ditt arbetsflöde, ange en beskrivning och välj om arbetsflödet ska hantera bilder eller text.
 
-## <a name="assign-a-name-and-description"></a>Tilldela ett namn och beskrivning
+![Arbetsflödesnamn och beskrivning](images/image-workflow-create.PNG)
 
-Namnge ditt arbetsflöde, ange en beskrivning och välj om arbetsflödet hanterar bilder eller text.
+### <a name="define-evaluation-criteria"></a>Definiera kriterier för utvärdering
 
-  ![Arbetsflödesnamn och beskrivning](images/ocr-workflow-step-1.PNG)
+På nästa skärm, går du till den **om** avsnittet. I den övre nedrullningsbara menyn väljer du **villkor**. Detta kan du konfigurera det villkor som arbetsflödet ska utföra åtgärder. Om du vill använda flera villkor väljer **kombination** i stället. 
 
-## <a name="define-the-evaluation-criteria-condition"></a>Definiera utvärderingskriterierna (”villkor”)
+Välj sedan en koppling. Det här exemplet används **Content Moderator**. Beroende på den koppling som du väljer får du olika alternativ för utdata. Se den [kopplingar](./configure.md#connectors) i inställningar-guiden granska verktyget för att lära dig hur du ställer in andra anslutningsappar.
 
-I följande skärmbild ser du fälten och If-Then-Else valen som du behöver definiera för dina arbetsflöden. Välj en anslutning. Det här exemplet används **Content Moderator**. De tillgängliga alternativen för utdata ändras beroende på den koppling som du väljer.
+![Välj för Arbetsflödeskoppling](images/image-workflow-connect-to.PNG)
 
-  ![Definiera arbetsflödesvillkor](images/ocr-workflow-step-2-condition.PNG)
+Välj önskad utdata du använder och ange villkor för att kontrollera att den mot.
 
-När du har valt kopplingen och dess utdata som du vill välja en operator och värde för villkoret.
+![Definiera arbetsflödesvillkor](images/image-workflow-condition.PNG)
 
-## <a name="define-the-action-to-take"></a>Definiera åtgärd att vidta
+### <a name="define-the-action"></a>Definiera åtgärden
 
-Välj åtgärden som ska vidtas och som uppfyller villkoret. I följande exempel skapar en avbildning granskning, tilldelar en tagg `a`, och visar det villkoret som visas. Du kan också kombinera flera villkor för att få de resultat du vill ha. Du kan också lägga till en alternativ sökväg (annars).
+Gå till den **sedan** avsnitt, där du kan välja en åtgärd. I följande exempel skapar en avbildning granskning och tilldelar en tagg. Du kan också lägga till en alternativ sökväg (annars) och anger en åtgärd för att även.
 
-  ![Definiera arbetsflödesåtgärden](images/ocr-workflow-step-3-action.PNG)
+![Definiera arbetsflödesåtgärden](images/image-workflow-action.PNG)
 
-## <a name="save-your-workflow"></a>Spara ditt arbetsflöde
+### <a name="save-the-workflow"></a>Spara arbetsflödet
 
-Slutligen kan du spara arbetsflödet och Observera Arbetsflödesnamnet. Du behöver namnet som ska starta ett jobb för moderering med hjälp av API för granskning.
+Obs Arbetsflödesnamnet; Du behöver namnet som ska starta ett jobb för moderering med arbetsflödet API (se nedan). Slutligen kan spara arbetsflödet med hjälp av den **spara** längst upp på sidan.
 
 ## <a name="test-the-workflow"></a>Testa arbetsflödet
 
-Nu när du har definierat ett anpassat arbetsflöde kan du testa den innehåll.
+Nu när du har definierat ett anpassat arbetsflöde kan du testa den innehåll. Gå till **arbetsflöden** och välj sedan motsvarande **köra arbetsflödet** knappen.
 
-Välj sedan motsvarande **köra arbetsflödet** knappen.
+![Arbetsflödet test](images/image-workflow-execute.PNG)
 
-  ![Arbetsflödet test](images/ocr-workflow-step-6-list.PNG)
+Spara den [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) till din lokala enhet. Välj sedan **väljer fil(er)** och överför avbildningen till arbetsflödet.
 
-### <a name="upload-a-file"></a>Ladda upp en fil
+![en kvinna i en badning färg](images/sample-racy.PNG)
 
-Spara den [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) till din lokala enhet. Om du vill testa arbetsflödet, Välj **väljer fil(er)** och ladda upp avbildningen.
+### <a name="track-progress"></a>Spåra förlopp
 
-  ![Ladda upp avbildningsfilen](images/ocr-workflow-step-7-upload.PNG)
+Du kan visa förloppet för arbetsflödet i nästa popup-fönstret.
 
-### <a name="track-the-workflow"></a>Spåra arbetsflödet
+![Spåra arbetsflödeskörning](images/image-workflow-job.PNG)
 
-Spåra arbetsflödet när den körs.
+### <a name="verify-workflow-action"></a>Kontrollera arbetsflödesåtgärden
 
-  ![Spåra arbetsflödeskörning](images/ocr-workflow-step-4-test.PNG)
+Gå till den **bild** fliken **granska** och kontrollera att det finns en granskning av nyligen skapade avbildningen.
 
-### <a name="review-any-images-flagged-for-human-moderation"></a>Granska alla bilder som har flaggats för mänskliga moderering
+![Granska bilder](images/image-workflow-review.PNG)
 
-Att se avbildningen granska, gå till den **bild** fliken **granska**.
+## <a name="next-steps"></a>Nästa steg
 
-  ![Granska bilder](images/ocr-sample-image-workflow1.PNG)
-
-## <a name="next-steps"></a>Nästa steg 
-
-För att anropa arbetsflödet från kod använder du anpassade arbetsflöden med den [ `Job` API konsolen Snabbstart](../try-review-api-job.md) och [Snabbstart för .NET SDK](../moderation-jobs-quickstart-dotnet.md).
+I den här guiden beskrivs hur du konfigurerar och använder moderering arbetsflöden från Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com). Sedan kan du se den [REST API-guiden](../try-review-api-workflow.md) att lära dig hur du skapar arbetsflöden programmässigt.

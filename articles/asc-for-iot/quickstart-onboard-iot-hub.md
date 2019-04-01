@@ -1,6 +1,6 @@
 ---
-title: Aktivera ASC för IoT-tjänsten i förhandsversionen av IoT Hub | Microsoft Docs
-description: Lär dig hur du aktiverar ASC för IoT-tjänsten i din IoT-hubb.
+title: Använd Azure Security Center för IoT-tjänsten i förhandsversionen av IoT Hub | Microsoft Docs
+description: Lär dig hur du aktiverar Azure Security Center för IoT-tjänsten i din IoT-hubb.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cea7517a99358d41a8ba60a78b4e2bfdbdeaf0e8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cb89bb4316b1cd62b3b42a6a0fa05a9fa4513e54
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576232"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754322"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln innehåller en förklaring på hur du aktiverar ASC för IoT-förhandsversioner på IoT Hub.  
+Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security Center (ASC) för IoT-förhandsversioner på IoT Hub.  
 
 > [!NOTE]
-> ASC för IoT för närvarande stöder endast standard-nivån och högre IoT-hubbar.
->ASC för IoT är en enda hubb-lösning. Om du behöver flera hubbar krävs flera lösningar. 
+> Azure Security Center för IoT för närvarande stöder endast standard-nivån och högre IoT-hubbar.
+> Azure Security Center för IoT är en enda hubb-lösning. Om du behöver flera hubbar krävs flera lösningar. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Förutsättningar för att aktivera tjänsten
 

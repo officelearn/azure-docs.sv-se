@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445933"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757137"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>En underordnad ansluts till en Azure IoT Edge-gateway
 
@@ -43,7 +43,7 @@ Innan du följer stegen i den här artikeln bör du ha två enheter som är redo
     För närvarande ansluta endast underordnade enheter med symmetrisk nyckelautentisering via IoT Edge-gatewayer. X.509-certifikatutfärdare och självsignerat X.509-certifikat stöds inte för närvarande.
     
 > [!NOTE]
-> ”Gatewaynamnet” används för att skapa certifikaten i den här instruktionen måste vara samma namn som används som värdnamn i IoT Edge config.yaml filen och som GatewayHostName i anslutningssträngen för den underordnade enheten. ”Gateway-name” måste kunna matchas till en IP-adress, antingen med hjälp av DNS- eller en host-filpost. Kommunikationen baserat på det protokoll som används (MQTTS:8883 / AMQPS:5671 / HTTPS:433) måste vara mellan underordnad enhet och transparant IoT Edge. Om en brandvägg mellan, måste respektive porten vara öppen.
+> ”” Används i denna artikel måste gatewaynamnet vara samma namn som används som värdnamn i din IoT Edge config.yaml-fil. Gatewaynamnet måste kunna matchas till en IP-adress, antingen med hjälp av DNS- eller en host-filpost. Kommunikationen baserat på det protokoll som används (MQTTS:8883 / AMQPS:5671 / HTTPS:433) måste vara mellan underordnad enhet och transparant IoT Edge. Om en brandvägg mellan, måste respektive porten vara öppen.
 
 ## <a name="prepare-a-downstream-device"></a>Förbereda en underordnad enhet
 
@@ -197,6 +197,14 @@ Det här är ett exempel på kommando vilka tester som allt har ställa in korre
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Felsöka gateway-anslutning
+
+Om enheten löv har tillfällig anslutning till dess gateway-enhet kan du prova följande steg för matchning. 
+
+1. Är gateway-namn läggs till anslutningen sträng identiskt värdnamnet i filen IoT Edge config.yaml på gateway-enheten?
+2. Är gateway-namn matchas till en IP-adress? Du kan lösa intenmittent anslutningar med hjälp av DNS eller genom att lägga till en host-filpost på löv-enheten.
+3. Är kommunikationsportar öppen i brandväggen? Kommunikationen baserat på det protokoll som används (MQTTS:8883 / AMQPS:5671 / HTTPS:433) måste vara mellan underordnad enhet och transparant IoT Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 

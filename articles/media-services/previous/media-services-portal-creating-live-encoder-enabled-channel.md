@@ -1,5 +1,5 @@
 ---
-title: Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen | Microsoft Docs
+title: Utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med Azure-portalen | Microsoft Docs
 description: De här självstudierna visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med flera bithastigheter med hjälp av Azure-portalen.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258097"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757797"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure-portalen  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 > [!NOTE]
 > Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 
-1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
+1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.
-2. Skapa och starta en kanal. 
-3. Hämta kanalens infognings-URL. 
+1. Skapa och starta en kanal. 
+1. Hämta kanalens infognings-URL. 
 
     Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
-4. Hämta kanalens förhandsgransknings-URL. 
+1. Hämta kanalens förhandsgransknings-URL. 
 
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
-5. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
-6. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).    
-7. Starta händelsen när du är redo att påbörja strömning och arkivering.
-8. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
-9. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
-10. Ta bort händelsen (och ta eventuellt bort tillgången).   
-
-## <a name="in-this-tutorial"></a>I den här självstudien
-I de här självstudierna används Azure-portalen för att utföra följande uppgifter: 
-
-1. Skapa en kanal som är aktiverad för att utföra Live Encoding.
-2. Hämta infognings-URL:en i syfte att tillhandahålla den till livekodaren. Live Encoding använder denna URL för att infoga dataströmmen i kanalen.
-3. Skapa en händelse/ett program (och en tillgång).
-4. Publicera tillgången och hämta direktuppspelnings-URL:er.  
-5. Spela upp ditt innehåll.
-6. Rensa.
+1. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
+1. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).    
+1. Starta händelsen när du är redo att påbörja strömning och arkivering.
+1. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+1. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
+1. Ta bort händelsen (och ta eventuellt bort tillgången).   
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Följande krävs för att kunna genomföra självstudien.
 
 * Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. 
@@ -78,6 +70,7 @@ Följande krävs för att kunna genomföra självstudien.
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
+
 1. I [Azure-portalen](https://portal.azure.com/) klickar du på Media Services och sedan på namnet för Media Services-kontot.
 2. Välj **Liveuppspelning**.
 3. Välj **Skapa anpassad**. Det här alternativet gör att du kan skapa en kanal som är aktiverad för Live Encoding.
@@ -120,9 +113,10 @@ Mer information finns i [Direktsänd strömning med Azure Media Services för at
 ## <a name="get-ingest-urls"></a>Hämta infognings-URL:er
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![mata in URL: er](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Skapa och hantera händelser
+
 ### <a name="overview"></a>Översikt
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser/program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
 
@@ -154,7 +148,7 @@ Det finns två sätt att starta en händelse:
 
     Ange: händelsens namn, tillgångsnamn, arkivfönster och krypteringsalternativ.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Skapa program](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Om du markerat **Publicera denna live-händelse nu** skapas händelsens PUBLICERINGS-URL:ER.
 

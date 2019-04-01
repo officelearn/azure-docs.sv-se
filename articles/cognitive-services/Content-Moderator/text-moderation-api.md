@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864306"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757763"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig principerna för moderering av text
 
@@ -26,7 +26,7 @@ Tjänstsvaret innehåller följande information:
 
 - Svordomar: termen-baserade matchar med inbyggda termlista olämpliga på olika språk
 - Klassificering: datorstödd klassificering i tre kategorier
-- Personligt identifierbar Information (PII)
+- Personliga data
 - Korrigeras automatiskt text
 - Originaltexten
 - Språk
@@ -75,7 +75,7 @@ Följande extrahera i JSON-extrahera visar ett exempel på utdata:
 - `Score` är mellan 0 och 1. Ju högre poäng desto högre modellen är att förutsäga att kategorin kan användas. Den här funktionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll att avgöra hur varje kategori stämmer överens med dina behov.
 - `ReviewRecommended` är true eller false beroende på den interna poängen tröskelvärden. Kunder bör utvärdera om du vill använda det här värdet eller välja anpassade tröskelvärden baserat på deras innehåll principer.
 
-## <a name="personally-identifiable-information-pii"></a>Personligt identifierbar Information (PII)
+## <a name="personal-data"></a>Personliga data
 
 Funktionen PII identifierar potentiella förekomst av den här informationen:
 

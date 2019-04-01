@@ -1,6 +1,6 @@
 ---
-title: Förstå ASC för IoT security modultvillingar förhandsversion | Microsoft Docs
-description: Läs mer om begreppet modultvillingar för säkerhet och hur de används i ASC för IoT.
+title: Förstå Azure Security Center för IoT-säkerhetsmodul twins förhandsversion | Microsoft Docs
+description: Läs mer om begreppet modultvillingar för säkerhet och hur de används i Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579384"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758410"
 ---
 # <a name="security-module"></a>Säkerhetsmodul
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln förklarar hur ASC för IoT använder enhetstvillingar och moduler. 
+Den här artikeln förklarar hur Azure Security Center (ASC) för IoT använder enhetstvillingar och moduler. 
 
 ## <a name="device-twins"></a>Enhetstvillingar
 

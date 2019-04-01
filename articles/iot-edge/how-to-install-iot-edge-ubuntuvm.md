@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.author: gregman
-ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5cb15f45508b60a1b7f8c9049b8779c1b7d31150
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116426"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757933"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu-datorer
 
@@ -85,7 +85,7 @@ Sök efter ”Azure IoT Edge” från Azure-portalen och välj **Ubuntu Server 1
 1. Ange anslutningssträngen för enheten (du kan följa den [registrera en ny Azure IoT Edge-enhet med Azure CLI](how-to-register-device-cli.md) här guiden om du inte är bekant med den här processen):
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 Om du vill att SSH till den här virtuella datorn efter installationen, använder du publicIpAddress med kommandot: `ssh azureuser@{publicIpAddress}`

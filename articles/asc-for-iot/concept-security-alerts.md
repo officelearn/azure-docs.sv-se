@@ -1,6 +1,6 @@
 ---
-title: Aviseringen säkerhetsguiden för ASC för förhandsversionen av IoT | Microsoft Docs
-description: Läs mer om säkerhetsaviseringar och rekommenderade åtgärder med hjälp av ASC för IoT-funktioner och -tjänsten.
+title: Aviseringen säkerhetsguiden för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Läs mer om säkerhetsaviseringar och rekommenderade åtgärder med hjälp av Azure Security Center för IoT-funktioner och -tjänsten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579452"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755111"
 ---
-# <a name="asc-for-iot-security-alerts"></a>ASC för IoT-säkerhetsvarningar
+# <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center för IoT-säkerhetsvarningar
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT analyserar kontinuerligt dina IoT-lösning med avancerade analyser och hotinformation för att varna dig om skadlig aktivitet.
+Azure Security Center (ASC) för IoT analyserar kontinuerligt dina IoT-lösning med avancerade analyser och hotinformation för att varna dig om skadlig aktivitet.
 Dessutom kan du skapa anpassade varningar utifrån dina kunskaper om förväntade enhetsbeteende.
 En avisering bör fungerar som en indikator för comprise, och undersökas och åtgärdas.
 

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482342"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758586"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containrar till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-containeravbildning i ett Service Fabric-program. När du har slutfört kursen har du en fungerande Windows Server 2016-baserad Nano Server- och IIS-container. Den här snabbstarten beskriver hur du distribuerar en Windows-container. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-container.
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-containeravbildning i ett Service Fabric-program. När du är klar har du en fungerande Windows Server Core 2016-Server och IIS-behållare. Den här snabbstarten beskriver hur du distribuerar en Windows-container. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-container.
 
 ![IIS-standardwebbsidan][iis-default]
 
@@ -54,7 +54,7 @@ Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka
 
 Välj **Behållare** från mallarna **Hosted Containers and Applications** (Värdbaserade behållare och program).
 
-I **Avbildningsnamn** anger du "microsoft/iis:nanoserver", [Windows Server Nano Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft/iis/).
+I **avbildningsnamn**, ange ”mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016” den [Windows Server Core-Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft-windows-servercore-iis).
 
 Konfigurera containerns portmappning från port till värd så att inkommande begäranden till tjänsten på port 80 mappas till port 80 i containern.  Ge **Containerport** värdet 80 och **Värdport** värdet 80.  
 
@@ -74,14 +74,14 @@ Microsoft publicerar olika avbildningar för de olika versioner av IIS som har s
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Tjänstmanifestet fortsätter att ange endast en avbildning för nanoservern, `microsoft/iis:nanoserver`.
+Tjänstmanifestet fortsätter att ange endast en avbildning för nanoservern, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
 
 I filen *ApplicationManifest.xml* ska du också ändra **PasswordEncrypted** till **false**. Kontot och lösenordet är tomma för den offentliga containeravbildningen i Docker Hub, så vi inaktiverar kryptering eftersom kryptering av ett tomt lösenord genererar ett kompileringsfel.
 

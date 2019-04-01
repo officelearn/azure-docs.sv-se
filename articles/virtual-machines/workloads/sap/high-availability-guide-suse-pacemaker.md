@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487372"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755723"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -84,7 +84,7 @@ Kör följande kommandon på alla **iSCSI virtuella måldatorer**.
 
 Kör följande kommandon på alla **iSCSI virtuella måldatorer** att skapa iSCSI-diskar för kluster som används av dina SAP-system. I följande exempel skapas uppstår enheter för flera kluster. Den visar hur du använder en iSCSI-målservern för flera kluster. Enheterna som uppstår placeras på OS-disken. Se till att du har tillräckligt med utrymme.
 
-**NFS** används för att identifiera NFS-klustret **ascsnw1** används för att identifiera ASCS-kluster med **NW1**, **dbnw1** används för att identifiera databasen kluster **NW1**, **nfs-0** och **nfs-1** är värdnamnen för klusternoderna NFS **nw1-xscs-0** och  **nw1-xscs-1** är värdnamnen för den **NW1** ASCS klusternoder och **nw1-db-0** och **nw1-db-1** är värdnamnen för databasen klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
+**` nfs`** används för att identifiera NFS-klustret **ascsnw1** används för att identifiera ASCS-kluster med **NW1**, **dbnw1** används för att identifiera databasen kluster **NW1** , **nfs-0** och **nfs-1** är värdnamnen för klusternoderna NFS **nw1-xscs-0** och **nw1 xscs 1**är värdnamnen för den **NW1** ASCS klusternoder och **nw1-db-0** och **nw1-db-1** är värdnamnen för databasen klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Skapa konfigurationsfilen softdog
+   Skapa den ` softdog` konfigurationsfil
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Konfigurera operativsystem
+1. **[A]**  Konfigurera operativsystemet
 
    I vissa fall kan Pacemaker skapar många processer och använt all därmed det tillåtna antalet processer. I detta fall är kan ett pulsslag mellan noder i klustret misslyckas och leda till redundans för dina resurser. Vi rekommenderar att öka de högsta tillåtna processerna genom att ange följande parameter.
 
@@ -346,6 +346,18 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  Konfigurera molnet-netconfig azure för hög tillgänglighet kluster
+
+   Ändra konfigurationsfilen för nätverksgränssnittet som visas nedan för att förhindra att moln nätverk plugin-programmet från att ta bort den virtuella IP-adressen (Pacemaker måste bestämmer VIP-tilldelning). Mer information finns i [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]**  Aktivera ssh-åtkomst

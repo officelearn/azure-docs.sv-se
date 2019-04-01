@@ -1,6 +1,6 @@
 ---
-title: Guide om hur du installerar och distribuerar Linux C# agent för ASC för förhandsversionen av IoT | Microsoft Docs
-description: Lär dig hur du installerar ASC för IoT-agenten på både 32-bitars och 64-bitars Linux.
+title: Guide om hur du installerar och distribuerar Linux C# agent för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Lär dig hur du installerar Azure Security Center för IoT-agenten på både 32-bitars och 64-bitars Linux.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619916"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758339"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Distribuera ASC för IoT C#-baserade security-agenten för Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C#-baserade security-agenten för Linux
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här handboken beskrivs hur du installerar och distribuerar ASC för IoT C#-baserad säkerhetsagenten på Linux.
+Den här handboken beskrivs hur du installerar och distribuerar Azure Security Center (ASC) för IoT C#-baserad säkerhetsagenten på Linux.
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]

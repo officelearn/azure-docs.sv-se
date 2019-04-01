@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339524"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757661"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -105,10 +105,10 @@ Följande kulturer har anpassade tokenizer versioner:
 |Tyska<br>`de-de`|1.0.1|Tokenizes ord genom att dela in dem på blanksteg.<br> Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck, den är en enskild token. Därför `krankenwagen` har markerats som en enda enhet. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrering mellan tokenizer versioner
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-Ditt första val är att ändra tokenizer versionen i appfilen sedan importera versionen. Den här åtgärden ändrar hur talade tokeniserad men kan du behålla samma app-ID. 
-
-Tokenizer JSON för 1.0.0. Observera egenskapens värde för `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Tokenizer JSON för 1.0.0. Observera egenskapens värde för `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON för version 1.0.1. Observera egenskapens värde för `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Tokenizer JSON för version 1.0.1. Observera egenskapens värde för `tokenizerV
     "settings": []
 }
 ```
+-->
 
-Det andra valet är att [importera filen som en ny app](luis-how-to-start-new-app.md#import-an-app-from-file), i stället för en version. Den här åtgärden innebär att den nya appen har en annan app-ID men använder tokenizer version anges i filen. 
+Tokenisering sker på app-nivå. Det finns inget stöd för version på servernivå tokenisering. 
+
+[Importera filen som en ny app](luis-how-to-start-new-app.md#import-an-app-from-file), i stället för en version. Den här åtgärden innebär att den nya appen har en annan app-ID men använder tokenizer version anges i filen. 

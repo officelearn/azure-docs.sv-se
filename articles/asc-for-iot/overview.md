@@ -1,6 +1,6 @@
 ---
-title: Vad är ASC för förhandsversionen av IoT | Microsoft Docs
-description: Läs mer om ASC för IoT-funktioner och -tjänsten.
+title: Vad är Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Läs mer om Azure Security Center för IoT-funktioner och -tjänsten.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578823"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757583"
 ---
-# <a name="introducing-asc-for-iot"></a>Introduktion till ASC för IoT
+# <a name="introducing-azure-security-center-for-iot"></a>Introduktion till Azure Security Center för IoT
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="secure-your-azure-iot-solution"></a>Skydda din Azure IoT-lösning 
@@ -35,7 +35,7 @@ Enhetlig säkerhetshantering och aktivera hotanalyser från slutpunkt till slutp
 
 Sakernas Internet förändrar snabbt vår värld. Möjlighet att upptäcka insikter från dina anslutna enheter och backend-system, kan du nu omvandla information till kraftfulla program och tjänster för att hjälpa företaget att uppnå oöverträffade nivåer av drift- och business prestanda. Men, som miljarder nya enheter är anslutna till internet och integreras i vår dagliga liv och vårt företag; driftteam din säkerhet måste du se till att deras säkerhetsstrategier utvecklas tillräckligt snabbt för att täcka dessa nya attack Surface-enheter. Som alla andra system måste skydda din IoT-lösning skydd i varje skede av din implementering. 
 
-ASC för IoT förenklar hybrid skydd av arbetsbelastningar genom att tillhandahålla enhetlig synlighet och kontroll, adaptivt skydd och intelligent hotidentifiering och svar i arbetsbelastningar som körs på edge, lokalt, i Azure och i andra moln. 
+Azure Security Center (ASC) för IoT förenklar hybrid skydd av arbetsbelastningar genom att tillhandahålla enhetlig synlighet och kontroll, adaptivt skydd och intelligent hotidentifiering och svar i arbetsbelastningar som körs på edge, lokalt, i Azure och i andra moln. 
 
 ![ASC för IoT-arkitekturen](./media/architecture/asc-for-iot-architecture.png)
 

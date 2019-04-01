@@ -1,36 +1,52 @@
 ---
-title: Införliva mänsklig granskning i innehållsmoderering - Content Moderator
+title: Lär dig granska verktyget begrepp - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Hur datorer och människor tillsammans ger de bästa resultaten från innehållsmoderering
+description: Läs mer om Content Moderator granskar-verktyg, en webbplats som samordnar en kombinerad AI och mänsklig granskning moderering arbete.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.author: sajagtap
-ms.openlocfilehash: 4a8f27a94c5e14c34c2a6500dc555c4281d0ecd7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224538"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755890"
 ---
-# <a name="learn-about-the-review-tool"></a>Lär dig mer om granskningsverktyget
+# <a name="content-moderator-review-tool"></a>Content Moderator-granskningsverktyget
 
-Du får bästa resultat när människor och datorer som fungerar tillsammans på innehållsmoderering. Datorer utöka effektivt mänsklig granskning där förutsägelsen har assisted eller vägas i en verklig kontext. Resultatet är en hybrid innehållsmoderering process som presterar bättre än om människor eller datorer arbetade fristående.
+Azure Content Moderator tillhandahåller tjänster för att kombinera machine learning-innehållsmoderering med mänsklig granskning och [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) webbplats är en användarvänlig klientdel som ger detaljerad åtkomst till dessa tjänster.
+
+![Granska verktyget instrumentpanelen i en webbläsare](./images/0-dashboard.png)
 
 ## <a name="what-it-does"></a>Vad läget gör
 
-Det mänskliga granskningsverktyget när de används tillsammans med datorstödd moderering API: er, kan du utföra dessa viktiga uppgifter i förhållande till innehållsmoderering livscykel.
+Den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com), när de används tillsammans med datorstödd moderering API: er, kan du utföra följande uppgifter i innehållsmoderering processen:
 
-1. Automatisera skapandet av mänsklig granskning från de underliggande API resultaten
-2. Använd ett verktyg (granskningsverktyget och API) för att ändra flera olika format (text, bild och video)
-3. Tilldela eller eskalera innehåll granskningar till flera granska teams ordnade i nivåer för innehåll kategori eller upplevelse.
-4. Använd standardarbetsflöden eller definiera anpassade arbetsflöden med flexibla regler och utan att behöva skriva någon kod.
-5. Lägg till mänsklig granskning för alla API: et eller ditt företag genom att helt enkelt skapa en anslutning.
-6. Använd standard-anslutningsappar och granska resultatet från Microsoft PhotoDNA, textanalys och Ansikts-API: er.
-7. Få viktiga prestandamått innehållsmoderering-processer.
+- Använda en uppsättning verktyg för att hantera innehåll i flera format (text, bild och video).
+- Automatisera skapandet av mänskliga [granskar](../review-api.md#reviews) när moderering API resulterar kommer i.
+- Tilldela eller eskalera innehåll granskningar till flera granska team, ordnade i nivåer för innehåll kategori eller upplevelse.
+- Använd standard eller anpassad logik filter ([arbetsflöden](../review-api.md#workflows)) att sortera och spåra innehåll, utan att behöva skriva någon kod.
+- Använd [kopplingar](./configure.md#connectors) bearbetning av innehåll med Microsoft PhotoDNA, textanalys och Ansikts-API: er förutom Moderator-API: er för innehåll.
+- Skapa din egen anslutning för att skapa arbetsflöden för alla API: er eller affärsprocess.
+- Få viktiga prestandamått innehållsmoderering-processer.
 
-![Content Moderator-videogranskningsverktyget](../images/video-review-default-view.png)
+## <a name="review-tool-dashboard"></a>Granska verktyget instrumentpanel
+
+På den **instrumentpanelen** fliken som du kan se viktiga mått för innehåll granskning görs verktyget. Se hur många av totalen, klar och väntar på granskning av bild, text och videoinnehåll. Du kan också se detaljer för användare och team som har slutfört granskningar, samt moderering-taggar som har tillämpats.
+
+![Visa instrumentpanelen](images/0-dashboard.png)
+
+## <a name="review-tool-credentials"></a>Granska verktyget autentiseringsuppgifter
+
+När du registrerar dig med den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com), uppmanas du att välja en Azure-region för du kontot. Detta beror på den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) genererar en kostnadsfri utvärderingsversion nyckel för Azure Content Moderator-tjänster; du behöver den här nyckeln för åtkomst till alla tjänster från en REST-anrop eller klient-SDK. Du kan visa din nyckel och API: et slutpunkts-URL genom att välja **inställningar** > **autentiseringsuppgifter**.
+
+![Content Moderator-autentiseringsuppgifter](images/settings-6-credentials.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+Se [konfigurera granskningsverktyget](./configure.md) och lär dig att komma åt granska verktyget resurser och ändra inställningarna.

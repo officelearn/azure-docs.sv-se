@@ -1,21 +1,21 @@
 ---
-title: Hantera med kopierade data
+title: Hantera duplicerade data
 description: Det här avsnittet beskriver olika sätt att hantera med kopierade data
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: f417ba7d0fcd6f9d6b5bd6cd43cf1730af2ca53c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028780"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756364"
 ---
-# <a name="deal-with-duplicate-data"></a>Hantera med kopierade data
+# <a name="deal-with-duplicate-data"></a>Hantera duplicerade data
 
 Enheter som skickar data till molnet underhålla en lokal cache av data. Beroende på storleken på data kunde den lokala cachen lagrar data för dagar eller till och med månader. Vill du skydda dina analytiska databaser från felaktig enheter som skicka cachelagrade data och orsaka duplicerade data i analytiska databasen. Det här avsnittet beskriver de bästa metoderna för hantering av duplicerade data för dessa typer av scenarier.
 

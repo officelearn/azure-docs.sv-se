@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Visualisera data från Azure Data Explorer i Power BI'
+title: 'Självstudier: Visualisera data från Azure Data Explorer i Power BI'
 description: I den här självstudien får du lära dig hur du ansluter till Azure Data Explorer med Power BI och visualiserar dina data.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854109"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757742"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudie: Visualisera data från Azure Data Explorer i Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudier: Visualisera data från Azure Data Explorer i Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen. I den här självstudien får du först lära dig hur du renderar visuella objekt i Azure Data Explorer. Därefter ansluter du till Azure Data Explorer med Power BI, skapar en rapport baserad på exempeldata och publicerar rapporten till Power BI-tjänsten.
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa en rapport med visuella objekt
 > * Publicera och dela rapporten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutom Azure- och Power BI-prenumerationer så behöver du följande för att slutföra den här självstudien:
 
@@ -38,7 +38,7 @@ Förutom Azure- och Power BI-prenumerationer så behöver du följande för att 
 
 * [StormEvents exempeldata](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Rendera visuella objekt i Azure Data Explorer
 

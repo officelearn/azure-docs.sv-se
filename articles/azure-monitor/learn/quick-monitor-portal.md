@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 03/29/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437517"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754944"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
@@ -61,21 +61,21 @@ Application Insights samlar in telemetridata för tillämpningsprogrammet oavset
 
 Nu kan du öppna Application Insights i Azure-portalen för att visa olika detaljer om programmet som körs.
 
-1. Högerklicka på mappen **Connected Services Application Insights** i Solution Explorer och klicka på alternativet för att **öppna Application Insights-portalen**.  Du ser viss information om ditt program och många andra alternativ.
+1. Expandera den **Connected Services** mapp (moln och plugin-ikon) i Solution Explorer högerklickar du sedan på den **Programinsikter** mappen och klicka på **öppna Application Insights-portalen** .  Du ser viss information om ditt program och många andra alternativ.
 
-    ![Programkarta](media/quick-monitor-portal/overview-001.png)
+    ![Programkarta](media/quick-monitor-portal/4overview.png)
 
 2. Klicka på **Programkarta** för en visuell layout av beroenden mellan programkomponenterna.  För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-    ![Programkarta](media/quick-monitor-portal/application-map-001.png)
+    ![Programkarta](media/quick-monitor-portal/5appmap.png)
 
-3. Klicka på **App Analytics**-ikonen ![Programavbildning](media/quick-monitor-portal/app-analytics-icon.png) på någon av programkomponenterna.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights.  I det här fallet skapas en fråga som återger antalet begäranden som ett diagram.  Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på den **Appanalys** ikonen ![Programkartan](media/quick-monitor-portal/app-analytics-icon.png) **visa i analys** på en av programkomponenterna. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights.  I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-    ![Analytics](media/quick-monitor-portal/analytics.png)
+    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Återgå till **översiktssidan** och klicka på **Live Stream**.  Här ser du livestatistik om programmet när medan det körs.  Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.  Du kan även granska kritiska prestandavärden, till exempel processor och minne.
+4. Klicka på **Live Metrics Stream** till vänster under undersöka. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
 
-    ![Direktsänd ström](media/quick-monitor-portal/live-stream.png)
+    ![Direktsänd ström](media/quick-monitor-portal/7livemetrics.png)
 
     Om du är redo att vara värd för programmet i Azure kan publicera den nu. Följ stegen i informationen om att [skapa en snabbstart för ASP.NET-webbappen](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
 
@@ -107,7 +107,7 @@ Mer information finns på GitHub-lagringsplatsen för vår [JavaScript-SDK med �
 * Externa stegvisa video om [konfigurera Application Insights med ett .NET-program från grunden](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Nästa steg
-Du har aktiverat ditt program för övervakning av Azure Application Insights i den här snabbstartsguiden.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.
+I den här snabbstarten har du aktiverat ditt program för övervakning av Azure Application Insights.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.
 
 > [!div class="nextstepaction"]
 > [Azure Application Insights-självstudier](tutorial-runtime-exceptions.md)

@@ -1,6 +1,6 @@
 ---
-title: Förstå ASC för IoT-säkerhetsrekommendationer förhandsversion | Microsoft Docs
-description: Läs mer om begreppet säkerhetsrekommendationer och hur de används i ASC för IoT.
+title: Förstå Azure Security Center för IoT-säkerhetsrekommendationer förhandsversion | Microsoft Docs
+description: Läs mer om begreppet säkerhetsrekommendationer och hur de används i Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576213"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754822"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta. Säkerhetsrekommendationer är användbara och syftar till att hjälpa kunderna att som uppfyller till säkerhetsmetoder.
+Azure Security Center (ASC) för IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta. Säkerhetsrekommendationer är användbara och syftar till att hjälpa kunderna att som uppfyller till säkerhetsmetoder.
 
 Du hittar en lista över rekommendationer som kan utlösas på din IoT Hub och/eller IoT-enheter i den här artikeln.
 

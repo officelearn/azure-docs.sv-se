@@ -7,23 +7,25 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164450"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755259"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
 För att snabbt distribuera arbetsbelastningar i ett kluster i Azure Kubernetes Service (AKS), kan du använda virtuella noder. Med virtuella noder har snabb etablering av poddar och betala bara per sekund för sin Utförandetid. I ett scenario med skalning behöver du inte vänta tills autoskalningen för Kubernetes-klustret att distribuera VM-beräkningsnoder för att köra de nya poddarna. Den här artikeln visar hur du skapar och konfigurerar resurser för virtuella nätverk och ett AKS-kluster med virtuella noder som är aktiverad.
 
 > [!IMPORTANT]
-> Virtuella noder för AKS är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+>
+> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
 
-## <a name="preview-limitations"></a>Begränsningar för förhandsversion
+## <a name="regional-availability"></a>Regional tillgänglighet
 
-Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
+Följande regioner har stöd för virtuell nod distributioner:
 
 * Australien, östra (Australien)
 * Östra USA (eastus)
@@ -182,6 +184,8 @@ Virtuella noder är en komponent i en skalning lösning i AKS. Mer information o
 
 - [Använda Kubernetes vågrät pod autoskalningen][aks-hpa]
 - [Använda Kubernetes-kluster autoskalningen][aks-cluster-autoscaler]
+- [Kolla in automatisk skalning-exemplen för virtuella noder][virtual-node-autoscale]
+- [Läs mer om Virtual Kubelet-biblioteket för öppen källkod][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -190,6 +194,9 @@ Virtuella noder är en komponent i en skalning lösning i AKS. Mer information o
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -198,4 +205,3 @@ Virtuella noder är en komponent i en skalning lösning i AKS. Mer information o
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
-

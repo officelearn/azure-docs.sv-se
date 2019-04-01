@@ -1,6 +1,6 @@
 ---
-title: Skapa en security modultvillingen för ASC för förhandsversionen av IoT | Microsoft Docs
-description: Lär dig hur du skapar en ASC för IoT-modultvilling för användning med ASC för IoT.
+title: Skapa en security modultvillingen för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Lär dig hur du skapar en Azure Security Center för IoT-modultvilling för användning med ASC för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd085333f0ddc8a9d49637a2d7156b34c6e5cc72
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579435"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758370"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Snabbstart: Skapa en azureiotsecurity modultvilling
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här snabbstarten förklaringar av hur du skapar enskilda _azureiotsecurity_ modultvillingar för nya enheter eller batch skapar modultvillingar för alla enheter i en IoT-hubb.  
 
@@ -32,7 +32,7 @@ Den här snabbstarten förklaringar av hur du skapar enskilda _azureiotsecurity_
 
 För IoT-lösningar som skapats i Azure, spela enhetstvillingar en viktig roll i både enhetshantering och automatisering av affärsprocesser. 
 
-ASC för IoT erbjuder fullständig integrering med din befintliga IoT plattform för enhetshantering, så att du kan hantera säkerhetsstatusen enheten samt kontrollera användning av befintliga funktioner för kontroll av enheter.
+Azure Security Center (ASC) för IoT erbjuder fullständig integrering med din befintliga IoT plattform för enhetshantering, så att du kan hantera säkerhetsstatusen enheten samt kontrollera användning av befintliga funktioner för kontroll av enheter.
 ASC för IoT-integrering uppnås genom att använda IoT-hubben twin mekanism.  
 
 Se [IoT Hub modultvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) mer information om allmänna begrepp för modultvillingar i Azure IoT Hub. 

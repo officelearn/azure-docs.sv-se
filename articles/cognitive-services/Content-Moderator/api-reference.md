@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a6bd92a675885cb343b07ef981c38571af0a931c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862470"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756062"
 ---
 # <a name="content-moderator-api-reference"></a>API-referens för Content Moderator
 
@@ -31,7 +31,7 @@ Du kan använda följande Content Moderator API: erna för att ställa in efter 
 | Beskrivning | Referens |
 | -------------------- |-------------|
 | **API för Bildmoderering**<br /><br />Genomsök bilder och identifierar potentiellt vuxet eller olämpligt innehåll med hjälp av taggar, förtroende poäng och andra extrahera informationen. <br /><br />Använd den här informationen för att publicera, neka eller granska innehållet i arbetsflödet efter moderering. <br /><br />| [Bild Moderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Bildmoderering API-referens")   |
-| **API för Textmoderering**<br /><br />Skanna textinnehåll. Svordomar villkoren och personligt identifierbar information (PII) returneras. <br /><br />Använd den här informationen för att publicera, neka eller granska innehållet i arbetsflödet efter moderering.<br /><br /> | [Moderering av API-referens för text](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderering API-referens")   |
+| **API för Textmoderering**<br /><br />Skanna textinnehåll. Svordomar villkoren och personliga data returneras. <br /><br />Använd den här informationen för att publicera, neka eller granska innehållet i arbetsflödet efter moderering.<br /><br /> | [Moderering av API-referens för text](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderering API-referens")   |
 | **API för Videomoderering**<br /><br />Genomsök videor och identifiera potentiellt vuxet eller olämpligt innehåll. <br /><br />Använd den här informationen för att publicera, neka eller granska innehållet i arbetsflödet efter moderering.<br /><br /> | [Översikt över video Moderering API](video-moderation-api.md "Video Moderering API-översikt")   |
 | **Lista över hanterade API: er**<br /><br />Skapa och hantera anpassade undantag eller inkludering listor med bilder och text. Om aktiverad kan den **bild – matchar** och **Text - skärmen** operations gör partiell matchning av skickade innehållet mot dina anpassade listor. <br /><br />För effektivitet, kan du hoppa över machine learning-baserade moderering steg.<br /><br /> | [Lista över API-referens hantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "listan Management API-referens")   |
 

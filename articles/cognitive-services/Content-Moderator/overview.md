@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455254"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758134"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -41,24 +41,23 @@ Content Moderator-tjänsten består av flera webbtjänst-API:er som är tillgän
 
 Content Moderator-tjänsten innehåller API:er för följande scenarier.
 
-| Åtgärd | Beskrivning |
+| API-gruppen | Beskrivning |
 | ------ | ----------- |
-|[**Textmoderering**](text-moderation-api.md)| Söker igenom text efter stötande innehåll, sexuellt explicit eller suggestivt innehåll, olämpligt språk och personligt identifierbar information (PII).|
+|[**Textmoderering**](text-moderation-api.md)| Söker igenom text efter stötande innehåll, sexuellt explicit eller något innehåll, svordomar och personliga data.|
 |[**Anpassade termlistor**](try-terms-list-api.md)| Söker igenom text mot en anpassad lista med termer utöver de inbyggda termerna. Använd anpassade listor för att blockera eller tillåta innehåll baserat på dina egna innehållsprinciper.|  
 |[**Bildmoderering**](image-moderation-api.md)| Söker igenom bilder efter vuxet eller olämpligt innehåll, identifierar text i bilder med funktionen för optisk teckenläsning (OCR) och identifierar ansikten.|
 |[**Anpassade bildlistor**](try-image-list-api.md)| Söker igenom bilder mot en anpassad lista med bilder. Använd anpassade bildlistor för att filtrera bort instanser av ofta återkommande innehåll som du inte vill klassificera igen.|
 |[**Videomoderering**](video-moderation-api.md)| Söker igenom videor efter vuxet eller olämpligt innehåll och returnerar tidsmarkörer för sådant innehåll.|
-|[**Granskning**](try-review-api-job.md)| Använd åtgärderna [Jobb](try-review-api-job.md), [Granskningar](try-review-api-review.md) och [Arbetsflöde](try-review-api-workflow.md) för att skapa och automatisera HITL-arbetsflöden (Human-In-The-Loop) i verktyget för mänsklig granskning. Arbetsflödes-API:et är inte ännu tillgängligt via .NET-SDK.|
+|[**Granska API: er**](try-review-api-job.md)| Använd åtgärderna [Jobb](try-review-api-job.md), [Granskningar](try-review-api-review.md) och [Arbetsflöde](try-review-api-workflow.md) för att skapa och automatisera HITL-arbetsflöden (Human-In-The-Loop) i verktyget för mänsklig granskning. Arbetsflöde för API: et är ännu inte tillgänglig i .NET SDK.|
 
-### <a name="human-review-tool"></a>Verktyg för mänsklig granskning
+### <a name="review-tool"></a>Granskningsverktyg
 
-Content Moderator-tjänsten omfattar även det webbaserade [verktyget för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md). 
+Content Moderator tjänsten omfattar även den webbaserade [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md), som är värd för innehållet går igenom för mänskliga moderatorer att bearbeta. Mänskliga indata tränar inte tjänsten, men det kombinerade arbetet från tjänsten och mänskliga granskningsteam gör att utvecklare kan åstadkomma rätt balans mellan effektivitet och noggrannhet. Granskningsverktyget innehåller också ett användarvänligt klientdel för en mängd olika resurser för Content Moderator.
 
 ![Hemsida för Content Moderator-verktyget för mänsklig granskning](images/homepage.PNG)
 
-Du kan använda gransknings-API:erna för att konfigurera teamgranskningar av innehåll med text, bilder och video enligt filter som du anger. Mänskliga moderatorer kan sedan göra fatta de slutgiltiga modereringsbesluten. Mänskliga indata tränar inte tjänsten, men det kombinerade arbetet från tjänsten och mänskliga granskningsteam gör att utvecklare kan åstadkomma rätt balans mellan effektivitet och noggrannhet.
-
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
 Som med alla Cognitive Services bör utvecklare som använder Content Moderator-tjänsten känna till Microsofts policyer gällande kunddata. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg

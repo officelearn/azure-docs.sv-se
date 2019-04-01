@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813899"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758206"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
 
@@ -89,6 +89,13 @@ Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azur
 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Se också
+
+- [Ladda upp filer till ett Media Services-konto – REST](upload-files-rest-how-to.md)
+- [Skapa filter med Media Services – REST](filters-dynamic-manifest-rest-howto.md)
+- [Azure Resource Manager-baserat REST-API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Stream filer med REST](stream-files-tutorial-with-rest.md).  
+- [Stream filer med REST](stream-files-tutorial-with-rest.md).  
+- [Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)

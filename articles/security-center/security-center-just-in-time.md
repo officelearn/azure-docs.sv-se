@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199842"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758305"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -162,9 +162,13 @@ När du försöker ansluta till en virtuell dator i Azure-portalen kontrollerar 
 
   ![JIT-fråga](./media/security-center-just-in-time/jit-prompt.png)
 
-- Om du har en JIT-princip som konfigurerats på den virtuella datorn kan du klicka på **begär åtkomst** så att du kan ha åtkomst i enlighet med JIT-princip som angetts för den virtuella datorn.
+- Om du har en JIT-princip som konfigurerats på den virtuella datorn kan du klicka på **begär åtkomst** så att du kan ha åtkomst i enlighet med JIT-princip som angetts för den virtuella datorn. Åtkomst har begärts med följande standardparametrar:
+    - **käll-IP**: 'Valfritt' (*) (det går inte att ändras)
+    - **tidsintervall**: 3 timmar (det går inte att ändras)
+    - **portnummer** RDP port 3389 för Windows / port 22 för Linux (du kan ändra portnumret i den **Anslut till den virtuella datorn** dialogrutan.)
 
-  ![JIT begär åtkomst](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![JIT begär åtkomst](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Granskningsaktiviteter för JIT-åtkomst
 

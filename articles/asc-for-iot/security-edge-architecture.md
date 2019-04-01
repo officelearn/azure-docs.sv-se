@@ -1,6 +1,6 @@
 ---
-title: Så här fungerar ASC för IoT-säkerhetsmodul för IoT Edge | Microsoft Docs
-description: Förstå arkitekturen och funktionerna i ASC för IoT-säkerhetsmodul för IoT Edge.
+title: Förstå Azure Security Center för IoT-säkerhetsmodul för IoT Edge | Microsoft Docs
+description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT-säkerhetsmodul för IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 68117370e21c7b667bde5447cef510a4e7c77df0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 11eadc70f6da20fdc9b837dfad45705278dd2d27
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580770"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756704"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge-säkerhetsmodul
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktion worklo§1ads. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) ger kraftfulla funktioner för hantering och utföra affärs-arbetsflöden på gränsen.
 Den viktiga delen som IoT Edge spelar i IoT-miljöer gör det mycket attraktivt för skadliga aktörer.
 
-ASC för IoT-säkerhetsmodul tillhandahåller en omfattande lösning för din IoT-Edge enheter.
+Azure Security Center (ASC) för IoT-säkerhetsmodul tillhandahåller en omfattande lösning för din IoT-Edge enheter.
 ASC för IoT-modulen samlar in, aggregerar och analyserar raw säkerhetsdata från ditt operativsystem och behållarsystem i handlingsbara rekommendationer och aviseringar.
 
 Liknar ASC för IoT security agenter för IoT-enheter, ASC för IoT Edge-modul är mycket anpassningsbara via dess modultvilling.

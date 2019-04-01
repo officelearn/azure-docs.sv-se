@@ -1,6 +1,6 @@
 ---
-title: Skicka din säkerhetsvarningar till ASC för förhandsversionen av IoT | Microsoft Docs
-description: Lär dig hur du skickar meddelandena säkerhet med hjälp av ASC för IoT.
+title: Skicka dina säkerhets-meddelanden till Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+description: Lär dig hur du skickar meddelandena säkerhet med hjälp av Azure Security Center för IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650163"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754778"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka säkerhetsvarningar SDK
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-I den här guiden beskriver ASC för IoT-tjänstfunktioner när du väljer att samla in och skicka enheten säkerhetsvarningar utan att använda en ASC för IoT-agenten och förklarar hur du gör.  
+I den här guiden beskriver Azure Security Center (ASC) för IoT-tjänstfunktioner när du väljer att samla in och skicka enheten säkerhetsvarningar utan att använda en ASC för IoT-agenten och förklarar hur du gör.  
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]

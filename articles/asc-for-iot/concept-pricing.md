@@ -1,6 +1,6 @@
 ---
-title: Förstå ASC för kostnaderna för IoT förhandsversion | Microsoft Docs
-description: Läs mer om kostnaderna för IoT och hur du kan kontrollera dem med ASC.
+title: Förstå Azure Security Center för IoT kostar förhandsversion | Microsoft Docs
+description: Läs mer om kostnaderna för IoT och hur du kan kontrollera dem med Azure Security Center.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580665"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758045"
 ---
-# <a name="pricing-and-associated-costs"></a>Pris- och associerade kostnader
+# <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln förklarar ASC för IoT prismodellen, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
+Den här artikeln förklarar Azure Security Center (ASC) IoT prissättningsmodell, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -73,7 +73,7 @@ Följande tabell innehåller en sammanfattning av associerade kostnader och kons
 >[!Important]
 > Avanmäla har allvarliga konsekvenser till tillgängliga säkerhetsfunktioner.
   
-| Avanmäla dig | Effekter |
+| Avanmäl | Effekter |
 | --- | --- |
 | _Twin metadatasamlingen_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
 | | Inaktivera manifest IoT Edge-rekommendationer |

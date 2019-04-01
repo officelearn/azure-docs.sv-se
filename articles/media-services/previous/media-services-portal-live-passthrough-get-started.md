@@ -1,5 +1,5 @@
 ---
-title: Liveuppspelning med lokala kodare med hjälp av Azure Portal | Microsoft Docs
+title: Liveuppspelning med lokala kodare med hjälp av Azure portal | Microsoft Docs
 description: Den här vägledningen visar dig stegen för att skapa en kanal som är konfigurerad för en genomströmningsleverans.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758506"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Så här utför du liveuppspelning med lokala kodare med hjälp av Azure Portal
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Utför du direktsänd strömning med lokala kodare med hjälp av Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Vi rekommenderar att du tittar närmare på följande artiklar:
 * [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Vanligt scenario för liveuppspelning
+
 Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för direktsänd strömning som använder kanaler som har konfigurerats för genomströmningsleverans. Den här vägledningen visar hur du skapar och hanterar en genomströmningskanal och direktsända händelser.
 
->[!NOTE]
->Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
+> [!NOTE]
+> Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
     
-1. Anslut en videokamera till en dator. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och direktsända kodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
+1. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
    
     Det här steget kan också utföras när du har skapat din kanal.
-2. Skapa och starta en genomströmningskanal
-3. Hämta kanalens infognings-URL. 
+1. Skapa och starta en genomströmningskanal
+1. Hämta kanalens infognings-URL. 
    
     Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
-4. Hämta kanalens förhandsgransknings-URL. 
+1. Hämta kanalens förhandsgransknings-URL. 
    
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
-5. Skapa en direktsänd händelse eller ett direktsänt program. 
+1. Skapa en direktsänd händelse eller ett direktsänt program. 
    
     När du använder Azure-portalen, skapas även en tillgång då du skapar en direktsänd händelse. 
 
-6. Starta händelsen eller programmet när du är redo att påbörja strömning och arkivering.
-7. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
-8. Stoppa händelsen eller programmet när du vill stoppa strömningen och arkiveringen av händelsen.
-9. Ta bort händelsen eller programmet (och ta eventuellt bort tillgången).     
+1. Starta händelsen eller programmet när du är redo att påbörja strömning och arkivering.
+1. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+1. Stoppa händelsen eller programmet när du vill stoppa strömningen och arkiveringen av händelsen.
+1. Ta bort händelsen eller programmet (och ta eventuellt bort tillgången).     
 
 > [!IMPORTANT]
 > Titta närmare på [Liveuppspelning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md) för att lära dig mer om koncept och överväganden som rör liveuppspelning med lokala kodare och genomströmningskanaler.

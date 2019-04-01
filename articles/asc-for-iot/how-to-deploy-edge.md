@@ -1,6 +1,6 @@
 ---
-title: Distribuera en ASC för IoT Edge-modul | Microsoft Docs
-description: Mer information om hur distribuera ASC för IoT security-agenten på IoT Edge.
+title: Distribuera Azure Security Center för IoT Edge-modul | Microsoft Docs
+description: Lär dig mer om hur du distribuerar Azure Security Center för IoT security-agenten på IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580500"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754769"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>Distribuera säkerhetsmodul på din IoT Edge-enhet
 
 > [!IMPORTANT]
-> ASC för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC för IoT **azureiotsecurity** modulen innehåller en omfattande lösning för din IoT Edge-enhet.
+Azure Security Center (ASC) för IoT **azureiotsecurity** modulen innehåller en omfattande lösning för din IoT Edge-enhet.
 Modul för maskinvarusäkerhet samlar in, aggregerar och analyserar raw säkerhetsdata från datorn operativsystem och en behållare i handlingsbara rekommendationer och aviseringar.
 Mer information finns i [säkerhetsmodul för IoT Edge](security-edge-architecture.md).
 

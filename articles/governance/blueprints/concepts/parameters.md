@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838025"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805587"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -67,11 +67,11 @@ Ett parametervärde som definierats i definitionen av en skiss kallas en **Stati
 
 1. Artefakter som lagts till i skissen och som har parameteralternativ visa **X Y parametrar har fyllts i** i den **parametrar** kolumn. Klicka på raden artefakt som ska redigera artefakt-parametrar.
 
-   ![Skissparametrar](../media/parameters/parameter-column.png)
+   ![Skissparametrar på en skissdefinition](../media/parameters/parameter-column.png)
 
 1. Den **redigera artefakt** sidan visar värdealternativ som är lämpligt att artefakten klickat på. Varje parameter på artefakten har en rubrik och en värderuta en kryssruta. Inställd rutan avmarkerad så att de blir en **Statiska parametern**. I exemplet nedan, endast _plats_ är en **statiska parametern** eftersom den har alternativet är avmarkerat och _resursgruppens namn_ kontrolleras.
 
-   ![Statisk skissparametrar](../media/parameters/static-parameter.png)
+   ![Statisk skissparametrar på en skissartefakten](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Ställa in statisk parametrar från REST API
 
@@ -182,7 +182,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 1. På den **tilldela skissen** sidan, hitta den **artefakt parametrar** avsnittet. Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurationsalternativen. Ange obligatoriska värden för parametrarna innan du tilldelar skissen. I exemplet nedan, _namn_ är en **dynamisk parameter** som måste definieras för att slutföra skisstilldelningen.
 
-   ![Dynamisk skissparametern](../media/parameters/dynamic-parameter.png)
+   ![Dynamisk skissparametern under skisstilldelningen](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 

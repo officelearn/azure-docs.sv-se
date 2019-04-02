@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361990"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805473"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
-Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation för SQL-fråga språksyntax, som är kompatibla med SQL API-konton. En genomgång av exempel på SQL-frågor finns i [SQL-frågor i Cosmos DB](how-to-sql-query.md).  
+Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation för SQL-fråga språksyntax används i SQL API-konton. En genomgång av exempel på SQL-frågor finns i [SQL-fråga exemplen i Cosmos DB](how-to-sql-query.md).  
   
-Gå till den [Frågespelplan](https://www.documentdb.com/sql/demo) där du kan testa Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
+Gå till den [Frågespelplan](https://www.documentdb.com/sql/demo), där du kan testa Cosmos DB och köra SQL-frågor mot en exempeldatauppsättning.  
   
 ## <a name="select-query"></a>SELECT-fråga  
-Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt ANSI-SQL-standarderna. Vanligtvis räknas källan i FROM-satsen upp för varje fråga. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värdena i select-listan. Konventioner som används för att beskriva SELECT-uttryck i tabellen i avsnittet Syntax konventioner. Exempel finns i [urvalsfråga exempel](how-to-sql-query.md#SelectClause)
+Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt ANSI-SQL-standarderna. Vanligtvis för varje fråga källan i FROM-satsen räknas sedan filtret i WHERE-satsen har tillämpats på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värdena i select-listan. Exempel finns i [urvalsfråga exempel](how-to-sql-query.md#SelectClause)
   
 **Syntax**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Är ett giltigt JSON-matris-uttryck. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)
+   Är ett skalärt uttryck som ska utvärderas som ett JSON-matris-uttryck. Observera att kapslade strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)
   
   **Returnera typer**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   I följande exempel visas hur StringToArray beter sig över olika typer. 
   
-```  
+ Följande är exempel med giltiga indata.
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- Här är resultatuppsättningen.  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ Här är resultatuppsättningen.
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ Följande är ett exempel på ogiltiga indata. 
+   
+ Enkla citattecken i matrisen är inte giltig JSON.
+Även om de är giltiga i en fråga, kommer de inte att parsa till giltiga matriser. Strängar i matrisen strängen måste antingen undantas ”[\"\"]” eller omgivande citattecken måste vara enkel ”[” ”]”.
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ Här är resultatuppsättningen.
+
+```
+[{}]
+```
+
+ Här följer några exempel på ogiltiga indata.
+   
+ Det uttryck som skickas kommer att tolkas som en JSON-matris. följande utvärderar inte för att ange matris och därför returnera odefinierad.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ Här är resultatuppsättningen.
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  Returnerar uttryck översättas till ett booleskt värde. Om uttrycket inte kan översättas, returnerar odefinierad.  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Är ett giltigt uttryck.  
+   Är ett skalärt uttryck som ska utvärderas som ett booleskt uttryck.  
   
   **Returnera typer**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **Exempel**  
   
   I följande exempel visas hur StringToBoolean beter sig över olika typer. 
-  
+ 
+ Följande är exempel med giltiga indata.
+
+ Blanksteg tillåts endast innan eller efter ”true” / ”false”.
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  Här är resultatuppsättningen.  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ Följande är exempel med ogiltiga indata.
+ 
+ Booleska värden är skiftlägeskänsliga och måste skrivas med små bokstäver för d.v.s. ”true” och ”false”.
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ Här är resultatuppsättningen.  
+  
+```  
+[{}]
+``` 
+
+ Det uttryck som skickas ska parsas som ett booleskt uttryck; dessa indata utvärderas inte för att ange booleskt värde och därför returnera odefinierad.
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ Här är resultatuppsättningen.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Är ett giltigt uttryck.  
+   Är ett skalärt uttryck som ska utvärderas som ett null-uttryck.
   
   **Returnera typer**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **Exempel**  
   
   I följande exempel visas hur StringToNull beter sig över olika typer. 
-  
+
+ Följande är exempel med giltiga indata.
+ 
+ Blanksteg tillåts endast före eller efter ”null”.
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  Här är resultatuppsättningen.  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ Följande är exempel med ogiltiga indata.
+
+ Null är skiftlägeskänsligt och måste skrivas med alla gemener d.v.s. ”null”.
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+[{}]
+```  
+
+ Det uttryck som skickas kommer att tolkas som ett null-uttryck; dessa indata utvärderas inte om du vill ange null och därför returnera odefinierad.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Är ett giltigt JSON-Number-uttryck. Siffror i JSON måste vara ett heltal eller ett flyttal. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett skalärt uttryck som ska utvärderas som ett JSON-Number-uttryck. Siffror i JSON måste vara ett heltal eller ett flyttal. Mer information om JSON-format finns [json.org](https://json.org/)  
   
   **Returnera typer**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **Exempel**  
   
   I följande exempel visas hur StringToNumber beter sig över olika typer. 
-  
+
+ Blanksteg tillåts endast före eller efter hur många.
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  Här är resultatuppsättningen.  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ I JSON som ett giltigt nummer måste vara antingen vara ett heltal eller ett flyttal peka tal.
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+{{}}
+```  
+
+ Det uttryck som skickas kommer att tolkas som ett antal uttryck; dessa indata utvärderas inte för att ange antal och därför returnera odefinierad. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Är ett giltigt uttryck för JSON-objekt. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett skalärt uttryck som ska utvärderas som ett uttryck för JSON-objekt. Observera att kapslade strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)  
   
   **Returnera typer**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   I följande exempel visas hur StringToObject beter sig över olika typer. 
   
-```  
+ Följande är exempel med giltiga indata.
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ Här är resultatuppsättningen.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ Följande är exempel med ogiltiga indata.
+Även om de är giltiga i en fråga, kommer de inte att parsa giltiga objekt. Strängar i strängen i objektet måste antingen undantas ”{\"en\":\"str\"}” eller omgivande citattecken måste vara enkel ' {”a”: ”str”} ”.
+
+ Enkla citattecken som omger egenskapsnamn är inte giltig JSON.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ Här är resultatuppsättningen.
+
 ```  
-  
- Här är resultatuppsättningen.  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ Egenskapsnamn utan omgivande citattecken är inte giltig JSON.
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ Här är resultatuppsättningen.
+
 ```  
+[{}]
+``` 
+
+ Följande är exempel med ogiltiga indata.
+ 
+ Det uttryck som skickas kommer att tolkas som ett JSON-objekt. dessa indata utvärderas inte för att ange objekt och därför returnera odefinierad.
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Här är resultatuppsättningen.
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> DELSTRÄNGEN  
  Returnerar en del av ett stränguttryck med början vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller i slutet av strängen.  

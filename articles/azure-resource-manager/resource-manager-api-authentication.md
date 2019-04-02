@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 3/22/2019
 ms.author: dugill
-ms.openlocfilehash: 5144a35dd695ce30f4a7ff940f0bca7e6ba9d23c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372563"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805524"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 
@@ -255,7 +255,7 @@ Ett exempel på ett svar för autentiseringsuppgifter för klienten bevilja toke
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Hämta ObjectId för programmet tjänstens huvudnamn i användarens Azure AD
-Nu kan använda app-begränsad åtkomsttoken till frågan i [tjänsthuvudnamn i Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API för att fastställa objekt-ID för programmets tjänstens huvudnamn i katalogen.
+Nu kan använda app-begränsad åtkomsttoken till frågan i [tjänsthuvudnamn i Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API för att fastställa objekt-ID för programmets tjänstens huvudnamn i katalogen.
 
 Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) metod i ASP.net MVC-exempelprogrammet implementerar det här anropet.
 

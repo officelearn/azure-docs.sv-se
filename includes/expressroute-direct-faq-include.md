@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825859"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807935"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute direkt?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct tillhandahåller kunder med direkta 100 Gbit/s portpar i glo
 
 ExpressRoute Direct debiteras för port-par för ett fast belopp. Standard-kretsar som ska inkluderas i inga ytterligare timmar och premium har en liten tillägg avgift. Utgående trafik debiteras på basis av per krets baserat på zonen på peering-plats.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>När fungerar faktureringen tillstånd för portpar ExpressRoute direkt?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>När fungerar faktureringen start för portpar ExpressRoute direkt?
 
 ExpressRoute Direct portpar faktureras 45 dagar i skapandet av ExpressRoute Direct resursen eller om 1 eller båda länkarna är aktiverade, beroende på vilket som inträffar först. Respitperioden på 45 dagar beviljas för att ge kunderna möjlighet att slutföra korsanslutning med samordning-providern.

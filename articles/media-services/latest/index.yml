@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 3d20316903efde516ec99b0a548449297bdf1419
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663663"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805116"
 documentType: LandingData
 title: Dokumentation om Azure Media Services v3
 metadata:
@@ -27,10 +27,10 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsD
+    className: cardImageOuter
     items:
     - title: Läs mer om koncept
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uppladdning till och lagring i molnet</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medieanalys</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketering</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Skydd</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Liveuppspelning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player-klienter</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uppladdning till och lagring i molnet</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Övervakning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medieanalys</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketering</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Skydd</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Liveuppspelning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player-klienter</a></p>
     - title: Utveckla med API för v3
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Börja utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p>
 - title: Snabbstarter på 5 minuter

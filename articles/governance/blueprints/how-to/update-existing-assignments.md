@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999841"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805762"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Hur du uppdaterar en befintlig tilldelning av skiss
 
@@ -32,17 +32,17 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker ti
 
 1. I listan över skisser, klickar du på skisstilldelningen. Klicka sedan på den **uppdatera tilldelning** eller högerklicka på skisstilldelningen och välj **uppdatera tilldelning**.
 
-   ![Uppdatera tilldelning](../media/update-existing-assignments/update-assignment.png)
+   ![Uppdatera en befintlig tilldelning av skiss](../media/update-existing-assignments/update-assignment.png)
 
 1. Den **tilldela skissen** sidan läses in fylls i automatiskt med alla värden från den ursprungliga tilldelningen. Du kan ändra den **skissen definitionsversion**, **Lås tilldelning** tillstånd och någon av de dynamiska parametrar som finns på skissdefinitionen. Klicka på **tilldela** när gjort önskade ändringar.
 
 1. Se den nya statusen på informationssidan uppdaterade tilldelning. I det här exemplet vi har lagt till **Locking** att tilldelningen.
 
-   ![Uppdaterade tilldelning - låst](../media/update-existing-assignments/updated-assignment.png)
+   ![Uppdatera en befintlig skisstilldelningen - låsläge har ändrats](../media/update-existing-assignments/updated-assignment.png)
 
 1. Ta reda på information om andra **tilldelningsåtgärden** med hjälp av listrutan. Tabellen med **hanterade resurser** uppdateringar av valda tilldelning åtgärd.
 
-   ![Tilldelningsåtgärden](../media/update-existing-assignments/assignment-operations.png)
+   ![Tilldelning av driften av en tilldelning av skiss](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regler för uppdatering av tilldelningar
 
@@ -69,8 +69,8 @@ Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [skiss livscykeln](../concepts/lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](../concepts/parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](../concepts/sequencing-order.md).
-- Ta reda på hur du får använda [skiss resource låsning](../concepts/resource-locking.md).
-- Lös problem vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).
+- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

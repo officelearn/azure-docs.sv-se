@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993824"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805609"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -33,7 +33,7 @@ En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machin
 | **Ägare** | Fullständig åtkomst till arbetsytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om tillämpligt) tillgångar i en arbetsyta. Du kan dessutom ändra rolltilldelningar. |
 
 > [!IMPORTANT]
-> Rollåtkomst kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägaråtkomst till en arbetsgrupp inte ägaråtkomst till resursgruppen som innehåller arbetsgruppen. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
+> Rollåtkomst kan begränsas till flera nivåer i Azure. Någon med ägaråtkomst till en arbetsyta kan till exempel inte ha ägaråtkomst till resursgruppen som innehåller arbetsytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
 
 Mer information om specifika inbyggda roller finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
 

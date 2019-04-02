@@ -1,5 +1,5 @@
 ---
-title: Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
+title: Exempel – Översikt över skissexemplet ISO 27001 ASE/SQL-arbetsbelastning
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över Azure Blueprints-skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
 Skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning tillhandahåller ytterligare infrastruktur för skissexemplet [ISO 27001 Delade tjänster](../iso27001-shared/index.md).
 Den här skissen hjälper kunder att distribuera molnbaserade arkitekturer som erbjuder lösningar på scenarion med auktoriserings- och efterlevnadskrav.
@@ -23,7 +23,7 @@ Det finns två ISO 27001-skissexempel: det här exemplet och [ISO 27001 Delade t
 
 Skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning distribuerar en PaaS-baserad webbmiljö (plattform som en tjänst). Miljön kan användas som värd för webbappar, webb-API:er och SQL Database-instanser som följer ISO 27001-standarderna. Det här skissexemplet är beroende av skissexemplet [ISO 27001 Delade tjänster](../iso27001-shared/index.md).
 
-![Utformning för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Utformning för skissexemplet ISO 27001 ASE/SQL-arbetsbelastning](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad arbetsbelastningsinfrastruktur för företag baserat på ISO 27001-standarder. Den här miljön består av:
 

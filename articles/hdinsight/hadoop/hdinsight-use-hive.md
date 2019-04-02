@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.openlocfilehash: 6d667df3062112e0c805e3ba26bc6240022cab8b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.date: 03/26/2019
+ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446338"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801937"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -37,17 +37,15 @@ HDInsight innehåller flera klustertyper som är anpassade för specifika arbets
 
 Använd följande tabell för att identifiera de olika sätten att använda Hive med HDInsight:
 
-| **Använd den här metoden** om du vill... | ... **interaktiva** frågor | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
+| **Använd den här metoden** om du vill... | ... **interaktiva** frågor | ...**batch** bearbetning | ...from detta **klientoperativsystem** |
 |:--- |:---:|:---:|:--- |:--- |
-| [HDInsight tools för Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X eller Windows |
-| [HDInsight tools för Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux eller Windows * |Windows |
-| [Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Alla (webbläsarbaserade) |
-| [Beeline klienten](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST-API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux eller Windows * |Linux, Unix, Mac OS X eller Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux eller Windows * |Windows |
+| [HDInsight tools för Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X eller Windows |
+| [HDInsight tools för Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Alla (webbläsarbaserade) |
+| [Beeline klienten](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X eller Windows |
+| [REST-API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X eller Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-> [!IMPORTANT]
-> \* Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="hiveql-language-reference"></a>HiveQL Språkreferens
 
@@ -119,7 +117,6 @@ Hive på HDInsight levereras med en intern tabell med namnet `hivesampletable`. 
 Följande HiveQL-instruktioner projektet kolumner till den `/example/data/sample.log` fil:
 
 ```hiveql
-set hive.execution.engine=tez;
 DROP TABLE log4jLogs;
 CREATE EXTERNAL TABLE log4jLogs (
     t1 string,
@@ -138,10 +135,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 I exemplet ovan utför HiveQL-instruktioner följande åtgärder:
 
-* `set hive.execution.engine=tez;`: Anger motorn för körning av att använda Apache Tez. Använda Tez kan ge en ökning av frågeprestanda. Mer information om Tez finns i den [använda Apache Tez för bättre prestanda](#usetez) avsnittet.
-
-    > [!NOTE]  
-    > Den här instruktionen är endast krävs när du använder ett Windows-baserade HDInsight-kluster. Tez är standard-motorn för körning för Linux-baserade HDInsight.
 
 * `DROP TABLE`: Om tabellen redan finns, kan du ta bort den.
 
@@ -163,7 +156,6 @@ I exemplet ovan utför HiveQL-instruktioner följande åtgärder:
 Skapa en **interna** tabellen i stället för externa, Använd följande HiveQL:
 
 ```hiveql
-set hive.execution.engine=tez;
 CREATE TABLE IF NOT EXISTS errorLogs (
     t1 string,
     t2 string,
@@ -193,16 +185,7 @@ Dessa instruktioner utför följande åtgärder:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) är ett ramverk som gör att dataintensiva applikationer, som Hive, kan köras mer effektivt i större skala. Tez är aktiverat som standard för Linux-baserade HDInsight-kluster.
-
-> [!NOTE]  
-> Tez är för närvarande inaktiverat som standard för Windows-baserade HDInsight-kluster och den måste aktiveras. Om du vill dra nytta av Tez, måste du ange följande värde för en Hive-fråga:
->
-> `set hive.execution.engine=tez;`
->
-> Tez är standard-motor för Linux-baserade HDInsight-kluster.
-
-Den [Apache Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
+[Apache Tez](https://tez.apache.org) är ett ramverk som gör att dataintensiva applikationer, som Hive, kan köras mer effektivt i större skala. Tez är aktiverat som standard.  Den [Apache Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Låg latens Analytical Processing (LLAP)
 

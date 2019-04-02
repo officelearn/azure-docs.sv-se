@@ -18,7 +18,7 @@ Du kan till exempel tillämpa principer för en hanteringsgrupp som begränsar r
 
 Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempel på att skapa en hierarki för styrning med hjälp av hanteringsgrupper.
 
-![träd](./media/tree.png)
+![Exempel på ett hierarkiträd för hanteringsgrupp](./media/tree.png)
 
 Skapa en hierarki så att du kan tillämpa en princip, till exempel begränsa VM-platser till regionen USA, västra i gruppen ”Produktion”. Den här principen ärvs av EA-prenumerationerna under den hanteringsgruppen och gäller även för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
 

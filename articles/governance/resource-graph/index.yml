@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b79f900c9d1fa78c131b132975f9352c4696b201
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726914"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803436"
 documentType: LandingData
-title: Azure Resource Graph-dokumentation
+title: Dokumentation om Azure Resource Graph-tjänsten
 metadata:
   title: Dokumentation om Azure Resource Graph – Självstudier, API-referens
   description: Azure Resource Graph är en tjänst i Azure som möjliggör komplexa frågor till resurser i stor skala.

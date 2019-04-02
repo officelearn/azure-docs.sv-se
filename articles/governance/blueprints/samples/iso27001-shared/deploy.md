@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202511"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804340"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Distribuera Azure skisser ISO 27001 delade tjänster skissen exemplet
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera exemplet ISO 27001 delade tjänster skiss
 
 Följande steg måste vidtas för att distribuera Azure skisser ISO 27001 delade tjänster skissen exemplet:
 
@@ -167,8 +167,8 @@ Nu när du har gått igenom stegen för att distribuera delade tjänster för IS
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Lär dig mer om den [skiss livscykeln](../../concepts/lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](../../concepts/sequencing-order.md).
-- Ta reda på hur du får använda [skiss resource låsning](../../concepts/resource-locking.md).
-- Lär dig hur du [uppdatera befintliga tilldelningar](../../how-to/update-existing-assignments.md).
+- Lär dig mer om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

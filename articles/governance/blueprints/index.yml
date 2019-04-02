@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 34e0023a00aeffc5788754062a2c11fdeea58f7f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500074"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800445"
 documentType: LandingData
-title: Dokumentation om Azure Blueprint
+title: Dokumentation om Azure Blueprints-tjänsten
 metadata:
   title: Dokumentation om Azure Blueprint – Självstudier, API-referens
   description: Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.

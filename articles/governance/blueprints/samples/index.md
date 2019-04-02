@@ -1,6 +1,6 @@
 ---
 title: Index för skissexempel
-description: Index för exempel för Azure Blueprints
+description: Index över exempel på efterlevnad och standardmiljöer för distribution med Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

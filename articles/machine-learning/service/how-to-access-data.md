@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 85910e2f422ea45b2468f20b4ff9425f64ca3cbe
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481645"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793424"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 
@@ -123,13 +123,14 @@ Ladda upp en katalog till ett datalager `ds`:
 
 ```Python
 import azureml.data
-from azureml.data import AzureFileDatastore, AzureBlobDatastore
+from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
 
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
           show_progress=True)
 ```
+
 `target_path` Anger var i filresursen (eller blob-behållare) för att ladda upp. Standard `None`, i vilket fall hämtar data som överförs till rot. `overwrite=True` skriver över befintliga data på `target_path`.
 
 Eller ladda upp en lista med enskilda filer till databasen via datalagringen `upload_files()` metod.
@@ -142,6 +143,7 @@ ds.download(target_path='your target path',
             prefix='your prefix',
             show_progress=True)
 ```
+
 `target_path` är platsen för den lokala katalogen för nedladdning av data till. Om du vill ange en sökväg till mappen i filresursen (eller blob-behållare) för att hämta, ange sökvägen till `prefix`. Om `prefix` är `None`, ska ladda ned hela innehållet i filresursen (eller blob-behållare).
 
 <a name="train"></a>
@@ -159,7 +161,7 @@ Ladda upp|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azu
 
  ```Python
 import azureml.data
-from azureml.data import DataReference
+from azureml.data.data_reference import DataReference
 
 ds.as_mount()
 ds.as_download(path_on_compute='your path on compute')

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444298"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793047"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
@@ -64,13 +64,13 @@ När en anslutning misslyckas, är den grundläggande orsaken vanligtvis en av f
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Kontrollera att administratören används för att installera connector
 
-**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande kan måste användaren vara antingen en programadministratör eller global administratör för att installationen ska lyckas.
+**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande kan måste användaren vara minst en programadministratör för att installationen ska lyckas.
 
 **För att verifiera autentiseringsuppgifterna är korrekta:**
 
 Ansluta till <https://login.microsoftonline.com> och använda samma autentiseringsuppgifter. Kontrollera att inloggningen är klar. Du kan kontrollera rollen genom att gå till **Azure Active Directory**  - &gt; **användare och grupper**  - &gt; **alla användare**. 
 
-Välj ditt användarkonto, sedan ”Katalogroll” på menyn. Kontrollera att den valda rollen ”programadministratör” eller ”Global administratör”. Om det inte går att få åtkomst till någon av sidorna med de här stegen kan har du inte de nödvändiga rolltjänsterna.
+Välj ditt användarkonto, sedan ”Katalogroll” på menyn. Kontrollera att den valda rollen är ”programadministratör”. Om det inte går att få åtkomst till någon av sidorna med de här stegen kan har du inte de nödvändiga rolltjänsterna.
 
 ## <a name="next-steps"></a>Nästa steg
 [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)

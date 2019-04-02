@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112100"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802278"
 ---
 # <a name="create-a-custom-policy-definition"></a>Skapa en anpassad principdefinition
 
@@ -72,7 +72,7 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
 Titta på sidan **Automationsskript** (under **Inställningar**) i Azure-portalen för den specifika resursen.
 
-![Sidan Automationsskript](../media/create-custom-policy-definition/automation-script.png)
+![Exportera mallsidan på befintlig resurs](../media/create-custom-policy-definition/automation-script.png)
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 

@@ -11,25 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316882"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802498"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering  
- 
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services-API är ett RESTful-API. Du kan använda den för att utföra åtgärder på media resurser med hjälp av ett REST-API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder en Media Services-klient SDK för Microsoft .NET. Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. 
 
 Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/fundamentals/active-directory-whatis.md). Azure Media REST-tjänsten kräver att användaren eller programmet som gör REST API-begäranden ha antingen den **deltagare** eller **ägare** roll som ska få åtkomst till resurserna. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Media Services stöder för närvarande Azure Access Control service-autentiseringsmodellen. Access Control-auktorisering kommer dock att bli inaktuella den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
-
 Det här dokumentet ger en översikt över hur du kommer åt Media Services-API med hjälp av REST- eller .NET API: er.
+
+> [!NOTE]
+> Kontroll av åtkomstauktorisering upphörde den 1 juni 2018.
 
 ## <a name="access-control"></a>Åtkomstkontroll
 

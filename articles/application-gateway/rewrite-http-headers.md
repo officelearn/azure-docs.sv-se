@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520929"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793472"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
@@ -96,7 +96,7 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Returnerar listan över chiffer som stöds av klienten          |
 | ciphers_used               | Returnerar en sträng med chiffer som används för en etablerad SSL-anslutning |
-| client_ip                  | IP-adressen för klienten som application gateway som tog emot begäran. Om det finns en omvänd proxy innan application gateway och den ursprungliga klienten sedan *client_ip* returnerar IP-adress för den omvända proxyn. tjsi variabeln är särskilt användbart i situationer där kunder ska skriva om rubriken X-vidarebefordrade-för som Application Gateway, så att huvudet innehåller IP-adress utan portinformation. |
+| client_ip                  | IP-adressen för klienten som application gateway som tog emot begäran. Om det finns en omvänd proxy innan application gateway och den ursprungliga klienten sedan *client_ip* returnerar IP-adress för den omvända proxyn. Den här variabeln är särskilt användbart i scenarier där kunderna vill skriva om rubriken X-vidarebefordrade-för som Application Gateway, så att huvudet innehåller IP-adress utan portinformation. |
 | client_port                | klientport                                                  |
 | client_tcp_rtt             | information om klienten TCP-anslutning. tillgängligt på system som stöder socketalternativet TCP_INFO |
 | client_user                | När du använder HTTP-autentisering, användarnamnet som angetts för autentisering |

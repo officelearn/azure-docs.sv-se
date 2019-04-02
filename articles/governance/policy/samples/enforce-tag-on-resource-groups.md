@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 73990de30525dff4e3a0981ebca96368f56845fe
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 792a5b0caa35cc69774dbfe9f3d33d532853e31f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339081"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805172"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exempel – Lägg till tagg och dess värde i resursgrupper
 
@@ -51,10 +51,10 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 [!code-json[parameters](../../../../policy-templates/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Namn |Typ |Fält |Beskrivning |
+|Namn |Type |Fält |Beskrivning |
 |---|---|---|---|
-|tagName |Sträng |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
-|tagValue |Sträng |tags |Taggens värde, till exempel headquarter (huvudkontor)|
+|tagName |String |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
+|tagValue |String |tags |Taggens värde, till exempel headquarter (huvudkontor)|
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -74,8 +74,8 @@ I den här exempelparametern definieras _tagName_ **costCenter** och _tagValue_ 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[![Distribuera till Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
-[![Distribuera till Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![Distribuera princip för exemplet till Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![distribuera princip för exemplet till Azure Government](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767133"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762709"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klassisk](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-SQL Server IaaS Agent-tillägget (SqlIaasExtension) körs på Azure virtuella datorer för att automatisera administrationsuppgifter. Den här artikeln innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
+SQL Server IaaS Agent-tillägget (SqlIaasExtension) körs på virtuella Azure-datorer för att automatisera administrationsuppgifter. Den här artikeln innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -70,17 +70,31 @@ Krav för att använda SQL Server IaaS Agent-tillägget på den virtuella datorn
 > För närvarande den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) stöds inte för FCI för SQL Server på Azure. Vi rekommenderar att du avinstallerar tillägget från virtuella datorer som deltar i ett FCI. Funktioner som stöds av tillägget är inte tillgängliga för SQL-datorer när agenten har avinstallerats.
 
 ## <a name="installation"></a>Installation
-SQL Server IaaS Agent-tillägget installeras automatiskt när du etablerar en galleriavbildningar för SQL Server-dator. Om du vill installera om tillägget manuellt på en av de här SQL Server-datorer kan du använda följande PowerShell-kommando:
+SQL Server IaaS Agent-tillägget installeras automatiskt när du etablerar en galleriavbildningar för SQL Server-dator. SQL IaaS-tillägget erbjuder hanterbarhet för en enskild instans på SQL Server-dator. Om det finns en standardinstans, sedan tillägget kommer att fungera med instansen och stöder inte hantering av andra instanser. Om det finns inga standardinstansen men bara en namngiven instans, ska som hanteras den namngivna instansen. Om det finns ingen standardinstans och det finns flera namngivna instanser, kan sedan tillägget inte installeras. 
+
+
+
+Om du vill installera om tillägget manuellt på en av de här SQL Server-datorer kan du använda följande PowerShell-kommando:
 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
-> [!IMPORTANT]
+> [!WARNING]
 > Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten. Uppdaterar SQL IaaS-tillägget dock inte om SQL Server-tjänsten. 
 
 > [!NOTE]
-> SQL Server IaaS Agent-tillägget stöds bara på [galleriavbildningar för SQL Server-VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betala per användning eller bring-your-own-license). Det stöds inte om du manuellt installera SQL Server på en OS-endast Windows Server-dator eller om du distribuerar en anpassad SQL Server VM-VHD. I dessa fall kan det vara möjligt att installera och hantera tillägget manuellt med hjälp av PowerShell, men du får inte konfigurationsinställningarna för SQL Server i Azure-portalen. Vi rekommenderar dock starkt att i stället installera en SQL Server-VM-avbildning för galleriet och sedan anpassa den.
+> Det är möjligt att installera SQL Server IaaS Agent-tillägget för anpassade SQL Server-avbildningar, funktionen är för närvarande begränsad till [ändra licenstypen](virtual-machines-windows-sql-ahb.md). Andra funktioner som tillhandahålls av SQL IaaS-tillägget fungerar bara på [galleriavbildningar för SQL Server-VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betala per användning eller bring-your-own-license).
+
+### <a name="use-a-single-named-instance"></a>Använda en enda namngiven instans
+SQL IaaS-tillägget fungerar med en namngiven instans på en SQL Server-avbildning om standardinstansen avinstalleras korrekt, och om IaaS-tillägget har installerats om.
+
+Om du vill använda en namngiven instans av SQL Server gör du följande:
+   1. Distribuera en SQL Server-VM från marketplace. 
+   1. Avinstallera tillägget IaaS inifrån den [Azure-portalen](https://portal.azure.com).
+   1. Avinstallera SQL Server helt inom SQL Server-dator.
+   1. Installera SQL Server med en namngiven instans i SQL Server-dator. 
+   1. Installera IaaS-tillägget i Azure-portalen.  
 
 ## <a name="status"></a>Status
 Ett sätt att kontrollera att tillägget har installerats är att visa agentens status på Azure-portalen. Välj **alla inställningar** i den virtuella datorn och sedan klicka på **tillägg**. Du bör se den **SqlIaasExtension** tillägg i listan.

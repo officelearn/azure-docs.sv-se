@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 13fce896c4d83f628bdb7e12e696e32e343fb689
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754944"
+ms.locfileid: "58805354"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
@@ -105,6 +105,11 @@ Mer information finns på GitHub-lagringsplatsen för vår [JavaScript-SDK med �
 ## <a name="video"></a>Video
 
 * Externa stegvisa video om [konfigurera Application Insights med ett .NET-program från grunden](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+När du är klar testning bör du ta bort resursgruppen och alla relaterade resurser. Att så att följa stegen nedan.
+1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
+2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du aktiverat ditt program för övervakning av Azure Application Insights.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.

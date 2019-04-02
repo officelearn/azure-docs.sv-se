@@ -1,42 +1,42 @@
 ---
-title: Hotidentifiering – Azure SQL Database | Microsoft Docs
-description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot i Azure SQL Database.
+title: Avancerat skydd – Azure SQL Database | Microsoft Docs
+description: Avancerat skydd identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: rmatchoro
+author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/31/2019
+ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001893"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793920"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Azure SQL Database-hotidentifiering
+# <a name="advanced-threat-protection-for-azure-sql-database"></a>Avancerat skydd för Azure SQL Database
 
-Hotidentifiering för [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+Avancerat skydd för [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Hotidentifiering är en del av den [avancerade datasäkerhet](sql-database-advanced-data-security.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ADS-portalen.
+Avancerat skydd är en del av den [avancerade datasäkerhet](sql-database-advanced-data-security.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Avancerat skydd kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
-## <a name="what-is-threat-detection"></a>Vad är identifiering av hot
+## <a name="what-is-advanced-threat-protection"></a>Vad är Advanced Threat Protection
 
-Hotidentifiering ger ett nytt lager av säkerhet som ger kunder möjlighet att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får en avisering när misstänkta databasaktiviteter, potentiella svagheter, och SQL-inmatning attacker, samt avvikande databasåtkomst och frågar mönster. Hotidentifiering integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot. Hotidentifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera avancerade säkerhetsövervakningssystem.
+ Avancerat skydd ger ett nytt lager av säkerhet som ger kunder möjlighet att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får en avisering när misstänkta databasaktiviteter, potentiella svagheter, och SQL-inmatning attacker, samt avvikande databasåtkomst och frågar mönster. Avancerat skydd integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot. Avancerat skydd gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera övervakningssystem för avancerad säkerhet.
 
 För en fullständig undersökning, rekommenderar vi att du aktiverar [SQL Database Auditing](sql-database-auditing.md), vilka skriver databashändelser till en granskningslogg logga i Azure storage-kontot.  
 
-## <a name="threat-detection-alerts"></a>Hotidentifieringsaviseringar
+## <a name="advanced-threat-protection-alerts"></a>Avancerat skydd-aviseringar
 
-Hotidentifiering för Azure SQL Database identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser och det kan utlösa följande aviseringar:
+Avancerat skydd för Azure SQL Database identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser och det kan utlösa följande aviseringar:
 
 - **Sårbarhet för SQL-inmatning**: Den här aviseringen utlöses när ett program genererar en felaktig SQL-instruktion i databasen. Aviseringen kan tyda på en eventuell sårbarhet för SQL-inmatningsattacker. Det finns två möjliga orsaker till att en felaktig instruktion genereras:
 
@@ -65,20 +65,20 @@ Du får ett e-postavisering när avvikande databasaktiviteter. E-postmeddelandet
 
    ![Specifika aviseringen](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Utforska hotidentifieringsaviseringar för din databas i Azure portal
+## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Utforska Advanced Threat Protection-aviseringar för din databas i Azure portal
 
-Hotidentifiering integrerar dess aviseringar med [Azure security center](https://azure.microsoft.com/services/security-center/). Live SQL threat identifiering av paneler i databasen och SQL-ANNONSER blad i Azure-portalen spåra status för aktiva hot.
+Avancerat skydd integrerar dess aviseringar med [Azure security center](https://azure.microsoft.com/services/security-center/). Realtidspaneler i databasen och SQL-ANNONSER blad i Azure portal SQL Advanced Threat Protection spåra status för aktiva hot.
 
-Klicka på **Threat varning** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL hot som upptäckts på databasen eller datalagret.
+Klicka på **Advanced Threat Protection avisering** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL hot som upptäckts på databasen eller datalagret.
 
-   ![Varning för hot](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Avancerat skydd-avisering](./media/sql-database-threat-detection/threat_detection_alert.png)
 
-   ![Alert2 för identifiering av hot](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Advanced Threat Protection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [hotidentifiering i enkel och delade databaser](sql-database-threat-detection.md).
-- Läs mer om [hotidentifiering i hanterade instansen](sql-database-managed-instance-threat-detection.md).
+- Läs mer om [Avancerat skydd i enkel och delade databaser](sql-database-threat-detection.md).
+- Läs mer om [Avancerat skydd i hanterade instansen](sql-database-managed-instance-threat-detection.md).
 - Läs mer om [avancerade datasäkerhet](sql-database-advanced-data-security.md).
 - Läs mer om [Azure SQL Database-granskning](sql-database-auditing.md)
 - Läs mer om [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)

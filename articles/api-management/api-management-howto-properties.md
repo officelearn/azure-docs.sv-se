@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082712"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791634"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
 API Management-principer är en kraftfull funktion i systemet som tillåter Azure portal för att ändra funktionssättet för API: ets konfiguration. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principrapporter kan konstrueras med literal textvärden, principuttryck, och namngivna värden. 
@@ -34,7 +34,7 @@ Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-p
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
-Egenskapsvärden kan innehålla literala strängar och [principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx). Till exempel värdet för `ExpressionProperty` är ett principuttryck som returnerar en sträng som innehåller den aktuella datum och tid. Egenskapen `ContosoHeaderValue` är markerad som en hemlighet, så inte visas dess värde.
+Egenskapsvärden kan innehålla literala strängar och [principuttryck](/azure/api-management/api-management-policy-expressions). Till exempel värdet för `ExpressionProperty` är ett principuttryck som returnerar en sträng som innehåller den aktuella datum och tid. Egenskapen `ContosoHeaderValue` är markerad som en hemlighet, så inte visas dess värde.
 
 | Namn | Värde | Hemlighet | Taggar |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](https://
 
 När egenskapen har skapats kan redigera du den genom att klicka på egenskapen. Om du ändrar egenskapsnamnet kan uppdateras automatiskt eventuella principer som refererar till egenskapen för att använda det nya namnet.
 
-Information om hur du redigerar en egenskap med hjälp av REST-API finns i [redigera en egenskap med hjälp av REST-API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Information om hur du redigerar en egenskap med hjälp av REST-API finns i [redigera en egenskap med hjälp av REST-API](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Ta bort en egenskap
 
@@ -66,7 +66,7 @@ Ta bort en egenskap genom att klicka på **ta bort** bredvid egenskapen att ta b
 > 
 > 
 
-Information om att ta bort en egenskap med hjälp av REST-API finns i [ta bort en egenskap med hjälp av REST-API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Information om att ta bort en egenskap med hjälp av REST-API finns i [ta bort en egenskap med hjälp av REST-API](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Söka och filtrera med namnet värden
 
@@ -111,8 +111,8 @@ Medan egenskapsvärden kan innehålla principuttryck får inte egenskapsvärden 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om hur du arbetar med principer
   * [Principer i API Management](api-management-howto-policies.md)
-  * [Principreferens](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Principreferens](/azure/api-management/api-management-policies)
+  * [Principuttryck](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

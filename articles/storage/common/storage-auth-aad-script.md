@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483213"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803586"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Använda en Azure AD-identitet för att komma åt blob och kö data med CLI eller PowerShell
 
@@ -61,7 +61,7 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
         --encryption-services blob
     ```
     
-1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC-rolltilldelningar kan ta några minuter att sprida.
@@ -114,7 +114,7 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > RBAC-rolltilldelningar kan ta några minuter att sprida.

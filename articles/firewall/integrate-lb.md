@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321780"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805252"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure-brandväggen med Azure Standard Load Balancer
 
-Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure Standard Load Balancer (offentlig eller intern). Men behöver du känna till asymmetrisk routning problem som kan dela funktioner med den offentliga belastningsutjämningsscenario.
+Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure Standard Load Balancer (offentlig eller intern). 
+
+Den föredragna designen är att integrera en intern belastningsutjämnare med din Azure-brandväggen, eftersom det här är en mycket enklare design. Du kan använda en offentlig belastningsutjämnare om du redan har ett distribuerat och du vill att förvara den på plats. Men behöver du känna till asymmetrisk routning problem som kan dela funktioner med den offentliga belastningsutjämningsscenario.
 
 Läs mer om Azure Load Balancer [vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ När du distribuerar en Azure-brandvägg i ett undernät är ett steg att skapa 
 
 När du introducera brandväggen i din belastningsutjämningsscenario vill Internet-trafiken att komma via din brandvägg offentlig IP-adress. Därifrån kan gäller brandväggen dess brandväggsregler och NAT paketen till din belastningsutjämnarens offentliga IP-adress. Det här är där problemet uppstår. Paket som tas emot på i brandväggen offentlig IP-adress, men återgå till brandväggen via privata IP-adress (med standardvägen).
 Undvik problemet genom att skapa en ytterligare värdrutt för i brandväggen offentlig IP-adress. Paketen i brandväggen offentlig IP-adress ska dirigeras via Internet. Detta förhindrar tar standardväg till i brandväggen privat IP-adress.
+
+![Asymmetrisk routning](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Till exempel är följande vägar för en brandvägg i offentliga IP-adressen 13.86.122.41 och privata IP-adressen 10.3.1.4.
 

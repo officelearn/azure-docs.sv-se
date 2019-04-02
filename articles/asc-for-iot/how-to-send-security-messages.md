@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754778"
+ms.locfileid: "58762777"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka säkerhetsvarningar SDK
 
@@ -88,7 +88,7 @@ Ange en gång som ett säkerhetsmeddelande och har skickat det här meddelandet 
 
 ## <a name="send-security-messages"></a>Skicka meddelanden för säkerhet 
 
-Skicka säkerhetsvarningar utan att använda ASC för IoT-agenten med hjälp av den [Azure IoT C# enhets-SDK](https://github.com/Azure/azure-iot-sdk-csharp) eller [Azure IoT C-enhets-SDK](https://github.com/Azure/azure-iot-sdk-c).
+Skicka säkerhetsvarningar utan att använda ASC för IoT-agenten med hjälp av den [Azure IoT C# enhets-SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) eller [Azure IoT C-enhets-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 Använda en av följande API: er för att skicka enhetens data från dina enheter för bearbetning av ASC för IoT, för att markera meddelanden för rätt routning till ASC för IoT-process-pipelinen. Meddelanden som skickas på detta sätt ska bearbetas och visas som säkerhetsinformation i ASC för IoT inom både IoT Hub eller Azure Security Center. 
 

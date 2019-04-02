@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880457"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791651"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box-Disk-gränser
 
@@ -93,4 +93,4 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Data Box-systemkrav](data-box-system-requirements.md)
+- Granska [systemkrav för Data Box-Disk](data-box-disk-system-requirements.md)

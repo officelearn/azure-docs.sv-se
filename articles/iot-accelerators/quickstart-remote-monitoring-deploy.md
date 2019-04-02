@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184180"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792509"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Testa en molnbaserad fjärrövervakningslösning
 
 Den här snabbstarten visar hur du distribuerar Azure IoT-lösningsacceleratorn Fjärrövervakning. I den här molnbaserade lösningen använder du **instrumentpanelssidan** till att visualisera simulerade enheter på en karta så svarar sidan **Underhåll** på en tryckvarning för ett simulerat kylaggregat. Du kan använda den här lösningsacceleratorn som utgångspunkt för en egen implementering eller som utbildningsverktyg.
 
 I den initiala distributionen konfigureras lösningsacceleratorn för ett företag med namnet Contoso. Som operatör på Contoso hanterar du olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till Fjärrövervakning-lösningsacceleratorn.
+
+Den här snabbstarten distribuerar en **grundläggande** version av solution accelerator för testning och demonstration som minimerar kostnaderna. Mer information om hur du kan distribuera olika versioner finns i [Basic och standard-distributioner](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -36,9 +38,7 @@ Klicka på panelen **Fjärrövervakning**. Klicka på **Testa nu** på sidan **F
 
 ![Välj Fjärrövervakning](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-På sidan **Skapa Fjärrövervakning-lösning** väljer du en **Basic**-distribution. Om du distribuerar lösningsacceleratorn för att lära dig hur den fungerar eller för att köra en demonstration väljer du alternativet **Basic** för att minska kostnaderna.
-
-Välj **.NET** som språk. Java- och .NET-implementeringarna har samma funktioner.
+Välj  **C# Mikrotjänster** som den **distributionsalternativ**. Java och C# implementeringar har samma funktioner.
 
 Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator. I den här snabbstarten kallar vi den för **contoso-rm**.
 
@@ -111,7 +111,7 @@ Värdet i statuskolumnen ändras till **Bekräftad**.
 
 På panelen **Jobb** väljer du **Kör metod** och sedan metoden **EmergencyValveRelease**. Lägg till Jobbnamnet **ChillerPressureRelease** och klicka på **Använd**. Inställningarna skapar ett jobb åt dig som körs direkt.
 
-Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta i några sekunder innan du ser att jobbet har körts för att släppa ventiltrycket på kylaggregatet:
+Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta några sekunder innan du kan se att jobbet har körts:
 
 [![Statusen för jobben i jobbvyn](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

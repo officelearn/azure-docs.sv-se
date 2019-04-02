@@ -12,18 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187752"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801705"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Översikt över och jämförelse av Azure på begäran media kodare 
 
 ## <a name="encoding-overview"></a>Kodning – översikt
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+
 Azure Media Services erbjuder flera alternativ för kodning av media i molnet.
 
 När du börjar med Media Services, är det viktigt att förstå skillnaden mellan codec- och filformat.
@@ -31,8 +35,7 @@ Codec är program som implementerar komprimering/dekomprimering algoritmer filfo
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera innehåll med anpassad bithastighet MP4 eller Smooth Streaming-kodade i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) utan att du behöver packa om till dessa strömningsformat.
 
-> [!NOTE]
-> När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
 Media Services stöder följande på begäran-kodare som beskrivs i den här artikeln:
 
@@ -41,8 +44,7 @@ Media Services stöder följande på begäran-kodare som beskrivs i den här art
 
 Den här artikeln ger en kort översikt över på begäran media kodare och innehåller länkar till artiklar som ger mer detaljerad information. Avsnittet innehåller också jämförelse av kodarna.
 
->[!NOTE]
->Som standard kan varje Media Services-konto ha en aktiv kodning aktivitet i taget. Du kan reservera kodningsenheter så att du kan ha flera kodningsuppgifter körs samtidigt, en för varje kodning reserverad enhet som du köper. Mer information finns i [skalning kodningsenheter](media-services-scale-media-processing-overview.md).
+Som standard kan varje Media Services-konto ha en aktiv kodning aktivitet i taget. Du kan reservera kodningsenheter så att du kan ha flera kodningsuppgifter körs samtidigt, en för varje kodning reserverad enhet som du köper. Mer information finns i [skalning kodningsenheter](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>Hur du ska använda detta

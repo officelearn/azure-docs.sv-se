@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902254"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762947"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
 Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Monitor-loggar och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
+
+> [!NOTE]
+> Starta/Stoppa VM under kontorstid lösning har testats med Azure-moduler som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara Automation-kontot som används för att köra Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning. Du kan fortfarande använda nyare versioner av Azure-modulen i din andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md)
 
 Den här lösningen ger en decentraliserad prisvärda automatiseringsalternativet för användare som vill optimera kostnaderna för virtuella datorer. Med den här lösningen kan du:
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759598"
+ms.locfileid: "58762930"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight virtuella nätverksarkitekturen
 
@@ -31,8 +31,6 @@ Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje 
 | Region-nod | Region Server körs i noden region (kallas även en datanod) för typen HBase-kluster. Regionservrar fungerar och hantera en del av de data som hanteras av HBase. Region-noder kan läggs till eller tas bort från klustret för att skala databehandling kapaciteten och hantera kostnader.|
 | Nimbus-nod | För typ av Storm-kluster kan tillhandahåller Nimbus-noden funktioner som liknar huvudnoden. Nimbus-noden tilldelar uppgifter till andra noder i ett kluster genom Zookeeper som samordnar körning av Storm-topologier. |
 | Överordnade noden | För typ av Storm-kluster kan kör den överordnade noden instruktionerna från Nimbus-noden till den önskade bearbetning. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase och klustertyper R Server
 
 ## <a name="basic-virtual-network-resources"></a>Grundläggande virtuella nätverksresurser
 

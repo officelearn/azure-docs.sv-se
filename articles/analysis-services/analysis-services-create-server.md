@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186744"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803023"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
 Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs i Azure-prenumerationen med hjälp av portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 * **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
@@ -46,7 +46,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
    * **Inställning för lagring av säkerhetskopior**: Valfri. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
    * **Upphörande av lagringsnyckel**: Valfri. Ange en upphörandeperiod för lagringsnyckeln.
 
-Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar.
+Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar. Servrar som stöder tabellmodeller på kompatibilitetsnivå 1200 och högre. Modellen kompatibilitetsnivån har angetts i SSDT eller SSMS.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

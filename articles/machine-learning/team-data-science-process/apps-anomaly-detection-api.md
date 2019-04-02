@@ -11,14 +11,18 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899357"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793143"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Avvikelseidentifiering API
+
+> [!NOTE]
+> Den här artikeln är under underhåll. Vi rekommenderar att du kan använda den [Avvikelseidentifiering detektor API-tjänsten](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) drivs av ett galleri för Machine Learning-algoritmer under Azure Cognitive Services för att identifiera avvikelser från företag, drift, och IoT-mått.
+
 ## <a name="overview"></a>Översikt
 [API: T för avvikelseidentifiering](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) är ett exempel som skapats med Azure Machine Learning som identifierar avvikelser i tidsseriedata med numeriska värden som är jämnt fördelade i tid.
 

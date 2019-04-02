@@ -1,6 +1,6 @@
 ---
-title: Avancerade begäran begränsning med Azure API Management
-description: Lär dig hur du skapar och använder flexibla kvoten och begränsa principer med Azure API Management hastighet.
+title: Avancerad begränsning av förfrågningar med Azure API Management
+description: Lär dig hur du skapar och använder frekvensen principerna med Azure API Management som begränsar och flexibla kvot.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: c7fcbd57021134631e9f10dcbb2d40e4c130af02
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800031"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793364"
 ---
-# <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerade begäran begränsning med Azure API Management
-Att kunna begränsa inkommande begäranden är en viktig roll i Azure API Management. Antingen genom att kontrollera antalet förfrågningar eller totalt antal begäranden/överförda data kan API Management-API-leverantörer att skydda sina API: er från missbruk och skapa värde för olika nivåer för API-produkten.
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerad begränsning av förfrågningar med Azure API Management
+Att kunna begränsa inkommande begäranden är en viktig roll i Azure API Management. Antingen genom att styra frekvensen för begäranden eller totalt antal begäranden/överförda data, API Management kan API-leverantörer att skydda sina API: er från missbruk och skapa värde för olika nivåer för API-produkt.
 
 ## <a name="product-based-throttling"></a>Produkt-baserade begränsning
-Hittills, frekvensen har bandbreddsbegränsning funktioner begränsad till är begränsad till en viss produkt-prenumeration som definierats i Azure-portalen. Detta är användbart för API-providern kan tillämpa begränsningar på utvecklare som har registrerat dig att använda sitt API, men det hjälper inte, till exempel i begränsning enskilda användare i API. Det är möjligt att för enkel användaren av utvecklarens program att använda hela kvoten och sedan förhindra andra kunder som utvecklare kan använda programmet. Flera kunder som kan generera en stor mängd begäranden kan också begränsa åtkomsten till tillfällig användare.
+Uppdaterade frekvensen har begränsning funktioner begränsad till att tillhöra en viss produktprenumeration som definierats i Azure-portalen. Detta är användbart för API-leverantör att anpassa begränsningar på utvecklare som har registrerat dig för att använda sitt API, men det hjälper inte, till exempel i enskilda användare i API-begränsning. Det är möjligt att för enskilda användare i utvecklarens program att använda hela kvoten och sedan förhindra andra kunder i utvecklarens från att kunna använda programmet. Flera kunder som kan generera ett stort antal begäranden kan också begränsa åtkomsten till tillfälliga användare.
 
-## <a name="custom-key-based-throttling"></a>Anpassade nyckelbaserad begränsning
-Den nya [hastighet gränsen av nyckeln](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) och [kvoten av nyckeln](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) principerna förser dig med en mer flexibel lösning för att kontrollera trafik. Dessa nya principer kan du definiera uttryck för att identifiera de nycklar som används för att spåra användningen av trafik. Hur detta fungerar illustreras easiest med ett exempel. 
+## <a name="custom-key-based-throttling"></a>Anpassad nyckel baserat begränsning
+Den nya [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) och [kvot-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) principerna förser dig med en mer flexibel lösning för att kontrollera trafik. Dessa nya principer kan du definiera uttryck för att identifiera de nycklar som används för att spåra användningen av trafik. Hur detta fungerar illustreras easiest med ett exempel. 
 
 ## <a name="ip-address-throttling"></a>Begränsning av IP-adress
-Följande principer begränsa en enskild klient-IP-adress till endast 10 anrop i minuten, med totalt 1 000 000 anrop och 10 000 kB bandbredd per månad. 
+Följande principer begränsar en enda klient-IP-adress till endast 10 anrop varje minut, med högst 1 000 000 anrop och 10 000 kilobyte för bandbredd per månad. 
 
 ```xml
 <rate-limit-by-key  calls="10"
@@ -44,10 +44,10 @@ Följande principer begränsa en enskild klient-IP-adress till endast 10 anrop i
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Om en unik IP-adress används för alla klienter på Internet, kan det vara ett effektivt sätt för att begränsa användningen av användaren. Det är dock troligt att flera användare delar en offentlig IP-adress på grund av dem åtkomst till Internet via en NAT-enhet. Trots detta för API: er som tillåter obehörig åtkomst av `IpAddress` kan vara det bästa alternativet.
+Om alla klienter på Internet används en unik IP-adress, kan det vara ett effektivt sätt för att begränsa användningen av användaren. Dock är det troligt att flera användare delar en enda offentlig IP-adress på grund av dem åtkomst till Internet via en NAT-enhet. Trots detta för API: er som tillåter oautentiserad åtkomst den `IpAddress` kan vara det bästa alternativet.
 
 ## <a name="user-identity-throttling"></a>Begränsning av identitet
-Om en användare autentiseras kan sedan en bandbreddsbegränsning nyckel genereras baserat på information som unikt identifierar den användaren.
+Om en användare autentiseras, sedan genereras en begränsning nyckel baserat på information som unikt identifierar den användaren.
 
 ```xml
 <rate-limit-by-key calls="10"
@@ -55,13 +55,13 @@ Om en användare autentiseras kan sedan en bandbreddsbegränsning nyckel generer
     counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 ```
 
-Det här exemplet visar hur du extrahera Authorization-huvud, konvertera den till `JWT` objekt och använda föremål för token för att identifiera användaren och använda det som den hastighet som begränsar nyckel. Om användarens identitet lagras i den `JWT` som en av de andra anspråk, sedan detta värde kan användas i dess ställe.
+Det här exemplet visar hur du extrahera auktoriseringsrubriken, konvertera den till `JWT` objektet och använda ämnesraden av token för att identifiera användaren och använda det som den hastighet som begränsar nyckel. Om användar-ID lagras i den `JWT` som en av de andra anspråk, sedan detta värde kan användas i dess ställe.
 
 ## <a name="combined-policies"></a>Kombinerade principer
-Även om de nya bandbreddsbegränsning principerna ger mer kontroll än de befintliga bandbreddsbegränsning principerna, finns det fortfarande värde kombinera båda funktioner. Begränsning av prenumeration produktnyckel ([gränsen anropet frekvensen av prenumerationen](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [kvot för uppsättningen av prenumerationen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) är ett bra sätt att aktivera monetizing för en API genom att dra baserat på användning nivåer. Avancerat hjälpmedel metataggkontroll kontroll av att kunna begränsa av användare kompletterar och förhindrar att en användarbeteende försämring upplevelse av en annan. 
+Även om de nya begränsningar principerna ger mer kontroll än de befintliga principerna för begränsning, finns det fortfarande värdet kombinera båda funktioner. Begränsning av prenumeration produktnyckel ([begränsa anropsfrekvensen per prenumeration](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) och [ange användningskvot per prenumeration](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) är ett bra sätt att tjäna pengar i ett API genom att debitera baserat på användningsnivå. Den störrre kontrollen för att kunna begränsa av användare är kompletterande och förhindrar att en användares beteende försämra upplevelsen av en annan. 
 
-## <a name="client-driven-throttling"></a>Klienten drivs begränsning
-När nyckeln bandbreddsbegränsning definieras med hjälp av en [principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx), så är det den API-provider som väljer hur begränsningen är begränsad. Men en utvecklare kanske vill styra hur de hastighetsbegränsning sina egna kunder. Detta kan aktiveras av API-providern genom att introducera en anpassad rubrik så att utvecklarens klientprogram att kommunicera nyckeln till API: et.
+## <a name="client-driven-throttling"></a>Klienten driven begränsning
+När nyckeln begränsning har definierats med hjälp av en [principuttryck](/azure/api-management/api-management-policy-expressions), så är det den API-provider som väljer hur begränsningen är begränsad. Men en utvecklare vara bra att styra hur de hastighetsbegränsning sina egna kunder. Detta kan aktiveras av API-providern genom att introducera en anpassad rubrik så att utvecklarens klientprogram att kommunicera nyckeln till API: et.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -69,11 +69,11 @@ När nyckeln bandbreddsbegränsning definieras med hjälp av en [principuttryck]
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-Detta gör att utvecklarens klientprogram att välja hur de vill skapa den hastighet som begränsar nyckel. Klient-utvecklare kan skapa sina egna hastighet nivåer genom att tilldela användare uppsättningar av nycklar och rotera nyckelanvändningen.
+På så sätt kan utvecklarens klientprogram för att välja hur de vill skapa den hastighet som begränsar nyckel. Klient-utvecklare kan skapa sina egna rate-nivåer genom att tilldela uppsättningar med nycklar till användare och rotera nyckelanvändningen.
 
 ## <a name="summary"></a>Sammanfattning
-Azure API Management ger hastighet och citattecken begränsning för både skydd och Lägg till värde i API-tjänsten. Nya bandbreddsbegränsning principer med anpassade reglerna Tillåt avancerat hjälpmedel metataggkontroll kontroll över dessa principer för att aktivera dina kunder att bygga program ännu bättre. Exemplen i den här artikeln visar användningen av dessa nya principer med tillverkning som begränsar nycklar med klienternas IP-adresser, användar-ID och klienten genererade värden. Det finns emellertid många andra delar av meddelandet som kan användas som användaragent, URL-sökväg fragment, meddelandestorlek.
+Azure API Management ger hastighet och citattecken begränsning för att skydda såväl mervärde till din API-tjänst. Nya principer för begränsning med anpassade reglerna kan du störrre kontroll över dessa principer så att dina kunder att skapa ännu bättre program. Exemplen i den här artikeln demonstrerar användningen av dessa nya principer som begränsar nycklar med klientens IP-adresser, användar-ID och klienten genererade värden för tillverkning frekvensbegränsningen. Men finns det många andra delar av det meddelande som kan användas som användaragent, URL-sökväg fragment, meddelandestorlek.
 
 ## <a name="next-steps"></a>Nästa steg
-Ge oss din feedback i Disqus-tråden för det här avsnittet. Det är bra att läsa om andra potentiella nyckelvärden som har ett logiskt val i dina scenarier.
+Ge oss din feedback i Disqus-tråden för det här avsnittet. Det vore bra och få information om andra potentiella nyckelvärden som har ett logiskt val i dina scenarier.
 

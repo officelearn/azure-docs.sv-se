@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b8418dba12748915666c6a91ee65b37c0f59ace
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449761"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807958"
 ---
 Azure tillhandahåller följande inbyggda RBAC-roller för åtkomst till lagringsdata:
 
-- [Storage Blob Data ägare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Använd för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion). Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
-- [Storage Blob Data-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Använd för att bevilja behörigheter för Läs/Skriv/ta bort till Blob storage-resurser.
-- [Storage Blob Data-läsare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Använd det här alternativet om du vill ge läsbehörighet till Blob storage-resurser.
-- [Lagringsködata-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Använd för att ge Läs/Skriv/ta bort behörighet till Azure-köer.
-- [Lagringsködata-läsare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Använd det här alternativet om du vill ge läsbehörighet till Azure-köer.
-- [Storage-kö Data meddelande Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Använd för att bevilja peek, hämta och ta bort behörigheter till meddelanden i Azure Storage-köer.
-- [Kön lagringsdata meddelande avsändaren](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Använd för att bevilja lägga till behörigheter till meddelanden i Azure Storage-köer.
+- [Storage Blob Data ägare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Använd för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion). Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
+- [Storage Blob Data-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Använd för att bevilja behörigheter för Läs/Skriv/ta bort till Blob storage-resurser.
+- [Storage Blob Data-läsare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): Använd det här alternativet om du vill ge läsbehörighet till Blob storage-resurser.
+- [Lagringsködata-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Använd för att ge Läs/Skriv/ta bort behörighet till Azure-köer.
+- [Lagringsködata-läsare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Använd det här alternativet om du vill ge läsbehörighet till Azure-köer.
+- [Storage-kö Data meddelande Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Använd för att bevilja peek, hämta och ta bort behörigheter till meddelanden i Azure Storage-köer.
+- [Kön lagringsdata meddelande avsändaren](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Använd för att bevilja lägga till behörigheter till meddelanden i Azure Storage-köer.
 
 > [!IMPORTANT]
 > RBAC-rolltilldelningar kan ta upp till fem minuter att sprida.

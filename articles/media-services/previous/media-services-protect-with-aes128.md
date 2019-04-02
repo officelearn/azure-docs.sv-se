@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317161"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802838"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
 > [!div class="op_single_selector"]
@@ -29,23 +29,18 @@ ms.locfileid: "58317161"
 >  
 
 > [!NOTE]
-> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Kom igång med Java-klientens SDK för Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowsAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Översikt
-> [!NOTE]
-> Information om hur du krypterar innehåll med den Standard AES (Advanced Encryption) för leverans till Safari på macOS, finns i [det här blogginlägget](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-> En översikt över hur du skyddar ditt medieinnehåll med AES-kryptering, se [videon](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-> 
-> 
-
- Du kan använda Media Services för att leverera HTTP Live Streaming (HLS) och Smooth Streaming som krypterats med AES med hjälp av 128-bitars krypteringsnycklar. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. Om du vill kryptera en tillgång med medietjänster kan du associera en krypteringsnyckel med tillgången och även ange auktoriseringsprinciper för nyckeln. När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med hjälp av AES-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. Tjänsten utvärderar auktoriseringsprinciper som du angav för nyckeln för att avgöra om användaren har behörighet att hämta nyckel.
+Du kan använda Media Services för att leverera HTTP Live Streaming (HLS) och Smooth Streaming som krypterats med AES med hjälp av 128-bitars krypteringsnycklar. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. Om du vill kryptera en tillgång med medietjänster kan du associera en krypteringsnyckel med tillgången och även ange auktoriseringsprinciper för nyckeln. När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med hjälp av AES-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. Tjänsten utvärderar auktoriseringsprinciper som du angav för nyckeln för att avgöra om användaren har behörighet att hämta nyckel.
 
 Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: antingen öppen eller tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formaten [simple web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) och [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Mer information finns i [Konfigurera innehållsnyckelns auktoriseringsprincip](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 För att dra fördel av dynamisk kryptering behöver du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Du måste också konfigurera leveransprincipen för tillgången (beskrivs senare i den här artikeln). Sedan, baserat på det format som anges i strömnings-URL:en, kommer servern för strömning på begäran att säkerställa att dataströmmen levereras i det protokoll som du har valt. Därför kan behöva du lagra och betala endast för filerna i ett enda lagringsformat. Media Services skapar och hanterar lämpligt svar baserat på begäran från en klient.
 
 Den här artikeln är användbar för utvecklare som arbetar med appar som levererar media som är skyddade. Artikeln visar hur du konfigurerar nyckelleveranstjänst med auktoriseringsprinciper så att endast auktoriserade klienter kan få krypteringsnycklar. Den visar även hur du använder dynamisk kryptering.
+
+Information om hur du krypterar innehåll med den Standard AES (Advanced Encryption) för leverans till Safari på macOS, finns i [det här blogginlägget](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+En översikt över hur du skyddar ditt medieinnehåll med AES-kryptering, se [videon](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>AES-128 dynamisk kryptering och viktiga leverans-tjänstens arbetsflöde

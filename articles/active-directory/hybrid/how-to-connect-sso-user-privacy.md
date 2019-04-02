@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c7b1f737d0331ecd40ab318cec0c082a3f7ddd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181345"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791561"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Användarsekretess och Azure AD sömlös enkel inloggning
 
@@ -50,7 +50,7 @@ Kontrollera innehållet i **%ProgramData%\AADConnect** mapp och ta bort spårnin
 
 Du kan granska och ta bort dessa loggfiler över spårning med hjälp av Windows Explorer eller du kan använda följande PowerShell-skript för att utföra åtgärderna som krävs:
 
-```
+```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
  
 Foreach ($file in $Files) { 
@@ -67,6 +67,7 @@ Mer information om relaterade Azure AD Connect GDPR krav, se [i den här artikel
 Om granskningsloggning aktiveras kan den här produkten generera säkerhetsloggar för domänkontrollanterna. Mer information om hur du konfigurerar granskningsprinciper kan du läsa följande [artikeln](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Granska Microsoft Privacy principen på Säkerhetscenter](https://www.microsoft.com/trustcenter)
   - [**Felsöka** ](tshoot-connect-sso.md) – Lär dig att lösa vanliga problem med funktionen.
   - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att skicka in nya funktionbegäran.

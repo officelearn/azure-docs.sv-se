@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816577"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802566"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -139,11 +139,11 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
-   ![Sök efter princip](../media/remediate-resources/search-policy.png)
+   ![Sök efter princip i alla tjänster](../media/remediate-resources/search-policy.png)
 
 1. Välj **reparation** till vänster på sidan för Azure Policy.
 
-   ![Välj reparation](../media/remediate-resources/select-remediation.png)
+   ![Välj reparation på sidan för principer](../media/remediate-resources/select-remediation.png)
 
 1. Alla **deployIfNotExists** principtilldelningar med icke-kompatibla resurser ingår i den **principer för att åtgärda** fliken och en datatabell. Klicka på en princip med resurser som är icke-kompatibla. Den **ny reparation uppgift** öppnas.
 
@@ -152,11 +152,11 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
 1. På den **ny reparation uppgift** sidan, filtrera resurser för att åtgärda problemet med hjälp av den **omfång** ellipserna att välja underordnade resurser från där principen tilldelas (inklusive till enskild resurs objekt). Dessutom kan använda den **platser** listrutan filtreras ytterligare resurser. Endast de resurser som anges i tabellen ska åtgärdas.
 
-   ![Åtgärda – Välj resurser](../media/remediate-resources/select-resources.png)
+   ![Åtgärda – Välj vilka resurser behöver uppdateras](../media/remediate-resources/select-resources.png)
 
 1. Starta reparation aktiviteten när resurserna som har filtrerats genom att klicka på **reparera**. Öppnar sidan principer för efterlevnad för den **reparation uppgifter** flik för att visa tillståndet för uppgifter förloppet.
 
-   ![Åtgärda – uppgiften pågår](../media/remediate-resources/task-progress.png)
+   ![Åtgärda - status för reparation aktiviteter](../media/remediate-resources/task-progress.png)
 
 1. Klicka på den **reparation uppgift** från sidan princip för efterlevnad för att få information om förloppet. Filtrering som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
 

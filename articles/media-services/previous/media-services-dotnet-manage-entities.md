@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165785"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802685"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera tillgångar och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -28,10 +28,12 @@ ms.locfileid: "58165785"
 > 
 > 
 
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+
 Det här avsnittet visar hur du hanterar Azure Media Services-enheter med .NET.
 
->[!NOTE]
-> Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Exempelvis den 1 April 2017 tas alla jobbposter i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Om du behöver Arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs i det här avsnittet.
+Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Exempelvis den 1 April 2017 tas alla jobbposter i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Om du behöver Arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs i det här avsnittet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

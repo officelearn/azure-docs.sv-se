@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338078"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804147"
 ---
-# <a name="management-in-azure"></a>Hantering i Azure
+# <a name="overview-of-management-services-in-azure"></a>Översikt över tjänster i Azure
 
 Styrning i Azure är en del av Azure Management. Den här artikeln beskriver de olika hanteringsområdena för att distribuera och underhålla dina resurser i Azure.
 
@@ -22,7 +22,7 @@ Hantering syftar på uppgifter och processer som krävs för att underhålla fö
 
 Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan betraktas som en livscykel. Varje område krävs i kontinuerlig följd under en resurs livslängd. Den här resursen livscykeln börjar med den första distributionen, fortsätter under drift, och slutligen när dras tillbaka.
 
-![Management-områden](../monitoring/media/management-overview/management-capabilities.png)
+![Områden för hantering i Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, lagrar som Azure Monitor-loggar hanteringsdata för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 

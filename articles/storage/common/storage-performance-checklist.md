@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446005"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793976"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -269,7 +269,7 @@ Om du vill överföra en enda stor blob snabbt bör klientprogrammet ladda upp s
 * C++: Använd metoden blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Ladda upp många blobar snabbt
-Ladda upp blobar parallellt för att ladda upp många blobar snabbt. Det här är snabbare än att överföra enda blobar i taget med parallella block uppladdningar eftersom det sprids överföringen över flera partitioner av storage-tjänsten. En enda blob har endast stöd för ett dataflöde på 60 MB per sekund (cirka 480 Mbit/s). Vid tidpunkten som skrivs ett amerikanska LRS-konto har stöd för upp till 20 Gbit/s ingångshändelser som är större än det dataflöde som stöds av en enskild blob.  [AzCopy](#subheading18) utför uppladdningar parallellt som standard och rekommenderas för det här scenariot.  
+Ladda upp blobar parallellt för att ladda upp många blobar snabbt. Det här är snabbare än att överföra enda blobar i taget med parallella block uppladdningar eftersom det sprids överföringen över flera partitioner av storage-tjänsten. En enda blob har endast stöd för ett dataflöde på 60 MB per sekund (cirka 480 Mbit/s). Vid tidpunkten som skrivs ett amerikanska LRS-konto har stöd för upp till 20 Gbit/s ingångshändelser, vilket är större än det dataflöde som stöds av en enskild blob.  [AzCopy](#subheading18) utför uppladdningar parallellt som standard och rekommenderas för det här scenariot.  
 
 ### <a name="subheading23"></a>Välja rätt typ av blob
 Azure Storage stöder två typer av blob: *sidan* blobar och *blockera* blobar. För en viss användningsscenariot påverkar ditt val av blobbtypen prestanda och skalbarhet för din lösning. Blockblobar är lämplig när du vill ladda upp stora datamängder effektivt: till exempel ett klientprogram kan behöva ladda upp foton eller video till blob storage. Sidblobar är lämpligt om programmet måste utföra slumpmässiga skrivningar på data: till exempel Azure VHD lagras som sidblobar.  
@@ -297,9 +297,7 @@ Från och med storage service-version 2013-08-15, stöder table service användn
 Mer information finns i inlägget [Microsoft Azure-tabeller: Introduktion till JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle av
-Nagles algoritmen implementeras över TCP/IP-nätverk som ett sätt att förbättra nätverkets prestanda. Det är dock inte optimal i samtliga fall (till exempel interaktiva miljöer). Nagles algoritmen har en negativ inverkan på prestanda för förfrågningar till tabell och kö-tjänster för Azure Storage, och bör du inaktivera den om möjligt.  
-
-Mer information finns i vår blogginlägget [Nagles algoritmen är inte eget för små begäranden](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen interagerar dåligt med tabell och kö begäranden och visar hur du inaktiverar-klienten programmet.  
+Nagles algoritmen implementeras över TCP/IP-nätverk som ett sätt att förbättra nätverkets prestanda. Det är dock inte optimal i samtliga fall (till exempel interaktiva miljöer). Nagles algoritmen har en negativ inverkan på prestanda för förfrågningar till tabell och kö-tjänster för Azure Storage, och bör du inaktivera den om möjligt.
 
 ### <a name="schema"></a>Schema
 Hur du representerar och skicka frågor till dina data är den största enda faktor som påverkar prestanda för tabelltjänsten. Varje program är olika, beskrivs det här avsnittet vissa allmänna beprövade metoder som är relaterade till:  
@@ -390,7 +388,7 @@ Visa aktuella skalbarhetsmål på [skalbarhet för lagring av Azure- och prestan
 Se avsnittet om tabell-konfiguration som beskrivs algoritmen Nagle – Nagle-algoritmen är vanligtvis bra för prestanda för begäranden i kö och bör du inaktivera den.  
 
 ### <a name="subheading41"></a>Meddelandestorlek
-Kön prestanda och skalbarhet minskar när meddelandet storlek ökar. Du bör placera bara den information som behövs för mottagaren i ett meddelande.  
+Minska när meddelandet storlek ökar kö prestanda och skalbarhet. Du bör placera bara den information som behövs för mottagaren i ett meddelande.  
 
 ### <a name="subheading42"></a>Batch-hämtning
 Du kan hämta upp till 32 meddelanden från en kö i en enda åtgärd. Detta kan minska antalet turer fram och tillbaka från klientprogrammet, vilket är särskilt användbart för miljöer, till exempel mobila enheter med lång svarstid.  
@@ -401,7 +399,7 @@ De flesta program att söka efter meddelanden från en kö som kan vara något a
 Aktuell kostnadsinformation finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Du kan använda **UpdateMessage** att öka tidsgränsen för osynlighet eller för att uppdatera information om tillstånd för ett meddelande. Detta är kraftfulla, Kom ihåg att varje **UpdateMessage** åtgärden räknas mot skalbarhetsmålen. Detta kan dock vara ett mycket effektivare sätt än med ett arbetsflöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Med hjälp av den **UpdateMessage** åtgärden tillåter programmet att spara jobbets status till meddelandet och sedan fortsätta arbeta i stället för queuing meddelandet för nästa steg i jobbet igen varje gång ett steg har slutförts.  
+Du kan använda **UpdateMessage** att öka tidsgränsen för osynlighet eller för att uppdatera information om tillstånd för ett meddelande. Detta är kraftfulla, Kom ihåg att varje **UpdateMessage** åtgärden räknas mot skalbarhetsmålen. Detta kan dock vara ett mycket effektivare sätt än med ett arbetsflöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Med hjälp av den **UpdateMessage** åtgärden tillåter programmet att spara jobbets status till meddelandet och sedan fortsätta arbeta i stället för requeuing meddelandet för nästa steg i jobbet varje gång ett steg har slutförts.  
 
 Mer information finns i artikeln [så här: Ändra innehållet i ett meddelande i kön](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

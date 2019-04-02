@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886791"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804837"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Hur du ställer in aviseringar för problem med prestanda i Azure Monitor för behållare
 Azure Monitor för behållare Övervakare prestanda för behållararbetsbelastningar distribueras till antingen Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). 
 
 Den här artikeln beskriver hur du aktiverar aviseringar i följande situationer:
 
-* När användning av processor och minne på noder i klustret eller överskrider tröskeln för ditt definierade.
+* När CPU eller minne användning på noder i klustret överskrider tröskeln för ditt definierade.
 * När CPU eller minne användning på någon av behållarna i en kontrollant överskrider tröskeln för ditt definierade jämfört med den angivna gränsen på motsvarande resurs.
+* **NotReady** komponentstatusnoden räknar
+* Pod fas räknar av **misslyckades**, **väntande**, **okänd**, **kör**, eller **lyckades**
 
-För att Avisera när CPU eller minne användning är hög för ett kluster eller en domänkontrollant, kan du skapa en varningsregel för metriska måttenheter som baseras på loggfrågor tillhandahålls. Frågorna jämför ett datetime det aktuella med hjälp av operatorn nu och går tillbaka en timme. Alla datum som lagras av Azure Monitor för behållare är i UTC-format.
+Om du vill meddela när CPU eller minne användning är hög på noder i klustret, kan du skapa antingen en metrisk varning eller en varningsregel för metriska måttenheter som använder loggfrågor som tillhandhålls. Även om måttaviseringar har kortare svarstider än loggvarningar, ger en avisering om log avancerade frågor och ambitiös än en metrisk varning. För aviseringar, frågor som jämför ett datetime det aktuella med hjälp av operatorn nu och går tillbaka en timme. Alla datum som lagras av Azure Monitor för behållare är i UTC-format.
 
-Innan du startar, om du inte är bekant med aviseringar i Azure Monitor kan du läsa [översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md). Läs mer om aviseringar via loggfrågor i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md)
+Innan du startar, om du inte är bekant med aviseringar i Azure Monitor kan du läsa [översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md). Läs mer om aviseringar via loggfrågor i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md). Mer information om måttaviseringar finns [måttaviseringar i Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Loggsökningsfrågor för resurs-användning
 Frågorna i det här avsnittet som stöd för varje aviseringar scenario. Frågorna som krävs för steg 7 under den [skapa avisering](#create-alert-rule) nedan.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+Följande fråga returnerar alla noder och antalet med status för **redo** och **NotReady**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+I följande fråga returnerar pod fas räknar baserat på alla faser – **misslyckades**, **väntande**, **okänd**, **kör**, eller **Lyckades**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>Att Avisera om vissa pod-faser som **väntande**, **misslyckades**, eller **okänd**, måste du ändra den sista raden i frågan. Till exempel att en avisering för *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## <a name="create-alert-rule"></a>Skapa aviseringsregel
 Utför följande steg för att skapa en Log-aviseringar i Azure Monitor med någon av de log search regler som angavs tidigare.  

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871789"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793892"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
@@ -36,12 +36,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 I den här artikeln används Visual Studio 2017. Du kan också använda Visual Studio 2013 eller 2015.
 
 ### <a name="azure-net-sdk"></a>SDK för Azure .NET
+
 Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/) på datorn.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
+
 Utför följande uppgifter genom att följa anvisningarna i avsnitten i [den här artikeln](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application): 
 
 1. **Skapa ett program i Azure Active Directory**. Skapa ett program i Azure Active Directory som representerar .NET-programmet du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
@@ -64,7 +67,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2013/2015/2017.
 1. Klicka på **Verktyg** -> **NuGet Package Manager** -> **Package Manager Console**.
 2. Kör följande kommandon i **Package Manager Console** för att installera paket. Referera till [Microsoft.Azure.Management.DataFactory-nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) med information.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>Verifiera utdata
+
 Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
 
 1. På containersidan **adftutorial** i Azure-portalen klickar du på **Uppdatera** för att se utdatamappen. 
@@ -419,6 +423,7 @@ Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen em
     ![Uppdatera](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
 För att programmässigt ta bort datafabriken lägger du till följande rader med kod till programmet: 
 
 ```csharp
@@ -427,4 +432,5 @@ För att programmässigt ta bort datafabriken lägger du till följande rader me
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier. 

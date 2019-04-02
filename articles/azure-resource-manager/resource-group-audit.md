@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268302"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802295"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar för att granska åtgärder på resurser
 
@@ -167,7 +167,7 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
 
 ## <a name="rest-api"></a>REST-API
 
-REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Om du vill hämta händelser i aktivitetsloggen, se [management-händelser i en prenumeration](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [Insights REST API](/rest/api/monitor/). Om du vill hämta händelser i aktivitetsloggen, se [management-händelser i en prenumeration](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Nästa steg
 

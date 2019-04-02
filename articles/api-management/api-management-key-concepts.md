@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965163"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793959"
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
 
@@ -101,7 +101,7 @@ Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invit
 ## <a name="policies"> </a> Principer
 Principer är en kraftfull funktion i API Management som gör att Azure-portalen kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
 
-Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) och [Ange variabel](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) och [Principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](/azure/api-management/api-management-advanced-policies#choose) och [Ange variabel](/azure/api-management/api-management-advanced-policies#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) och [Principuttryck](/azure/api-management/api-management-policy-expressions).
 
 
 En fullständig lista över API Management-principer finns i [Principreferens][Policy reference]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management policies]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][How create and configure advanced product settings].

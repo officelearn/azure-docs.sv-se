@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441516"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793666"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -116,6 +116,9 @@ I följande exempel är en JSON-sträng som skickas till den **SoftwareUpdateCon
 
 Ett fullständigt exempel med alla egenskaper finns på: [Uppdatera konfigurationer - hämta efter namn](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
+> [!NOTE]
+> Den `SoftwareUpdateConfigurationRunContext` objekt kan innehålla dubbla poster för datorer. Detta kan orsaka före och efter skript körs flera gånger på samma dator. Att lösa problemet, Använd `Sort-Object -Unique` att välja endast unika namn på virtuella datorer i ditt skript.
+
 ## <a name="samples"></a>Exempel
 
 Exempel för skript före och efter finns i den [Galleri för Skriptcenter](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), eller importeras via Azure portal. Att importera dem via portalen, i ditt Automation-konto under **Processautomatisering**väljer **Runbookgalleri**. Använd **uppdateringshantering** för filtret.
@@ -167,7 +170,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 

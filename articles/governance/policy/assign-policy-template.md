@@ -1,5 +1,5 @@
 ---
-title: Skapa en principtilldelning för icke-kompatibla resurser med Resource Manager-mall
+title: Skapa en principtilldelning med en Resource Manager-mall
 description: Den här artikeln vägleder dig igenom stegen för att använda Resource Manager-mall för att skapa en principtilldelning som identifierar icke-kompatibla resurser.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6ff76a66eba42fd87e88846f9ec2378bd63893f2
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008613"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802515"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Resource Manager-mall
 
@@ -31,14 +31,14 @@ I den här snabbstarten har du skapa en principtilldelning och tilldelar en inby
 Det finns flera metoder för att skapa principtilldelningar. I den här snabbstarten använder du en [snabbstartsmall](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Här är en kopia av mallen:
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
 > Azure Policy-tjänsten är kostnadsfri.  Mer information finns i [översikt över Azure Policy](./overview.md).
 
 1. Välj följande bild för att logga in på Azure Portal och öppna mallen:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuera principmallen till Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Välj eller ange följande värden:
 
@@ -48,7 +48,7 @@ Här är en kopia av mallen:
    | Resursgrupp | Välj **Skapa nytt**, ange ett namn och välj sedan **OK**. På skärmbilden, resursgruppens namn är *mypolicyquickstart<Date in MMDD>rg*. |
    | Plats | Välj en region. Välj till exempel **USA, centrala**. |
    | Principtilldelningsnamnet | Ange ett principnamn för tilldelning. Du kan använda visning för definition av principen om du vill. Till exempel **granska virtuella datorer som inte använder hanterade diskar**. |
-   | Rg namn | Ange ett Resursgruppsnamn som du vill tilldela principen till. I den här snabbstarten använder du standardvärdet **[resourceGroup () .name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)**  är en mall-funktion som hämtar resursgruppen. |
+   | Rg namn | Ange ett Resursgruppsnamn som du vill tilldela principen till. I den här snabbstarten använder du standardvärdet **[resourceGroup () .name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  är en mall-funktion som hämtar resursgruppen. |
    | Principdefinitions-ID: | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Jag godkänner villkoren ovan | (Välj) |
 
@@ -65,7 +65,7 @@ Ytterligare resurser:
 
 Välj **Efterlevnad** till vänster på sidan. Leta sedan upp principtilldelningen **Granska virtuella datorer som inte använder hanterade diskar** som du skapade.
 
-![Principefterlevnad](./media/assign-policy-template/policy-compliance.png)
+![Översiktssidan för princip för efterlevnad](./media/assign-policy-template/policy-compliance.png)
 
 Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelning visas de under **Icke-kompatibla resurser**.
 
@@ -79,7 +79,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 1. Högerklicka på den **granska virtuella datorer som inte använder hanterade diskar** tilldelning av principer och välj **ta bort tilldelning**.
 
-   ![Ta bort en tilldelning](./media/assign-policy-template/delete-assignment.png)
+   ![Ta bort en tilldelning från översiktssidan efterlevnad](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

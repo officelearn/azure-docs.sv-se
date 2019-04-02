@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241586"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803127"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -83,7 +83,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Queretaro Otomi|   `otq`   |Statistisk endast|  Statistisk|
 |Rumänska|  `ro`    |Neural tillgängliga|  Neural|
 |Ryska|   `ru`    |Neural tillgängliga|  Neural|
-|Samoa|    `sm`    |Statistisk endast|  Statistisk|
+|Samoanska|    `sm`    |Statistisk endast|  Statistisk|
 |Serbiska (kyrillisk)|    `sr-Cyrl`   |Statistisk endast|  Statistisk|
 |Serbiska (latinsk)|   `sr-Latn`   |Statistisk endast   |Statistisk|
 |Slovakiska|    `sk`    |Neural tillgängliga|  Neural|
@@ -290,6 +290,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Hebreiska      | `he`          |
 | Hindi      | `hi`          |
 | Ungerska      | `hu`          |
+| Isländska | `is` |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 | Koreanska      | `ko`          |
@@ -309,6 +310,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Vietnamesiska      | `vi`          |
+| Walesiska | `cy` |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Komma åt listan på webbplatsen Microsoft Translator
 

@@ -1,6 +1,6 @@
 ---
-title: Exempel – ISO 27001 skissen - kontroll mappning
-description: Kontrollen mappning av ISO 27001 skissen exemplet.
+title: Exempel - ISO 27001 delade tjänster skissen - kontroll mappning
+description: Kontrollen mappning av ISO 27001 delade tjänster skissen provet Azure Policy och RBAC.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3ce755b62ce2ba0328852b551225ffa828a6c1bf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576113"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804691"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mappning av kontroll av Azure skisser ISO 27001 skissen exemplet
+# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappning av kontroll av ISO 27001 delade tjänster skissen exemplet
 
 I följande artikel beskriver hur Azure skisser ISO 27001 delade tjänster skiss exemplet mappas till ISO 27001-kontroller. Läs mer om kontrollerna, [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

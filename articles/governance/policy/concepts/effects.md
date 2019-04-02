@@ -4,17 +4,17 @@ description: Azure principdefinitionen har olika effekter som bestämmer hur kom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551272"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802651"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
@@ -180,9 +180,10 @@ Den **information** egenskapen om AuditIfNotExists effekterna har alla subegensk
 
 - **Typ** [krävs]
   - Anger typ av relaterade resurs så att de matchar.
-  - Startar genom att hämta en resurs under den **om** villkor resurs och frågor inom samma resursgrupp som den **om** villkoret resurs.
+  - Om **details.type** är en resurstyp under den **om** villkoret resurs, principen frågar efter resurser på detta **typ** inom omfånget för den utvärderade resursen. Annars, princip-frågor i samma resursgrupp som den utvärderade resursen.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
+  - När villkoret värden för **if.field.type** och **then.details.type** matchar sedan **namn** blir _krävs_ och måste vara `[field('name')]`. Men en [granska](#audit) effekt bör övervägas i stället.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
@@ -253,6 +254,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Startar genom att hämta en resurs under den **om** villkor resurs och frågor inom samma resursgrupp som den **om** villkoret resurs.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
+  - När villkoret värden för **if.field.type** och **then.details.type** matchar sedan **namn** blir _krävs_ och måste vara `[field('name')]`.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.

@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666961"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792458"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Felsök programuppgraderingar
+
 Den här artikeln beskriver några vanliga problem runt att uppgradera ett Azure Service Fabric-program och hur du löser dem.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>Felsöka en misslyckad Programuppgradering
+
 När uppgraderingen misslyckas, resultatet av den **Get-ServiceFabricApplicationUpgrade** kommando innehåller ytterligare information för felsökning av felet.  I följande lista anger hur informationen kan användas:
 
 1. Identifiera fel-typen.
@@ -34,6 +36,7 @@ När uppgraderingen misslyckas, resultatet av den **Get-ServiceFabricApplication
 Den här informationen är tillgänglig när Service Fabric identifierar misslyckandet oavsett om den **FailureAction** är att återställa eller pausa uppgraderingen.
 
 ### <a name="identify-the-failure-type"></a>Identifiera feltyp
+
 I utdata från **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifierar tidsstämpel (i UTC) då en uppgradering fel upptäcktes av Service Fabric och  **FailureAction** utlöstes. **FailureReason** identifierar en av tre möjliga övergripande orsaker till problemet:
 
 1. UpgradeDomainTimeout - anger att en viss uppgraderingsdomän tog för lång tid att slutföra och **UpgradeDomainTimeout** har upphört att gälla.
@@ -43,11 +46,14 @@ I utdata från **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** 
 De här posterna endast visas i utdata när uppgraderingen misslyckas och startar återtagning. Ytterligare information visas beroende på vilken typ av fel.
 
 ### <a name="investigate-upgrade-timeouts"></a>Undersöka uppgradera tidsgränser
+
 Uppgradera timeout-fel orsakas oftast av problem med tjänsters tillgänglighet. Utdata efter detta stycke är typiska för uppgraderingar där tjänsten repliker eller instanser inte startas i den nya kodversionen. Den **UpgradeDomainProgressAtFailure** fältet samlar in en ögonblicksbild av alla pågående uppgradering arbetet vid tidpunkten för felet.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                : fabric:/DemoApp
 ApplicationTypeName            : DemoAppType
 TargetApplicationTypeVersion   : v2
@@ -90,11 +96,14 @@ Aktuellt **UpgradeState** är *RollingBackCompleted*, så att den ursprungliga u
 I sällsynta fall kan den **UpgradeDomainProgressAtFailure** fält kan vara tomt om övergripande uppgraderingen tidsgränsen precis som systemet fyller allt arbete för aktuell uppgraderingsdomän. Om detta inträffar kan försöka att öka den **UpgradeTimeout** och **UpgradeDomainTimeout** uppgradera parametervärden och gör om uppgraderingen.
 
 ### <a name="investigate-health-check-failures"></a>Undersök hälsotillstånd kontrollera fel
+
 Kontrollera hälsofel kan utlösas av olika problem som kan inträffa när alla noder i en uppgraderingsdomän Slutför uppgraderingen och för att skicka alla kontroller för säkerhet. Utdata efter detta stycke är typiska för en uppgradering misslyckades på grund av misslyckad hälsokontroller. Den **UnhealthyEvaluations** fältet samlar in en ögonblicksbild av hälsokontroller misslyckades vid tidpunkten för uppgraderingen enligt den angivna [hälsoprincip](service-fabric-health-introduction.md).
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                         : fabric:/DemoApp
 ApplicationTypeName                     : DemoAppType
 TargetApplicationTypeVersion            : v4
@@ -149,6 +158,7 @@ Undersöka Kontrollera hälsofel först kräver en förståelse av hälsomodelle
 Uppgraderingen avbröts vid misslyckas genom att ange en **FailureAction** över manuella när du startar uppgraderingen. Det här läget låter oss undersöka det aktiva systemet i felaktigt tillstånd innan du vidtar ytterligare åtgärder.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Återställa från en pausad uppgradering
+
 Med en återställning **FailureAction**, det finns inga recovery behövs eftersom uppgraderingen automatiskt återställer vid misslyckas. Med en manuell **FailureAction**, det finns flera återställningsalternativ:
 
 1.  utlösa en återställning
@@ -161,9 +171,11 @@ Den **återuppta ServiceFabricApplicationUpgrade** kommando kan användas för a
 
 Den **uppdatering ServiceFabricApplicationUpgrade** kommando kan användas för att återuppta den övervakade uppgraderingen med både säkerhet och hälsokontroller som utförs.
 
+```powershell
+Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 ```
-PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
+```Output
 UpgradeMode                             : Monitored
 ForceRestart                            :
 UpgradeReplicaSetCheckTimeout           :
@@ -179,14 +191,14 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-
-PS D:\temp>
 ```
 
 Uppgraderingen fortsätter från den domän där det pausades senast och använder samma uppgradera parametrar och hälsoprinciper som innan. Om det behövs kan Uppgraderingsparametrar och hälsoprinciper som visas i föregående utdata ändras i samma kommando när du fortsätter med uppgraderingen. I det här exemplet återupptogs uppgraderingen i övervakad läge med parametrarna och hälsoprinciper oförändrade.
 
 ## <a name="further-troubleshooting"></a>Ytterligare felsökning
+
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric följer inte de angivna hälsoprinciper
+
 Möjlig orsak 1:
 
 Service Fabric omvandlar alla värden till aktuellt antal entiteter (till exempel repliker, partitioner och tjänster) för utvärdering av hälsotillstånd och Avrundar alltid uppåt till hela entiteter. Till exempel om maximalt *MaxPercentUnhealthyReplicasPerPartition* är 21% och det finns fem repliker, och sedan Service Fabric kan upp till två repliker som är felaktiga (det vill säga`Math.Ceiling (5*0.21)`). Därför ska hälsoprinciper fastställas.
@@ -198,12 +210,15 @@ Hälsoprinciper anges som procentandelar av totalt antal tjänster och inte spec
 Men under uppgraderingen bli D felfri medan C blir ohälsosamt. Uppgraderingen kan ändå lyckas eftersom endast 25% av tjänsterna inte är felfria. Men kan det resultera i oväntade fel på grund av C som oväntat feltillstånd i stället för D. I det här fallet bör D modelleras som en annan typ från A, B och C. Eftersom hälsoprinciper anges per typ av tjänst, kan olika feltillstånd procentsatser tröskelvärden tillämpas på olika tjänster. 
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Jag har inte angett en hälsoprincip för uppgradering av programmet, men fortfarande misslyckas uppgraderingen för vissa tidsgränser som jag angav aldrig
+
 När hälsoprinciper inte förutsatt att uppgradera begäran, hämtas de från den *ApplicationManifest.xml* av den aktuella versionen av programmet. Till exempel om du uppgraderar programmet X från version 1.0 till version 2.0, hälsoprinciper för program som angetts för version 1.0 används. Om en annan hälsoprincip bör användas för uppgraderingen, måste principen som anges som en del av uppgraderingen-API-anrop för programmet. De principer som angetts som en del av API-anrop gäller endast under uppgraderingen. När uppgraderingen är klar, principerna som angetts i den *ApplicationManifest.xml* används.
 
 ### <a name="incorrect-time-outs-are-specified"></a>Felaktig timeout har angetts
+
 Du har funderat över om vad som händer när timeout är inställda inkonsekvent. Du kan till exempel ha en *UpgradeTimeout* som är mindre än värdet *UpgradeDomainTimeout*. Svaret är att ett fel returneras. Fel returneras om det *UpgradeDomainTimeout* är mindre än summan av *HealthCheckWaitDuration* och *HealthCheckRetryTimeout*, eller om  *UpgradeDomainTimeout* är mindre än summan av *HealthCheckWaitDuration* och *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>Min uppgraderingar tar för lång
+
 Tiden för en uppgradering till slutföra beror på hälsokontroller och tidsgränser som angetts. Hälsokontroller och tidsgränser beror på hur lång tid det tar att kopiera, distribuera och stabilisera programmet. Som för aggressiva med tidsgränser kan innebära mer misslyckade uppgraderingar, så vi rekommenderar att du börjar var med längre timeout.
 
 Här är Fräscha upp på hur tidsgränser interagerar med uppgradera gånger:
@@ -215,6 +230,7 @@ Uppgraderingen skulle misslyckas kan inte ske snabbare än *HealthCheckWaitDurat
 Tiden för uppgraderingen för en uppgraderingsdomän begränsas av *UpgradeDomainTimeout*.  Om *HealthCheckRetryTimeout* och *HealthCheckStableDuration* båda är noll och hälsotillståndet för programmet som ser till att växla fram och tillbaka och sedan uppgraderingen så småningom tidsgränsen på *UpgradeDomainTimeout*. *UpgradeDomainTimeout* börjar räkna ned en gång av uppgraderingen för aktuell uppgraderingsdomän börjar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Uppgradera ditt program med hjälp av Visual Studio](service-fabric-application-upgrade-tutorial.md) vägleder dig genom en uppgradering av programmet med Visual Studio.
 
 [Uppgradera ditt program med hjälp av Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vägleder dig genom en uppgradering av programmet med hjälp av PowerShell.

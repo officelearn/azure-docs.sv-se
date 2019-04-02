@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 86bf408f521e11e1bed4e26ca99299abdc710227
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960634"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805643"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -38,6 +38,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Ägare](#owner) | Låter dig hantera allt, inklusive åtkomst till resurser. |
 | [Deltagare](#contributor) | Låter dig hantera allt, med undantag för åtkomst till resurser. |
 | [Läsare](#reader) | Låter dig visa allting, men låter dig inte göra några ändringar. |
+| [AcrDelete](#acrdelete) | ACR delete |
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
 | [AcrPull](#acrpull) | ACR-pull |
 | [AcrPush](#acrpush) | ACR-push |
@@ -51,6 +52,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
+| [Avere deltagare](#avere-contributor) | Kan skapa och hantera ett Avere vFXT-kluster. |
+| [Avere Operator](#avere-operator) | Används av Avere vFXT klustret för att hantera klustret |
 | [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
 | [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
@@ -68,7 +71,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
 | [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 | [Cognitive Services-deltagare](#cognitive-services-contributor) | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
-| [Cognitive Services Data-läsare (förhandsgranskning)](#cognitive-services-data-reader-preview) | Kan du läsa Cognitive Services-data. |
+| [Cognitive Services Data-läsare (förhandsgranskning)](#cognitive-services-data-reader-preview) | Låter dig läsa Cognitive Services-data. |
 | [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
@@ -82,8 +85,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [EventGrid EventSubscription deltagare (förhandsgranskning)](#eventgrid-eventsubscription-contributor-preview) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
-| [EventGrid EventSubscription läsare (förhandsgranskning)](#eventgrid-eventsubscription-reader-preview) | Låter dig läsa EventGrid-händelseprenumerationer. |
+| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
+| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
 | [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
@@ -114,21 +117,22 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery Operator](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
 | [Site Recovery Reader](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
-| [Spatial ankare-Kontodeltagare](#spatial-anchors-account-contributor) | Kan du hantera spatial ankare i ditt konto, men inte ta bort dem. |
-| [Kontoägaren för rumsliga ankare](#spatial-anchors-account-owner) | Låter dig hantera spatial ankare i ditt konto, inklusive ta bort dem. |
-| [Spatial ankare konto läsare](#spatial-anchors-account-reader) | Du kan hitta och läsa egenskaper för spatial ankare i ditt konto |
+| [Spatial ankare-Kontodeltagare](#spatial-anchors-account-contributor) | Låter dig hantera rumsliga fästpunkter i ditt konto, men inte att bort dem |
+| [Kontoägaren för rumsliga ankare](#spatial-anchors-account-owner) | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
+| [Spatial ankare konto läsare](#spatial-anchors-account-reader) | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
+| [SQL-hanterad instans-deltagare](#sql-managed-instance-contributor) | Låter dig hantera SQL-hanterade instanser, men det går inte att ge åtkomst till andra. |
 | [SQL Security Manager](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
 | [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
-| [Storage Blob Data-deltagare (förhandsgranskning)](#storage-blob-data-contributor-preview) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
-| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
-| [Storage Blob Data-läsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
-| [Lagringsködata-deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
-| [Storage-kö Data meddelandeprocessor (förhandsversion)](#storage-queue-data-message-processor-preview) | Tillåter för peek, ta emot och ta bort åtkomst till Azure Storage-Kömeddelanden |
-| [Storage-kö Data meddelandets avsändare (förhandsversion)](#storage-queue-data-message-sender-preview) | Tillåter för att skicka meddelanden för Azure Storage-kö |
-| [Lagringsködata-läsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
+| [Storage Blob Data-deltagare](#storage-blob-data-contributor) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
+| [Storage Blob Data-ägare](#storage-blob-data-owner) | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
+| [Storage Blob Data-läsare](#storage-blob-data-reader) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
+| [Lagringsködata-deltagare](#storage-queue-data-contributor) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
+| [Storage-kö registerförare meddelande](#storage-queue-data-message-processor) | Tillåter översikts-, mottagnings- och borttagningssåtkomst till Azure Storage-kömeddelanden |
+| [Storage-kö Data meddelandets avsändare](#storage-queue-data-message-sender) | Tillåter sändning av Azure Storage-kömeddelanden |
+| [Lagringsködata-läsare](#storage-queue-data-reader) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
 | [Supportförfrågningsdeltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [Administratör för användaråtkomst](#user-access-administrator) | Låter dig hantera användaråtkomst till Azure-resurser. |
@@ -181,6 +185,21 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="acrdelete"></a>AcrDelete
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | ACR delete |
+> | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | **Åtgärder** |  |
+> | Microsoft.ContainerRegistry/registries/artifacts/delete | Ta bort artefakt i ett behållarregister. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -458,6 +477,68 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | *Ingen* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="avere-contributor"></a>Avere deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan skapa och hantera ett Avere vFXT-kluster. |
+> | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | **Åtgärder** |  |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.Compute/*/read |  |
+> | Microsoft.Compute/availabilitySets/* |  |
+> | Microsoft.Compute/virtualMachines/* |  |
+> | Microsoft.Compute/disks/* |  |
+> | Microsoft.Network/*/read |  |
+> | Microsoft.Network/networkInterfaces/* |  |
+> | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuella nätverket |
+> | Microsoft.Network/virtualNetworks/subnets/read | Hämtar en definition av undernät för virtuella nätverk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till resursen, till exempel storage-konto eller SQL-databas till ett undernät. Det kanske inte. |
+> | Microsoft.Network/networkSecurityGroups/join/action | Kopplar en nätverkssäkerhetsgrupp. Det kanske inte. |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Storage/*/read |  |
+> | Microsoft.Storage/storageAccounts/* |  |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Hämtar resurserna för resursgruppen. |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="avere-operator"></a>Avere Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Används av Avere vFXT klustret för att hantera klustret |
+> | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | **Åtgärder** |  |
+> | Microsoft.Compute/virtualMachines/read | Hämta egenskaperna för en virtuell dator |
+> | Microsoft.Network/networkInterfaces/read | Hämtar en definition för nätverk-gränssnittet.  |
+> | Microsoft.Network/networkInterfaces/write | Skapar ett nätverksgränssnitt eller uppdaterar en befintlig nätverksgränssnitt.  |
+> | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuella nätverket |
+> | Microsoft.Network/virtualNetworks/subnets/read | Hämtar en definition av undernät för virtuella nätverk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
+> | Microsoft.Network/networkSecurityGroups/join/action | Kopplar en nätverkssäkerhetsgrupp. Det kanske inte. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att put blob-behållare |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
@@ -940,11 +1021,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services Data-läsare (förhandsgranskning)
+## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services-dataläsare (förhandsversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du läsa Cognitive Services-data. |
+> | **Beskrivning** | Låter dig läsa Cognitive Services-data. |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
@@ -1262,7 +1343,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributor (förhandsversion)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1285,7 +1366,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (förhandsversion)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1834,17 +1915,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.operationalInsights/workspaces/*/read | Visa log analytics-data |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
-> | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
-> | Microsoft.Security/locations/alerts/activate/action | Aktivera en säkerhetsvarning |
-> | Microsoft.Security/locations/alerts/dismiss/action | Avvisa en säkerhetsavisering |
-> | Microsoft.Security/locations/tasks/activate/action | Aktivera en säkerhetsrekommendation |
-> | Microsoft.Security/locations/tasks/dismiss/action | Stänga en säkerhetsrekommendation |
-> | Microsoft.Security/policies/write | Uppdaterar säkerhetsprincipen |
-> | Microsoft.Security/pricings/write | Uppdaterar inställningarna för prissättning för detta scope |
-> | Microsoft.Security/pricings/delete | Tar bort inställningarna för prissättning för detta scope |
-> | Microsoft.Security/securityContacts/delete | Tar bort säkerhetskontakt |
-> | Microsoft.Security/securityContacts/write | Uppdaterar säkerhetskontakt |
-> | Microsoft.Security/InformationProtectionPolicies/write | Uppdaterar informationsskyddsprinciper för resursen |
+> | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
 > | *Ingen* |  |
@@ -2060,7 +2131,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du hantera spatial ankare i ditt konto, men inte ta bort dem. |
+> | **Beskrivning** | Låter dig hantera rumsliga fästpunkter i ditt konto, men inte att bort dem |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
@@ -2080,7 +2151,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera spatial ankare i ditt konto, inklusive ta bort dem. |
+> | **Beskrivning** | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
@@ -2101,7 +2172,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Du kan hitta och läsa egenskaper för spatial ankare i ditt konto |
+> | **Beskrivning** | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
@@ -2134,14 +2205,22 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Insights/metrics/read | Läs mått |
 > | Microsoft.Insights/metricDefinitions/read | Läs måttdefinitioner |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Redigera granskningsprinciper |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Redigera granskningsinställningar |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Hämta granskningsposter för databas-blob |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Redigera principer |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Redigera principer för datamaskning |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Redigera avisering säkerhetsprinciper |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Redigera säkerhetsmått |
@@ -2150,6 +2229,31 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL-hanterad instans-deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Låter dig hantera SQL-hanterade instanser, men det går inte att ge åtkomst till andra. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Åtgärder** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Network/networkSecurityGroups/write | Skapar en grupp eller uppdaterar en befintlig nätverkssäkerhetsgrupp |
+> | Microsoft.Network/routeTables/write | Skapar en routningstabell eller uppdaterar en befintlig routningstabell |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Network/virtualNetworks/subnets/write | Skapar ett virtuellt nätverksundernät eller uppdaterar ett befintligt undernät för virtuellt nätverk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | **NotActions** |  |
+> | *Ingen* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
 > | **NotDataActions** |  |
@@ -2168,7 +2272,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Skapa och hantera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Skapa och hantera granskning inställningen för SQL server |
@@ -2177,13 +2287,15 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Skapa och hantera granskningsinställningarna för SQL server-databas |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Läs granskningsposter |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Skapa och hantera principer för SQL server-databas |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Skapa och hantera SQL server-databas datamaskning principer |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Hämta information om den utökade blobben granskningsprincip som konfigurerats på en viss databas |
 > | Microsoft.Sql/servers/databases/read | Returnera listan över databaser eller hämtar egenskaperna för den angivna databasen. |
-> | Microsoft.Sql/servers/databases/schemas/read | Hämta lista över scheman för en databas |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Hämta listan över kolumner i en tabell |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/servers/databases/schemas/read | Få ett databasschema. |
+> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Få en databaskolumn. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/read | Hämta listan över tabeller i en databas |
+> | Microsoft.Sql/servers/databases/schemas/tables/read | Få en databastabell. |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Skapa och hantera SQL server-databas avisering säkerhetsprinciper |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Skapa och hantera säkerhetsmått för SQL server-databas |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
@@ -2220,7 +2332,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Insights/metrics/read | Läs mått |
 > | Microsoft.Insights/metricDefinitions/read | Läs måttdefinitioner |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Redigera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Redigera granskningsinställningarna för SQL server |
@@ -2228,8 +2346,10 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Redigera granskningsinställningarna för SQL server-databas |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Läs granskningsposter |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Redigera principer för SQL server-databas |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Redigera SQL server-databas datamaskning principer |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Redigera SQL server-databas avisering säkerhetsprinciper |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Redigera säkerhetsmått för SQL server-databas |
@@ -2249,7 +2369,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
+> | **Beskrivning** | Gör det möjligt för hantering av storage-konton. Ger inte åtkomst till data i lagringskontot. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läsa alla auktorisering |
@@ -2272,11 +2392,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
+> | **Beskrivning** | Tillåter att lista och återskapa åtkomstnycklarna för lagringskontot. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapar åtkomstnycklarna för det angivna lagringskontot. |
+> | Microsoft.Storage/storageAccounts/listkeys/action | Returnera åtkomstnycklarna för det angivna lagringskontot. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapa åtkomstnycklarna för det angivna lagringskontot. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -2284,117 +2404,117 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-blob-data-contributor-preview"></a>Storage Blob Data-deltagare (förhandsgranskning)
+## <a name="storage-blob-data-contributor"></a>Storage Blob Data-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
+> | **Beskrivning** | Läsa, skriva och ta bort Azure Storage-behållare och blobbar. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att put blob-behållare |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Ta bort en behållare. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnera en behållare eller behållarlista. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Ändra metadata eller egenskaper för en behållare. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Ta bort en blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnera en blob eller bloblista. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Skriva till en blob. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-blob-data-owner-preview"></a>Storage Blob Data-ägare (förhandsgranskning)
+## <a name="storage-blob-data-owner"></a>Storage Blob Data-ägare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
+> | **Beskrivning** | Ger fullständig åtkomst till Azure Storage blob-behållare och data, inklusive tilldela POSIX-åtkomstkontroll. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Fullständig behörighet i behållare.  |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Fullständig behörighet för blobbar. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-blob-data-reader-preview"></a>Storage Blob Data-läsare (förhandsgranskning)
+## <a name="storage-blob-data-reader"></a>Storage Blob Data-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
+> | **Beskrivning** | Läsning och listor Azure Storage-behållare och blobbar. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnera en behållare eller behållarlista. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnera en blob eller bloblista. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-queue-data-contributor-preview"></a>Lagringsködata-deltagare (förhandsgranskning)
+## <a name="storage-queue-data-contributor"></a>Lagringsködata-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
+> | **Beskrivning** | Läsa, skriva och ta bort Azure Storage-köer och Kömeddelanden. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returnerar resultatet av att ta bort en kö |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returnerar resultatet av att skriva en kö |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Ta bort en kö. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnera en kö eller kölista. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Ändra egenskaper för eller köa metadata. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returnerar resultatet av att skriva ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Ta bort ett eller flera meddelanden från en kö. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska eller hämta ett eller flera meddelanden från en kö. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Lägg till ett meddelande till en kö. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-queue-data-message-processor-preview"></a>Storage-kö Data meddelandeprocessor (förhandsversion)
+## <a name="storage-queue-data-message-processor"></a>Lagringsködata-meddelandeprocessor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter för peek, ta emot och ta bort åtkomst till Azure Storage-Kömeddelanden |
+> | **Beskrivning** | Granska, hämta och ta bort en meddelanden från en Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returnerar resultatet av att bearbeta ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska ett meddelande. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Hämta och ta bort ett meddelande. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-queue-data-message-sender-preview"></a>Storage-kö Data meddelandets avsändare (förhandsversion)
+## <a name="storage-queue-data-message-sender"></a>Meddelandeavsändare för lagringsködata
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter för att skicka meddelanden för Azure Storage-kö |
+> | **Beskrivning** | Lägga till meddelanden i en Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Åtgärder** |  |
 > | *Ingen* |  |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returnerar resultatet av att lägga till ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Lägg till ett meddelande till en kö. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="storage-queue-data-reader-preview"></a>Lagringsködata-läsare (förhandsgranskning)
+## <a name="storage-queue-data-reader"></a>Lagringsködata-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
+> | **Beskrivning** | Läsning och listor Azure Storage-köer och Kömeddelanden. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska eller hämta ett eller flera meddelanden från en kö. |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
@@ -2558,6 +2678,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Web/serverFarms/* | Skapa och hantera servergrupper |
+> | Microsoft.Web/hostingEnvironments/Join/Action | Ansluter till en App Service Environment |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447760"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793653"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till din HTTP-API. Förekomsten av begäranden och svar är dock tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till ditt serverdels-API. Ditt API bearbetar begäran och svaret som flödar tillbaka via API-konsumenter. API Management-tjänsten ser till att vissa viktig statistik om API: er för visning i instrumentpanelen för Azure portal, men även efteråt som informationen är borta.
@@ -47,7 +47,7 @@ En Händelsehubb tar emot händelsedata som en sträng. Innehållet i strängen 
 
 En alternativ var att använda den `application/http` medietyp enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medietypen använder exakt samma format som används för att faktiskt skicka HTTP-meddelanden över nätverket, men hela meddelandet kan vara placera i brödtexten i en annan HTTP-begäran. I vårt fall ska vi bara använda brödtext som vårt meddelande för att skicka till Event Hubs. Det är bekvämt, en tolk som finns i [Microsoft ASP.NET Web API 2.2-klient](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotek som kan parsa detta format och konvertera den till ursprungliga `HttpRequestMessage` och `HttpResponseMessage` objekt.
 
-Om du vill kunna skapa det här meddelandet vi behöver att dra nytta av C#-baserat [principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx) i Azure API Management. Här är principen som skickar ett HTTP-begäran-meddelande till Azure Event Hubs.
+Om du vill kunna skapa det här meddelandet vi behöver att dra nytta av C#-baserat [principuttryck](/azure/api-management/api-management-policy-expressions) i Azure API Management. Här är principen som skickar ett HTTP-begäran-meddelande till Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -315,4 +315,4 @@ Azure API Management-tjänsten tillhandahåller perfekta platsen för att samla 
 * Mer information om API Management och Event Hubs-integrering
   * [Logga händelser till Azure Event Hubs i Azure API Management](api-management-howto-log-event-hubs.md)
   * [Loggaren enhetsreferens](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [Referens för loggen till eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Referens för loggen till eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

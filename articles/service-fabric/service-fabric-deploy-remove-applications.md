@@ -14,14 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bd3f45958870a20ac0386bd2f8a67ef4b4c0010
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670565"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793160"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med hjälp av PowerShell
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -56,16 +57,19 @@ Ta bort instanser av programmet för rensning av och avregistrera programtypen. 
 > Visual Studio stöder för närvarande inte externa etablera.
 
  
+
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
+
 Innan du kör alla PowerShell-kommandon i den här artikeln måste alltid starta med hjälp av [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) att ansluta till Service Fabric-klustret. Om du vill ansluta till det lokala utvecklingsklustret, kör du följande:
 
 ```powershell
-PS C:\>Connect-ServiceFabricCluster
+Connect-ServiceFabricCluster
 ```
 
 Exempel för att ansluta till ett fjärrkluster eller kluster som skyddas med Azure Active Directory, X509 certifikat eller Windows Active Directory finns i [Anslut till ett säkert kluster](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="upload-the-application-package"></a>Ladda upp programpaketet
+
 Ladda upp programpaketet placerar den på en plats som kan nås av interna Service Fabric-komponenter.
 Om du vill kontrollera programpaket lokalt, använda den [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
@@ -76,8 +80,11 @@ Anta att du bygga och paketera ett program som heter *MyApplication* i Visual St
 Följande kommando visar innehållet i programpaketet:
 
 ```powershell
-PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
-PS C:\> tree /f $path
+$path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+tree /f $path
+```
+
+```Output
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -111,9 +118,12 @@ Om du vill expandera en komprimerade paketet kan du använda samma [kopia Servic
 
 Följande cmdlet komprimerar paketet utan att kopiera den till avbildningsarkivet. Paketet innehåller nu komprimerade filer för den `Code` och `Config` paket. Programmet och tjänstmanifest är inte zippade, eftersom de behövs för många interna åtgärder (t.ex. paketera delning, program och specifik produktversion Extraheringen av anslutningstyp för vissa verifieringar). Komprimeringen manifesten säkerställer åtgärderna ineffektiv.
 
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+tree /f $path
 ```
-PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
-PS C:\> tree /f $path
+
+```Output
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -142,7 +152,7 @@ När ett paket har komprimerats, kan den överföras till en eller flera Service
 I följande exempel överförs paketet till avbildningsarkivet till en mapp med namnet ”MyApplicationV1”:
 
 ```powershell
-PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -TimeoutSec 1800
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -TimeoutSec 1800
 ```
 
 Om du inte anger den *- ApplicationPackagePathInImageStore* parametern programpaketet har kopierats till mappen ”felsökning” i avbildningsarkivet.
@@ -171,25 +181,31 @@ Beroende på faktorer som beskrivs kan du behöva öka tidsgränsen. Om du kompr
 
 
 ## <a name="register-the-application-package"></a>Registrera programpaketet
+
 Programtypen och versionen deklarerats i manifestet blir tillgängliga för användning när programpaketet registreras. Systemet läser det paket som laddades upp i föregående steg, verifierar paketet, bearbetar paketinnehållet och kopierar bearbetade paketet till ett internt system.  
 
 Kör den [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet för att registrera programtypen i klustret och gör den tillgänglig för distribution:
 
 ### <a name="register-the-application-package-copied-to-image-store"></a>Registrera det programpaket som kopieras till avbildningsarkivet
+
 När ett paket har tidigare har kopierats till avbildningsarkivet, anger registrera åtgärden den relativa sökvägen i avbildningsarkivet.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
+```
+
+```Output
 Register application type succeeded
 ```
 
 ”MyApplicationV1” är mappen i avbildningsarkivet där programpaketet finns. Vilken typ av program med namnet ”MyApplicationType” och versionen ”1.0.0” (båda finns i applikationsmanifestet) har nu registrerats i klustret.
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrera det programpaket som kopieras till en extern lagring
+
 Från och med Service Fabric version 6.1, etablera stöder Hämta paketet från en extern lagring. Hämta URI representerar sökvägen till den [ `sfpkg` programpaket](service-fabric-package-apps.md#create-an-sfpkg) varifrån programpaketet kan hämtas med HTTP eller HTTPS-protokoll. Paketet måste ha tidigare laddats upp till den här extern plats. URI: N måste tillåta läsbehörighet så att Service Fabric kan ladda ned filen. Den `sfpkg` filen måste ha filnamnstillägget ”.sfpkg”. Etableringsåtgärden bör innehålla programinformationen, som hittades i manifestet.
 
-```
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```powershell
+Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
 ```
 
 Den [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) kommando returnerar bara när systemet har registrerat programpaketet. Hur länge registrering tar beror på storleken och innehållet i programpaketet. Om det behövs, de **- TimeoutSec** parametern kan användas för att ange en längre tidsgräns (standardvärdet för timeout är 60 sekunder).
@@ -198,8 +214,10 @@ Om du har en stor tillämpning paketera eller om du har tidsgränser kan använd
 Den [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kommandot listar typen programversioner och deras registreringsstatus. Du kan använda det här kommandot för att avgöra när registreringen är klar.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -207,39 +225,50 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Ta bort ett programpaket från avbildningsarkivet
+
 Om ett paket har kopierats till avbildningsarkivet, bör du bort den från den tillfälliga platsen när programmet har registrerats. Ta bort programpaket från avbildningsarkivet frigör systemresurser. Att hålla oanvända programpaket förbrukar disklagring och leder till problem med programprestanda.
 
 ```powershell
-PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
 ```
 
 ## <a name="create-the-application"></a>Skapa programmet
+
 Du kan skapa en instans av ett program från valfri version av programtyp som har registrerats med hjälp av den [New ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet. Namnet på varje program måste börja med den *”fabric”:* system och måste vara unikt för varje programinstans. Alla standardtjänster som är definierade i applikationsmanifestet av mål-programtyp skapas också.
 
 ```powershell
-PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
+New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
+```
 
+```Output
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationParameters  : {}
 ```
+
 Flera programinstanser kan skapas efter en viss version av en registrerad programtypen. Varje programinstans körs i isolering med sin egen arbetskatalog och processen.
 
 För att se vilket med namnet appar och tjänster som körs i klustret, kör den [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) och [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdletar:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplication  
+Get-ServiceFabricApplication  
+```
 
+```Output
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Ok
 ApplicationParameters  : {}
+```
 
-PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService
+```powershell
+Get-ServiceFabricApplication | Get-ServiceFabricService
+```
 
+```Output
 ServiceName            : fabric:/MyApp/Stateless1
 ServiceKind            : Stateless
 ServiceTypeName        : Stateless1Type
@@ -250,30 +279,38 @@ HealthState            : Ok
 ```
 
 ## <a name="remove-an-application"></a>Ta bort ett program
+
 När en programinstans inte längre behövs kan du permanent bort den med hjälp av namnet på [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) cmdlet. [Ta bort ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) automatiskt att ta bort alla tjänster som hör till programmet även, permanent tar du bort alla tjänsttillstånd. 
 
 > [!WARNING]
 > Den här åtgärden kan inte ångras och programmets tillstånd kan inte återställas.
 
 ```powershell
-PS C:\> Remove-ServiceFabricApplication fabric:/MyApp
+Remove-ServiceFabricApplication fabric:/MyApp
+```
 
+```Output
 Confirm
 Continue with this operation?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 Remove application instance succeeded
+```
 
-PS C:\> Get-ServiceFabricApplication
+```powershell
+Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Avregistrera en programtyp
+
 När en viss version av programtyp inte längre behövs, bör du avregistrera den typ som använder den [avregistrera ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Avregistrera oanvända programtyper Frigör lagringsutrymme som används av avbildningsarkivet genom att ta bort programfiler för typen. Avregistrera en typ av program tas inte bort programpaketet kopieras till tillfällig plats bild store om Kopiera till avbildningsarkivet användes. En typ av program kan att avregistrera så länge inga program instansieras mot dem och inte väntar på programmet uppgraderingar hänvisar till den.
 
 Kör [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) att se programtyper som är registrerade i klustret:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -283,15 +320,17 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 Kör [avregistrera ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) att avregistrera en specifik typ:
 
 ```powershell
-PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
+Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
 ## <a name="troubleshooting"></a>Felsökning
+
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
+
 Service Fabric SDK-miljö bör redan ha rätt standardvärdena ställa in. Men om det behövs ImageStoreConnectionString för alla kommandon bör matcha det värde som Service Fabric-klustret använder. Du hittar ImageStoreConnectionString i klustermanifestet, hämtas med hjälp av den [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) och Get-ImageStoreConnectionStringFromClusterManifest kommandon:
 
 ```powershell
-PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
+Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
 Den **Get-ImageStoreConnectionStringFromClusterManifest** cmdleten, som är en del av Service Fabric SDK PowerShell-modulen används för att hämta anslutningssträngen för avbildning store.  Om du vill importera SDK-modulen kör du:
@@ -317,6 +356,7 @@ ImageStoreConnectionString hittas i klustermanifestet:
 Se [förstå anslutningssträngen bild store](service-fabric-image-store-connection-string.md) aviserar om ytterligare information om avbildningsarkivet och avbildning lagra anslutningssträngen.
 
 ### <a name="deploy-large-application-package"></a>Distribuera stora programpaket
+
 Ärende: [Kopiera ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) tidsgränsen uppnås för ett stort programpaket (efter GB).
 Prova:
 - Ange en längre tidsgräns för [kopia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) kommandot med `TimeoutSec` parametern. Tidsgränsen är som standard 30 minuter.
@@ -331,8 +371,10 @@ Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mä
 - Ange `Async` växla för [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Kommandot returnerar när klustret accepterar kommandon och registreringen av programtypen fortsätter asynkront. Därför är det behöver inte ange en tidsgräns som senare i det här fallet. Den [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kommandot listar alla har registrerats programtypversioner och deras registreringsstatus. Du kan använda det här kommandot för att avgöra när registreringen är klar.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -340,6 +382,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
+
 Ärende: [Registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) tidsgränsen uppnås för ett programpaket med många filer (efter tusentals).
 Prova:
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar till avbildningsarkivet. Komprimeringen minskar antalet filer.
@@ -348,8 +391,10 @@ Prova:
 Därför är det behöver inte ange en tidsgräns som senare i det här fallet. Den [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kommandot listar alla har registrerats programtypversioner och deras registreringsstatus. Du kan använda det här kommandot för att avgöra när registreringen är klar.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationType
+Get-ServiceFabricApplicationType
+```
 
+```Output
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 Status                 : Available
@@ -357,6 +402,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Paketera ett program](service-fabric-package-apps.md)
 
 [Service Fabric-Programuppgradering](service-fabric-application-upgrade.md)

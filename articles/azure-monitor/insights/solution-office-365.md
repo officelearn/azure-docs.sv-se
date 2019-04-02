@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996709"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794027"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -34,6 +34,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azur
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Följande krävs innan den här lösningen som den installeras och konfigureras.
 
 - Organisationens prenumeration på Office 365.
@@ -42,12 +43,16 @@ Följande krävs innan den här lösningen som den installeras och konfigureras.
  
 
 ## <a name="management-packs"></a>Hanteringspaket
+
 Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../platform/om-agents.md).
   
+
 ## <a name="install-and-configure"></a>Installera och konfigurera
+
 Starta genom att lägga till den [Office 365-lösningen till din prenumeration](solutions.md#install-a-monitoring-solution). När den har lagts till, måste du utföra konfigurationsstegen i det här avsnittet för att ge åtkomst till din Office 365-prenumeration.
 
 ### <a name="required-information"></a>Nödvändig information
+
 Samla in följande information innan du påbörjar den här proceduren.
 
 Från din Log Analytics-arbetsyta:
@@ -64,6 +69,7 @@ Från din Office 365-prenumeration:
 - Klienthemlighet: Krypterad sträng som krävs för autentisering.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Skapa ett Office 365-program i Azure Active Directory
+
 Det första steget är att skapa ett program i Azure Active Directory som hanteringslösningen använder för att få åtkomst till din Office 365-lösning.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
@@ -111,11 +117,12 @@ Det första steget är att skapa ett program i Azure Active Directory som hanter
     ![Nycklar](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Lägg till administratörens godkännande
+
 Om du vill aktivera administratörskonto för första gången, måste du ange administratörs godkännande för programmet. Du kan göra detta med ett PowerShell-skript. 
 
 1. Spara följande skript som *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Om du vill aktivera administratörskonto för första gången, måste du ange ad
     ```
 
 2. Kör skriptet med följande kommando. Du uppmanas att två gånger för autentiseringsuppgifter. Ange autentiseringsuppgifter för Log Analytics-arbetsytan först och sedan autentiseringsuppgifterna som global administratör för Office 365-klient.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Exempel:
 
     ```
@@ -175,11 +184,12 @@ Om du vill aktivera administratörskonto för första gången, måste du ange ad
     ![Administratörsmedgivande](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Prenumerera på Log Analytics-arbetsyta
+
 Det sista steget är att prenumerera på programmet till Log Analytics-arbetsytan. Du också göra detta med ett PowerShell-skript.
 
 1. Spara följande skript som *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ Det sista steget är att prenumerera på programmet till Log Analytics-arbetsyta
     ```
 
 2. Kör skriptet med följande kommando:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Exempel:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ Det sista steget är att prenumerera på programmet till Log Analytics-arbetsyta
 
 Du kan se följande fel om programmet redan prenumererar på den här arbetsytan eller om den här klientorganisationen en prenumeration på en annan arbetsyta.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 Du kan se följande fel om ogiltiga parametervärden har angetts.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Avinstallera
+
 Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort en hanteringslösning för](solutions.md#remove-a-monitoring-solution). Detta förhindrar inte data som samlas in från Office 365 i Azure Monitor dock. Följ anvisningarna nedan för att avbryta prenumerationen från Office 365 och stoppa insamling av data.
 
 1. Spara följande skript som *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
 
     Exempel:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>Datainsamling
+
 ### <a name="supported-agents"></a>Agenter som stöds
+
 Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../platform/agent-data-sources.md).  Den hämtar data direkt från Office 365.
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
+
 Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Azure Monitor varje gång en post skapas. Den här posten är tillgängliga i Azure Monitor inom ett par minuter efter mottagandet.
 
 ## <a name="using-the-solution"></a>Använda lösningen
@@ -511,6 +527,7 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn visar 
 Alla poster som skapats i Log Analytics-arbetsyta i Azure Monitor med hjälp av Office 365-lösningen har en **typ** av **OfficeActivity**.  Den **OfficeWorkload** egenskapen avgör vilka Office 365-tjänst som posten refererar till - Exchange, AzureActiveDirectory, SharePoint eller OneDrive.  Den **RecordType** egenskap anger vilken typ av åtgärd.  Egenskaperna varierar för varje åtgärdstyp av och visas i tabellerna nedan.
 
 ### <a name="common-properties"></a>Gemensamma egenskaper
+
 Följande egenskaper är gemensamma för alla Office 365-poster.
 
 | Egenskap  | Beskrivning |
@@ -528,6 +545,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-bas
+
 Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
 | Egenskap  | Beskrivning |
@@ -539,6 +557,7 @@ Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
 
 ### <a name="azure-active-directory-account-logon"></a>Inloggning för Azure Active Directory-konto
+
 Dessa poster skapas när en Active Directory-användare försöker logga in.
 
 | Egenskap  | Beskrivning |
@@ -552,6 +571,7 @@ Dessa poster skapas när en Active Directory-användare försöker logga in.
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Directory-objekt.
 
 | Egenskap  | Beskrivning |
@@ -569,6 +589,7 @@ Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Dir
 
 
 ### <a name="data-center-security"></a>Datacenter-säkerhet
+
 Dessa poster skapas från Data Center Security granskningsdata.  
 
 | Egenskap  | Beskrivning |
@@ -584,6 +605,7 @@ Dessa poster skapas från Data Center Security granskningsdata.
 
 
 ### <a name="exchange-admin"></a>Exchange-administratör
+
 Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 | Egenskap  | Beskrivning |
@@ -598,6 +620,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 
 ### <a name="exchange-mailbox"></a>Exchange Mailbox
+
 Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådor.
 
 | Egenskap  | Beskrivning |
@@ -620,6 +643,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådo
 
 
 ### <a name="exchange-mailbox-audit"></a>Exchange-postlåda granskning
+
 Dessa poster skapas när en postlåda granskningspost skapas.
 
 | Egenskap  | Beskrivning |
@@ -634,6 +658,7 @@ Dessa poster skapas när en postlåda granskningspost skapas.
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange-postlåda Audit-gruppen
+
 Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupper.
 
 | Egenskap  | Beskrivning |
@@ -652,6 +677,7 @@ Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupp
 
 
 ### <a name="sharepoint-base"></a>SharePoint-bas
+
 Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
 | Egenskap  | Beskrivning |
@@ -668,6 +694,7 @@ Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
 
 ### <a name="sharepoint-schema"></a>SharePoint Schema
+
 Dessa poster skapas när ändringar görs i SharePoint.
 
 | Egenskap  | Beskrivning |
@@ -680,6 +707,7 @@ Dessa poster skapas när ändringar görs i SharePoint.
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint-filåtgärder
+
 Dessa poster skapas som svar på filåtgärder i SharePoint.
 
 | Egenskap  | Beskrivning |
@@ -700,6 +728,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
+
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
 | Söka i data | Beskrivning |
@@ -713,6 +742,7 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Använd [logga frågor i Azure Monitor](../log-query/log-query-overview.md) att visa detaljerad uppdateringsinformation.
 * [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) att visa dina favorit Office 365-sökfrågor.
 * [Skapa aviseringar](../platform/alerts-overview.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

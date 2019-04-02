@@ -14,14 +14,15 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fa2f957c862ca94bc102b38b8bb1deb0bc07be8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 771f93edfee8f7b48fb7d0d2c98419f9427f6338
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226863"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793534"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Använda Azure PowerShell-kommando för att skapa en tom molntjänstbehållare
+
 Den här artikeln förklarar hur du snabbt skapar en Cloud Services-behållare med Azure PowerShell-cmdlets. Följ stegen nedan:
 
 1. Installera Microsoft Azure PowerShell-cmdlet från den [Azure PowerShell hämtar](https://aka.ms/webpi-azps) sidan.
@@ -34,10 +35,11 @@ Den här artikeln förklarar hur du snabbt skapar en Cloud Services-behållare m
    >
 4. Använd den **New-AzureService** cmdlet för att skapa en tom Azure molntjänstbehållare.
 
-   ```powershell
+   ```
    New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    ```
+
 5. Följ det här exemplet för att anropa cmdleten:
 
    ```powershell
@@ -46,10 +48,11 @@ Den här artikeln förklarar hur du snabbt skapar en Cloud Services-behållare m
 
 Mer information om hur du skapar Azure-molntjänst, kör du:
 
-```
+```powershell
 Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>Nästa steg
+
 * För att hantera molntjänstdistribution, referera till den [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0), och [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) kommandon. Du kan också referera till [så här konfigurerar du molntjänster](cloud-services-how-to-configure-portal.md) för ytterligare information.
 * För att publicera ditt molntjänstprojekt till Azure måste referera till den **PublishCloudService.ps1** kodexemplet från [arkiverade cloud services-databas](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

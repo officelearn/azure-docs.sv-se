@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113273"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762692"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -139,12 +139,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget**?
    
-   Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standardinstansen avinstallerades korrekt. Om du vill använda en namngiven instans, gör du följande:
-    1. Distribuera en SQL Server-VM från marketplace. 
-    1. Avinstallera tillägget IaaS.
-    1. Avinstallera SQL Server helt.
-    1. Installera SQL Server med en namngiven instans. 
-    1. Installera tillägget IaaS. 
+   Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standardinstansen har [avinstalleras korrekt](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Om det finns ingen standardinstans och det finns flera namngivna instanser på en enda SQL Server VM kan IaaS-tillägget inte installeras. 
 
 1. **Kan jag ta bort SQL Server helt från en virtuell SQL-dator?**
 
@@ -176,6 +171,10 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Hur installerar jag verktyg för SQL-Data på min Azure-VM**
 
     Ladda ned och installera verktyg för SQL-Data från [Microsoft SQL Server Data Tools – Business Intelligence för Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **Är distribuerade transaktioner med MSDTC som stöds på SQL Server-datorer?**
+   
+    Ja. Lokal DTC fungerar för SQL Server 2016 SP2 och senare. Program måste dock testas när med Always On-Tillgänglighetsgrupper som transaktioner relä under en redundansväxling misslyckas och måste utföras igen. Klustrad DTC är tillgängliga från och med Windows Server 2019. 
 
 ## <a name="resources"></a>Resurser
 

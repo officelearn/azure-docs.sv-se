@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a192f5cbd0fb5a4dcb911f40753efcbd996a418
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877861"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793852"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -170,6 +170,6 @@ A. Ja. Dina data har överförts till Azure, men om du inte ser några hanterade
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Titta på [systemkraven för Data Box](data-box-disk-system-requirements.md).
-- Förstå [Data Box-begränsningarna](data-box-disk-limits.md).
+- Granska den [systemkrav för Data Box-Disk](data-box-disk-system-requirements.md).
+- Förstå [Data Box Disk-begränsningarna](data-box-disk-limits.md).
 - Distribuera snabbt [Azure Data Box Disk](data-box-disk-quickstart-portal.md) på Azure-portalen.

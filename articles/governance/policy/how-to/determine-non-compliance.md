@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314134"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802753"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -46,7 +46,7 @@ Följ dessa steg om du vill visa information om kompatibilitet:
 
 1. Den **efterlevnadsinformation** fönstret visar information från senaste utvärderingen av resursen till den aktuella principtilldelningen för. I det här exemplet fältet **Microsoft.Sql/servers/version** identifieras som _12.0_ medan principdefinitionen förväntat _14,0_. Om resursen är icke-kompatibla av flera skäl, finns var och en i det här fönstret.
 
-   ![Informationsfönstret för efterlevnad](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Informationsfönstret för efterlevnad och orsakerna till inkompatibilitet](../media/determine-non-compliance/compliance-details-pane.png)
 
    För en **auditIfNotExists** eller **deployIfNotExists** principdefinition informationen innehåller den **details.type** egenskapen och eventuella valfria egenskaper. En lista i [auditIfNotExists egenskaper](../concepts/effects.md#auditifnotexists-properties) och [deployIfNotExists egenskaper](../concepts/effects.md#deployifnotexists-properties). **Senast utvärderad resource** är en relaterad resurs från den **information** avsnitt i definitionen.
 
@@ -94,16 +94,16 @@ Matrisen följande mappar varje möjligt _orsak_ till den ansvariga [villkor](..
 |Aktuellt värde måste finnas. |Det finns |
 |Aktuellt värde måste finnas i målvärdet. |i eller **inte** notIn |
 |Aktuellt värde måste vara som målvärdet. |som eller **inte** notLike |
-|Aktuellt värde måste vara skiftlägeskänslig matchning målvärdet. |matcha eller **inte** notMatch |
-|Aktuellt värde måste vara icke-skiftlägeskänsliga matchningen målvärdet. |matchInsensitively eller **inte** notMatchInsensitively |
+|Det aktuella värdet måste matcha målvärdet skiftlägeskänsligt. |matcha eller **inte** notMatch |
+|Det aktuella värdet måste matcha målvärdet skiftlägesokänsligt. |matchInsensitively eller **inte** notMatchInsensitively |
 |Aktuellt värde får inte innehålla målvärdet som en nyckel. |notContainsKey eller **inte** containsKey|
 |Aktuellt värde får inte innehålla målvärdet. |notContains eller **inte** innehåller |
 |Aktuellt värde får inte vara lika med målvärdet. |notEquals eller **inte** är lika med |
 |Aktuellt värde får inte finnas. |**inte** finns  |
 |Aktuellt värde får inte finnas i målvärdet. |notIn eller **inte** i |
 |Aktuellt värde får inte vara som målvärdet. |notLike eller **inte** som |
-|Aktuellt värde måste inte skiftlägeskänslig matchning målvärdet. |notMatch eller **inte** matchar |
-|Aktuellt värde måste inte icke-skiftlägeskänsliga matchningen målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
+|Det aktuella värdet får inte matcha målvärdet skiftlägeskänsligt. |notMatch eller **inte** matchar |
+|Det aktuella värdet får inte matcha målvärdet skiftlägesokänsligt. |notMatchInsensitively eller **inte** matchInsensitively |
 |Inga relaterade resurser matchar effektinformationen i principdefinitionen. |En resurs av typen som definierats i **then.details.type** och relaterad till den resurs som definierats i den **om** delen av principregeln finns inte. |
 
 ## <a name="change-history-preview"></a>Ändra historik (förhandsversion)
@@ -118,11 +118,11 @@ Som en del av en ny **förhandsversion**, de senaste 14 dagarna av ändring hist
 
 1. Välj den **ändra historik (förhandsversion)** fliken på den **Resurskompatibilitet** sidan. En lista över identifierat ändringar, om några finns, visas.
 
-   ![Principen ändra historik - fliken](../media/determine-non-compliance/change-history-tab.png)
+   ![Fliken Ändra historik på Resurskompatibilitet sida](../media/determine-non-compliance/change-history-tab.png)
 
 1. Välj en av de identifierade ändringarna. Den _visual diff_ för resursen som visas på den **ändringshistorik** sidan.
 
-   ![Principen ändra historik - Visual Diff](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Principen ändra historik Visual Diff på sidan för ändra historik](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som har identifierats kan inte vara relaterade till det aktuella tillståndet för efterlevnad för resursen.
 

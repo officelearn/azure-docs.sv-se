@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2ed053479b11bada4cfc0ec808ad148f024dee6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087541"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803259"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -149,7 +149,15 @@ Använd först den [aaz aks get-credentials] [ az-aks-get-credentials] med den `
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret. Skapa en fil som *rbac-aad-user.yaml*, och klistra in följande innehåll. Uppdatera användarnamnet med en från Azure AD-klienten:
+Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret. 
+
+Hämta den *objectId* krävs användarens konto med hjälp av den [az ad user show] [ az-ad-user-show] kommando. Ange användarens huvudnamn (UPN) för kontot som krävs:
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+Skapa en fil som *rbac-aad-user.yaml*, och klistra in följande innehåll. Uppdatera användarnamnet med objekt-ID för ditt konto från Azure AD som hämtades i föregående steg:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +171,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 Tillämpa en bindning med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot som visas i följande exempel:
@@ -242,3 +250,4 @@ Läs mer om hur du skyddar Kubernetes-kluster med hjälp av rollbaserad Åtkomst
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

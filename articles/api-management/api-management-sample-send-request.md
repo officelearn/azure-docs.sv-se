@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970186"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792492"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
 Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en stor mängd arbete baserat helt och hållet på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Men att kunna interagera med externa tjänster från API Management principer öppnas många fler möjligheter.
@@ -27,7 +27,7 @@ Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en 
 Du tidigare har sett hur du interagerar med den [Azure Event Hub-tjänsten för loggning, övervakning och analys](api-management-log-to-eventhub-sample.md). Den här artikeln visar principer som gör att du kan interagera med alla externa HTTP-baserade tjänster. Dessa principer kan användas för att utlösa fjärrevenemang eller för att hämta information som används för att ändra den ursprungliga begäran och svaret på något sätt.
 
 ## <a name="send-one-way-request"></a>En-sätt – begäran om att skicka
-Eventuellt enklaste externa interaktion är fire-and-forget-formatet för begäran som gör att en extern tjänst för att aviseras om någon typ av viktiga händelsen. Principer för åtkomstkontroll flow `choose` kan användas för att identifiera alla typer av villkor som du är intresserad av.  Om villkoret är uppfyllt, kan du göra en extern HTTP-begäran med hjälp av den [-en-sätt – begäran om att skicka](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) princip. Detta kan vara en begäran om att ett meddelandesystem som Hipchat eller Slack eller ett e-postmeddelande API som SendGrid eller MailChimp eller för viktiga supportärenden liknande PagerDuty. Alla dessa meddelandesystem har enkla HTTP-APIs som kan anropas.
+Eventuellt enklaste externa interaktion är fire-and-forget-formatet för begäran som gör att en extern tjänst för att aviseras om någon typ av viktiga händelsen. Principer för åtkomstkontroll flow `choose` kan användas för att identifiera alla typer av villkor som du är intresserad av.  Om villkoret är uppfyllt, kan du göra en extern HTTP-begäran med hjälp av den [-en-sätt – begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) princip. Detta kan vara en begäran om att ett meddelandesystem som Hipchat eller Slack eller ett e-postmeddelande API som SendGrid eller MailChimp eller för viktiga supportärenden liknande PagerDuty. Alla dessa meddelandesystem har enkla HTTP-APIs som kan anropas.
 
 ### <a name="alerting-with-slack"></a>Aviseringar med Slack
 I följande exempel visar hur du skickar ett meddelande till en Slack chattrum om HTTP-svarsstatuskod är större än eller lika med 500. Ett Intervallfel med 500 tyder på problem med serverdels-API som klienten om API: et inte kan lösa sig själva. Det krävs någon typ av åtgärd från API Management-sida.  
@@ -62,7 +62,7 @@ Slack har begreppet inkommande webhooks. När du konfigurerar en inkommande webh
 ![Slack Webhook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Är fire- and -forget tillräckligt bra?
-Det finns vissa kompromisser när du använder en fire-and-forget-formatet för begäran. Om det av någon anledning misslyckas denna begäran, och sedan felet inte rapporteras. Komplexiteten med att ha sekundära fel reporting system- och ytterligare kostnaden för att vänta tills svaret är inte berättigat i den här specifika situation. För scenarier där det är viktigt att kontrollera svar, kommer [-begäran om att skicka](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) principen är ett bättre alternativ.
+Det finns vissa kompromisser när du använder en fire-and-forget-formatet för begäran. Om det av någon anledning misslyckas denna begäran, och sedan felet inte rapporteras. Komplexiteten med att ha sekundära fel reporting system- och ytterligare kostnaden för att vänta tills svaret är inte berättigat i den här specifika situation. För scenarier där det är viktigt att kontrollera svar, kommer [-begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendRequest) principen är ett bättre alternativ.
 
 ## <a name="send-request"></a>Skicka begäran
 Den `send-request` principen gör det möjligt med hjälp av en extern tjänst att utföra komplex bearbetningsfunktioner och returnera data till API management-tjänsten som kan användas för ytterligare behandling av princip.
@@ -209,7 +209,7 @@ När du har den här informationen kan göra du begäranden till backend-system.
 Dessa begäranden köra i ordningsföljd, vilket inte är idealiskt. 
 
 ### <a name="responding"></a>Svara
-Du kan använda för att konstruera sammansatta svaret den [returnera svar](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) princip. Den `set-body` element kan använda ett uttryck för att skapa en ny `JObject` med alla komponenter representationer inbäddad som egenskaper.
+Du kan använda för att konstruera sammansatta svaret den [returnera svar](/azure/api-management/api-management-advanced-policies#ReturnResponse) princip. Den `set-body` element kan använda ett uttryck för att skapa en ny `JObject` med alla komponenter representationer inbäddad som egenskaper.
 
 ```xml
 <return-response response-variable-name="existing response variable">

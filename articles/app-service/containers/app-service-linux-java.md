@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335852"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803535"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -154,6 +154,14 @@ Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot star
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 
 Följ instruktionerna i den [binda ett befintligt anpassat SSL-certifikat](/azure/app-service/app-service-web-tutorial-custom-ssl) att ladda upp ett befintligt SSL-certifikat och bind det till ditt programs domännamn. Som standard kommer ditt program fortfarande att HTTP-anslutningar – Följ specifikt steg i guiden för att framtvinga SSL och TLS.
+
+### <a name="use-keyvault-references"></a>Använda KeyVault-referenser
+
+[Azure KeyVault](../../key-vault/key-vault-overview.md) tillhandahåller centraliserad hantering av hemliga med åtkomst till principer och granska historiken. Du kan lagra hemligheter (till exempel lösenord eller anslutningssträngar) i KeyVault och få åtkomst till dessa hemligheter i ditt program via miljövariabler.
+
+Först, följer du anvisningarna för [ge din appåtkomst till Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och [att göra en KeyVault referens till din hemlighet i en programinställning](../app-service-key-vault-references.md#reference-syntax). Du kan verifiera att referensen motsvarar hemligheten genom att skriva ut miljövariabeln vid fjärråtkomst till App Service-terminalen.
+
+För att mata in dessa hemligheter i konfigurationsfilen Spring eller Tomcat, använder du miljön variabeln inmatning syntax (`${MY_ENV_VAR}`). För Spring-konfigurationsfiler, finns i den här dokumentationen [externalized konfigurationer](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## <a name="data-sources"></a>Datakällor
 

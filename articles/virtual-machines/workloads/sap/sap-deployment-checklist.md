@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096018"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802804"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
 
@@ -77,7 +77,7 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
 5.  Microsoft Premier Support-kontrakt – identifiera MS Technical Account Manager (TAM). Stöd för krav av SAP finns stöd för SAP-kommentar [#2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.  Definiera antalet Azure-prenumerationer och kärnkvoten för olika prenumerationer. [Öppna supportärenden att öka kvoter för Azure-prenumerationer](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) efter behov 
 7.  Dataminskning och migrering av data kan du planera för migrering av SAP-data till Azure. För SAP NetWeaver-system har SAP riktlinjer om hur du håller volymen på en stor mängd data som är begränsad. SAP publicerade [handboken djupgående](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) om datahantering av i SAP ERP-system. Men vissa innehållet gäller för NetWeaver och S/4HANA-system i allmänhet.
-8.  Definiera och välja metod för automatisk distribution. Målet med automation bakom distribution av infrastruktur på Azure är att distribuera på ett deterministiskt sätt och få deterministiska resultat. Många kunder använder PowerShell eller CLI baserat skript. Men det finns olika tekniker med öppen källkod som kan användas för att distribuera Azure-infrastrukturen för SAP och även installera SAP-program. Exempel finns i github:
+8.  Definiera och välja metod för automatisk distribution. Målet med automation bakom distribution av infrastruktur på Azure är att distribuera på ett deterministiskt sätt och få deterministiska resultat. Många kunder använder PowerShell eller CLI baserat skript. Men det finns olika tekniker med öppen källkod som kan användas för att distribuera Azure-infrastrukturen för SAP och även installera SAP-program. Exempel finns i GitHub:
     1.  [Automatiserad SAP-distributioner i Azure-molnet](https://github.com/Azure/sap-hana)
     2.  [SAP HANA-Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definiera en vanlig design och distribution granska takt mellan dig som kund systemintegratör, Microsoft och andra inblandade parter
@@ -88,19 +88,21 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
 Piloten kan köras före eller parallellt till projektet planering och förberedelser. Fasen kan också användas för att testa metoder och design som gjorts i fasen av planering och förberedelser. Pilotfasen kan stretchas till en verklig bevis på koncept. Vi rekommenderar att konfigurera och verifiera en fullständig hr/DR-lösning samt säkerhetsdesign under en pilotdistribution. I vissa fall kunden kan skalbarhet tester också utföras i det här steget. Andra kunder använder distribution av SAP sandbox-system som pilotfasen. Så vi förutsätter att du har identifierat ett system som du vill migrera till Azure, i syfte att köra ett pilotprojekt.
 
 1. Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från en lokal var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
-2. Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+2. Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Exportera till källa, Export filuppladdning till Azure och importera prestanda.  Maximera överlapp mellan export och import
    2.  Utvärdera mängden databas mellan mål- och mål-plattformen för att avspegla i infrastruktur-storlek    
    3.  Validera och optimera Tidsinställning 
 3. Teknisk verifiering 
    1. VM-typer
       1.  Verifiera resurserna på SAP support anteckningar, SAP HANA maskinvara directory och SAP PAM igen för att se till att det fanns inga ändringar i virtuella datorer som stöds för Azure, OS-versioner som stöds för dessa typer av virtuella datorer och SAP och DBMS-versioner som stöds
-      2.  Validera igen storleksändringar av ditt program och infrastruktur som du distribuerar på Azure. När det gäller flytta befintliga program har du ofta kan härleda nödvändiga SAP från infrastrukturen som du använder och [SAP benchmark webbsidan](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) och jämför den med SAP-siffror som visas i SAP support-kommentar [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Håll också [i den här artikeln](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) i åtanke
+      2.  Validera igen storleksändringar av ditt program och infrastruktur som du distribuerar på Azure. När det gäller flytta befintliga program har du ofta kan härleda nödvändiga SAP från infrastrukturen som du använder och [SAP benchmark webbsidan](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) och jämför den med SAP-siffror som visas i SAP support-kommentar [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Håll också [i den här artikeln](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) i åtanke
       3.  Utvärdera och testa storleksändring av virtuella datorer i Azure avseende största genomflödet och nätverkets dataflöde av olika VM-typer som du valde i planeringsfasen. Data kan hittas i:
           1.  [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
           2.  [Storlekar för Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) är det viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
    2. Storage
-      1.  Använd Azure Premium Storage för virtuella datorer i databasen
+      1.  Använd [Azure Standard SSD-lagring](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) som minsta för virtuella datorer som representerar lager för SAP-program och för icke-prestanda känsliga DBMS-distribution
+      2.  Vi rekommenderar inte för att använda [Azure Standard HDD-diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) i allmänhet
+      2.  Använd [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) för alla DBMS virtuella datorer som är via en fjärranslutning prestanda som är känsliga
       2.  Använd [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/)
       3.  Använd Azure Write Accelerator för DBMS loggenheter med M-serien. Tänk på Write accelerator gränser och användning enligt beskrivningen i [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
       4.  De olika DBMS-typerna, kontrollera den [allmän SAP DBMS dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) och specifika dokumentationen DBMS allmän dokumentet pekar du
@@ -124,6 +126,7 @@ Piloten kan köras före eller parallellt till projektet planering och förbered
               4.  Oracle Linux 7.5. Använder RHCKL-kernel kan måste versionen vara 3.10.0-862.13.1.el7. Med hjälp av Oracle-UEK är kernel-version 5 obligatoriskt
           4.   Testa och utvärdera Nätverksfördröjningen mellan SAP-programnivån VM och DBMS VM enligt SAP support-kommentar [#500235](https://launchpad.support.sap.com/#/notes/500235) och SAP support-kommentar [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Utvärdera resultaten med nätverket svarstid vägledning för SAP support anteckning [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Svarstiden i nätverk ska vara i intervallet måttliga och bra. Undantag gäller för trafik mellan virtuella datorer och stora HANA-instansen enheter enligt beskrivningen [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
           5.   Se till att ILB-distributioner är konfigurerat att använda direkt Serverreturnering. Den här inställningen kommer att minska svarstiden i fall där Azure Ilb används för konfigurationer med hög tillgänglighet i DBMS-lager
+          6.   Om du använder Azure Load Balancer tillsammans med Linux gäst operativsystem kontroll att Linux network parametern **net.ipv4.tcp_timestamps** är inställd på **0**. Mot rekommendationerna i äldre versioner av SAP Observera [#2382421](https://launchpad.support.sap.com/#/notes/2382421). SAP-kommentar uppdateras under tiden för att återspegla det faktum att parametern måste anges till 0 för att arbeta tillsammans med Azure-belastningsutjämnare.
    4. Hög tillgänglighet och disaster recovery-distributioner. 
       1. Om du har distribuerat SAP-programnivån utan att definiera en viss Azure-Tillgänglighetszon kan du se till att alla virtuella datorer som kör SAP dialogrutan instans eller mellanprogram instanser av en enda SAP-system har distribuerats i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
          1.   Om du inte behöver hög tillgänglighet för SAP Central Services och DBMS kan kan dessa virtuella datorer distribueras till samma Tillgänglighetsuppsättning som SAP-programnivån

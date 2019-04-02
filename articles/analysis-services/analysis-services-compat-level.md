@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880134"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803501"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Kompatibilitetsnivån för Analysis Services-tabellmodeller
 
@@ -27,7 +27,11 @@ Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och
 *  Säkerhet på objektnivå för tabeller och kolumner som ett komplement till data i dem.
 *  Förbättrat stöd för ojämna hierarkier.
 *  Övervakning av prestanda och förbättringar.
- 
+
+> [!NOTE]
+> Azure Analysis Services stöder importerade Power BI Desktop-filer på kompatibilitetsnivå 1465. Importera från Power BI Desktop-funktioner, vilket har alltid varit en förhandsgranskningsfunktion, var dock upphöra och tas bort från tjänsten i mars 2019. Befintliga modeller på kompatibilitetsnivå 1465 förblir stöds.  
+
+
 ## <a name="set-compatibility-level"></a>Ange kompatibilitetsnivån
 
  När du skapar ett nytt projekt för tabellmodeller i SSDT, du kan ange kompatibilitetsnivån på den **tabellmodelldesigner** dialogrutan. 
@@ -47,6 +51,9 @@ Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och
  Högerklicka på servernamnet i SSMS > **egenskaper** > **stöds kompatibilitetsnivå**.  
   
  Denna egenskap Anger högsta kompatibilitetsnivån för en databas som körs på servern (förutom förhandsversion). Stöds kompatibilitetsnivån kan inte ändras.  
+
+> [!NOTE]
+> I SSMS, när du är ansluten till en Azure Analysis Services-server, den **stöds kompatibilitetsnivå** egenskapen visar **1200**. Det här är ett känt problem och löses i en kommande SSMS uppdatering. När åtgärdats, visas den här egenskapen högsta stöds kompatibilitetsnivå.
 
 ## <a name="next-steps"></a>Nästa steg
 

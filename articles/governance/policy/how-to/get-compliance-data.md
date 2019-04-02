@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535220"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802970"
 ---
-# <a name="getting-compliance-data"></a>Hämta data för efterlevnad
+# <a name="get-compliance-data-of-azure-resources"></a>Hämta data för kompatibilitetsinställningar för Azure-resurser
 
 En av de största fördelarna med Azure Policy är insikter och kontroller över resurser i en prenumeration eller [hanteringsgruppen](../../management-groups/overview.md) av prenumerationer. Den här kontrollen kan utföras på många olika sätt, till exempel förhindrar resurser som skapas på fel plats, tillämpa gemensam och enhetlig taggen användning, eller granskning befintliga resurser för lämpliga konfigurationer och inställningar. I samtliga fall genereras data av en princip så att du kan förstå kompatibilitetsstatusen för din miljö.
 
@@ -120,27 +120,27 @@ Principen används den **typ** och **namn** fält i definitionen för att avgör
 Den kompatibilitet i procent bestäms genom att dividera **kompatibla** resurser genom att _Totalt antal resurser_.
 _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**, och **pågår** resurser. Övergripande kompatibilitet talen är summan av olika resurser som är **kompatibla** dividerat med summan av alla distinkta resurser. I bilden nedan finns 20 separata resurser som gäller och är endast ett **icke-kompatibla**. Övergripande resurskompatibilitet är 95% (19 av 20).
 
-![Exempel på enkla efterlevnad](../media/getting-compliance-data/simple-compliance.png)
+![Exempel på principefterlevnad från sidan för enhetskompatibilitet](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portalen
 
 Azure-portalen visar en grafisk upplevelse av att visualisera och förstå tillståndet för efterlevnad i din miljö. På den **princip** kan den **översikt** alternativ innehåller information om tillgängliga scope på kompatibiliteten för både principer och initiativ. Tillsammans med kompatibilitetsstatus och antal per tilldelning innehåller den ett diagram som visar efterlevnad under de senaste sju dagarna.
 Den **efterlevnad** sidan innehåller en stor del av samma information (utom diagram), men ger ytterligare filtrera och sortera alternativ.
 
-![Sidan för principen för efterlevnad](../media/getting-compliance-data/compliance-page.png)
+![Exempel på sidan för Principefterlevnad](../media/getting-compliance-data/compliance-page.png)
 
 Eftersom en princip eller ett initiativ kan tilldelas till olika omfång, innehåller tabellen omfattningen för varje uppgift och vilken sorts definition som har tilldelats. Det finns också antalet icke-kompatibla resurser och icke-kompatibla principer för varje tilldelning. När du klickar på en princip eller ett initiativ i tabellen innehåller en närmare titt på kompatibilitet för den specifika tilldelningen.
 
-![Information om efterlevnad](../media/getting-compliance-data/compliance-details.png)
+![Exempel på informationssidan för princip för efterlevnad](../media/getting-compliance-data/compliance-details.png)
 
 I listan över resurser på den **resurskompatibilitet** fliken visar utvärderingsstatus för befintliga resurser för den aktuella tilldelningen. Fliken som standard **icke-kompatibla**, men kan filtreras.
 Händelser (lägga till, granska, neka, distribuera) utlöses av begäran om att skapa en resurs visas den **händelser** fliken.
 
-![Efterlevnad Principhändelser](../media/getting-compliance-data/compliance-events.png)
+![Exempel på händelser för Principefterlevnad](../media/getting-compliance-data/compliance-events.png)
 
 Högerklicka på raden i den händelse som du vill samla in mer information om och välj **visa aktivitetsloggar**. Aktivitetsloggsidan öppnas och är redan filtrerat till search som visar information för tilldelningen och händelser. Aktivitetsloggen innehåller ytterligare kontext och information om dessa händelser.
 
-![Princip för efterlevnad aktivitetsloggen](../media/getting-compliance-data/compliance-activitylog.png)
+![Exempel på princip för efterlevnad aktivitetsloggen](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Förstå inkompatibilitet
 

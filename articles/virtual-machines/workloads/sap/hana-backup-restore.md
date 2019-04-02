@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 69417551c1c8d410f75e74a8164c8b8a223ab835
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541238"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805337"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -58,7 +58,7 @@ Lagringsinfrastruktur som underliggande SAP HANA på Azure (stora instanser) har
 - När du utlöser en ögonblicksbild över /hana/data och /hana/shared (inklusive /usr/sap) volymer, teknik för ögonblicksbilder initierar en SAP HANA ögonblicksbild innan den kan köras storage-ögonblicksbilder. SAP HANA-ögonblicksbilder är den installationen för slutlig log återställningar efter återställning av storage-ögonblicksbilder. För HANA-ögonblicksbilder ska lyckas måste en aktiv HANA-instans.  I HSR scenariot stöds storage-ögonblicksbilder inte på aktuella sekundära noden där HANA-ögonblicksbilder inte kan utföras.
 - När storage-ögonblicksbilder har har körts, tas SAP HANA-ögonblicksbilder bort.
 - Säkerhetskopieringar av transaktionsloggen tas ofta och lagras i /hana/logbackups volymen eller i Azure. Du kan utlösa /hana/logbackups volymen som innehåller säkerhetskopieringarna av transaktionsloggen för att ta en ögonblicksbild separat. I så fall behöver du inte köra en HANA-ögonblicksbilder.
-- Om du måste återställa en databas till en viss punkt i tiden, begära att Microsoft Azure-supporten (för en produktion avbrott) eller SAP HANA på Azure Service Management-återställning till en viss storage-ögonblicksbild. Ett exempel är en planerad återställning av en sandbox-system till det ursprungliga tillståndet.
+- Om du måste återställa en databas till en viss punkt i tiden, begär den Microsoft Azure-supporten (för en produktion avbrott) eller SAP HANA på Azure återställning till en viss storage-ögonblicksbild. Ett exempel är en planerad återställning av en sandbox-system till det ursprungliga tillståndet.
 - SAP HANA-ögonblicksbilder som ingår i storage-ögonblicksbilder är en förskjutning för att tillämpa säkerhetskopieringar av transaktionsloggen som har körts och lagrat när lagring ögonblicksbilden togs.
 - Dessa säkerhetskopieringar av transaktionsloggen kommer att återställa databasen till en viss punkt i tiden.
 
@@ -167,15 +167,16 @@ MACs hmac-sha1
 
 Om du vill aktivera åtkomst till lagring ögonblicksbild gränssnitt klientorganisationens stora HANA-instansen måste du upprätta en procedur inloggning via en offentlig nyckel. På den första SAP HANA på Azure (stora instanser)-server i din klient, skapa en offentlig nyckel som används för att komma åt lagringsinfrastrukturen. Den offentliga nyckeln garanterar att ett lösenord inte krävs att logga in på gränssnitt som storage ögonblicksbild. Skapa en offentlig nyckel innebär också att du inte behöver underhålla autentiseringsuppgifter för lösenord. Kör följande kommando för att generera den offentliga nyckeln i Linux på stora instanser av SAP HANA-servern:
 ```
-  ssh-keygen –t dsa –b 1024
+  ssh-keygen -t rsa –b 5120 -C ""
 ```
-Den nya platsen är **_/root/.ssh/id\_dsa.pub**. Ange inte en faktiska lösenord, eller så du måste ange lösenordet varje gång du loggar in. Välj i stället **RETUR** två gånger för att ta bort kravet att ”ange lösenord” för att logga in.
+
+Den nya platsen är **_/root/.ssh/id\_rsa.pub**. Ange inte en faktiska lösenord, eller så du måste ange lösenordet varje gång du loggar in. Välj i stället **RETUR** två gånger för att ta bort kravet att ”ange lösenord” för att logga in.
 
 Se till att den offentliga nyckeln har korrigerats som förväntat genom att ändra mappar som ska **/root/.ssh/** och sedan köra den `ls` kommando. Om nyckeln finns kan du kopiera den genom att köra följande kommando:
 
 ![Den offentliga nyckeln kopieras genom att köra det här kommandot](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-Nu kan kontakta SAP HANA på Azure Service Management och ge dem med den offentliga nyckeln. Servicerepresentant använder den offentliga nyckeln för att registrera den i den underliggande lagringsinfrastrukturen som är vis för din klient för stora HANA-instansen.
+Nu kan kontakta SAP HANA på Azure och ge dem med den offentliga nyckeln. Servicerepresentant använder den offentliga nyckeln för att registrera den i den underliggande lagringsinfrastrukturen som är vis för din klient för stora HANA-instansen.
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Steg 4: Skapa ett användarkonto för SAP HANA
 
@@ -262,7 +263,7 @@ Syftet med olika skript och filer är följande:
 - **removeTestStorageSnapshot.pl**: Det här skriptet tar bort test-ögonblicksbilden som skapades med skriptet **testStorageSnapshotConnection.pl**.
 - **azure\_hana\_dr\_failover.pl**: Det här skriptet initierar en DR-redundans i en annan region. Skriptet måste köras på den stora HANA-instansen enheten i regionen för Haveriberedskap eller på enheten du vill växla över till. Det här skriptet stoppar storage-replikering från primär sida till sekundär sida, återställer den senaste ögonblicksbilden på DR-volymer och ger monteringspunkter för DR volymer.
 - **azure\_hana\_test\_dr\_failover.pl**: Det här skriptet utför ett redundanstest i DR-plats. Till skillnad från skriptet azure_hana_dr_failover.pl avbryter den här körningen inte storage-replikering från primär till sekundär. I stället kloner replikerad lagring volymer skapas på haveriberedskapssidan och monteringspunkter klonade volymer tillhandahålls. 
-- **HANABackupCustomerDetails.txt**: Den här filen är en ändringsbar konfigurationsfil som du behöver ändra för att anpassa sig till din SAP HANA-konfiguration. Den *HANABackupCustomerDetails.txt* filen är den kontroll och konfiguration för det skript som körs storage-ögonblicksbilder. Justera filen för dina syften och inställningar. Du får den **Backup Lagringsnamnet** och **Storage IP-adress** från SAP HANA på Azure Service Management när du distribuerar dina instanser. Du kan inte ändra sekvensen, beställning eller avstånd i någon av variablerna i den här filen. Om du gör skript körs inte korrekt. Dessutom visas IP-adressen för noden skala upp eller den överordnade noden (om skalbar) från SAP HANA på Azure Service Management. Du kan också veta hur många av HANA-instans som är tillgängliga under installationen av SAP HANA. Nu kan behöva du lägga till ett namn på säkerhetskopia i konfigurationsfilen.
+- **HANABackupCustomerDetails.txt**: Den här filen är en ändringsbar konfigurationsfil som du behöver ändra för att anpassa sig till din SAP HANA-konfiguration. Den *HANABackupCustomerDetails.txt* filen är den kontroll och konfiguration för det skript som körs storage-ögonblicksbilder. Justera filen för dina syften och inställningar. Du får den **Backup Lagringsnamnet** och **Storage IP-adress** från SAP HANA på Azure när dina instanser distribuerar. Du kan inte ändra sekvensen, beställning eller avstånd i någon av variablerna i den här filen. Om du gör skript körs inte korrekt. Dessutom visas IP-adressen för noden skala upp eller den överordnade noden (om skalbar) från SAP HANA på Azure. Du kan också veta hur många av HANA-instans som är tillgängliga under installationen av SAP HANA. Nu kan behöva du lägga till ett namn på säkerhetskopia i konfigurationsfilen.
 
 För skala upp eller skala ut distribution, konfigurationsfilen skulle se ut i följande exempel när du har fyllt i servernamnet för den stora HANA-instansen enheten och serverns IP-adress. Fyll i alla fält som behövs för varje SAP HANA-SID som du vill säkerhetskopiera eller återställa.
 
@@ -628,9 +629,9 @@ För ögonblicksbild typer **hana** och **loggar**, du kan få åtkomst till ög
 
 I ett scenario med produktion ned kan hela återställningen från en ögonblicksbild för lagring av initieras som en kundincident med Microsoft Azure-supporten. Det är bara några hög angelägenhetsgrad om data har tagits bort i ett produktionssystem, och det enda sättet att hämta det är att återställa produktionsdatabasen.
 
-I annat fall kan en point-in-time-återställning kan vara med låg angelägenhetsgrad och planerade dagar i förväg. Du kan planera återställningen med SAP HANA på Azure Service Management i stället för att höja flaggan hög prioritet. Du kan till exempel planerar att uppgradera SAP-program genom att använda ett nytt paket för förbättring. Du måste sedan återgå till en ögonblicksbild som representerar tillstånd innan paketuppgradering förbättring.
+I annat fall kan en point-in-time-återställning kan vara med låg angelägenhetsgrad och planerade dagar i förväg. Du kan planera återställningen med SAP HANA på Azure i stället för att höja flaggan hög prioritet. Du kan till exempel planerar att uppgradera SAP-program genom att använda ett nytt paket för förbättring. Du måste sedan återgå till en ögonblicksbild som representerar tillstånd innan paketuppgradering förbättring.
 
-Innan du skickar begäran måste du förbereda. SAP HANA på Azure Service Management-teamet kan sedan hantera begäran och ge de återställda volymerna. Därefter kan återställa du HANA-databas baserat på ögonblicksbilder. 
+Innan du skickar begäran måste du förbereda. SAP HANA på Azure-teamet kan sedan hantera begäran och ge de återställda volymerna. Därefter kan återställa du HANA-databas baserat på ögonblicksbilder. 
 
 Följande visar hur du förbereder för begäran:
 
@@ -648,9 +649,9 @@ Följande visar hur du förbereder för begäran:
 
 1. Öppna en supportförfrågan för Azure och innehåller instruktioner för återställning av en specifik ögonblicksbild.
 
-   - Under återställningen: SAP HANA på Azure Service Management kan be dig att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
+   - Under återställningen: SAP HANA på Azure kan be dig att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
 
-   - Efter återställningen: SAP HANA på Azure Service Management meddelar dig när lagring ögonblicksbild har återställts.
+   - Efter återställningen: SAP HANA på Azure-tjänsten meddelar dig när lagring ögonblicksbild har återställts.
 
 1. När återställningsprocessen har slutförts, montera om alla datavolymer.
 
@@ -752,5 +753,5 @@ HANA snapshot deletion successfully.
 Från det här exemplet kan du se hur skriptet registrerar skapandet av HANA-ögonblicksbilder. Den här processen initieras om skalbarhet på huvudnoden. Huvudnoden initierar synkron skapandet av SAP HANA-ögonblicksbilder på alla arbetsnoder. Storage-ögonblicksbilder tas sedan. Efter lyckad körning av storage-ögonblicksbilder, tas HANA-ögonblicksbilder bort. Borttagningen av HANA-ögonblicksbilder initieras från den överordnade noden.
 
 
-**Nästa steg**
+## <a name="next-steps"></a>Nästa steg
 - Se [Disaster Recovery principer och förberedelse av](hana-concept-preparation.md).

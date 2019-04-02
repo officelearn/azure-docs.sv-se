@@ -1,19 +1,19 @@
 ---
 title: Optimera klusterkonfigurationer med Apache Ambari - Azure HDInsight
 description: Använd Apache Ambari-webbgränssnittet för att konfigurera och optimera HDInsight-kluster.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722931"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805388"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera klusterkonfigurationer för HDInsight
 
@@ -51,7 +51,7 @@ NameNode Java heap storleken beror på många faktorer, till exempel belastninge
 
     ![Redigera NameNode Java heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. NameNode Java heap-storlek ändras från 1 GB till 2 GB.
+1. NameNode Java heap-storlek ändras från 2 GB till 1 GB.
 
     ![Redigera NameNode Java heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -113,7 +113,7 @@ Den `hive.exec.reducers.bytes.per.reducer` parametern anger antalet byte som bea
  
 1. Välj **redigera** att ändra värdet till 128 MB (134,217,728 byte) och tryck sedan på **RETUR** att spara.
 
-    ![Data per Reducer - redigeras](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
+    ![Data per Reducer - edited](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Får en Indatastorleken på 1 024 MB, med upp till 128 MB data per reducer, det finns 8 reducerare (1024/128).
 
@@ -125,7 +125,7 @@ En Hive-frågan körs i ett eller flera steg. Om oberoende stegen kan köras par
 
 1.  Om du vill aktivera parallell frågekörning, navigera till Hive **Config** fliken och Sök efter den `hive.exec.parallel` egenskapen. Standardvärdet är FALSKT. Ändra värdet true och tryck sedan på **RETUR** att spara värdet.
  
-1.  För att begränsa antalet jobb som ska köras parallellt, ändra den `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
+1.  För att begränsa antalet jobb som körs parallellt, ändra den `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
 
     ![Hive exec parallellt](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -176,9 +176,9 @@ Hadoop-jobb finns vanligtvis i/o skapa en flaskhals eftersom. Genom att komprime
 
 Tillgängliga komprimeringstyperna är:
 
-| Format | Verktyget | Algoritmen | Filnamnstillägg | Delbara? |
+| Format | Verktyg | Algoritmen | Filnamnstillägg | Delbara? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | SMAL | .GZ | Nej |
+| Gzip | Gzip | SMAL | .gz | Nej |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, om indexerade |
 | Snappy | Gäller inte | Snappy | Snappy | Nej |
@@ -295,7 +295,7 @@ Ytterligare rekommendationer för att optimera motorn för körning av Hive:
 
 1. Hitta, ta bort och ändra värdet på egenskapen som du vill ändra.
 
-1. Välj **spara** på upp till höger i fönstret för att spara det nya värdet. Vissa egenskaper kan kräva en omstart av tjänsten.
+1. Välj **spara** på längst upp till höger sida av fönstret för att spara det nya värdet. Vissa egenskaper kan kräva en omstart av tjänsten.
 
     ![Avancerade pig-egenskaper](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -365,7 +365,7 @@ Antalet reducerare beräknas baserat på parametern `pig.exec.reducers.bytes.per
 
 [Apache HBase](https://hbase.apache.org/) -konfigurationen har ändrats från den **HBase Configs** fliken. I följande avsnitt beskrivs några av de viktiga konfigurationsinställningar som påverkar prestanda för HBase.
 
-### <a name="set-hbaseheapsize"></a>Ange HBASE_HEAPSIZE
+### <a name="set-hbaseheapsize"></a>Set HBASE_HEAPSIZE
 
 HBase-stackstorlek anger den maximala mängden heap som ska användas i megabyte av *region* och *master* servrar. Standardvärdet är 1 000 MB. Detta bör vara finjusterad klustrets arbetsbelastning.
 

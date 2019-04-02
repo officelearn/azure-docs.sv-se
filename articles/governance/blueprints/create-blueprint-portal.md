@@ -1,6 +1,6 @@
 ---
 title: Skapa en skiss i portalen
-description: Använd Azure Blueprints för att skapa, definiera och distribuera artefakter via Azure-portalen.
+description: Använd Azure skisser för att skapa, definiera och distribuera artefakter via Azure portal.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004913"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804402"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definiera och tilldela en Azure-skiss i portalen
 
@@ -40,7 +40,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    - Du kan också klicka på **Skapa** på sidan **Komma igång** och gå direkt till att skapa en skiss.
 
-   ![Skapa skiss](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Skapa skiss från sidan för definitioner av skiss](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Ange ett **Skissnamn**, t.ex. MyBlueprint (bokstäver och siffror – upp till 48 tecken, men inga blanksteg eller specialtecken) för skissen, men lämna **Skissbeskrivning** tomt tills vidare. Klicka på de tre punkterna till höger i rutan **Definitionsplats**, välj den [hanteringsgrupp](../management-groups/overview.md) eller prenumeration där du vill spara skissen och klicka på **Välj**.
 
@@ -48,7 +48,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 1. Lägg till rolltilldelningen för prenumerationen: Vänsterklicka på raden **+ Lägg till artefakt...** under **Prenumeration**, varvid fönstret ”Lägg till artefakt” öppnas till höger i webbläsaren. Välj ”Rolltilldelning” som _Artefakttyp_. Välj Deltagare under _Roll_ och lämna fältet _Lägg till användare, app eller grupp_ med den kryssruta som anger en **dynamisk parameter**. Lägg till den här artefakten till skissen genom att klicka på **Lägg till**.
 
-   ![Artefakt – rolltilldelning](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Skissartefakten - rolltilldelning](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > De flesta _artefakter_ stöder parametrar. En parameter som tilldelas ett värde när skissen skapas är en **statisk parameter**. Om parametern tilldelas under skisstilldelningen är den en **dynamisk parameter**. Mer information finns [Skissparametrar](./concepts/parameters.md).
@@ -113,11 +113,11 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
    }
    ```
 
-   ![Artefakt – Azure Resource Manager-mall](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Skissartefakten - Resource Manager-mall](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Din färdiga skiss bör se ut som i det följande. Observera att för varje artefakt anges ”_x_ av _y_ parametrar har fyllts i” under kolumnen _Parametrar_. De **dynamiska parametrarna** anges vid varje tilldelning av skissen.
 
-   ![Slutförd skiss](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Slutförda skissdefinition](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Nu när alla planerade artefakter har lagts till klickar du på **Spara utkast** längst ned på sidan.
 
@@ -135,11 +135,11 @@ I [Skapa en skiss](#create-a-blueprint) angavs ingen beskrivning, rolltilldelnin
 
 1. Lägg till rolltilldelning under resursgruppen: Vänsterklicka på raden **+ Lägg till artefakt...** direkt under posten **ResourceGroup**. Välj ”Rolltilldelning” som _Artefakttyp_. Under _Roll_ väljer du ”Ägare”, avmarkerar kryssrutan för fältet _Lägg till användare, app eller grupp_ och söker efter och väljer en användare, app eller grupp som ska läggas till. Den här artefakten använder en **statisk parameter** som ställs in på samma sätt i alla tilldelningar av den här skissen. Lägg till den här artefakten till skissen genom att klicka på **Lägg till**.
 
-   ![Artefakt – rolltilldelning nr 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Skissartefakten - rollen tilldelning nr 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Din färdiga skiss bör se ut som i det följande. Lägg märke till att den nyligen tillagda rolltilldelningen visar att **1 av 1 parametrar har fyllts i**, vilket innebär att det är en **statisk parameter**.
 
-   ![Slutförd skiss nr 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Slutförda skissdefinitionen #2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Klicka på **Spara utkast** nu när den har uppdaterats.
 
@@ -224,7 +224,7 @@ Nu när skissen har tilldelats till en prenumeration kan du kontrollera distribu
 
 1. I listan över skisser högerklickar du på den skiss som du tilldelade tidigare och väljer **Visa tilldelningsinformation**.
 
-   ![Visa tilldelningsinformation](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Visa tilldelningsinformation från tilldelade skisser sidan](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. På sidan **Skisstilldelning** kontrollerar du att alla artefakter har distribuerats och att det inte har uppstått några fel under distributionen. Om det inträffade fel kan du läsa stegen i avsnittet om att [felsöka skiss](./troubleshoot/general.md) för att avgöra vad som gick fel.
 
@@ -249,9 +249,9 @@ Om en skisstilldelning inte längre behövs kan du ta bort den från prenumerati
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [skiss livscykeln](./concepts/lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](./concepts/parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](./concepts/sequencing-order.md).
-- Ta reda på hur du får använda [skiss resource låsning](./concepts/resource-locking.md).
-- Lär dig hur du [uppdatera befintliga tilldelningar](./how-to/update-existing-assignments.md).
-- Lös problem vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).
+- Lär dig mer om [livscykeln för en skiss](./concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](./how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).

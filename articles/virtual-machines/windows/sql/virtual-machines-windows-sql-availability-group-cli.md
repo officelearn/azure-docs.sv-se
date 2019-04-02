@@ -14,15 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8af860293fc332437d67ff4db63d7686be7efff0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765279"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762879"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använda Azure SQL-dator med CLI för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
-Den här artikeln beskriver hur du använder [Azure SQL-dator med CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) att distribuera en Windows-redundanskluster (WSFC), och lägga till SQL Server-datorer i klustret, samt skapa den interna belastningsutjämnaren och lyssnare för en Always On-tillgänglighetsgrupp.  Verklig distribution av Always On availability-gruppen fortfarande göras manuellt via SQL Server Management Studio (SSMS). 
+Den här artikeln beskriver hur du använder [Azure SQL-dator med CLI](/cli/azure/sql/vm?view=azure-cli-latest/) att distribuera en Windows-redundanskluster (WSFC), och lägga till SQL Server-datorer i klustret, samt skapa den interna belastningsutjämnaren och lyssnare för en Always On-tillgänglighetsgrupp.  Verklig distribution av Always On availability-gruppen fortfarande göras manuellt via SQL Server Management Studio (SSMS). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att automatisera installationen av en Always On-tillgänglighetsgrupp med hjälp av Azure SQL-dator med CLI, måste du redan har följande krav: 
@@ -42,7 +42,7 @@ De följande behörigheterna krävs för att konfigurera Always On availability-
 Klustret måste ha ett lagringskonto som fungerar som molnvittnet. Du kan använda alla befintliga lagringskonton eller du kan skapa ett nytt lagringskonto. Om du vill använda ett befintligt lagringskonto kan du gå vidare till nästa avsnitt. 
 
 Följande kodfragment skapar lagringskontot: 
-```cli
+```azurecli
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 Azure SQL VM CLI [az sql vm grupp](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) kommandot gruppen hanterar metadata för tjänsten Windows-redundanskluster (WSFC) som är värd för tillgänglighetsgruppen. Klustermetadata innehåller AD-domän, kluster-konton, storage-konton som ska användas som molnvittne och SQL Server-version. Använd [az sql vm gruppen skapa](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) för att definiera metadata för WSFC så att när den första SQL Server-VM läggs, klustret har skapats som har definierats. 
 
 Följande kodavsnitt definierar metadata för klustret:
-```cli
+```azurecli
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ Lägga till den första SQL Server-dator i klustret skapar klustret. Den [az sql
 
 Följande kodfragment skapar klustret och lägger till den första SQL Server-dator: 
 
-```cli
+```azurecli
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
 
 Följande kodfragment skapar den interna belastningsutjämnaren:
 
-```cli
+```azurecli
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -118,7 +118,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
   > Den offentliga IP-adressresursen för varje SQL Server VM ska ha en standard-SKU att vara kompatibel med Standard Load Balancer. För att fastställa SKU för den Virtuella datorns offentliga IP-resurs, navigera till din **resursgrupp**väljer din **offentliga IP-adressen** resurs för den virtuella SQL Server-datorn, och leta upp värdet under **SKU**  av den **översikt** fönstret.  
 
 ## <a name="step-6---create-availability-group-listener"></a>Steg 6 – skapa tillgänglighetsgruppens lyssnare
-När tillgänglighetsgruppen har skapats manuellt kan du skapa lyssnaren med [az sql vm ag-lyssnare](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+När tillgänglighetsgruppen har skapats manuellt kan du skapa lyssnaren med [az sql vm ag-lyssnare](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
 
 - Den **undernätsresurs-ID** är värdet för `/subnets/<subnetname>` läggas till för resurs-ID för vNet-resurs. Du kan identifiera undernät resurs-ID genom att göra följande:
@@ -133,7 +133,7 @@ När tillgänglighetsgruppen har skapats manuellt kan du skapa lyssnaren med [az
 
 Följande kodfragment skapar tillgänglighetsgruppens lyssnare:
 
-```cli
+```azurecli
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -145,70 +145,69 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
   --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
   --subnet <subnet resource id> `
-  --sqlvms <names of SQL VM’s hosting AG replicas ex: sqlvm1 sqlvm2>
+  --sqlvms <names of SQL VM's hosting AG replicas ex: sqlvm1 sqlvm2>
 ```
-## <a name="modify-number-of-replicas-in-availability-group"></a>Ändra antal repliker i tillgänglighetsgruppen
-Det finns ytterligare ett lager med komplexiteten när du distribuerar en tillgänglighetsgrupp till SQL Server-datorer i Azure, eftersom resurser hanteras nu av resursprovidern och av den `virtual machine group`. Det innebär när du lägger till eller ta bort repliker i tillgänglighetsgruppen, finns det ytterligare ett steg för att uppdatera metadata för lyssnare med information om SQL Server-datorer. Därför när du lägger till ytterligare SQL Server-VM-repliker i tillgänglighetsgruppen, måste du även använda den [az sqlvm aglistener Lägg till-sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-add-sqlvm) kommando för att lägga till SQL Server-VM till lyssnaren metadata. På samma sätt när du tar bort replikerna från tillgänglighetsgruppen, måste du också använda den [az sqlvm ag-lyssnare remove-sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-remove-sqlvm) att ta bort den SQL Server VM-metadata från lyssnaren. 
 
-### <a name="adding-a-replica"></a>Att lägga till en replik
+## <a name="modify-number-of-replicas-in-availability-group"></a>Ändra antal repliker i tillgänglighetsgruppen
+Det finns ytterligare ett lager med komplexiteten när du distribuerar en tillgänglighetsgrupp till SQL Server-datorer i Azure, eftersom resurser hanteras nu av resursprovidern och av den `virtual machine group`. Det innebär när du lägger till eller ta bort repliker i tillgänglighetsgruppen, finns det ytterligare ett steg för att uppdatera metadata för lyssnare med information om SQL Server-datorer. Därför när du ändrar antalet repliker i tillgänglighetsgruppen, måste du även använda den [az sql vm grupp ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) kommando för att uppdatera lyssnaren med metadata för SQL Server-datorer. 
+
+
+### <a name="add-a-replica"></a>Lägg till en replik
+
 Om du vill lägga till en ny replik i tillgänglighetsgruppen, gör du följande:
 
-1. Lägg till SQL Server-dator i klustret: 
+1. Lägg till SQL Server-dator i klustret:
+   ```azurecli
+   # Add SQL Server VM to the Cluster
+   # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
+   # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
 
-    ```cli
-    # Add SQL Server VM to the Cluster
-    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
-    #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
-
-    az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
-    -b <bootstrap account password> -p <operator account password> -s <service account password>
-    ```
+   az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
+   -b <bootstrap account password> -p <operator account password> -s <service account password>
+   ```
 1. Använda SQL Server Management Studio (SSMS) för att lägga till SQL Server-instansen som en replik i tillgänglighetsgruppen.
-1. Lägg till SQL Server-VM metadata gör lyssnaren:
-    ```cli
-    # Add SQL VM metadata to cluster
-    # example: az sqlvm aglistener add-sqlvm  --group-name Cluster`
-    # --name AGListener` --resource-group SQLVM-RG `
-    #--sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener add-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ```
+1. Lägg till SQL Server-VM-metadata i lyssnaren:
+   ```azurecli
+   # Update the listener metadata with the new VM
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
 
-### <a name="removing-a-replica"></a>Ta bort en replik
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
+   ```
+
+### <a name="remove-a-replica"></a>Ta bort en replik
+
 Om du vill ta bort en replik från tillgänglighetsgruppen, gör du följande:
 
 1. Ta bort repliken från tillgänglighetsgruppen med SQL Server Management Studio (SSMS). 
 1. Ta bort SQL Server-VM-metadata från lyssnaren:
-    ```cli
-    #Remove SQL VM metadata from listener
-    # example: az sqlvm aglistener remove-sqlvm --group-name Cluster `
-    --name AGListener` --resource-group SQLVM-RG `
-    --sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener remove-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ``` 
-1. Ta bort SQL Server-dator från klustermetadata:
+   ```azurecli
+   # Update the listener metadata by removing the VM from the SQLVMs list
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
 
-    ```cli
-    # Remove SQL VM from cluster metadata
-    #example: az sqlvm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-    
-    az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
-    ```
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
+   ```
+1. Ta bort SQL Server-dator från klustret:
+   ```azurecli
+   # Remove SQL VM from cluster
+   # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+
+   az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
+   ```
 
 ## <a name="remove-availability-group-listener"></a>Ta bort tillgänglighetsgruppens lyssnare
 Om du senare behöver ta bort tillgänglighetsgruppens lyssnare konfigurerats med Azure CLI, måste du gå igenom SQL VM-resursprovidern. Eftersom lyssnaren har registrerats via SQL VM-resursprovidern kan är bara tas bort via SQL Server Management Studio otillräcklig. Den ska faktiskt tas bort via SQL VM-resursprovidern med Azure CLI. Detta tar bort AG-lyssnare metadata från SQL VM-resursprovidern och tar bort fysiskt lyssnaren från tillgänglighetsgruppen. 
 
 Följande kodavsnitt tar bort SQL tillgänglighetsgruppens lyssnare från både den SQL-resursprovidern och från tillgänglighetsgruppen: 
 
-```cli
+```azurecli
 # Remove the AG listener
-# example: az sqlvm aglistener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
-az sqlvm aglistener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
+# example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
+
+az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111318"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793398"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
 Vi har haft många kunder berätta för oss att de vill anpassa inbjudningsprocessen på ett sätt som passar bäst för deras organisationer. Med vårt API kan du göra just detta. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funktionerna i inbjudan API
+
 API: et erbjuder följande funktioner:
 
 1. Bjud in en extern användare med *alla* e-postadress.
@@ -68,21 +69,25 @@ API: et erbjuder följande funktioner:
 
 
 ## <a name="authorization-model"></a>Auktoriseringsmodellen
+
 API: et kan köras i följande lägen för auktorisering:
 
 ### <a name="app--user-mode"></a>App- + användarläge
+
 I det här läget kan den använder API-behov har behörigheter att skapa B2B inbjudningar.
 
 ### <a name="app-only-mode"></a>Endast appläge
+
 Appen måste i appen endast sammanhanget User.Invite.All omfånget för inbjudan ska lyckas.
 
 Mer information finns: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 Du kan använda PowerShell för att lägga till och bjuda in extern användare till en organisation enkelt. Skapa en inbjudan med hjälp av cmdleten:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ När du skickar en extern användare en inbjudan kan du använda den **Get-Azure
 
 Du kan använda den **Filter** möjlighet att filtrera resultaten efter **UserState**. Exemplet nedan visar hur du filtrerar resultaten för att visa endast de användare som har en väntande inbjudan. Exemplet visar också de **Format-List** alternativ, vilket låter dig ange egenskaperna för att visa. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Kolla in inbjudan API-referens i [ https://developer.microsoft.com/graph/docs/ap
 - [Element i e-postinbjudan B2B-samarbete](invitation-email-elements.md)
 - [B2B-samarbete inlösning av inbjudan](redemption-experience.md)
 - [Lägga till B2B-samarbete användare utan inbjudan](add-user-without-invite.md)
-

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 827f8eb7491c6f64b275dee83345c29d51c0933d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d56e2da00e60b9daa44e040db6796215dd03436b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442505"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793092"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Hantera användarkonton i Azure API Management
 
-I API Management är utvecklare användare av API: er som du exponerar med hjälp av API Management. Den här guiden visar hur du skapar och bjuda in utvecklare att använda API: er och produkter att du gör tillgängliga för dem med API Management-instans. Information om hur du hanterar användarkonton programmässigt finns i den [användarentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dokumentationen i den [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) referens.
+I API Management är utvecklare användare av API: er som du exponerar med hjälp av API Management. Den här guiden visar hur du skapar och bjuda in utvecklare att använda API: er och produkter att du gör tillgängliga för dem med API Management-instans. Information om hur du hanterar användarkonton programmässigt finns i den [användarentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dokumentationen i den [API Management REST](/rest/api/apimanagement/) referens.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Utför uppgifterna i den här artikeln: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
+Utför uppgifterna i den här artikeln: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,7 +69,7 @@ Följ stegen nedan om du vill blockera en användare.
 
 ## <a name="reset-a-user-password"></a>Återställa en användarlösenord
 
-Om du vill arbeta programmeringsbaserat med konton, se den [användarentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dokumentationen i den [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) referens. Om du vill återställa lösenordet för ett användarkonto till ett specifikt värde, kan du använda den [uppdatera en användare](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) igen och ange önskat lösenord.
+Om du vill arbeta programmeringsbaserat med konton, se den [användarentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) dokumentationen i den [API Management REST](/rest/api/apimanagement/) referens. Om du vill återställa lösenordet för ett användarkonto till ett specifikt värde, kan du använda den [uppdatera en användare](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) igen och ange önskat lösenord.
 
 ## <a name="next-steps"> </a>Nästa steg
 När ett developer-konto har skapats kan du koppla den till roller och den prenumerera på produkter och API: er. Mer information finns i [hur du skapar och använda grupper för][How to create and use groups].

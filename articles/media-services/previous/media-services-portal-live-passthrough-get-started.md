@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9a8ab024443744f50482dd2ca1cfb33db43359e9
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758506"
+ms.locfileid: "58802821"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Utför du direktsänd strömning med lokala kodare med hjälp av Azure portal
 > [!div class="op_single_selector"]
@@ -28,6 +28,9 @@ ms.locfileid: "58758506"
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 

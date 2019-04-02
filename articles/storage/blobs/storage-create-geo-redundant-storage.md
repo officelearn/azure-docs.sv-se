@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 703256206a6626222013f4e502545c5c1f8cfab7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648698"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793727"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
 
@@ -49,7 +49,7 @@ För att slutföra den här självstudien behöver du:
 * Installera [Python](https://www.python.org/downloads/)
 * Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 * Installera och konfigurera [Maven](https://maven.apache.org/download.cgi) så att det fungerar från kommandoraden
 * Installera och konfigurera [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -107,7 +107,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 [Hämta exempelprojektet](https://github.com/Azure-Samples/storage-java-ha-ra-grs) och extrahera filen storage-java-ragrs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Java-program.
 
@@ -161,7 +161,7 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att du lagrar den här anslutningssträngen i en miljövariabel på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
@@ -370,7 +370,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
+# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
 
 Med Java behöver du inte definiera återanropshanterare om egenskapen **LocationMode** för **BlobRequestOptions** är inställd på **PRIMARY\_THEN\_SECONDARY**. Det gör att programmet automatiskt växlar till den sekundära platsen om det inte lyckas nå den primära platsen för att hämta **HelloWorld.png**.
 

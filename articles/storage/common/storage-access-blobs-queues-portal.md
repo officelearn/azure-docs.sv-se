@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444728"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801144"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använda Azure portal för att få åtkomst till blob eller kön data
 
@@ -47,11 +47,11 @@ Den **läsare** rolltilldelningen eller en annan Azure Resource Manager-rolltill
 
 De inbyggda roller som har stöd för åtkomst till dina data i blob eller kön är:
 
-- [Storage Blob Data ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): För POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion).
-- [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Läs/Skriv/ta bort behörigheter för blobar.
-- [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Läsbehörighet för blobar.
-- [Lagringsködata-deltagare](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Läs/Skriv/ta bort behörigheter för köer.
-- [Lagringsködata-läsare](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Läsbehörighet för köer.
+- [Storage Blob Data ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): För POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion).
+- [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Läs/Skriv/ta bort behörigheter för blobar.
+- [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Läsbehörighet för blobar.
+- [Lagringsködata-deltagare](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Läs/Skriv/ta bort behörigheter för köer.
+- [Lagringsködata-läsare](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Läsbehörighet för köer.
     
 Anpassade roller har stöd för olika kombinationer av samma behörigheter som tillhandahålls av de inbyggda rollerna. Mer information om hur du skapar anpassade RBAC-roller finns i [anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md) och [förstå rolldefinitioner för Azure-resurser](../../role-based-access-control/role-definitions.md).
 

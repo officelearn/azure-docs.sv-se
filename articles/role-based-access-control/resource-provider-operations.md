@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db0bebb49007059cfe3b8b9b416c4a148c3756fc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287340"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805813"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -79,8 +79,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Hämtar information om domäner och platser för skogen. Exempel-hälsostatus, aktiva aviseringar, lösta aviseringar, egenskaper som domänens funktionsnivå, skog, infrastrukturhanteraren, PDC och RID master osv.  |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Hämtar användarens inställning för skogen.<br>Example- MetricCounterName like ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Inställningar för Användargränssnittet diagram osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Hämtar skog sammanfattning för den angivna skogen som skogsnamn antalet domäner under den här skogen, antalet platser och platser information osv. |
-> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomain-tjänsten.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Detta API hämtar listan över alla integrerat ADDomainServices för en premium-klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/read | Hämtar information om tjänsten för det angivna tjänstnamnet. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Hämtar information om replikering för alla servrar för det angivna tjänstnamnet. |
@@ -100,12 +100,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Hämtar listan över tillgängliga regioner som används av DevOps för att stödja kundincidenter når. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassword/read | Hämtar listan över försök med felaktigt lösenord för alla användare i Active Directory Federation Service. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Hämtar Blob SAS-URI som innehåller status och eventuell resultatet av nyligen köas rapporten jobb för frekvensen av felaktigt användarnamn/lösenord försöker per användar-ID per IP-adress per dag för en viss klient. |
+> | Åtgärd | Microsoft.ADHybridHealthService/reports/blobUris/read | Hämtar alla rapport för riskfyllda IP URI: er för de senaste 7 dagarna. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Hämtar listan över DevOps samtyckt klienter. Används vanligtvis för kundsupport. |
+> | Åtgärd | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | Rapport för riskfyllda IP-adresser och returnerar en URI som pekar till den. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/isdevops/read | Hämtar ett värde som anger om klienten är DevOps godkänt villkoren eller inte. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/riskyIp/blobUri/action | Rapport för riskfyllda IP-adresser och returnerar en URI som pekar till den. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/riskyIp/blobUris/read | Hämtar alla rapport för riskfyllda IP URI: er för de senaste 7 dagarna. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/riskyIp/GetAllBlobUri/read | Hämtar alla blob-uri för den rapport för riskfyllda ip-download som begärdes för en viss tjänst under senaste 7 dagarna. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/riskyIp/GetBlobUri/read | Hämtar endast den aktuella begärda ladda ned rapporten för riskfyllda ip för en viss tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Uppdaterar userid(objectid) för den valda dev ops-klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Hämtar valda distributionen för den angivna klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Får ett klient-id hämtar klient-lagringsplats. |
@@ -118,10 +116,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/services/exporterrors/read | Hämtar exportfel för en viss synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/exportstatus/read | Hämtar exporteringsstatus för för en viss tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Hämtar aviseringar feedback för en viss tjänst och server. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Med en tjänst kan hämtar detta API medelvärdet för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomain-tjänsten.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomain-tjänsten.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Med en tjänst kan hämtar detta API aggregerade vyn för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomain-tjänsten.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metricmetadata/read | Hämtar listan över mått som stöds för en viss tjänst.<br>För exempel extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för AD FS-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomainService.<br>Kör profil svarstid, TCP-anslutningar upprättas, Insights agenten privata byte, exportera statistik till Azure AD för ADSync-tjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Med en tjänst kan hämtar detta API medelvärdet för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Med en tjänst kan hämtar detta API aggregerade vyn för mått för en viss tjänst.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Lägg till eller uppdaterar övervakningskonfigurationen för en tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Hämtar övervakningsinställningar för en viss tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Lägg till eller uppdaterar övervakningsinställningar för en tjänst. |
@@ -134,7 +132,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | För en viss server hämtar detta API en lista med datatyper som laddas av servrarna och den senaste tid för varje överföring. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/delete | Tar bort en server-instans i tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Hämtar exportera synkroniseringsfel-information för en viss tjänst för synkronisering. |
-> | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc. för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totalt för ADDomain-tjänsten.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Med en tjänst kan hämtar detta API information för mått.<br>Detta API kan till exempel användas för att hämta information som rör: Extranät kontoutelåsningar, totalt antal misslyckade begäranden, utestående Tokenbegäranden (Proxy), Token-förfrågningar per sekund etc för ADFederation-tjänsten.<br>NTLM-autentiseringar per sekund, lyckade LDAP-bindningar per sekund, LDAP-bindning tid, aktiva trådar för LDAP, Kerberos-autentiseringar per sekund osv ATQ trådar totala för ADDomain Service.<br>Kör profil svarstid, TCP-anslutningar som upprättats insikter agenten privata byte, exportera statistik till Azure AD för synkroniseringstjänsten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/metrics/read | Hämtar listan över kopplingar och körningsprofil namn för den angivna tjänsten och tjänsten medlem. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/read | Läser server-instans i tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Hämtar tjänstkonfigurationen för en viss klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Hämtar lista över tillåtna funktionsstatus för en viss klient. |
@@ -179,6 +178,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.AlertsManagement/alertsSummaryList/read | Få en sammanfattning av aviseringar i olika prenumerationer |
 > | Åtgärd | Microsoft.AlertsManagement/Operations/read | Läser de åtgärder som anges |
 > | Åtgärd | Microsoft.AlertsManagement/register/action | Registrerar prenumerationen för aviseringar för Microsoft Management |
+> | Åtgärd | Microsoft.AlertsManagement/smartDetectorAlertRules/delete | Ta bort Smart detektor varningsregel för en viss prenumeration |
+> | Åtgärd | Microsoft.AlertsManagement/smartDetectorAlertRules/read | Hämta alla Smart detektor avisering regler för inkommande trafik |
+> | Åtgärd | Microsoft.AlertsManagement/smartDetectorAlertRules/write | Skapa eller uppdatera Smart detektor varningsregel för en viss prenumeration |
 > | Åtgärd | Microsoft.AlertsManagement/smartGroups/changestate/action | Ändra tillstånd för gruppen smart |
 > | Åtgärd | Microsoft.AlertsManagement/smartGroups/history/read | Hämta historiken i gruppen smart |
 > | Åtgärd | Microsoft.AlertsManagement/smartGroups/read | Hämta alla smart grupper för inkommande trafik |
@@ -555,6 +557,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Ta bort B2C-katalogresursen |
 > | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/read | Visa B2C-katalogresurs |
 > | Åtgärd | Microsoft.AzureActiveDirectory/b2cDirectories/write | Skapa eller uppdatera en B2C-katalogresurs |
+> | Åtgärd | Microsoft.AzureActiveDirectory/b2ctenants/read | Lista alla B2C-klientorganisationer där användaren är medlem |
 > | Åtgärd | Microsoft.AzureActiveDirectory/operations/read | Läs alla API-åtgärder tillgängliga för resursprovidern Microsoft.AzureActiveDirectory |
 > | Åtgärd | Microsoft.AzureActiveDirectory/register/action | Registrera prenumeration för resursprovidern Microsoft.AzureActiveDirectory |
 
@@ -646,6 +649,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Läs eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/read | Läs eventuella skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Hämta objekt-ID för Azure Blueprint-tjänstens huvudkonto. |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/delete | Ta bort eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/read | Läs eventuella skissartefakter |
@@ -723,6 +727,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Capacity/register/action | Registrerar resursprovidern kapaciteten och gör det möjligt att skapa kapacitet resurser. |
 > | Åtgärd | Microsoft.Capacity/reservationorders/action | Uppdatera alla Reservation |
 > | Åtgärd | Microsoft.Capacity/reservationorders/availablescopes/action | Hitta alla tillgängliga Scope |
+> | Åtgärd | Microsoft.Capacity/reservationorders/calculaterefund/action | Beräknar återbetalning av och priset för nya inköp och returnerar princip fel. |
 > | Åtgärd | Microsoft.Capacity/reservationorders/delete | Ta bort alla Reservation |
 > | Åtgärd | Microsoft.Capacity/reservationorders/merge/action | Slå samman alla Reservation |
 > | Åtgärd | Microsoft.Capacity/reservationorders/read | Läsa alla reservationer |
@@ -1147,7 +1152,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | API: et returnerar en lista med kända enheter och allmänna med namnet entiteter (\"Person\", \"plats\", \"organisation\" osv) i ett visst dokument. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | API:t returnerar en lista med strängar som anger samtalsämnen i den inmatade texten. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | API:t returnerar det identifierade språket och en poäng mellan 0 och 1. 1 poäng visar att korrekt språk har identifierats med 100 procents säkerhet. 120 språk stöds totalt. |
-> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | API:t returnerar en poäng mellan 0 och 1.<br>Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd.<br>Ett resultat på 0,5 anger bristen på sentiment (t.ex. en instruktion factoid). |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | API:t returnerar en poäng mellan 0 och 1.<br>Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd.<br>Ett resultat på 0,5 anger bristen på sentiment (t.ex.)<br>en factoid-instruktion). |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/usages/read | Hämta kvotanvändning för en befintlig resurs. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/write | Skriver API-konton. |
 > | Åtgärd | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Läser tillgängliga SKU: er för en prenumeration. |
@@ -1224,6 +1229,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Compute/snapshots/endGetAccess/action | Återkalla diskens SAS-URI ögonblicksbilden |
 > | Åtgärd | Microsoft.Compute/snapshots/read | Hämta egenskaperna för en ögonblicksbild |
 > | Åtgärd | Microsoft.Compute/snapshots/write | Skapa en ny ögonblicksbild eller uppdatera en befintlig |
+> | Åtgärd | Microsoft.Compute/unregister/action | Avregistrerar prenumeration med Microsoft.Compute-resursprovidern |
 > | Åtgärd | Microsoft.Compute/virtualMachines/capture/action | Avbildar den virtuella datorn genom att kopiera hårddiskar, och genererar en mall som kan användas för att skapa liknande virtuella datorer |
 > | Åtgärd | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Konverterar den virtuella datorns blobbaserade diskar till hanterade diskar |
 > | Åtgärd | Microsoft.Compute/virtualMachines/deallocate/action | Stänger av den virtuella datorn och frigör beräkningsresurser |
@@ -1350,6 +1356,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.ContainerRegistry/locations/operationResults/read | Hämtar en asynkron resultat |
 > | Åtgärd | Microsoft.ContainerRegistry/operations/read | Visar en lista över alla tillgängliga Azure Container Registry REST API-åtgärder |
 > | Åtgärd | Microsoft.ContainerRegistry/register/action | Registrerar prenumerationen för container registry-resursprovidern och gör möljligt behållarregister. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/artifacts/delete | Ta bort artefakt i ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/builds/cancel/action | Avbryter en version. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Hämtar en länk för att hämta build-loggarna. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/builds/read | Hämtar egenskaperna för den angivna versionen eller listar alla versioner för angivna container registry. |
@@ -1600,10 +1607,11 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Tar bort Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Ladda ned uppdateringar på enhet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Hämtar utökad resursinformation |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | Hämtar utökad resursinformation |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Installera uppdateringar på enhet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Visar en lista över eller hämtar jobb |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Visar en lista över eller hämtar nätverksinställningarna för enheten |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | Visar en lista över eller hämtar Åtgärdsstatus |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Tar bort order |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
@@ -1620,7 +1628,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Tar bort filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Visar en lista över eller hämtar filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Visar en lista över eller hämtar filresurser |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | ArmApiDesc_action_refresh_shares |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Uppdatera resursens metadata med data från molnet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Skapar eller uppdaterar filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Tar bort autentiseringsuppgifter för lagringskonto |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Visar en lista över eller hämtar autentiseringsuppgifterna för lagringskontot |
@@ -1704,6 +1712,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataFactory/datafactories/tables/write | Skapar eller uppdaterar alla datauppsättningar. |
 > | Åtgärd | Microsoft.DataFactory/datafactories/write | Skapar eller uppdaterar Data Factory. |
 > | Åtgärd | Microsoft.DataFactory/factories/cancelpipelinerun/action | Avbryter pipelinekörningen som anges av körnings-ID. |
+> | Åtgärd | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Skapar en felsökningssession för flödet av data. |
 > | Åtgärd | Microsoft.DataFactory/factories/dataflows/delete | Tar bort dataflöde. |
 > | Åtgärd | Microsoft.DataFactory/factories/dataflows/read | Läser dataflöde. |
 > | Åtgärd | Microsoft.DataFactory/factories/dataflows/write | Skapa eller uppdatera dataflöde |
@@ -1711,6 +1720,11 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataFactory/factories/datasets/read | Läser alla datauppsättningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/datasets/write | Skapar eller uppdaterar alla datauppsättningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/delete | Deletes Data Factory. |
+> | Åtgärd | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Tar bort en felsökningssession för flödet av data. |
+> | Åtgärd | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Hämtar åtkomst till ADF dataplanen-tjänsten. |
+> | Åtgärd | Microsoft.DataFactory/factories/getDataPlaneAccess/read | Läsningar åtkomst till ADF dataplanen-tjänsten. |
+> | Åtgärd | Microsoft.DataFactory/factories/getFeatureValue/action | Hämta exponering kontroll funktionen värdet för den specifika användarplatsen. |
+> | Åtgärd | Microsoft.DataFactory/factories/getFeatureValue/read | Läser exponering kontroll funktionen värde för den specifika användarplatsen. |
 > | Åtgärd | Microsoft.DataFactory/factories/getGitHubAccessToken/action | Hämtar GitHub åtkomst-token. |
 > | Åtgärd | Microsoft.DataFactory/factories/integrationruntimes/delete | Tar bort alla Integration Runtime. |
 > | Åtgärd | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Läser anslutningsinformation för Integration Runtime. |
@@ -1752,6 +1766,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataFactory/factories/querytriggerruns/action | Frågar Trigger Runs. |
 > | Åtgärd | Microsoft.DataFactory/factories/querytriggerruns/read | Läser resultatet av utlösaren körs. |
 > | Åtgärd | Microsoft.DataFactory/factories/read | Läser Data Factory. |
+> | Åtgärd | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Startar en felsökningssession för flödet av data. |
 > | Åtgärd | Microsoft.DataFactory/factories/triggerruns/read | Läser Trigger Runs. |
 > | Åtgärd | Microsoft.DataFactory/factories/triggers/delete | Tar bort alla utlösare. |
 > | Åtgärd | Microsoft.DataFactory/factories/triggers/read | Läser en utlösare. |
@@ -1761,8 +1776,6 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataFactory/factories/triggers/write | Skapar eller uppdaterar en utlösare. |
 > | Åtgärd | Microsoft.DataFactory/factories/write | Skapa eller uppdatera Data Factory |
 > | Åtgärd | Microsoft.DataFactory/locations/configureFactoryRepo/action | Konfigurerar lagringsplatsen för fabriken. |
-> | Åtgärd | Microsoft.DataFactory/locations/getDataPlaneAccess/action | Hämtar åtkomst till ADF dataplanen-tjänsten. |
-> | Åtgärd | Microsoft.DataFactory/locations/getDataPlaneAccess/read | Läsningar åtkomst till ADF dataplanen-tjänsten. |
 > | Åtgärd | Microsoft.DataFactory/locations/getFeatureValue/action | Hämta exponering kontroll funktionen värdet för den specifika användarplatsen. |
 > | Åtgärd | Microsoft.DataFactory/locations/getFeatureValue/read | Läser exponering kontroll funktionen värde för den specifika användarplatsen. |
 > | Åtgärd | Microsoft.DataFactory/operations/read | Läser alla åtgärder i Microsoft Data Factory-providern. |
@@ -1842,7 +1855,9 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataMigration/locations/operationResults/read | Hämta status för en tidskrävande åtgärd som berör 202 accepterade svar |
 > | Åtgärd | Microsoft.DataMigration/locations/operationStatuses/read | Hämta status för en tidskrävande åtgärd som berör 202 accepterade svar |
 > | Åtgärd | Microsoft.DataMigration/register/action | Registrerar prenumerationen med Azure Database Migration Service-providern |
+> | Åtgärd | Microsoft.DataMigration/services/addWorker/action | Lägger till en DMS-arbetare till tjänstens tillgängliga arbetare |
 > | Åtgärd | Microsoft.DataMigration/services/checkStatus/action | Kontrollera om tjänsten har distribuerats och om den körs |
+> | Åtgärd | Microsoft.DataMigration/services/configureWorker/action | Konfigurerar en DMS-arbetare för tjänstens tillgängliga arbetare |
 > | Åtgärd | Microsoft.DataMigration/services/delete | En resursgrupp och alla dess underordnade tas bort. |
 > | Åtgärd | Microsoft.DataMigration/services/projects/accessArtifacts/action | Generera en URL som kan användas för GET- eller PUT-projektsartefakter |
 > | Åtgärd | Microsoft.DataMigration/services/projects/delete | En resursgrupp och alla dess underordnade tas bort. |
@@ -1858,6 +1873,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataMigration/services/projects/tasks/write | Kör Azure Database Migration Service-uppgifter |
 > | Åtgärd | Microsoft.DataMigration/services/projects/write | Kör Azure Database Migration Service-uppgifter |
 > | Åtgärd | Microsoft.DataMigration/services/read | Läs information om resurser |
+> | Åtgärd | Microsoft.DataMigration/services/removeWorker/action | Tar bort en DMS-arbetare från tjänstens tillgänglig arbetare |
 > | Åtgärd | Microsoft.DataMigration/services/slots/delete | En resursgrupp och alla dess underordnade tas bort. |
 > | Åtgärd | Microsoft.DataMigration/services/slots/read | Läs information om resurser |
 > | Åtgärd | Microsoft.DataMigration/services/slots/write | Skapa eller uppdatera resurser och deras egenskaper |
@@ -2052,7 +2068,6 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DevSpaces/controllers/delete | Ta bort Azure Dev blanksteg Controller och dataplanen |
 > | Åtgärd | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Lista anslutningsinformationen för den Azure Dev blanksteg kontrollantens infrastruktur |
 > | Åtgärd | Microsoft.DevSpaces/controllers/read | Läs Azure Dev blanksteg Controller egenskaper |
-> | Åtgärd | Microsoft.DevSpaces/controllers/rotateAuthKey/action | Rotera autentiseringsnyckel för kontrollanten Azure Dev blanksteg och distribuera om tjänsterna |
 > | Åtgärd | Microsoft.DevSpaces/controllers/write | Skapa eller uppdatera Azure Dev blanksteg Controller egenskaper |
 > | Åtgärd | Microsoft.DevSpaces/register/action | Registrera resursprovidern i Microsoft Dev blanksteg med en prenumeration |
 
@@ -2242,6 +2257,13 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.EventGrid/domains/delete | Ta bort en domän |
+> | Åtgärd | Microsoft.EventGrid/domains/listKeys/action | Lista över nycklar för en domän |
+> | Åtgärd | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för domäner |
+> | Åtgärd | Microsoft.EventGrid/domains/read | Läsa en domän |
+> | Åtgärd | Microsoft.EventGrid/domains/regenerateKey/action | Återskapa nyckeln för en domän |
+> | Åtgärd | Microsoft.EventGrid/domains/topics/read | Läs avsnittet för en domän |
+> | Åtgärd | Microsoft.EventGrid/domains/write | Skapa eller uppdatera en domän |
 > | Åtgärd | Microsoft.EventGrid/eventSubscriptions/delete | Ta bort en eventSubscription |
 > | Åtgärd | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Hämta fullständig url för händelseprenumerationen |
 > | Åtgärd | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för händelseprenumerationer |
@@ -2365,13 +2387,16 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.HDInsight/clusters/applications/write | Skapa eller uppdatera program för HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/changerdpsetting/action | Ändra RDP-inställningen för HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/configurations/action | Uppdateringskonfigurationen för HDInsight-kluster |
+> | Åtgärd | Microsoft.HDInsight/clusters/configurations/action | Hämta HDInsight klusterkonfigurationer |
 > | Åtgärd | Microsoft.HDInsight/clusters/configurations/read | Hämta HDInsight klusterkonfigurationer |
 > | Åtgärd | Microsoft.HDInsight/clusters/delete | Ta bort ett HDInsight-kluster |
+> | Åtgärd | Microsoft.HDInsight/clusters/getGatewaySettings/action | Hämta gateway-inställningar för HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för resursen HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/read | Få information om HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/roles/resize/action | Ändra storlek på ett HDInsight-kluster |
+> | Åtgärd | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Uppdatera gateway-inställningar för HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/clusters/write | Skapa eller uppdatera HDInsight-kluster |
 > | Åtgärd | Microsoft.HDInsight/locations/capabilities/read | Hämta prenumerationens funktioner |
 > | Åtgärd | Microsoft.HDInsight/locations/checkNameAvailability/read | Kontrollera namntillgänglighet |
@@ -2643,6 +2668,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/Metrics/Action | Måttåtgärd |
+> | Åtgärd | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Läs mått |
 > | Åtgärd | Microsoft.Insights/Metrics/providers/Metrics/Read | Läs mått |
 > | Åtgärd | Microsoft.Insights/Metrics/Read | Läs mått |
 > | DataAction | Microsoft.Insights/Metrics/Write | Skrivning av mått |
@@ -2716,6 +2742,9 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.KeyVault/vaults/accessPolicies/write | Uppdatera en befintlig åtkomstprincip genom att sammanfoga, ersätta eller lägga till en ny åtkomstprincip till ett valv. |
 > | Åtgärd | Microsoft.KeyVault/vaults/delete | Ta bort ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/deploy/action | Tillåter åtkomst till hemligheter i ett nyckelvalv vid distribution av Azure-resurser |
+> | Åtgärd | Microsoft.KeyVault/vaults/eventGridFilters/delete | Meddelar Microsoft.KeyVault att en EventGrid-prenumeration för Key Vault tas bort |
+> | Åtgärd | Microsoft.KeyVault/vaults/eventGridFilters/read | Meddelar Microsoft.KeyVault att en EventGrid-prenumeration för Key Vault visas |
+> | Åtgärd | Microsoft.KeyVault/vaults/eventGridFilters/write | Meddelar Microsoft.KeyVault att en ny EventGrid-prenumeration för Key Vault skapas |
 > | Åtgärd | Microsoft.KeyVault/vaults/read | Visa egenskaperna för ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/secrets/read | Visa egenskaperna för en hemlighet, men inte dess värde |
 > | Åtgärd | Microsoft.KeyVault/vaults/secrets/write | Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet |
@@ -2729,6 +2758,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Kusto/Clusters/Activate/action | Startar klustret. |
 > | Åtgärd | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Kontrollerar tillgängligheten för klustret namn. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | Lägger till huvudkonton. |
+> | Åtgärd | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | Kontrollerar tillgängligheten för namnet för en viss typ. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Tar bort en resurs för anslutningar av data. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Läser en resurs för anslutningar av data. |
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Skriver en resurs för anslutningar av data. |
@@ -2780,12 +2810,12 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/write | Lägg till eller ändra miljöer. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/Publish/action | Etablerar/deprovisions krävs resurser för en miljö som inställningen baserat på aktuell status för laboratoriemiljön /-inställningen. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | Inställningen för Läs miljö. |
+> | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | Sparar aktuella mall-bild till delade galleriet i labbkonto |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | Ta bort scheman. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | Läsa scheman. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | Lägg till eller ändra scheman. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | Startar en mall genom att starta alla resurser i mallen. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Stoppar en mall genom att stoppa alla resurser i mallen. |
-> | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Överför aktuella mall-bild till galleriet delade i labbkonto |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Lägg till eller ändra inställningen för miljön. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/read | Läsa labs. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/Register/action | Registrera till hanterade labb. |
@@ -2808,6 +2838,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.LabServices/users/GetOperationBatchStatus/action | Hämta Åtgärdsstatus för batch |
 > | Åtgärd | Microsoft.LabServices/users/GetOperationStatus/action | Hämtar status för långvarig åtgärd |
 > | Åtgärd | Microsoft.LabServices/users/GetPersonalPreferences/action | Få personliga inställningar för en användare |
+> | Åtgärd | Microsoft.LabServices/users/ListAllEnvironments/action | Lista över alla miljöer för användaren |
 > | Åtgärd | Microsoft.LabServices/users/ListEnvironments/action | Lista miljöer för användaren |
 > | Åtgärd | Microsoft.LabServices/users/ListLabs/action | Lista över labs för användaren. |
 > | Åtgärd | Microsoft.LabServices/users/Register/action | Registrera en användare till en hanterad labb |
@@ -3232,6 +3263,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Maps/accounts/read | Få en Maps-konto. |
 > | Åtgärd | Microsoft.Maps/accounts/regenerateKey/action | Skapa ny Maps-konto primär eller sekundär nyckel |
 > | Åtgärd | Microsoft.Maps/accounts/write | Skapa eller uppdatera en Maps-konto. |
+> | Åtgärd | Microsoft.Maps/operations/read | Läs åtgärder för resursprovider |
 > | Åtgärd | Microsoft.Maps/register/action | Registrera providern |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -3555,9 +3587,6 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Tar bort en brandväggsprincip för Web Application |
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/read | Hämtar en brandväggsprincip för Web Application |
 > | Åtgärd | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Skapar eller uppdaterar en brandväggsprincip för Web Application |
-> | Åtgärd | Microsoft.Network/interfaceEndpoints/delete | Tar bort en slutpunktsresurs i gränssnittet. |
-> | Åtgärd | Microsoft.Network/interfaceEndpoints/read | Hämtar en slutpunktsresurs i gränssnittet. |
-> | Åtgärd | Microsoft.Network/interfaceEndpoints/write | Skapar en ny slutpunkt för gränssnittet eller uppdaterar en befintlig gränssnittet slutpunkt. |
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool. Det kanske inte. |
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/read | Hämtar en load balancer serverdel adresspool definition |
 > | Åtgärd | Microsoft.Network/loadBalancers/delete | Tar bort en belastningsutjämnare |
@@ -3581,6 +3610,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Network/localnetworkgateways/read | Hämtar LocalNetworkGateway |
 > | Åtgärd | Microsoft.Network/localnetworkgateways/write | Skapar eller uppdaterar en befintlig LocalNetworkGateway |
 > | Åtgärd | Microsoft.Network/locations/availableDelegations/read | Hämtar tillgängliga delegeringar |
+> | Åtgärd | Microsoft.Network/locations/availablePrivateEndpointResources/read | Hämtar tillgängliga privata Endpoint-resurser |
 > | Åtgärd | Microsoft.Network/locations/bareMetalTenants/action | Allokerar eller validerar en Bare Metal-klient |
 > | Åtgärd | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Kontrollerar stöd för Accelererat nätverk |
 > | Åtgärd | Microsoft.Network/locations/checkDnsNameAvailability/read | Kontrollerar om dns-etikett är tillgängliga på den angivna platsen |
@@ -3662,10 +3692,13 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Hämtar en P2S Vpn-anslutningen hälsotillstånd för P2SVpnGateway |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/read | Hämtar en P2SVpnGateway. |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/write | Placerar en P2SVpnGateway. |
+> | Åtgärd | Microsoft.Network/privateEndpoints/delete | Tar bort en privat slutpunktsresurs. |
+> | Åtgärd | Microsoft.Network/privateEndpoints/read | Hämtar en privat slutpunktsresurs. |
+> | Åtgärd | Microsoft.Network/privateEndpoints/write | Skapar en ny privat slutpunkt eller uppdaterar en befintlig privat slutpunkt. |
 > | Åtgärd | Microsoft.Network/privateLinkServices/delete | Tar bort en privat länk-tjänstresurs. |
-> | Åtgärd | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/delete | Tar bort en slutpunkt-anslutning. |
-> | Åtgärd | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/read | Hämtar en anslutning för gränssnittet slutpunktsdefinitionen. |
-> | Åtgärd | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/write | Skapar en ny anslutning för gränssnittet slutpunkten eller uppdaterar en befintlig anslutning för gränssnittet slutpunkt. |
+> | Åtgärd | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | Tar bort en privat slutpunkt-anslutning. |
+> | Åtgärd | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | Hämtar en privat slutpunkt anslutningsdefinitionen. |
+> | Åtgärd | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | Skapar en ny privat slutpunkt-anslutning eller uppdaterar en befintlig privat slutpunkt-anslutning. |
 > | Åtgärd | Microsoft.Network/privateLinkServices/read | Hämtar en privat länk-tjänstresurs. |
 > | Åtgärd | Microsoft.Network/privateLinkServices/write | Skapar en ny privat länk-tjänst eller uppdaterar en befintlig privat länk-tjänst. |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/delete | Tar bort en offentlig Ip-adress. |
@@ -3743,6 +3776,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Listor stöds Vpn-enheter |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/write | Skapar eller uppdaterar en VirtualNetworkGateway |
 > | Åtgärd | Microsoft.Network/virtualNetworks/BastionHosts/action | Hämtar referenser Skyddsmiljö-värd i ett virtuellt nätverk. |
+> | Åtgärd | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Hämtar referenser Skyddsmiljö-värd i ett virtuellt nätverk. |
 > | Åtgärd | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Kontrollera om Ip-adress är tillgänglig på det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.Network/virtualNetworks/delete | Tar bort ett virtuellt nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/peer/action | Peerar ett virtuellt nätverk med ett annat virtuellt nätverk |
@@ -3918,6 +3952,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Ta bort användarens meddelandeinställningar för arbetsytan. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Hämta användarens meddelandeinställningar för arbetsytan. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Ange användarens meddelandeinställningar för arbetsytan. |
+> | Åtgärd | Microsoft.operationalinsights/Workspaces/Operations/Read | Hämtar status för en OperationalInsights arbetsyta-åtgärd. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/purge/action | Ta bort angivna data från arbetsytan |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Läs data från ADAssessmentRecommendation-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Läs data från ADReplicationResult-tabellen |
@@ -3996,19 +4031,25 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | Läs data från MADriverInstanceReadiness-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | Läs data från MADriverReadiness-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | Läs data från MAOfficeAddin-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinEntityHealth/read | Läsa data från tabellen MAOfficeAddinEntityHealth |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | Läs data från MAOfficeAddinHealth-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | Läsa data från tabellen MAOfficeAddinHealthEventNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | Läs data från MAOfficeAddinHealthIssues-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | Läs data från MAOfficeAddinInstance-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | Läs data från MAOfficeAddinInstanceReadiness-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | Läs data från MAOfficeAddinReadiness-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | Läs data från MAOfficeApp-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppCrashesNRT/read | Läsa data från tabellen MAOfficeAppCrashesNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | Läs data från MAOfficeAppHealth-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | Läs data från MAOfficeAppInstance-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | Läsa data från tabellen MAOfficeAppInstanceHealth |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | Läs data från MAOfficeAppReadiness-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | Läsa data från tabellen MAOfficeAppSessionsNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | Läs data från MAOfficeBuildInfo-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Läs data från MAOfficeCurrencyAssessment-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Läs data från MAOfficeCurrencyAssessmentDailyCounts-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Läs data från MAOfficeDeploymentStatus-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | Läsa data från tabellen MAOfficeMacroErrorNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Läs data från MAOfficeMacroHealth-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Läs data från MAOfficeMacroHealthIssues-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Läs data från MAOfficeMacroIssueInstanceReadiness-tabellen |
@@ -4050,6 +4091,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Läs data från SPAssessmentRecommendation-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Läs data från SQLAssessmentRecommendation-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Läs data från SQLQueryPerformance-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SqlThreatProtectionLoginAudits/read | Läsa data från tabellen SqlThreatProtectionLoginAudits |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Läsa data från tabellen SqlVulnerabilityAssessmentResult |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Läs data från Syslog-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Läs data från SysmonEvent-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Läser data från valfri anpassad logg |
@@ -4147,21 +4190,23 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.PolicyInsights/remediations/listDeployments/read | Visar lista över distributioner som krävs av en principreparation. |
 > | Åtgärd | Microsoft.PolicyInsights/remediations/read | Hämta principreparationer. |
 > | Åtgärd | Microsoft.PolicyInsights/remediations/write | Skapa eller uppdatera principreparationer. |
+> | Åtgärd | Microsoft.PolicyInsights/unregister/action | Avregistrerar resursprovidern policy insights. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Portal/consoles/delete | Tar bort cloud shell-instans. |
-> | Åtgärd | Microsoft.Portal/consoles/write | Skapa eller uppdatera en cloud shell-instans. |
+> | Åtgärd | Microsoft.Portal/consoles/delete | Tar bort Cloud Shell-instansen. |
+> | Åtgärd | Microsoft.Portal/consoles/read | Läser Cloud Shell-instansen. |
+> | Åtgärd | Microsoft.Portal/consoles/write | Skapa eller uppdatera en Cloud Shell-instans. |
 > | Åtgärd | Microsoft.Portal/dashboards/delete | Tar bort instrumentpanelen från prenumerationen. |
 > | Åtgärd | Microsoft.Portal/dashboards/read | Läser in instrumentpanelerna för prenumerationen. |
 > | Åtgärd | Microsoft.Portal/dashboards/write | Lägg till eller ändra en instrumentpanel för en prenumeration. |
 > | Åtgärd | Microsoft.Portal/register/action | Registrera i portalen |
-> | Åtgärd | Microsoft.Portal/usersettings/delete | Tar bort användarinställningar för cloud shell. |
-> | Åtgärd | Microsoft.Portal/usersettings/read | Läser molnet shell användarinställningar. |
-> | Åtgärd | Microsoft.Portal/usersettings/write | Skapa eller uppdatera användarinställningen för cloud shell. |
+> | Åtgärd | Microsoft.Portal/usersettings/delete | Tar bort Cloud Shell-användarinställningarna. |
+> | Åtgärd | Microsoft.Portal/usersettings/read | Läser Cloud Shell-användarinställningarna. |
+> | Åtgärd | Microsoft.Portal/usersettings/write | Skapa eller uppdatera Cloud Shell-användarinställningen. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -4189,6 +4234,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
 > | Åtgärd | Microsoft.RecoveryServices/locations/allocateStamp/action | Allocatedstamp är en intern åtgärd som används av tjänsten |
 > | Åtgärd | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Åtgärd | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Åtgärd | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
 > | Åtgärd | Microsoft.RecoveryServices/Locations/backupStatus/action | Kontrollera Säkerhetskopieringsstatus för Recovery Services-valv |
 > | Åtgärd | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validera funktioner |
 > | Åtgärd | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Kontrollera Namntillgänglighet för resursen är en API för att kontrollera om resursnamnet är tillgänglig |
@@ -4680,8 +4727,10 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.SignalRService/locations/checknameavailability/action | Kontrollerar om ett namn är tillgängliga för användning med en ny SignalR-tjänst |
 > | Åtgärd | Microsoft.SignalRService/locations/operationresults/signalr/read | Fråga efter statusen för en asynchorous-åtgärd |
+> | Åtgärd | Microsoft.SignalRService/locations/operationstatus/operationId/read |  |
 > | Åtgärd | Microsoft.SignalRService/locations/usages/read | Hämta kvot användningar för Azure SignalR service |
 > | Åtgärd | Microsoft.SignalRService/operationresults/read | Fråga efter statusen för en asynchorous-åtgärd |
+> | Åtgärd | Microsoft.SignalRService/operationstatus/read |  |
 > | Åtgärd | Microsoft.SignalRService/register/action | Registrerar 'Microsoft.SignalRService'-resursprovidern med en prenumeration |
 > | Åtgärd | Microsoft.SignalRService/SignalR/delete | Ta bort hela SignalR-tjänsten |
 > | Åtgärd | Microsoft.SignalRService/SignalR/listFeatures/read | Lista över anpassade FeatureFlags av en SignalR-tjänst. Som standard de som undantas. |
@@ -4698,17 +4747,22 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.Solutions/applicationDefinitions/applicationArtifacts/read | Visar lista över programartefakter för programdefinition. |
 > | Åtgärd | Microsoft.Solutions/applicationDefinitions/delete | Tar bort en programdefinition. |
 > | Åtgärd | Microsoft.Solutions/applicationDefinitions/read | Hämtar en lista över programdefinitioner. |
 > | Åtgärd | Microsoft.Solutions/applicationDefinitions/write | Lägg till eller ändra en programdefinition. |
+> | Åtgärd | Microsoft.Solutions/applications/applicationArtifacts/read | Visar lista över programartefakter. |
 > | Åtgärd | Microsoft.Solutions/applications/delete | Tar bort ett program. |
 > | Åtgärd | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
+> | Åtgärd | Microsoft.Solutions/applications/refreshPermissions/action | Uppdaterar programbehörighet(er). |
+> | Åtgärd | Microsoft.Solutions/applications/updateAccess/action | Uppdaterar programåtkomst. |
 > | Åtgärd | Microsoft.Solutions/applications/write | Skapar ett program. |
 > | Åtgärd | Microsoft.Solutions/jitRequests/delete | Ta bort en JitRequest |
 > | Åtgärd | Microsoft.Solutions/jitRequests/read | Hämtar en lista över JitRequests |
 > | Åtgärd | Microsoft.Solutions/jitRequests/write | Skapar en JitRequest |
 > | Åtgärd | Microsoft.Solutions/locations/operationStatuses/read | Läser resursens åtgärdsstatus. |
 > | Åtgärd | Microsoft.Solutions/register/action | Registrera dig för lösningar. |
+> | Åtgärd | Microsoft.Solutions/unregister/action | Avregistrerar från lösningar. |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -4718,7 +4772,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/checkNameAvailability/action | Kontrollera om namn angivna servern är tillgänglig för etablering i hela världen för en viss prenumeration. |
 > | Åtgärd | Microsoft.Sql/instancePools/delete | Tar bort en instans-pool |
 > | Åtgärd | Microsoft.Sql/instancePools/read | Hämtar en instans-pool |
-> | Åtgärd | Microsoft.Sql/instancePools/usages/read | Hämtar instansinformation för poolen om användningar. |
+> | Åtgärd | Microsoft.Sql/instancePools/usages/read | Hämtar en instans pool användningsinformation |
 > | Åtgärd | Microsoft.Sql/instancePools/write | Skapar eller uppdaterar en instans-pool |
 > | Åtgärd | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Hämta resultatet av den utökade server blob granskning princip Set-åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Hämta resultatet av server-blob auditing princip Set-åtgärd |
@@ -4731,6 +4785,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/locations/deletedServers/recover/action | Återställa en borttagen server |
 > | Åtgärd | Microsoft.Sql/locations/elasticPoolAzureAsyncOperation/read | Hämtar azure async-åtgärden för en elastisk pool asynkron åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/elasticPoolOperationResults/read | Hämtar resultat från en elastisk pool-åtgärd. |
+> | Åtgärd | Microsoft.Sql/locations/encryptionProtectorAzureAsyncOperation/read | Hämtar pågående åtgärder på transparent data encryption krypteringsskyddet |
+> | Åtgärd | Microsoft.Sql/locations/encryptionProtectorOperationResults/read | Hämtar pågående åtgärder på transparent data encryption krypteringsskyddet |
 > | Åtgärd | Microsoft.Sql/locations/extendedAuditingSettingsAzureAsyncOperation/read | Hämta resultatet av den utökade server blob granskning princip Set-åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | Hämta resultatet av den utökade server blob granskning princip Set-åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | Hämtar status för en brandvägg Regelåtgärd. |
@@ -4740,8 +4796,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Kör forcerad redundans i en befintlig instans en redundansgrupp. |
 > | Åtgärd | Microsoft.Sql/locations/instanceFailoverGroups/read | Returnerar listan över instans redundans grupper eller hämtar egenskaperna för den angivna instansen redundansgruppen. |
 > | Åtgärd | Microsoft.Sql/locations/instanceFailoverGroups/write | Skapar en redundansgrupp för instansen med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna instansen redundansgruppen. |
-> | Åtgärd | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Hämtar status för en instans pool-åtgärd. |
-> | Åtgärd | Microsoft.Sql/locations/instancePoolOperationResults/read | Hämtar resultat från en instans pool-åtgärd. |
+> | Åtgärd | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Hämtar status för en åtgärd för instans-pool |
+> | Åtgärd | Microsoft.Sql/locations/instancePoolOperationResults/read | Hämtar resultaten för en åtgärd för instans-pool |
 > | Åtgärd | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Returnerar information om ett visst gränssnitt endpoint Azure en asynkron åtgärd |
 > | Åtgärd | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | Returnerar information om den angivna gränssnittet endpoint profil åtgärden |
 > | Åtgärd | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | Hämtar status för ett jobb agentåtgärden. |
@@ -4751,9 +4807,15 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Tar bort en långsiktig kvarhållning av säkerhetskopia |
 > | Åtgärd | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Visar en lista över säkerhetskopior för långsiktig kvarhållning för en databas |
 > | Åtgärd | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Slutför hanterad databasåterställning |
+> | Åtgärd | Microsoft.Sql/locations/managedInstanceEncryptionProtectorAzureAsyncOperation/read | Hämtar pågående åtgärder på krypteringsskyddet för transparent data encryption hanterad instans |
+> | Åtgärd | Microsoft.Sql/locations/managedInstanceEncryptionProtectorOperationResults/read | Hämtar pågående åtgärder på krypteringsskyddet för transparent data encryption hanterad instans |
+> | Åtgärd | Microsoft.Sql/locations/managedInstanceKeyAzureAsyncOperation/read | Hämtar pågående åtgärder på transparent datakryptering hanterade instans nycklar |
+> | Åtgärd | Microsoft.Sql/locations/managedInstanceKeyOperationResults/read | Hämtar pågående åtgärder på transparent datakryptering hanterade instans nycklar |
 > | Åtgärd | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | Hämtar pågående åtgärder på hanterade databasen transparent datakryptering |
 > | Åtgärd | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | Hämtar pågående åtgärder på hanterade databasen transparent datakryptering |
 > | Åtgärd | Microsoft.Sql/locations/read | Hämtar tillgängliga platser för en viss prenumeration |
+> | Åtgärd | Microsoft.Sql/locations/serverKeyAzureAsyncOperation/read | Hämtar pågående åtgärder på transparent datakrypteringsnycklar för servern |
+> | Åtgärd | Microsoft.Sql/locations/serverKeyOperationResults/read | Hämtar pågående åtgärder på transparent datakrypteringsnycklar för servern |
 > | Åtgärd | Microsoft.Sql/locations/syncAgentOperationResults/read | Hämta resultatet av agenten synkroniseringsåtgärden för resursen |
 > | Åtgärd | Microsoft.Sql/locations/syncDatabaseIds/read | Hämta ID: n för sync-databasen för en viss region och prenumeration |
 > | Åtgärd | Microsoft.Sql/locations/syncGroupOperationResults/read | Hämta resultatet av åtgärden för synkronisering av resursen |
@@ -4773,12 +4835,15 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för hanterade instansdatabaser |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/read | Hämtar befintlig hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Lista känslighet etiketter för en viss databas |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/read | Hämta en hanterad databasschemat. |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Hämta en hanterad databas-kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort etiketten känslighet för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighetsetikett för en viss kolumn |
-> | Åtgärd | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Hämta information om den database threat principen konfigurerats på en viss hanterad databas |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Hämta en hanterad databas-tabell |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Hämta en lista med hanterad databas threat identifiering av principerna som konfigureras för en viss server |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | Ändra den database threat principen för en viss hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/securityEvents/read | Hämtar säkerhetshändelser hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/sensitivityLabels/read | Lista känslighet etiketter för en viss databas |
@@ -4811,7 +4876,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/read | Hämtar en kort sikt bevarandeprincip för en förlorad hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/write | Uppdaterar en kort sikt bevarandeprincip för en förlorad hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | Returnerar en lista över återställningsbara bort hanterade databaser. |
-> | Åtgärd | Microsoft.Sql/managedInstances/securityAlertPolicies/read | Hämta information om den hanterade server threat principen konfigurerats på en viss hanterad server |
+> | Åtgärd | Microsoft.Sql/managedInstances/securityAlertPolicies/read | Hämta en lista över hanterade servern threat identifiering av principerna som konfigureras för en viss server |
 > | Åtgärd | Microsoft.Sql/managedInstances/securityAlertPolicies/write | Ändra den hanterade server threat principen för en viss hanterad server |
 > | Åtgärd | Microsoft.Sql/managedInstances/tdeCertificates/action | Skapa/uppdatera TDE-certifikat |
 > | Åtgärd | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | Ta bort utvärdering av säkerhetsrisker för en viss hanterad instans |
@@ -4882,7 +4947,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/servers/databases/maintenanceWindows/write | Anger Underhåll windows-inställningar för den valda databasen. |
 > | Åtgärd | Microsoft.Sql/servers/databases/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 > | Åtgärd | Microsoft.Sql/servers/databases/metrics/read | Returnera mått för databaser |
-> | Åtgärd | Microsoft.Sql/servers/databases/move/action | Byt namn på Azure SQL-databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/move/action | Ändra namnet på en befintlig databas. |
 > | Åtgärd | Microsoft.Sql/servers/databases/operationResults/read | Hämtar status för en databasåtgärd. |
 > | Åtgärd | Microsoft.Sql/servers/databases/operations/cancel/action | Avbryter Azure SQL Database väntande asynkron åtgärd som inte har slutförts ännu. |
 > | Åtgärd | Microsoft.Sql/servers/databases/operations/read | Returnera listan över åtgärder som utförs på databasen |
@@ -4906,17 +4971,17 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/servers/databases/restorePoints/delete | Tar bort en återställningspunkt för databasen. |
 > | Åtgärd | Microsoft.Sql/servers/databases/restorePoints/read | Returnerar återställningspunkter för databasen. |
 > | Åtgärd | Microsoft.Sql/servers/databases/resume/action | Återuppta Azure SQL Datawarehouse-databasen |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/read | Hämta lista över scheman för en databas |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Hämta listan över kolumner i en tabell |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/read | Få ett databasschema. |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Få en databaskolumn. |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort etiketten känslighet för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighetsetikett för en viss kolumn |
-> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/read | Hämta listan över tabeller i en databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/read | Få en databastabell. |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Hämta lista över indexrekommendationer på en databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Tillämpa indexrekommendation |
-> | Åtgärd | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Hämta information om den database threat principen konfigurerats på en viss databas |
+> | Åtgärd | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Hämta en lista över database threat identifiering av principerna som konfigureras för en viss server |
 > | Åtgärd | Microsoft.Sql/servers/databases/securityAlertPolicies/write | Ändra den database threat principen för en viss databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/securityMetrics/read | Hämtar en samling av säkerhetsmått för databasen |
 > | Åtgärd | Microsoft.Sql/servers/databases/sensitivityLabels/read | Lista känslighet etiketter för en viss databas |
@@ -5017,7 +5082,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/servers/replicationLinks/read | Returnera listan över replikering länkar eller hämtar egenskaperna för den angivna replikeringslänkar. |
 > | Åtgärd | Microsoft.Sql/servers/restorableDroppedDatabases/read | Hämta en lista över databaser som har tagits bort på en viss server som är fortfarande inom bevarandeprincip. |
 > | Åtgärd | Microsoft.Sql/servers/securityAlertPolicies/operationResults/read | Hämta resultatet av Skrivåtgärden server threat identifiering av princip |
-> | Åtgärd | Microsoft.Sql/servers/securityAlertPolicies/read | Hämta information om den server threat principen konfigurerats på en viss server |
+> | Åtgärd | Microsoft.Sql/servers/securityAlertPolicies/read | Hämta en lista över server threat identifiering av principerna som konfigureras för en viss server |
 > | Åtgärd | Microsoft.Sql/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
 > | Åtgärd | Microsoft.Sql/servers/serviceObjectives/read | Hämta lista över servicenivåmål (även kallat prestandanivåer) finns på en viss server |
 > | Åtgärd | Microsoft.Sql/servers/syncAgents/delete | Tar bort en befintlig sync-agenten. |
@@ -5053,8 +5118,11 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Returnerar resultatet av att lägga till blobinnehåll |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Returnerar resultatet av borttagningen av en automatisk ögonblicksbild |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Returnerar listan över blobar i ett konto med matchande taggfilter |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returnerar resultatet av blobkommandot |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returnerar resultatet av läsning av blobtaggar |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returnerar resultatet av skrivning av blobtaggar |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Ta bort bevarande av juridiska skäl för blobcontainer |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
@@ -5073,12 +5141,17 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/read | Returnerar egenskaper för Blob Service eller statistik |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/write | Returnerar resultatet av att placera Blob Service-egenskaper |
 > | Åtgärd | Microsoft.Storage/storageAccounts/delete | Tar bort ett befintligt lagringskonto. |
+> | Åtgärd | Microsoft.Storage/storageAccounts/failover/action | Kunden kan styra redundansväxlingen vid tillgänglighetsproblem |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | Tillåter användaren att ta bort filresursen |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | Tillåter användaren att läsa filresursen |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | Tillåter användaren att skriva till en filresurs |
+> | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/read | Hämta egenskaper |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listAccountSas/action | Returnerar SAS-token för konto för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listkeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listServiceSas/action | Returnerar SAS-token för tjänst för det angivna lagringskontot. |
+> | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/delete | Ta bort hanteringsprinciper för lagringskonto |
+> | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/read | Hämta principer för lagringshanteringskonto |
+> | Åtgärd | Microsoft.Storage/storageAccounts/managementPolicies/write | Placera hanteringsprinciper för lagringskonto |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returnerar resultatet av att ta bort en kö |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returnerar resultatet av att lägga till ett meddelande |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
@@ -5087,12 +5160,14 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returnerar resultatet av att skriva ett meddelande |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returnerar resultatet av att skriva en kö |
+> | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/read | Hämta egenskaper för kötjänst |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/read | Returnerar egenskaper för kötjänst eller statistik. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/write | Returnerar resultatet av att ställa in egenskaper för kötjänst |
 > | Åtgärd | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapar åtkomstnycklarna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Återkallar alla användardelegeringsnycklar för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Skapa/uppdatera diagnostikinställningar för lagringskontot. |
+> | Åtgärd | Microsoft.Storage/storageAccounts/tableServices/read | Hämta egenskaper för tabell |
 > | Åtgärd | Microsoft.Storage/storageAccounts/write | Skapar ett lagringskonto med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna, eller lägger till anpassad domän för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/usages/read | Returnerar gränsen och det aktuella antalet användningar för resurser i den angivna prenumerationen |
 
@@ -5467,6 +5542,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | microsoft.web/hostingenvironments/detectors/read | Hämta som är värd för miljöer detektorerna. |
 > | Åtgärd | microsoft.web/hostingenvironments/diagnostics/read | Hämta som är värd för miljöer diagnostik. |
 > | Åtgärd | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | Hämta nätverksslutpunkter av alla inkommande beroenden. |
+> | Åtgärd | Microsoft.Web/hostingEnvironments/Join/Action | Ansluter till en App Service Environment |
 > | Åtgärd | microsoft.web/hostingenvironments/metricdefinitions/read | Hämta som är värd för definitioner av mätvärden för miljöer. |
 > | Åtgärd | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Hämta som är värd för miljöer definitioner av mätvärden för flera roller pooler. |
 > | Åtgärd | microsoft.web/hostingenvironments/multirolepools/metrics/read | Hämta som är värd för miljöer flera roller pooler mått. |
@@ -5587,6 +5663,9 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Hämta Web Apps diagnostik Worker omarbetning av processen. |
 > | Åtgärd | microsoft.web/sites/domainownershipidentifiers/read | Få ägarskap identifierare för Web Apps-domän. |
 > | Åtgärd | microsoft.web/sites/domainownershipidentifiers/write | Uppdatera Web Apps-domän ägarskap identifierare. |
+> | Åtgärd | microsoft.web/sites/extensions/delete | Ta bort Webbplatstillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/extensions/read | Hämta Webbplatstillägg för Web Apps. |
+> | Åtgärd | microsoft.web/sites/extensions/write | Uppdatera Webbplatstillägg för Web Apps. |
 > | Åtgärd | microsoft.web/sites/functions/action | Functions-Webbappar. |
 > | Åtgärd | microsoft.web/sites/functions/delete | Ta bort Web Apps-funktioner. |
 > | Åtgärd | microsoft.web/sites/functions/listsecrets/action | Lista hemligheter Web Apps-funktioner. |
@@ -5626,6 +5705,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | microsoft.web/sites/migratemysql/action | Migrera MySql Web Apps. |
 > | Åtgärd | microsoft.web/sites/migratemysql/read | Hämta Web Apps migrera MySql. |
 > | Åtgärd | microsoft.web/sites/networktrace/action | Nätverket Trace Web Apps. |
+> | Åtgärd | microsoft.web/sites/networktraces/operationresults/read | Hämta Åtgärdsresultat för Web Apps nätverk spårningen. |
 > | Åtgärd | microsoft.web/sites/newpassword/action | Nytt lösenord Web Apps. |
 > | Åtgärd | microsoft.web/sites/operationresults/read | Hämta Åtgärdsresultat för Web Apps. |
 > | Åtgärd | microsoft.web/sites/operations/read | Hämta åtgärder för Web Apps. |
@@ -5634,7 +5714,9 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | microsoft.web/sites/premieraddons/read | Hämta Web Apps Premier-tillägg. |
 > | Åtgärd | microsoft.web/sites/premieraddons/write | Uppdatera webb Apps Premier-tillägg. |
 > | Åtgärd | microsoft.web/sites/privateaccess/read | Hämta data om privat plats åtkomst aktivering och auktoriserade virtuella nätverk som har åtkomst till webbplatsen. |
+> | Åtgärd | microsoft.web/sites/processes/modules/read | Hämta Web Apps processer moduler. |
 > | Åtgärd | microsoft.web/sites/processes/read | Hämta processer för Web Apps. |
+> | Åtgärd | microsoft.web/sites/processes/threads/read | Hämta Web Apps processer trådar. |
 > | Åtgärd | microsoft.web/sites/publiccertificates/delete | Ta bort Web Apps offentliga certifikat. |
 > | Åtgärd | microsoft.web/sites/publiccertificates/read | Hämta Web Apps offentliga certifikat. |
 > | Åtgärd | microsoft.web/sites/publiccertificates/write | Uppdatera webb Apps offentliga certifikat. |
@@ -5726,6 +5808,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | microsoft.web/sites/slots/metrics/read | Få mätvärden från webben appar platser. |
 > | Åtgärd | microsoft.web/sites/slots/migratemysql/read | Hämta Web Apps fack migrera MySql. |
 > | Åtgärd | microsoft.web/sites/slots/networktrace/action | Nätverket Trace Web Apps platser. |
+> | Åtgärd | microsoft.web/sites/slots/networktraces/operationresults/read | Hämta Åtgärdsresultat för Web Apps fack nätverk spårningen. |
 > | Åtgärd | microsoft.web/sites/slots/newpassword/action | Nytt lösenord Web Apps-platser. |
 > | Åtgärd | microsoft.web/sites/slots/operationresults/read | Hämta Åtgärdsresultat för Web Apps platser. |
 > | Åtgärd | microsoft.web/sites/slots/operations/read | Hämta åtgärder för Web Apps platser. |

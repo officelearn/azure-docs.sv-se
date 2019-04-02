@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661232"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791753"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -104,8 +104,7 @@ Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: 
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp.
-Här är där loggfilerna live:
+Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Vissa loggar finns [Azure-portalen](https://portal.azure.com) och gå till din arbetsyta där och välj **Arbetsyta > Experiment > Kör > loggar**.
 
 ## <a name="resource-quotas"></a>Resurskvoter
 

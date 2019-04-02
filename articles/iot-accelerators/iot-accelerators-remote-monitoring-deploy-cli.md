@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182140"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793788"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
@@ -62,6 +62,8 @@ Det här avsnittet sammanfattas de största skillnaderna mellan en grundläggand
 
 ### <a name="basic"></a>Basic
 
+Du kan göra en grundläggande distribution från [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) eller med hjälp av CLI.
+
 Basic-distributionen är anpassad för att visa upp lösningen. För att minska kostnaderna, distribueras alla mikrotjänster i en enskild virtuell dator. Den här distributionen använder inte en produktionsklar arkitektur.
 
 En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
@@ -80,6 +82,8 @@ En grundläggande distribution skapar följande tjänster i Azure-prenumeratione
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
 
 ### <a name="standard"></a>Standard
+
+Du kan göra en vanlig distribution endast med hjälp av CLI.
 
 En vanlig distribution är en produktionsklar-distribution som utvecklare kan anpassa och utöka. Använd alternativet standarddistribution när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet. Mikrotjänster för program skapas med Docker-behållare och distribueras via Azure Kubernetes Service. Distribuerar Kubernetes-orchestratorn, skalar och hanterar mikrotjänster.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776673"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805099"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Dataöverföring för stora datauppsättningar med låg eller ingen nätverksbandbredd
  
@@ -45,7 +45,7 @@ Alternativen som finns i det här scenariot finns enheter för Azure Data Box of
 
 I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
-|                                     |    Data Box-Disk (förhandsversion)    |    Data Box                                      |    Data Box tung (förhandsversion)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box – tung              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Datastorlek                        |    Upp till 35 TB                 |    Upp till 80 TB per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
 |    Datatyp                        |    Azure-Blobar                  |    Azure-Blobar<br>Azure Files                    |    Azure-Blobar<br>Azure Files            |    Azure-Blobar<br>Azure Files          |

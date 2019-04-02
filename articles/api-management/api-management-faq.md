@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728576"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793313"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
@@ -32,7 +32,7 @@ Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 * [Vad innebär det när en funktion är i förhandsversion?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Hur kan jag skydda anslutningen mellan API Management-gatewayen och mina backend-tjänster?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
-* [Hur kopierar jag mina API Management-tjänstinstans till en ny instans?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
+* [Hur gör jag för att kopiera min API Management-tjänstinstans till en ny instans?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [Kan jag hantera mina API Management-instans via programmering?](#can-i-manage-my-api-management-instance-programmatically)
 * [Hur gör jag för att lägga till en användare i gruppen Administratörer?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Varför är den princip som jag vill lägga till inte tillgänglig i principredigeraren?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
@@ -47,7 +47,7 @@ Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
 * [Fungerar API Management med Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Varför behöver vi ett dedikerat undernät i Resource Manager-style virtuella nätverk när API Management har distribuerats till dem?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [Vad är den minsta undernät diskstorlek som behövs när du distribuerar API Management till ett virtuellt nätverk?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
-* [Kan jag flytta en API Management-tjänsten från en prenumeration till en annan?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Kan jag flytta en API Management-tjänst från en prenumeration till en annan?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Finns det begränsningar för eller kända problem med att importera Mina API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Hur kan jag ställa till Microsoft Azure API Management-teamet en fråga?
@@ -72,13 +72,13 @@ Du har flera alternativ för att säkra anslutningar mellan API Management-gatew
 Du har flera alternativ om du vill kopiera en API Management-instans till en ny instans. Du kan:
 
 * Säkerhetskopiera och återställa funktion i API Management. Mer information finns i [implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
-* Skapa egna säkerhetskopior och återställa funktionen med hjälp av den [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Använda REST API för att spara och återställa entiteterna från den tjänstinstans som du vill.
+* Skapa egna säkerhetskopior och återställa funktionen med hjälp av den [API Management REST API](/rest/api/apimanagement/). Använda REST API för att spara och återställa entiteterna från den tjänstinstans som du vill.
 * Hämta tjänstens konfiguration med hjälp av Git och ladda upp den till en ny instans. Mer information finns i [spara och konfigurera din konfiguration för API Management-tjänsten med hjälp av Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan jag hantera mina API Management-instans via programmering?
 Ja, kan du hantera API Management via programmering med hjälp av:
 
-* Den [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* Den [API Management REST API](/rest/api/apimanagement/).
 * Den [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
 * Den [-tjänstdistribution](https://docs.microsoft.com/powershell/module/wds) och [Tjänstehantering](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell-cmdletar.
 
@@ -97,7 +97,7 @@ Nu den nyligen tillagda deltagaren kan använda Azure PowerShell [cmdletar](http
 4. Använd URL: en för att få åtkomst till administrationsportalen.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till inte tillgänglig i principredigeraren?
-Om den princip som du vill lägga till visas nedtonade eller skuggas i principredigeraren var noga med att du är i rätt omfattning för principen. Varje Principframställning har utformats för dig att använda specifika omfattningar och principen avsnitt. Principen avsnitt och omfång för en princip finns i avsnittet för användning av principens i [API Management-principer](https://msdn.microsoft.com/library/azure/dn894080.aspx).
+Om den princip som du vill lägga till visas nedtonade eller skuggas i principredigeraren var noga med att du är i rätt omfattning för principen. Varje Principframställning har utformats för dig att använda specifika omfattningar och principen avsnitt. Principen avsnitt och omfång för en princip finns i avsnittet för användning av principens i [API Management-principer](/azure/api-management/api-management-policies).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hur ställer jag in flera miljöer i ett enda API?
 Om du vill konfigurera flera miljöer, till exempel en testmiljö och en produktionsmiljö i ett enda API har du två alternativ. Du kan:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Direkt metod för API-uppdatering ####
-1. Skapa en [serverdel](https://msdn.microsoft.com/library/azure/dn935030.aspx) entitet med hjälp av API Management.       
+1. Skapa en [serverdel](/rest/api/apimanagement/) entitet med hjälp av API Management.     
 2. Ange den **skipCertificateChainValidation** egenskap **SANT**.     
 3. Om du inte längre vill att självsignerade certifikat, ta bort entiteten serverdelen eller ange den **skipCertificateChainValidation** egenskap **FALSKT**.
 

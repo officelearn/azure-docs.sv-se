@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309596"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804385"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
@@ -89,7 +89,7 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 4. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
-5. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
+5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Steg 2. Uppdatera Kerberos krypteringsnyckel på varje AD-skog som den var konfigurera det på
 
@@ -140,7 +140,7 @@ Följ uppgifter 1 till 4 nedan om du har inaktiverat sömlös enkel inloggning m
 2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 4. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
-5. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
+5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Steg 3. Ta manuellt bort de `AZUREADSSOACCT` datorkontot från varje AD-skog i listan.
 

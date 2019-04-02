@@ -1,17 +1,17 @@
 ---
-title: Ändra, ta bort eller hantera dina hanteringsgrupper i Azure - styrning i Azure
+title: Ändra, ta bort eller hantera dina hanteringsgrupper - styrning i Azure
 description: Lär dig mer om att visa, underhålla, uppdatera och ta bort din grupphierarki för hantering.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622067"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801784"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -37,11 +37,11 @@ Du kan ändra namnet på hanteringsgruppen med hjälp av portalen, PowerShell el
 
 1. Välj den **Byt namn på grupp** alternativet överst på sidan.
 
-   ![Byt namn på grupp-alternativet](./media/detail_action_small.png)
+   ![Byt namn på grupp alternativ på sidan med management](./media/detail_action_small.png)
 
 1. När menyn öppnas anger du det nya namnet som du vill ska visas.
 
-   ![Byt namn på grupp-fönstret](./media/rename_context.png)
+   ![Byt namn på grupp-fönstret för att byta namn på hanteringsgrupp](./media/rename_context.png)
 
 1. Välj **Spara**.
 
@@ -223,7 +223,7 @@ Se vilka behörigheter du har i Azure portal, Välj management och sedan **IAM**
 
 1. Välj prenumerationen i listan med rätt-ID.
 
-   ![Underordnade](./media/add_context_sub.png)
+   ![Tillgängliga prenumerationer att lägga till i en hanteringsgrupp](./media/add_context_sub.png)
 
 1. Välj ”Spara”.
 
@@ -237,13 +237,13 @@ Se vilka behörigheter du har i Azure portal, Välj management och sedan **IAM**
 
 1. Välj ellipsen i slutet av raden för prenumerationen i listan som du vill flytta.
 
-   ![Flytta alternativet](./media/move_small.png)
+   ![Flytta alternativet på en hanteringsgrupp](./media/move_small.png)
 
 1. Välj **flytta**.
 
 1. På den meny som öppnas väljer du den **överordnad hanteringsgrupp**.
 
-   ![Flytta fönstret](./media/move_small_context.png)
+   ![Flytta fönstret för att ändra överordnad grupp](./media/move_small_context.png)
 
 1. Välj **Spara**.
 
@@ -294,7 +294,7 @@ När du flyttar en överordnad hanteringsgrupp flyttas i hierarkin under den gru
    - Att välja ny skapar en ny hanteringsgrupp.
    - Att välja en befintlig presenterar du med en listruta för alla hanteringsgrupper som du kan flytta till den här hanteringsgruppen.  
 
-   ![Flytta](./media/add_context_MG.png)
+   ![Flytta en hanteringsgrupp till ny eller befintlig grupp](./media/add_context_MG.png)
 
 1. Välj **Spara**.
 

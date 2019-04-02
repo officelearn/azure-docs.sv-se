@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ae4be75a4030db9afb02c5696a427b321f9f16b3
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780294"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802617"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -34,15 +34,15 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
-   ![Sök efter princip](../media/create-and-manage/search-policy.png)
+   ![Sök efter princip i alla tjänster](../media/create-and-manage/search-policy.png)
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   ![Välj tilldelningar](../media/create-and-manage/select-assignments.png)
+   ![Klicka på tilldelningar från principöversikt](../media/create-and-manage/select-assignments.png)
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   ![Tilldela en principdefinition](../media/create-and-manage/select-assign-policy.png)
+   ![Tilldela en principdefinition från sidan tilldelningar](../media/create-and-manage/select-assign-policy.png)
 
 1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på.  Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
@@ -54,7 +54,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Välj **Kräv SQL Server version 12.0**. Om du inte hittar det genast skriver du **require sql server** (kräv sql server) i sökrutan och trycker sedan på RETUR eller klickar utanför sökrutan. Klicka på **Välj** längst ned på sidan **Tillgängliga definitioner** när du har hittat och valt principdefinitionen.
 
-   ![Hitta en princip](../media/create-and-manage/select-available-definition.png)
+   ![Använd sökrutan filtrera för att hitta en princip](../media/create-and-manage/select-available-definition.png)
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.  **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
@@ -68,7 +68,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-   ![Definition under redigering](../media/create-and-manage/definition-under-authoring.png)
+   ![Sidan definition under redigering grupp](../media/create-and-manage/definition-under-authoring.png)
 
 1. Välj **+ Principdefinition** överst på sidan. Den här knappen öppnar sidan **Principdefinition**.
 
@@ -158,7 +158,7 @@ Inkludera en begärantext som liknar följande exempel:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Skapa en principdefinition med PowerShell
 
-Innan du fortsätter med PowerShell-exemplet ser du till att du har den senaste versionen av Azure PowerShell installerad. Principparametrar lades till i version 3.6.0. Om du har en tidigare version returnerar exemplen ett fel som anger att parametern inte kan hittas.
+Innan du fortsätter med PowerShell-exemplet ska du kontrollera att du har installerat den senaste versionen av Azure PowerShell Az-modulen. 
 
 Du kan skapa en principdefinition med cmdleten `New-AzPolicyDefinition`.
 
@@ -328,11 +328,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-   ![Välja definitioner](../media/create-and-manage/definition-under-authoring.png)
+   ![Välj definition från sidan definitioner](../media/create-and-manage/definition-under-authoring.png)
 
 1. Välj **+ Initiativdefinition** överst på sidan för att öppna sidan **Initiativdefinition**.
 
-   ![Initiativdefinition](../media/create-and-manage/initiative-definition.png)
+   ![Initiativdefinitionen granskningssidan](../media/create-and-manage/initiative-definition.png)
 
 1. Använd ellipsen **Definitionens plats**  och välj en hanteringsgrupp eller en prenumeration där definitionen ska lagras. Om föregående sida begränsades till en enskild hanteringsgrupp eller prenumeration så fylls **definitionsplats** i automatiskt.
 
@@ -352,11 +352,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
    När du har valt principdefinitionen i listan läggs den till under **Principer och parametrar**.
 
-   ![Initiativdefinitioner](../media/create-and-manage/initiative-definition-2.png)
+   ![Granska initiativdefinitionen parametrar](../media/create-and-manage/initiative-definition-2.png)
 
 1. Om en principdefinition som läggs till i initiativet har parametrar visas de under namnet på principen i området **Principer och parametrar**. _Värdet_ kan anges till antingen Ange värde (hårdkodat för alla tilldelningar i initiativet) eller Använd initiativparametern (ställs in under varje initiativtilldelning). Om du väljer "Ange värde" kan du via listrutan till höger om _Värden_ ange eller välja värden. Om du väljer Använd initiativparametern så visas ett nytt avsnitt **Initiativparameter** där du kan definiera den parameter som ställs in under initiativtilldelningen. Tillåtna värden för den här initiativparametern kan ytterligare begränsa vad du kan ange under initiativtilldelningen.
 
-   ![Initiativdefinitionsparametrar](../media/create-and-manage/initiative-definition-3.png)
+   ![Ändra initiativdefinitionen parametrar från tillåtna värden](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du klickar på den så öppnas sidan Parameteromfång (&lt;Parameternamn&gt;). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
@@ -369,11 +369,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Get Secure: Assign initiative** (Tilldela initiativ).
 
-   ![Tilldela en definition](../media/create-and-manage/assign-definition.png)
+   ![Tilldela en definition från sidan för definition av initiativ](../media/create-and-manage/assign-definition.png)
 
    Du kan även högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny.  Välj sedan **Tilldela**.
 
-   ![Högerklicka på en rad](../media/create-and-manage/select-right-click.png)
+   ![Alternativ för ett initiativ](../media/create-and-manage/select-right-click.png)
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
@@ -393,11 +393,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Leta upp initiativet **Hämta källan**. Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**. Klicka på initiativet att få fullständig information om förloppet för tilldelningen.
 
-   ![Efterlevnad – inte startat](../media/create-and-manage/compliance-status-not-started.png)
+   ![Initiativkompatibilitet sidan – utvärderingar som inte har startats](../media/create-and-manage/compliance-status-not-started.png)
 
 1. När initiativtilldelningen har slutförts, uppdateras sidan för efterlevnad med den _Efterlevnadstillståndet_ **Efterlever**.
 
-   ![Efterlevnad: efterlever](../media/create-and-manage/compliance-status-compliant.png)
+   ![Initiativkompatibilitet sidan-resurser kompatibel](../media/create-and-manage/compliance-status-compliant.png)
 
 1. När du klickar på en princip på sidan initiativefterlevnad så öppnas sidan med efterlevnadsinformation för principen. Den här sidan ger information på resursnivån för efterlevnad.
 
@@ -426,7 +426,7 @@ I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiserings
 
 1. Ange **Undantag** genom att klicka på ellipsen och välj den resursgrupp som ska exkluderas, vilket är *SQLServers_Excluded* i det här exemplet.
 
-   ![Begär exkludering](../media/create-and-manage/request-exclusion.png)
+   ![Lägga till en exkluderade resursgrupp i principtilldelningen](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Beroende på principen och dess effekt skulle undantaget också kunna beviljas till specifika resurser i en resursgrupp inom omfånget för tilldelningen. Eftersom **Neka** har använts i den här självstudien, gör det ingen skillnad att ange undantag för en specifik resurs som redan finns.

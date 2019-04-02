@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/01/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434767"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793109"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Temporära tabeller i SQL Data Warehouse
 Den här artikeln innehåller grundläggande information för att använda temporära tabeller och visar principerna för sessionen på temporära tabeller. Med hjälp av informationen i den här artikeln kan hjälpa dig modularize din kod, förbättra både återanvändning och enkelt underhåll av din kod.
 
 ## <a name="what-are-temporary-tables"></a>Vad är temporära tabeller?
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandlingen där mellanliggande resultatet är tillfälligt. Temporära tabeller finns på nivån sessionen i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och släpps automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.  Temporära tabeller skiljer sig något i Azure SQL Data Warehouse från Azure SQL Database som de kan nås från var som helst i sessionen, inklusive både i och utanför en lagrad procedur.
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandlingen där mellanliggande resultatet är tillfälligt. Temporära tabeller finns på nivån sessionen i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och släpps automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.
 
 ## <a name="create-a-temporary-table"></a>Skapa en temporär tabell
 Temporära tabeller som skapas genom din tabellnamn med en `#`.  Exempel:
@@ -215,7 +215,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Begränsningar för temporär tabell
-SQL Data Warehouse införa några begränsningar när du implementerar temporära tabeller.  För närvarande bara begränsade temporära tabeller stöds.  Globala temporära tabeller stöds inte.  Vyer kan dessutom inte skapas på temporära tabeller.
+SQL Data Warehouse införa några begränsningar när du implementerar temporära tabeller.  För närvarande bara begränsade temporära tabeller stöds.  Globala temporära tabeller stöds inte.  Vyer kan dessutom inte skapas på temporära tabeller.  Temporära tabeller kan bara skapas med hash eller resursallokering distribution.  Replikerade temporära tabelldistribution stöds inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du utvecklar tabeller finns i [Tabellöversikt](sql-data-warehouse-tables-overview.md).

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9c0e672788858176800c04d7b2aa355d303aec1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666179"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801852"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -153,6 +153,9 @@ az login
 ```
 
 Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`.
+
+> [!NOTE]
+> När du använder Visual Studio Code för att distribuera funktionsappen, Kom ihåg att välja en icke-kostnadsfria prenumeration och du får ett felmeddelande. Du kan se din prenumeration på vänster sida av IDE.
 
 ```
 mvn azure-functions:deploy

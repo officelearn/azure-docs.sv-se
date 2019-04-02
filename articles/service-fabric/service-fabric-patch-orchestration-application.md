@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665822"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762845"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665822"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> Programmet version 1.2. * kommer från stöd på 30 April 2019. Uppgradera till den senaste versionen.
+
 
 [Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering bild](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) är den bästa metoden för att se till att ditt operativsystem korrigerade i Azure och Patch Orchestration Application (POA) är en omslutning runt Service Fabrics RepairManager system service som gör configuration baserade OS patch schemaläggning för icke-Azure-värdbaserade kluster. POA krävs inte för icke-Azure-värdbaserade kluster, men schemaläggning patch-installationen genom att uppgradera domäner som krävs för att korrigera värdar för Service Fabric-kluster utan avbrott.
 

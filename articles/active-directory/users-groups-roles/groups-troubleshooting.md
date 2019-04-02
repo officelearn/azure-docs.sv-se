@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897681"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791566"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem
 
 ## <a name="troubleshooting-group-creation-issues"></a>Felsökning av problem med skapande av grupp
+
 **Jag har inaktiverat security skapas i Azure-portalen men kan fortfarande skapas via Powershell** den **användare kan skapa säkerhetsgrupper i Azure-portaler** i Azure portal-kontrollerna huruvida icke-administratörer användare kan skapa säkerhetsgrupper i åtkomstpanelen eller Azure-portalen. Det styr inte security skapas via Powershell.
 
 Inaktivera skapande av en grupp för icke-administratörer i Powershell:
 1. Kontrollera att icke-administratörer har behörighet att skapa grupper:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`, icke-administratörer kan skapa grupper. Inaktivera den här funktionen:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

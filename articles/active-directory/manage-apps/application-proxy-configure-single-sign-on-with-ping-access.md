@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652339"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791531"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -54,7 +54,7 @@ Om du redan har programproxyn har aktiverats och har en anslutningstjänsten ins
 
 Programproxy-kopplingen är en Windows Server-tjänst som dirigerar trafiken från fjärranslutna anställda till dina publicerade appar. Mer detaljerade instruktioner för installation finns i [aktivera Application Proxy på Azure-portalen](application-proxy-add-on-premises-application.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som programadministratör.
 2. Välj **Azure Active Directory** > **programproxy**.
 3. Välj **hämta Connector** att starta Application Proxy connector nedladdningen. Följ installationsanvisningarna.
 
@@ -69,7 +69,7 @@ Det finns två åtgärder som du behöver göra i Azure-portalen. Först måste 
 
 Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av steg 1-8, se [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-1. Om du inte gjort i det sista avsnittet loggar du in den [Azure-portalen](https://portal.azure.com) som global administratör.
+1. Om du inte gjort i det sista avsnittet loggar du in den [Azure-portalen](https://portal.azure.com) som programadministratör.
 2. Välj **Azure Active Directory** > **företagsprogram**.
 3. Välj **Lägg till** överst på bladet.
 4. Välj **lokala program**.
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Det här exemplet används den [Azure-portalen](https://portal.azure.com) att uppdatera den *acceptedMappedClaims* fält:
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som programadministratör.
 2. Välj **Azure Active Directory** > **appregistreringar**.
 3. Välj ditt program > **Manifest**.
 4. Välj **redigera**, Sök efter den *acceptedMappedClaims* fältet och ändra värdet till **SANT**.

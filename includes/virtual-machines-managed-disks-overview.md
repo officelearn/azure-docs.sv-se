@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190648"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807960"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelarna med hanterade diskar
 
@@ -43,7 +43,7 @@ Du kan använda [Azure rollbaserad åtkomstkontroll (RBAC)](../articles/role-bas
 
 ### <a name="data-disks"></a>Datadiskar
 
-En datadisk är en hanterad disk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4095 gibibyte (GiB). Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
+En datadisk är en hanterad disk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 32 767 gibibyte (GiB). Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
 
 ### <a name="os-disks"></a>OS-diskar
 
@@ -53,7 +53,7 @@ Den här disken har en maxkapacitet på 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Temporär disk
 
-Varje virtuell dator innehåller en temporär disk, vilket inte är en hanterad disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) händelse eller när du [distribuera om en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn. 
+Varje virtuell dator innehåller en temporär disk, vilket inte är en hanterad disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) händelse eller när du [distribuera om en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn.
 
 ## <a name="managed-disk-snapshots"></a>Hanterade ögonblicksbilder
 
@@ -62,7 +62,7 @@ En hanterad disk ögonblicksbild är en skrivskyddad fullständig kopia av en ha
 Mer information om hur du skapar ögonblicksbilder med hanterade diskar finns i följande resurser:
 
 * [Skapa kopia av virtuell Hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Skapa kopia av virtuell Hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Avbildningar
 
@@ -71,7 +71,7 @@ Hanterade diskar stöder även skapa en hanterad anpassad avbildning. Du kan ska
 Information om hur du skapar avbildningar finns i följande artiklar:
 
 * [Så här avbildar du en hanterad avbildning av en generaliserad virtuell dator i Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Hur du generalisera och avbildar en Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Så här generaliserar och avbildar du en Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Bilder med ögonblicksbilder
 

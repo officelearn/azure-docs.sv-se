@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540966"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803162"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -39,17 +39,17 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>Lanserar en ny version av Azure AD Connect är en process som kräver flera kvalitetskontroll steg så att åtgärden-funktionen för tjänsten och när vi går igenom den här processen versionsnumret för en ny version, samt status för versionen kommer att uppdateras att visa det senaste tillståndet.
+Även om vi går igenom den här processen kan visas det lägre versionsnumret för versionen med ett ”X” i den lägre version nummer positionen, som i ”1.3.X.0” - Detta anger att den viktiga informationen i det här dokumentet är giltiga för alla versioner som börjar med ”1.3”. När vi har skapat lanseringsprocessen versionsnumret vid lansering kommer att uppdateras till den nyligen utgivna versionen och kommer att uppdateras release-status till ”släppt om hämtning och automatisk uppgradering”.
+Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13100"></a>1.3.10.0 
+## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>Versionsstatus 
 
-3/25/2019: Ännu inte släppts 
+3/25/2019: Väntande åtgärder
  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-
-
 
 - Lägg till stöd för att uppdatera domän 
 - Med funktionen gemensamma mappar för Exchange-e-post blir allmänt tillgänglig 

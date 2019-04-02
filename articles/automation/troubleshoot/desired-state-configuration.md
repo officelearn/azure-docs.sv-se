@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c8afa671a323e37a99be8b5a43d0a4823fe1877a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448061"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800884"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
 
@@ -28,13 +28,13 @@ Den här artikeln innehåller information om felsökning av problem med Desired 
 
 När du försöker ta bort en DSC-konfiguration från portalen kan du se följande fel:
 
-```
+```error
 An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
 #### <a name="cause"></a>Orsak
 
-Det här är ett tillfälligt fel som ska matchas.
+Det här felet är ett tillfälligt fel som ska matchas.
 
 #### <a name="resolution"></a>Lösning
 
@@ -48,7 +48,7 @@ Det här är ett tillfälligt fel som ska matchas.
 
 Noden har en rapport med **misslyckades** status och som innehåller felet:
 
-```
+```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
 ```
 
@@ -61,7 +61,7 @@ Det här felet uppstår vanligen när noden har tilldelats ett namn (till exempe
 * Kontrollera att du tilldelar nod med ”nodkonfigurationsnamn” och inte ”Konfigurationsnamnet”.
 * Du kan tilldela en nodkonfiguration till en nod med hjälp av Azure portal eller med en PowerShell-cmdlet.
 
-  * För att tilldela en nodkonfiguration till en nod med hjälp av Azure portal, öppna den **DSC-noder** , och sedan väljer en nod och klickar på **tilldela nodkonfiguration** knappen.  
+  * Om du vill tilldela en nodkonfiguration till en nod med hjälp av Azure portal, öppna den **DSC-noder** , och sedan väljer en nod och klickar på **tilldela nodkonfiguration** knappen.  
   * Om du vill tilldela en nodkonfiguration till en nod med hjälp av PowerShell-cmdleten, använda **Set-AzureRmAutomationDscNode** cmdlet
 
 ### <a name="no-mof-files"></a>Scenario: Inga nodkonfigurationer (MOF-filer) skapas när en konfiguration kompileras
@@ -70,7 +70,7 @@ Det här felet uppstår vanligen när noden har tilldelats ett namn (till exempe
 
 Dina DSC-Kompileringsjobb pausar med fel:
 
-```
+```error
 Compilation completed successfully, but no node configuration.mofs were generated.
 ```
 
@@ -82,7 +82,7 @@ När följande uttryck i **nod** nyckelord i DSC-konfigurationen utvärderas til
 
 Någon av följande lösningar problemet på:
 
-* Se till att uttrycket bredvid den **noden** nyckelord i konfigurationen definitionen utvärderas inte till $null.
+* Se till att uttrycket bredvid den **noden** nyckelord i konfigurationen definitionen är inte utvärderar till $null.
 * Om du skickar ConfigurationData vid kompilering konfigurationen, se till att du passerar de förväntade värdena som konfigurationen kräver från [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
 ### <a name="dsc-in-progress"></a>Scenario: DSC-nod-rapporten blir fastnat tillståndet ”pågår”
@@ -91,7 +91,7 @@ Någon av följande lösningar problemet på:
 
 DSC-agenten utdata:
 
-```
+```error
 No instance found with given property values
 ```
 
@@ -101,7 +101,7 @@ Du har uppgraderat din version av WMF och har skadad WMI.
 
 #### <a name="resolution"></a>Lösning
 
-Åtgärda problemet Följ instruktionerna i den [DSC kända problem och begränsningar](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artikeln.
+Åtgärda problemet genom att följa instruktionerna i den [DSC kända problem och begränsningar](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artikeln.
 
 ### <a name="issue-using-credential"></a>Scenario: Det går inte att använda en autentiseringsuppgift i en DSC-konfiguration
 
@@ -109,7 +109,7 @@ Du har uppgraderat din version av WMF och har skadad WMI.
 
 Dina DSC-Kompileringsjobb pausades med fel:
 
-```
+```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
 ```
 

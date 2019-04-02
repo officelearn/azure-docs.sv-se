@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 340f121f64cb01803401a972038677448849e94f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444165"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803531"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -144,6 +144,11 @@ DirectQuery-läget* använder serverdelens relationsdatabas för lagring och fr�
 
 Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor från enkla textfiler till stordata i Azure Data Lake Store. Läs mer i avsnittet [Datakällor som stöds i Azure Analysis Services](analysis-services-datasource.md).
 
+## <a name="compatibility-level"></a>Efterlevnadsnivå
+
+Kompatibilitetsnivån refererar till release-specifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och högre. Mer information finns i [kompatibilitetsnivån för Analysis Services-tabellmodeller](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Dina data är skyddade
 
 Azure Analysis Services tillhandahåller säkerhet för känsliga data på flera nivåer. Som en Azure-tjänst innehåller Analysis Services den **grundläggande** nivån för distribuerade överbelastningsattacker, vilken aktiveras automatiskt som en del av Azure-plattformen. Mer information finns i [Översikt över Azure DDoS Protection Standard](../virtual-network/ddos-protection-overview.md). 
@@ -225,7 +230,7 @@ Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https
 
 Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-Eftersom Azure Analysis Services tabellmodeller är ungefär som tabellmodeller i SQL Server Analysis Services så finns ett omfattande bibliotek med delade artiklar om begrepp, procedurer, utvecklare och referenser i [Dokumentationen för SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
+Eftersom Azure Analysis Services-tabellmodeller är ungefär samma sätt som tabellmodeller i SQL Server Analysis Services, det finns ett omfattande bibliotek med delade idéskisser, procedurer, utvecklare och referensartiklar i [SQL Server Analysis Services Dokumentation om](https://docs.microsoft.com/sql/analysis-services/analysis-services). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
 
 ![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

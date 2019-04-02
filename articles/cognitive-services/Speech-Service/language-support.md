@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225441"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803115"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
 
@@ -55,7 +55,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  ru-RU | Ryska (Ryssland) | Ja | Ja | Nej
  SV-SE | Svenska (Sverige) | Nej | Nej | Nej
  zh-CN | Kinesiska (Mandarin, förenklad) | Ja | Ja | Nej
- zh-HK | Kinesiska (Mandarin, traditionell) | Nej | Ja | Nej
+ zh-HK | Kinesiska (Kantonesiska, traditionell) | Nej | Ja | Nej
  zh-TW | Kinesiska (Mandarin Taiwanesiska) | Nej | Ja | Nej
  TH-TH | Thailändska (Thailand) | Nej | Nej | Nej
 

@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095151"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791719"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
 Om du har problem när du aktiverar Azure Windows virtuell dator (VM) som skapas från en anpassad avbildning kan använda du informationen i det här dokumentet för att felsöka problemet. 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Förstå Azure KMS-slutpunkter för Windows Produktaktivering av Azure-datorer
+
 Azure använder olika slutpunkter för KMS-aktivering beroende på området moln där den virtuella datorn finns. När du använder den här felsökningsguiden, använder du lämplig KMS-slutpunkt som gäller för din region.
 
 * Offentliga Azure-molnregioner: kms.core.windows.net:1688
@@ -40,6 +41,7 @@ När du försöker aktivera en Windows Azure-dator, du får ett felmeddelande me
 **Fel: 0xC004F074 programvara LicensingService rapporterade att datorn inte kunde aktiveras. Ingen nyckel ManagementService (KMS) kunde nås. Finns i programmets händelselogg för ytterligare information.**
 
 ## <a name="cause"></a>Orsak
+
 I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-datorn inte har konfigurerats med hjälp av lämplig Konfigurationsnyckel för KMS-klienten eller Windows-VM har anslutningsproblem till Azure KMS-tjänsten (kms.core.windows.net, port 1688). 
 
 ## <a name="solution"></a>Lösning
@@ -57,6 +59,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 
 1. Kör **/ Slmgr.vbs/dlv** i en upphöjd kommandotolk. Kontrollera värdet på beskrivning i utdata och sedan avgör om den har skapats från detaljhandeln (detaljhandel channel) eller volym (VOLUME_KMSCLIENT) licens media:
   
+
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
@@ -83,16 +86,20 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 
 3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-server. Gör detta genom att köra följande kommando:
   
+
+    ```powershell
+    Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
-    ```
+
     Kommandot bör returnera: Nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
 
 4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip-nedladdningen och kör sedan följande:
   
+
     ```
     \psping.exe kms.core.windows.net:1688
     ```
+
   
    Kontrollera att du ser följande i den andra och sista raden i dina utdata: Skickade = 4, mottagna = 4, förlorad = 0 (0% förlust).
 
@@ -104,8 +111,8 @@ Kontrollera också att gästdatorns brandvägg inte har konfigurerats på ett s�
 
 1. När du har kontrollerat lyckad anslutning till kms.core.windows.net, kör du följande kommando i den utökade Windows PowerShell-Kommandotolken. Det här kommandot försöker aktivera flera gånger.
 
-    ```
-    1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    ```powershell
+    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
 Aktiveringen returnerar information som liknar följande:
@@ -115,16 +122,21 @@ Aktiveringen returnerar information som liknar följande:
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Jag har skapat Windows Server 2016 från Azure Marketplace. Behöver jag konfigurera KMS-nyckel för att aktivera Windows Server 2016? 
+
  
 Nej. Avbildningen i Azure Marketplace har lämplig KMS-klientnyckeln inställningar redan har konfigurerats. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>Windows-aktivering fungerar på samma sätt oavsett om Virtuellt datorn använder Azure Hybrid Använd förmånen (HUB) eller inte? 
+
  
 Ja. 
  
+
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Vad händer om Windows aktiveringsperioden upphör att gälla? 
+
  
 När respittiden har upphört att gälla och Windows fortfarande inte är aktiverad, visas ytterligare meddelanden om att aktivera i Windows Server 2008 R2 och senare versioner av Windows. Skrivbordsunderlägg förblir svart och Windows Update installerar säkerhet och viktiga uppdateringar, men inte valfria uppdateringar. Se avsnittet meddelanden längst ned på den [licensiering villkor](https://technet.microsoft.com/library/ff793403.aspx) sidan.   
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

@@ -7,20 +7,15 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.date: 03/29/2019
+ms.openlocfilehash: 6661ed7e8950c1658ef89858140e2d196999d543
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439421"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803093"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
-
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-
-> [!IMPORTANT]  
-> Efter den 28 februari 2019 levereras nätverksresurser (till exempel nätverkskort, LBs osv) för nya kluster som skapas i ett virtuellt nätverk i samma resursgrupp för HDInsight-kluster. Tidigare etablerades resurserna i resursgruppen VNET. Det finns ingen förändring av de aktuella pågående kluster och dessa kluster som skapas utan ett virtuellt nätverk.
 
 Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Med hjälp av Azure Virtual Network gör det möjligt för följande scenarier:
 
@@ -30,13 +25,17 @@ Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-ne
 
 * Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgänglig offentligt över internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
 
-> [!WARNING]  
-> Informationen i det här dokumentet kräver kunskap om TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk, bör du samarbeta med någon som innan du gör ändringar i produktionsnätverk.
+> [!IMPORTANT]  
+> Efter den 28 februari 2019 levereras nätverksresurser (till exempel nätverkskort, LBs osv) för nya kluster som skapas i ett virtuellt nätverk i samma resursgrupp för HDInsight-kluster. Tidigare etablerades resurserna i resursgruppen VNET. Det finns ingen förändring av de aktuella pågående kluster och dessa kluster som skapas utan ett virtuellt nätverk.
+
+## <a name="prerequisites-for-code-samples-and-examples"></a>Krav för kodexempel och exempel
+
+* En förståelse för TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk, bör du samarbeta med någon som innan du gör ändringar i produktionsnätverk.
+* Om du använder PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
+* Om du vill använda Azure CLI och du inte har installerat den, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Om du letar efter stegvis vägledning om hur du ansluter HDInsight till ditt lokala nätverk med hjälp av Azure Virtual Network, finns i den [ansluta HDInsight till det lokala nätverket](connect-on-premises-network.md) dokumentet.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="planning"></a>Planering
 
@@ -74,21 +73,21 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 3. Använder du nätverkssäkerhetsgrupper, användardefinierade vägar eller virtuella nätverksinstallationer för att begränsa trafik till eller från det virtuella nätverket?
 
     Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till flera IP-adresser i Azure-datacentret. Uppdatera alla befintliga nätverkssäkerhetsgrupper eller användardefinierade vägar för att tillåta kommunikation med dessa IP-adresser.
-
+    
     HDInsight är värd för flera tjänster som använder olika portar. Inte blockera trafik till dessa portar. En lista över portar som ska tillåtas via virtuell installation brandväggar finns i avsnittet Security.
-
-    Använd följande Azure PowerShell eller klassiska Azure-CLI-kommandon för att hitta din befintliga säkerhetskonfiguration:
+    
+    Använd följande Azure PowerShell eller Azure CLI-kommandon för att hitta din befintliga säkerhetskonfiguration:
 
     * Nätverkssäkerhetsgrupper
 
+        Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller det virtuella nätverket och ange sedan kommando:
+    
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-        get-Aznetworksecuritygroup -resourcegroupname $resourceGroupName
+        Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
         ```
-
-        ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
-        az network nsg list --resource-group $RESOURCEGROUP
+    
+        ```azurecli
+        az network nsg list --resource-group RESOURCEGROUP
         ```
 
         Mer information finns i den [felsöka nätverkssäkerhetsgrupper](../virtual-network/diagnose-network-traffic-filter-problem.md) dokumentet.
@@ -98,14 +97,14 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 
     * Användardefinierade vägar
 
+        Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller det virtuella nätverket och ange sedan kommando:
+
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-        get-Azroutetable -resourcegroupname $resourceGroupName
+        Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
         ```
 
-        ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
-        az network route-table list --resource-group $RESOURCEGROUP
+        ```azurecli
+        az network route-table list --resource-group RESOURCEGROUP
         ```
 
         Mer information finns i den [Felsökningsvägar](../virtual-network/diagnose-network-routing-problem.md) dokumentet.
@@ -178,16 +177,16 @@ Mer information finns i den [namnmatchning för virtuella datorer och Rollinstan
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Ansluta direkt till Apache Hadoop-tjänster
 
-Du kan ansluta till klustret på https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder en offentlig IP-adress som kanske inte kan nås om du har använt NSG: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt https://CLUSTERNAME-int.azurehdinsight.net. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
+Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder en offentlig IP-adress som kanske inte kan nås om du har använt NSG: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt `https://CLUSTERNAME-int.azurehdinsight.net`. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
 
 Använd följande steg för att ansluta till Apache Ambari och andra webbsidor via det virtuella nätverket:
 
 1. Använd någon av följande metoder för att identifiera de interna fullständigt kvalificerade domännamn (FQDN) för noderna i HDInsight:
 
-    ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller det virtuella nätverket och ange sedan kommando:
 
-    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+    ```powershell
+    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
 
     $nodes = @()
     foreach($nic in $clusterNICs) {
@@ -201,7 +200,7 @@ Använd följande steg för att ansluta till Apache Ambari och andra webbsidor v
     ```
 
     ```azurecli
-    az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
     I listan över noder som returnerade, hitta det fullständiga Domännamnet för huvudnoderna och Använd FQDN: er för att ansluta till Ambari och andra webbtjänster. Till exempel använda `http://<headnode-fqdn>:8080` att komma åt Ambari.
@@ -224,7 +223,7 @@ Nätverkstrafik i en Azure-nätverk kan kontrolleras med hjälp av följande met
 
 * **Virtuella nätverksinstallationer** replikera funktionerna på enheter som brandväggar och routrar. Mer information finns i den [nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances) dokumentet.
 
-HDInsight kräver obegränsad åtkomst till HDinsight-hälsa och management services både inkommande och utgående trafik från det virtuella nätverket som en hanterad tjänst. När du använder NSG: er och udr: er, måste du kontrollera att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
+HDInsight kräver obegränsad åtkomst till HDInsight-hälsa och management services både inkommande och utgående trafik från det virtuella nätverket som en hanterad tjänst. När du använder NSG: er och udr: er, måste du kontrollera att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
 
 ### <a id="hdinsight-ip"></a> HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar
 
@@ -445,48 +444,48 @@ $vnet | Set-AzVirtualNetwork
 > Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-classic-cli"></a>Klassisk Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Använd följande steg för att skapa ett virtuellt nätverk som begränsar inkommande trafik, men tillåter trafik från IP-adresser som krävs av HDInsight.
 
-1. Använd följande kommando för att skapa en ny grupp med namnet `hdisecure`. Ersätt **RESOURCEGROUPNAME** med resursgruppen som innehåller Azure virtuellt nätverk. Ersätt **plats** med plats (region) som gruppen har skapats i.
+1. Använd följande kommando för att skapa en ny grupp med namnet `hdisecure`. Ersätt `RESOURCEGROUP` med resursgruppen som innehåller Azure virtuellt nätverk. Ersätt `LOCATION` med plats (region) som gruppen har skapats i.
 
     ```azurecli
-    az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
+    az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
     ```
 
     När gruppen har skapats kan få du information om den nya gruppen.
 
-2. Använd följande för att lägga till regler i den nya nätverkssäkerhetsgrupp som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälsotillstånd och hantering. Ersätt **RESOURCEGROUPNAME** med namnet på resursgruppen som innehåller Azure virtuellt nätverk.
+2. Använd följande för att lägga till regler i den nya nätverkssäkerhetsgrupp som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälsotillstånd och hantering. Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller Azure virtuellt nätverk.
 
     > [!IMPORTANT]  
     > Ändra IP-adresser som används i det här exemplet för att matcha den Azure-region du använder. Du hittar den här informationen i den [HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar](#hdinsight-ip) avsnittet.
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule6 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule6 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
     ```
 
 3. Om du vill hämta den unika identifieraren för den här nätverkssäkerhetsgruppen, använder du följande kommando:
 
     ```azurecli
-    az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
+    az network nsg show -g RESOURCEGROUP -n hdisecure --query 'id'
     ```
 
     Det här kommandot returnerar ett värde som liknar följande text:
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-    Använd dubbla citattecken runt id i kommandot om du inte får de förväntade resultaten.
+    Använd dubbla citattecken runt `id` i kommandot om du inte får de förväntade resultaten.
 
-4. Använd följande kommando för att tillämpa nätverkssäkerhetsgruppen till ett undernät. Ersätt den __GUID__ och __RESOURCEGROUPNAME__ med dem som returnerats från föregående steg. Ersätt __VNETNAME__ och __SUBNETNAME__ med namn på virtuellt nätverk och undernätsnamn som du vill skapa.
+4. Använd följande kommando för att tillämpa nätverkssäkerhetsgruppen till ett undernät. Ersätt den `GUID` och `RESOURCEGROUP` med dem som returnerats från föregående steg. Ersätt `VNETNAME` och `SUBNETNAME` med namn på virtuellt nätverk och undernätsnamn som du vill skapa.
 
     ```azurecli
-    az network vnet subnet update -g RESOURCEGROUPNAME --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     ```
 
     När det här kommandot har slutförts kan installera du HDInsight i det virtuella nätverket.
@@ -497,7 +496,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 > I följande exempel visar hur du aktiverar SSH-åtkomst från Internet:
 >
 > ```azurecli
-> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
+> az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
 ## <a id="example-dns"></a> Exempel: DNS-konfiguration
@@ -514,17 +513,17 @@ Det här exemplet gör följande antaganden:
 
 Anpassad DNS-servern i det virtuella nätverket:
 
-1. Använda Azure PowerShell eller klassiska Azure-CLI för att hitta det virtuella nätverket DNS-suffix:
+1. Använd Azure PowerShell eller Azure CLI för att hitta det virtuella nätverket DNS-suffix:
+
+    Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller det virtuella nätverket och ange sedan kommando:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-    $NICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName
+    $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
-    ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
-    az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
+    ```azurecli
+    az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
 2. Anpassad DNS-servern för det virtuella nätverket, Använd följande text som innehållet i den `/etc/bind/named.conf.local` fil:
@@ -596,17 +595,17 @@ Det här exemplet gör följande antaganden:
 
 * [Binda](https://www.isc.org/downloads/bind/) är installerad på de anpassade DNS-servrarna.
 
-1. Använda Azure PowerShell eller klassiska Azure-CLI för att hitta båda virtuella nätverken DNS-suffix:
+1. Använd Azure PowerShell eller Azure CLI för att hitta båda virtuella nätverken DNS-suffix:
+
+    Ersätt `RESOURCEGROUP` med namnet på resursgruppen som innehåller det virtuella nätverket och ange sedan kommando:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
-    $NICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName
+    $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
-    ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
-    az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
+    ```azurecli
+    az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
 2. Använd följande text som innehållet i den `/etc/bind/named.config.local` filen på den anpassa DNS-servern. Gör den här ändringen anpassade DNS-servern i båda virtuella nätverken.
@@ -650,9 +649,9 @@ Det här exemplet gör följande antaganden:
     };
     ```
     
-   * Ersätt den `10.0.0.0/16` och `10.1.0.0/16` värden med IP-adressintervall för dina virtuella nätverk. Den här posten kan resurser i varje nätverk för att göra förfrågningar från DNS-servrar.
+   Ersätt den `10.0.0.0/16` och `10.1.0.0/16` värden med IP-adressintervall för dina virtuella nätverk. Den här posten kan resurser i varje nätverk för att göra förfrågningar från DNS-servrar.
 
-     Alla förfrågningar som inte är för DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
+    Alla förfrågningar som inte är för DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
 
 4. Om du vill använda konfigurationen startar du om bindning. Till exempel `sudo service bind9 restart` på båda DNS-servrar.
 

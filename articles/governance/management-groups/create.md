@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992744"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801274"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -37,14 +37,14 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 1. Välj på huvudsidan **ny hanteringsgrupp**.
 
-   ![HUVUDGRUPP](./media/main.png)
+   ![Sidan för att arbeta med hanteringsgrupper](./media/main.png)
 
 1. Fyll i hantering av grupp-ID-fältet.
 
    - Den **Hanteringsgruppens ID** är den unika identifieraren för katalogen som används för att skicka kommandon på den här hanteringsgruppen. Den här identifieraren kan inte redigeras när du har skapat eftersom den används i hela Azure-systemet för att identifiera den här gruppen.
    - Visningsnamnet är det namn som visas i Azure-portalen. Ett separat visningsnamn är ett valfritt fält när du skapar hanteringen gruppen och kan ändras när som helst.  
 
-   ![Skapa](./media/create_context_menu.png)  
+   ![Alternativfönster för att skapa en ny hanteringsgrupp](./media/create_context_menu.png)  
 
 1. Välj **Spara**.
 

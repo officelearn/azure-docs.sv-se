@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/30/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9a02030cb2b785b027bb78bad5ef636dff9dd8f3
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758535"
+ms.locfileid: "58804878"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -42,6 +42,30 @@ Exempel på detta kan vara:
 * inte returnerar frågan sträng en del av URL-Adressen (för att ta bort signaturen) till URL: er för jobbets HTTP-indata.
 
 Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-policy-dotnet-howto.md).
+
+## <a name="long-running-operations"></a>Långvariga åtgärder
+
+Åtgärderna som markerats med `x-ms-long-running-operation` i Azure Media Services [swagger filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långa åtgärder. 
+
+Mer information om hur du spårar asynkrona åtgärder i Azure finns [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+
+Media Services har följande långvariga åtgärder:
+
+* Skapa LiveEvent
+* Uppdatera LiveEvent
+* Delete LiveEvent
+* Starta LiveEvent
+* Stoppa LiveEvent
+* Återställ LiveEvent
+* Skapa LiveOutput
+* Delete LiveOutput
+* Skapa StreamingEndpoint
+* Uppdatera StreamingEndpoint
+* Ta bort StreamingEndpoint
+* Starta StreamingEndpoint
+* Stoppa StreamingEndpoint
+* Skala StreamingEndpoint
+
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
 

@@ -9,14 +9,15 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 3827c9e0b3e51a7a179a7db7fac0152d799a63f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835823"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793296"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Hantera Azure Data Lake Analytics en .NET-app
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med hjälp av Azure .NET SDK. 
@@ -39,7 +40,7 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 
 Du kan installera dessa paket via NuGet från kommandoraden med följande kommandon:
 
-```
+```powershell
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
 Install-Package -Id Microsoft.Azure.Management.DataLake.Analytics  -Version 3.0.0
 Install-Package -Id Microsoft.Azure.Management.DataLake.Store  -Version 2.2.0
@@ -49,7 +50,7 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 
 ## <a name="common-variables"></a>Vanliga variabler
 
-``` csharp
+```csharp
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
@@ -130,6 +131,7 @@ Om du inte redan har skapat en måste du ha en Azure-resursgrupp för att skapa 
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
+
 Mer information finns i Azure-resursgrupper och Data Lake Analytics.
 
 ### <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
@@ -260,6 +262,7 @@ if (adls_accounts != null)
 ```
 
 ### <a name="upload-and-download-folders-and-files"></a>Ladda upp och ned mappar och filer
+
 Du kan använda Data Lake Store-klienten management filsystemsobjektet för att ladda upp och hämta enskilda filer och mappar från Azure till din lokala dator med hjälp av följande metoder:
 
 - UploadFolder
@@ -293,6 +296,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### <a name="verify-azure-storage-account-paths"></a>Kontrollera sökvägar för Azure Storage-konto
+
 Följande kod kontrollerar om det finns ett Azure Storage-konto (storageAccntName) i ett Data Lake Analytics-konto (analyticsAccountName), och om en behållare (containerName) finns i Azure Storage-kontot.
 
 ``` csharp
@@ -303,9 +307,11 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## <a name="manage-catalog-and-jobs"></a>Hantera katalogen och jobb
+
 Objektet DataLakeAnalyticsCatalogManagementClient tillhandahåller metoder för att hantera SQL-databas för varje Azure Data Lake Analytics-konto. DataLakeAnalyticsJobManagementClient ger metoder för att skicka och hantera jobb som körs på databasen med U-SQL-skript.
 
 ### <a name="list-databases-and-schemas"></a>Lista över databaser och scheman
+
 Bland flera saker som du kan lista, är de vanligaste databaser och deras schema. Följande kod hämtar en samling av databaser och räknar upp schemat för varje databas.
 
 ``` csharp
@@ -323,9 +329,10 @@ foreach (var db in databases)
 ```
 
 ### <a name="list-table-columns"></a>Lista tabellkolumner
+
 Följande kod visar hur du kommer åt databasen med en Data Lake Analytics Catalog management-klienten för att visa kolumnerna i en angiven tabell.
 
-``` csharp
+```csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
 IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
@@ -336,7 +343,9 @@ foreach (USqlTableColumn utc in columns)
 ```
 
 ### <a name="submit-a-u-sql-job"></a>Skicka ett U-SQL-jobb
+
 Följande kod visar hur du använder en Hanteringsklient för Data Lake Analytics-jobb för att skicka ett jobb.
+
 ``` csharp
 string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
 Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
@@ -355,9 +364,10 @@ Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### <a name="list-failed-jobs"></a>Lista över misslyckade jobb
+
 Följande kod visar information om jobb som misslyckades.
 
-``` csharp
+```csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
 var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
@@ -367,6 +377,7 @@ foreach (var j in jobs)
 ```
 
 ### <a name="list-pipelines"></a>Lista pipelines
+
 Följande kod visar information om varje pipeline för jobb som skickas till kontot.
 
 ``` csharp
@@ -378,6 +389,7 @@ foreach (var p in pipelines)
 ```
 
 ### <a name="list-recurrences"></a>Lista upprepningar
+
 Följande kod visar information om varje upprepning av jobb som skickas till kontot.
 
 ``` csharp
@@ -404,9 +416,11 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## <a name="manage-compute-policies"></a>Hantera principer för beräkning
+
 Objektet DataLakeAnalyticsAccountManagementClient ger metoder för att hantera principer för beräkning för ett Data Lake Analytics-konto.
 
 ### <a name="list-compute-policies"></a>Lista beräkning principer
+
 Följande kod hämtar en lista över principer för beräkning för ett Data Lake Analytics-konto.
 
 ``` csharp
@@ -418,6 +432,7 @@ foreach (var p in policies)
 ```
 
 ### <a name="create-a-new-compute-policy"></a>Skapa en ny princip för beräkning
+
 Följande kod skapar en ny princip för beräkning för ett Data Lake Analytics-konto, ange de maximala AU: er tillgängliga till den angivna användaren till mellan 50 och den minsta prioriteten till 250.
 
 ``` csharp
@@ -427,6 +442,7 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)
 * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

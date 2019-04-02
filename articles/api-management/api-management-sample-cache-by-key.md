@@ -1,6 +1,6 @@
 ---
-title: Anpassade cachelagring i Azure API Management
-description: Lär dig att cachelagra objekt som nyckel i Azure API Management
+title: Anpassad cachelagring i Azure API Management
+description: Lär dig hur du cachelagrar objekt med nycklar i Azure API Management
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 838850d38c9df51fabcf620831371bed401e9492
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29376039"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793551"
 ---
-# <a name="custom-caching-in-azure-api-management"></a>Anpassade cachelagring i Azure API Management
-Azure API Management-tjänsten har inbyggt stöd för [HTTP-svar cachelagring](api-management-howto-cache.md) med resurs-URL som nyckel. Nyckeln kan ändras av huvuden för begäran med hjälp av den `vary-by` egenskaper. Detta är användbart för cachelagring av hela HTTP-svar (aka garantier), men ibland är det praktiskt att cache bara en del av en representation. Den nya [cache-sökning-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) och [cache-lagra-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) principer ger möjlighet att lagra och hämta godtyckliga delar av data från i principdefinitioner. Den här möjligheten också tillför värde till den tidigare introducerades [-begäran om att skicka](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) principen eftersom du kan nu cachelagra svar från externa tjänster.
+# <a name="custom-caching-in-azure-api-management"></a>Anpassad cachelagring i Azure API Management
+Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av den `vary-by` egenskaper. Detta är användbart för att cachelagra hela HTTP-svar (även kallat representationer), men ibland är det praktiskt att cachen bara en del av en representation. Den nya [cache-sökning-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) och [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) -principerna förser dig möjligheten att lagra och hämta godtyckliga delar av data inifrån principdefinitioner. Den här möjligheten lägger också till värde till tidigare introducerats [-begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendRequest) principen eftersom du kan nu cachelagra svar från externa tjänster.
 
 ## <a name="architecture"></a>Arkitektur
-API Management-tjänsten använder en delad per klient data cachelagra så att skala upp till flera enheter du fortfarande få åtkomst till samma cachelagrade data. Men när du arbetar med en distribution i flera regioner finns oberoende cacheminnen inom vart och ett av regionerna. Det är viktigt att inte behandla cacheminnet som ett datalager, där det är den enda källan för vissa information. Om du har och senare har valt att dra nytta av flera regioner distributionen, kan sedan kunder med användare som reser förlora åtkomsten till den cachelagrade data.
+API Management-tjänsten använder en delad per klient data lagrar så att skala upp till flera enheter du fortfarande komma åt samma cachelagrade data. När du arbetar med en distribution i flera regioner är det dock oberoende cacheminnen i var och en av regionerna. Det är viktigt att inte behandla cacheminnet som ett datalager, där det är den enda källan för vissa av information. Om du gjorde och senare bestämde sig för att dra nytta av distributionen i flera regioner, kan sedan kunder med användare som reser förlora åtkomsten till dessa cachelagrade data.
 
 ## <a name="fragment-caching"></a>Cachelagring av fragment
-Det finns vissa fall där svar som returneras innehåller en del av data som är dyrt att avgöra och ännu är den senaste för en rimlig tid. Exempelvis bör du en tjänst som skapats av ett flygbolag som innehåller information som rör svarta reservationer, svarta status osv. Om användaren är medlem av flygbolagen punkter program, de också skulle ha information om deras aktuella status och ackumulerade hittills utfört. Den här användaren-relaterad information lagras i ett annat system, men kan det vara önskvärt att inkludera den i svar om svarta status och -reservationer som returneras. Detta kan göras med hjälp av en process som kallas cachelagring av fragment. Den primära representationen kan returneras från den ursprungliga servern med hjälp av någon typ av token som indikerar om användarrelaterade-information som ska infogas. 
+Det finns vissa fall där svar som returneras innehåller en del av data som är dyra att fastställa och ännu är den senaste för en rimlig tid. Exempelvis bör du en tjänst som skapats av flygbolag som tillhandahåller information som rör flygning reservationer, flygning status osv. Om användaren är medlem i programmet airlines punkter, de skulle också ha information om deras aktuella status och ackumulerade hittills utfört. Den här användarrelaterad information lagras i ett annat system, men det kan vara önskvärt att inkludera den i svaren som returneras om flygning status och -reservationer. Detta kan göras med hjälp av en process som kallas cachelagring av fragment. Den primära representationen kan returneras från den ursprungliga servern med hjälp av någon typ av token för att ange där användarrelaterad information som ska infogas. 
 
-Överväg följande JSON-svar från en serverdel API.
+Överväg följande JSON-svar från ett serverdels-API.
 
 ```json
 {
@@ -43,13 +43,13 @@ Det finns vissa fall där svar som returneras innehåller en del av data som är
 }  
 ```
 
-Och sekundära resursen på `/userprofile/{userid}` ser ut som att,
+Och sekundära resursen på `/userprofile/{userid}` som ser ut som,
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-Måste identifiera som användaren för att avgöra lämpliga användarinformationen ska tas med, API-hantering. Den här mekanismen är implementeringen-beroende. Jag använder exempelvis den `Subject` anspråk för en `JWT` token. 
+Måste identifiera som användaren är för att fastställa den aktuella användarinformationen som ska ingå, API Management. Den här mekanismen är beroende av implementering. Till exempel jag använder den `Subject` anspråk för en `JWT` token. 
 
 ```xml
 <set-variable
@@ -57,7 +57,7 @@ Måste identifiera som användaren för att avgöra lämpliga användarinformati
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-API Management lagrar den `enduserid` värde i en kontext variabel för senare användning. Nästa steg är att avgöra om en tidigare begäran redan har hämtats användarinformationen och lagras i cachen. För detta API Management används den `cache-lookup-value` princip.
+API Management-butiker i `enduserid` värdet i en variabel i kontexten för senare användning. Nästa steg är att avgöra om en tidigare begäran redan hämtats användarinformationen och lagras i cacheminnet. För detta API Management använder den `cache-lookup-value` principen.
 
 ```xml
 <cache-lookup-value
@@ -65,7 +65,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Om det finns ingen post i cacheminnet som motsvarar värdet för nyckeln och sedan Nej `userprofile` kontexten variabel har skapats. API Management kontrollerar att en sökning med hjälp av den `choose` styr flödet för principen.
+Om det finns ingen post i cacheminnet som motsvarar nyckelvärdet och Nej `userprofile` sammanhangsvariabel skapas. API Management kontrollerar kan användas i en sökning med hjälp av den `choose` styra flödet principen.
 
 ```xml
 <choose>
@@ -75,7 +75,7 @@ Om det finns ingen post i cacheminnet som motsvarar värdet för nyckeln och sed
 </choose>
 ```
 
-Om den `userprofile` kontexten variabel finns inte och API-hantering kommer att göra en HTTP-begäran för att hämta den.
+Om den `userprofile` sammanhangsvariabel finns inte och sedan API Management kommer att göra en HTTP-begäran att hämta den.
 
 ```xml
 <send-request
@@ -92,7 +92,7 @@ Om den `userprofile` kontexten variabel finns inte och API-hantering kommer att 
 </send-request>
 ```
 
-API Management används den `enduserid` att konstruera profil användarresurs URL-adress. När API Management har svaret, hämtar brödtext utanför svaret och lagrar den tillbaka till en variabel i kontexten.
+API Management används den `enduserid` att konstruera URL-Adressen till användarresurs för profilen. När API Management har svaret, hämtar brödtext från svaret och lagrar den tillbaka till en sammanhangsvariabel.
 
 ```xml
 <set-variable
@@ -100,7 +100,7 @@ API Management används den `enduserid` att konstruera profil användarresurs UR
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-Du kan ange om du vill lagra användarens profil i cacheminnet för att undvika API Management gör den här HTTP-begäran igen när samma användare gör en annan begäran.
+Du kan ange om du vill lagra användarens profil i cacheminnet för att undvika API Management gör den här HTTP-begäran igen, när samma användare skickar en annan begäran.
 
 ```xml
 <cache-store-value
@@ -108,11 +108,11 @@ Du kan ange om du vill lagra användarens profil i cacheminnet för att undvika 
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-API Management lagrar värdet i cache med exakt samma nyckel som API Management ursprungligen gjordes ett försök att hämta den med. Den varaktighet som API Management väljer att lagra värdet ska baseras på hur ofta uppdateras ändringar och hur feltoleranta användare till inaktuell information. 
+API Management lagrar värdet i cachen med exakt samma nyckel som API Management som ursprungligen försökte hämta den med. Så länge som API Management väljer att lagra värdet för ska baseras på hur ofta informationen ändras och hur feltoleranta användare är till inaktuell information. 
 
-Det är viktigt att tänka på att hämtas från cachen är fortfarande ett out-of-process, nätverksbegäran och eventuellt fortfarande lägga till flera millisekunder begäran. Fördelarna kommer när du fastställer användarens profilinformation tar längre tid än den på grund av behöva databas frågor eller samlar in information från flera-servrar.
+Det är viktigt att du upptäcker att hämtas från cachen är fortfarande en out-of-process nätverksbegäran och potentiellt kan fortfarande lägga till tiotals millisekunder på begäran. Fördelarna kommer när du fastställer informationen om användarprofiler tar längre tid än så på grund av att behöva databasen frågor eller samlar in information från flera serverdelar.
 
-Det sista steget i processen är att uppdatera returnerade svar med användarens profilinformation.
+Det sista steget i processen är att uppdatera returnerade svaret med information om användarprofiler.
 
 ```xml
 <!-- Update response body with user profile-->
@@ -121,9 +121,9 @@ Det sista steget i processen är att uppdatera returnerade svar med användarens
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-Kan du välja att inkludera citattecken som en del av token så att även om Ersätt inte inträffar det fortfarande är en giltig JSON.  
+Du kan välja att inkludera citattecken som en del av token så att även om Ersätt inte inträffar det fortfarande är en giltig JSON.  
 
-När du kombinerar de här stegen tillsammans är slutresultatet en princip som ser ut som på följande sätt.
+När du kombinerar de här stegen tillsammans kan är slutresultatet en princip som ser ut som följande.
 
 ```xml
 <policies>
@@ -177,22 +177,22 @@ När du kombinerar de här stegen tillsammans är slutresultatet en princip som 
 </policies>
 ```
 
-Den här cachelagring metoden används främst på webbplatser där HTML består på serversidan så att den kan återges som en enda sida. Det kan också vara praktiskt i API: er där klienter inte kan göra HTTP klientcachelagring eller bör inte att placera det ansvaret på klienten.
+Den här cachelagring används främst på webbplatser där HTML består på serversidan så att den kan återges som en enda sida. Det kan också vara användbart i API: er där klienter inte kan göra HTTP klientcachelagring eller är det klokt inte att placera det ansvaret på klienten.
 
-Den här samma typ av cachelagring av fragment kan även utföras på backend-webbservrar som använder en Redis cache server, men använder API Management-tjänsten för att utföra arbetet är användbart när cachelagrade fragment kommer från olika-servrar än primärt svar.
+Det här samma typ av cachelagring av fragment kan också göras på backend-webbservrar med hjälp av en Redis cachelagring server, men använder API Management-tjänsten för att utföra arbetet är användbart när cachelagrade fragment kommer från olika serverdelar än primärt svar.
 
 ## <a name="transparent-versioning"></a>Transparent versionshantering
-Det är vanligt för flera olika implementering versioner av en API som stöds vid någon tidpunkt. Till exempel att stödja olika miljöer (dev, testa, produktion, etc.) eller att stödja äldre versioner av API: et för ange tid för API-konsumenter att migrera till nyare versioner. 
+Det är vanligt att flera olika implementering versioner av ett API för stöd åt gången. Till exempel att stödja olika miljöer (utveckling, test, produktion, osv.) eller för att stödja äldre versioner av API: et för ange tid för API-kunderna att migrera till nyare versioner. 
 
-Ett sätt att hantera detta, i stället för att klienten utvecklare kan ändra URL-adresser från `/v1/customers` till `/v2/customers` är att spara i konsumentens profildata vilken version av API: et de för närvarande vill använda och anropa lämpliga backend-URL. Det är nödvändigt att fråga några konfigurationsdata för att fastställa rätt backend-URL att anropa för en viss klient. Cachelagrar data för den här kan API-hantering minimera prestandaförsämring med att göra den här sökningen.
+En metod för att hantera detta, i stället för att klienten utvecklare kan ändra URL: er från `/v1/customers` till `/v2/customers` är att spara i profilen konsumentdata vilken version av API: et de för närvarande vill använda och anropa lämplig backend-URL. Det är nödvändigt att fråga vissa konfigurationsdata för att fastställa rätt backend-URL kan ringa för en viss klient. API Management kan minimera prestandaförsämringen gör den här sökningen genom att cachelagra dessa konfigurationsdata.
 
-Det första steget är att avgöra den identifierare som används för att konfigurera den önskade versionen. I det här exemplet jag har valt versionen till prenumerationen produktnyckeln. 
+Det första steget är att avgöra den identifierare som används för att konfigurera den önskade versionen. I det här exemplet jag har valt att associera versionen till produktnyckel för prenumerationen. 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-API Management gör sedan en cache-sökning för att se om den redan hämtas den önskade klientversionen.
+API Management och utför en cache-sökning för att se om det redan hämtats önskade klientversionen.
 
 ```xml
 <cache-lookup-value
@@ -200,14 +200,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Sedan kontrollerar API Management om det inte gick att hitta det i cacheminnet.
+API Management kontrollerar sedan om du vill se om det inte gick att hitta det i cacheminnet.
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-Om API-hantering inte kan hitta den, hämtar den API-hantering.
+Om API Management inte gick att hitta den, hämtar den API Management.
 
 ```xml
 <send-request
@@ -220,7 +220,7 @@ Om API-hantering inte kan hitta den, hämtar den API-hantering.
 </send-request>
 ```
 
-Extrahera brödtext för svar från svaret.
+Extrahera brödtext för svaret från svaret.
 
 ```xml
 <set-variable
@@ -228,7 +228,7 @@ Extrahera brödtext för svar från svaret.
       value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 ```
 
-Lagra den tillbaka i cacheminnet för framtida användning.
+Store det i cacheminnet för framtida användning.
 
 ```xml
 <cache-store-value
@@ -237,7 +237,7 @@ Lagra den tillbaka i cacheminnet för framtida användning.
       duration="100000" />
 ```
 
-Och slutligen uppdatera backend-URL: en för att välja versionen av tjänsten som önskas av klienten.
+Och slutligen uppdatera backend-URL: en för att välja versionen av tjänsten som önskas genom klienten.
 
 ```xml
 <set-backend-service
@@ -269,12 +269,12 @@ Hela policyn är följande:
 </inbound>
 ```
 
-Om du aktiverar API konsumenter att transparent styra vilken backend-version som används av klienter utan att behöva uppdatera och distribuera klienter är en smidig lösning som hanterar många API versionshantering av säkerhetsskäl.
+Att aktivera API-kunderna att transparent styra vilken backend-version som används av klienter utan att behöva uppdatera och distribuera om klienterna är en smidig lösning som åtgärdar problem med många API-versionshantering.
 
-## <a name="tenant-isolation"></a>Klientisolering
-I distributioner av större och flera innehavare skapa vissa företag separata grupper för klienter på olika distributioner av backend-maskinvara. Detta minimerar antalet kunder som påverkas av maskinvaruproblem på serverdelen. Det gör också nya programvaruversioner återställas i etapper. Vi är den här backend-arkitekturen transparent för API-konsumenter. Detta kan ske på ett liknande sätt att transparent versionshantering eftersom den är baserad på samma teknik manipulera backend-URL med konfigurationstillstånd per API-nyckel.  
+## <a name="tenant-isolation"></a>Isolering av innehavare
+I distributioner av större och flera innehavare skapa vissa företag separata grupper av klienter på olika distributioner av backend-maskinvara. Detta minskar antalet kunder som påverkas av maskinvaruproblem på serverdelen. Dessutom kan nya programvaruversioner att lanseras i steg. Vi är den här backend-arkitekturen transparent för API-kunderna. Detta kan ske på liknande sätt som transparent versionshantering eftersom den är baserad på samma teknik manipulera backend-URL med hjälp av konfigurationsstatus per API-nyckel.  
 
-I stället för att returnera en önskade versionen av API: et för varje prenumeration nyckel, returneras en identifierare som gäller en klient för gruppen tilldelade maskinvara. Identifierare kan användas för att konstruera lämpliga backend-URL.
+Istället för att returnera en önskad version av API: et för varje prenumerationsnyckel, returneras en identifierare som relaterar en klient till den tilldelade maskinvarugrupp. Den identifieraren kan användas för att konstruera lämplig backend-URL.
 
 ## <a name="summary"></a>Sammanfattning
-Friheten att använda Azure API management-cache för att lagra alla slags data möjliggör effektiv åtkomst till konfigurationsdata som kan påverka hur en inkommande begäran bearbetas. Det kan också användas för att lagra datafragment som kan utöka svar som returnerades från en serverdel API.
+Friheten att använda Azure API management cache för att lagra alla slags data möjliggör effektiv åtkomst till konfigurationsdata som kan påverka hur en inkommande begäran har bearbetats. Det kan också användas för att lagra datafragment som kan utöka svaren som returneras från ett serverdels-API.

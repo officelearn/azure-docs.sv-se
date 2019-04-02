@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91228074e13453ce53c0b4a7606479d45e8a90ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182786"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762811"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Använda Azure vid som är värd för och köra SAP-arbetsbelastningsscenarier
 
@@ -36,14 +36,16 @@ Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav 
 
 ## <a name="latest-changes"></a>Senaste ändringarna
 
+Versionen av [Azure HANA stora instanser styra via Azure-portalen](hana-li-portal.md)
+
+Versionen av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program](high-availability-guide-suse-netapp-files.md)
+
+Information på **Linux OS parametern net.ipv4.tcp_timestamps** inställningar tillsammans med Azure belastningsutjämnare
+
 Versionen av [konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure](sap-ha-availability-zones.md)
 
 Versionen av [SAP arbetsbelastning planerings- och Checklista](sap-deployment-checklist.md)
 
-Information om användning och konfiguration av [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i svarstid kritiska kommunikationsvägar av SAP-system i:
-
-- [Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 

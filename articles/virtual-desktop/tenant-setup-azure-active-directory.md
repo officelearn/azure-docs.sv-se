@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8ab1f31d61b7a6a1637cd274cc5ac7fc4f5dc2f1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622169"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801689"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i förhandsversion för virtuella skrivbord i Windows
 
@@ -30,6 +30,8 @@ Här är vad du behöver att konfigurera din virtuella skrivbordet i Windows-kli
 * Den [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) klient-ID för Windows virtuellt skrivbord användare.
 * Ett globalt administratörskonto i Azure Active Directory-klient.
    * Detta gäller även för Cloud Solution Provider (CSP) organisationer som skapar ett virtuellt skrivbord i Windows-klient för sina kunder. Om du är en CSP-organisation, måste du kunna logga in som global administratör för kundens Azure Active Directory.
+   * Administratörskontot måste hämtas från Azure Active Directory-klient som du försöker skapa virtuellt skrivbord i Windows-klient. Den här processen har inte stöd för Azure Active Directory B2B (Gäst)-konton.
+   * Administratörskontot måste vara ett arbets- eller skolkonto konto.
 * En Azure-prenumerations-ID
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Bevilja Azure Active Directory-behörigheter till tjänsten Windows Virtual Desktop-förhandsversion

@@ -18,12 +18,12 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517461"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793993"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -153,6 +153,7 @@ Innan du börjar behöver du:
    > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Autentisera Microsoft Graph och fråga efter händelse-API identitet Risk
+
 Du bör nu ha:
 
 - Namnet på din klient-domänen
@@ -239,6 +240,7 @@ GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPasse
 ### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Hämta alla riskfyllda inloggningar för en viss användare (inloggning från API: et)
 
 Du kan bättre förstå tillståndet för riskerna genom att hämta alla sina riskfyllda inloggningar när du tycker att en användare kan ha komprometterats. 
+
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```

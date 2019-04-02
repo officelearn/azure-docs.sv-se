@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dacf58760d353eea3c552a9113589259148f3558
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447934"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801903"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -76,7 +76,7 @@ Du kan använda den virtuella datorns systemtilldelade hanterade identitet för 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.
 3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn.
-4. Välj **Storage Blob Data-läsare (förhandsgranskning)** i listrutan under **Roll**.
+4. Under **rollen**, i listrutan Välj **Storage Blob Data-läsare**.
 5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.
 7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**.

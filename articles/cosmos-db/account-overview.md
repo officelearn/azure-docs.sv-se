@@ -1,19 +1,19 @@
 ---
 title: Arbeta med Azure Cosmos DB-konton
 description: Den här artikeln beskrivs hur skapar och använder Azure Cosmos DB-konton
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839584"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762607"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
@@ -21,7 +21,7 @@ Azure Cosmos DB är en fullständigt hanterad platform-as-a-service (PaaS). För
 
 Azure Cosmos-kontot är den grundläggande enheten på global distribution och hög tillgänglighet. För att distribuera globalt dina data och dataflöde över flera Azure-regioner, kan du lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto när som helst. Du kan konfigurera ditt Azure Cosmos-konto om du vill ha en enda eller flera Skriv-regioner. Mer information finns i [att lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md). Du kan konfigurera den [standardkonsekvens](consistency-levels.md) nivå på Azure Cosmos-konto. Azure Cosmos DB tillhandahåller omfattande serviceavtal som omfattar genomflöde, svarstid på 99: e percentilen, konsekvens och hög tillgänglighet. Mer information finns i [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-För att på ett säkert sätt hantera åtkomst till alla data i ditt Azure Cosmos-konto, kan du använda huvudnycklar som är associerat med ditt konto. Att ytterligare skydda åtkomsten till dina data kan du konfigurera en tjänstslutpunkt för virtuellt nätverk och IP-brandvägg på ditt Azure Cosmos-konto. 
+För att på ett säkert sätt hantera åtkomst till alla data i ditt Azure Cosmos-konto, kan du använda den [huvudnycklar](secure-access-to-data.md) som är associerade med ditt konto. För att ytterligare skydda åtkomst till dina data, kan du konfigurera en [VNET-tjänstslutpunkt](vnet-service-endpoint.md) och [IP-brandväggen](firewall-support.md) på ditt Azure Cosmos-konto. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Element i ett Azure Cosmos-konto
 
@@ -33,7 +33,7 @@ För närvarande kan du skapa upp till 100 Azure Cosmos-konton i en Azure-prenum
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig hur du hanterar din Azure Cosmos-konto och se andra begrepp som är associerade med Azure Cosmos DB:
+Lär dig hur du hanterar din Azure Cosmos-konto och andra begrepp:
 
 * [Anvisningar: hantera ditt Azure Cosmos-konto](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)

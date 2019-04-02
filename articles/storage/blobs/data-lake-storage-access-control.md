@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370116"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802971"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -27,9 +27,9 @@ Med RBAC-rolltilldelningar är en kraftfull mekanism för att kontrollera använ
 
 Azure Storage tillhandahåller tre inbyggda RBAC-roller för Blob storage: 
 
-- [Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 När en användare eller tjänstens huvudnamn beviljas RBAC databehörigheter via någon av dessa inbyggda roller eller via en anpassad roll, utvärderas dessa behörigheter först vid en begäran om godkännande. Om den begärda åtgärden har beviljats behörighet av anroparens RBAC-uppgifter och sedan auktorisering är omedelbart löst och inga fler utförs ACL-kontroller. Du kan också om anroparen har inte en RBAC-tilldelning eller i förfrågan matchar inte tilldelad behörighet, utförs sedan ACL kontroller för att fastställa om anroparen har behörighet att utföra den begärda åtgärden.
 
@@ -285,7 +285,7 @@ En GUID visas om posten representerar en användare och att användaren finns in
 
 När du definierar ACL: er för tjänstens huvudnamn är det viktigt att använda det objekt-ID (OID) för den *tjänstens huvudnamn* för registreringen som du skapade. Det är viktigt att Observera att registrerade appar har en separat tjänstens huvudnamn i specifikt Azure AD-klient. Registrerade appar har en OID som visas i Azure-portalen, men *tjänstens huvudnamn* har en annan (olika) OID.
 
-Du kan använda för att få OID för tjänstens huvudnamn som corresonds till en appregistrering kan den `az ad sp show` kommando. Ange program-ID som parameter. Här är ett exempel på hur du skaffar OID för tjänstens huvudnamn som motsvarar en appregistrering med App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
+Du kan använda för att få OID för tjänstens huvudnamn som motsvarar en appregistrering kan den `az ad sp show` kommando. Ange program-ID som parameter. Här är ett exempel på hur du skaffar OID för tjänstens huvudnamn som motsvarar en appregistrering med App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005434"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805082"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005434"
 Du får följande felmeddelande när du arbetar med den `Add-AzureAccount` eller `Connect-AzureRmAccount` cmdletar.
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -81,7 +81,7 @@ För att avgöra vad som är fel, gör du följande:
 
 Du får följande felmeddelande när du arbetar med den `Select-AzureSubscription` eller `Select-AzureRmSubscription` cmdletar:
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -119,7 +119,7 @@ Vidta följande steg för att avgöra om du har autentiserats med Azure och få 
 
 Du får följande felmeddelande när du autentiserar till Azure med ditt Azure användarnamn och lösenord:
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -139,7 +139,7 @@ Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen 
 
 Du får följande felmeddelande vid en childrunbook med den `-Wait` växel och utdataströmmen innehåller och objekt:
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -179,7 +179,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 Du ser i din fel i din jobbströmmar för en runbook med följande meddelande:
 
-```
+```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
@@ -205,7 +205,7 @@ AZ- och AzureRM-cmdletar kan inte importeras och användas i samma runbook, vill
 
 Din runbook misslyckas med ett fel som liknar följande exempel:
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -264,7 +264,7 @@ Start-AzureRmAutomationRunbook `
 
 Din runbook misslyckas med ett fel som liknar följande exempel:
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -289,7 +289,7 @@ Om det är en separat modul, kontrollera att modulen i importerade i ditt Automa
 
 Din runbook misslyckas med felet:
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -323,7 +323,7 @@ Någon av följande lösningar problemet på:
 
 Din runbook misslyckas med felet:
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -375,7 +375,7 @@ Om ingen av dessa lösningar löser din problemReview den [jobb loggar](../autom
 
 Runbook-jobb misslyckas med felet:
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -398,7 +398,7 @@ Om du vill använda mer än 500 minuter bearbetningen per månad, måste du änd
 
 Runbook-jobb misslyckas med felet:
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -421,7 +421,7 @@ Någon av följande lösningar problemet på:
 
 Din runbook visas i en **stoppad** tillstånd efter körning i tre timmar. Du kan också få felet:
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -469,7 +469,7 @@ Om webhooken har inaktiverats kan återaktivera du webhooken via Azure portal. N
 
 Du får följande felmeddelande när du kör den `Get-AzureRmAutomationJobOutput` cmdlet:
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 

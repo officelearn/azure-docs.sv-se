@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337705"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803382"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -44,7 +44,7 @@ Vi arbetar för närvarande med migrera befintliga blogginlägg (exklusive avbro
 Vi ska skicka avbrott uppdateringar med hjälp av vår Twitter-referens framöver. Följ oss på Twitter om du vill få senaste uppdateringarna på avbrott och kända buggar.
 
 ### <a name="twitter"></a>Twitter 
-Vår Twitter-referens: azlabservices
+Vår Twitter-referens: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 Om din fråga inte listas här, berätta för oss och vi kan hjälpa dig hitta något svar.
@@ -139,7 +139,9 @@ Har du två alternativ för att skapa flera virtuella datorer samtidigt från sa
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Hur flyttar jag min befintliga Azure virtuella datorer i min labb i DevTest Labs?
 Kopiera dina befintliga virtuella datorer på DevTest Labs:
 
-1. Kopiera VHD-filen för den befintliga virtuella datorn med hjälp av en [Windows PowerShell-skript](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Kopiera VHD-filen för den befintliga virtuella datorn med hjälp av ett PowerShell-skript:
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * Klassisk: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. [Skapa en anpassad avbildning](devtest-lab-create-template.md) i ditt labb i DevTest Labs.
 3. Skapa en virtuell dator i labbet från den anpassade avbildningen.
 

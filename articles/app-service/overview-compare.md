@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322035"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793863"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 
@@ -29,7 +29,7 @@ Azure App Service är det bästa alternativet för de flesta webbapparna. Distri
 
 Service Fabric är ett bra alternativ om du skapar en ny app eller skriver om en befintlig app för att använda en mikrotjänstarkitektur. Om du kör appar i en delad pool med datorer kan du börja i liten skala och utöka till hundratals eller tusentals datorer efter behov. Tillståndskänsliga tjänster gör det enkelt att lagra programtillstånd på ett konsekvent och tillförlitligt sätt och Service Fabric hanterar automatiskt tjänstens partitionering, skalning och tillgänglighet åt dig.  Service Fabric stöder också WebAPI med Open Web Interface för .NET (OWIN) och ASP.NET Core.  Jämfört med App Service ger Service Fabric också mer kontroll över, eller direkt åtkomst till, den underliggande infrastrukturen. Du kan fjärransluta till dina servrar eller konfigurera serverstartaktiviteter. Cloud Services liknar Service Fabric när det gäller kontroll jämfört med användarvänlighet, men det är numera en föråldrad tjänst och Service Fabric rekommenderas för ny utveckling.
 
-Om du har ett befintligt program som kräver stora ändringar för att kunna köras i App Service eller Service Fabric kan du välja Virtual Machines för att underlätta migreringen till molnet. Men för korrekt konfigurering, skydd och underhåll av virtuella datorer krävs dock mer tid och IT-kunskaper jämfört med Azure App Service och Service Fabric. Om du överväger att använda Azure Virtual Machines bör du tänka på att det kräver löpande underhåll för korrigering, uppdatering och hantering av VM-miljön. Azure Virtual Machines är infrastruktur som tjänst (IaaS) medan App Service och Service Fabric är plattform som en tjänst (Paas). 
+Om du har ett befintligt program som kräver stora ändringar för att kunna köras i App Service eller Service Fabric kan du välja Virtual Machines för att underlätta migreringen till molnet. Men för korrekt konfigurering, skydd och underhåll av virtuella datorer krävs dock mer tid och IT-kunskaper jämfört med Azure App Service och Service Fabric. Om du överväger att använda Azure Virtual Machines bör du tänka på att det kräver löpande underhåll för korrigering, uppdatering och hantering av VM-miljön. Azure Virtual Machines är infrastruktur som tjänst (IaaS) medan App Service och Service Fabric är plattform som en tjänst (Paas).
 
 ## <a name="features"></a>Jämförelse av funktioner
 I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual Machines och Service Fabric för att hjälpa dig att välja rätt. Aktuell information om SLA för varje alternativ finns i [Azure Serviceavtal](https://azure.microsoft.com/support/legal/sla/).
@@ -78,7 +78,7 @@ Här följer några vanliga appscenarier med rekommendationer om vilket Azure-we
 * [Jag vill vara värd för ett REST-API eller en webbtjänst för mobila klienter.](#mobile)
 
 ### <a id="onprem"></a> Jag behöver en frontwebb med bakgrundsbearbetning och databas på serverdelen för att köra företagsprogram som är integrerade med lokala tillgångar.
-Azure App Service är en bra lösning för komplexa företagsprogram. Med den kan du utveckla appar som skalas automatiskt på en belastningsutjämnad plattform, skyddas med Active Directory och ansluter till dina lokala resurser. Du kan enkelt hantera apparna via en portal och API:er i världsklass, och du kan få insikt i hur kunderna använder dem med App Insights-verktyg. Med funktionen [Webjobs][Webjobs] kan du köra bakgrundsprocesser och åtgärder som en del av din webbnivå, och med funktioner för hybridanslutning och VNET kan du enkelt ansluta tillbaka till lokala resurser. Azure App Service tillhandahåller 99,9 % SLA för webbprogram och kan du:
+Azure App Service är en bra lösning för komplexa företagsprogram. Med den kan du utveckla appar som skalas automatiskt på en belastningsutjämnad plattform, skyddas med Active Directory och ansluter till dina lokala resurser. Du kan enkelt hantera apparna via en portal och API:er i världsklass, och du kan få insikt i hur kunderna använder dem med App Insights-verktyg. Den [Webjobs] [ Webjobs] funktionen kan du köra bakgrundsprocesser och åtgärder som en del av din webbnivå, hybridanslutning och VNet-funktioner gör det enkelt att ansluta tillbaka till lokala resurser. Azure App Service tillhandahåller 99,9 % SLA för webbprogram och du kan:
 
 * Köra program tillförlitligt på en självåterställande molnplattform med automatiska korrigeringar.
 * Skala automatiskt över ett globalt nätverk av datacenter.
@@ -104,7 +104,7 @@ Azure App Service gör det enkelt att undvika infrastrukturkostnader vid migreri
 * flytta SQL-databasen automatiskt tillsammans med ditt äldre program.
 
 ### <a id="smallbusiness"></a>Jag har ett litet företag och behöver ett billigt värdalternativ för min webbplats, men med möjlighet att växa i framtiden.
-Azure App Service är en bra lösning för det här scenariot eftersom du kan börja använda det gratis och sedan lägga till fler funktioner när du behöver dem. Varje kostnadsfri webbapp levereras med en domän från Azure (*ditt_företag*.azurewebsites.net) och plattformen har integrerade verktyg för distribution och hantering och ett appgalleri som gör det enkelt att komma igång. Det finns många andra tjänster och skalningsalternativ som gör att webbplatsen kan växa vid ökade behov. Med Azure App Service kan du:
+Azure Apptjänst är en bra lösning för det här scenariot eftersom du kan börja använda det kostnadsfritt och sedan lägga till flera funktioner när du behöver dem. Varje kostnadsfri webbapp levereras med en domän från Azure (*ditt_företag*.azurewebsites.net) och plattformen har integrerade verktyg för distribution och hantering och ett appgalleri som gör det enkelt att komma igång. Det finns många andra tjänster och skalningsalternativ som gör att webbplatsen kan växa vid ökade behov. Med Azure App Service kan du:
 
 * börja med den kostnadsfria nivån och skala upp efter behov.
 * använda appgalleriet för att snabbt komma igång med populära webbappar, till exempel WordPress.
@@ -145,7 +145,7 @@ Om ditt ramverk med öppen källkod stöds i App Service konfigureras de språk 
 Om App Service inte stöder ditt ramverk med öppen källkod kan du köra det på något av de andra Azure-webbvärdalternativen. Med Virtual Machines installerar och konfigurerar du programvara på datoravbildningen, som kan vara baserad på Windows eller Linux.
 
 ### <a id="lob"></a>Jag har en verksamhetsspecifik app som behöver ansluta till företagets nätverk
-Om du vill skapa en verksamhetsspecifik app kanske din webbplats behöver direkt åtkomst till tjänster eller data i företagsnätverket. Detta är möjligt i App Service, Service Fabric och Virtual Machines med hjälp av [Azure Virtual Network-tjänsten](/azure/virtual-network/). På App Service kan du använda [VNET-integrationsfunktionen](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) som gör att dina Azure-program körs som om de befann sig i företagsnätverket.
+Om du vill skapa en verksamhetsspecifik app kanske din webbplats behöver direkt åtkomst till tjänster eller data i företagsnätverket. Detta är möjligt i App Service, Service Fabric och Virtual Machines med hjälp av [Azure Virtual Network-tjänsten](/azure/virtual-network/). På App Service kan du använda den [VNet-integrationsfunktionen](/azure/app-service/web-sites-integrate-with-vnet), vilket gör att dina Azure-program körs som om de befann sig i företagsnätverket.
 
 ### <a id="mobile"></a>Jag vill vara värd för ett REST-API eller en webbtjänst för mobila klienter
 Med HTTP-baserade webbtjänster kan du stödja flera olika klienter, inklusive mobila klienter. Ramverk som ASP.NET Web API kan integreras med Visual Studio för att göra det enklare att skapa och använda REST-tjänster.  Dessa tjänster exponeras från en webbslutpunkt så att du kan använda valfri webbvärdteknik i Azure för det här scenariot. App Service ett bra alternativ för att vara värd för REST-API:er. Med App Service kan du:
@@ -157,8 +157,6 @@ Med HTTP-baserade webbtjänster kan du stödja flera olika klienter, inklusive m
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett konto går du till <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>. Där kan du direkt skapa en tillfällig startapp i Azure App Service utan kostnad. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
 
 ## <a id="nextsteps"></a> Nästa steg
 Mer information om de tre webbvärdalternativen finns i [Introduktion till Azure](../fundamentals-introduction-to-azure.md).

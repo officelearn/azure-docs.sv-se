@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955232"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762902"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Använda Twilio för röst- och SMS-funktioner från Azure
 Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med Twilio-API-tjänsten på Azure. Scenarier som omfattas är ringa ett samtal och skicka ett meddelande om tjänsten SMS (Short Message). Mer information om Twilio och använda röst och SMS i dina program finns i den [nästa steg](#NextSteps) avsnittet.
@@ -30,7 +30,7 @@ Twilio driva framtidens business-kommunikation, så att utvecklare kan bädda in
 **Twilio-röst** kan dina program kan ringa och ta emot samtal. **Twilio-SMS** gör att dina program för att skicka och ta emot SMS-meddelanden. **Twilio-klienten** kan du se VoIP-anrop från valfri telefon, surfplatta eller webbläsare och har stöd för WebRTC.
 
 ## <a id="Pricing"></a>Twilio priser och specialerbjudanden
-Azure-kunder får en [specialerbjudande](https://www.twilio.com/azure): kostnadsfri $10 av Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-kredit kan tillämpas på all Twilio-användning (10 USD kredit motsvarar skicka upp till 1 000 SMS-meddelanden eller ta emot upp till 1 000 inkommande röst minuter beroende på platsen för din telefon och meddelandet eller anrop mål). Lösa in den här Twilio-kredit och kom igång med [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+Azure-kunder får en [specialerbjudande](https://www.twilio.com/azure): kostnadsfri $10 av Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-kredit kan tillämpas på all Twilio-användning (10 USD kredit motsvarar skicka upp till 1 000 SMS-meddelanden eller ta emot upp till 1 000 inkommande röst minuter beroende på platsen för din telefon och meddelandet eller anrop mål). Lösa in den här Twilio-kredit och kom igång med [twilio.com/azure](https://twilio.com/azure).
 
 Twilio är en betala per tjänst. Det finns inga avgifter för konfiguration och du kan avsluta ditt konto när som helst. Du hittar mer information finns på [Twilio priser](https://www.twilio.com/voice/pricing).
 
@@ -51,7 +51,7 @@ Här följer en lista över Twilio-verb.  Läs mer om andra verb och funktioner 
 * `<Pause>`: Väntar tyst under ett angivet antal sekunder.
 * `<Record>`: Registrerar anroparens röst och returnerar en URL till en fil som innehåller inspelningen.
 * `<Redirect>`: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* `<Reject>`: Om du avvisar en inkommande anrop till Twilio-nummer utan fakturering du
+* `<Reject>`: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
 * `<Say>`: Konverterar text till tal som görs på ett anrop.
 * `<Sms>`: Skickar ett SMS-meddelande.
 
@@ -115,7 +115,7 @@ Som standard installerar Microsoft Visual Studio 2010 version 1.2 av NuGet. Twil
 5. Skriv i sökrutan online *twilio*.
 6. Klicka på **installera** Twilio-paketet.
 
-## <a id="howto_make_call"></a>Så här: göra ett externt anrop
+## <a id="howto_make_call"></a>Hur: Göra ett externt anrop
 Följande visar hur du gör en utgående anropa med hjälp av den **CallResource** klass. Den här koden använder också en Twilio-angivna plats för att returnera Twilio Markup Language (TwiML)-svaret. Ersätt värdena för den **till** och **från** telefonnummer och se till att du kontrollerar den **från** telefonnummer för ditt Twilio-konto innan du kör koden.
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 Mer information om de parametrar som skickas till den **CallResource.Create** metod, se [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
-Som tidigare nämnts använder den här koden en Twilio-angivna plats för att returnera TwiML-svar. Du kan i stället använda en egen plats för att tillhandahålla TwiML svaret. Mer information finns i [så här: Ange TwiML svar från din egen webbplats](#howto_provide_twiml_responses).
+Som tidigare nämnts använder den här koden en Twilio-angivna plats för att returnera TwiML-svar. Du kan i stället använda en egen plats för att tillhandahålla TwiML svaret. Mer information finns i [Gör så här: Ange TwiML svar från din egen webbplats](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Så här: skicka ett SMS-meddelande
+## <a id="howto_send_sms"></a>Hur: Skicka ett SMS-meddelande
 Skärmbilden nedan visar hur du skickar ett SMS-meddelande med den **MessageResource** klass. Den **från** tal kommer från Twilio för utvärderingskonton att skicka SMS-meddelanden. Den **till** tal måste verifieras för ditt Twilio-konto innan du kör koden.
 
 ```csharp
@@ -172,8 +172,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>Så här: Ange TwiML svar från din egen webbplats
-När programmet startar ett anrop till Twilio-API – till exempel den **CallResource.Create** metoden - Twilio skickar din begäran till en URL som kan förväntas returnera ett TwiML svar. I exemplet i [så här: göra ett externt anrop](#howto_make_call) använder URL: en med Twilio-angivna [ https://twimlets.com/message ] [ twimlet_message_url] att returnera svaret.
+## <a id="howto_provide_twiml_responses"></a>Hur: Ange TwiML svar från din egen webbplats
+När programmet startar ett anrop till Twilio-API – till exempel den **CallResource.Create** metoden - Twilio skickar din begäran till en URL som kan förväntas returnera ett TwiML svar. I exemplet i [så här: Göra ett externt anrop](#howto_make_call) använder URL: en med Twilio-angivna [ https://twimlets.com/message ] [ twimlet_message_url] att returnera svaret.
 
 > [!NOTE]
 > Medan TwiML är avsedd för användning av webbtjänster, kan du visa TwiML i webbläsaren. Klicka till exempel [ https://twimlets.com/message ] [ twimlet_message_url] att se en tom `<Response>` elementet; Klicka på ett annat exempel är [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) att se en `<Response>` element som innehåller en &lt;Say&gt; element.

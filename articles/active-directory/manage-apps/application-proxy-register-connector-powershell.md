@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170830"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792526"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installationsskript för Azure AD Application Proxy connector
 
@@ -34,7 +34,7 @@ Den här funktionen är användbar när du vill:
 * Integrera kopplingsinstallationen och registrering som en del av en annan procedur.
 * Skapa en standard server-avbildning som innehåller connector-bitar, men har inte registrerats.
 
-För den [Application Proxy connector](application-proxy-connectors.md) för att fungera, så måste den vara registrerad med Azure AD-katalogen med hjälp av en global administratör och lösenord. Den här informationen anges normalt under kopplingsinstallationen i en popup-dialogruta, men du kan använda PowerShell för att automatisera den processen i stället.
+För den [Application Proxy connector](application-proxy-connectors.md) för att fungera, så måste den vara registrerad med Azure AD-katalogen med hjälp av en programadministratör och ett lösenord. Den här informationen anges normalt under kopplingsinstallationen i en popup-dialogruta, men du kan använda PowerShell för att automatisera den processen i stället.
 
 Det finns två steg för en obevakad installation. Installera först anslutningen. Dessutom registrera anslutningsverktyget med Azure AD. 
 

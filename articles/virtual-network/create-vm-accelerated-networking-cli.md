@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213304"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805371"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en Linux-dator med Accelererat nätverk
 
@@ -42,13 +42,16 @@ Fördelarna med accelererat nätverk gäller endast för den virtuella datorn so
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 Följande distributioner stöds direkt från Azure-galleriet: 
-* **Ubuntu 16.04 +** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Ubuntu 14.04 med azure linux-kernel**
+* **Ubuntu 16.04 eller senare** 
+* **SLES12 SP3 eller senare** 
+* **RHEL 7.4 eller senare**
+* **CentOS 7.4 eller senare**
 * **CoreOS Linux**
 * **Debian ”utvidga” med backportar kernel**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 och senare med Red Hat kompatibla Kernel (RHCK)**
+* **Oracle Linux 7.5 och senare med UEK version 5**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>Begränsningar och villkor
 

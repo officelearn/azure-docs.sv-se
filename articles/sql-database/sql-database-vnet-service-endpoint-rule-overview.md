@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887127"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805201"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
 
@@ -197,7 +197,7 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
    > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till SQL Database-servern.
+1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
 
    > [!NOTE] 
    > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

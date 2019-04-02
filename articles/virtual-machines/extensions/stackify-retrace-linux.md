@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979725"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792430"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify gå tillägget för Linux-Agent
 
 ## <a name="overview"></a>Översikt
+
 Stackify tillhandahåller produkter som spårar information om ditt program för att hitta och åtgärda problem snabbt. För utvecklare grupper är gå helt integrerad, miljöer, app prestanda överordnad upphöjt. Den kombinerar flera verktyg måste varje Utvecklingsteamet.
 
 Gå är det endast som innehåller alla av följande funktioner över alla miljöer i en enda plattform.
@@ -40,6 +41,7 @@ Det här tillägget tillhandahåller en installationssökvägen för Linux-agent
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem 
+
 Bläddra-agenten kan köras mot dessa Linux-distributioner
 
 | Distribution | Version |
@@ -50,12 +52,14 @@ Bläddra-agenten kan köras mot dessa Linux-distributioner
 | CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
+
 Stackify-agenttillägg för Linux kräver att den virtuella måldatorn är ansluten till internet. 
 
 Du kan behöva justera din nätverkskonfiguration för att tillåta anslutningar till Stackify, se https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
+
 ---
 
 Följande JSON visar schemat för Stackify gå Agent-tillägget. Tillägget kräver den `environment` och `activationKey`.
@@ -151,7 +155,7 @@ Den `Set-AzVMExtension` kommando kan användas för att distribuera Stackify gå
 
 Tillägget kräver den `environment` och `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

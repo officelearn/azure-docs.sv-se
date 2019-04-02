@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 028b36cc442ccef8af4aa401846cbacdaaab35bf
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428490"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793568"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb, det kan omvandlas och lagras med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -40,7 +40,7 @@ Göra en HTTP PUT-begäran med hjälp av följande URL: en mall för att skapa e
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Ersätt `{your service}` med namnet på din API Management-tjänstinstans.
-* Ersätt `{new logger name}` med önskat namn för din nya loggaren. Du hänvisar till det här namnet när du konfigurerar den [log till eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) princip
+* Ersätt `{new logger name}` med önskat namn för din nya loggaren. Du hänvisar till det här namnet när du konfigurerar den [log till eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) princip
 
 Lägg till följande rubriker i begäran:
 

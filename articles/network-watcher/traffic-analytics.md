@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081074"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805065"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -64,6 +64,7 @@ Du kan använda trafikanalys för NSG: er i någon av de följande regionerna so
 * Centrala USA
 * Västra USA
 * Västra USA 2
+* Frankrike, centrala
 * Västra Europa
 * Norra Europa
 * Södra Brasilien
@@ -71,20 +72,26 @@ Du kan använda trafikanalys för NSG: er i någon av de följande regionerna so
 * Storbritannien, södra
 * Östra Australien
 * Sydöstra Australien
+* Östasien
 * Sydostasien
+* Sydkorea, centrala
 * Indien, centrala
 * Södra Indien
 * Östra Japan 
+* Västra Japan
 * Virginia (USA-förvaltad region)
 
 Log Analytics-arbetsytan måste finnas i följande regioner:
 * Centrala Kanada
 * Västra centrala USA
+* Västra USA 2
 * Östra USA
+* Frankrike, centrala
 * Västra Europa
 * Storbritannien, södra
 * Sydöstra Australien
 * Sydostasien
+* Sydkorea, centrala
 * Indien, centrala
 * Östra Japan
 * Virginia (USA-förvaltad region)

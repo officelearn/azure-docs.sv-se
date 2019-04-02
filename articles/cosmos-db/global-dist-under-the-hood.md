@@ -4,15 +4,15 @@ description: Den här artikeln ger teknisk information som rör global distribut
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: a599be52575ed06cdb3a3713fc2f0915ab2f6c2b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407495"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762420"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globala data-distribution med Azure Cosmos DB – under huven
 
@@ -50,17 +50,17 @@ En fysisk partition är materialiserad som en fristående och dynamiskt belastni
 
 ## <a name="partition-sets"></a>Partitionsuppsättningarna
 
-En grupp med fysiska partitioner från var och en av de konfigurerade med databasregioner Cosmos består för att hantera samma uppsättning nycklar replikeras över alla konfigurerade regioner. Den här högre samordning primitiv kallas för en partition-set - ett geografiskt distribuerade dynamisk överlägg över fysiska partitioner som hanterar en viss uppsättning nycklar. När en viss fysisk partition (en-replikuppsättning) är begränsad i ett kluster, en partitionsuppsättning kan sträcka sig över kluster, Datacenter och geografiska områden som visas i följande bild:  
+En grupp med fysiska partitioner från var och en av de konfigurerade med databasregioner Cosmos består för att hantera samma uppsättning nycklar replikeras över alla konfigurerade regioner. Den här högre samordning primitiv kallas en *partition-set* -ett geografiskt distribuerade dynamisk överlägg över fysiska partitioner som hanterar en viss uppsättning nycklar. När en viss fysisk partition (en-replikuppsättning) är begränsad i ett kluster, en partitionsuppsättning kan sträcka sig över kluster, Datacenter och geografiska områden som visas i bilden nedan:  
 
 ![Partitionsuppsättningarna](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Du kan tänka dig en partitionsuppsättning som geografiskt spridda ”super-replikuppsättningar”, som består av flera-replikuppsättningar ägande samma uppsättning nycklar. Liknar en replikuppsättning, en partition-set medlemskap är också dynamiskt – det varierar beroende på implicit fysisk partition hanteringsåtgärder Lägg till/ta bort nya partitioner till och från en viss partitionsuppsättning (till exempel när du skalar ut dataflöde på en behållare, Lägg till/ta bort en region till din Cosmos-databas, eller när fel uppstår) Tack vare att var och en av partitionerna (i en partitionsuppsättning) hantera partition-set-medlemskap i en egen replikuppsättningen, medlemskapet är fullständigt decentraliserad och mycket tillgängligt. Topologin för överlägg mellan fysiska partitioner upprättas också under omkonfiguration av en partitionsuppsättning. Topologin väljs dynamiskt baserat på konsekvensnivå, geografiska avstånd och tillgänglig nätverksbandbredd mellan käll- och mål fysiska partitioner.  
+Du kan tänka dig en partitionsuppsättning som geografiskt spridda ”super-replikuppsättningar”, som består av flera-replikuppsättningar ägande samma uppsättning nycklar. Liknar en replikuppsättning, en partition-set medlemskap är också dynamiskt – det varierar beroende på implicit fysisk partition hanteringsåtgärder Lägg till/ta bort nya partitioner till och från en viss partitionsuppsättning (till exempel när du skalar ut dataflöde på en behållare, Lägg till/ta bort en region till din Cosmos-databas, eller när fel uppstår). Medlemskapet är fullständigt decentraliserad och med hög tillgänglighet tack vare med var och en av partitionerna (i en partitionsuppsättning) hantera partition-set-medlemskap i en egen replikuppsättningen. Topologin för överlägg mellan fysiska partitioner upprättas också under omkonfiguration av en partitionsuppsättning. Topologin väljs dynamiskt baserat på konsekvensnivå, geografiska avstånd och tillgänglig nätverksbandbredd mellan käll- och mål fysiska partitioner.  
 
 Tjänsten kan du konfigurera Cosmos-databaser med en enda skrivregionen eller flera Skriv-regioner och beroende på valet-partitionsuppsättningarna är konfigurerade för att godkänna skrivningar i exakt en eller alla regioner. Systemet använder ett två nivåer, kapslade konsensus-protokoll – en nivå fungerar inom replikerna för en replikuppsättning av en fysisk partition som tar emot skrivningar och den andra fungerar på nivån för en partitionsuppsättning att ge fullständig skrivordning garanterar för alla allokerade skrivningar i partition-uppsättningen. Den här flera lager, kapslade konsensus är viktigt för implementeringen av våra strikta serviceavtal för hög tillgänglighet, samt implementeringen av konsekvensmodeller som Cosmos DB erbjuder sina kunder.  
 
 ## <a name="conflict-resolution"></a>Konfliktlösning
 
-Våra design för update-spridning, konfliktlösning och orsakssamband spåra inspiration från det tidigare arbetet på [klövsjukeepidemin algoritmer](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) och [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) system. Kärnor på idéer har texten, överlevt och ange en lämplig referensram för att kommunicera Cosmos-DB systemdesign, har de också genomgått betydande omvandling som vi tillämpade dem Cosmos DB-system. Detta krävs, eftersom de tidigare system utformades varken med resurs-styrning eller med en skala som Cosmos DB måste att fungera och inte heller att tillhandahålla funktioner (till exempel begränsad föråldring konsekvens) och strikta och omfattande Serviceavtal som Cosmos DB levererar till sina kunder.  
+Våra design för update-spridning, konfliktlösning och orsakssamband spåra inspiration från det tidigare arbetet på [klövsjukeepidemin algoritmer](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) och [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) system. Kärnor på idéer har texten, överlevt och ange en lämplig referensram för att kommunicera Cosmos-DB systemdesign, har de också genomgått betydande omvandling som vi tillämpade dem Cosmos DB-system. Detta krävs, eftersom de tidigare system utformades varken med resurs-styrning eller med en skala som Cosmos DB måste ska fungera, och inte heller tillhandahålla funktioner (till exempel begränsad föråldring konsekvens) och den strikta och omfattande serviceavtal som Cosmos DB levererar till sina kunder.  
 
 Kom ihåg att en partitionsuppsättning distribueras över flera regioner och följer Cosmos DB-databaser (multimaster) replikering-protokollet för att replikera data mellan de fysiska partitioner som består av en viss partitionsuppsättning. Varje fysisk partition (av en partitionsuppsättning) accepterar skrivningar och används vanligtvis läsningar för klienter som är lokala för den regionen. Skrivningar som accepteras av en fysisk partition inom en region är varaktigt allokerat och gjort högtillgänglig inom fysisk partition innan de blir erkända till klienten. Här är preliminär skrivningar och sprids till andra fysiska partitioner i partition-uppsättningen med hjälp av en anti entropi-kanal. Klienter kan begära preliminär eller allokerade skrivningar genom att skicka en rubrik för begäran. Anti entropi spridning (inklusive frekvensen för spridning) är dynamiskt, baserat på topologin för partition-set, regionala närhet fysiska partitioner och konsekvens som konfigurerats nivå. Cosmos DB följer ett schema för primära genomförandet med en dynamiskt valda avgörandet partition inom en partitionsuppsättning. Avgörandet valet är dynamisk och är en del av omkonfiguration av partitionen-set baserat på överlägget topologi. Allokerade skrivningar (inklusive flera row/batchar uppdateringar) garanterat beställas. 
 
@@ -68,21 +68,21 @@ Vi använder kodade vektor klockor (som innehåller region-ID och logiska klocko
 
 För Cosmos-databaser som konfigurerats med flera Skriv-regioner, innehåller systemet ett antal flexibla automatisk konflikt lösning principer för utvecklare att välja bland, inklusive: 
 
-- Senaste-Write-Wins (LWW) som normalt används en systemdefinierade tidsstämpelsegenskapen (som baseras på protokollet tidssynkronisering clock). Cosmos DB kan du ange någon annan anpassad numeriska egenskap som ska användas för konfliktlösning.  
-- Programdefinierade anpassade principen för konfliktlösning (uttryckt via merge procedurer) som är avsett för programdefinierade semantik avstämningen av konflikter. De här procedurerna hämta anropas vid identifiering av Skriv-Skriv-konflikt inom ramen för en databastransaktion på serversidan. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande. Det finns flera exempel som är tillgängliga för dig att experimentera med.  
+- **Senaste-Write-Wins (LWW)**, som normalt används en systemdefinierade tidsstämpelsegenskapen (som baseras på protokollet tidssynkronisering clock). Cosmos DB kan du ange någon annan anpassad numeriska egenskap som ska användas för konfliktlösning.  
+- **Programdefinierade (anpassat) står i konflikt principen** (uttryckt via merge procedurer), som är utformat för programdefinierade semantik avstämningen av konflikter. De här procedurerna hämta anropas vid identifiering av Skriv-Skriv-konflikt inom ramen för en databastransaktion på serversidan. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande. Det finns [flera står i konflikt lösning exempel](how-to-manage-conflicts.md) som du kan experimentera med.  
 
 ## <a name="consistency-models"></a>Konsekvensmodeller
 
-Om du konfigurerar din Cosmos-databas med en eller flera Skriv-regioner kan välja du mellan fem väldefinierade konsekvensmodeller. Med stöd för att aktivera flera Skriv-regioner som nyligen lagts till följer några viktiga aspekter av konsekvensnivåerna:  
+Om du konfigurerar din Cosmos-databas med en eller flera Skriv-regioner kan välja du mellan fem väldefinierade konsekvensmodeller. Med flera Skriv-regioner följer några viktiga aspekter av konsekvensnivåerna:  
 
-Som garanterar tidigare, begränsad föråldring konsekvens att alla läsningar inom k-prefix eller t sekunder från den senaste skrivningen i någon av regionerna. Dessutom är läsningar med begränsad föråldring, konsekvens garanterat Monoton och med konsekvent prefix garantier. Protokollet anti entropi fungerar på ett sätt som rate-limited och garanterar att ackumuleras inte prefixen och givet på skrivningar har inte tillämpas. Som tidigare, läsa sessionen konsekvens garanterar Monoton läsa Monoton skriva dina egna skrivningar, skrivning-följer-Läs- och konsekvent prefix att garanterar över hela världen. För databaser som konfigurerats med stark konsekvens, fördelarna med multi-hantering (låg skrivfördröjningen, hög skrivning tillgänglighet) gäller inte på grund av synkron replikering över regioner.
+Begränsad föråldring konsekvens garanterar att alla läsningar inom *K* prefix eller *T* sekunder från den senaste skrivningen i någon av regionerna. Dessutom är läsningar med begränsad föråldring, konsekvens garanterat Monoton och med konsekvent prefix garantier. Protokollet anti entropi fungerar på ett sätt som rate-limited och garanterar att ackumuleras inte prefixen och givet på skrivningar har inte tillämpas. Session konsekvensgarantier Monoton läsa Monoton skriva, läsa dina egna skrivningar, skrivning-följer garantier skrivskyddad och konsekvent prefix, över hela världen. För databaser som konfigurerats med stark konsekvens, gäller inte fördelarna med flera Skriv-regioner (låg skrivfördröjningen, hög skrivning tillgänglighet), på grund av synkron replikering över regioner.
 
-Semantiken för de fem konsekvensmodeller i Cosmos DB beskrivs [här](consistency-levels.md) och matematiskt visas med hjälp av en övergripande TLA + specifikationer [här](https://github.com/Azure/azure-cosmos-tla).
+Semantiken för de fem konsekvensmodeller i Cosmos DB beskrivs [här](consistency-levels.md), och matematiskt beskrivs med hjälp av en övergripande TLA + specifikationer [här](https://github.com/Azure/azure-cosmos-tla).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig sedan att konfigurera global distribution med hjälp av följande artiklar:
 
-* [Så här konfigurerar du klienter för flera värdar](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Lägg till/ta bort regioner från ditt databaskonto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Så här skapar du en principen för anpassad konfliktlösning för SQL-API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Så här konfigurerar du klienter för flera värdar](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Så här skapar du en principen för anpassad konfliktlösning](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

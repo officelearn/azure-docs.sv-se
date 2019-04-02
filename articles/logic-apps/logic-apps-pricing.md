@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 4e5b63642b5090b50d29d6d3adc49ea683b90faa
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437721"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805184"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -38,12 +38,12 @@ Med Azure Logic Apps-mätare alla åtgärder som körs i din logikapp. Mer infor
 
 ## <a name="fixed-pricing-model"></a>Fast prismodellen
 
-För nya logic apps som körs i en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), du betalar ett fast månadspris för inbyggda åtgärder och anslutningsappar av standardtyp. En ISE kan du skapa och köra isolerade logikappar som kan komma åt resurser i Azure-nätverk.
+En [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett privat, isolerad och dedikerad sätt för dig att skapa och köra logikappar som kan komma åt resurser i Azure-nätverk. För nya logic apps som körs i en ISE kan betalar du ett fast månadspris för inbyggda åtgärder och anslutningsappar av standardtyp. Din ISE innehåller också en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på priset för Enterprise-förbrukning. 
+
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt.
 
 > [!NOTE]
 > ISE är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer specifik prisinformation finns i [Azure Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
-
-Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Din ISE innehåller en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise-anslutningar debiteras baserat på priset för Enterprise-förbrukning.
 
 <a name="connectors"></a>
 

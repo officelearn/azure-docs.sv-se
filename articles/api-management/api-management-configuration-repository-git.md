@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851354"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793279"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -57,7 +57,7 @@ Om du vill visa och konfigurera dina inställningar för Git, kan du klicka på 
 >
 >
 
-Information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns i [aktivera eller inaktivera Git-åtkomst med hjälp av REST-API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns i [aktivera eller inaktivera Git-åtkomst med hjälp av REST-API](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Spara konfigurationen av Git-lagringsplatsen
 
@@ -69,7 +69,7 @@ Efter en liten stund konfigurationen sparas och visas status för konfiguration 
 
 När konfigurationen har sparats i databasen, kan det klonas.
 
-Information om hur du utför den här åtgärden med hjälp av REST-API finns i [Commit configuration ögonblicksbild med hjälp av REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Information om hur du utför den här åtgärden med hjälp av REST-API finns i [Commit configuration ögonblicksbild med hjälp av REST API](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Klona lagringsplatsen till din lokala dator
 
@@ -266,7 +266,7 @@ Information om andra sätt att hantera din tjänstinstans finns i:
   * [Tjänstdistributionen PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/module/wds)
   * [Service management PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Hantera din tjänstinstans med hjälp av REST-API
-  * [API Management REST API-referens](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API-referens](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

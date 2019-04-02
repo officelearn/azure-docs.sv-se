@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b603d7848dfe427bb6f5e43319c6bea8eccb5e0a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258419"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803237"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen 
 
@@ -28,15 +28,15 @@ ms.locfileid: "58258419"
 > * [NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
+
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Azure Media Services laddar du upp digitala filer till en tillgång. Tillgången kan innehålla video, ljud, bilder, samlingar med miniatyrbilder, textspår och filer med dold textning (samt metadata för dessa filer). När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
-> [!NOTE]
-> Media Services har en maximal filstorlek för bearbetning av filer. Mer information om storleksgränser för filer finns i avsnittet om [kvoter och begränsningar för Media Services](media-services-quotas-and-limitations.md).
->
+Media Services har en maximal filstorlek för bearbetning av filer. Mer information om storleksgränser för filer finns i avsnittet om [kvoter och begränsningar för Media Services](media-services-quotas-and-limitations.md).
+
+Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="upload-files"></a>Överföra filer
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).

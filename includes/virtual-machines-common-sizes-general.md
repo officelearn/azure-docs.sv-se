@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904517"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58763334"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
-- Den [DC-serien](#dc-series) är en ny serie av virtuella datorer i Azure som kan hjälpa att skydda sekretessen och integriteten hos dina data och code medan den bearbetas i det offentliga molnet. Dessa datorer backas upp av den senaste generationen i 3,7 GHz Intel XEON E - 2176G-Processor med SGX-teknik. Dessa datorer kan gå upp till 4.7 GHz med Intel Turbo Boost Technology. DC-serieinstanser kan kunder skapa säkra enklav-baserade program kan skydda sin kod och data medan det används.
+- Den [DC-serien](#dc-series) är en ny serie av virtuella datorer i Azure som kan hjälpa att skydda sekretessen och integriteten hos dina data och code medan den bearbetas i det offentliga molnet. De här datorernas backas av den senaste generationens Intel XEON E-2176G-processor på 3,7 GHz med SGX-teknik. Med Intel Turbo Boost Technology kan de här datorerna nå 4,7 GHz. DC-serien gör att kunder kan skapa säkra, enklavbaserade program som skyddar kod och data medan de används.
 
 - Virtuella datorer i Av2-serien kan distribueras på en rad olika maskinvarutyper och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbetsbelastningar på ingångsnivån som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 
@@ -32,32 +32,34 @@ VM-storlekar för generell användning ger balanserat förhållande mellan proce
 
 ## <a name="b-series"></a>B-serien
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 Virtuella datorer med burst B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med ett pris medvetna baslinje-prestanda som gör att den Virtuella datorinstansen att bygga upp krediter när Virtuellt datorn använder mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn över den Virtuella datorns baslinje med upp till 100% av CPU när ditt program kräver mer processorkraft.
 
 Exemplen omfattar utveckling och testning, webbservrar med låg trafik, små databaser, mikrotjänster, servrar för proof-of-concept, kompileringsservrar.
 
 
-| Storlek             | Virtuell processor  | Minne: GiB | Lokal SSD: GiB | Grundläggande Perf av en kärna | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max lokal disk perf: IOPS / Mbit/s | Maximalt icke cachelagrat disk perf: IOPS / Mbit/s | Maximalt antal nätverkskort |          
-|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
-| Standard_B1ms | 1           | 2              | 4                          | 20 %                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
-| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | 60%                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
-| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Storlek             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för virtuell dator | Max CPU-prestanda för virtuell dator | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5%                   | 100 %                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100 %                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | 20 %                   | 100 %                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40 %                   | 200%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200%                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90 %                   | 400%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
+<sup>1</sup> B1ls stöds endast på Linux
 
 ## <a name="dsv3-series-sup1sup"></a>Dsv3-serien <sup>1</sup>
 
-ACU: 160–190
+ACU: 160-190
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage Caching:  Stöds
 
 Dsv3-seriens storlekar bygger på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell)-processor som kan 3,5 GHz med Intel Turbo Boost Technology 2.0 och använda premium storage. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
@@ -75,18 +77,18 @@ Dsv3-seriens storlekar bygger på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-proc
 
 ## <a name="dv3-series-sup1sup"></a>Dv3-serien <sup>1</sup>
 
-ACU: 160–190
+ACU: 160-190
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 Storlekarna Dv3-serien är baserade på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor som kan uppnå upp till 3,5 GHz med Intel Turbo Boost Technology 2.0. Storlekarna i Dv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du Dsv3-storlekarna. Pris- och debiteringsmätarna för Dsv3-storlekar är samma som för Dv3-serien. 
 
 
-| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_D2_v3  | 2         | 8           | 50             | 4              | 3 000/46/23                                               | 2 / 1,000                    |
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6 000/93/46                                               | 2 / 2,000                    |
@@ -100,11 +102,11 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 
 ## <a name="dsv2-series"></a>DSv2-serien
 
-ACU: 210–250
+ACU: 210-250
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage Caching:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -118,13 +120,13 @@ Cachelagring för Premium Storage: stöds
 
 ## <a name="dv2-series"></a>Dv2-serien
 
-ACU: 210–250
+ACU: 210-250
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
-| Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar | Dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar | Dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 4              | 4 × 500            | 2/750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 8              | 8 × 500            | 2/1 500                                     |
@@ -137,14 +139,14 @@ Premium Storage cachelagring: Stöds inte
 
 ACU: 100
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 
-| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
+| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500               | 2/250                 |
+| Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500               | 2/250                 |
 | Standard_A2_v2  | 2         | 4           | 20             | 2 000 / 40 / 20                                           | 4 / 4 x 500               | 2/500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4 000 / 80 / 40                                           | 8 / 8 x 500               | 4/1 000                     |
 | Standard_A8_v2  | 8         | 16          | 80             | 8 000 / 160 / 80                                          | 16 / 16 x 500             | 8/2 000                     |
@@ -157,9 +159,9 @@ Premium Storage cachelagring: Stöds inte
 
 ## <a name="dc-series"></a>DC-serien
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage Caching: Stöds
 
 
 

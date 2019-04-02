@@ -4,16 +4,16 @@ description: Lär dig att felsöka onboarding med uppdateringshantering, ändrin
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342736"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802039"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsöka fel när onboarding-lösningar
 
@@ -25,19 +25,23 @@ Fel kan uppstå när onboarding-lösningar som uppdateringshantering eller ändr
 
 #### <a name="issue"></a>Problem
 
-Följande meddelande visas när du försöker att publicera en virtuell dator till en lösning:
+Du får något av följande meddelanden när du försöker att publicera en virtuell dator till en lösning:
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>Orsak
 
-Det här felet orsakas av felaktig eller saknas behörigheter på den virtuella datorn eller användaren.
+Det här felet orsakas av felaktig eller saknas behörigheter på den virtuella datorn, arbetsytan eller för användaren.
 
 #### <a name="resolution"></a>Lösning
 
-Se till att du har tillräckliga behörigheter för att publicera den virtuella datorn. Granska den [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen.
+Se till att du har tillräckliga behörigheter för att publicera den virtuella datorn. Granska den [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen. Om du får felet `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, kontrollera att du har den `Microsoft.OperationalInsights/workspaces/read` behörighet för att kunna hitta om den virtuella datorn har publicerats i en arbetsyta.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -79,11 +83,11 @@ Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navige
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-När du distribuerar en lösning distribueras en mängd relaterade resurser. En av dessa resurser är tillägget Microsoft Monitoring Agent eller Log Analytics-agenten för Linux. Dessa är tillägg till virtuella datorer installeras med den virtuella datorn Gästagent som ansvarar för att kommunicera med den konfigurerade Log Analytics-arbetsytan i syfte att senare samordning av hämtning av binärfiler och andra filer som den lösningen som du är beroende av när den körs.
+När du distribuerar en lösning distribueras en mängd relaterade resurser. En av dessa resurser är tillägget Microsoft Monitoring Agent eller Log Analytics-agenten för Linux. Dessa är tillägg till virtuella datorer installeras med den virtuella datorn Gästagent som ansvarar för att kommunicera med den konfigurerade Log Analytics-arbetsytan i syfte att senare samordning av hämtning av binärfiler och andra filer som den lösningen är du onboarding beror på när den körs.
 Du vanligtvis får först kännedom om MMA eller Log Analytics-agenten för Linux-installationsfel från ett meddelande som visas i Meddelandehubben. När du klickar på som meddelanden ger ytterligare information om det specifika felet. Navigering till resursen i resursgrupper och sedan till elementet distributioner i den innehåller också information om distributionsfel som uppstått.
 Installation av MMA eller Log Analytics-agenten för Linux kan misslyckas av olika orsaker och stegen för att åtgärda de här felen varierar beroende på problemet. Specifika felsökningsanvisningar följer.
 
-I följande avsnitt beskrivs olika problem som kan uppstå när onboarding som orsakar ett fel vid distribution av MMA-tillägget.
+I följande avsnitt beskrivs olika problem som du kan stöta på när onboarding som orsakar ett fel vid distribution av MMA-tillägget.
 
 ### <a name="webclient-exception"></a>Scenario: Ett undantag uppstod under en WebClient-begäran
 
@@ -113,7 +117,7 @@ Några möjliga orsaker till felet är:
 
 Kontrollera att du har rätt portar och adresser som är öppna för kommunikation. En lista över portar och adresser finns i [planerar nätverket](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scenario: Installationen misslyckades på grund av tillfälliga miljö
+### <a name="transient-environment-issue"></a>Scenario: Installationen misslyckades på grund av ett tillfälligt miljö-problem
 
 Installationen av tillägget Microsoft Monitoring Agent misslyckades under distributionen på grund av en annan installation eller åtgärd som blockerar installationen
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Några möjliga orsaker till felet är:
 
 * En annan installation pågår
-* Systemet är utlöstes för att starta om när mallen distribueras
+* Systemet utlöses om du vill starta om när mallen distribueras
 
 #### <a name="resolution"></a>Lösning
 
@@ -146,11 +150,11 @@ Det här felet är ett tillfälligt fel sin natur. Gör om distributionen för a
 
 ### <a name="installation-timeout"></a>Scenario: Tidsgräns för installation
 
-Installationen av MMA-tillägget kunde inte slutföras på grund av en tidsgräns.
+Installationen av MMA-tillägget kunde inte slutföra på grund av en tidsgräns.
 
 #### <a name="issue"></a>Problem
 
-Följande är ett exempel på ett felmeddelande som kan returneras:
+I följande exempel har ett felmeddelande som kan returneras:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Orsak
 
-Det här felet beror på den virtuella datorn är hårt belastat under installationen.
+Det här felet beror på att den virtuella datorn är hårt belastat under installationen.
 
 ### <a name="resolution"></a>Lösning
 

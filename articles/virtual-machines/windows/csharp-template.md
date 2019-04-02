@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885956"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792475"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med C# och Resource Manager-mall
+
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med C#. Mallen som du skapar distribuerar en virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
 
 En detaljerad beskrivning av resursen för virtuella datorer finns i [virtuella datorer i en Azure Resource Manager-mall](template-description.md). Mer information om alla resurser i en mall finns i [genomgång av Azure Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -44,7 +45,7 @@ NuGet-paket är det enklaste sättet att installera de bibliotek som du måste s
 1. Klicka på **verktyg** > **Nuget-Pakethanteraren**, och klicka sedan på **Pakethanterarkonsolen**.
 2. Ange följande kommandon i konsolen:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -206,15 +207,17 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
 3. Spara filen azureauth.properties.
 4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel följande PowerShell-kommando kan användas:
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
+
     
+
 ## <a name="create-the-management-client"></a>Skapa management-klienten
 
 1. Öppna filen Program.cs för projektet som du skapade och sedan lägga till dessa using-satser till de befintliga-instruktionerna överst i filen:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -226,7 +229,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
 
 2. Lägg till den här kod till Main-metoden för att skapa management-klienten:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -241,7 +244,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
 
 Lägg till kod till Main-metoden för att ange värden för programmet:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -256,7 +259,7 @@ Mall och parametrar distribueras från ett lagringskonto i Azure. I det här ste
 
 Lägg till den här koden i Main-metoden för att skapa kontot:
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -296,7 +299,7 @@ Distribuera mall och parametrar från storage-kontot som har skapats.
 
 Om du vill distribuera mallen genom att lägga till den här koden till Main-metoden:
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -315,7 +318,7 @@ Eftersom du debiteras för resurser som används i Azure, men det är alltid bra
 
 Ta bort resursgruppen genom att lägga till den här koden till Main-metoden:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -328,5 +331,6 @@ Det bör ta ungefär fem minuter för den här konsolprogram för att köra helt
 2. Innan du trycker på **RETUR** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera att skapa resurser i Azure-portalen. Klicka på distributionsstatusen för att visa information om hur du distribuerar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Om det finns problem med distributionen, är nästa steg att titta på [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Lär dig hur du distribuerar en virtuell dator och dess resurser genom att granska [distribuera en Azure virtuell dator med hjälp av C#](csharp.md).

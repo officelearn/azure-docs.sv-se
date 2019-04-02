@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 5409de8aabb52a531551abbc28ae9e873b262eba
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630724"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762437"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
@@ -52,6 +52,8 @@ När tilldelningen tas bort, tas lås som skapats av skisser bort. Resursen är 
 ## <a name="how-blueprint-locks-work"></a>Hur skissen låser arbete
 
 En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments.md) neka åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt den **skrivskyddad** eller **ta inte bort** alternativet. Neka-åtgärden läggs till av hanterade identiteten för skisstilldelningen och kan bara tas bort från artefakt resurser av samma hanterad identitet. Den här säkerhetsåtgärd tillämpar mekanismen för låsning och förhindrar att ta bort skissen låset utanför skisser.
+
+![Skissen neka tilldelning på resursgrupp](../media/resource-locking/blueprint-deny-assignment.png)
 
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför kan neka tilldelningar neka åtgärdens på skiss resurser inte kanske omedelbart i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.

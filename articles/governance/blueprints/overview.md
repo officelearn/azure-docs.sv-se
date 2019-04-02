@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Blueprint
-description: Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.
+description: Förstå hur tjänsten Azure skisser kan du skapa, definiera och distribuera artefakter i Azure-miljön.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823101"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802583"
 ---
-# <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
+# <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure skisser
 
 Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centrala IT-grupper att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Med Azure Blueprint kan utvecklingsteam snabbt skapa nya miljöer med vetskapen om att de är skapade med organisatorisk efterlevnad och innehåller en uppsättning inbyggda komponenter – som nätverk – för att påskynda utveckling och leverans.
 

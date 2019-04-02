@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215667"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793449"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -73,7 +73,7 @@ Azure-portalen visar endast de funktioner som för närvarande fungerar tillsamm
 
 App Service i Linux fungerar endast om du har valt någon av App Service-planerna [Basic, Standard eller Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) och inte har ett [kostnadsfritt eller delat](https://azure.microsoft.com/pricing/details/app-service/plans/) alternativ. Det går inte att skapa Web App for Containers i en App Service-plan som redan agerar värd för webbappar av andra typer än Linux.  
 
-På grund av en aktuell begränsning kan du inte blanda Windows- och Linux-appar i samma resursgrupp.
+Baserat på en aktuell begränsning kan blanda du inte Windows och Linux-appar i samma resursgrupp.
 
 ## <a name="troubleshooting"></a>Felsökning
 

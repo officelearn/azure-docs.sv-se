@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109145"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862870"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassians Jira och växer samman administratörshandboken för Azure Active Directory
 
@@ -112,11 +112,11 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
 * **Metadata-URL**: URL till hämta federationsmetadata från Azure AD.
 
-* **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/.
+* **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/.
 
-* **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+* **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/plugins/servlet/saml/auth.
 
-* **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+* **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*\<domän: port >*/plugins/servlet/saml/auth.
 
 * **IdP entitets-ID**: Entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
 

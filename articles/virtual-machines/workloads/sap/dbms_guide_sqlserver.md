@@ -1,6 +1,6 @@
 ---
 title: SQL Server Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar | Microsoft Docs
-description: SQL Server Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar
+description: DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992483"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881094"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992483"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -409,7 +408,7 @@ Du har flera möjligheter att utföra ”manuellt” säkerhetskopieringar av:
 2.  SQL Server 2012 CU4 och högre kan säkerhetskopiera databaserna till en Azure storage-URL.
 3.  Säkerhetskopior av Filögonblicksbilder för databasfiler i Azure Blob Storage. Den här metoden fungerar bara om dina SQL Server-filer i data och loggfiler finns i Azure blob-lagring
 
-Den första metoden är välkänd och används i många fall i en lokal världen samt. Dock lämnar den du med uppgiften att lösa längre sikt säkerhetskopieringsplatsen. Eftersom du inte vill behålla dina säkerhetskopior i 30 eller fler dagar i Azure Storage som lokalt anslutna, har du behovet av att antingen använda Azure Backup-tjänster eller något annat verktyg för tredje parts säkerhetskopiering/återställning som inkluderar hantering av åtkomst och kvarhållning för dina säkerhetskopior. Eller skapa en stor filserver i Azure med hjälp av Windows-lagringsutrymmen.
+Den första metoden är välkänd och används i många fall lokala över hela världen samt. Dock lämnar den du med uppgiften att lösa längre sikt säkerhetskopieringsplatsen. Eftersom du inte vill behålla dina säkerhetskopior i 30 eller fler dagar i Azure Storage som lokalt anslutna, har du behovet av att antingen använda Azure Backup-tjänster eller något annat verktyg för tredje parts säkerhetskopiering/återställning som inkluderar hantering av åtkomst och kvarhållning för dina säkerhetskopior. Eller skapa en stor filserver i Azure med hjälp av Windows-lagringsutrymmen.
 
 Den andra metoden som beskrivs närmare i artikeln [SQL Server-säkerhetskopiering till URL: en](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Olika versioner av SQL Server har vissa varianter i den här funktionen. Därför bör du först läsa dokumentationen för din viss kontroll för SQL Server-versionen. Viktigt att notera att den här artikeln innehåller en massa begränsningar. Antingen har du möjlighet att utföra säkerhetskopieringen mot:
 
@@ -477,8 +476,8 @@ En av metoderna för hög tillgänglighet (HA) är SQL Server-Loggöverföring. 
 SQL Server-funktioner för loggöverföring användes knappt i Azure för att uppnå hög tillgänglighet inom en Azure-region. I följande scenarier SAP-kunder men använder loggöverföring lyckad tillsammans med Azure:
 
 - Scenarier för haveriberedskap från en Azure-region till en annan Azure-region
-- Haveriberedskapskonfiguration från lokalt till en Azure-region
-- Klipp ut över scenarier från lokalt till Azure. I sådana fall används loggöverföring för att synkronisera den nya distributionen DBMS i Azure med den pågående produktion system på plats. Vid tidpunkten för övergripande över produktion är avstängd och det görs till att säkerhetskopieringarna av transaktionsloggen för senaste och de senaste fick överföras till Azure DBMS-distributionen. Sedan är DBMS i Azure-distribution öppet för produktion.  
+- Haveriberedskapskonfiguration från en lokal plats till en Azure-region
+- Klipp ut över scenarier från en lokal plats till Azure. I sådana fall används loggöverföring för att synkronisera den nya distributionen DBMS i Azure med den pågående produktion system på plats. Vid tidpunkten för övergripande över produktion är avstängd och det görs till att säkerhetskopieringarna av transaktionsloggen för senaste och de senaste fick överföras till Azure DBMS-distributionen. Sedan är DBMS i Azure-distribution öppet för produktion.  
 
 
 
@@ -525,13 +524,13 @@ Det finns ett antal kunder som använder SQL Server [Transparent datakryptering 
 ### <a name="applying-sql-server-tde"></a>Använda SQLServer transparent Datakryptering
 I fall där du genomför en heterogen migrering från en annan DBMS, som körs lokalt till Windows/SQL Server som körs i Azure, bör du skapa tom måldatabasen i SQL Server i tid. Du skulle använda SQL Server TDE-funktioner som nästa steg. Medan du fortfarande kör din produktion system på plats. Du vill utföra i den här sekvensen beror på att processen för att kryptera den tomma databasen kan ta ett tag. Processer för SAP-import skulle sedan att importera data till den krypterade databasen under fasen för driftstopp. Arbetet med att importera till en krypterad databas påverkar vägen lägre tid än att kryptera databasen efter exportfas i äldre tid fas. Negativt upplevelser med vid försök att använda transparent Datakryptering med SAP-arbetsbelastningar som körs ovanpå databasen. Rekommendation därför behandlar distributionen av TDE som en aktivitet som måste göras utan SAP-arbetsbelastningen på databasen.
 
-I fall där du flyttar SAP SQL Server-databaser från en lokal till Azure kan rekommenderar vi testning på vilken infrastruktur som du kan hämta krypteringen tillämpas snabbaste. Ha dessa uppgifter för detta i åtanke:
+I fall där du flyttar SAP SQL Server-databaser från lokalt till Azure rekommenderar vi testning på vilken infrastruktur som du kan hämta krypteringen tillämpas snabbaste. Ha dessa uppgifter för detta i åtanke:
 
 - Du kan inte definiera hur många trådar som används för att tillämpa kryptering av data till databasen. Antalet trådar är majorly beroende på antalet volymer på diskar i SQL Server-data och loggfiler filer ska distribueras över. Innebär fler olika volymer (enhetsbeteckningar), kommer engagerade flera trådar parallellt för krypteringen. En sådan konfiguration strider mot lite med tidigare disk configuration förslag på att skapa en eller ett mindre antal lagringsutrymmen för SQL Server-databasfiler i Azure virtuella datorer. En konfiguration med ett litet antal volymer skulle leda till ett litet antal trådar som körs krypteringen. En tråd som krypterar läser 64KB utrymmen, krypterar dem och sedan skriva en post i transaktionsloggfilen som talar om att utsträckning som har krypterats. Därför är belastningen på transaktionsloggen begränsad.
-- I äldre versioner av SQL Server, komprimering av säkerhetskopior inte att hämta effektivitet längre när du krypterade din SQL Server-databas. Det här beteendet kan utveckla får problem när din plan var att kryptera dina SQL Server-databas på plats och kopierar sedan en säkerhetskopia till Azure för att återställa databasen i Azure. Komprimering av säkerhetskopior i SQL Server ger vanligtvis en komprimeringsgrad på faktor 4.
+- I äldre versioner av SQL Server, komprimering av säkerhetskopior inte att hämta effektivitet längre när du krypterade din SQL Server-databas. Det här beteendet kan utveckla får problem när din plan var att kryptera dina SQL Server-databas lokalt och kopierar sedan en säkerhetskopia till Azure för att återställa databasen i Azure. Komprimering av säkerhetskopior i SQL Server ger vanligtvis en komprimeringsgrad på faktor 4.
 - Med SQL Server 2016 introducerades SQL Server de nya funktioner som gör att komprimera krypterade databaser samt på ett effektivt sätt. Se [den här bloggar](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) för vissa detaljer.
  
-Behandla tillämpningen av TDE-kryptering med Nej om du vill bara lite SAP-arbetsbelastningar, bör du testa i din specifika konfiguration på om det är bättre att tillämpa TDE på din SAP-databas lokalt eller för att göra det i Azure. I Azure, du däremot mer flexibilitet i fråga över etablering infrastruktur och minska infrastrukturen när TDE har tillämpats.
+Behandla tillämpningen av TDE-kryptering med Nej om du vill bara lite SAP-arbetsbelastningar, bör du testa i din specifika konfiguration på om det är bättre att tillämpa TDE på SAP-databas på plats eller för att göra det i Azure. I Azure, du däremot mer flexibilitet i fråga över etablering infrastruktur och minska infrastrukturen när TDE har tillämpats.
 
 ### <a name="using-azure-key-vault"></a>Med Azure Key Vault
 Azure erbjuder tjänsten av en [Key Vault](https://azure.microsoft.com/services/key-vault/) krypteringsnycklar. SQL Server på den andra sidan erbjuder en anslutning för att dra nytta av Azure Key Vault som store för TDE-certifikat.

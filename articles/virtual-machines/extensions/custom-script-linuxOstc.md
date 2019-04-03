@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437113"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882437"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 1 med Linux-datorer
 
@@ -296,8 +296,7 @@ Några saker att tänka på:
 
 1. Aktivera är när kommandot börjar köras.
 1. Download som relaterar till hämtning av paketets CustomScript-tillägget från Azure, inte skriptfiler anges i fileUris.
-1. Du kan också se vilken loggfil skrivs ut.`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. Du kan också se vilken loggfil som skriver ut till `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Nästa steg är att gå en kontroll av loggfilen, vilket format:
 

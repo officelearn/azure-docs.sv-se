@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 40b31f166ea97cfce67d3cc386062e32338ffd45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 04/01/2019
+ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455525"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847188"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Skrivskyddade repliker i Azure Database for PostgreSQL
 
 Läs replica-funktionen kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem kopior på samma Azure-region. Repliker uppdateras asynkront med PostgreSQL-motorn interna replikeringsteknik.
-
-> [!IMPORTANT]
-> Läs replica-funktionen är i offentlig förhandsversion.
 
 Repliker är nya servrar som du hanterar liknar vanliga Azure Database for PostgreSQL-servrar. Var finns replik du faktureras för den etablerade beräkningen i virtuella kärnor och lagring i GB / månad.
 

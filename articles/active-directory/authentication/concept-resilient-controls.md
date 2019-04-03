@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7a61d8c1b9ec15327836f7d31e9e299c57cb21
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316345"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886088"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -131,9 +131,9 @@ Principer för villkorlig åtkomst för oförutsedda händelser är en **inaktiv
   
 Den här namngivningsstandarden för oförutsedda händelser principer kommer att på följande sätt: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 I följande exempel: **Exempel A – Contingency CA: N för att återställa åtkomst till verksamhetskritiska Samarbetsappar**, är en typisk företagets reservplan. Organisationen kräver vanligtvis MFA för all åtkomst för Exchange Online och SharePoint Online i det här scenariot och kan avbrott i det här fallet är MFA-provider för kunden har ett avbrott (om Azure MFA, lokala MFA-provider eller tredje parts MFA). Den här principen minskar risken för avbrottet genom att tillåta specifika målanvändare åtkomst till de här apparna från betrodda Windows-enheter bara när de använder appen från betrodda företagets nätverk. Det kommer också utesluta nödfall konton och core administratörer från dessa begränsningar. Målanvändarna kommer sedan att få åtkomst till Exchange Online och SharePoint Online, medan andra användare inte kommer fortfarande har åtkomst till appar på grund av avbrottet. Det här exemplet kräver en namngiven nätverksplats **CorpNetwork** och en säkerhetsgrupp **ContingencyAccess** med målanvändare, en grupp med namnet **CoreAdmins** med den Core-administratörer och en grupp med namnet **EmergencyAccess** med åtkomst vid akutfall. Contingency kräver fyra principer för att ange att lägga till. 
 
@@ -266,7 +266,7 @@ Om din organisation använder äldre principer för MFA för per användare, kan
 * [Konfigurera namngivna platser i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Konfigurera hybrid Azure Active Directory-anslutna enheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Distributionsguide för Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Windows Hello för företag-Distributionsguide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Riktlinjer för lösenord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Vad är villkor i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

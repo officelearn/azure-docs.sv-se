@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995118"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883725"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
 
@@ -292,7 +292,7 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
 
     Projektionen innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
 
-    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY `satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal per land för anrop som var femte sekund.
+    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal per land för anrop som var femte sekund.
 
 2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg om 5-sekundersintervall.
 
@@ -418,4 +418,4 @@ Mer information om Stream Analytics i allmänhet finns i följande artiklar:
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)

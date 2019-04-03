@@ -3,27 +3,27 @@ title: Språk som stöds i Azure Maps | Microsoft Docs
 description: Lär dig mer om språk som stöds för tjänster i Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 03/30/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320500"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849645"
 ---
 # <a name="azure-maps-supported-languages"></a>Språk som stöds av Azure Maps
-Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehåller koder för språk som stöds för varje tjänst.  
+Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehåller koder för språk som stöds för varje tjänst.  
   
 
 | ID         | Namn                   |  Kartor | Search | Routning | Trafik-incidenter | JS kartkontroll | Tidszon |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| AF ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
+| af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| EU-ES      | Baskiska                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | Baskiska                 |       |    ✓   |         |                   |                |     ✓     |
 | BG-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | CA-ES      | Katalanska                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Förenklad kinesiska   |       |  zh-CN |         |                   |                |     ✓     |
@@ -32,43 +32,43 @@ Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehål
 | CS-CZ      | Tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-NL      | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NL-vara      | Nederländska (Belgien)        |       |    ✓   |         |                   |                |     ✓     |
+| nl-BE      | Nederländska (Belgien)        |       |    ✓   |         |                   |                |     ✓     |
 | en         | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| et EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
+| et-EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Franska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Franska (Kanada)      |       |    ✓   |         |                   |                |     ✓     |
-| GL-ES      | Galiciska               |       |        |         |                   |                |     ✓     |
+| gl-ES      | Galiciska               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | Tyska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| han IL      | Hebreiska                 |       |        |         |         ✓         |                |     ✓     |
+| han IL      | Hebreiska                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | Hej Indien      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Ungerska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ID-ID      | Indonesiska             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| ID-ID      | Indonesiska             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | IT-IT      | Italienska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japanska               |       |        |         |                   |                |     ✓     |
-| KK KZ      | Kazakiska                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | Kazakiska                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Koreanska                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| ES 419     | Latinamerika spanska |       |    ✓   |         |                   |                |     ✓     |
+| es-419     | Latinamerika spanska |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Lettiska                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | MS-Mina      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | NB-NO      | Norska, Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NGT        | Neutrala grunden sanningen - officiella språk för alla regioner i lokala skript om de är tillgängliga |   ✓     |        |         |                   |      ✓          |         |
-| NGT Latn   | Neutrala grunden sanningen - latinska exonyms. Latin-skript som ska användas om det är tillgängligt |   ✓     |        |         |                   |        ✓         |          |
+| NGT-Latn   | Neutral Ground Truth - Latin exonyms. Latin-skript som ska användas om det är tillgängligt |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugisiska (Brasilien)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | PT-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| RO-RO      | Rumänska               |       |        |         |         ✓         |                |     ✓     |
+| RO-RO      | Rumänska               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Ryska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbiska (kyrillisk)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbiska (kyrillisk)     |       |    Serbiska (kyrillisk) (sr-RS)   |         |                   |                |     ✓     |
 | SR-Latn-RS | Serbiska (latinsk)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Slovakiska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Slovenska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Spanska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Spanska (Mexiko)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| SV -SE     | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| TH-TH      | Thai                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| sv -SE     | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| TH-TH      | Thai                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | TR-TR      | Turkiska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ukrainska               |       |        |         |                   |                |     ✓     |
-| Vi VN      | Vietnamesiska             |       |        |         |                   |                |     ✓     |
+| uk-UA      | Ukrainska               |       |    ✓   |         |                   |                |     ✓     |
+| Vi VN      | Vietnamesiska             |       |    ✓   |         |                   |                |     ✓     |

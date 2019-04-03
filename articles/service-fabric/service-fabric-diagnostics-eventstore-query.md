@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 1b0b369f0021580d3add583f001bad04c70b03fd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661759"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879955"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Fråga EventStore APIs för klusterhändelser
 
@@ -46,10 +46,10 @@ Varje entitet i ett kluster kan vara frågor för händelser. Du kan också frå
 * Program: `/EventsStore/Applications/Events`
 * Program: `/EventsStore/Applications/<AppName>/$/Events`
 * Tjänster: `/EventsStore/Services/Events`
-* Tjänsten: `/EventsStore/Services/<ServiceName>/$/Events`
+* Tjänst: `/EventsStore/Services/<ServiceName>/$/Events`
 * Partitioner: `/EventsStore/Partitions/Events`
 * Partition: `/EventsStore/Partitions/<PartitionID>/$/Events`
-* Replicas: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
+* Repliker: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
 * Repliken: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
@@ -121,7 +121,8 @@ Här ser vi att mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, det h�
 
 Du kan också fråga EventStore programmässigt, via den [Service Fabric-klientbiblioteket](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
-När du har Service Fabric klienten ställa in kan fråga du efter händelser genom att öppna EventStore så här: ` sfhttpClient.EventStore.<request>`
+När du har Service Fabric klienten ställa in kan fråga du efter händelser genom att öppna EventStore så här:
+`sfhttpClient.EventStore.<request>`
 
 Här är en exempelbegäran för att alla händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, via den `GetClusterEventListAsync` funktion.
 
@@ -180,19 +181,23 @@ Här följer några exempel på hur du kan anropa händelse Store REST API: er o
 
 *Klusteruppgradering:*
 
-Om du vill se den senaste gången klustret har eller försökt uppgraderas förra veckan, kan du fråga API: er för nyligen utförda uppgraderingar till ditt kluster genom att fråga efter ”ClusterUpgradeCompleted”-händelser i EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
+Om du vill se den senaste gången klustret har eller försökt uppgraderas förra veckan, kan du fråga API: er för nyligen utförda uppgraderingar till ditt kluster genom att fråga efter ”ClusterUpgradeCompleted”-händelser i EventStore:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
 *Klustret uppgraderingsproblem:*
 
-På samma sätt, om det finns problem med en uppgradering av klustret, du kan fråga efter alla händelser för kluster-entiteten. Du ser olika händelser, inklusive uppgraderingar och varje UD som uppgraderingen samlas via har. Du kan även se händelser för platsen där återställningen igång och motsvarande health-händelser. Här är den fråga som du använder för detta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+På samma sätt, om det finns problem med en uppgradering av klustret, du kan fråga efter alla händelser för kluster-entiteten. Du ser olika händelser, inklusive uppgraderingar och varje UD som uppgraderingen samlas via har. Du kan även se händelser för platsen där återställningen igång och motsvarande health-händelser. Här är den fråga som du använder för detta:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Noden status ändras:*
 
-Om du vill se din nodstatusen ändras under senaste Använd dagarna – när noder gick upp eller ned, eller har aktiveras eller inaktiveras (baserat på plattform, chaos-tjänsten, eller från indata från användaren) - följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Om du vill se din nodstatusen ändras under senaste Använd dagarna – när noder gick upp eller ned, eller har aktiveras eller inaktiveras (baserat på plattform, chaos-tjänsten, eller från indata från användaren) - följande fråga:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Programhändelser:*
 
-Du kan också spåra dina senaste programdistributioner och uppgraderingar. Använd följande fråga om du vill visa programhändelser för alla i klustret: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Du kan också spåra dina senaste programdistributioner och uppgraderingar. Använd följande fråga om du vill visa programhändelser för alla i klustret:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Historiska hälsotillståndet för ett program:*
 
@@ -200,13 +205,16 @@ Förutom enbart Livscykelhändelser för programmet, kan du även vill se histor
 
 *Historiska hälsotillstånd för alla tjänster i ”myApp”:*
 
-För närvarande hälsohändelser i rapporten för tjänster som visas som `DeployedServicePackageNewHealthReport` händelser under motsvarande program entitet. Använd följande fråga om du vill se hur dina tjänster har gör för ”App1”: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+För närvarande hälsohändelser i rapporten för tjänster som visas som `DeployedServicePackageNewHealthReport` händelser under motsvarande program entitet. Använd följande fråga om du vill se hur dina tjänster har gör för ”App1”:
+`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Omkonfiguration av partitionen:*
 
-Alla partition-förflyttningar som har inträffat i klustret och fråga efter den `PartitionReconfigured` händelse. Detta kan hjälpa dig att ta reda på vilka arbetsbelastningar som kördes på vilken nod vid specifika tidpunkter, när diagnostisera problem i klustret. Här är en exempelfråga som utför som: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
+Alla partition-förflyttningar som har inträffat i klustret och fråga efter den `PartitionReconfigured` händelse. Detta kan hjälpa dig att ta reda på vilka arbetsbelastningar som kördes på vilken nod vid specifika tidpunkter, när diagnostisera problem i klustret. Här är en exempelfråga som utför som:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
 *Chaos-tjänsten:*
 
-Det finns en händelse när Chaos tjänsten startas eller stoppas som visas på klusternivå. Om du vill se dina senaste användning av tjänsten Chaos, använder du följande fråga: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+Det finns en händelse när Chaos tjänsten startas eller stoppas som visas på klusternivå. Om du vill se dina senaste användning av tjänsten Chaos, använder du följande fråga:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225373"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885952"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -150,19 +150,19 @@ Skissen innehåller ett stort antal maskerade medicinska journaler att demonstre
 
 **Platsadministratören--Alex**
 
-*E-postadress: Alex\_SiteAdmin*
+*E-post: Alex\_SiteAdmin*
 
 Alexs jobb är att utvärdera tekniker som kan minska bördan med att hantera ett lokalt nätverk och minska kostnaderna för hantering. Alex har utvärdera Azure under en viss tid, men har fastnade att konfigurera de tjänster som han behöver för att uppfylla krav på efterlevnad HiTrust att lagra tålamod Data i molnet. Alex har valt Azure hälsotillstånd AI du distribuerar en lösning för efterlevnad färdiga för hälsotillstånd som har åtgärdas kraven för att uppfylla kundens krav för HiTrust.
 
-**Datavetare – Adina**
+**Data Scientist -- Debra**
 
-*E-postadress: Debra\_DataScientist*
+*E-post: Debra\_DataScientist*
 
 Adina ansvarar för att använda och skapa modeller som analyserar medicinska journaler för att ge insikter om patientvård. Adina använder SQL och det statistiska programmeringsspråket R för att skapa sin modeller.
 
 **Databasen analytiker--Danny**
 
-*E-postadress: Danny\_DBAnalyst*
+*E-post: Danny\_DBAnalyst*
 
 Danny är den viktigaste kontakten för allt om Microsoft SQL Server som lagrar alla Patientdata för Contosoclinic. Danny är en erfaren SQL Server-administratör som har nyligen bekanta dig med Azure SQL Database.
 
@@ -173,13 +173,13 @@ Caroline använder förutsägelser från längden av stanna (LOS)-lösning för 
 
 **Care Line Manager – Chris**
 
-*E-postadress: Chris\_CareLineManager*
+*E-post: Chris\_CareLineManager*
 
 Som personen som direkt ansvarar för att hantera inskrivning och utsläpp på Contosoclinic, Chris använder förutsägelser som genereras av lösningen LOS så att det finns tillräcklig personal att förse patienter försiktighet när de stanna kvar på den anläggning.
 
 **Granskare – Han**
 
-*E-postadress: Han\_granskare*
+*E-post: Han\_granskare*
 
 Han är en certifierade granskare som har erfarenhet granskning för ISO, SOC och HiTrust. Han har anlitat för att granska Contosoclincs nätverk. Han kan granska kundens ansvar matrisen medföljer lösningen för att säkerställa att skissen och LOS lösningen kan användas för lagrar, bearbetar och visa känslig personlig information.
 

@@ -10,18 +10,18 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2f76b0a6565e5ba7c34d88a271e9770f809669dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007786"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846913"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använda underhållsscheman för att hantera uppdateringar av tjänsten och underhåll
 
 Underhållsscheman är nu tillgängliga i alla regioner för Azure SQL Data Warehouse. Den här funktionen integrerar Service Health planerat underhåll meddelanden, kontrollera Resource Health Monitor och Azure SQL Data Warehouse Underhåll schemaläggningstjänsten.
 
-Du kan använda Underhåll schemaläggning för att välja ett tidsfönster när det är lämpligt att ta emot nya funktioner, uppgraderingar och uppdateringar. Du väljer en primär och en sekundär underhållsperiod inom en period på sju dagar. Ett exempel är en primär fönster för lördag 22:00 till söndag 01:00 och ett fönster för Onsdag 19:00 till 22:00. Om SQL Data Warehouse inte kan utföra underhåll under primära underhållsperiod, försöker underhållet igen under sekundära underhållsperiod. Underhåll kan inträffa under både primärt och sekundära windows.
+Du kan använda Underhåll schemaläggning för att välja ett tidsfönster när det är lämpligt att ta emot nya funktioner, uppgraderingar och uppdateringar. Du väljer en primär och en sekundär underhållsperiod inom en period på sju dagar. Ett exempel är en primär fönster för lördag 22:00 till söndag 01:00 och ett fönster för Onsdag 19:00 till 22:00. Om SQL Data Warehouse inte kan utföra underhåll under primära underhållsperiod, försöker underhållet igen under sekundära underhållsperiod. Underhåll kan inträffa under både primärt och sekundära windows. För att säkerställa snabb slutförandet av alla underhållsåtgärder, kunde lägre data warehouse nivåerna och DW400(c) slutföra Underhåll utanför en angiven underhållsperiod.
 
 Alla nyligen skapade Azure SQL Data Warehouse har instanser ett systemdefinierade underhållsschema som tillämpas under distributionen. Schemat kan redigeras när distributionen är klar.
 
@@ -33,7 +33,7 @@ Om du vill använda den här funktionen behöver du identifiera ett primära och
 
 Integrering med Tjänstehälsa för meddelanden och en resurs Kontrollera hälsoövervakning kan kunderna håller dig informerad om kommande Underhåll aktivitet. Nya automation drar nytta av Azure Monitor. Du kan bestämma hur du vill meddelas om nära förestående underhållshändelser. Också bestämma vilka automatiserade flöden kan hjälpa dig att hantera avbrott och minimera påverkan på din verksamhet.
 
-En 24-timmarsformat förhandsinformation föregår alla underhållshändelser. Se till att ditt informationslager har inga långvariga transaktioner innan din valda underhållsperiod för att minimera driftstopp för instansen. När Underhåll startar, avbryts alla aktiva sessioner. Icke-incheckade transaktioner återställs och ditt informationslager får en kort förlust av anslutning. Du kommer att meddelas omedelbart när underhållet har slutförts på ditt informationslager.
+En 24-timmarsformat förhandsinformation föregår alla underhållshändelser, med det aktuella undantaget DW400c och lägre nivåer. Se till att ditt informationslager har inga långvariga transaktioner innan din valda underhållsperiod för att minimera driftstopp för instansen. När Underhåll startar, avbryts alla aktiva sessioner. Icke-incheckade transaktioner återställs och ditt informationslager får en kort förlust av anslutning. Du kommer att meddelas omedelbart när underhållet har slutförts på ditt informationslager.
 
 Om du har fått en avisering i förväg att Underhåll sker, men SQL Data Warehouse kan inte utföra underhåll under den tiden får du ett meddelande om annullering. Underhåll fortsätter sedan under nästa schemalagda underhållsperiod.
 

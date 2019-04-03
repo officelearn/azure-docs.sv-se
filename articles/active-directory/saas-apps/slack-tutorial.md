@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bc27abf7dd21c4996cfd8cea0c2a478cb6dfb4fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875042"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-katalogintegrering med Slack
 
@@ -53,7 +53,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att kunna konfigurera integreringen av Slack i Azure AD måste du lägga till Slack från galleriet i din lista över hanterade SaaS-appar.
 
-**Gör följande för att lägga till Slack från galleriet:**
+**Utför följande steg för att lägga till Slack från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -107,7 +107,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Slack:
 
     ![Slack – enkel inloggning-information för domän och -URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.slack.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<companyname>.slack.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://slack.com`
 
@@ -247,7 +247,7 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
 > Om du behöver skapa en användare manuellt måste du kontakta [Slack-supporten](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect är ett synkroniseringsverktyg som kan synkronisera lokala Active Directory-identiteter till Azure AD och sedan kan dessa synkroniserade användare också använda programmet som andra molnanvändare.
+> Azure AD Connect är verktyget synkronisering som kan synkronisera lokala Active Directory-identiteter till Azure AD och sedan dessa synkroniserade användare kan också använda program som vill andra molnanvändare.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -257,10 +257,10 @@ När du klickar på Slack-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](slack-provisioning-tutorial.md)
+- [Konfigurera Användaretablering](slack-provisioning-tutorial.md)

@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113222"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846970"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Skapa och hantera skrivskyddade repliker från Azure portal
 
 I den här artikeln får du lära dig hur du skapar och hanterar skrivskyddade repliker i Azure Database for PostgreSQL från Azure-portalen. Läs mer om skrivskyddade repliker i den [översikt](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> Läs replica-funktionen är i offentlig förhandsversion.
 
 ## <a name="prerequisites"></a>Förutsättningar
 En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md) vara huvudservern.
 
 ## <a name="prepare-the-master-server"></a>Förbereda huvudservern
-De här stegen måste användas för att förbereda en huvudserver på generell användning och den Minnesoptimerade nivån.
-
-Den `azure.replication_support` parametern måste anges till **REPLIKEN** på huvudservern. När den här parametern har ändrats, krävs en omstart av servern för att ändringen ska börja gälla.
+De här stegen måste användas för att förbereda en huvudserver på generell användning och den Minnesoptimerade nivån. Huvudservern är förberedd för replikering genom att ange parametern azure.replication_support. När parametern replikering har ändrats, krävs en omstart av servern för att ändringen ska börja gälla. I Azure-portalen, är dessa två steg inkapslade genom en enkel knapp, **aktivera stöd för replikering**.
 
 1. Välj befintlig Azure Database for PostgreSQL-server att använda som en Azure-portalen.
 
-2. På menyn till vänster väljer **serverparametrar**.
+2. På server-sidopanelen under **inställningar**väljer **replikering**.
 
-3. Sök efter den `azure.replication_support` parametern.
+3. Välj **aktivera Replikeringsstöd för**. 
 
-   ![Sök efter parametern azure.replication_support](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Aktivera Replikeringsstöd för](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Ange den `azure.replication_support` parametervärde **REPLIKEN**. Välj **spara** behålla dina ändringar.
+4. Bekräfta att du vill aktivera Replikeringsstöd för. Den här åtgärden startar om huvudservern. 
 
-   ![Ange parametern till REPLIK och spara dina ändringar](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Bekräfta aktivera stöd för replikering](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. Du får två meddelanden i Azure portal när åtgärden har slutförts. Det finns ett meddelande för att uppdatera Serverparametern. Det finns ett nytt meddelande för servern som följer omedelbart.
 
-5. När du har sparat ändringarna kan få du ett meddelande:
+   ![Lyckade meddelanden - aktivera](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Spara meddelande](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Uppdatera sidan för Azure portal om du vill uppdatera verktygsfältet replikering. Du kan nu skapa skrivskyddade repliker för den här servern.
 
-6. Starta om servern för att tillämpa ändringarna. Läs hur du startar om en server i [starta om en Azure Database for PostgreSQL-server](howto-restart-server-portal.md).
+   ![Uppdaterade verktygsfältet](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Aktivera Replikeringsstöd för är en engångsåtgärd per huvudservern. En **inaktivera Replikeringsstöd** knappen har angetts för din bekvämlighet. Vi rekommenderar inte att inaktivera Replikeringsstöd, såvida inte du är säker på att du aldrig skapar en replik på den här huvudservern. Du kan inte inaktivera Replikeringsstöd medan din huvudservern har befintliga replikeringar.
 
 
 ## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
@@ -52,9 +52,7 @@ Följ dessa steg om du vill skapa en skrivskyddad replik:
 
 1. Välj befintlig Azure Database for PostgreSQL-server att använda som huvudserver. 
 
-2. På servermenyn under **inställningar**väljer **replikering**.
-
-   Om du inte angett det `azure.replication_support` parameter **REPLIKEN** på en generell användning eller Minnesoptimerade huvudservern och starta om servern, visas ett meddelande. Slutföra de här stegen innan du skapar repliken.
+2. På server-sidopanelen under **inställningar**väljer **replikering**.
 
 3. Välj **lägga till en replik**.
 

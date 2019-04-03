@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ee6c18d1d0dda691f8b108cbe70e05eedae606e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9ea04a4df55bfe26f292305a75696d423db52328
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446335"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883098"
 ---
 # <a name="lcs-subscription"></a>LCS-prenumeration
 
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig hur skapar en prenumeration. Den här
 
 **Prenumeration** – en prenumeration ger dig en online-miljön. Den här miljön kan du uppleva Dynamics 365 för åtgärder i molnet och kan du också se hur anpassningar som du utvecklar kan distribueras till molnet.
 
-**Microsoft Azure Active Directory** -molnmiljön innehåller Azure Active Directory (AD), som hjälper dig att hantera användare, grupper, roller och licenser för online program, på samma sätt som hur du hanterar dem lokalt miljöer.
+**Microsoft Azure Active Directory** -molnmiljön innehåller Azure Active Directory (AD), som hjälper dig att hantera användare, grupper, roller och licenser för online program, på samma sätt som hur du hanterar dem för on-premises miljöer.
 
 **Användare** -användare av de tjänster som din organisation prenumererar hanteras i Azure AD. Alla användare i din klient kan läggas och tilldelade säkerhetsroller.
 

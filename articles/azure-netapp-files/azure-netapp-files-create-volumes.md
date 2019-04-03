@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: b45879adca58f60e5c16829a7fd2fffab33eee46
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400855"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877983"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Skapa en volym för Azure NetApp Files
 
@@ -46,7 +46,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
         Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
 
-    * **Kapacitet pool**  
+    * **Kapacitetspool**  
         Ange kapacitet poolen där du vill att volymen som ska skapas.
 
     * **Kvot**  
@@ -57,7 +57,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     * **Virtuellt nätverk**  
         Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
 
-        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan även komma åt volymen från ditt lokala nätverk via ExpressRoute.   
+        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från ditt lokala nätverk via Expressroute.   
 
     * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
@@ -96,11 +96,11 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
 
 2. Ange följande information i fönstret ansluta till Active Directory:
 
-    * **Primary DNS**   
+    * **Primär DNS**   
         Det här är domain controller IP-adressen för den önskade Active Directory Domain Services för användning med Azure NetApp-filer. 
-    * **Secondary DNS**  
+    * **Sekundär DNS**  
         Det här är domain controller IP-adressen för den sekundära Active Directory Domain Services för användning med Azure NetApp-filer. 
-    * **Domän**  
+    * **Domain**  
         Det här är domännamnet för din Active Directory Domain Services som du vill ansluta till.
     * **Prefix för SMB-server (datorkontot)**  
         Det här är namnprefix för datorkontot i Active Directory som Azure NetApp filer ska använda för att skapa nya konton.
@@ -141,7 +141,7 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
      
         Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt.  
 
-    * **Kapacitet pool**  
+    * **Kapacitetspool**  
         Ange kapacitet poolen där du vill att volymen som ska skapas.
 
     * **Kvot**  
@@ -152,7 +152,7 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
     * **Virtuellt nätverk**  
         Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
 
-        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan även komma åt volymen från ditt lokala nätverk via ExpressRoute.   
+        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från ditt lokala nätverk via Expressroute.   
 
     * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
@@ -179,6 +179,6 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Montera eller demontera en volym för Windows eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Konfigurera princip för export för en NFS-volym](azure-netapp-files-configure-export-policy.md)
-* [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Montera eller demontera en volym för virtuella Windows- eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Konfigurera exportprincipen för en NFS-volym](azure-netapp-files-configure-export-policy.md)
+* [Lär dig mer om virtual network-integration för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

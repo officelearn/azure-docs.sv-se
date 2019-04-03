@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839737"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883017"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Förstå villkoren på din faktura för Microsoft kundavtal
 
@@ -49,7 +49,7 @@ Den **fakturasammanfattning** är överst på första sidan som visar informatio
 | P.O. nummer |Ett valfritt inköpsordernummer som tilldelats av dig för spårning |
 | Fakturanummer |Ett unikt, Microsoft-genererade fakturanummer som används i spårningssyfte |
 | Fakturadatum |Datum då fakturan skapas, vanligtvis fem till 12 dagar efter slutet av faktureringscykel. Du kan kontrollera din fakturadatum i fakturering profilegenskaper.|
-| Betalningsvillkor |Hur betalar för din Microsoft-faktura. *30 dagar netto* innebär att du betala med check eller direktöverföring inom 30 dagar efter fakturadatum. |
+| Betalningsvillkor |Hur betalar för din Microsoft-faktura. *30 dagar netto* innebär att du betalar inom 30 dagar efter fakturadatum. |
 
 ### <a name="billing-summary"></a>Faktureringssammanfattning
 
@@ -110,6 +110,6 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.m
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förstå debiteringar på din faktureringsinformation profil faktura](billing-mca-understand-your-bill.md)
-- [Så här hämtar du information om fakturering och daglig användning från Azure](billing-download-azure-invoice-daily-usage-date.md)
+- [Så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md)
 - [Visa din organisations Azure priser](billing-ea-pricing.md)
 - [Visa skattedokument för din faktureringsinformation profil](billing-mca-download-tax-document.md)

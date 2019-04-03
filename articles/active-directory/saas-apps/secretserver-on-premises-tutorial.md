@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199790"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Självstudier: Azure Active Directory-integrering med hemlighet Server (lokalt)
 
@@ -111,7 +111,7 @@ I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen
 
     a. I den **identifierare** textrutan Ange användaren valt värdet som ett exempel: `https://secretserveronpremises.azure`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > Entitets-ID som visas ovan är bara ett exempel och du kan välja ett unikt värde som identifierar din hemlighet Server-instans i Azure AD. Du behöver skicka den här entitets-ID till [hemlighet Server (lokalt) Client supportteamet](https://thycotic.force.com/support/s/) och de konfigureras på sidan. Mer information hittar du [i den här artikeln](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -199,7 +199,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Länken ”användare och grupper”][202]
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 

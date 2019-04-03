@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757166"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881026"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
@@ -24,6 +24,8 @@ I Microsoft Azure Media Services (AMS), den [Strömningsslutpunkter](https://doc
 
 > [!NOTE]
 > Om du vill starta direktuppspelning av videor, måste du starta den **Strömningsslutpunkt** som du vill att strömma videon. 
+>  
+> Du debiteras endast när din slutpunkt för direktuppspelning som är i körningstillstånd.
 
 ## <a name="naming-convention"></a>Namngivningskonventioner
 
@@ -62,24 +64,11 @@ Rekommenderade användningen |Rekommenderas för merparten av scenarier för dir
 
 <sup>1</sup> endast används direkt på den slutpunkt för direktuppspelning när CDN inte är aktiverat på slutpunkten.
 
-## <a name="working-with-cdn"></a>Arbeta med CDN
-
-I de flesta fall bör du ha CDN aktiverat. Men om du förväntar dig en maximal samtidighet som är lägre än 500 användare rekommenderas det att du inaktiverar CDN eftersom CDN skalas bäst med samtidighet.
-
-> [!NOTE]
-> Slutpunkt för direktuppspelning `hostname` och strömnings-URL är densamma, oavsett om du aktiverar CDN.
-
-### <a name="detailed-explanation-of-how-caching-works"></a>Detaljerad förklaring av så här fungerar cachelagring
-
-Det finns ingen specifik bandbredd värde när du lägger till CDN eftersom mängden bandbredd som krävs för ett CDN aktiverat slutpunkten för direktuppspelning varierar. Mycket beror på vilken typ av innehåll, hur populär är det, olika bithastigheter och protokollen. CDN endast cachelagring vad som efterfrågas. Det innebär att populära innehållet ska tillhandahållas direkt från CDN – så länge video fragment cachelagras. Direktsänt innehåll är troligt att cachelagras eftersom du vanligtvis har många människor som tittar på exakt samma sak. Innehåll på begäran kan vara lite svårare, eftersom du kan ha innehåll som är populära inte och vissa. Om du har flera miljoner videotillgångar där ingen av dem är populära (endast 1 eller 2 användare per vecka), men du har tusentals människor som tittar på alla olika videor blir CDN mycket mindre effektiva. Med det här cacheminnet du missar, ökar belastningen på slutpunkten för direktuppspelning.
- 
-Du måste också tänka på hur anpassningsbar direktuppspelning fungerar. Varje enskild video fragment cachelagras eftersom den egna enheten. Till exempel om första gången en viss video har sett personen som hoppar över runt tittar på bara några sekunder få här och där endast video fragment som är associerade med personen sett cachelagras i CDN. Med adaptiv direktuppspelning har du normalt 5 till 7 olika bithastighet video. Om en person på en bithastighet och en annan person tittar på en annan bithastighet, sedan cachelagras de var separat i CDN. Även om två personer tittar på samma bithastighet kan de direktuppspelning via olika protokoll. Varje protokoll (HLS, MPEG-DASH, Smooth Streaming) cachelagras separat. Så varje bithastighet och protokoll cachelagras separat och dessa video fragment som har begärt cachelagras.
- 
 ## <a name="properties"></a>Egenskaper 
 
 Det här avsnittet innehåller information om några av slutpunkt för direktuppspelning egenskaper. Exempel på hur du skapar en ny slutpunkt för direktuppspelning och beskrivningar av alla egenskaper finns i [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-- `accessControl` – Används för att konfigurera följande säkerhetsinställningarna för den här slutpunkten för direktuppspelning: Akamai signatur huvudnycklarna autentisering och IP-adresser som tillåts ansluta till den här slutpunkten.<br />Den här egenskapen kan anges när `cdnEnabled` är inställd på false.
+- `accessControl` – Används för att konfigurera följande säkerhetsinställningarna för den här slutpunkten för direktuppspelning: Akamai signatur huvudnycklarna autentisering och IP-adresser som tillåts ansluta till den här slutpunkten.<br />Den här egenskapen kan bara anges när `cdnEnabled` är inställd på false.
 - `cdnEnabled` -Anger om Azure CDN-integreringen för den här slutpunkten för direktuppspelning är aktiverad (inaktiverad som standard). Om du ställer in `cdnEnabled` true, följande konfigurationer inaktiveras: `customHostNames` och `accessControl`.
   
     Inte alla Datacenter stöd för Azure CDN-integrering. Du kan kontrollera om ditt datacenter har den Azure CDN-integreringen som är tillgängliga genom att göra följande:
@@ -128,7 +117,39 @@ Det här avsnittet innehåller information om några av slutpunkt för direktupp
     - Stoppa - övergår i ett stoppat tillstånd
     - Tar bort - tas bort
     
-- `scaleUnits ` – Ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. Om du vill flytta till en **Premium** skriver, justera `scaleUnits`.
+- `scaleUnits` – Ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. Om du vill flytta till en **Premium** skriver, justera `scaleUnits`.
+
+## <a name="working-with-cdn"></a>Arbeta med CDN
+
+I de flesta fall bör du ha CDN aktiverat. Men om du förväntar dig en maximal samtidighet som är lägre än 500 användare rekommenderas det att du inaktiverar CDN eftersom CDN skalas bäst med samtidighet.
+
+### <a name="considerations"></a>Överväganden
+
+* Slutpunkt för direktuppspelning `hostname` och strömnings-URL är densamma, oavsett om du aktiverar CDN.
+* Om du behöver kunna testa ditt innehåll med eller utan CDN kan skapa du en annan slutpunkt för direktuppspelning som inte är CDN har aktiverats.
+
+### <a name="detailed-explanation-of-how-caching-works"></a>Detaljerad förklaring av så här fungerar cachelagring
+
+Det finns ingen specifik bandbredd värde när du lägger till CDN eftersom mängden bandbredd som krävs för ett CDN aktiverat slutpunkten för direktuppspelning varierar. Mycket beror på vilken typ av innehåll, hur populär är det, olika bithastigheter och protokollen. CDN endast cachelagring vad som efterfrågas. Det innebär att populära innehållet ska tillhandahållas direkt från CDN – så länge video fragment cachelagras. Direktsänt innehåll är troligt att cachelagras eftersom du vanligtvis har många människor som tittar på exakt samma sak. Innehåll på begäran kan vara lite svårare, eftersom du kan ha innehåll som är populära inte och vissa. Om du har flera miljoner videotillgångar där ingen av dem är populära (endast 1 eller 2 användare per vecka), men du har tusentals människor som tittar på alla olika videor blir CDN mycket mindre effektiva. Med det här cacheminnet du missar, ökar belastningen på slutpunkten för direktuppspelning.
+ 
+Du måste också tänka på hur anpassningsbar direktuppspelning fungerar. Varje enskild video fragment cachelagras eftersom den egna enheten. Till exempel om första gången en viss video har sett personen som hoppar över runt tittar på bara några sekunder få här och där endast video fragment som är associerade med personen sett cachelagras i CDN. Med adaptiv direktuppspelning har du normalt 5 till 7 olika bithastighet video. Om en person på en bithastighet och en annan person tittar på en annan bithastighet, sedan cachelagras de var separat i CDN. Även om två personer tittar på samma bithastighet kan de direktuppspelning via olika protokoll. Varje protokoll (HLS, MPEG-DASH, Smooth Streaming) cachelagras separat. Så varje bithastighet och protokoll cachelagras separat och dessa video fragment som har begärt cachelagras.
+
+### <a name="enable-azure-cdn-integration"></a>Aktivera Azure CDN-integrering
+
+När en slutpunkt för direktuppspelning har etablerats med är CDN aktiverat det en definierad väntetid på Media Services innan DNS har uppdaterats för att mappa slutpunkt för direktuppspelning till CDN-slutpunkten.
+
+Om du senare vill aktivera/inaktivera CDN slutpunkten för direktuppspelning måste finnas i den **stoppats** tillstånd. Det kan ta upp till två timmar för Azure CDN-integreringen ska aktiveras och för att ändringarna ska vara aktiva för alla innehållsleveransnätverk. Dock kan starta din strömmande slutpunkt och stream utan avbrott från slutpunkten för direktuppspelning och när integrationen är slutförd, dataströmmen levereras från CDN. Under etablering blir slutpunkten för direktuppspelning i **startar** tillstånd och du kan se försämrade prestanda.
+
+När strömningsslutpunkt som Standard skapas är den konfigurerad som standard med Standard Verizon. Du kan konfigurera Verizon Premium eller Standard Akamai providers med hjälp av REST API: er. 
+
+CDN-integreringen har aktiverats i alla Azure-Datacenter förutom Kina och federala myndigheter regioner.
+
+> [!IMPORTANT]
+> Azure Media Services-integrering med Azure CDN har implementerats på **Azure CDN från Verizon** för standard slutpunkter för direktuppspelning. Premium-slutpunkter för direktuppspelning kan konfigureras med alla **Azure CDN priser nivåerna och providers**. Mer information om Azure CDN-funktioner finns i den [översikt över CDN](../../cdn/cdn-overview.md).
+
+### <a name="determine-if-dns-change-has-been-made"></a>Avgöra om DNS-ändring har gjorts
+
+Du kan fastställa om DNS-ändring har gjorts på en slutpunkt för direktuppspelning (är att dirigeras trafiken till Azure CDN) genom att använda https://www.digwebinterface.com. Om resultatet har azureedge.net domännamn i resultatet, är trafiken nu att riktas till CDN.
 
 ## <a name="next-steps"></a>Nästa steg
 

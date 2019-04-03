@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Lär dig hur Azure dirigerar trafik i virtuella nätverk och hur du kan anpassa Azures routning.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: jdial
-ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: malop;kumud
+ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123580"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878510"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -181,7 +181,7 @@ För att illustrera begreppen i den här artikeln beskrivs i avsnitten som följ
 ### <a name="requirements"></a>Krav
 
 1. Implementera två virtuella nätverk i samma Azure-region och aktivera resurser för att kommunicera mellan virtuella nätverk.
-2. Aktivera ett lokalt nätverk för att kommunicera säkert med de båda virtuella nätverken via en VPN-tunnel över Internet. *Det går också att använda en ExpressRoute-anslutning, men i det här exemplet används en VPN-anslutning.*
+2. Aktivera ett lokalt nätverk för att kommunicera säkert med de båda virtuella nätverken via en VPN-tunnel över Internet. *Du kan också en ExpressRoute-anslutning kan användas, men i det här exemplet används en VPN-anslutning.*
 3. För ett undernät i ett virtuellt nätverk:
  
     - Tvinga all utgående trafik från undernätet förutom till Azure Storage och inom undernätet, så att den flödar genom ett nätverks virtuella installation, för granskning och loggning.
@@ -255,7 +255,7 @@ Routningstabellen för *Subnet2* innehåller alla Azure-skapade standardvägar o
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en användardefinierad routningstabellen med vägar och en virtuell nätverksenhet](tutorial-create-route-table-portal.md)
+- [Skapa en användardefinierad routningstabellen med vägar och en virtuell nätverksinstallation](tutorial-create-route-table-portal.md)
 - [Konfigurera BGP för Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Använda BGP med ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Visa alla vägar för ett undernät](diagnose-network-routing-problem.md). En användardefinierad routningstabell visar bara de användardefinierade vägarna och inte standardvägarna och BGP-vägarna för ett undernät. Om du visar alla vägar ser du standardvägarna, GBP- och de användardefinierade vägarna för undernätet som ett nätverksgränssnitt finns i.

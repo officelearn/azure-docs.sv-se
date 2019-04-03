@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856832"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885986"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -58,7 +58,7 @@ Utlösare har de här översta elementen, även om vissa är valfria:
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -79,7 +79,7 @@ Varje Utlösartyp av har ett annat gränssnitt och indata som definierar utlösa
 | [**HTTP**](#http-trigger) | Kontrollerar eller *enkäter* valfri slutpunkt. Den här slutpunkten måste följa en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller genom att returnera en matris. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp men anropar den angivna URL: en för att registrera eller avregistrera. |
 | [**Upprepning**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
-| [**Request**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Förfrågan**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Hanterade API-utlösare
@@ -139,7 +139,7 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -229,7 +229,7 @@ Den här utlösaren skickar begäran om en prenumeration till en slutpunkt med h
 | <*body-content*> | JSON-objekt | Alla meddelandeinnehållet att skicka som nyttolast hanterade API: et | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -310,7 +310,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -405,7 +405,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 | <*endpoint-subscribe-URL*> | String | Slutpunkts-URL att skicka prenumerationsbegäran | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -499,7 +499,7 @@ Den här utlösaren körs baserat på angivna upprepningsschemat och ger ett enk
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -608,7 +608,7 @@ För att anropa den här utlösaren, måste du använda den `listCallbackUrl` AP
 | <*typ vlastnosti*> | String | Egenskapens typ | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -784,7 +784,7 @@ Azure Logic Apps ger olika åtgärdstyper – var och en med olika indata som de
 | <*previous-trigger-or-action-status*> | JSON-objekt | Namn och resulterande status för utlösaren eller åtgärden som måste köras omedelbart innan åtgärden aktuella kan köra | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------|
@@ -820,11 +820,11 @@ Här följer några vanliga åtgärdstyper:
 | Åtgärdstyp | Beskrivning | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Skapar ett enda utflöde från indata som kan ha olika typer. | 
-| [**Funktionen**](#function-action) | Anropar en Azure-funktion. | 
+| [**Funktion**](#function-action) | Anropar en Azure-funktion. | 
 | [**HTTP**](#http-action) | Anropar en HTTP-slutpunkt. | 
-| [**Join**](#join-action) | Skapar en sträng från alla objekt i en matris och delar upp dessa objekt med ett tecken för angiven avgränsare. | 
+| [**Slå ihop**](#join-action) | Skapar en sträng från alla objekt i en matris och delar upp dessa objekt med ett tecken för angiven avgränsare. | 
 | [**Parsa JSON**](#parse-json-action) | Skapar användarvänliga token från egenskaper i JSON-innehåll. Du kan sedan referera dessa egenskaper genom att inkludera token i din logikapp. | 
-| [**Fråga**](#query-action) | Skapar en matris av objekt i en annan matris baserat på ett villkor eller filter. | 
+| [**Söka i data**](#query-action) | Skapar en matris av objekt i en annan matris baserat på ett villkor eller filter. | 
 | [**Svar**](#response-action) | Skapar ett svar på ett inkommande samtal eller begäran. | 
 | [**Välj**](#select-action) | Skapar en matris med JSON-objekt genom att transformera objekt från en annan matris baserat på den angivna mappningen. | 
 | [**Tabell**](#table-action) | Skapar en CSV- eller HTML-tabell från en matris. | 
@@ -852,10 +852,10 @@ De här åtgärderna hjälper dig att kontrollera arbetsflödeskörning och inne
 | Åtgärdstyp | Beskrivning | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Kör samma åtgärder i en loop för alla objekt i en matris. | 
-| [**If**](#if-action) | Kör åtgärder baserat på om det angivna villkoret är SANT eller FALSKT. | 
-| [**Omfång**](#scope-action) | Kör åtgärder baserat på Gruppstatus för från en uppsättning åtgärder. | 
-| [**Switch**](#switch-action) | Köra åtgärder som är ordnade i fall när värden från uttryck, objekt eller token matchar de värden som anges av varje fall. | 
-| [**Until**](#until-action) | Kör åtgärder i en loop tills det angivna villkoret är sant. | 
+| [**Om**](#if-action) | Kör åtgärder baserat på om det angivna villkoret är SANT eller FALSKT. | 
+| [**Scope**](#scope-action) | Kör åtgärder baserat på Gruppstatus för från en uppsättning åtgärder. | 
+| [**Växel**](#switch-action) | Köra åtgärder som är ordnade i fall när värden från uttryck, objekt eller token matchar de värden som anges av varje fall. | 
+| [**Till**](#until-action) | Kör åtgärder i en loop tills det angivna villkoret är sant. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Åtgärder – detaljerad
@@ -896,7 +896,7 @@ Den här åtgärden skickar en HTTP-begäran till en [Microsoft-hanterade API: e
 | <*api-operation*> | String | API-åtgärden att anropa | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -975,7 +975,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 | <*api-subscribe-URL*> | String | URI: N ska användas för att prenumerera på API: et | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -1015,7 +1015,9 @@ Du kan sedan använda åtgärdens utdata i andra åtgärder.
 
 *Exempel 1*
 
+<!-- markdownlint-disable MD038 -->
 Den här åtgärdsdefinitionen sammanfogar `abcdefg ` med ett avslutande blanksteg och värdet `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1075,7 +1077,7 @@ Den här åtgärden anropar en tidigare skapad [Azure-funktion](../azure-functio
 | <*metodtyp*> | String | HTTP-metod du använder för att anropa funktionen: ”Hämta”, ”se”, ”POST”, ”uppdatera” eller ”ta bort” <p>Om inte anges är standardvärdet ”POST”-metoden. | 
 ||||
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------|  
@@ -1146,7 +1148,7 @@ Den här åtgärden skickar en begäran till den angivna slutpunkten och kontrol
 | <*HTTP-or-HTTPS-endpoint-URL*> | String | HTTP eller HTTPS-slutpunkt att anropa. Maximal strängstorlek: 2 KB | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -1383,7 +1385,7 @@ Den här åtgärden skapar nyttolast för svar på en HTTP-begäran.
 | <*response-status-code*> | Integer | HTTP-statuskoden som skickas till den inkommande begäranden. Standardkoden ”200 OK”, men kod som kan vara valfri giltig statuskod som börjar med 2xx, 4xx eller 5xx, men inte med 3xxx. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -1557,7 +1559,7 @@ Den här åtgärden skapar en CSV- eller HTML-tabell från en matris. För matri
 | <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs!** Om källmatrisen är tom skapar åtgärden en tom tabell. | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 Om du vill ange eller anpassa kolumnrubriker och värden, använder de `columns` matris. När `header-value` par har samma rubriknamn, deras värden visas i samma kolumn under det rubriknamnet. I annat fall definierar varje unik sidhuvud en unik kolumn.
 
@@ -1669,7 +1671,7 @@ Den här åtgärden stoppar körningen av arbetsflödesinstansen för logic app,
 | <*status*> | String | Status ska returneras för körningen: ”Misslyckades”, ”avbröt” eller ”lyckades” |
 |||| 
 
-*Valfritt*
+*Valfri*
 
 Egenskaper för objektet ”runStatus” gäller endast när egenskapen ”runStatus” anges till statusen ”misslyckades”.
 
@@ -1816,7 +1818,7 @@ Logic Apps-motorn kontrollerar åtkomst till utlösaren som du vill anropa, så 
 | <*nested-logic-app-name*> | String | Namn för logikappen som du vill anropa |
 ||||
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------|  
@@ -1891,7 +1893,7 @@ Den här slingan åtgärden upprepas en matris och utför åtgärder på varje o
 | <*för varje uttryck*> | String | Det uttryck som refererar till varje objekt i den angivna matrisen | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -2096,7 +2098,7 @@ Den här åtgärden, även känt som en *växla instruktionen*, organiserar andr
 | <*matching-value*> | Varierar | Värde att jämföra med det beräknade resultatet | 
 |||| 
 
-*Valfritt*
+*Valfri*
 
 | Värde | Type | Beskrivning | 
 |-------|------|-------------| 
@@ -2446,7 +2448,7 @@ Ange den `runtimeConfiguration.concurrency.runs` egenskap `1`:
 }
 ```
 
-*-or-*
+*ELLER*
 
 Ange den `operationOptions` egenskap `SingleInstance`:
 
@@ -2498,7 +2500,7 @@ Ange den `runtimeConfiguration.concurrency.repetitions` egenskap `1`:
 }
 ```
 
-*-or-*
+*ELLER*
 
 Ange den `operationOptions` egenskap `Sequential`:
 
@@ -2568,7 +2570,7 @@ HTTP-slutpunkter har stöd för olika typer av autentisering. Du kan konfigurera
 Här är typerna av autentisering som du kan ställa in:
 
 * [Grundläggande autentisering](#basic-authentication)
-* [Autentisering av klientcertifikat](#client-certificate-authentication)
+* [Autentisering med klientcertifikat](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth-autentisering](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
@@ -2584,7 +2586,7 @@ För [grundläggande autentisering](../active-directory-b2c/active-directory-b2c
 |----------|----------|-------|-------------| 
 | **typ** | Ja | "Basic" | Den autentiseringstyp som använder, vilket är ”Basic” här | 
 | **användarnamn** | Ja | "@parameters('userNameParam')" | Användarnamnet för att autentisera åtkomst till mål-tjänstslutpunkt |
-| **Lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för att autentisera åtkomst till mål-tjänstslutpunkt |
+| **lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för att autentisera åtkomst till mål-tjänstslutpunkt |
 ||||| 
 
 I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `Basic` autentisering. Läs mer om att använda och skydda parametrar [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2618,7 +2620,7 @@ För [certifikatbaserad autentisering](../active-directory/authentication/active
 |----------|----------|-------|-------------|
 | **typ** | Ja | "ClientCertificate" | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klientcertifikat. Självsignerade certifikat för SSL stöds inte finns stöd för självsignerade certifikat. |
 | **pfx** | Ja | "@parameters('pfxParam') | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
-| **Lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för åtkomst till PFX-filen |
+| **lösenord** | Ja | ”@parameters(passwordParam)” | Lösenord för åtkomst till PFX-filen |
 ||||| 
 
 I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `ClientCertificate` autentisering. Läs mer om att använda och skydda parametrar [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2654,11 +2656,11 @@ För [Azure AD OAuth-autentisering](../active-directory/develop/authentication-s
 | **utfärdare** | Nej | <*URL-for-authority-token-issuer*> | URL-Adressen för utfärdaren som tillhandahåller autentiseringstoken |
 | **klient** | Ja | <*tenant-ID*> | Klient-ID för Azure AD-klient |
 | **Målgrupp** | Ja | <*resurs att auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel `https://management.core.windows.net/` |
-| **clientId** | Ja | <*client-ID*> | Klient-ID för appen begär auktorisering |
+| **ClientId** | Ja | <*client-ID*> | Klient-ID för appen begär auktorisering |
 | **credentialType** | Ja | ”Certifikat” eller ”hemlighet” | Typ av autentiseringsuppgift klienten använder för att begära tillstånd. Den här egenskapen och värdet visas inte i den underliggande definitionen, men anger de obligatoriska parametrarna för typ av autentiseringsuppgift. |
 | **pfx** | Ja, endast under ”certifikat” typ av autentiseringsuppgift | "@parameters('pfxParam') | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
-| **Lösenord** | Ja, endast under ”certifikat” typ av autentiseringsuppgift | ”@parameters(passwordParam)” | Lösenord för åtkomst till PFX-filen |
-| **secret** | Ja, endast för ”hemligheten” autentiseringstyp | "@parameters('secretParam')" | Klienthemlighet för att begära tillstånd |
+| **lösenord** | Ja, endast under ”certifikat” typ av autentiseringsuppgift | ”@parameters(passwordParam)” | Lösenord för åtkomst till PFX-filen |
+| **hemlighet** | Ja, endast för ”hemligheten” autentiseringstyp | "@parameters('secretParam')" | Klienthemlighet för att begära tillstånd |
 |||||
 
 I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `ActiveDirectoryOAuth` autentisering och ”hemligheten” autentiseringstyp. Läs mer om att använda och skydda parametrar [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).

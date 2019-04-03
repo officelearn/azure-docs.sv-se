@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107771"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862173"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Programgateway med hjälp av portalen
 
@@ -49,15 +49,15 @@ Avsökningar konfigureras i en tvåstegsprocess via portalen. Det första steget
 
 1. På den **Lägg till hälsoavsökning** bladet fylla i informationen som krävs för avsökningen och när du är klar klickar du på **OK**.
 
-   |**Inställning** | **Värde** | **Detaljer**|
+   |**Inställning** | **Värde** | **Information**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som avsökningen som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som använder hälsoavsökningen.|
    |**Värd**|i.e contoso.com|Det här värdet är det värdnamn som används för avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, annars använda ”127.0.0.1”. Det här värdet skiljer sig från virtuella datorns värdnamn.|
-   |**Sökväg**|/ eller en annan sökväg|Resten av den fullständiga URL: en för anpassad avsökning. En giltig sökväg som börjar med ”/”. För standardsökvägen http://contoso.com bara använda '/' |
+   |**Sökväg**|/ eller en annan sökväg|Resten av den fullständiga URL: en för anpassad avsökning. En giltig sökväg som börjar med ”/”. Standard för HTTP-sökväg:\//contoso.com bara använda '/' |
    |**Intervall (sek)**|30|Hur ofta körs avsökningen för att söka efter hälsotillstånd. Det rekommenderas inte att ställa in lägre än 30 sekunder.|
    |**Timeout (sek)**|30|Hur lång tid avsökningen väntar innan den avbryts. Timeout-intervall måste vara tillräckligt högt för att ett http-anrop kan göras för att säkerställa sidan backend-hälsotillstånd är tillgänglig.|
-   |**Tröskelvärde för ej felfri**|3|Antal misslyckade försök för att anses vara felaktiga. Ett tröskelvärde för 0 betyder som om en hälsokontroll misslyckas backend-bestäms feltillstånd omedelbart.|
+   |**Tröskelvärde för Ej felfri**|3|Antal misslyckade försök för att anses vara felaktiga. Ett tröskelvärde för 0 betyder som om en hälsokontroll misslyckas backend-bestäms feltillstånd omedelbart.|
 
    > [!IMPORTANT]
    > Värdnamnet är inte detsamma som servernamnet på. Det här värdet är namnet på den virtuella värden som körs på programservern. Avsökningen skickas till http://(host name):(port from httpsetting)/urlPath

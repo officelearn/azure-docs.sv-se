@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 795002d450505b9103f1815a8b03c8d546bddde8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119470"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885795"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB: funktioner och syntax som stöds
 
@@ -214,22 +214,22 @@ Följande operatorer stöds med motsvarande användningsexempel. Överväg det h
 
 Operator | Exempel |
 --- | --- |
-$eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |
-$gt | ``` { "Elevation": { $gt: 4000 } } ``` |
-$gte | ``` { "Elevation": { $gte: 4392 } } ``` |
-$lt | ``` { "Elevation": { $lt: 5000 } } ``` |
-$lte | ``` { "Elevation": { $lte: 5000 } } ``` |
-$ne | ``` { "Elevation": { $ne: 1 } } ``` |
-$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |
-$nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` |
-$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|
-$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |
-$exists | ``` { "Status": { $exists: true } } ```|
-$type | ``` { "Status": { $type: "string" } } ```|
-$mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |
-$regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|
+$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
+$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
+$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
+$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
+$lte | `{ "Elevation": { $lte: 5000 } }` | | -
+$ne | `{ "Elevation": { $ne: 1 } }` |  | -
+$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
+$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
+$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
+$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
+$exists | `{ "Status": { $exists: true } }`|  | -
+$type | `{ "Status": { $type: "string" } }`|  | -
+$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
+$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 
 ### <a name="notes"></a>Anteckningar
 
@@ -340,4 +340,4 @@ Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Cosmos
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-<sup>Obs! I den här artikeln beskrivs en funktion i Azure Cosmos DB som tillhandahåller trådprotokollkompatibilitet med MongoDB-databaser. Microsoft kan inte köra MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplat till MongoDB, Inc.</sup>
+<sup>Obs! I den här artikeln beskrivs en funktion i Azure Cosmos DB som tillhandahåller trådprotokollkompatibilitet med MongoDB-databaser. Microsoft kan inte köra MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>

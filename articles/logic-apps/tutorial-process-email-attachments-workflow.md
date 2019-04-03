@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 518a9009ad7a3cca13679f9a410fd36dd874261f
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630773"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881230"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Självstudie: Hantera e-postmeddelanden och bilagor automatiskt med Azure Logic Apps
 
@@ -139,12 +139,12 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
-   | **Appens namn** | CleanTextFunctionApp | Ett globalt unikt och beskrivande namn på funktionsappen | 
+   | **Appnamn** | CleanTextFunctionApp | Ett globalt unikt och beskrivande namn på funktionsappen | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Samma Azure-prenumeration som du tidigare använt | 
    | **Resursgrupp** | LA-Tutorial-RG | Samma Azure-resursgrupp som du tidigare använt | 
    | **Värdplan** | Förbrukningsplan | Den här inställningen avgör hur resurser ska allokeras och skalas, som datorkraft, för att köra din funktionsapp. Se [jämförelse av värdplaner](../azure-functions/functions-scale.md). | 
    | **Plats** | Västra USA | Samma region som du tidigare använt | 
-   | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj .NET för C# och F# funktioner. |
+   | **CLR-stack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj .NET för C# och F# funktioner. |
    | **Storage** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs!** Lagringskontot innehåller dina funktionsappar och skiljer sig från ditt tidigare skapade lagringskonto för e-postbilagor. | 
    | **Application Insights** | Av | Aktiverar programövervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men för den här självstudien ska du välja inställningen **Av**. | 
    |||| 
@@ -280,7 +280,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
       | Inställning | Värde | Beskrivning | 
       | ------- | ----- | ----------- | 
-      | **Has Attachment** (Innehåller bifogad fil) | Ja | Hämta endast e-postmeddelanden med bifogade filer. <p>**Obs!** Utlösaren tar inte bort e-post från ditt konto, kontrollerar endast nya meddelanden och bearbetar endast e-postmeddelanden som matchar filtrets ämne. | 
+      | **Har bifogad fil** | Ja | Hämta endast e-postmeddelanden med bifogade filer. <p>**Obs!** Utlösaren tar inte bort e-post från ditt konto, kontrollerar endast nya meddelanden och bearbetar endast e-postmeddelanden som matchar filtrets ämne. | 
       | **Inkludera bifogade filer** | Ja | Hämta bilagorna som indata i arbetsflödet istället för att bara söka efter bilagor. | 
       | **Ämnesfilter** | ```Business Analyst 2 #423501``` | Texten att söka efter i e-postämnet | 
       |  |  |  | 
@@ -395,13 +395,14 @@ I det här steget lägger du till den tidigare skapade Azure-funktionen i logika
 
    ![Välj Azure-funktion](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. Byt namn på funktionsformen med den här beskrivningen: ```Call RemoveHTMLFunction to clean email body```
+5. Byt namn på funktionsformen med den här beskrivningen:
+```Call RemoveHTMLFunction to clean email body```
 
 6. Ange nu indata som funktionen ska bearbeta. 
 
    1. Under **Request Body** (Begärandetext) skriver du med ett avslutande blanksteg: 
    
-      ```{ "emailBody": ``` 
+      ```{ "emailBody":``` 
 
       Medan du arbetar med dessa indata i nästa steg visas ett felmeddelande om ogiltig JSON tills dina indata är rätt formaterade som JSON.
       När du testade funktionen tidigare använde angivna indata för funktionen JavaScript Object Notation (JSON). 
@@ -439,7 +440,8 @@ Lägg sedan till en åtgärd som skapar en blob i lagringscontainern så att du 
    | **Lagringskonto** | attachmentstorageacct | Namnet på lagringskontot som du skapade tidigare för att spara bilagor | 
    |||| 
 
-4. Byt namn på åtgärden **Skapa blob**med den här beskrivningen: ```Create blob for email body```
+4. Byt namn på den **skapa blob** åtgärden med den här beskrivningen:
+```Create blob for email body```
 
 5. I åtgärden **Skapa blob** anger du den här informationen och väljer fälten för att skapa bloben som visas och beskrivs:
 
@@ -449,7 +451,7 @@ Lägg sedan till en åtgärd som skapar en blob i lagringscontainern så att du 
    | ------- | ----- | ----------- | 
    | **Mappsökväg** | /attachments | Sökvägen till och namnet på containern som du skapade tidigare. I det här exemplet klickar du på mappikonen och väljer sedan containern "/attachments". | 
    | **Blobnamn** | Fältet **Från** | I det här exemplet använder du avsändarens namn som blobnamn. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **From** (Från) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). | 
-   | **Blobinnehåll** | **Innehålls**fält | I det här exemplet använder du e-postmeddelandets HTML-fria brödtext som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan **Body** (Brödtext) under åtgärden **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postbrödtext). |
+   | **Blobbinnehåll** | **Innehålls**fält | I det här exemplet använder du e-postmeddelandets HTML-fria brödtext som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan **Body** (Brödtext) under åtgärden **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postbrödtext). |
    |||| 
 
    När du är klar ser villkoret ut som i det här exemplet:
@@ -505,7 +507,8 @@ För att bearbeta varje bilaga i e-postmeddelandet lägger du till en **For each
 
    ![Lägg till en "for each"-loop (för varje-loop)](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Byt namn på loopen med den här beskrivningen: ```For each email attachment```
+2. Byt namn på loopen med den här beskrivningen:
+```For each email attachment```
 
 3. Ange nu loopens data för att bearbeta. Klicka i rutan **Select an output from previous steps** (Välj utdata från tidigare steg) så att den dynamiska innehållslistan öppnas och välj **Attachments** (Bilagor). 
 
@@ -528,7 +531,8 @@ Lägg sedan till åtgärden som sparar varje bilaga som en blob i lagringscontai
 
    ![Lägga till åtgärd för att skapa blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. Byt namn på åtgärden **Skapa blob 2**med den här beskrivningen: ```Create blob for each email attachment```
+3. Byt namn på den **skapa blob 2** åtgärden med den här beskrivningen:
+```Create blob for each email attachment```
 
 4. I åtgärden **Create blob for each email attachment** (Skapa blob för varje e-postbilaga) anger du den här informationen och väljer egenskaperna för varje blob du vill skapa, som visas och beskrivs:
 
@@ -538,7 +542,7 @@ Lägg sedan till åtgärden som sparar varje bilaga som en blob i lagringscontai
    | ------- | ----- | ----------- | 
    | **Mappsökväg** | /attachments | Sökvägen till och namnet på containern som du skapade tidigare. I det här exemplet klickar du på mappikonen och väljer sedan containern "/attachments". | 
    | **Blobnamn** | Fältet **Namn** | I det här exemplet använder du den bifogade filens namn som blobnamn. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Name** (Namn) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). | 
-   | **Blobinnehåll** | **Innehålls**fält | I det här exemplet använder du fältet **Content** (Innehåll) som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Content** (Innehåll) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
+   | **Blobbinnehåll** | **Innehålls**fält | I det här exemplet använder du fältet **Content** (Innehåll) som blobinnehåll. Klicka i den här rutan så att den dynamiska innehållslistan visas. Välj sedan fältet **Content** (Innehåll) under åtgärden **When a new email arrives** (När ett nytt e-postmeddelande kommer). |
    |||| 
 
    När du är klar ser villkoret ut som i det här exemplet:
@@ -593,7 +597,8 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
 3. Om du blir tillfrågad om autentiseringsuppgifter loggar du in på e-postkontot så Logic Apps skapar en anslutning till ditt e-postkonto.
 
-4. Byt namn på åtgärden **Skicka ett e-postmeddelande** med den här beskrivningen: ```Send email for review```
+4. Byt namn på den **skicka ett e-postmeddelande** åtgärden med den här beskrivningen:
+```Send email for review```
 
 5. Ange informationen för åtgärden och välj fälten du vill ta med i e-postmeddelandet som det visas och beskrivs. Tryck på Skift + Enter för att lägga till tomma rader i en redigeringsruta.  
 
@@ -603,8 +608,8 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
    | Inställning | Värde | Anteckningar | 
    | ------- | ----- | ----- | 
-   | **Brödtext** | ```Please review new applicant:``` <p>```Applicant name: ``` **Från** <p>```Application file location: ``` **Sökväg** <p>```Application email content: ``` **Brödtext** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) | 
-   | **Ämne**  | ```ASAP - Review applicant for position: ``` **Ämne** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). | 
+   | **Innehåll** | ```Please review new applicant:``` <p>```Applicant name:``` **Från** <p>```Application file location:``` **Sökväg** <p>```Application email content:``` **Innehåll** | E-postmeddelandets brödtext. Klicka i den här rutan, ange exempeltext och välj de här fälten på den dynamiska innehållslistan: <p>- Fältet **Från** under **När ett nytt e-postmeddelande kommer** </br>- Fältet **Sökväg** under **Skapa blob för e-postmeddelandets brödtext** </br>- Fältet **Brödtext** under **Call RemoveHTMLFunction to clean email body** (Anropa RemoveHTMLFunction för att rensa e-postmeddelandets brödtext) | 
+   | **Subjekt**  | ```ASAP - Review applicant for position:``` **Subjekt** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). | 
    | **Till** | <*mottagarens-e-postadress*> | I testsyfte kan du använda din egen e-postadress. | 
    |||| 
 

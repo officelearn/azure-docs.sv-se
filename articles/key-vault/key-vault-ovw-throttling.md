@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404770"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884150"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
@@ -34,7 +34,7 @@ Om du har en giltig affärsfall för högre begränsningar kan du kontakta oss.
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hur du ska begränsa din app som svar på tjänstbegränsningar
 
-Följande är **bästa praxis** för begränsning av din app:
+Följande är **bästa praxis** bör du implementera när prestandan för din tjänst:
 - Minska antalet åtgärder per begäran.
 - Minska frekvensen av begäranden.
 - Undvik att omedelbart återförsök. 
@@ -115,7 +115,7 @@ Kod som implementerar en exponentiell backoff visas nedan.
 ```
 
 
-Med den här koden i en klient C\# program (mikrotjänster med en annan webb-API-klient, ASP.NET MVC-program eller även om C\# Xamarin-program) är enkelt. I följande exempel visas hur du med hjälp av HttpClient-klassen.
+Med den här koden i en klient C\# program är enkelt. I följande exempel visas hur du med hjälp av HttpClient-klassen.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

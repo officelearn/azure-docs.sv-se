@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437505"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885425"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Självstudier: Använda Azure Key Vault med en Windows-dator i .NET
 
@@ -148,7 +148,7 @@ Om du vill installera .NET Core, går du till den [.NET hämtar](https://www.mic
 
 Du kan skriva ut ”Hello World” till konsolen genom att köra följande kommandon:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 Öppna den *Program.cs* filen och Lägg till dessa paket:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ Redigera filen klass så att den innehåller koden i följande två steg:
 1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn. Gör det även hämtar en token från Azure AD.
 1. Skicka token till ditt nyckelvalv och hämta din hemlighet. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)
@@ -226,4 +226,4 @@ Ta bort den virtuella datorn och nyckelvalvet när de inte längre behövs.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [REST API för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)

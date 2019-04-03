@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438061"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885612"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-frågesyntax i Azure Search
 Du kan skriva frågor mot Azure Search baserat på omfattande [frågeparser (Lucene)](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxen för specialiserade fråga formulär: jokertecken, fuzzy-sökning, närhetssökning, reguljära uttryck är några exempel. Mycket av frågeparser (Lucene)-syntax är [intakta implementeras i Azure Search](search-lucene-query-architecture.md), med undantag för *intervall sökningar* som skapas i Azure Search via `$filter` uttryck. 
@@ -85,7 +85,7 @@ I exemplet ovan är tilde (~), men samma principer gäller för varje operator.
 
  Kontrollera att alla osäkra och reserverade tecken kodas i en URL. Till exempel är ett osäkra tecken '#' eftersom det är ett fragement/ankar-ID i URL-adresser. Tecknet måste vara kodad till `%23` om används i en URL. ' &' och '=' är exempel på reserverade tecken som de avgränsa parametrar och ange värden i Azure Search. Se [RFC1738: Uniform Resource Locator (URL)](https://www.ietf.org/rfc/rfc1738.txt) för mer information.
 
- Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ] ``. Reserverade tecken är `; / ? : @ = + &`.
+ Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]``. Reserverade tecken är `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Prioritetsoperatorer: gruppering och fältet gruppering  
  Du kan använda parenteser för att skapa underfrågor, inklusive operatörer i parentetiska-instruktion. Till exempel `motel+(wifi||luxury)` söker efter dokument som innehåller termen ”motel” och ”wifi” eller ”Lyxig” (eller båda).

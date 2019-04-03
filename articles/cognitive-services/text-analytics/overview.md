@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f79700d3b57623693bf1d0d62dd9ab171df464fb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533246"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882523"
 ---
 # <a name="what-is-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -77,7 +77,7 @@ Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktue
 | Maximal storlek på hela begäran | 1 MB |
 | Maximalt antal dokument i en begäran | 1 000 dokument |
 
-Gränsen är 100 anrop per minut. Observera att du kan skicka en stor mängd dokument i ett enda anrop (upp till 1 000 dokument).
+Gräns för överföringshastigheten i är 100 anrop per sekund och 1000 anrop per minut. Observera att du kan skicka en stor mängd dokument i ett enda anrop (upp till 1 000 dokument).
 
 ## <a name="unicode-encoding"></a>Unicode-kodning
 

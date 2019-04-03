@@ -1,7 +1,7 @@
 ---
-title: Övervaka modeller med Application Insights
+title: Konfigurera Azure Application Insights för att övervaka ML-modeller
 titleSuffix: Azure Machine Learning service
-description: Använd Application Insights för att övervaka webbtjänster som distribueras via Azure Machine Learning-tjänsten
+description: Övervaka webbtjänster som distribueras med Azure Machine Learning-tjänsten med Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847957"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885510"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 * En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>Aktivera och inaktivera från SDK
+## <a name="use-sdk-to-configure"></a>Använd SDK för att konfigurera 
 
 ### <a name="update-a-deployed-service"></a>Uppdatera en distribuerad tjänst
 1. Identifiera tjänsten i din arbetsyta. Värdet för `ws` är namnet på din arbetsyta.
@@ -77,7 +77,7 @@ Om du vill inaktivera Application Insights, Använd följande kod:
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>Aktivera och inaktivera i portalen
+## <a name="use-portal-to-configure"></a>Använd portalen för att konfigurera
 
 Du kan aktivera och inaktivera Application Insights i Azure-portalen.
 
@@ -85,15 +85,15 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
 
 1. På den **distributioner** väljer du en tjänst där du vill aktivera Application Insights.
 
-   [![Lista över tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![LIST tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Välj **Redigera**.
 
-   [![Knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Edit knappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. I **avancerade inställningar**väljer den **aktivera AppInsights-diagnostik** markerar du kryssrutan.
 
-   [![Markerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Svalda markerar du kryssrutan för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Välj **uppdatering** längst ned på skärmen för att tillämpa ändringarna. 
 
@@ -101,11 +101,11 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
 1. I den [Azure-portalen](https://portal.azure.com), öppna din arbetsyta.
 1. Välj **distributioner**, Välj tjänsten och välj **redigera**.
 
-   [![Använd redigeringsknappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![USe redigeringsknappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. I **avancerade inställningar**, avmarkera de **aktivera AppInsights-diagnostik** markerar du kryssrutan. 
 
-   [![Avmarkerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Clärde dig markerar du kryssrutan för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Välj **uppdatering** längst ned på skärmen för att tillämpa ändringarna. 
  
@@ -119,12 +119,12 @@ Visa den:
 
 1. Välj den **översikt** fliken för att se en grundläggande uppsättning mått för din tjänst.
 
-   [![Översikt över](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Om du vill söka i dina anpassade spårningar, Välj **Analytics**.
 4. Markera under schemat **spårningar**. Välj sedan **kör** att köra frågan. Data ska visas i tabellformat och ska mappa till dina anpassade anrop i din bedömningsfilen. 
 
-   [![Anpassade spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Canpassad spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Mer information om hur du använder Application Insights finns [vad är Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
@@ -138,6 +138,4 @@ Den [how-to-use-azureml/deployment/enable-app-insights-in-production-service/ena
 ## <a name="next-steps"></a>Nästa steg
 Du kan också samla in data på dina modeller i produktion. Läs artikeln [samla in data för modeller i produktion](how-to-enable-data-collection.md). 
 
-
-## <a name="other-references"></a>Andra referenser
-* [Azure Monitor för behållare](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Läs även [Azure Monitor för behållare](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

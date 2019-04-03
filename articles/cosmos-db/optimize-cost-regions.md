@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457657"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876748"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnader för flera regioner i Azure Cosmos DB
 
 Du kan lägga till och ta bort regioner till ditt Azure Cosmos-konto när som helst. Dataflödet som du konfigurerar för olika Azure-Cosmos-databaser och behållare är reserverad i varje region som är associerade med ditt konto. Om dataflödet etablerat per timme, som är summan av RU/s som konfigurerats på alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antal Azure-regioner som associeras med ditt databaskonto är `N`, sedan det totala antalet dataflöde för ditt Cosmos-konto för en viss timme är lika med:
 
-1. ` T x N RU/s` Om ditt Azure Cosmos-konto har konfigurerats med en enda skrivregionen. 
+1. `T x N RU/s` Om ditt Azure Cosmos-konto har konfigurerats med en enda skrivregionen. 
 
 1. `T x (N+1) RU/s` Om ditt Azure Cosmos-konto har konfigurerats med alla regioner som kan bearbeta skrivningar. 
 
@@ -25,7 +25,7 @@ Etablerat dataflöde med enkel skrivregionen kostar $0.008/ timme per 100 RU/s o
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnaderna för flera Skriv-regioner
 
-I ett system med flera huvudservrar kan skriva net tillgängliga antalet enheter för programbegäran för åtgärder ökar `N` gånger var `N` är antalet Skriv-regioner. Till skillnad från en enda region skrivningar varje region är nu skrivbar och ska ha stöd för konfliktlösning. Mängden arbetsbelastning för skrivare har ökat. Från kostnaden planera synvinkel, utföra` M` RU/s leverantör av skrivningar i hela världen, måste du etablera M `RUs` på en behållare eller databasen nivå. Du kan sedan lägga till så många regioner som du vill ha och använda dem för skrivningar för att utföra `M` RU leverantör i hela världen skrivningar. 
+I ett system med flera huvudservrar kan skriva net tillgängliga antalet enheter för programbegäran för åtgärder ökar `N` gånger var `N` är antalet Skriv-regioner. Till skillnad från en enda region skrivningar varje region är nu skrivbar och ska ha stöd för konfliktlösning. Mängden arbetsbelastning för skrivare har ökat. Från kostnaden planera synvinkel, utföra `M` RU/s leverantör av skrivningar i hela världen, måste du etablera M `RUs` på en behållare eller databasen nivå. Du kan sedan lägga till så många regioner som du vill ha och använda dem för skrivningar för att utföra `M` RU leverantör i hela världen skrivningar. 
 
 ### <a name="example"></a>Exempel
 

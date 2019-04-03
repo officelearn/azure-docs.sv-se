@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369793"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885085"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -75,7 +75,7 @@ Har du problem med lösenordsåterställning för Azure Active Directory (Azure 
 | Användaren ser ett fel vid validering av sina telefonnummer. | Det här felet uppstår när det telefonnummer som angetts inte matchar telefonnumret för filen. Kontrollera att användaren anger den fullständiga telefonnummer, inklusive koden område och land när de försöker använda en telefonbaserad metod för återställning av lösenord. |
 | Det finns ett fel vid bearbetning av begäran. | Detta kan orsakas av många problem, men vanligtvis det här felet beror på ett tjänstavbrott eller konfigurationsproblem. Om du ser detta fel och den påverkar din verksamhet, kontakta Microsoft support om hjälp. |
 | Lokala Policyöverträdelse | Lösenordet uppfyller inte den lokala Active Directory-lösenordsprincip. |
-| Lösenordet uppfyller inte fuzzy princip | Lösenordet som användes för visas i listan med förbjudna lösenord och kan inte användas. |
+| Lösenordet uppfyller inte fuzzy princip | Lösenordet som användes för visas i den [förbjuden lösenordslista](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) och kan inte användas. |
 
 ## <a name="troubleshoot-password-writeback"></a>Felsöka tillbakaskrivning av lösenord
 
@@ -285,14 +285,14 @@ För att hjälpa dig korrekt ombeds ange så mycket information som möjligt nä
 
 I följande artiklar innehåller ytterligare information om lösenordsåterställning via Azure AD:
 
-* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
+* [Hur jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
+* [Återställa eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord med självbetjäning](../user-help/active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
-* [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
-* [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
+* [Vilka data som används av SSPR och vilka data bör du fylla för dina användare?](howto-sspr-authenticationdata.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användare?](concept-sspr-howitworks.md#authentication-methods)
+* [Vad är principalternativ finns SSPR?](concept-sspr-policy.md)
+* [Vad är tillbakaskrivning av lösenord och varför behöver jag bry mig om det?](howto-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803127"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882472"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -110,10 +110,10 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabiska `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Latin `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Kinesiska, traditionell `Hant`|
-| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Latin `Latn` |
-| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Kinesiska, förenklad `Hans` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska (förenklad) `Hans`| <--> | Latin `Latn` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska (förenklad) `Hans`| <--> | Kinesiska (traditionell) `Hant`|
+| Traditionell kinesiska | `zh-Hant` | Kinesiska (traditionell) `Hant`| <--> | Latin `Latn` |
+| Traditionell kinesiska | `zh-Hant` | Kinesiska (traditionell) `Hant`| <--> | Kinesiska (förenklad) `Hans` |
 | Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
 | Hebreiska | `he` | Hebreiska `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
@@ -121,11 +121,11 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 | Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbiska (kyrillisk) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbiska (latinsk) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamilska | `ta` | Tamil `Taml` | --> | Latin `Latn` |
+| Tamilska | `ta` | Tamilska `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
 
@@ -268,7 +268,7 @@ Du kan hämta en lista över språk som stöds för Translator Text API-v3.0 med
 
 ## <a name="customization"></a>Anpassning
 
-Följande språk är tillgängliga för anpassning till eller från engelska med [anpassad Translator](http://aka.ms/CustomTranslator).
+Följande språk är tillgängliga för anpassning till eller från engelska med [anpassad Translator](https://aka.ms/CustomTranslator).
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|

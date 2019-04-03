@@ -3,20 +3,20 @@ title: 'Tjänst-till-tjänst-autentisering: Azure Data Lake Storage Gen1 med Azu
 description: Lär dig att uppnå tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956630"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885000"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ När du loggar in, behöver du ID: T för ditt program. Om programmet körs unde
 
 * Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
-## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Steg 3: Tilldela Azure AD-program till Azure Data Lake Storage Gen1 kontofil eller mapp
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Steg 3: Tilldela Azure AD-program till Azure Data Lake Storage Gen1 kontofilen eller mappen
 
 
 1. Logga in på [Azure Portal](https://portal.azure.com). Öppna det Data Lake Storage Gen1-konto som du vill associera med Azure Active Directory-program som du skapade tidigare.
@@ -85,7 +85,7 @@ När du loggar in, behöver du ID: T för ditt program. Om programmet körs unde
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Steg 4: Hämta slutpunkten för OAuth 2.0-token (endast för Java-baserade program)
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Steg 4: Hämta OAuth 2.0-tokenslutpunkten (endast för Java-baserade program)
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och klicka på Active Directory i den vänstra rutan.
 

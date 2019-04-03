@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543737"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885748"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappningen Data Flow Uttrycksverktyget
 
@@ -51,7 +51,7 @@ Lägga till kommentarer i ditt uttryck med hjälp av enda rad och flerradiga kom
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 
-Uttrycksspråk Azure Data Factory-dataflöde [här fullständig referensdokumentation](https://aka.ms/dataflowexpressions), möjliggör funktioner som innehåller syntax för reguljära uttryck. När du använder reguljära uttryck, Uttrycksverktyget försöker tolka omvänt snedstreck (\) som en sekvens för escape-tecken. När du använder snedstreck i din reguljära uttryck måste du omge hela regex i ticken ` ` eller Använd en dubbla omvända snedstrecken.
+Uttrycksspråk Azure Data Factory-dataflöde [här fullständig referensdokumentation](https://aka.ms/dataflowexpressions), möjliggör funktioner som innehåller syntax för reguljära uttryck. När du använder reguljära uttryck, Uttrycksverktyget försöker tolka omvänt snedstreck (\\) som en sekvens för escape-tecken. När du använder snedstreck i din reguljära uttryck måste du omge hela regex i ticken (\`) eller använda en dubbla omvända snedstrecken.
 
 Exempel på användning av skalstreck
 

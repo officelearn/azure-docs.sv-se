@@ -3,20 +3,20 @@ title: Vägledning om haveriberedskap för Azure Data Lake Storage Gen1 | Micros
 description: Vägledning om haveriberedskap för Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 44c1dc3e3f6c2c9af52a6e9c9320d4a8ba63b4d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: twooley
+ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127116"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878119"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Vägledning om haveriberedskap för data i Azure Data Lake Storage Gen1
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen1 tillhandahåller lokalt redundant lagring (LRS). Ex
 Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Läs informationen i den här artikeln för att skapa din haveriberedskapsplan. Här finns resurser som hjälper dig att skapa ett eget schema.
 
 * [Haveriberedskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Azure-återhämtning, tekniska riktlinjer](../resiliency/resiliency-technical-guidance.md)
+* [Azure återhämtning, tekniska riktlinjer](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>Bästa praxis
 Vi rekommenderar att du kopierar dina viktigaste data till ett annat Data Lake Storage Gen1 konto i en annan region med en frekvens som är anpassad efter behoven i din haveriberedskapsplan. Det finns en mängd olika metoder för att kopiera data, inklusive [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.

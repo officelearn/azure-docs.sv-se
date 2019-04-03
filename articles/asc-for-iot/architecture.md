@@ -1,25 +1,25 @@
 ---
 title: Förstå Azure Security Center för IoT-lösningsarkitektur förhandsversion | Microsoft Docs
 description: Läs mer om flödet av information i Azure Security Center för IoT-tjänsten.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754989"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862373"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center för IoT-arkitekturen
 
@@ -55,9 +55,9 @@ ASC för IoT-rekommendationer och aviseringar (analytics pipeline utdata) skrivs
 
 I den här artikeln har du lärt dig om grundläggande arkitektur och arbetsflöde för ASC för IoT-lösning. Mer information om förutsättningar, hur du kommer igång och aktivera din säkerhetslösning i IoT Hub finns i följande artiklar:
 
-- [Krav för tjänst](service-prerequisites.md)
+- [Förutsättningar för tjänsten](service-prerequisites.md)
 - [Komma igång](getting-started.md)
-- [Konfigurera din lösning](quickstart-configure-your-solution.md)
+- [Konfigurera lösningen](quickstart-configure-your-solution.md)
 - [Aktivera säkerhet i IoT Hub](quickstart-onboard-iot-hub.md)
 - [ASC för IoT vanliga frågor och svar](resources-frequently-asked-questions.md)
 - [ASC för IoT-säkerhetsvarningar](concept-security-alerts.md)

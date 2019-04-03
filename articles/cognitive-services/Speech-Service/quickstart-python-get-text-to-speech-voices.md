@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522833"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876588"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Snabbstart: Hämta listan över text till tal röster med hjälp av Python
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 Här ska du skapa begäran och spara listan med returnerade röster. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i [Speech Services regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Lägg sedan till nödvändiga sidhuvuden för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas, och statuskoden 200 returneras svaret tal skrivs till en tidsstämplad-fil.
+Lägg sedan till nödvändiga sidhuvuden för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas, och statuskoden 200 returneras svaret skrivs till filen.
 
 Kopiera den här koden i den `GetVoices` klass:
 

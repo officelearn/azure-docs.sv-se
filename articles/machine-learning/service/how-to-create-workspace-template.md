@@ -1,5 +1,5 @@
 ---
-title: Använda en mall för att skapa en arbetsyta
+title: Använda en Azure Resource Manager-mall för att skapa en arbetsyta
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder en Azure Resource Manager-mall för att skapa en ny arbetsyta i Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850085"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883198"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Skapa en arbetsyta för Azure Machine Learning-tjänsten med hjälp av en mall
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Du skapar en arbetsyta för Azure Machine Learning-tjänsten med en Azure Resource Manager-mall
 
-I den här artikeln lär du dig flera olika sätt att skapa en arbetsyta för Azure Machine Learning-tjänsten som använder Azure Resource Manager-mallar. 
+I den här artikeln lär du dig flera olika sätt att skapa en arbetsyta för Azure Machine Learning-tjänsten som använder Azure Resource Manager-mallar. En Resource Manager-mallen gör det enkelt att skapa resurser som en enda, samordnad åtgärd. En mall är ett JSON-dokument som definierar de resurser som behövs för en distribution. Det kan även ange distributionsparametrarna. Parametrar används för att ange databasvärden när du använder mallen.
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -30,9 +31,7 @@ Mer information finns i [distribuera ett program med Azure Resource Manager-mall
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
 
-En Resource Manager-mallen gör det enkelt att skapa resurser som en enda, samordnad åtgärd. En mall är ett JSON-dokument som definierar de resurser som behövs för en distribution. Det kan även ange distributionsparametrarna. Parametrar används för att ange databasvärden när du använder mallen.
-
-Följande mall kan användas för att skapa en arbetsyta för Azure Machine Learning-tjänsten och tillhörande Azure-resurser:
+Följande Resource Manager-mall kan användas för att skapa en arbetsyta för Azure Machine Learning-tjänsten och tillhörande Azure-resurser:
 
 ```json
 {

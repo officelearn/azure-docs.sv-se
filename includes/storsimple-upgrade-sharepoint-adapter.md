@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887006"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uppgradera SharePoint 2010 till SharePoint 2013 och sedan installerar StorSomple Adapter för SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55888972"
 > Du bör schemalägga den här uppgraderingen ska ske under ett planerat underhåll av följande skäl:
 > 
 > * Tidigare är externalized innehåll inte tillgängliga förrän adaptern har installerats om.
-> * Allt innehåll som överförs till platsen när du har avinstallerat den tidigare versionen av StorSimple Adapter för SharePoint, men innan du installerar den nya versionen, kommer att lagras i innehållsdatabasen. Du behöver att flytta innehållet till StorSimple-enheten när du installerar det nya kortet. Du kan använda Microsofts` RBS Migrate()` PowerShell-cmdlet som ingår i SharePoint för att migrera om innehållet. Mer information finns i [migrerar du innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Allt innehåll som överförs till platsen när du har avinstallerat den tidigare versionen av StorSimple Adapter för SharePoint, men innan du installerar den nya versionen, kommer att lagras i innehållsdatabasen. Du behöver att flytta innehållet till StorSimple-enheten när du installerar det nya kortet. Du kan använda Microsofts `RBS Migrate()` PowerShell-cmdlet som ingår i SharePoint för att migrera om innehållet. Mer information finns i [migrerar du innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

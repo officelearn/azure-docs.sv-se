@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082168"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880788"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
@@ -64,17 +64,15 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |Data lake store|5|Aktivera diagnostikloggar i Azure Data Lake Store|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |SQL|30|Åtgärda sårbarheter i SQL-databaser|Sårbarhetsbedömning för SQL söker igenom din databas för säkerhetsrisker och visar alla avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data. Åtgärda sårbarheter upptäcktes kan förbättra din säkerhet datasekretesstandarder för databasen.|
 |SQL|20|Etablera en Azure AD-administratör för SQL Server|Etablera en Azure AD-administratör för SQL-servern om du vill aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|
-|Lagringskonto|15|Inaktivera obegränsad nätverksåtkomst till lagringskonto|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Om du vill tillåta anslutningar från specifika Internet eller en lokal klienter beviljas åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
-|Lagringskonto|1|Migrera lagringskonton till nya AzureRM-resurser|Använd den nya Azure Resource Manager v2 för storage-konton att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
-
-
+|Lagringskonto|15|Inaktivera obegränsad nätverksåtkomst till storage-konto|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. För att tillåta anslutningar från specifika Internet eller lokala klienter, kan du bevilja åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
+|Lagringskonto|1|Migrera storage-konton till Azure Resource Manager-modellen resurser|Använda den nya Azure Resource Manager v2 för storage-konton för att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, och Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
 
 ## <a name="see-also"></a>Se också
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
 * [Skydda virtuella datorer i Azure Security Center](security-center-virtual-machine-recommendations.md)
 * [Skydda program i Azure Security Center](security-center-application-recommendations.md)
-* [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
+* [Skydda ditt nätverk i Azure Security Center](security-center-network-recommendations.md)
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

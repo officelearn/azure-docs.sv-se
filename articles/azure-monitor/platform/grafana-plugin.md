@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002267"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850689"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -47,7 +47,7 @@ Du ställer in en lokal Grafana server [ladda ned och installera Grafana i din l
 
 7. Hämta offentliga IP-adressen för servern Grafana - gå tillbaka till listan över resurser och välj **offentliga IP-adressen**.
 
-## <a name="log-in-to-grafana"></a>Logga in på Grafana
+## <a name="sign-in-to-grafana"></a>Logga in på Grafana
 
 1. Med IP-adressen för din server, öppna inloggningssidan i *http://\<IP-adress\>: 3000* eller  *\<DNSName >\:3000* i webbläsaren. 3000 är standardporten, du Observera att du kan ha valt en annan port under installationen. Du bör se en inloggningssida för Grafana-server som du skapat.
 
@@ -167,5 +167,5 @@ Om du har ställt in en Grafana-miljö på Azure, debiteras du när virtuella da
 2. På sidan med resursgrupper, klickar du på **ta bort**, typ **Grafana** i textrutan och klicka sedan på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Översikt över Azure Monitor-mått](../../azure-monitor/platform/data-collection.md)
+* [Översikt över Azure Monitor-mått](data-platform.md)
 

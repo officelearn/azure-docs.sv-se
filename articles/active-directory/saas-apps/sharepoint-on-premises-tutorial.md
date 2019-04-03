@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 122234e164735270d5566dbaa5d3e8b2d49c141a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58794010"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudier: Azure Active Directory-integrering med SharePoint lokalt
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 Om du vill konfigurera integrering av lokal SharePoint i Azure AD så behöver du lägga till lokal SharePoint från galleriet i din lista över hanterade SaaS-appar.
 
-**Lägg till lokal SharePoint från galleriet genom att utföra följande steg:**
+**Utför följande steg för att lägga till lokal SharePoint från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -106,11 +106,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
 
     ![Enkel inloggningsinformation för lokal SharePoint-domän och URL:er](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `urn:sharepoint:federation`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [supportteamet för den lokala SharePoint-klienten](https://support.office.com/) för att få de här värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -122,7 +122,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
     > [!Note]
     > Skriv ned sökvägen till filen som du har hämtat certifikatfilen för eftersom du behöver använda den senare i PowerShell-skriptet för konfigurationen.
 
-6. I avsnittet **Konfigurera lokal SharePoint** kopierar du en eller flera lämpliga URL:er efter behov. Som **URL för enkel inloggningstjänsten** använder du ett värde med följande mönster: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. I avsnittet **Konfigurera lokal SharePoint** kopierar du en eller flera lämpliga URL:er efter behov. För **enkel inloggnings-URL för**, använda ett värde för följande mönster: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ är klient-id för Azure Ad-prenumerationen.
@@ -142,7 +142,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
 
 1. I ett annat webbläsarfönster loggar du in på din företagswebbplats för lokal SharePoint som en administratör.
 
-2. **Konfigurera en ny betrodd identitetsprovider i SharePoint Server 2016**
+2. **Konfigurera en ny betrodd identitetsleverantör i SharePoint Server 2016**
 
     Logga in på SharePoint Server 2016-servern och öppna hanteringsgränssnittet för SharePoint 2016. Fyll i värdena för $realm (Identifierarvärde från den lokala SharePoint-domänen och URL:er-avsnittet i Azure portal), $wsfedurl (URL för enkel inloggningstjänsten) och $filepath (sökväg som du har hämtat certifikatfilen till) från Azure-portalen och kör följande kommandon för att konfigurera en ny betrodd identitetsprovider.
 
@@ -263,14 +263,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
     ![Bevilja behörigheter](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
-    > Kontrollera under meddelanden att avgöra om behörigheterna som har beviljats.  Om de inte är AzureCP fungerar inte och det går inte att konfigurera SharePoint lokalt med Azure Active Directory-säkerhetsgrupper.
+    > Kontrollera under meddelanden att avgöra om behörigheterna som har beviljats.  Om de inte är AzureCP fungerar inte och det går inte att konfigurera lokal SharePoint med Azure Active Directory-säkerhetsgrupper.
 
 10. Konfigurera AzureCP på en lokal SharePoint-servergruppen eller alternativa anpassade anspråk providern lösning.  I det här exemplet använder vi AzureCP.
 
     > [!NOTE]
     > Observera att AzureCP är inte en Microsoft-produkt eller stöds av Microsofts tekniska Support. Hämta, installera och konfigurera AzureCP på en lokal SharePoint-servergruppen per https://yvand.github.io/AzureCP/ 
 
-11. **Bevilja åtkomst till den Azure Active Directory-säkerhetsgrupp i en lokal SharePoint** :-gruppen måste beviljas åtkomst till programmet i SharePoint på-permise.  Använd följande steg för att ange behörighet för att få åtkomst till webbprogrammet.
+11. **Bevilja åtkomst till den Azure Active Directory-säkerhetsgrupp i den lokala SharePoint** :-gruppen måste beviljas åtkomst till programmet i SharePoint på-permise.  Använd följande steg för att ange behörighet för att få åtkomst till webbprogrammet.
 
 12. Klicka på programhantering, hantera webbprogram och välj webbprogram för att aktivera menyfliksområdet och klicka på användarprincip i Central Administration.
 
@@ -367,7 +367,7 @@ När du klickar på lokal SharePoint-panelen i Åtkomstpanelen så bör du autom
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

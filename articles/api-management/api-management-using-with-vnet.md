@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087048"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884523"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källa / målportar | Riktning          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
+| Källa / målportar | Riktning          | Transport-protokoll |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
@@ -146,7 +146,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 
 + **Azure-portalen diagnostik**: Aktivera flödet av diagnostikloggar från Azure-portalen när du använder API Management-tillägget från i ett virtuellt nätverk, utgående åtkomst till `dc.services.visualstudio.com` på port 443 krävs. Det underlättar vid felsökning av problem kan du står inför när du använder tillägget.
 
-+ **Tvingad tunneltrafik trafik till en lokal brandväggen med hjälp av Express Route eller nätverket virtuell installation**: En vanlig kund-konfiguration är att definiera egna standardväg (0.0.0.0/0) som tvingar all trafik från API Management delegerad undernätet till flow via en värdbaserad brandvägg eller till en virtuell nätverksinstallation. Det här flödet i nätverkstrafiken delar utan undantag anslutning med Azure API Management eftersom den utgående trafiken är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen måste du göra några saker:
++ **Tvingad tunneltrafik trafik till en lokal brandväggen med hjälp av Express Route eller nätverket virtuell installation**: En vanlig kund-konfiguration är att definiera egna standardväg (0.0.0.0/0) som tvingar all trafik från API Management delegerad undernätet till flow via en brandvägg på plats eller till en virtuell nätverksinstallation. Det här flödet i nätverkstrafiken delar utan undantag anslutning med Azure API Management eftersom den utgående trafiken är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen måste du göra några saker:
 
   * Aktivera tjänstslutpunkter på undernät där API Management-tjänsten har distribuerats. [Tjänstslutpunkter] [ ServiceEndpoints] måste aktiveras för Azure Sql, Azure Storage, Azure EventHub och Azure ServiceBus. Aktiverar slutpunkter direkt från API Management delegerade undernätet till dessa tjänster gör att de kan använda Microsoft Azure-stamnätverk att tillhandahålla optimal routning för tjänstens trafik. Om du använder Tjänsteslutpunkter med en tvingad tunneltrafik Api Management tunneltrafik ovan Azure-tjänsterna trafik inte Tvingad. Den andra API Management service-beroende trafik blir Tvingad tunneltrafik och kan antingen förloras eller API Management-tjänsten fungerar inte korrekt.
     
@@ -197,7 +197,7 @@ Beräkningen ovan minimistorleken på undernätet, där du kan distribuera API M
 * [Anslut ett virtuellt nätverk till serverdelen med Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Hur du använder API: et Inspector att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
-* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
+* [Virtuellt nätverk vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
 * [Tjänsttaggar](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

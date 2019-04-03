@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802804"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878731"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
 
@@ -39,7 +39,7 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
     2. Skapa och arbeta via en ansvar tilldelning matris (RACI) som definierar ansvaret och tilldelningar av berörda parterna. Starta på hög nivå och arbetar för att fler och fler detaljerade nivåer dataflöde första och du planerar distributioner
     2. En övergripande lösningsarkitektur
     3. Beslut att distribuera till på Azure-regioner. En lista över Azure-regioner, kontrollera den [Azure-regionerna](https://azure.microsoft.com/global-infrastructure/regions/). Tjänster som är tillgängliga i varje Azure-regioner finns i artikeln [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/)
-    4. Nätverksarkitekturen att ansluta från en lokal till Azure. Börja Visa vem bekant med den [Virtual Datacenter skissen till Azure](https://docs.microsoft.com/azure/architecture/vdc/)
+    4. Nätverksarkitekturen att ansluta från en lokal plats till Azure. Börja Visa vem bekant med den [Virtual Datacenter skissen till Azure](https://docs.microsoft.com/azure/architecture/vdc/)
     5. Säkerhetsprinciper för att köra viktiga för verksamheten påverka data i Azure. För att läsa in material börjar med [dokumentation om Azure-säkerhet](https://docs.microsoft.com/azure/security/)
 2.  Teknisk Design dokumentet – som innehåller:
     1.  Ett blockdiagram för lösningen 
@@ -87,7 +87,7 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
  
 Piloten kan köras före eller parallellt till projektet planering och förberedelser. Fasen kan också användas för att testa metoder och design som gjorts i fasen av planering och förberedelser. Pilotfasen kan stretchas till en verklig bevis på koncept. Vi rekommenderar att konfigurera och verifiera en fullständig hr/DR-lösning samt säkerhetsdesign under en pilotdistribution. I vissa fall kunden kan skalbarhet tester också utföras i det här steget. Andra kunder använder distribution av SAP sandbox-system som pilotfasen. Så vi förutsätter att du har identifierat ett system som du vill migrera till Azure, i syfte att köra ett pilotprojekt.
 
-1. Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från en lokal var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
+1. Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från den lokala var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
 2. Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Exportera till källa, Export filuppladdning till Azure och importera prestanda.  Maximera överlapp mellan export och import
    2.  Utvärdera mängden databas mellan mål- och mål-plattformen för att avspegla i infrastruktur-storlek    
@@ -159,7 +159,7 @@ Piloten kan köras före eller parallellt till projektet planering och förbered
 6. Testning av prestanda
    1.  Jämför översta 10 online-rapporter för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
    2.  Jämför översta 10 batch-jobb för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
-   3.  I SAP baserat på SAP-spårning och mätning av faktisk användning, jämför dataöverföringar via gränssnitt i SAP-system. Fokusera på gränssnitt där du vet att överföringen kommer nu mellan olika platser, som kommer från lokalt till Azure 
+   3.  I SAP baserat på SAP-spårning och mätning av faktisk användning, jämför dataöverföringar via gränssnitt i SAP-system. Fokusera på gränssnitt där du vet att överföringen kommer nu mellan olika platser, som kommer från en lokal plats till Azure 
 
 
 ## <a name="non-production-phase"></a>Icke-produktion fas 

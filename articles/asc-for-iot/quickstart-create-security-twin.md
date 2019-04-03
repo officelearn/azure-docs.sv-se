@@ -1,25 +1,25 @@
 ---
 title: Skapa en security modultvillingen för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
 description: Lär dig hur du skapar en Azure Security Center för IoT-modultvilling för användning med ASC för IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 93b6aa6fe133953025cd504e0486a51c4a3d5e04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758370"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862224"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Snabbstart: Skapa en azureiotsecurity modultvilling
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231822"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884694"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Kontrollera trafik enligt ett schema med Azure Logic Apps
 
@@ -37,7 +37,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 Om du inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a> innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett e-postkonto från en e-postleverantör som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). I den här snabbstarten används ett Outlook.com-konto. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
@@ -78,7 +78,8 @@ Sedan lägger du till en [utlösare](../logic-apps/logic-apps-overview.md#logic-
 
    ![Söka efter och lägga till utlösaren ”Schema – återkommande”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. I formen för **återkommande** väljer du knappen med **punkter** (**...**) och sedan **Byt namn**. Byt namn på utlösaren med den här beskrivningen: ```Check travel time every weekday morning```
+2. I formen för **återkommande** väljer du knappen med **punkter** (**...**) och sedan **Byt namn**. Byt namn på utlösaren med den här beskrivningen:
+```Check travel time every weekday morning```
 
    ![Byta namn på utlösare](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -117,7 +118,7 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
 1. I Logic Apps Designer går du till utlösaren och väljer **+ Nytt steg** > **Lägg till en åtgärd**.
 
-2. Sök efter ”maps” och välj den här åtgärden: **Bing Maps - Get route** (Hämta resväg)
+2. Sök efter ”maps” och välj den här åtgärden: **Bing Maps - Get route**
 
 3. Om du inte har en Bing Maps-anslutning uppmanas du att skapa en anslutning. Ange den här anslutningsinformationen och välj **Skapa**.
 
@@ -129,7 +130,8 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    | **API-nyckel** | <*your-Bing-Maps-key*> | Ange Bing Maps-nyckeln som du fick tidigare. Om du inte har en Bing Maps-nyckel tar du reda på <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">hur du hämtar en nyckel</a>. | 
    | | | |  
 
-4. Byt namn på åtgärden med den här beskrivningen: ```Get route and travel time with traffic```
+4. Byt namn på åtgärden med den här beskrivningen:
+```Get route and travel time with traffic```
 
 5. Ange information för åtgärden **Get route** (Hämta resväg) som visas och beskrivs här, till exempel:
 
@@ -137,14 +139,14 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
-   | **Waypoint 1** (Platsmarkör 1) | <*start-location*> | Startpunkt för resvägen | 
-   | **Waypoint 2** (Platsmarkör 2) | <*end-location*> | Slutpunkten för resvägen | 
-   | **Avoid** (Undvik) | Ingen | Alla objekt som ska undvikas längs vägen, till exempel motorvägar, vägtullar och så vidare | 
-   | **Optimize** (Optimera) | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj den här parametern: ”timeWithTraffic” | 
-   | **Avståndsenhet** | <*your-preference*> | Avståndsenhet för din resväg. I den här artikeln används enheten ”Mile”  | 
-   | **Travel mode** (Färdsätt) | Driving (Bil) | Färdsättet för din resväg. Välj det här färdsättet: ”Driving” (Bil) | 
-   | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
-   | **Date-Time Type** (Typ av datum/tid) | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
+   | **Waypoint 1** | <*start-location*> | Startpunkt för resvägen | 
+   | **Waypoint 2** | <*end-location*> | Slutpunkten för resvägen | 
+   | **Avoid** | Ingen | Alla objekt som ska undvikas längs vägen, till exempel motorvägar, vägtullar och så vidare | 
+   | **Optimera** | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj den här parametern: ”timeWithTraffic” | 
+   | **Avståndsenhet** | <*your-preference*> | Avståndsenhet för din resväg. Den här artikeln används enheten: ”Mile”  | 
+   | **Färdsättet** | Driving (Bil) | Färdsättet för din resväg. Välj det här läget: "Driving" | 
+   | **Datum / tid-överföring** | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
+   | **Datum / tid-typ** | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
    |||| 
 
    Mer information om dessa parametrar finns [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Beräkna en resväg).
@@ -161,18 +163,19 @@ Den tidigare åtgärden **Get route** (Hämta resväg) returnerar aktuell restid
 
 1. Under åtgärden **Get route** (Hämta resväg) väljer du **+Nytt steg**  > **Lägg till en åtgärd**.
 
-2. Sök efter ”variables” (variabler) och markera den här åtgärden: **Variables - Initialize variable** (Variabler – Initiera variabel)
+2. Sök efter ”variabler” och välj den här åtgärden: **Variabler – initiera variabel**
 
    ![Välj åtgärden ”Variables - Initialize variable” (Variabler – Initiera variabel)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Byt namn på åtgärden med den här beskrivningen: ```Create variable to store travel time```
+3. Byt namn på den här åtgärden med den här beskrivningen:
+```Create variable to store travel time```
 
 4. Ange detaljer för variabeln enligt beskrivningen nedan:
 
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | travelTime | Namnet på variabeln | 
-   | **Typ** | Integer | Datatypen för variabeln | 
+   | **Type** | Integer | Datatypen för variabeln | 
    | **Värde** | Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln | 
    |||| 
 
@@ -256,13 +259,14 @@ Nu lägger du till en åtgärd som skickar ett e-postmeddelande när restiden ö
 
    Logic Apps skapar en anslutning till ditt e-postkonto.
 
-4. Byt namn på åtgärden med den här beskrivningen: ```Send email with travel time```
+4. Byt namn på åtgärden med den här beskrivningen:
+```Send email with travel time```
 
 5. Ange mottagarens e-postadress i fältet **Till**. I testsyfte använder du din egen e-postadress.
 
 6. I rutan **Ämne** anger du ämnet för e-postmeddelandet och tar med variabeln **travelTime** (Restid).
 
-   1. Ange texten ```Current travel time (minutes): ``` med ett avslutande blanksteg. 
+   1. Ange texten ```Current travel time (minutes):``` med ett avslutande blanksteg. 
    
    2. Välj fältet **travelTime** (Restid) under **Variables** (Variabler) i parameterlistan eller i listan med dynamiskt innehåll. 
    
@@ -272,7 +276,7 @@ Nu lägger du till en åtgärd som skickar ett e-postmeddelande när restiden ö
 
 7. Ange innehållet för e-postmeddelandet i rutan **Brödtext**. 
 
-   1. Ange texten ```Add extra travel time (minutes): ``` med ett avslutande blanksteg. 
+   1. Ange texten ```Add extra travel time (minutes):``` med ett avslutande blanksteg. 
    
    2. Du kan behöva öka webbläsarens bredd för att kunna se listan med dynamiskt innehåll. 
    Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.

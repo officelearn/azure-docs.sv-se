@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341773"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847575"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -84,10 +84,11 @@ Följ dessa steg för att generalisera den virtuella Windows-datorn:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Skapa en avbildning av en virtuell dator med Powershell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Skapa en avbildning direkt från den virtuella datorn ser du till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella datadiskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
-
-Innan du börjar måste du se till att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable AzureRM.Compute` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
+Innan du börjar måste du kontrollera att du har den senaste versionen av Azure PowerShell-modulen. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable Az` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-az-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
 
 
 > [!NOTE]

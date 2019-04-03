@@ -1,22 +1,22 @@
 ---
-title: 'Slutanvändarautentisering: Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+title: 'Autentisering för slutanvändare: Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
 description: Lär dig att uppnå slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: twooley
+ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954798"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880091"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ Utför följande steg för att hämta omdirigeringen-URI.
 3. Kopiera värdet som visas.
 
 
-## <a name="step-3-set-permissions"></a>Steg 3: Ange behörigheter
+## <a name="step-3-set-permissions"></a>Steg 3: Ställa in behörigheter
 
 1. Azure-portalen väljer du **Azure Active Directory**, klickar du på **appregistreringar**, och leta upp och klicka på den Azure AD-program som du skapade.
 

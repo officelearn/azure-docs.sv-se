@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065196"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884250"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure-portalen
 
@@ -42,7 +42,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **Namn** | MyFirstLogicApp | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
@@ -69,9 +69,9 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
-   | **RSS-feedens webbadress** | ```http://feeds.reuters.com/reuters/topNews``` | Länken till det RSS-flöde som du vill övervaka | 
+   | **RSS-feedens URL** | ```http://feeds.reuters.com/reuters/topNews``` | Länken till det RSS-flöde som du vill övervaka | 
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
    | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller  | 
    |||| 
@@ -114,7 +114,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
       För närvarande kan du listan **Lägg till dynamiskt innehåll** som visas. 
       När du klickar i vissa redigeringsrutor blir listan synlig och visar eventuella tillgängliga parametrar från föregående steg som du kan ta med som indata i arbetsflödet. 
 
-   2. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: ```New RSS item: ```
+   2. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: ```New RSS item:```
 
       ![Ange ämne för e-post](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
@@ -136,11 +136,11 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Lägg till innehåll för e-postmeddelandets brödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Egenskap | Beskrivning | 
+      | Egenskap  | Beskrivning | 
       |----------|-------------| 
       | **Flödesrubrik** | Objektets rubrik | 
       | **Flödet publicerat den** | Objektets publiceringsdatum och -tid | 
-      | **Flödets primära länk** | Objektets webbadress | 
+      | **Primär flödeslänk** | Objektets webbadress | 
       ||| 
    
 5. Spara din logikapp.

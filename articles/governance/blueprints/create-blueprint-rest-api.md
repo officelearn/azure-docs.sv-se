@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994866"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885969"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -40,10 +40,10 @@ Specifikationer för skisser finns i [REST API för Azure Blueprint](/rest/api/b
 
 Om du inte redan har ett verktyg för att göra REST API-anrop kan du använda PowerShell för dessa anvisningar. Följande är ett exempelhuvud för autentisering med Azure. Generera ett autentiseringshuvud, även kallat en **ägartoken**, och ange REST API-URI:n som du vill ansluta till med valfria parametrar eller en **begärandetext**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,7 +68,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
+- `{YourMG}` – Ersätt med din hanteringsgrupp-ID
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
@@ -334,8 +334,8 @@ När en skiss har publicerats med hjälp av REST API kan den tilldelas till en p
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{tenantId}` – Ersätt med ditt klientorganisations-ID
-- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
+- `{tenantId}` – Ersätt med din klient-ID
+- `{YourMG}` – Ersätt med din hanteringsgrupp-ID
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiska (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men ID för tjänstens huvudnamn varierar beroende på klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
@@ -438,9 +438,9 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [skiss livscykeln](./concepts/lifecycle.md).
-- Förstå hur du använder [Statiska och dynamiska parametrar](./concepts/parameters.md).
-- Lär dig att anpassa den [skiss ordningsföljd](./concepts/sequencing-order.md).
-- Ta reda på hur du får använda [skiss resource låsning](./concepts/resource-locking.md).
-- Lär dig hur du [uppdatera befintliga tilldelningar](./how-to/update-existing-assignments.md).
-- Lös problem vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).
+- Lär dig mer om [livscykeln för en skiss](./concepts/lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](./how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).

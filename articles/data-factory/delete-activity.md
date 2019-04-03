@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404781"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881791"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
 
-Du kan använda aktiviteten Ta bort i Azure Data Factory för att ta bort filer eller mappar från en lokal lagring som lagrar eller storage lagra i molnet. Använd den här aktiviteten för att rensa eller arkivera filer när de inte längre behövs.
+Du kan använda aktiviteten Ta bort i Azure Data Factory för att ta bort filer eller mappar från den lokala lagringen lagrar eller storage lagra i molnet. Använd den här aktiviteten för att rensa eller arkivera filer när de inte längre behövs.
 
 > [!WARNING]
 > Det går inte att återställa borttagna filer eller mappar. Var försiktig när du använder aktiviteten Ta bort att ta bort filer eller mappar.

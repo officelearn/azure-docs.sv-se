@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: df0dd3f54fb645590ff6e5b30a7ccc42f5ddd2eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036281"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879479"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totalkostnaden för Ownership(TCO) med Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB har utformats med de detaljerade styrning för flera innehavare 
 
 OSS NoSQL database-lösningar, till exempel Apache Cassandra, MongoDB, HBase, motorer utformades för on-premises. De är likvärdiga med en Resource Manager-mall med en klientdatabas för att hantera de etablerade kluster och övervakningsstöd när erbjuds som en hanterad tjänst. Arkitekturer för OSS NoSQL kräver betydande driftsomkostnader och expertis kan vara svårt och dyrt att hitta. Å andra sidan, är Azure Cosmos DB en fullständigt hanterad molntjänst som gör att utvecklare kan fokusera på företagets innovationer i stället för hantering och underhåll av databasinfrastruktur. 
 
-Till skillnad från molnbaserade database-tjänsten Azure Cosmos DB har OSS NoSQL databasmotorer utformades och byggdes med resursstyrning eller detaljerade flera innehavare som grundläggande arkitekturprinciper inte. OSS NoSQL databasmotorer som Cassandra och MongoDB gör en grundläggande antagandet att alla resurser på den virtuella datorn som de körs är tillgängliga för deras användning. Många av dessa databasmotorer fungerar inte om mängden resurser faller under ett visst tröskelvärde. Till exempel för liten virtuell dator instanser och de är tillgängliga med leverantören rekommenderade konfigurationer föreslå vanligtvis storskaliga virtuella datorer med högre kostnad. Det är därför inte möjligt att vara värd för en OSS NoSQL eller andra lokala databas-motorn och göra den tillgänglig med hjälp av en förbrukningsbaserad laddas modell som begäranden per sekund eller förbrukad lagring.
+Till skillnad från molnbaserade database-tjänsten Azure Cosmos DB har OSS NoSQL databasmotorer utformades och byggdes med resursstyrning eller detaljerade flera innehavare som grundläggande arkitekturprinciper inte. OSS NoSQL databasmotorer som Cassandra och MongoDB gör en grundläggande antagandet att alla resurser på den virtuella datorn som de körs är tillgängliga för deras användning. Många av dessa databasmotorer fungerar inte om mängden resurser faller under ett visst tröskelvärde. Till exempel för liten virtuell dator instanser och de är tillgängliga med leverantören rekommenderade konfigurationer föreslå vanligtvis storskaliga virtuella datorer med högre kostnad. Så det går inte att vara värd för en OSS NoSQL eller några andra lokalt databasmotor och göra den tillgänglig med hjälp av en förbrukningsbaserad laddas modell som begäranden per sekund eller förbrukad lagring.
 
 ## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Totalkostnad för ägarskap av Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Den serverfria etableringsmodellen hos Azure Cosmos DB eliminerar behovet av att
 
 * **Optimerad för molnet:** Azure Cosmos DB har utformats från grunden med detaljerade isolering för flera innehavare och prestanda. Det möjliggör optimalt placera, köra och belastningsutjämning tusentals olika klienter och sina arbetsbelastningar över kluster och datacenter. Däremot fungera den nuvarande generationen OSS NoSQL-databaser på plats med hela den virtuella datorn antas för att köra en enda klient arbetsbelastningen. Dessa databaser är också inte utformade för att använda en molnleverantör infrastruktur och maskinvara som helt. Till exempel en OSS NoSQL databasmotor är inte medvetna om skillnaderna mellan en virtuell dator som ned Vs en rutinmässig avbildning uppgradera eller faktumet att premium-disken är redan trevägs replikeras. Den kan inte dra nytta av dessa förmåner och skicka om fördelar och besparingar för kunder.
 
-* **Du betalar per timme:** För storskaliga arbetsbelastningar som behöver skala när som helst i tid kan debiteras du bara per timme. Arbetsbelastningar på ett program varierar vanligtvis över tid på året och av de data som efterfrågas. Med Azure Cosmos DB kan skala du upp eller ned när du behöver och betala bara för vad du behöver. Med en lokal eller IaaS-värd system, kan inte du matcha den här modellen eftersom det inte är ett sätt att inaktivera maskinvaran varje timme. I sådana fall kan spara du eventuellt mellan 10 till 14 gånger på ett genomsnitt med Azure Cosmos DB.
+* **Du betalar per timme:** För storskaliga arbetsbelastningar som behöver skala när som helst i tid kan debiteras du bara per timme. Arbetsbelastningar på ett program varierar vanligtvis över tid på året och av de data som efterfrågas. Med Azure Cosmos DB kan skala du upp eller ned när du behöver och betala bara för vad du behöver. Med den lokala eller IaaS-värd system kan inte kan du matcha den här modellen eftersom det inte är ett sätt att inaktivera maskinvaran varje timme. I sådana fall kan spara du eventuellt mellan 10 till 14 gånger på ett genomsnitt med Azure Cosmos DB.
 
 * **Du får ett stort antal funktioner kostnadsfritt:** Skriva arbetsbelastningar med avsevärt billigare alternativ databastjänster i Azure Cosmos DB. Dessutom Azure Cosmos DB erbjuder funktioner som till exempel [automatisk indexering](indexing-policies.md), [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) och andra utan ytterligare avgifter, något som oftast debiterar andra databastjänster.
 

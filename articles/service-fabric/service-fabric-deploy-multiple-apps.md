@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 7fb4c68d10478a7c8af62262b3fa4633eaac9d2b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660416"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884728"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuera flera körbara gäster
 Den här artikeln visar hur du paketera och distribuera flera körbara gäster till Azure Service Fabric. Läs om hur för att skapa och distribuera ett enda Service Fabric-paket till [distribuera en körbar Gäst till Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Du kan använda Visual Studio för att skapa det programpaket som innehåller fl
 * [Exempel på två gäst körbara filer (C# och nodejs) kommunicerar via tjänsten namngivning med hjälp av REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Manuellt paketera flera körbart gästprogram
-Du kan också manuellt paketera den körbara gästfiler. Manuell förpackningen kan den här artikeln använder verktyget Service Fabric-paketering, som finns på [ http://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+Du kan också manuellt paketera den körbara gästfiler. Manuell förpackningen kan den här artikeln använder verktyget Service Fabric-paketering, som finns på [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Paketera Node.js-program
 Den här artikeln förutsätter att Node.js inte installeras på noderna i Service Fabric-klustret. Det betyder att du behöver lägga till Node.exe till rotkatalogen för nodprogrammet innan paketering. Katalogstrukturen på Node.js-program (med hjälp av Express-webbramverk och Jade motorn) bör likna följande:

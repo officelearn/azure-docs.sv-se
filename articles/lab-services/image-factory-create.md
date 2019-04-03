@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440028"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879156"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildning fabrik i Azure DevTest Labs
 Den här artikeln visar hur du ställer in en anpassad avbildning fabrik med hjälp av exempelskript som finns tillgängliga i den [Git-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
@@ -27,7 +27,7 @@ En bild factory är en konfiguration som kod-lösning som bygger och distribuera
 
 Betydande snabbtangenten för att få en utvecklare desktop i tillståndet klar i DevTest Labs använder anpassade avbildningar. Nackdelen med anpassade avbildningar är att det inte finns något extra att underhålla i laboratoriet. Till exempel dessa versioner av produkter upphör att gälla över tid (eller) nyligen utgivna säkerhetsuppdateringar tillämpas inte, vilket tvingar oss att uppdatera den anpassade avbildningen med jämna mellanrum. Med en bild datafabrik har du en definition av avbildningen som checkats in till källkodskontroll och har en automatiserad process att skapa anpassade avbildningar som baseras på definitionen.
 
-Den här lösningen kan hastigheten på virtuella datorer skapas från anpassade avbildningar samtidigt undvika kostnader för ytterligare löpande underhåll. Med den här lösningen kan du automatiskt skapa anpassade avbildningar, distribuera dem till andra labb och dra tillbaka gamla avbildningar. I följande video du lär dig mer om avbildningen factory och hur den har implementerats med DevTest Labs.  Azure Powershell-skript är tillgängliga och fritt finns här: [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory).
+Den här lösningen kan hastigheten på virtuella datorer skapas från anpassade avbildningar samtidigt undvika kostnader för ytterligare löpande underhåll. Med den här lösningen kan du automatiskt skapa anpassade avbildningar, distribuera dem till andra labb och dra tillbaka gamla avbildningar. I följande video du lär dig mer om avbildningen factory och hur den har implementerats med DevTest Labs.  Azure Powershell-skript är tillgängliga och fritt finns här: [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory).
 
 <br/>
 

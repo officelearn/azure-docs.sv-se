@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817770"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849963"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -356,7 +356,7 @@ Klicka på **Aviseringsregler** att konfigurera aviseringar baserat på Azure Ca
 
 ### <a name="diagnostics"></a>Diagnostik
 
-Cache-mått i Azure Monitor är som standard [lagras i 30 dagar](../azure-monitor/platform/data-collection.md#metrics) och tas sedan bort. För att bevara din cache-mått längre än 30 dagar, klickar du på **diagnostik** till [konfigurera lagringskontot](cache-how-to-monitor.md#export-cache-metrics) används för att lagra cachediagnostik.
+Cache-mått i Azure Monitor är som standard [lagras i 30 dagar](../azure-monitor/platform/data-platform-metrics.md) och tas sedan bort. För att bevara din cache-mått längre än 30 dagar, klickar du på **diagnostik** till [konfigurera lagringskontot](cache-how-to-monitor.md#export-cache-metrics) används för att lagra cachediagnostik.
 
 >[!NOTE]
 >Förutom arkivering cache-mått till lagring, kan du också [strömma dem till en Event hub eller skicka dem till Azure Monitor-loggar](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).

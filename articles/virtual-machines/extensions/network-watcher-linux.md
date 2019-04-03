@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989387"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879020"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-tillägg för virtuell dator för Linux
 
@@ -38,12 +38,12 @@ Network Watcher-Agent-tillägget kan konfigureras för följande Linux-distribut
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 12 + |
+| Ubuntu | 12+ |
 | Debian | 7 och 8 |
 | Red Hat | 6 och 7 |
 | Oracle Linux | 6.8 + och 7 |
 | SUSE Linux Enterprise Server | 11 och 12 |
-| OpenSUSE-steg | 42.3 + |
+| OpenSUSE Leap | 42.3+ |
 | CentOS | 6.5 + och 7 |
 | CoreOS | 899.17.0+ |
 
@@ -118,9 +118,9 @@ azure vm extension get myVM1
 ```
 Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
 
-`
+```
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-`
+```
 
 I följande exempel visas distributionsstatusen för tillägget NetworkWatcherAgentLinux för en virtuell dator distribueras via Resource Manager med hjälp av Azure-CLI:
 

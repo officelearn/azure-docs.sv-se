@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996146"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878748"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 
@@ -34,7 +34,7 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 
 **Vad du behöver:**
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-koden](https://code.visualstudio.com/)
 * Ett [Azure Storage-konto](storage-quickstart-create-account.md)
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 3. Öppna den här katalogen i Visual Studio Code. Det här steget kan göras snabbt via kommandoraden genom att skriva `code .` i Windows.
 4. Installera den [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) från Visual Studio Code Marketplace. Starta om Visual Studio Code.
 5. Du bör nu se två frågor. En är för att lägga till ”tillgångar som krävs för att skapa och Felsök”. Klicka på ”Ja”. En annan fråga är för att återställa Olösta beroenden. Klicka på ”Återställ”.
-6. Ändra `launch.json` under `.vscode` att använda extern terminal läge. Den här inställningen bör läsa som ` "console": "externalTerminal"`
+6. Ändra `launch.json` under `.vscode` att använda extern terminal läge. Den här inställningen bör läsa som `"console": "externalTerminal"`
 7. Visual Studio Code kan du felsöka .NET Core-program. Tryck på `F5` att köra ditt program och kontrollera att din konfiguration fungerar. Du bör se ”Hello World”! ut till konsolen.
 
 ## <a name="add-data-movement-library-to-your-project"></a>Lägg till bibliotek för flytt av Data i projektet

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479537"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862895"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -83,16 +83,6 @@ Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. D
 Distribution av Azure AD-lösenordsskydd i en Active Directory-skog kräver registrering av skogen med Azure AD. Varje proxytjänst som har distribuerats måste också vara registrerad med Azure AD. Dessa skogar och proxy-registreringar som är associerade med en viss Azure AD-klient som identifieras implicit med de autentiseringsuppgifter som används under registreringen.
 
 Active Directory-skog och alla distribuerade proxytjänster inom en skog måste vara registrerad med samma klient. Det går inte för att ha en Active Directory-skog eller någon proxy-tjänsterna i den skog som registreras till annan Azure AD-innehavare. Symtom på en felkonfigurerad distribution är det inte går att ladda ned lösenordsprinciper.
-
-## <a name="license-requirements"></a>Licenskrav
-
-Fördelarna med listan över globala förbjudna lösenord gäller för alla användare av Azure AD.
-
-Listan över anpassade förbjudna lösenord kräver Azure AD Basic-licenser.
-
-Azure AD-lösenordsskydd för Windows Server Active Directory kräver Azure AD Premium-licenser.
-
-Mer licensieringsinformation finns [priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Ladda ned
 

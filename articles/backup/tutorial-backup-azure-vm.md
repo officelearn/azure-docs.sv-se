@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258385"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863023"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Säkerhetskopiera virtuella Azure-datorer med PowerShell
 
@@ -82,7 +82,7 @@ Skapa valvet på följande sätt:
 
 Säkerhetskopiering köras i enlighet med det schema som angetts i säkerhetskopieringsprincipen. När du skapar ett Recovery Services-valv medföljer standardskydd och principer för kvarhållning.
 
-- Principen för standardskydd utlöser ett säkerhetskopieringsjobb en per dag vid en viss tidpunkt.
+- Principen för standardskydd utlöser ett säkerhetskopieringsjobb en gång om dagen vid en viss tidpunkt.
 - Principen för standardskydd håller kvar den dagliga återställningspunkten i 30 dagar. 
 
 För att aktivera och in Azure VM-säkerhetskopiering på den här självstudien gör vi följande:
@@ -123,4 +123,4 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 - [Granska](backup-azure-vms-automation.md) en mer detaljerad genomgång av säkerhetskopiera och återställa virtuella datorer i Azure med PowerShell. 
 - [Hantera och övervaka virtuella Azure-datorer](backup-azure-manage-vms.md)
-- [Återställa virtuella datorer i Azure](backup-azure-arm-restore-vms.md)
+- [Återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md)

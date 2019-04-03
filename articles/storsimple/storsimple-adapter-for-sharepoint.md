@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232875"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885595"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installera och konfigurera StorSimple Adapter för SharePoint
 ## <a name="overview"></a>Översikt
@@ -226,9 +226,9 @@ Innan du avinstallerar StorSimple Adapter för SharePoint-programvaran måste du
 4. På den **konfigurera StorSimple-Adapter** klickar du på den **inaktivera** knappen under varje innehåll som du vill ta bort från den externa BLOB storage. 
 5. Ta bort objekt från SharePoint och överför dem sedan igen.
 
-Du kan också använda Microsoft` RBS Migrate()` PowerShell-cmdlet som ingår i SharePoint. Mer information finns i [migrerar du innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Du kan också använda Microsoft `RBS Migrate()` PowerShell-cmdlet som ingår i SharePoint. Mer information finns i [migrerar du innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-När du flyttar Blobarna tillbaka till innehållsdatabasen går du till nästa steg: [avinstallera kortet](#uninstall-the-adapter).
+När du flyttar Blobarna tillbaka till innehållsdatabasen går du till nästa steg: [Avinstallera kortet](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Avinstallera kortet
 När du flyttar Blobarna tillbaka till SQL Server-innehållsdatabaser använder du något av följande alternativ för att avinstallera StorSimple Adapter för SharePoint.

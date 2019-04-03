@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004979"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861887"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökning för Azure Application Gateway (klassisk) med hjälp av PowerShell
 
@@ -152,7 +152,7 @@ Konfigurationsparametrarna är:
 |---|---|
 |**Namn** |Referensnamn för anpassad avsökning. |
 | **Protokoll** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
-| **Värden** och **sökväg** | Fullständig URL-sökväg som anropas av application gateway kan fastställa hälsotillståndet för instansen. Exempel: Om du har en webbplats http://contoso.com/, och sedan anpassad avsökning kan konfigureras för ”http://contoso.com/path/custompath.htm” för avsökningen söker ha ett lyckat HTTP-svar.|
+| **Värden** och **sökväg** | Fullständig URL-sökväg som anropas av application gateway kan fastställa hälsotillståndet för instansen. Exempel: Om du har en webbplats http:\//contoso.com/ och anpassad avsökning kan konfigureras för ”http:\//contoso.com/path/custompath.htm” för avsökningen söker ha ett lyckat HTTP-svar.|
 | **Intervall** | Konfigurerar hälsoavsökning för intervall i sekunder.|
 | **Timeout** | Definierar avsökningen timeout-värde för en kontroll av HTTP-svar.|
 | **UnhealthyThreshold** | Antalet misslyckade HTTP-svar som behövs för att flaggan backend-instans som *feltillstånd*.|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467381"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882233"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy i Linux
 
@@ -102,7 +102,7 @@ azcopy \
     --source-key <key> 
 ```
 
-Om mappen `/mnt/myfiles` finns inte, AzCopy skapas den och laddar ned `abc.txt ` till den nya mappen. 
+Om mappen `/mnt/myfiles` finns inte, AzCopy skapas den och laddar ned `abc.txt` till den nya mappen. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Ladda ned en blob från sekundär region
 
@@ -704,9 +704,9 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 
 ### <a name="azure-storage-documentation"></a>Dokumentation om Azure Storage:
 * [Introduktion till Azure Storage](../storage-introduction.md)
-* [Skapa ett lagringskonto](../storage-create-storage-account.md)
+* [skapar ett lagringskonto](../storage-create-storage-account.md)
 * [Hantera blobar med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Använd Azure CLI:et med Azure Storage](../storage-azure-cli.md)
+* [Använda Azure CLI med Azure Storage](../storage-azure-cli.md)
 * [Använda Blob storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Blob Storage från Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Använda Blob Storage från Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)

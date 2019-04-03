@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085107"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847055"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Anslut Adafruit Feather HUZZAH ESP8266 till Azure IoT Hub i molnet
 
@@ -168,10 +168,10 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
 
 9. I den **användarinställningar** fönster, kopiera och klistra in följande i slutet av filen
 
-   ```
+   ```json
    "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
-   
+
    ![Konfigurera URL: en för Arduino-paketet i VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
 10. Spara filen och Stäng den **användarinställningar** fliken.
@@ -213,7 +213,7 @@ Exempelprogrammet simulera temperatur och fuktighet data om du inte har en verkl
    ```c
    define SIMULATED_DATA true
    ```
-   
+
    ![Konfigurera exempelprogrammet för att använda simulerade data](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
 3. Spara filen.
@@ -251,8 +251,14 @@ Exempelprogrammet körs om du ser i följande utdata från seriell övervaknings
 
 ![Slutgiltiga utdata i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Läs meddelandena som tagits emot av hubben
+
+Ett sätt att övervaka meddelanden som tas emot av IoT-hubben från din enhet är att använda Azure IoT Tools för Visual Studio Code. Mer information finns i [Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Fortsätt till nästa avsnitt för fler sätt att bearbeta data som skickas av enheten.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Du har anslutit en Feather HUZZAH ESP8266 till din IoT-hubb, och skickas de hämtade sensordata till din IoT-hubb. 
+Du har anslutit en Feather HUZZAH ESP8266 till din IoT-hubb, och skickas de hämtade sensordata till din IoT-hubb.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

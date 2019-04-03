@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801784"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881060"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -330,7 +330,7 @@ När du refererar till hanteringsgrupper från andra Resursprovidern åtgärder,
 
 Ett exempel på hur du använder den här sökvägen är när du tilldelar en ny rolltilldelning till en hanteringsgrupp i PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -345,7 +345,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
-- [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
-- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
-- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)
+- [Ändra, ta bort eller hantera dina hanteringsgrupper](manage.md)
+- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](/powershell/module/az.resources#resources)
+- [Granska hanteringsgrupper i REST-API](/rest/api/resources/managementgroups)
+- [Granska av hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)

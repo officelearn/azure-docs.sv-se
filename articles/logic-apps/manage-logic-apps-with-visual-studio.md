@@ -1,26 +1,25 @@
 ---
-title: Hantera logic apps i Visual Studio – Azure Logic Apps | Microsoft Docs
+title: Hantera logic apps i Visual Studio – Azure Logic Apps
 description: Hantera logic apps och andra Azure-tillgångar med Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519739"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862751"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logic apps i Visual Studio
 
-Även om du kan skapa, redigera, hantera och distribuera logic apps i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, du kan också använda Visual Studio när du vill lägga till logikappar för att köra källkontroll, publicera olika versioner och skapa [Azure-resurs Manager](../azure-resource-manager/resource-group-overview.md) mallar för olika distributionsmiljöer. Du kan hitta och hantera dina logic apps tillsammans med andra Azure-resurser med Visual Studio Cloud Explorer. Du kan till exempel öppna, hämta, redigera, kör, visa körningshistoriken, inaktivera och aktivera logic apps som redan har distribuerats i Azure-portalen. Om du inte har arbetat med Azure Logic Apps i Visual Studio, lär du dig [hur du skapar logikappar med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Även om du kan skapa, redigera, hantera och distribuera logic apps i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, du kan också använda Visual Studio när du vill lägga till dina logikappar för att köra källkontroll, publicera olika versioner och skapa [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) mallar för olika distributionsmiljöer. Du kan hitta och hantera dina logic apps tillsammans med andra Azure-resurser med Visual Studio Cloud Explorer. Du kan till exempel öppna, hämta, redigera, kör, visa körningshistoriken, inaktivera och aktivera logic apps som redan har distribuerats i Azure-portalen. Om du inte har arbetat med Azure Logic Apps i Visual Studio, lär du dig [hur du skapar logikappar med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Distribuera eller publicera en logikapp från Visual Studio skriver du över versionen av appen i Azure-portalen. Så om du gör ändringar i Azure portal som du vill behålla, se till att du [uppdatera logikappen i Visual Studio](#refresh) från Azure-portalen innan nästa gång du distribuerar eller publicera från Visual Studio.
@@ -33,22 +32,32 @@ ms.locfileid: "58519739"
 
 * Hämta och installera följande verktyg, om du inte redan har dem: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 eller Visual Studio 2015 – Community Edition eller senare</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 eller 2015 – Community edition eller större</a>. 
   I denna snabbstart används Visual Studio Community 2017 som är tillgängligt utan kostnad.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 eller senare)</a> och <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > När du installerar Visual Studio 2019 eller 2017, kontrollera att du väljer den **Azure development** arbetsbelastning.
+    > Mer information finns i [hantera resurser som är associerade med dina Azure-konton i Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    >
+    > I Visual Studio-2019 Cloud Explorer öppnas Logic App Designer i Azure-portalen, men ännu inte kan öppna den inbäddade Logic App Designer.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools för Visual Studio 2017</a> eller för <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a> 
-  
+    Så här installerar du Cloud Explorer för Visual Studio 2015 [hämta Cloud Explorer från Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Mer information finns i [hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 eller senare)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * Azure Logic Apps Tools för Visual Studio-version som du vill använda:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">hur du installerar tillägget från Visual Studio</a>. 
     Se till att starta om Visual Studio när installationen är klar.
-
-* Cloud Explorer för Visual Studio 2017 eller Visual Studio 2015
-
-  * Köra installationsprogrammet för Visual Studio för Visual Studio 2017 och installera den **arbetsbelastning för Azures**. Mer information finns i [hantera resurser som är associerade med din Azure accuonts i Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
-
-  * För Visual Studio 2015 [hämta Cloud Explorer från Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-  Mer information finns i [hantera resurser som är associerade med din Azure-konton i Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Åtkomst till Internet när du använder den inbäddade Logic Apps Designer
 
@@ -184,8 +193,9 @@ Om du vill ta bort din logikapp från Azure-portalen i Cloud Explorer, öppna sn
 
 Du kan inte få alternativet för att välja din Azure-prenumeration när du öppnar ditt logic app-projekt i Logic Apps Designer. I stället öppnas din logikapp med en Azure-prenumeration som inte är den som du vill använda. Detta inträffar eftersom när du har öppnat en logikapp JSON-fil, Visual Studio cachelagrar den första markerade prenumerationen för framtida användning. Lös problemet genom att prova något av följande:
 
-* Byt namn på den logikapp JSON-fil. Prenumerationen-cacheminnet är beroende av filnamnet. 
-* Ta bort tidigare valda prenumerationer för *alla* logic apps i din lösning, ta bort den *dolda* .vs mapp i katalogen för din lösning. Den här platsen lagrar din prenumerationsinformation. 
+* Byt namn på den logikapp JSON-fil. Prenumerationen-cacheminnet är beroende av filnamnet.
+
+* Ta bort tidigare valda prenumerationer för *alla* logic apps i din lösning, ta bort dolda Visual Studio inställningsmappen (.vs) i katalogen för din lösning. Den här platsen lagrar din prenumerationsinformation.
 
 ## <a name="next-steps"></a>Nästa steg
 

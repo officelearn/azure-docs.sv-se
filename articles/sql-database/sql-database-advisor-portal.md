@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564246"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863210"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa prestandarekommendationer
 
@@ -78,6 +78,7 @@ Du kan granska och acceptera rekommendationer en i taget.
 Valda rekommendationen tillämpas på databasen.
 
 ### <a name="removing-recommendations-from-the-list"></a>Tar bort rekommendationer från listan
+
 Om din lista över rekommendationer innehåller objekt som du vill ta bort från listan kan ignorera du rekommendationen:
 
 1. Välj en rekommendation i listan över **rekommendationer** att öppna informationen.
@@ -110,18 +111,21 @@ Du kan ange Azure SQL Database att implementera rekommendationer automatiskt. N�
 
 När du har valt önskade konfigurationen kan du klicka på Verkställ.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Manuellt köra rekommenderade T-SQL-skript
+### <a name="manually-apply-recommendations-through-t-sql"></a>Tillämpa manuellt rekommendationer via T-SQL
+
 Välj valfri rekommendation och klicka sedan på **Visa skript**. Kör skriptet mot databasen för att manuellt tillämpat rekommendationen.
 
-*Index som körs manuellt inte övervakas och verifierat att prestanda påverkas av tjänsten* så vi rekommenderar att du övervaka dessa index när du har skapat för att verifiera de ge prestandavinster och justera eller ta bort dem om det behövs. Mer information om hur du skapar index finns i [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Index som körs manuellt inte övervakas och verifierat att prestanda påverkas av tjänsten* så vi rekommenderar att du övervaka dessa index när du har skapat för att verifiera de ge prestandavinster och justera eller ta bort dem om det behövs. Mer information om hur du skapar index finns i [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Dessutom förblir manuellt applicerade rekommendationer aktiv och visas i listan över rekommendationer för 24 – 48 timmar. innan systemet automatiskt återkallar dem. Om du vill ta bort en rekommendation tidigare kan du manuellt ta bort den.
 
 ### <a name="canceling-recommendations"></a>Avbryter rekommendationer
+
 Rekommendationer som finns i en **väntande**, **verifierar**, eller **lyckades** status kan avbrytas. Rekommendationer med statusen **kör** kan inte annulleras.
 
 1. Välj en rekommendation i den **justering historik** område för att öppna den **rekommendationsdetaljer** sidan.
 2. Klicka på **Avbryt** att avbryta processen med Tillämpandet av rekommendationen.
 
 ## <a name="monitoring-operations"></a>Övervakningsåtgärder
+
 Tillämpa en rekommendation kanske inte omedelbart sker. Portalen innehåller information om status för rekommendation. Följande är möjliga tillstånd som ett index kan vara:
 
 | Status | Beskrivning |

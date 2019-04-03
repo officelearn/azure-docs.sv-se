@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649094"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848924"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en själv testa klient om du vill kontrollera en Azure VM-avbildning
 
@@ -51,7 +51,7 @@ Följande diagram visar hur auktorisering fungerar för tjänst till tjänst-anr
 Själv testa API: et innehåller en enda slutpunkt som stöder endast POST-metoden.  Det har följande struktur.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -357,7 +357,7 @@ Följande skärmdump visar ett exempel på hur du använder curl-kommando för a
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Skapa och hämta en token med hjälp av C&#35;
 
-Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd för att den [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) slutpunkten med en nyttolast i följande format:
+Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd till https:\//soamtenant.auth0.com/oauth/token slutpunkten med en nyttolast i följande format:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Skapa och hämta en token med hjälp av PowerShell
 
-Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd för att den [ https://soamtenant.auth0.com/oauth/token ](https://soamtenant.auth0.com/oauth/token) slutpunkten med en nyttolast i följande format:
+Om du vill ställa Auth0 för token för någon av dina auktoriserade program, utför du en POST-åtgärd till https:\//soamtenant.auth0.com/oauth/token slutpunkten med en nyttolast i följande format:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

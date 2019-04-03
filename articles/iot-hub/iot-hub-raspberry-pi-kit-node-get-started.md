@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0db28fb8016176bdd66e5406a6f1c0a18cc5c3e8
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529262"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847593"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
@@ -24,7 +24,6 @@ ms.locfileid: "57529262"
 I den här självstudien börjar du med att lära dig grunderna i att arbeta med Raspberry Pi med Raspbian. Du lär dig sedan att sömlöst ansluta dina enheter till molnet med hjälp av [Azure IoT Hub](about-iot-hub.md). För Windows 10 IoT Core-exempel, går du till den [Windows Dev Center](https://www.windowsondevices.com/).
 
 Har inte ett kit ännu? Försök [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Eller köp en ny kit [här](https://azure.microsoft.com/develop/iot/starter-kits).
-
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -87,7 +86,7 @@ Förbered microSD-kort för installation av Raspbian avbildningen.
 
    > [!WARNING]
    > Använd ovan länk för att ladda ned `raspbian-2017-07-5` zip-avbildning. Den senaste versionen av Raspbian bilder har några kända problem med koaxialkabel Pi-nod, vilket kan orsaka fel i nästa steg.
- 
+
    b. Extrahera Raspbian avbildningen till en mapp på datorn.
 
 2. Installera Raspbian microSD-kort.
@@ -160,26 +159,26 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
 ### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Klona exempelprogrammet och installera de nödvändiga paketen
 
 1. Anslut till Raspberry Pi med någon av följande SSH-klienter från din värddator:
-   
+
    **Windows-användare**
   
    a. Ladda ned och installera [PuTTY](https://www.putty.org/) för Windows. 
 
    b. Kopiera IP-adressen för din Pi till värd (eller IP-adress)-avsnittet och välj SSH som anslutningstyp.
-   
+
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
-   
+
    **Mac- och Ubuntu-användare**
-   
+
    Använd den inbyggda SSH-klienten på Ubuntu- eller macOS. Du kan behöva köra `ssh pi@<ip address of pi>` att ansluta Pi via SSH.
 
    > [!NOTE] 
    > Standardanvändarnamnet är `pi` och lösenordet är `raspberry`.
 
 2. Installera Node.js och NPM i din Pi.
-   
+
    Kontrollera först din Node.js-version. 
-   
+
    ```bash
    node -v
    ```
@@ -203,6 +202,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
+
    > [!NOTE] 
    >Det kan ta flera minuter att slutföra den här processen beroende på nätverksanslutningen.
 
@@ -238,8 +238,14 @@ Du bör se följande utdata som visar sensordata och meddelanden som skickas til
 
 ![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Läs meddelandena som tagits emot av hubben
+
+Ett sätt att övervaka meddelanden som tas emot av IoT-hubben från din enhet är att använda Azure IoT Tools för Visual Studio Code. Mer information finns i [Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Fortsätt till nästa avsnitt för fler sätt att bearbeta data som skickas av enheten.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb. Om du vill se de meddelanden som Raspberry Pi skickade till din IoT hub eller skicka meddelanden till Raspberry Pi, se den [Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

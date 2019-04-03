@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259915"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881049"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Ja. Den [Azure Cosmos DB-emulatorn](local-emulator.md) ger en hifi-emulering av 
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Varför är länge med värden i ett dokument som avrundas när de visas i datautforskaren i portalen.
 
-Detta är begränsning JavaScript-kod. JavaScript använder dubbel precision med formatera tal som anges i IEEE 754 och den på ett säkert sätt kan innehålla tal mellan-(253 - 1) och 253-1 (d.v.s. 9007199254740991) endast.
+Detta är begränsning JavaScript-kod. JavaScript använder dubbel precision med formatera tal som anges i IEEE 754 och den på ett säkert sätt kan innehålla tal mellan-(2<sup>53</sup> -1) och 2<sup>53</sup>-1 (d.v.s. 9007199254740991) endast.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Där tillåts behörigheter i objekthierarkin?
 
@@ -292,7 +292,7 @@ Om något av dessa skillnader är ett problem för ditt projekt, kontakta [ askc
 
 Du kan dela din feedback i något av följande sätt:
 
-* [Feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stackspill](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
 

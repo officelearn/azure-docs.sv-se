@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958991"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877269"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudier: Övervaka Azure Firewall-loggar och mått
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Visa och analysera loggar för nätverk och programregler
 > * Visa mått
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar och mått](logs-and-metrics.md) för att få en översikt över de diagnostikloggar och mått som finns för Azure Firewall.
 
@@ -41,7 +41,7 @@ Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar 
 Det kan ta några minuter innan data visas i loggarna när du har aktiverat diagnostisk loggning. Om du inte ser någonting direkt kan du kontrollera igen om några minuter.
 
 1. Öppna brandväggens resursgrupp i Azure Portal och klicka på brandväggen.
-2. Under **Övervakning** klickar du på **Diagnostikloggar**.
+2. Under **övervakning**, klickar du på **diagnostikinställningar**.
 
    Azure Firewall har två loggar som är specifika för tjänsten:
 
@@ -57,9 +57,9 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 9. På sidan **Log Analytics-arbetsyta** anger du **firewall-oms** som namn för den nya **Log Analytics-arbetsytan**.
 10. Välj din prenumeration, använd den befintliga resursgruppen för brandväggen (**Test-FW-RG**), välj **USA, östra** som plats och välj prisnivån **Kostnadsfri**.
 11. Klicka på **OK**.
-   ![Starta konfigurationsprocessen][1] OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
+   ![Börjar konfigurationsprocessen][1] OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 12. Under **Logg** klickar du på **AzureFirewallApplicationRule** och **AzureFirewallNetworkRule** så att du samlar in loggar för både program- och nätverksregler.
-   ![Spara diagnostikinställningar][2]
+   ![Spara inställningarna för startdiagnostik][2]
 13. Klicka på **Spara**.
 
 ## <a name="enable-logging-with-powershell"></a>aktivera loggning med PowerShell
@@ -113,7 +113,7 @@ Bläddra till en Azure-brandvägg. Under **Övervakning** klickar du på **Mått
 Nu när du har konfigurerat brandväggen för insamling av loggar kan du utforska hur du visar dina data i Azure Monitor-loggar.
 
 > [!div class="nextstepaction"]
-> [Lösningar för nätverksövervakning i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)
+> [Nätverk övervakningslösningar i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

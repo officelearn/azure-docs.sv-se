@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351447"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883081"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hur vi kan förbättra din klassificerare
 
@@ -73,6 +73,15 @@ Lös problemet, ta med olika bilder för att se till att din klassificerare kan 
 
     ![Bild av formatmallar](./media/getting-started-improving-your-classifier/style.png)
 
+## <a name="negative-images"></a>Negativa bilder
+
+Vid en viss tidpunkt i projektet kan du behöva lägga till _negativt exempel_ för att göra din klassificerare mer exakta. Negativa prov är de som inte matchar någon av de andra taggarna. När du överför dessa avbildningar, gäller särskilda **negativt** etiketten på dem.
+
+> [!NOTE]
+> Custom Vision Service har stöd för vissa automatiska negativt bildhantering. Om du skapar en delvis kontra bananer klassificerare och skicka in en avbildning av en sko för förutsägelse bör klassificeraren exempelvis score avbildningen som nära 0% för både delvis och bananer.
+> 
+> Å andra sidan i fall där negativt bilderna är bara en variant av avbildningarna som används i utbildning, är det troligt att modellen klassificera negativt avbildningar som en klass som är märkta på grund av bra likheterna. Till exempel om du har en orange kontra grapefrukter klassificerare och du flöde i en avbildning av en clementine, kan det bedöma clementine som ett orange eftersom många funktioner i clementine liknar apelsiner. Om dina negativt avbildningar är av den här typen kan vi rekommenderar att du skapar en eller flera ytterligare taggar (till exempel **andra**) och märka negativt bilder med den här taggen under utbildning för att tillåta modellen bättre skilja mellan dessa klasser .
+
 ## <a name="use-prediction-images-for-further-training"></a>Använd förutsägelse avbildningar för ytterligare utbildning
 
 När du använder eller testa klassificerare för avbildning genom att skicka avbildningar till slutpunkten för förutsägelse lagrar Custom Vision service dessa avbildningar. Du kan sedan använda dem för att förbättra modellen.
@@ -102,4 +111,4 @@ Ibland kan en visuell granskning identifiera mönster som du kan korrigera genom
 Du lärt dig flera olika metoder för att göra det mer exakta din modell för klassificering av anpassad avbildning i den här guiden. Därefter lär du dig hur du testavbildningar programmässigt genom att skicka dem till förutsägelse-API.
 
 > [!div class="nextstepaction"]
-> [Använd förutsägelse-API](use-prediction-api.md)
+> [Använd förutsägelse-API:t](use-prediction-api.md)

@@ -9,24 +9,24 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472270"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849823"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Få ett meddelande när ett måttvärde uppfyller ett villkor
 
 Azure Monitor tillhandahåller mått för många Azure-resurser. Dessa mått förmedlar prestanda och hälsa för dessa resurser. I flera fall kan måttvärdena peka på något som är fel med en resurs. Du kan skapa måttaviseringar för att övervaka om det förekommer onormala beteenden och i så fall få ett meddelande om detta. Den här snabbstarten visar hur du skapar en logikapp, skapar ett jobb och visar mått för logikappen. Därefter visas hur du skapar en avisering och får ett meddelande för ett mått för logikappresursen.
 
-Mer information om mått och måttaviseringar finns i [Översikt över mått i Azure Monitor](../../azure-monitor/platform/data-collection.md) och [Översikt över aviseringar i Azure Monitor](./alerts-overview.md). 
+Mer information om mått och måttaviseringar finns i [Översikt över mått i Azure Monitor](data-platform.md) och [Översikt över aviseringar i Azure Monitor](alerts-overview.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 

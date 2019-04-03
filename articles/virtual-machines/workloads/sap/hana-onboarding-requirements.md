@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563838"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880703"
 ---
-# <a name="onboarding-requirements"></a>Värvningskrav
+# <a name="onboarding-requirements"></a>Registreringskrav
 
 Den här listan monterar krav för att köra SAP HANA på Azure (stora instanser).
 
@@ -66,12 +66,12 @@ Kompatibilitetsöversikten av operativsystemet och HLI firmware/drivrutinsversio
 
 - Licenser och software installationskomponenter för SAP HANA (plattform eller enterprise edition).
 
-**Program**
+**Appar**
 
 - Licenser och programvarukomponenter i installationen för alla SAP-program som ansluter till SAP HANA och relaterade SAP supportavtal.
 - Licenser och programvarukomponenter i installationen för alla icke-SAP-program används med SAP HANA på Azure (stora instanser)-miljöer och relaterade supportavtal.
 
-**Kunskaper**
+**Färdigheter**
 
 - Erfarenhet och kunskap om Azure IaaS och dess komponenter.
 - Erfarenhet och kunskap om hur du distribuerar en SAP-arbetsbelastning i Azure.

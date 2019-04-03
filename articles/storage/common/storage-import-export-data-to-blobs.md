@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878187"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -54,7 +54,7 @@ Utför följande steg för att förbereda enheterna.
     `cd C:\WaImportExportV1`
 5.  Hämta BitLocker-nyckel på enheten genom att köra följande kommando:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
 6.  Kör följande kommando för att förbereda disken. **Det kan ta flera timmar och dagar beroende på storleken på data.** 
 
     ```
@@ -70,7 +70,7 @@ Utför följande steg för att förbereda enheterna.
     |/ ID:     |Sessions-ID. Använd ett unikt sessions-nummer för varje instans av kommandot.      |
     |/sk:     |Azure Storage-kontonyckel.         |
     |/t:     |Enhetsbeteckningen för disken som ska levereras. Till exempel enhet `D`.         |
-    |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för ` manage-bde -protectors -get D: `      |
+    |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för `manage-bde -protectors -get D:`      |
     |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på Målbehållaren i Azure Storage.         |
     |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopiera och befintliga data på disken är förberedas.          |

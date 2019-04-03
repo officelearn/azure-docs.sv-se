@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757424"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878238"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -47,7 +47,7 @@ Om providern visas som *NotRegistered*, registrera providern med hjälp av den [
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability-limitations"></a>Regional tillgänglighet begränsningar
+## <a name="regional-availability"></a>Regional tillgänglighet
 
 Följande regioner har stöd för virtuell nod distributioner:
 
@@ -162,13 +162,7 @@ az aks create \
 
 Efter flera minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
 
-## <a name="enable-virtual-nodes"></a>Aktivera virtuella noder
-
-För att ge ytterligare funktioner, används virtuella noder anslutningen ett Azure CLI-tillägg. Innan du kan aktivera kopplingen virtuella noder måste först installera tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommando:
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## <a name="enable-virtual-nodes-addon"></a>Aktivera tillägg för virtuella noder
 
 Om du vill aktivera virtuella noder nu använda den [az aks enable-tillägg] [ az-aks-enable-addons] kommando. I följande exempel används undernätet med namnet *myVirtualNodeSubnet* skapade i föregående steg:
 
@@ -179,6 +173,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> Om du får ett felmeddelande om virtuell nod inte kunde hittas kan du behöva installera dess CLI-tillägg 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 

@@ -10,12 +10,12 @@ ms.reviewer: plarsen, LADocs
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: c46fd1791751ebf912670875f9c8e18e8b0c5c40
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311313"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878408"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
 
@@ -85,7 +85,7 @@ Om du vill konfigurera anslutningen, ange den här anslutningsinformationen när
 
 | Egenskap  | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
+| **Ansluta via en lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” |
 | **Server** | Ja | Adress eller alias kolon portnumret för DB2-servern, till exempel ”myDB2server.cloudapp.net:50000” <p><p>**Obs!** Det här värdet är en sträng som representerar en TCP/IP-adress eller alias, antingen i IPv4 eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer. |
 | **Databas** | Ja | Namn för din databas <p><p>**Obs!** Det här värdet är en sträng som representerar en DRDA relationell databas namn (RDBNAM): <p>-DB2 z/OS accepterar en 16-bytes sträng där databasen är känt som ”IBM DB2 för z/OS” plats. <br>-DB2 för i godkänner en byte-18-sträng där databasen kallas en ”IBM DB2 för jag” relationsdatabas. <br>-DB2 för LUW accepterar en 8 byte-sträng. |
@@ -105,11 +105,11 @@ Innan du skapar anslutningen måste har du redan din lokala datagateway installe
 
 | Egenskap  | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Ja | Gäller när du vill att en lokal anslutning och visar lokalt anslutningsegenskaper. |
+| **Ansluta via en lokal gateway** | Ja | Gäller när du vill att en lokal anslutning och visar lokalt anslutningsegenskaper. |
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” | 
 | **Server** | Ja | Adress eller alias kolon portnumret för DB2-servern, till exempel ”myDB2server:50000” <p><p>**Obs!** Det här värdet är en sträng som representerar en TCP/IP-adress eller alias, antingen i IPv4 eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer. |
 | **Databas** | Ja | Namn för din databas <p><p>**Obs!** Det här värdet är en sträng som representerar en DRDA relationell databas namn (RDBNAM): <p>-DB2 z/OS accepterar en 16-bytes sträng där databasen är känt som ”IBM DB2 för z/OS” plats. <br>-DB2 för i godkänner en byte-18-sträng där databasen kallas en ”IBM DB2 för jag” relationsdatabas. <br>-DB2 för LUW accepterar en 8 byte-sträng. |
-| **Autentisering** | Ja | Autentiseringstyp för anslutningen, till exempel ”Basic” <p><p>**Obs!** Välj det här värdet i listan som innehåller grundläggande eller Windows (Kerberos). |
+| **Authentication** | Ja | Autentiseringstyp för anslutningen, till exempel ”Basic” <p><p>**Obs!** Välj det här värdet i listan som innehåller grundläggande eller Windows (Kerberos). |
 | **Användarnamn** | Ja | Användarnamnet för databasen <p><p>**Obs!** Det här värdet är en sträng vars längd är baserat på specifika databasen: <p><p>-DB2 z/OS accepterar en 8 byte-sträng. <br>-DB2 för i godkänner en 10-byte-sträng. <br>-DB2 för Linux eller UNIX accepterar en 8 byte-sträng. <br>-DB2 för Windows godkänner en 30-byte-sträng. |
 | **Lösenord** | Ja | Ditt lösenord för databasen |
 | **Gateway** | Ja | Namn för din installerade lokala datagateway <p><p>**Obs!** Välj det här värdet i listan som innehåller alla installerade datagatewayer i din Azure-prenumeration och resursgrupp. |
@@ -239,7 +239,7 @@ Lägg till en enskild post i en DB2-tabell i databasen genom att använda den **
    | **Tabellnamn** | Ja | Tabellen var du vill lägga till posten, till exempel ”-område |
    | **Områdes-ID** | Ja | ID för området för att lägga till, till exempel ”99999” |
    | **Beskrivning av** | Ja | Beskrivningen av området att lägga till, till exempel ”området 99999” |
-   | **Region-ID** | Ja | ID: T för regionen som att lägga till, till exempel ”102” |
+   | **Region ID** | Ja | ID: T för regionen som att lägga till, till exempel ”102” |
    |||| 
 
    Exempel:
@@ -287,7 +287,7 @@ Uppdatera en enskild post i en DB2-tabell i databasen med den **Uppdatera rad** 
    | **Rad-ID** | Ja | ID för posten som ska uppdateras, till exempel ”99999” |
    | **Områdes-ID** | Ja | Det nya område-ID, till exempel ”99999” |
    | **Beskrivning av** | Ja | Den nya området beskrivningen, till exempel ”uppdaterad 99999” |
-   | **Region-ID** | Ja | Den nya region-ID, till exempel ”102” |
+   | **Region ID** | Ja | Den nya region-ID, till exempel ”102” |
    ||||
 
    Exempel:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439880"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877592"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskriver i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.
@@ -36,14 +36,14 @@ MPIO-funktionen kan du konfigurera flera i/o-sökvägar mellan en värdserver oc
 Syftet med flera sökvägar är tvåfaldig:
 
 * **Hög tillgänglighet**: Det ger en alternativ sökväg om inte alla element i i/o-sökväg (t.ex en kabel, växel, nätverksgränssnitt eller domänkontrollant).
-* **Belastningsutjämning**: beroende på hur din lagringsenhet, det kan förbättra prestanda genom att identifiera belastningar på i/o-sökvägar och dynamiskt ombalansering dessa belastningar.
+* **Belastningsutjämning**: Beroende på hur din lagringsenhet, kan det förbättra prestandan genom att identifiera belastningar på i/o-sökvägar och dynamiskt ombalansering dessa belastningar.
 
 ### <a name="about-multipathing-components"></a>Om MPIO-komponenter
 Flera sökvägar i Linux består av kernel-komponenter och Användarutrymmet komponenter som visas i tabellen nedan.
 
-* **Kernel**: huvudkomponenten är den *enheten mapper* som dras om i/o och har stöd för redundans för sökvägar och sökvägen grupper.
+* **Kernel**: Den viktigaste komponenten är den *enheten mapper* som dras om i/o och har stöd för redundans för sökvägar och sökvägen grupper.
 
-* **Användarutrymmet**: det här är *multipath verktyg* som hanterar multipathed enheter genom att uppmana enheten-multipath modulen för mappning av vad du gör. Verktygen består av:
+* **Användarutrymmet**: Det här är *multipath verktyg* som hanterar multipathed enheter genom att uppmana enheten-multipath modulen för mappning av vad du gör. Verktygen består av:
    
    * **Multipath**: Visar en lista över och konfigurerar multipathed enheter.
    * **Multipathd**: daemon som körs multipath och övervakar sökvägarna.
@@ -56,11 +56,11 @@ Konfigurationsfilen `/etc/multipath.conf` gör många av funktionerna för flera
 
 Multipath.conf har fem avsnitt:
 
-- **System standardnivåer** *(standardvärde)*: du kan åsidosätta system standardnivåer.
-- **Svartlistad enheter** *(svartlistat)*: du kan ange i listan med enheter som inte ska kontrolleras av enheten mapper.
-- **Blockeringslista undantag** *(blacklist_exceptions)*: Du kan identifiera specifika enheter så att de behandlas som enheter med flera sökvägar även om anges i blockeringslistan.
-- **Specifika inställningar för lagring controller** *(enheter)*: du kan ange inställningar som tillämpas på enheter som har leverantör och produktinformation.
-- **Specifika Enhetsinställningar** *(multipaths)*: du kan använda det här avsnittet för att finjustera konfigurationsinställningarna för enskilda LUN.
+- **System standardnivåer** *(standardvärde)*: Du kan åsidosätta system standardnivåer.
+- **Svartlistad enheter** *(svartlistat)*: Du kan ange i listan med enheter som inte ska kontrolleras av enheten mapper.
+- **Svartlista undantag** *(blacklist_exceptions)*: Du kan identifiera specifika enheter så att de behandlas som flera sökvägar enheter även om anges i svartlistat.
+- **Specifika inställningar för lagring controller** *(enheter)*: Du kan ange inställningar som tillämpas på enheter som har leverantör och produktinformation.
+- **Specifika Enhetsinställningar** *(multipaths)*: Du kan använda det här avsnittet för att finjustera konfigurationsinställningarna för enskilda LUN.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Konfigurera MPIO på StorSimple som är anslutna till Linux-värd
 En StorSimple-enhet är ansluten till en Linux-värd kan konfigureras för hög tillgänglighet och belastningsutjämning. Till exempel om Linux-värd har två gränssnitt som är anslutna till SAN-nätverk och enheten har två gränssnitt som är anslutna till SAN-nätverk så att dessa gränssnitt är i samma undernät, ska sedan det finnas 4 sökvägar tillgängliga. Men om varje gränssnitt för DATA på enheten och värd-gränssnittet är i ett annat IP-undernät (och inte dirigerbara) kan blir sedan endast 2 vägar tillgänglig. Du kan konfigurera flera sökvägar för att automatiskt identifiera alla tillgängliga sökvägar, välja en algoritm för belastningsutjämning för dessa sökvägar, tillämpa specifika konfigurationsinställningar för endast StorSimple-volymer, och sedan aktivera och verifiera flera sökvägar.
@@ -250,7 +250,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 > 
 > 
 
-### <a name="step-4-enable-multipathing"></a>Steg 4: Aktivera MPIO
+### <a name="step-4-enable-multipathing"></a>Steg 4: Aktivera flera sökvägar
 1. Starta om den `multipathd` daemon. Ange:
    
     `service multipathd restart`
@@ -298,7 +298,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 
     Om du ser bara en värd-gränssnittet och här två sökvägar, måste du aktivera båda gränssnitten på värden för iSCSI. Du kan följa den [detaljerade instruktioner i Linux-dokumentationen](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-1. CentOS-server visas en volym från StorSimple-enhet. Mer information finns i [steg 6: skapa en volym](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal på StorSimple-enheten.
+1. CentOS-server visas en volym från StorSimple-enhet. Mer information finns i [steg 6: Skapa en volym](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal på StorSimple-enheten.
 
 1. Kontrollera de tillgängliga sökvägarna. Ange:
 
@@ -351,7 +351,7 @@ Det kan även vara värt att kontrollera att du verkligen kan se vissa diskar n�
 
 * Använd följande kommando för att skanna SCSI-bussen:
   
-    `$ rescan-scsi-bus.sh `(en del av sg3_utils paketet)
+    `$ rescan-scsi-bus.sh` (en del av sg3_utils paketet)
 * Skriv följande kommandon:
   
     `$ dmesg | grep sd*`
@@ -420,7 +420,7 @@ A. För att kontrollera om enheten är godkänd, Använd felsökning interaktiva
 Mer information går du till [använder felsökning interaktiva kommandot för flera sökvägar](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lista över användbara kommandon
-| Typ | Kommando | Beskrivning |
+| Type | Kommando | Beskrivning |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Starta iSCSI-tjänsten |
 | &nbsp; |`service iscsid stop` |Stoppa tjänsten iSCSI |

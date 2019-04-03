@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118433"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884167"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
@@ -39,6 +39,9 @@ Den **konfigurera Application Insights Profiler** fönstret innehåller fyra fun
 Beroende på hur Azure App Service Environment konfigureras blockeras anropet för att kontrollera agentstatusen. Fönstret kanske visas ett meddelande om att agenten inte körs även när den körs. För att säkerställa att den är, kontrollera webbjobbet på ditt program. Om alla värden för app-inställningarna är korrekta och Application Insights-webbplatstillägg är installerad på ditt program, körs Profiler. Om ditt program tar emot tillräckligt med trafik, ska senaste profilering sessioner visas i en lista.
 
 ## <a id="profileondemand"></a> Utlös Profiler manuellt
+
+### <a name="minimum-requirements"></a>Minimikrav 
+En användare kan utlösa en profiler session manuellt kräver de minst ”skriva” åtkomst på deras roll för Application Insights-komponent. I de flesta fall du får den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem med är rollen prenumeration omfång för att lägga till rollen ”Application Insights Component Contributor”. [Mer information om rollen åtkomstkontroll med Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
 
 Du kan utlösa Profiler manuellt med ett enda klick. Anta att du kör ett webbtest för prestanda. Du måste spårningarna för att hjälpa dig att förstå hur ditt webbprogram fungerar under belastning. Att ha kontroll över när spårningssessioner samlas är avgörande, eftersom du vet när belastningstestet ska köras. Men slumpmässiga exempelintervallet kan gå miste om den.
 

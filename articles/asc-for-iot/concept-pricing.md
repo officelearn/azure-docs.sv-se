@@ -1,25 +1,25 @@
 ---
 title: Förstå Azure Security Center för IoT kostar förhandsversion | Microsoft Docs
 description: Läs mer om kostnaderna för IoT och hur du kan kontrollera dem med Azure Security Center.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758045"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862717"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427827"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863191"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett LinkedIn-konto med Azure Active Directory B2C
 
@@ -41,3 +41,6 @@ Att använda ett LinkedIn-konto som ett [identitetsprovider](active-directory-b2
 7. Välj **ställa in den här identitetsprovidern** och ange klient-Id som du antecknade tidigare som den **klient-ID** och ange Klienthemligheten som du registrerade som den **klienthemlighet**av programmet för LinkedIn-konto som du skapade tidigare.
 8. Klicka på **OK** och klicka sedan på **skapa** att spara din konfiguration för LinkedIn-konto.
 
+## <a name="migration-from-v10-to-v20"></a>Migrering från v1.0 till v2.0
+
+LinkedIn nyligen [uppdaterat sina API: er från v1.0 till v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Som en del av migreringen kan Azure AD B2C bara hämta det fullständiga namnet på LinkedIn användaren under registreringen. Om en e-postadress är en av de attribut som samlats in under registrering för, användaren måste manuellt ange den e-postadressen och verifiera den.

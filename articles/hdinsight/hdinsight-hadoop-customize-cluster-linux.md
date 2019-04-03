@@ -1,33 +1,24 @@
 ---
-title: Anpassa HDInsight-kluster med skriptåtgärder, Azure
+title: Anpassa Azure HDInsight-kluster med skriptåtgärder
 description: Lägga till anpassade komponenter till Linux-baserade HDInsight-kluster med skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen eller lägga till ytterligare tjänster och verktyg som Hue, Solr eller R.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/02/2019
+ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361701"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885578"
 ---
-# <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
 Azure HDInsight är en konfigurationsmetod som kallas **skriptåtgärder** som anropar anpassade skript för att anpassa klustret. Dessa skript används för att installera ytterligare komponenter och ändra konfigurationsinställningarna. Skriptåtgärder kan användas under eller när klustret har skapats.
 
-> [!IMPORTANT]  
-> Möjligheten att använda skriptåtgärder på ett pågående kluster är endast tillgängligt för Linux-baserade HDInsight-kluster.
->
-> Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [dras tillbaka HDInsight Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 Skriptåtgärder kan även publiceras på Azure Marketplace som ett HDInsight-program. Mer information om HDInsight-program finns i [publicera ett HDInsight-program på Azure Marketplace](hdinsight-apps-publish-applications.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -225,7 +216,9 @@ Få mer information om hur du distribuerar en mall:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använda en skriptåtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet ska du använda den [Lägg till AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du börjar bör du kontrollera att du installerar och konfigurerar Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [översikt av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+I det här avsnittet ska du använda den [Lägg till AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du börjar bör du kontrollera att du installerar och konfigurerar Azure PowerShell. Om du vill använda dessa PowerShell-kommandon som du behöver den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Följande skript visar hur du använder en skriptåtgärd när du skapar ett kluster med hjälp av PowerShell:
 
@@ -277,7 +270,7 @@ Gå till den [Azure-portalen](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Använda en skriptåtgärd för ett kluster som körs från Azure PowerShell
 
-Innan du börjar bör du kontrollera att du installerar och konfigurerar Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [översikt av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Om du vill använda dessa PowerShell-kommandon som du behöver den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
 
 I följande exempel visas hur du använder en skriptåtgärd för ett kluster som körs:
 

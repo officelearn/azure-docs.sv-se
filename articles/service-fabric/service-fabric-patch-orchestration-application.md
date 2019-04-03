@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762845"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847736"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -325,7 +325,7 @@ Om klustret kan tolerera som körs på N-1 antal uppgraderingsdomäner under upp
 
 F. **Hur mycket tid gör det gör att korrigera en nod?**
 
-A. Uppdatering av en nod kan ta några minuter (till exempel: [Windows Defenders definitionsuppdateringar](https://www.microsoft.com/wdsi/definitions)) till timmar (till exempel: [Windows kumulativa uppdateringar](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tid som krävs för att korrigera en nod beror oftast på 
+A. Uppdatering av en nod kan ta några minuter (till exempel: [Windows Defenders definitionsuppdateringar](https://www.microsoft.com/en-us/wdsi/definitions)) till timmar (till exempel: [Windows kumulativa uppdateringar](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tid som krävs för att korrigera en nod beror oftast på 
  - Storleken på uppdateringar
  - Antal uppdateringar som ska användas i en uppdateringsperiod
  - Tiden det tar att installera uppdateringarna, starta om noden (vid behov) och slutför installationsstegen utförs efter omstart.

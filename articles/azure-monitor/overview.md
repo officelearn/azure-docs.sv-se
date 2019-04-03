@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874910"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850826"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -26,7 +26,7 @@ Azure Monitor maximerar tillgänglighet och prestanda för dina program genom at
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Översikt
-Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet är datalager för mått och loggar som finns två grundläggande typer av data används av Azure Monitor. Till vänster är den [källor för övervakningsdata](platform/data-sources.md) som fylla i dessa [datalager](platform/data-collection.md). Till höger är olika funktioner som Azure Monitor utför med den här insamlade data, till exempel analys, aviseringar och direktuppspelning till externa system.
+Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet är datalager för mått och loggar som finns två grundläggande typer av data används av Azure Monitor. Till vänster är den [källor för övervakningsdata](platform/data-sources.md) som fylla i dessa [datalager](platform/data-platform.md). Till höger är olika funktioner som Azure Monitor utför med den här insamlade data, till exempel analys, aviseringar och direktuppspelning till externa system.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,7 +34,7 @@ Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet �
 
 
 ## <a name="monitoring-data-platform"></a>Övervaka dataplattform
-Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](platform/data-collection.md). [Mått](platform/data-collection.md#metrics) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](platform/data-collection.md#logs) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
+Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](platform/data-platform.md). [Mått](platform/data-platform-metrics.md) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](platform/data-platform-logs.md) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
 
 För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [måttutforskaren](platform/metrics-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
 
@@ -55,7 +55,7 @@ Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata
 - **Azure-prenumeration övervakningsdata**: Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. 
 - **Azure-klient övervakningsdata**: Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory.
 
-När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](platform/activity-logs-overview.md) registrera när resurser skapas eller ändras. [Mått](platform/data-collection.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
+När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](platform/activity-logs-overview.md) registrera när resurser skapas eller ändras. [Mått](platform/data-platform.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
 
 Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](platform/diagnostic-logs-overview.md) och [att lägga till en agent](platform/agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](platform/agent-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
 
@@ -143,6 +143,6 @@ Det finns flera API: er för att läsa och skriva mått och loggar till och frå
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om:
 
-* [Mått och loggar](platform/data-collection.md) för de data som samlas in av Azure Monitor.
+* [Mått och loggar](platform/data-platform.md) för de data som samlas in av Azure Monitor.
 * [Datakällor](platform/data-sources.md) för hur de olika komponenterna i ditt program skickar telemetri.
 * [Loggar frågor](log-query/log-query-overview.md) för att analysera insamlade data.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864413"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Självstudier: Azure Active Directory-integrering med GoodPractice Toolkit
 
@@ -52,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 Om du vill konfigurera integrering av GoodPractice Toolkit i Azure AD måste du lägga till GoodPractice Toolkit från galleriet i din lista över hanterade SaaS-appar.
 
-**Om du vill lägga till GoodPractice Toolkit från galleriet måste du göra följande:**
+**Utför följande steg för att lägga till GoodPractice Toolkit från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -105,7 +105,7 @@ Om du vill konfigurera enkel inloggning i Azure AD med GoodPractice Toolkit gör
 
     ![Information om GoodPractice Toolkit-domänen och URL:er med enkel inloggning](common/sp-intiated.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta värdet genom att kontakta [supportteamet för GoodPractice Toolkit-klienten](mailto:support@goodpractice.com).
@@ -191,7 +191,7 @@ När du klickar på GoodPractice Toolkit i åtkomstpanelen bör du bli automatis
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

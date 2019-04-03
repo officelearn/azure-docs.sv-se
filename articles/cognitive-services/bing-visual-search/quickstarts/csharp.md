@@ -8,30 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 3/28/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7961fb05f7ca9c6e6b61330e7dff53f2d5a41001
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d2f5e87bd6c6780e8504abe1753e90eca5db763a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535322"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880414"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabbstart: Hämta information om bilder med hjälp av REST API för visuell sökning i Bing och C#
 
-Använd den här snabbstarten för att skicka ditt första anrop till API för visuell sökning i Bing och visa sökresultaten. Det här enkla C#-programmet laddar upp en bild till API:et och visar informationen som returneras om den.
+Den här snabbstarten visar hur du överför en bild till Bing Visual Search API och visa insikter som returneras.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
+* Den [Json.NET framework](https://www.newtonsoft.com/json)är tillgängligt som ett NuGet-paket.
+* Om du använder Linux/Mac OS, kan du köra det här programmet med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. skapa en ny konsollösning med namnet `BingSearchApisQuickStart` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny konsol-lösning med namnet BingSearchApisQuickStart i Visual Studio. Lägg till följande namnrymder huvudsakliga kodfilen:
 
     ```csharp
     using System;
@@ -41,16 +41,15 @@ Använd den här snabbstarten för att skicka ditt första anrop till API för v
     using System.Collections.Generic;
     ```
 
-2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvägen för den bild du vill ladda upp.
+2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvägen till den avbildning som du vill ladda upp:
 
     ```csharp
-        const string accessKey = "<yoursubscriptionkeygoeshere>";
+        const string accessKey = "<my_subscription_key>";
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-        static string imagePath = @"<pathtoimagegoeshere>";
+        static string imagePath = @"<path_to_image>";
     ```
 
-
-1. Skapa en metod som kallas `GetImageFileName()` för att hämta sökvägen för din bild
+3. Skapa en metod med namnet `GetImageFileName()` att hämta sökvägen för din avbildning:
     
     ```csharp
     static string GetImageFileName(string path)
@@ -59,7 +58,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API för v
             }
     ```
 
-2. Skapa en metod för att hämta de binära tecknen i bilden.
+4. Skapa en metod för att få den binära data för avbildningen:
 
     ```csharp
     static byte[] GetImageBinary(string path)
@@ -70,7 +69,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API för v
 
 ## <a name="build-the-form-data"></a>Skapa formulärdata
 
-När du laddar upp en lokal bild måste de formulärdata som skickas till API:et formateras på rätt sätt. De måste innehålla rubriken Content-Disposition, parametern `name` måste anges till ”image” (bild) och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret inkluderar bildens binära tecken. Den maximala bildstorlek som du kan ladda upp är 1 MB.
+Om du vill överföra en lokal avbildning skapa du först formulärdata som skickas till API: et. Formulärdata måste innehålla den `Content-Disposition` rubrik, dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Formuläret innehåller binära data för avbildningen. Den maximala bildstorlek som du kan ladda upp är 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -81,7 +80,7 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
     --boundary_1234-abcd--
     ```
 
-1. Om du vill formatera formulärdata lägger du till gränssträngar för att formatera POST-formulärdata korrekt, vilka avgör början, slutet och radmatningstecken för dessa data.
+1. Lägga till gräns strängar om du vill formatera postdata för formuläret. Gräns strängar fastställer start och end ny rad tecken för data:
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -91,14 +90,14 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Följande variabler används för att lägga till parametrar i dessa formulärdata. 
+2. Använd följande variabler för att lägga till parametrar i formuläret:
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Skapa en funktion som kallas `BuildFormDataStart()` för att skapa början av nödvändiga formulärdata med hjälp av gränssträngar och din bildsökväg.
+3. Skapa en funktion med namnet `BuildFormDataStart()` att skapa början av formulärdata med hjälp av gräns strängar och avbildningssökväg:
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -112,7 +111,7 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
         }
     ```
 
-4. Skapa en funktion som kallas `BuildFormDataEnd()` för att skapa slutet på nödvändiga formulärdata med hjälp av gränssträngar.
+4. Skapa en funktion med namnet `BuildFormDataEnd()` att skapa slutet av formulärdata med gräns-strängar:
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -123,11 +122,11 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
 
 ## <a name="call-the-bing-visual-search-api"></a>Anropa API för visuell sökning i Bing
 
-1. Skapa en funktion för att anropa slutpunkten för API för visuell sökning i Bing och returnerar json-svaret. Funktionen tar normalt delarna för början och slutet för dessa formulärdata, en bytematris som innehåller bilddata och ett contentType-värde.
+1. Skapa en funktion för att anropa Bing Visual Search-slutpunkten och returnerar JSON-svar. Funktionen tar början och slutet av formuläret, en bytematris som innehåller bilddata och en `contentType` värde.
 
 2. Använd en `WebRequest` för att lagra URI, contentType-värde och rubriker.  
 
-3. Använd `request.GetRequestStream()` för att skriva dina formulär- och bilddata. Hämta sedan svaret. Den här funktionen bör se ut som koden nedan:
+3. Använd `request.GetRequestStream()` att skriva dina formulär- och bildfiler data och få ett svar. Din funktion ska se ut ungefär som den nedan:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -157,16 +156,16 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
         }
     ```
 
-## <a name="create-the-main-method"></a>Skapa huvudmetoden
+## <a name="create-the-main-method"></a>Skapa Main-metoden
 
-1. I den huvudsakliga metoden för ditt program får du filnamnet och bildbinär för din bild. 
+1. I den `Main` metoden för ditt program, hämta filnamn eller binära data i din avbildning:
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Ställ in POST-texten genom att formatera gränsen för den. Anropa sedan `startFormData()` och `endFormData` för att skapa formuläret. 
+2. Ställ in POST-texten genom att formatera gränsen för den. Anropa sedan `startFormData()` och `endFormData` att skapa formuläret:
 
     ```csharp
     // Set up POST body.
@@ -175,13 +174,13 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Skapa ContentType-värdet genom att formatera `CONTENT_TYPE_HEADER_PARAMS` och gränsen för formulärdata.
+3. Skapa den `ContentType` värde genom att formatera `CONTENT_TYPE_HEADER_PARAMS` och webbformulär för data:
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Hämta API-svar genom att anropa `BingImageSearch()`. Skriv sedan ut svaret.
+4. Hämta API-svar genom att anropa `BingImageSearch()` och skrivas ut:
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -192,9 +191,9 @@ När du laddar upp en lokal bild måste de formulärdata som skickas till API:et
 
 ## <a name="using-httpclient"></a>Använda HttpClient
 
-Om du använder HttpClient kan du använda MultipartFormDataContent för att skapa formulärdata. Använd följande kodavsnitt och ersätt metoderna med samma namn i föregående exempel.
+Om du använder `HttpClient`, du kan använda den `MultipartFormDataContent` klassen för att skapa formuläret. Använd bara följande delar av kod för att ersätta motsvarande metoderna i föregående exempel.
 
-Ersätt Main-metoden med den här koden:
+Ersätt den `Main` metoden med den här koden:
 
 ```csharp
         static void Main()
@@ -234,7 +233,7 @@ Ersätt Main-metoden med den här koden:
         }
 ```
 
-Ersätt BingImageSearch-metoden med den här koden:
+Ersätt den `BingImageSearch` metoden med den här koden:
 
 ```csharp
         /// <summary>
@@ -271,4 +270,4 @@ Ersätt BingImageSearch-metoden med den här koden:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en webbapp för anpassad sökning](../tutorial-bing-visual-search-single-page-app.md)
+> [Skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)

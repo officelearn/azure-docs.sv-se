@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651499"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886105"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -450,11 +450,12 @@ output Digit [10] from Hid3 all;
 + Nyckelordet `convolve` betyder att lagren heter `Conv1` och `Conv2` är convolutional lager. Var och en av dessa lager deklarationer följs av en lista över Faltning attribut.
 + Net har en tredje dolda lager, `Hid3`, som är anslutet till andra dolda lager, `Conv2`.
 + Utdata-lagret `Digit`, ansluts bara till det tredje dolda skiktet `Hid3`. Nyckelordet `all` anger att utdata-lagret är ansluten till fullständigt `Hid3`.
-+ Specifikaci av Faltning är tre: längden på tuppeln `InputShape`, `KernelShape`, `Stride, and `delning ”.
++ Specifikaci av Faltning är tre: längden på tuppeln `InputShape`, `KernelShape`, `Stride`, och `Sharing`.
 + Vikterna per kernel får `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Eller `26 * 50 = 1300`.
 + Du kan beräkna noder i varje dolda lagret på följande sätt:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5`
+    `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Det totala antalet noder kan beräknas med hjälp av den deklarerade dimensionaliteten för lagret [50, 5, 5], enligt följande: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168561"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882216"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure-dokumentation
 
@@ -12,7 +12,7 @@ Välkommen till [dokumentationen](https://docs.microsoft.com/azure) om öppen k�
 
 ## <a name="getting-started"></a>Komma igång
 
-Att bidra till öppen källkod är mer än att bara tillhandahålla uppdateringar, det handlar även om att kontakta oss när ett problem uppstår. Mer information finns i vår [vägledning för bidrag](.github/CONTRIBUTING.md).
+Att bidra till öppen källkod är mer än att bara tillhandahålla uppdateringar, det handlar även om att kontakta oss när ett problem uppstår. Mer information finns i vår [vägledning för bidrag](CONTRIBUTING.md).
 
 ### <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -25,7 +25,7 @@ Du behöver ett GitHub-konto för att bidra till dokumentationen. Om du inte har
 Installera följande verktyg:
 
 * [Git](https://git-scm.com/download)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Visual Studio-koden](https://code.visualstudio.com/Download)
 * Tillägget [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) för Visual Studio Code
 
 #### <a name="install"></a>Installera

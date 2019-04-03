@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875228"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882911"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -45,17 +45,16 @@ Innan du skapar en peering måste du bekanta dig med kraven och begränsningarna
 
 1. I sökrutan högst upp på Azure-portalen anger *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill skapa en peerkoppling för.
-3. Välj det virtuella nätverket som du vill skapa en peerkoppling för i listan med virtuella nätverk.
-4. Under **inställningar**väljer **Peerings**.
-5. Välj **+ Lägg till**. 
-6. <a name="add-peering"></a>Ange eller Välj värden för följande inställningar:
+3. Under **inställningar**väljer **Peerings**.
+4. Välj **+ Lägg till**. 
+5. <a name="add-peering"></a>Ange eller Välj värden för följande inställningar:
     - **Namn:** Namnet för peering måste vara unikt inom det virtuella nätverket.
     - **Distributionsmodell för virtuellt nätverk:** Välj vilken distributionsmodell som det virtuella nätverket som du vill peerkoppla till har distribuerats via.
     - **Jag vet mitt resurs-ID:** Om du har läsbehörighet till det virtuella nätverket som du vill peerkoppla till lämnar du den här kryssrutan avmarkerad. Markera den här kryssrutan om du inte har läsbehörighet till det virtuella nätverket eller en prenumeration som du vill peerkoppla till. Ange fullständigt resurs-ID för det virtuella nätverket som du vill peerkoppla till i den **resurs-ID** rutan som visades när du har markerat kryssrutan. Resurs-ID du anger måste vara för ett virtuellt nätverk som finns i samma, eller [stöds olika](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) som den här virtuella nätverket. Fullständigt resurs-ID som liknar /subscriptions/<Id>/resourceGroups/ < resource-group-name > /providers/Microsoft.Network/virtualNetworks/ < virtual-network-name >. Du kan hämta resurs-ID för ett virtuellt nätverk genom att visa egenskaperna för ett virtuellt nätverk. Läs hur du visar egenskaperna för ett virtuellt nätverk i [hantera virtuella nätverk](manage-virtual-network.md#view-virtual-networks-and-settings). Om prenumerationen är kopplad till en annan Azure Active Directory-klient än prenumerationen med det virtuella nätverket som du skapar peer-kopplingen från först lägga till en användare från varje klient som en [gästanvändare](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) i motsatt klienten.
     - **Prenumeration:** Välj den [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) för det virtuella nätverket som du vill peerkoppla till. En eller flera prenumerationer visas, beroende på hur många prenumerationer ditt konto har läsbehörighet till. När du har markerat den **resurs-ID** markerar du kryssrutan den här inställningen är inte tillgänglig.
     - **Virtuellt nätverk:** Välj det virtuella nätverket som du vill peerkoppla till. Du kan välja ett virtuellt nätverk som skapats via antingen Azure-distributionsmodellen. Om du vill välja ett virtuellt nätverk i en annan region måste du välja ett virtuellt nätverk i en [region som stöds](#cross-region). Du måste ha läsbehörighet till det virtuella nätverket att vara synliga i listan. Om ett virtuellt nätverk i listan, men nedtonade, kan det vara eftersom adressutrymmet för det virtuella nätverket överlappar adressutrymmet för det här virtuella nätverket. Om virtuellt nätverk adressutrymmen överlappar varandra, kan de inte peerkopplas. När du har markerat den **resurs-ID** markerar du kryssrutan den här inställningen är inte tillgänglig.
     - **Tillåt åtkomst till virtuellt nätverk:** Välj **aktiverad** (standard) om du vill aktivera kommunikation mellan de två virtuella nätverken. Om du aktiverar kommunikation mellan virtuella nätverk kan resurser som är anslutna till virtuella nätverken kan kommunicera med varandra med samma bandbredd och latens som om de var anslutna till samma virtuella nätverk. All kommunikation mellan resurser i de två virtuella nätverken är via Azure privat nätverk. Den **VirtualNetwork** tjänsttagg för nätverkssäkerhetsgrupper omfattar det virtuella nätverket och peer-kopplade virtuella nätverket. Läs mer om network security group tjänsttaggar i [nätverkssäkerhetsöversikt](security-overview.md#service-tags). Välj **inaktiverad** om du inte vill att trafik kan flöda till peerkopplade virtuella nätverk. Du kan välja **inaktiverad** om du har peer-kopplade ett virtuellt nätverk med ett annat virtuellt nätverk, men ibland vill du inaktivera trafikflödet mellan de två virtuella nätverken. Du kan hitta aktivering/inaktivering är mycket enklare än att ta bort och återskapa peer-kopplingar. När den här inställningen inaktiveras trafiken inte mellan peerkopplade virtuella nätverk.
-    - **Tillåt vidarebefordrad trafik:** Den här kryssrutan för att tillåta trafik *vidarebefordras* genom ett nätverks virtuella installation i ett virtuellt nätverk (som inte kommer från det virtuella nätverket) till flödet för att det här virtuella nätverket via en peering. Anta exempelvis att tre virtuella nätverk som heter Spoke1 och Spoke2 Hub. En peer-koppling finns mellan varje eker-nätverk och det virtuella navnätverket, men peerings finns inte mellan virtuella ekernätverk. En virtuell nätverksinstallation distribueras i det virtuella navnätverket och användardefinierade vägar tillämpas till varje eker-nätverk som dirigerar trafik mellan undernät via den virtuella nätverksinstallationen. Om den här kryssrutan inte är markerad för peering mellan varje eker-nätverk och det virtuella navnätverket trafiken inte mellan virtuella ekernätverk eftersom hubben är vidarebefordrar trafik mellan virtuella nätverk. Med att aktivera den här funktionen kan vidarebefordrad trafik via peer-kopplingen, skapas inte någon användardefinierade vägar eller virtuella nätverksinstallationer. Användardefinierade vägar och virtuella nätverksinstallationer skapas separat. Lär dig mer om [användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). Du behöver inte markera den här inställningen om trafik vidarebefordras mellan virtuella nätverk via Azure VPN Gateway.
+    - **Tillåt vidarebefordrad trafik:** Den här kryssrutan för att tillåta trafik *vidarebefordras* genom ett nätverks virtuella installation i ett virtuellt nätverk (som inte kommer från det virtuella nätverket) till flödet för att det här virtuella nätverket via en peering. Anta exempelvis att tre virtuella nätverk som heter Spoke1 och Spoke2 Hub. En peer-koppling finns mellan varje eker-nätverk och det virtuella navnätverket, men peerings finns inte mellan virtuella ekernätverk. En virtuell nätverksinstallation distribueras i det virtuella navnätverket och användardefinierade vägar tillämpas till varje eker-nätverk som dirigerar trafik mellan undernät via den virtuella nätverksinstallationen. Om den här kryssrutan inte är markerad för peering mellan varje eker-nätverk och det virtuella navnätverket trafiken inte mellan virtuella ekernätverk eftersom hubben inte är vidarebefordrar trafik mellan virtuella nätverk. Med att aktivera den här funktionen kan vidarebefordrad trafik via peer-kopplingen, skapas inte någon användardefinierade vägar eller virtuella nätverksinstallationer. Användardefinierade vägar och virtuella nätverksinstallationer skapas separat. Lär dig mer om [användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). Du behöver inte markera den här inställningen om trafik vidarebefordras mellan virtuella nätverk via Azure VPN Gateway.
     - **Tillåt gatewayöverföring:** Den här kryssrutan om du har en virtuell nätverksgateway som är kopplade till det här virtuella nätverket och vill tillåta trafik från det peer-kopplade virtuella nätverket kan flöda via gatewayen. Det här virtuella nätverket kan exempelvis vara kopplad till ett lokalt nätverk via en virtuell nätverksgateway. Det kan vara en ExpressRoute eller VPN-gateway. Markera den här rutan tillåter trafik från det peer-kopplade virtuella nätverket kan flöda via gatewayen ansluten till det här virtuella nätverket till det lokala nätverket. Om du markerar kryssrutan kan inte det peer-kopplade virtuella nätverket ha en konfigurerad gateway. Peer-kopplade virtuella nätverket måste ha den **Använd fjärrgateway** kryssrutan markerad när du konfigurerar peer-kopplingen från det virtuella nätverket till det här virtuella nätverket. Om du lämnar den här kryssrutan avmarkerad (standard), nätverkstrafiken från peer-kopplade virtuella nätverket fortfarande flöden till det här virtuella nätverket, men det går inte att flöda via en virtuell nätverksgateway som är kopplade till det här virtuella nätverket. Om peer-kopplingen ligger mellan ett virtuellt nätverk (Resource Manager) och ett virtuellt nätverk (klassisk), måste gatewayen vara i det virtuella nätverket (Resource Manager). Du kan inte aktivera det här alternativet om du peer virtuellt nätverk i olika regioner.
 
        Förutom vidarebefordrar trafik till ett lokalt nätverk, kan en VPN-gateway vidarebefordra nätverkstrafik mellan virtuella nätverk som peer-kopplade med det virtuella nätverket som gatewayen är i, utan att de virtuella nätverken behöva peer-kopplas med varandra. Med hjälp av en VPN-gateway för att vidarebefordra trafik är användbart när du vill använda en VPN-gateway i ett nav (se NAV och ekrar exemplet som beskrivs för **Tillåt vidarebefordrad trafik**) virtuellt nätverk kan dirigera trafik mellan virtuella ekernätverk som inte är peer-kopplas med varandra. Läs mer om att tillåta användning av en gateway för överföring i [konfigurera en VPN-gateway för överföring i en virtuell nätverkspeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det här scenariot kräver implementera användardefinierade vägar som anger den virtuella nätverksgatewayen som nästa hopptyp. Lär dig mer om [användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). Du kan bara ange en VPN-gateway som nexthop-typen i en användardefinierad väg, du kan inte ange en ExpressRoute-gateway som nästa hopptyp i en användardefinierad väg. Du kan inte aktivera det här alternativet om du peer virtuellt nätverk i olika regioner.
@@ -65,7 +64,7 @@ Innan du skapar en peering måste du bekanta dig med kraven och begränsningarna
 
         Du kan inte använda fjärrgatewayer om du redan har en konfigurerad gateway i det virtuella nätverket. Du kan inte aktivera det här alternativet om du peer virtuellt nätverk i olika regioner. Mer information om hur du använder en gateway för överföring finns [konfigurera en VPN-gateway för överföring i vnet-peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Välj **OK** att lägga till peer-kopplingen till det virtuella nätverket som du har valt.
+6. Välj **OK** att lägga till peer-kopplingen till det virtuella nätverket som du har valt.
 
 Stegvisa instruktioner för att implementera peering mellan virtuella nätverk i olika prenumerationer och distributionsmodeller finns i [nästa steg](#next-steps).
 
@@ -80,11 +79,10 @@ Innan du ändrar en peering bör du bekanta dig med kraven och begränsningarna 
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill ändra peering-inställningar för.
-3. Välj det virtuella nätverket som du vill ändra peering-inställningar för listan över virtuella nätverk.
-4. Under **inställningar**väljer **Peerings**.
-5. Välja den peering som du vill visa eller ändra inställningar för.
-6. Ändra lämpliga inställningar. Läs mer om alternativen för varje inställning i [steg 6](#add-peering) för Create som en peer-koppling.
-7. Välj **Spara**.
+3. Under **inställningar**väljer **Peerings**.
+4. Välja den peering som du vill visa eller ändra inställningar för.
+5. Ändra lämpliga inställningar. Läs mer om alternativen för varje inställning i [steg 5](#add-peering) för Create som en peer-koppling.
+6. Välj **Spara**.
 
 **Kommandon**
 
@@ -101,10 +99,9 @@ Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i st�
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill ta bort en peerkoppling för.
-3. Välj det virtuella nätverket som du vill ta bort en peer-koppling för i listan med virtuella nätverk.
-4. Under **inställningar**väljer **Peerings**.
-5. På höger sida av peering som du vill ta bort, väljer **...** väljer **ta bort**och välj sedan **Ja** att ta bort peer-kopplingen från det första virtuella nätverket.
-6. Slutföra de föregående stegen för att ta bort peer-kopplingen från det virtuella nätverket i peer-kopplingen.
+3. Under **inställningar**väljer **Peerings**.
+4. På höger sida av peering som du vill ta bort, väljer **...** väljer **ta bort**och välj sedan **Ja** att ta bort peer-kopplingen från det första virtuella nätverket.
+5. Slutföra de föregående stegen för att ta bort peer-kopplingen från det virtuella nätverket i peer-kopplingen.
 
 **Kommandon**
 
@@ -160,9 +157,9 @@ Om ditt konto inte har tilldelats till en av rollerna som tidigare, så måste d
   |Azure-distributionsmodell             | Prenumeration  |
   |---------                          |---------|
   |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Olika](create-peering-different-subscriptions.md)|
+  |                                   |[Annorlunda](create-peering-different-subscriptions.md)|
   |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
-  |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
+  |                                   |[Annorlunda](create-peering-different-deployment-models-subscriptions.md)|
 
 - Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Skapa en virtuell nätverkspeering med hjälp av [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller genom att använda Azure [Resource Manager-mallar](template-samples.md)

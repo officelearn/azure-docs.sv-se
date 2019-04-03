@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621238"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863142"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -69,10 +69,15 @@ Du kan ställa in Azure SQL-databaser och instansdatabaser att samla in följand
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): Innehåller information om hur lång tid att databasen har använt för att vänta på olika vänta typer. | Ja | Nej |
 | [Tidsgränser](#time-outs-dataset): Innehåller information om tidsgränser för databasen. | Ja | Nej |
 | [Block](#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
+| [Låsningar](#deadlocks-dataset): Innehåller information om händelser för deadlock i databasen. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): Innehåller information om automatiska justeringsrekommendationer för databasen. | Ja | Nej |
 | [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
 > Elastiska pooler och hanterade instanser har en egen separat diagnostiktelemetri från databaser som de innehåller. Detta är viktigt att notera som diagnostiktelemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
+
+> [!NOTE]
+> Säkerhetsgranskning och SQLSecurityAuditEvents loggar kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -136,7 +141,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för enke
 1. Upprepa dessa steg för varje databas som du vill övervaka.
 
 > [!NOTE]
-> Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Säkerhetsgranskning och SQLSecurityAuditEvents loggar kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
 
@@ -350,7 +355,7 @@ Du kan strömma SQL Database mått och diagnostik för loggar till Event Hubs me
 När valda data strömmas i Event Hubs, är ett steg närmare att aktivera avancerade scenarier för övervakning. Händelsehubbar fungerar som åtkomsten för en händelsepipeline. När data har samlats in i en händelsehubb, kan de omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller en lagringsadapter. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser. På så sätt kan händelsekonsumenterna kan komma åt händelser på sitt eget schema. Mer information om Händelsehubbar finns:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Du kan använda strömmas mått i Event Hubs till:
 
@@ -708,6 +713,6 @@ Lär dig hur du aktiverar loggning och för att förstå mått och loggar katego
 Läs mer om Event Hubs finns:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Läs mer om Azure Storage i [hur du laddar ned mått och diagnostik för loggar från Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

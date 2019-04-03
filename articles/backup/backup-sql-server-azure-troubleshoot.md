@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286024"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847458"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -98,12 +98,18 @@ Följande felkoder som visas när återställning jobb misslyckas.
 |---|---|---|
 | Det gick inte att återställa eftersom databasen inte kunde försättas offline. | När du gör en återställning måldatabasen som behöver tas offline. Azure Backup kan inte ta med dessa data offline. | Använd ytterligare information på menyn Azure portal fel för att begränsa den bakomliggande orsaken. Mer information finns i den [dokumentation om SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Det går inte att hitta servercertifikat med tumavtryck på målet. | Huvudservern databasen på mål-instansen har inte ett giltigt tumavtryck. | Importera giltigt certifikat-tumavtrycket används på målinstansen på målinstansen. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|
+| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. Det kan inte användas för stopp vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk loggade återställningsläge, kan data mellan en massloggade transaktion och nästa log-transaktionen inte återställas. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Registreringsfel
 

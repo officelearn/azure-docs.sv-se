@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3ac55ef4159ab97c909fc5dfc084889bc58a7b7c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793711"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846671"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Prestandarekommendationer för SQL-databas
 
@@ -88,7 +88,7 @@ Rekommendationen ”åtgärda schemaproblemet” visas när Azure SQL Database-t
 
 ## <a name="custom-applications"></a>Anpassade program
 
-Utvecklare kan överväga att utveckla anpassade program med hjälp av prestandarekommendationer för Azure SQL Database. Alla rekommendationer visas i portalen för en databas kan nås via [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API.
+Utvecklare kan överväga att utveckla anpassade program med hjälp av prestandarekommendationer för Azure SQL Database. Alla rekommendationer visas i portalen för en databas kan nås via [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzSqlDatabaseRecommendedAction) API.
 
 ## <a name="next-steps"></a>Nästa steg
 Övervaka dina rekommendationer och fortsätta att använda dem för att förbättra prestanda. Databasarbetsbelastningar är dynamisk och ändras kontinuerligt. SQL Database Advisor fortsätter att övervaka och rekommendationer som kan förbättra databasens prestanda. 

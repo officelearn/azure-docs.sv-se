@@ -17,24 +17,25 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652577"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882809"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app (förhandsversion)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
 Den här funktionen används av programutvecklare för att ange vilka anspråk som de vill ha i token som skickas till sina program. Du kan använda valfria anspråk till:
+
 - Välj ytterligare anspråk ska ingå i token för ditt program.
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i token.
-- Lägg till och få åtkomst till anpassade anspråk för ditt program. 
+- Lägg till och få åtkomst till anpassade anspråk för ditt program.
 
 > [!NOTE]
 > Den här funktionen är för närvarande i offentlig förhandsversion. Observera att du kan behöva återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i alla Azure AD-prenumeration allmänt tillgängliga förhandsversionen. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure AD premium-prenumeration.
 
-Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](v1-id-and-access-tokens.md). 
+Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](v1-id-and-access-tokens.md).
 
 Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter. Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.
 
@@ -50,7 +51,7 @@ Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-o
 
 ## <a name="standard-optional-claims-set"></a>Standard valfria anspråk set
 
-Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan. Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)nedan. Observera att när du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet. Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
+Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan. Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](#configuring-custom-claims-via-directory-extensions)nedan. När du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet. Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
 
 > [!NOTE]
 > Flesta av dessa anspråk kan tas med i JWTs för v1.0 och v2.0 token, men inte SAML-tokens, utom där annat anges i kolumnen tokentypen. Dessutom valfria anspråk finns endast stöd för AAD-användare för närvarande, har MSA-stöd lagts till. När MSA har valfria anspråk som har stöd för på v2.0-slutpunkten, anger kolumnen användartyp om ett anspråk är tillgänglig för en AAD eller MSA-användare. 
@@ -62,7 +63,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `auth_time`                | Tid när användaren senast autentiserade. Se OpenID Connect-specifikationen.| JWT        |           |  |
 | `tenant_region_scope`      | Region för resurs-klient | JWT        |           | |
 | `home_oid`                 | För gästanvändare, objekt-ID för användaren i användarens startklientorganisation.| JWT        |           | |
-| `sid`                      | Sessions-ID används för tillfälliga användare utloggning. | JWT        |           |         |
+| `sid`                      | Sessions-ID används för tillfälliga användaren logga ut. | JWT        |           |         |
 | `platf`                    | Enhetsplattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera typ av enhet.|
 | `verified_primary_email`   | Ursprung användarens PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Ursprung användarens SecondaryAuthoritativeEmail   | JWT        |           |        |
@@ -71,7 +72,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `fwd`                      | IP-adress.| JWT    |   | Lägger till den ursprungliga IPv4-adressen för den begärande klienten (i ett virtuellt nätverk) |
 | `ctry`                     | Användarens land | JWT |           | Azure AD-returnerar den `ctry` valfria anspråk om den finns och anspråkets värde är en standard två bokstäver landskod, till exempel FR, JP, SZ och så vidare. |
 | `tenant_ctry`              | Resursen klientens land/region | JWT | | |
-| `xms_pdl`          | Önskad Dataplats   | JWT | | För Multi-Geo-innehavare är detta 3 bokstäver koden som visar vilka geografiska region som användaren tillhör. Mer information finns i den [Azure AD Connect-dokumentationen om önskad Dataplats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Till exempel: `APC` för Asien/Stillahavsområdet. |
+| `xms_pdl`          | Önskad Dataplats   | JWT | | För Multi-Geo-innehavare är detta 3 bokstäver koden som visar den geografiska region som användaren tillhör. Mer information finns i den [Azure AD Connect-dokumentationen om önskad Dataplats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Till exempel: `APC` för Asien/Stillahavsområdet. |
 | `xms_pl`                   | Användarens förvalda språk  | JWT ||Användaren prioriterade språk, om ange. Ursprung sina startklientorganisation i scenarier för gäst-åtkomst. Formaterad lla kopia (”en-us”). |
 | `xms_tpl`                  | Klient-språk| JWT | | Resurs-klienten prioriterade språk, om ange. Formaterad lla (”SV”). |
 | `ztdid`                    | Zero touch-distributions-ID | JWT | | Enhetsidentitet används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
@@ -91,11 +92,11 @@ De här anspråken är alltid är inkluderad i v1.0 token, men inte ingår i v2.
 | `onprem_sid`  | Lokal säkerhetsidentifierare |                                             |       |
 | `pwd_exp`     | Förfallotid för lösenord        | Datum/tid då lösenordet upphör att gälla. |       |
 | `pwd_url`     | Ändra lösenord URL             | En URL som användaren kan besöka för att ändra sina lösenord.   |   |
-| `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket.   |  Baserade ut från den [tillförlitliga IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) inställningar i MFA.    |
+| `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är inte anspråket är inkluderat.   |  Baserade ut från den [tillförlitliga IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) inställningar i MFA.    |
 | `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. | 
 | `family_name` | Efternamn                       | Innehåller senaste namn, efternamn eller namn för användaren som definieras i Azure AD-användarobjektet. <br>"family_name":"Miller" |       |
 | `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som Azure AD user-objektet.<br>"given_name": ”Frank”                   |       |
-| `upn`       | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
+| `upn`       | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas för att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -106,7 +107,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 | Egenskapsnamn  | Ytterligare egenskapsnamn | Beskrivning |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan användas för både SAML- och JWT-svar och för v1.0 och v2.0-token. |
-|                | `include_externally_authenticated_upn`  | Innehåller gästen UPN som lagras i resurs-klient. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | Innehåller gästen UPN som lagras i resurs-klient. Exempel: `foo_hometenant.com#EXT#@resourcetenant.com` |             
 |                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hashen markerar (`#`) ersätts med understreck (`_`), till exempel `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Ytterligare egenskaper-exempel
@@ -188,7 +189,7 @@ Om det stöds av specifika anspråk, kan du också ändra beteendet för Optiona
 | `additionalProperties` | Collection (Edm.String) | Ytterligare egenskaper för anspråket. Om en egenskap finns i den här samlingen, ändrar beteendet för den valfria anspråk som anges i egenskapen name.                                                                                                                                               |
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Konfigurera anpassade anspråk via katalogtillägg
 
-Förutom uppsättningen standard valfria anspråk token också konfigureras för att inkludera directory-schemautökningar (se den [Directory schemaartikel tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) för mer information). Den här funktionen är användbar för att bifoga ytterligare information som din app kan använda – till exempel, en ytterligare identifierare eller viktiga konfigurationsalternativ som användaren har angett. 
+Du kan också konfigurera token för att inkludera directory-schemautökningar utöver uppsättningen standard valfria anspråk. Mer information finns i [Directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Den här funktionen är användbar för att bifoga ytterligare information som din app kan använda – till exempel, en ytterligare identifierare eller viktiga konfigurationsalternativ som användaren har angett. 
 
 > [!Note]
 > Directory-schematillägg är en funktion för endast AAD-så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte. 
@@ -250,5 +251,5 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 
 Mer information om standard anspråk som tillhandahålls av Azure AD.
 
-- [ID-token](id-tokens.md)
-- [Åtkomsttoken](access-tokens.md)
+- [ID-tokens](id-tokens.md)
+- [Åtkomsttokens](access-tokens.md)

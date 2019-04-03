@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842953"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876334"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
 
@@ -45,10 +45,9 @@ I den här guiden får du lära dig att:
 
 Du måste registrera din prenumeration i förhandsversionen innan du kan konfigurera Virtual WAN. Annars kan du inte arbeta med Virtual WAN på portalen. Om du vill registrera, skicka ett e- **azurevirtualwan\@microsoft.com** med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
 
-**Överväganden för förhandsversion:**
+**Förhandsversion av att tänka på:**
 
-* Regional tillgänglighet: Västra centrala USA
-* ExpressRoute-kretsen måste vara aktiverad i ett land som stöder [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+ExpressRoute-kretsen måste vara aktiverat i ett land som stöder [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 
@@ -70,16 +69,16 @@ Du måste registrera din prenumeration i förhandsversionen innan du kan konfigu
 
 ## <a name="hub"></a>4. Hitta och associera en krets med hubben
 
-1. Välj ditt vWAN. Under **Virtual WAN architecture** (Virtuell WAN-arkitektur) väljer du **ExpressRoute Circuits** (ExpressRoute-kretsar)
-1. Om ExpressRoute-kretsen är i samma prenumeration som ditt vWAN klickar du på **Välj ExpressRoute-krets** från din prenumeration 
+1. Välj din vWAN och under **virtuellt WAN arkitektur**väljer **ExpressRoute-kretsar**.
+1. Om ExpressRoute-kretsen i samma prenumeration som din vWAN klickar du på **Välj ExpressRoute-krets** från dina prenumerationer. 
 1. Använd listrutan och välj den ExpressRoute som du vill associera med hubben.
 1. Om ExpressRoute-kretsen inte är i samma prenumeration eller om du har fått [en auktoriseringsnyckel och ett peer-ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) väljer du **Find a circuit redeeming an authorization key** (Hitta en krets som löser in en auktoriseringsnyckel)
 1. Ange följande uppgifter:
 1. **Auktoriseringsnyckel** – genereras av kretsägaren enligt beskrivningen ovan
 1. **Peer-kretsens URI** – krets-URI som tillhandahålls av kretsägaren och är den unika identifieraren för kretsen
 1. **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peeringplatser är anslutna till samma hubb
-1. Klicka på **Hitta krets** och välj kretsen om den hittas
-1. Välj 1 eller flera hubbar i listrutan och klicka på **Spara**
+1. Klicka på **hitta kretsens** och välj kretsen om hittades.
+1. Välj 1 eller flera hubbar i listrutan ned och klicka på **spara**.
 
 ## <a name="vnet"></a>5. Ansluta ett virtuellt nätverk till en hubb
 

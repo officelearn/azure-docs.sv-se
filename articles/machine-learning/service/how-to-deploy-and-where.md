@@ -1,5 +1,5 @@
 ---
-title: Distribuera modeller som webbtjänster
+title: Hur och var du vill distribuera modeller
 titleSuffix: Azure Machine Learning service
 description: 'Lär dig hur och var att distribuera dina modeller för Azure Machine Learning-tjänsten som bland annat: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge och Field-programmable gate-matriser.'
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622135"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878306"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
-Azure Machine Learning SDK finns flera sätt du kan distribuera den tränade modellen. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter.
+I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter. 
 
-Du kan distribuera modeller till följande beräkning:
+## <a name="compute-targets-for-deployment"></a>Beräkningsmål för distribution
+
+Använd SDK: N för Azure Machine Learning för att distribuera din tränade modellen på följande platser:
 
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
@@ -31,6 +33,8 @@ Du kan distribuera modeller till följande beräkning:
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
+
+## <a name="deployment-workflow"></a>Arbetsflöde för distribution
 
 Processen för att distribuera en modell är liknande för alla beräkningsmål:
 
@@ -46,7 +50,7 @@ Följande videoklipp visar hur du distribuerar till Azure Container Instances:
 
 Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites-for-deployment"></a>Krav för distribution
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -587,7 +591,7 @@ Andra metoder för att registrera en enhet är:
 
 * [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+* [Visual Studio-koden](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
 ### <a name="deploy-the-model-to-the-device"></a>Distribuera modellen till enheten
 
@@ -613,7 +617,7 @@ Mer information finns i referensdokumentationen för [WebService.delete()](https
 * [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)
 * [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
-* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning-tjänst-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Använda Azure Machine Learning-tjänsten med Azure-nätverk](how-to-enable-virtual-network.md)
 * [Metodtips för att bygga rekommendationssystem](https://github.com/Microsoft/Recommenders)
 * [Skapa en i realtid rekommendation API på Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

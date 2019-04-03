@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200590"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880431"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -92,7 +92,7 @@ Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtu
 
 En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör att ett virtuellt nätverk kan att använda VPN-gatewayen i ett peer-kopplat virtuellt nätverk för anslutning mellan olika platser eller mellan olika virtuella nätverk. Trafik som går genom en fjärrgateway i det här scenariot omfattas av [avgifter för VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) och medför inga [avgifter för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network). Om VNetA till exempel har en VPN-gateway för lokal anslutning och VNetB är peer-kopplad till VNetA med lämpliga konfigurerade egenskaper debiteras trafik från VNetB till lokalt endast utgående enligt prissättningen för VPN-gateway. Avgifter för VNet-peering gäller inte. Lär dig hur du [konfigurerar VPN-gatewayöverföring för peer-kopplade virtuella nätverk](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör att ett virtuellt nätverk kan att använda VPN-gatewayen i ett peer-kopplat virtuellt nätverk för anslutning mellan olika platser eller mellan olika virtuella nätverk. Trafik som går genom en fjärrgateway i det här scenariot omfattas av [avgifter för VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) och medför inga [avgifter för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network). Till exempel om VNetA har en VPN-gateway för lokal anslutning och VNetB peerkopplas till VNetA till lämpliga egenskaper som har konfigurerats, debiteras trafik från VNetB till den lokala endast utgående per prissättning för VPN gateway. Avgifter för VNet-peering gäller inte. Lär dig hur du [konfigurerar VPN-gatewayöverföring för peer-kopplade virtuella nätverk](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -101,9 +101,9 @@ Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör 
     |Azure-distributionsmodell             | Prenumeration  |
     |---------                          |---------|
     |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Olika](create-peering-different-subscriptions.md)|
+    |                                   |[Annorlunda](create-peering-different-subscriptions.md)|
     |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
-    |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
+    |                                   |[Annorlunda](create-peering-different-deployment-models-subscriptions.md)|
 
 * Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Lär dig mer om alla [peering-inställningar för virtuella nätverk och hur du ändrar dem](virtual-network-manage-peering.md).

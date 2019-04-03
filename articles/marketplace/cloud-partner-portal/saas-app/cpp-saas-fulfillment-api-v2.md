@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352093"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878034"
 ---
 # <a name="saas-fulfillment-api"></a>SaaS betjäna API
 
@@ -86,7 +86,7 @@ Prenumeration API stöder HTTPS följande åtgärder: **Hämta**, **Post**, **Pa
 
 Visar alla SaaS-prenumerationer för en utgivare.
 
-**Hämta:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
+**Get:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -153,7 +153,7 @@ Kod: 500 Internt serverfel
 
 Hämtar den angivna SaaS-prenumerationen. Använd det här anropet att hämta licensinformationen och planera information.
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -218,7 +218,7 @@ Internt serverfel<br>
 
 Använd det här anropet för att ta reda på om det finns några privata/offentliga erbjudanden för den aktuella användaren.
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -572,7 +572,7 @@ Kod: 500<br> Internt serverfel
 
 Visar en lista över väntande åtgärder för den aktuella användaren. 
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -636,7 +636,7 @@ Internt serverfel
 
 Gör att användaren kan spåra statusen för en utlösta async-åtgärd (prenumerera/Unsubscribe/ändra plan).
 
-**Hämta:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -648,7 +648,7 @@ Gör att användaren kan spåra statusen för en utlösta async-åtgärd (prenum
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     | JSON web token (JWT) ägartoken.  |

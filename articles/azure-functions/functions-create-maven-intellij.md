@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319888"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877815"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Skapa din första Azure-funktion med Java och IntelliJ (förhandsversion)
-
-> [!NOTE]
-> Java för Azure Functions finns för närvarande som förhandsversion.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Skapa din första Azure-funktion med Java och IntelliJ
 
 Den här artikeln visar:
 - Så här skapar du en [serverlös](https://azure.microsoft.com/overview/serverless-computing/) function-projekt med IntelliJ IDEA och Apache Maven
@@ -33,11 +30,11 @@ Den här artikeln visar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
 Om du vill utveckla en funktion med Java och IntelliJ, installera följande programvara:
 
-- [Java Development Kit](https://www.azul.com/downloads/zulu/) (JDK) version 8
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community eller Ultimate-versioner med Maven
 - [Azure CLI](https://docs.microsoft.com/cli/azure)

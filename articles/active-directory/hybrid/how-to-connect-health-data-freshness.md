@@ -14,40 +14,41 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16794dfdcdc6ed9c2effe412237d2681fca4f394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803302"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883708"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Hälsotjänstinformationen är inte uppdaterad avisering
 
 ## <a name="overview"></a>Översikt
-Agenter på lokala datorer som Azure AD Connect Health övervakar regelbundet överför data till Azure AD Connect Health Service. Om tjänsten inte ta emot data från en agent blir informationen på portalen inaktuella. För att fokusera på problemet, tjänsten höjer **hälsotjänstinformationen är inte uppdaterad** aviseringen. Genereras när tjänsten inte har tagit emot slutförda data under de senaste två timmarna.  
 
-* Den **varning** status aviseringen utlöses om tjänsten för hälsotillstånd har tagit emot endast **partiella** datatyper som skickats från servern under de senaste två timmarna. Status för en varning utlöses inte e-postmeddelanden till angivna mottagare. 
-* Den **fel** status aviseringen utlöses om tjänsten för hälsotillstånd inte har fått några datatyper från servern under de senaste två timmarna. Fel status avisering utlösare e-postmeddelanden till angivna mottagare.
+Agenter på lokala datorer som Azure AD Connect Health övervakar regelbundet ladda upp data till Azure AD Connect Health-tjänsten. Om tjänsten inte ta emot data från en agent blir information i portalen inaktuella. För att fokusera på problemet, tjänsten returnerar den **hälsotjänstinformationen är inte uppdaterad** aviseringen. Den här aviseringen genereras när tjänsten inte har tagit emot fullständiga data under de senaste två timmarna.  
 
-Tjänsten hämtar data från agenter som körs på lokala datorer. Beroende på vilken typ av tjänst visas i följande tabell de agenter som körs på datorn, vad de gör samt vilka typer av Data som genereras av tjänsten. I vissa fall kan det finns flera tjänster som ingår i processen, så någon av dem kan vara orsaken. 
+- Den **varning** status aviseringen utlöses om tjänsten för hälsotillstånd har tagit emot endast **partiella** datatyper som skickats från servern under de senaste två timmarna. Status för varning utlöses inte e-postmeddelanden till angivna mottagare. 
+- Den **fel** status aviseringen utlöses om tjänsten för hälsotillstånd inte har fått några datatyper från servern under de senaste två timmarna. Fel status avisering utlösare e-postmeddelanden till angivna mottagare.
+
+Tjänsten hämtar data från agenter som körs på lokala datorer, beroende på vilken tjänsttyp. I följande tabell listar de agenter som körs på datorn, vad de gör och vilka datatyper av som tjänsten genererar. I vissa fall kan finns det flera tjänster som ingår i processen, så någon av dem kan vara orsaken. 
 
 ## <a name="understanding-the-alert"></a>Förstå aviseringen
-Bladet aviseringsinformation anger den tidpunkt då aviseringen har aktiverats och senast identifierad. Aviseringen har genererats/återexport-evaluated genom en bakgrundsprocess som körs varannan timme. I exemplet nedan första aviseringen har aktiverats på 03/10 kl. 9:59. Det har fortsatt att finns även på 03/12 10:00:00 när aviseringen utvärderades igen.
-Bladet beskriver också när en viss typ senast emot av Hälsotjänsten. 
+
+Den **aviseringsinformation** bladet ser när aviseringen inträffade och identifierades senast. En bakgrundsprocess som körs varannan timme genererar och omvärderas aviseringen. I följande exempel: inledande aviseringen inträffade på 03/10 kl. 9:59. Aviseringen fortfarande låg på 03/12 klockan 10:00 när aviseringen utvärderades igen. Bladet beskriver också den tid som tjänsten för hälsotillstånd senast tog emot en viss datatyp. 
  
  ![Azure AD Connect Health-aviseringsinformation](./media/how-to-connect-health-data-freshness/data-freshness-details.png)
  
-Nedan visas på kartan på tjänsttyper och motsvarande datatyp som krävs.
+I följande tabell visas tjänsttyper till motsvarande nödvändiga data-typer:
 
 | Typ av tjänst | Agent (Windows-tjänstens namn) | Syfte | Datatypen som genererats  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Samla in specifik information som AAD Connect (anslutningar, synkronisering regler osv.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
-|  | Azure AD Connect Health Sync Monitoring Service | Samla in filer (AAD Connect specifika) prestandaräknare, ETW-spårning | Prestandaräknare |
-| AD DS | Azure AD Connect Health AD DS Insights Service | Utföra syntetiska tester, samla in Information om nätverkstopologin, replikeringens Metadata |  - Adds-TopologyInfo-Json <br /> -Gemensamma-TestData-Json (skapar testresultaten)   | 
-|  | Azure AD Connect Health AD DS Monitoring Service | Samla in filer för (ADDS-specifik) Perf-räknare, ETW-spårning | -Prestandaräknare  <br /> -Gemensamma-TestData-Json (Överför testresultaten)  |
+| Azure AD Connect (Sync) | Azure AD Connect Health Sync Insights Service | Samla in AAD Connect-specifik information (anslutningar, Synkroniseringsregler, osv.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+|  | Azure AD Connect Health Sync Monitoring Service | Samla in AAD Connect-specifika prestandaräknare, ETW-spårning, filer | Prestandaräknare |
+| AD DS | Azure AD Connect Health AD DS Insights Service | Utföra syntetiska tester, samla in information om nätverkstopologin, Replikeringens metadata |  - Adds-TopologyInfo-Json <br /> -Gemensamma-TestData-Json (skapar testresultaten)   | 
+|  | Azure AD Connect Health AD DS Monitoring Service | Samla in ADDS-specifika prestandaräknare, ETW-spårning, filer | -Prestandaräknare  <br /> -Gemensamma-TestData-Json (Överför testresultaten)  |
 | AD FS | Azure AD Connect Health AD FS Diagnostics Service | Utföra syntetiska tester | TestResult (skapar testresultaten) | 
 | | Azure AD Connect Health AD FS Insights Service  | Samla in användningsstatistik för AD FS | Adfs-UsageMetrics |
-| | Azure AD Connect Health AD FS Monitoring Service | Collect (ADFS-specific) Perf Counters, ETW Traces, Files | TestResult (Överför testresultaten) |
+| | Azure AD Connect Health AD FS Monitoring Service | Samla in AD FS-specifika prestandaräknare, ETW-spårning, filer | TestResult (Överför testresultaten) |
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar 
 

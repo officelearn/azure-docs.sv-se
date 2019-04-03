@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402073"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885272"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor: Säkerhetskopiera virtuella Azure-datorer
 
@@ -68,7 +68,7 @@ Ja. Säkerhetskopieringar som körs när en dator är avstängd. Återställning
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag säga upp en pågående säkerhetskopiering?
 Ja. Du kan avbryta säkerhetskopieringsjobbet på en **tar ögonblicksbild** tillstånd. Du kan inte avbryta ett jobb om dataöverföring från ögonblicksbilden håller på att skapas.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Jag har aktiverat låset på resursgruppen som skapats av Azure Backup-tjänsten (dvs.) ` AzureBackupRG_<geo>_<number>`), kommer Mina säkerhetskopior att fortsätta att fungera?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Jag har aktiverat låset på resursgruppen som skapats av Azure Backup-tjänsten (dvs.) `AzureBackupRG_<geo>_<number>`), kommer Mina säkerhetskopior att fortsätta att fungera?
 Om du låser den resursgrupp som skapats av Azure Backup-tjänsten startar säkerhetskopieringar misslyckas eftersom det inte finns en maxgräns på 18 återställningspunkter.
 
 Användaren måste ta bort låset och ta bort samlingen med återställningspunkter från resursgruppen för att att framtida säkerhetskopieringar ska lyckas, [gör så här](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) att ta bort samlingen med återställningspunkter.
@@ -88,7 +88,7 @@ Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Jag har en virtuell dator med Write Accelerator (WA) diskar och SAP HANA installerad. Hur kan jag säkerhetskopiera?
 Azure Backup kan inte säkerhetskopiera disken WA-aktiverade men kan undanta den från en säkerhetskopia. Säkerhetskopian Ange inte dock databaskonsekvens eftersom informationen på WA-aktiverade inte har säkerhetskopierats. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemdisken, och säkerhetskopiering av diskar som inte är WA-aktiverade.
 
-Vi använder privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett Återställningspunktmål på 15 minuter. Den bygger på ett liknande sätt till SQL DB-säkerhetskopiering och använder gränssnittet backInt för lösningar från tredje part som certifierats av SAP HANA. Om du vill kan du maila ` AskAzureBackupTeam@microsoft.com ` med ämnet **registrera dig för privat förhandsgranskning för säkerhetskopiering av SAP HANA på Azure virtuella datorer i**.
+Vi använder privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett Återställningspunktmål på 15 minuter. Den bygger på ett liknande sätt till SQL DB-säkerhetskopiering och använder gränssnittet backInt för lösningar från tredje part som certifierats av SAP HANA. Om du vill kan du maila `AskAzureBackupTeam@microsoft.com` med ämnet **registrera dig för privat förhandsgranskning för säkerhetskopiering av SAP HANA på Azure virtuella datorer i**.
 
 
 ## <a name="restore"></a>Återställ

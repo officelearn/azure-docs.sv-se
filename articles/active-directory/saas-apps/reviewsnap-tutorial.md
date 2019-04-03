@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09fd6c94fe32d683e61aacba5300b130fa6f416a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Självstudier: Azure Active Directory-integrering med Reviewsnap
 
@@ -111,8 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textrutan anger du ett URL: `https://app.reviewsnap.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
@@ -171,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-reviewsnap-test-user"></a>Skapa en Reviewsnap testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Reviewsnap. Arbeta med [Reviewsnap supportteamet](mailto:support@reviewsnap.com) att lägga till användare i Reviewsnap-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Reviewsnap. Arbeta med [Reviewsnap supportteamet](mailto:support@reviewsnap.com) att lägga till användare i Reviewsnap-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -193,7 +192,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Länken ”användare och grupper”][202]
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 

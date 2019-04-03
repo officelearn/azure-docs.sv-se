@@ -1,25 +1,25 @@
 ---
 title: Autentiseringsmetoder för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
 description: Läs mer om de olika autentiseringsmetoderna som är tillgängliga när du använder Azure Security Center för IoT-tjänsten.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758386"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862921"
 ---
 # <a name="security-agent-authentication-methods"></a>Security-agenten autentiseringsmetoder 
 
@@ -63,7 +63,7 @@ De här argumenten finns dokumenterade i följande tabell.
 
 |Parameter|Beskrivning|Alternativ|
 |---------|---------------|---------------|
-|**Identitet**|Autentiseringsläge| **Modulen** eller **enhet**|
+|**identity**|Autentiseringsläge| **Modulen** eller **enhet**|
 |**typ**|Autentiseringstyp|**SymmetricKey** eller **SelfSignedCertificate**|
 |**filePath**|Absolut fullständig sökväg till filen som innehåller certifikatet eller den symmetriska nyckeln| |
 |**gatewayHostname**|FQDN för IoT Hub|Exempel: ContosoIotHub.azure-devices.net|
@@ -114,4 +114,4 @@ Redigera _LocalConfiguration.json_ med följande parametrar:
 ## <a name="see-also"></a>Se också
 - [Säkerhetsöversikt för agenter](security-agent-architecture.md)
 - [Distribuera säkerhetsagenten](how-to-deploy-agent.md)
-- [Rå säkerhetsdata för åtkomst](how-to-security-data-access.md)
+- [Få åtkomst till råsäkerhetsdata](how-to-security-data-access.md)

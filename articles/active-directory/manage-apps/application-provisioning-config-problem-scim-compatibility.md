@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124091"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880159"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2.0-protokollet kompatibiliteten för Azure AD-användare Provisioning-tjänsten
 
@@ -82,13 +82,13 @@ Ja. Följ anvisningarna nedan om du redan använder den här instansen av progra
 
 10. Kör kommandot nedan för att skapa ett nytt etablering jobb som har de senaste korrigeringarna i tjänsten.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. I resultatet av det sista steget, kopierar du den fullständiga ”ID”-sträng som börjar med ”scim”. Du kan också ansöka igen din gamla attributmappningar genom att köra kommandot nedan och Ersätt [ny-jobb-id] med den nya jobb-ID som du kopierade och ange JSON-utdata från steg #7 som begärandetexten.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Gå tillbaka till första webbläsarfönstret och välj den **etablering** fliken för ditt program.
 13. Kontrollera konfigurationen och sedan starta etablering jobbet. 

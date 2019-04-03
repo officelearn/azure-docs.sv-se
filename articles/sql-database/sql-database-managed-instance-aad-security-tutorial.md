@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226223"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882063"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Självstudier: Säkerhet för hanterad instans i Azure SQL Database med hjälp av Azure AD-serverhuvudkonton (inloggningar)
 
@@ -50,13 +50,13 @@ För att kunna slutföra den här självstudien behöver du följande:
 - En hanterad Azure SQL Database-instans
   - Följ den här artikeln: [Snabbstart: Skapa en hanterad Azure SQL Database-instans](sql-database-managed-instance-get-started.md)
 - Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Du kan läsa mer här:
-    - [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md) 
-    - [Anslutningsarkitektur för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md)
+    - [Anslut ditt program till en hanterad instans](sql-database-managed-instance-connect-app.md) 
+    - [Anslutningsarkitektur för hanterad instans](sql-database-managed-instance-connectivity-architecture.md)
     - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Begränsa åtkomsten till din hanterade instans
 
-Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjänstslutpunkter som är tillgängliga för att ansluta till en hanterad instans utanför instansens nätverk. Ungefär som i en isolerad lokal SQL Server-miljö behöver program eller användare åtkomst till den hanterade instansens nätverk (VNet) innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
+Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjänstslutpunkter som är tillgängliga för att ansluta till en hanterad instans utanför instansens nätverk. Nästan samma sätt som en isolerad SQL-Server en lokal miljö, program eller användare behöver åtkomst till hanterad instans-nätverk (VNet) innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Eftersom hanterade instanser bara kan nås från sitt VNET gäller inte [SQL Database-brandväggsreglerna](sql-database-firewall-configure.md). Hanterade instanser har en egen [inbyggd brandvägg](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -65,11 +65,11 @@ Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjä
 
 Det första Azure AD-serverhuvudkontot (inloggning) måste skapas av det SQL Server-standardkonto (icke-Azure AD) som är `sysadmin`. I följande artiklar finns exempel på hur du ansluter till en hanterad instans:
 
-- [Snabbstart: Konfigurera en virtuell Azure-dator för att ansluta till en hanterad instans](sql-database-managed-instance-configure-vm.md)
-- [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad instans från den lokala miljön](sql-database-managed-instance-configure-p2s.md)
+- [Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en hanterad instans](sql-database-managed-instance-configure-vm.md)
+- [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad instans från en lokal plats](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> Den Azure AD-administratör som konfigurerade den hanterade instansen kan inte användas för att skapa ett Azure AD-serverhuvudkonto (inloggning) i den hanterade instansen. Du måste skapa det första Azure AD-serverhuvudkontot (inloggning) med hjälp av ett SQL Server-konto som är `sysadmin`. Det här är en tillfällig begränsning som kommer att tas bort när Azure AD-serverhuvudkonton (inloggningar) blir allmänt tillgängliga. Följande felmeddelande visas om du försöker använda ett Azure AD-administratörskonto för att skapa inloggningen: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> Den Azure AD-administratör som konfigurerade den hanterade instansen kan inte användas för att skapa ett Azure AD-serverhuvudkonto (inloggning) i den hanterade instansen. Du måste skapa det första Azure AD-serverhuvudkontot (inloggning) med hjälp av ett SQL Server-konto som är `sysadmin`. Det här är en tillfällig begränsning som kommer att tas bort när Azure AD-serverhuvudkonton (inloggningar) blir allmänt tillgängliga. Följande felmeddelande visas om du försöker använda en Azure AD-administratörskonto för att skapa inloggningen: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Logga in på din hanterade instans med ett SQL Server-konto av standardtyp (inte Azure AD) som är en `sysadmin`, med hjälp av [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -172,7 +172,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 
     Det här exemplet skapar en inloggning för Azure AD-användaren bob@aadsqlmi.net, vars domän aadsqlmi.net är federerad med Azure AD:s aadsqlmi.onmicrosoft.com.
 
-    Kör följande T-SQL-kommando. Federerade Azure AD-konton är motsvarigheten till hanterade instanser när det gäller lokala inloggningar och användare i Windows.
+    Kör följande T-SQL-kommando. Federerad Azure AD-konton är hanterad instans-ersättningar för lokala Windows-inloggningar och användare.
 
     ```sql
     USE master
@@ -441,7 +441,7 @@ Databasöverskridande frågor stöds för Azure AD-konton med Azure AD-serverhuv
 
 I artikeln om [säkerhetsfunktioner för hanterade instanser](sql-database-managed-instance.md#azure-sql-database-security-features) finns en omfattande lista med sätt att skydda databasen. Följande säkerhetsfunktioner diskuteras:
 
-- [Granskning av hanterad instans](sql-database-managed-instance-auditing.md) 
+- [Hanterad instans granskning](sql-database-managed-instance-auditing.md) 
 - [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Hotidentifiering](sql-database-managed-instance-threat-detection.md) 
 - [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking)

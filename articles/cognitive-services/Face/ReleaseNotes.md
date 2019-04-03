@@ -3,27 +3,31 @@ title: Viktig information – Ansikts-API-tjänsten
 titleSuffix: Azure Cognitive Services
 description: Viktig information för Ansikts-API-tjänsten omfattar en historik över ändringar i versionen för olika versioner.
 services: cognitive-services
-author: SteveMSFT
+author: yluiu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 1af699a4b28309e7b004ed1eedf339e142065e50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 03/29/2019
+ms.author: yluiu
+ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878467"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862037"
 ---
 # <a name="face-api-release-notes"></a>Ansikts-API: et viktig information
 
 Den här artikeln gäller Ansikts-API-tjänst version 1.0.
 
+### <a name="release-changes-in-march-2019"></a>Versionen ändringar i mars 2019
+
+* Lägga till en ny modell för igenkänning av ansikte med förbättrar precisionen. Använda den via [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [PersonGroup - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) och [ LargePersonGroup – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) genom att ange nya ansikte erkännande modellnamnet `recognition_02` i `recognitionModel` parametern. Mer information finns i [hur du anger en igenkänningsfunktion för](Face-API-How-to-Topics/specify-recognition-model.md).
+
 ### <a name="release-changes-in-january-2019"></a>Versionen ändringar i januari 2019
 
-* Har lagts till ögonblicksbild-funktion för att stödja migrering av data mellan prenumerationer: [Ögonblicksbild](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
+* Har lagts till ögonblicksbild-funktion för att stödja migrering av data mellan prenumerationer: [Ögonblicksbild](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Mer information finns i [hur du migrerar dina ansikts-data till en annan prenumeration ansikte](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Versionen ändringar i oktober 2018
 

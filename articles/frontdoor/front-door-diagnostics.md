@@ -1,6 +1,6 @@
 ---
-title: Azure ytterdörren Service – mått och loggning | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå de olika mått och åtkomstloggar som har stöd för Azure ytterdörren Service
+title: Övervaka mått och loggar i Azure ytterdörren Service | Microsoft Docs
+description: Den här artikeln beskrivs de olika mått och åtkomstloggar som har stöd för Azure ytterdörren Service
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407036"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862122"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>Övervaka mått och loggar för ytterdörren
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Övervaka mått och loggar i Azure ytterdörren Service
 
 Genom att använda Azure ytterdörren Service kan övervaka du resurser på följande sätt:
 
-* [Mått](#metrics): Application Gateway har för närvarande sju mått för att visa prestandaräknare.
-* [Loggar](#diagnostic-logging): Loggar kan prestanda, åtkomst och andra data sparas eller konsumeras från en resurs för övervakning.
+- **Mått**. Application Gateway har för närvarande sju mått för att visa prestandaräknare.
+- **Loggar**. Aktivitet och diagnostikloggar kan prestanda, åtkomst och andra data sparas eller konsumeras från en resurs för övervakning.
 
-## <a name="metrics"></a>Mått
+### <a name="metrics"></a>Mått
 
-Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräknare i portalen. För ytterdörren finns följande mått:
+Mått är en funktion för vissa Azure-resurser så att du kan visa prestandaräknare i portalen. Följande är tillgängliga ytterdörren mått:
 
 | Mått | Metrisk visningsnamn | Enhet | Dimensioner | Beskrivning |
 | --- | --- | --- | --- | --- |
 | RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klientbegäranden som hanteras av ytterdörren.  |
 | RequestSize | Begärandestorlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antal byte som skickas när begäranden från klienter till ytterdörren. |
 | ResponseSize | Svarsstorlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antal byte som skickas som svar från åtkomsten till klienter. |
-| TotalLatency | Total svarstid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Den tid som beräknas från när klientbegäran togs emot av ytterdörren tills klienten godkänt den sista byten svar från ytterdörren. |
+| TotalLatency | Total svarstid | Millisekunder | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tid beräknas från klientbegäran tas emot av ytterdörren tills klienten godkänt den sista byten svar från ytterdörren. |
 | BackendRequestCount | Antal förfrågningar för serverdel | Antal | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antal begäranden som skickas från åtkomsten till serverdelen. |
 | BackendRequestLatency | Svarstid för backend-begäran | Millisekunder | Serverdel | Den tid som beräknas från när begäran skickades av dörren till serverdelen tills ytterdörren tog emot den sista byten av svaret från serverdelen. |
 | BackendHealthPercentage | Serverdelens hälsotillstånd procent | Procent | Serverdel</br>BackendPool | Procentandelen av lyckade hälsorapporter avsökningar från ytterdörren servrar. |
@@ -42,35 +42,36 @@ Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräkna
 
 ## <a name="activity-log"></a>Aktivitetsloggar
 
-Aktivitetsloggar ger insikt i de åtgärder som vidtogs för ytterdörren. Med aktivitetsloggar som du kan fastställa den ”vad, vem, och när” för alla skrivåtgärder (PUT, POST, ta bort) vidtas på ytterdörren.
+Aktivitetsloggar ger information om åtgärder som gjorts på ytterdörren Service. De bestämmer också vad, vem, och när för alla skrivåtgärder (put, post eller ta bort) vidtas på ytterdörren Service.
 
-> [!NOTE]
-> Aktivitetsloggar inkluderar inte läsåtgärder (GET), åtgärder som utförs i Azure-portalen eller via ursprungliga hanterings-API:er.
+>[!NOTE]
+>Aktivitetsloggar inkluderar inte läsåtgärder (get). Även omfattar de inte åtgärder som du utför med hjälp av Azure-portalen eller den ursprungliga Management-API: et.
 
-Du kan få åtkomst till aktivitetsloggar i ytterdörren eller komma åt loggar för alla dina Azure-resurser i Azure Monitor. 
-
-Så här visar du aktivitetsloggar:
+Åtkomst till aktivitetsloggar i din ytterdörren tjänst eller alla loggar för dina Azure-resurser i Azure Monitor. Så här visar du aktivitetsloggar:
 
 1. Välj din ytterdörren-instans.
-2. Klicka på **Aktivitetslogg**.
+2. Välj **aktivitetsloggen**.
 
-    ![aktivitetslogg](./media/front-door-diagnostics/activity-log.png)
+    ![Aktivitetslogg](./media/front-door-diagnostics/activity-log.png)
 
-3. Välj önskat filtreringsomfång och klicka på **Använd**.
+3. Välj ett omfång som filtrerande och välj sedan **tillämpa**.
 
 ## <a name="diagnostic-logging"></a>Diagnostikloggar
-Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit. Läs mer om [diagnostikloggar för Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning och felsökning. Diagnostikloggar skiljer sig från aktivitetsloggar.
 
-Så här konfigurerar du diagnostikloggar för ytterdörren:
+Aktivitetsloggar ger insikt i de åtgärder som gjorts på Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit. Mer information finns i [diagnostikloggar för Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-1. Välj din APIM-tjänstinstans.
-2. Klicka på **Diagnostikinställningar**.
+![Diagnostikloggar](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![diagnostikloggar](./media/front-door-diagnostics/diagnostic-log.png)
+Så här konfigurerar du diagnostikloggar för ytterdörren tjänsten:
 
-3. Klicka på **Slå på diagnostik**. Du kan arkivera diagnostikloggar tillsammans med mått i ett lagringskonto, strömma dem till en händelsehubb eller skicka dem till Azure Monitor-loggar. 
+1. Välj Azure API Management-tjänsten.
 
-Azure ytterdörren-tjänsten har för närvarande diagnostik loggar (i batchar per timme) om enskilda API-begäran med varje inmatning har följande schema:
+2. Välj **diagnostikinställningar**.
+
+3. Välj **slå på diagnostik**. Arkivera diagnostikloggar tillsammans med mått i ett lagringskonto, strömma dem till en event hub eller skicka dem till Azure Monitor-loggar.
+
+Ytterdörren Service erbjuder för närvarande diagnostikloggar (i batchar per timme). Diagnostikloggar innehåller enskilda API-begäranden där varje inmatning har följande schema:
 
 | Egenskap   | Beskrivning |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Azure ytterdörren-tjänsten har för närvarande diagnostik loggar (i batchar p
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
-- Läs [hur Front Door fungerar](front-door-routing-architecture.md).
+- [Skapa en ytterdörren-profil](quickstart-create-front-door.md)
+- [Hur ytterdörren fungerar](front-door-routing-architecture.md)

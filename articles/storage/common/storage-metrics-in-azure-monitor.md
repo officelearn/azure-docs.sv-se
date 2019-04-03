@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899034"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884371"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -284,9 +284,9 @@ I följande exempel visas hur du läser måttdata på mått som stöd för mått
 
 Resurs-ID är en unik identifierare för en resurs i Azure. När du använder Azure Monitor REST API för att läsa måttdefinitioner av eller värden, måste du använda resurs-ID för den resurs som du tänker använda. ID-resursmall följer det här formatet:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 Storage tillhandahåller mått på både lagringskontonivån och servicenivå med Azure Monitor. Du kan till exempel hämta mätvärden för bara Blob storage. Varje nivå har en egen resurs-ID som används för att hämta mått för just den nivån.
 
@@ -294,34 +294,38 @@ Storage tillhandahåller mått på både lagringskontonivån och servicenivå me
 
 Nedan visas format för att ange resurs-ID för ett lagringskonto.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>Resurs-ID för storage-tjänster
 
 Nedan visas format för att ange resurs-ID för var och en av lagringstjänsterna.
 
-* Resurs-ID för BLOB service `
+* Resurs-ID för BLOB service
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* Resurs-ID för Table service `
+```
+* Resurs-ID för Table service
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* Resurs-ID för kö-tjänst `
+```
+* Resurs-ID för kö-tjänst
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* Filen service resurs-ID `
+```
+* Filen service resurs-ID
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Resurs-ID i Azure Monitor REST-API
 
 Nedan visas det mönster som används när du anropar REST-API i Azure Monitor.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Kapacitet mått
 Kapacitet mått-värden skickas till Azure Monitor varje timme. Värden uppdateras dagligen. Tidskornet definierar tidsintervallet som mått visas. Tidsintervallet som stöds för alla kapacitet är en timme (PT1H).

@@ -3,7 +3,7 @@ title: Skydda dina nätverksresurser i Azure Security Center | Microsoft Docs
 description: Det här dokumentet behandlar rekommendationer i Azure Security Center som hjälper dig att skydda din Azure-nätverksresurser och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118011"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863159"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda dina nätverksresurser i Azure Security Center
 Azure Security Center analyserar kontinuerligt säkerhetsläget hos dina Azure-resurser för Metodtips för nätverkssäkerhet. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera de kontrollfunktioner som behövs för att förstärka och skydda dina resurser.
@@ -30,10 +30,9 @@ Den här artikeln belyser rekommendationer som gäller för dina Azure-resurser 
 > Den **nätverk** sidan kan du djupdykning i dina Azure resource health från ett nätverksperspektiv. Nätverkskarta och anpassningsbar nätverkskontroller är tillgängliga för Azure Security Center standard-nivån endast. [Om du använder den kostnadsfria nivån kan du klicka på knappen för att **visa äldre nätverk** och ta emot resource nätverksrekommendationer](#legacy-networking).
 >
 
-Den **nätverk** sidan innehåller en översikt över de avsnitt som du har djupgående fördjupa dig i, för att få mer information om hälsotillståndet för nätverksresurserna:
+Den **nätverk** bladet innehåller en översikt över de avsnitt som du har djupgående fördjupa dig i, för att få mer information om hälsotillståndet för nätverksresurserna:
 
 - Nätverkskarta (endast Azure Security Center Standard-nivån)
-- NSG härdning (kommer snart. Registrera dig för förhandsversionen)
 - Säkerhetsrekommendationer för nätverk.
 - Äldre **nätverk** bladet (tidigare nätverk bladet) 
  
@@ -50,6 +49,7 @@ Interaktiva kartan ger en grafisk vy security överlägg, vilket ger dig rekomme
 Standardvyn för topologisk karta visas:
 - Prenumerationer som du har valt i Azure. Kartan stöder flera prenumerationer.
 - Virtuella datorer, undernät och virtuella nätverk för Resource Manager-resurstyp (klassiska Azure-resurser inte stöds)
+- Peerkopplade virtuella nätverk
 - Endast de resurser som har [network rekommendationer](security-center-recommendations.md) med en hög eller medelhög allvarlighetsgrad  
 - Internet-riktade resurser
 - Kartan är optimerat för de prenumerationer som du har valt i Azure. Om du ändrar valet av kartan är beräknas om och optimerad igen baserat på de nya inställningarna.  
@@ -98,7 +98,7 @@ Exempelvis kan kan du identifiera två datorer som du tänkte kan kommunicera hj
 
 Att granska nedåt i en resurs:
 1. När du väljer en specifik resurs på kartan, den högra rutan öppnas och du får allmän information om resursen, anslutna säkerhetslösningar om det finns några, och rekommendationer till resursen. Det är samma typ av beteendet för varje typ av resurs som du väljer. 
-2. Klicka på **trafik** för att se en lista över möjliga utgående och inkommande trafik på resursen – det här är en omfattande lista över vem som kan kommunicera med resursen och som den kan kommunicera med och genom vilka protokoll och portar.
+2. Klicka på **trafik** för att se en lista över möjliga utgående och inkommande trafik på resursen – det här är en omfattande lista över vem som kan kommunicera med resursen och som den kan kommunicera med och genom vilka protokoll och portar. Till exempel när du väljer en virtuell dator, alla virtuella datorer den kan kommunicera med visas och när du väljer ett undernät, visas alla undernät som den kan kommunicera med.
 
 **Dessa data baserat på analyser av Nätverkssäkerhetsgrupper samt avancerade machine learning-algoritmer som analyserar flera regler för att förstå deras crossovers och interaktioner.** 
 

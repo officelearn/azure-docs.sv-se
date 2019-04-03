@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763435"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849685"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
-Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
+Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-platform.md) mer information om hur dessa data lagras och hur du kan visa den.
 
 Övervakning av data i Azure kommer från olika källor som kan ordnas i nivåer, de högsta nivåerna som ditt program och alla operativsystem och lägre nivåer som komponenter i Azure-plattformen. Detta illustreras i följande diagram där varje nivå som beskrivs i detalj i följande avsnitt.
 
@@ -59,7 +59,7 @@ Mått och resurs på diagnostikloggar ger information om den _interna_ driften a
 
 
 ### <a name="metrics"></a>Mått
-De flesta Azure services genererar [plattform mått](data-collection.md#metrics) som motsvarar deras prestanda och åtgärd. Specifikt [mått kan variera för varje typ av resurs](metrics-supported.md).  De är tillgängliga från mått analytics och kan kopieras till loggar för populära och andra analyser med hjälp av Log Analytics.
+De flesta Azure services genererar [plattform mått](data-platform-metrics.md) som motsvarar deras prestanda och åtgärd. Specifikt [mått kan variera för varje typ av resurs](metrics-supported.md).  De är tillgängliga från mått analytics och kan kopieras till loggar för populära och andra analyser med hjälp av Log Analytics.
 
 
 ### <a name="resource-diagnostic-logs"></a>Resursdiagnostikloggar
@@ -116,4 +116,4 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den [typerna av övervakningsdata som samlas in av Azure Monitor](data-collection.md) och hur du visar och analyserar dessa data.
+- Läs mer om den [typerna av övervakningsdata som samlas in av Azure Monitor](data-platform.md) och hur du visar och analyserar dessa data.

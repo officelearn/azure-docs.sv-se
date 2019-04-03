@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805000"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862615"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 
@@ -101,7 +101,7 @@ Riktar in sig på fullständiga framework från .NET Core, fristående distribut
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde:`true`
+     Värde: `true`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -120,7 +120,7 @@ Om du av någon anledning skulle du vilja inaktivera övervakning på klientsida
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde:`false`
+     Värde: `false`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -137,7 +137,7 @@ Endast programinställningarna måste anges för att aktivera telemetriinsamling
 |App inställningsnamn |  Definition | Värde |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Viktigaste tillägg som styr realtidsövervakning. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  I är läge, men viktiga funktioner aktiverade för att säkerställa optimala prestanda. | `default` eller `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  I är läge, men viktiga funktioner aktiverade för att säkerställa optimala prestanda. | `default` Eller `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Styr om motorn för binary-omskrivning `InstrumentationEngine` aktiveras. Den här inställningen har prestanda och påverkar kalla start/starttiden. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Kontrollerar om SQL och Azure table text ska hämtas tillsammans med beroendeanrop. Prestandavarning: den här inställningen kräver det `InstrumentationEngine`. | `~1` |
 
@@ -322,7 +322,7 @@ Visas nedan vår stegvisa felsökningsguiden för tillägget/agenten baserat öv
 > Java och Node.js-program kan bara användas på Azure App Services via manuella SDK baserat instrumentation och därför stegen nedan gäller inte för dessa scenarier.
 
 1. Kontrollera att programmet övervakas via `ApplicationInsightsAgent`.
-    * Kontrollera att ”ApplicationInsightsAgent_EXTENSION_AGENT appinställningen anges till värdet” ~ 2 ”.
+    * Kontrollera att `ApplicationInsightsAgent_EXTENSION_VERSION` appinställningen anges till värdet ”~ 2”.
 2. Kontrollera att programmet uppfyller kraven som ska övervakas.
     * Bläddra till `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -353,10 +353,10 @@ Tabellen nedan innehåller en mer detaljerad förklaring av vad de här värdena
 Den senaste informationen om Application Insights-agenten/tillägget finns i [viktig](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Nästa steg
-
-* [Kör profileraren för din live-app](../../azure-monitor/app/profiler.md).
+* [Kör profileraren för din live-app](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – övervaka Azure Functions med Application Insights
-* [Aktivera Azure-diagnostik](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
-* [Övervaka mätvärden för tjänstens hälsotillstånd](../../azure-monitor/platform/data-collection.md) för att se till att tjänsten är tillgänglig och svarar.
-* [Få aviseringar](../../azure-monitor/platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
-* [Konfigurera tillgänglighetswebbtester](../../azure-monitor/app/monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.
+* [Aktivera Azure-diagnostik](../platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
+* [Övervaka mätvärden för tjänstens hälsotillstånd](../platform/data-platform.md) för att se till att tjänsten är tillgänglig och svarar.
+* [Få aviseringar](../platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
+* Använd [Application Insights för JavaScript-appar och webbsidor](javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.
+* [Konfigurera tillgänglighetswebbtester](monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.

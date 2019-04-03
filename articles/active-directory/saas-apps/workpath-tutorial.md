@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208390"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Självstudier: Azure Active Directory-integrering med Workpath
 
@@ -115,13 +115,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.workpath.com/ `
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Workpath supportteamet](https://help.workpath.com) att hämta dessa värden.
@@ -226,7 +226,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][202] 
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 

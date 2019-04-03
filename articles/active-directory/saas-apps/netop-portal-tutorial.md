@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 607c18a67f7acc13ffe4d5c14131f20a2f94e8d9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652050"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Självstudier: Azure Active Directory-integrering med Netop Portal
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Netop
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. I den **Namespace** textrutan typ https://secure.netop.com.
+    c. I den **Namespace** textrutan typen https:\//secure.netop.com.
 
     d. Välj Källa som **Attribut**.
 

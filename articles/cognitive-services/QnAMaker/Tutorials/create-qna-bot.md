@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095219"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879619"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v3
 
@@ -25,7 +25,7 @@ Den här självstudien vägleder dig genom att skapa en QnA-roboten med Azure Bo
 > [!Note] 
 > Det här avsnittet avser version 3 av Bot-SDK. Du kan hitta version 4 [här](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
 
-**I den här självstudiekursen får du lära du dig att:**
+**I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -104,6 +104,12 @@ I Azure-portalen väljer du **testa i Web Chat** att testa roboten.
 ![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 QnA-roboten svar från knowledge base.
+
+## <a name="related-to-qna-maker-bots"></a>QnA Maker robotar som rör
+
+* QnA Maker hjälp bot används i QnA Maker-portalen är tillgänglig som en [bot exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker hjälpikonen bot är röda robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Hälsovård robotar](https://docs.microsoft.com/HealthBot/qna_model_howto) Använd QnA Maker som en av sina [språkmodeller](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

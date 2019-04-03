@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 542bc1a185f80eaae442931650eb3cd604c197b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080899"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849387"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Börja övervaka Node.js-webbappen
 
@@ -23,7 +23,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende p
 
 Denna snabbstart guidar dig genom processen att lägga till version 0.22 av Application Insights SDK för Node.js för en befintlig Node.js-webbapp.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -33,17 +33,20 @@ Om du inte har en Node.js-webbapp kan du skapa en genom att följa [snabbstarten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
 Application Insights kan samla in telemetridata från alla internetanslutna appar, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **Skapa en resurs** > **Övervakning och hantering**  > **Application Insights**.
+1. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
-   ![lägg till en Application Insights-resurs](./media/nodejs-quick-start/001-u.png)
+   ![lägg till en Application Insights-resurs](./media/nodejs-quick-start/1createresourseappinsights.png)
+
+   ![lägg till en Application Insights-resurs](./media/nodejs-quick-start/2createnodejs.png)
+
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
@@ -58,9 +61,9 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 ## <a name="configure-app-insights-sdk"></a>Konfigurera App Insights SDK
 
-1. Välj **Översikt** > **Essentials** > kopiera appens **instrumenteringsnyckel**.
+1. Välj **översikt** och kopiera appens **Instrumenteringsnyckeln**.
 
-   ![Nytt App Insights-resursformulär](./media/nodejs-quick-start/instrumentation-key-001.png)
+   ![Nytt App Insights-resursformulär](./media/nodejs-quick-start/3key.png)
 
 2. Lägg till Application Insights SDK för Node.js i appen. Från appens rotmapp kör du:
 
@@ -84,19 +87,19 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs.
 
-   ![Översiktsmenyn i Application Insights](./media/nodejs-quick-start/overview-001.png)
+   ![översiktsvyn för Application Insights](./media/nodejs-quick-start/4overview.png)
 
-2. Klicka på **App-karta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/nodejs-quick-start/application-map.png)
+   ![Programkarta](./media/nodejs-quick-start/5appmap.png)
 
-3. Klicka på **Analys**-ikonen![](./media/nodejs-quick-start/006.png).  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på den **Appanalys** ikonen ![Programkartan ikonen](./media/nodejs-quick-start/006.png) **visa i analys**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-   ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/nodejs-quick-start/007-Black.png)
+   ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/nodejs-quick-start/6analytics.png)
 
-4. Gå tillbaka till sidan **Översikt** och undersök KPI-diagrammen.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. 
+4. Gå tillbaka till sidan **Översikt** och undersök KPI-diagrammen.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.
 
-   ![diagram med hälsotillståndsöversiktens tidslinje](./media/nodejs-quick-start/overview-perf.png)
+   ![diagram med hälsotillståndsöversiktens tidslinje](./media/nodejs-quick-start/7kpidashboards.png)
 
    Om du vill att diagrammet **Inläsningstid för sidvisning** ska fyllas i med **telemetridata på klientsidan** lägger du till det här skriptet på varje sida du vill spåra:
 
@@ -120,15 +123,15 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    </script>
    ```
 
-5. Klicka på **Webbläsare** under rubriken **Undersök**. Här hittar du prestandamått för appens sidor. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått.
+5. På den vänstra klickar du på **mått**. Använd metrics explorer för att undersöka hälsa och användning av din resurs. Du kan klicka på **Lägg till nytt diagram** om du vill skapa fler anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel göra ett diagram som visar den genomsnittliga webbsideinläsningar genom att välja ”webbsideinläsningar” från mått, listruta och ”medel” från aggregering. Mer information om Azure Metrics Explorer besök [komma igång med Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![Diagram för servermått](./media/nodejs-quick-start/009-Black.png)
+   ![diagram med servermått](./media/nodejs-quick-start/8metrics.png)
 
 Mer information om hur du övervakar Node.js finns i [den ytterligare dokumentationen för App Insights Node.js](../../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska du inte rensa resurserna du har skapat i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
+När du är klar testning bör du ta bort resursgruppen och alla relaterade resurser. Att så att följa stegen nedan.
 
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.

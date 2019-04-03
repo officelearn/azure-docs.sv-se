@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369079"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884354"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -106,8 +106,11 @@ Efter normalisering blir det här lösenordet ”contosoblankf9”!. Matchningsp
 
 |   | Azure AD-lösenordsskydd med globala förbjudna lösenordslista | Azure AD-lösenordsskydd med anpassade förbjudna lösenordslista|
 | --- | --- | --- |
-| Molnexklusiva användare | Azure AD Kostnadsfri | Azure AD Basic |
+| Molnexklusiva användare | Azure AD Kostnadsfri | Azure AD Premium P1 eller P2 |
 | Användare som synkroniseras från den lokala Windows Server Active Directory | Azure AD Premium P1 eller P2 | Azure AD Premium P1 eller P2 |
+
+> [!NOTE]
+> Fördelarna med Azure AD-lösenordsskydd baserat på befintliga licenser för synkroniserade användare har även ta del av den lokala Windows Server Active Directory-användare som inte synkroniseras med Azure Active Directory.
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

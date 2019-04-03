@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870694"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850065"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -70,10 +70,10 @@ Om du vill skicka data från Azure-aktivitetsloggen till Event Hubs-namnområdet
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure-resurs mått och diagnostik för loggar
 
 Azure-resurser genererar två typer av övervakning av data:
-1. [Resursdiagnostikloggar](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Mått](../../azure-monitor/platform/data-collection.md)
+1. [Resursdiagnostikloggar](diagnostic-logs-overview.md)
+2. [Mått](data-platform.md)
 
-Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
+Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](diagnostic-logs-stream-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
 
 > [!TIP]
 > Du kan använda Azure Policy för att säkerställa att alla resurser inom ett visst omfång alltid är konfigurerad med en diagnostikinställning [med effekten DeployIfNotExists i principregeln](../../governance/policy/concepts/definition-structure.md#policy-rule).

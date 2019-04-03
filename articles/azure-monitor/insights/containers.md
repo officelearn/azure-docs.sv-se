@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092556"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877796"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -365,7 +365,7 @@ Du kan välja att skapa omsagent DaemonSets med eller utan hemligheter.
         KEY:    88 bytes
         ```
 
-    5. Skapa din omsagent daemon-set genom att köra ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Skapa din omsagent daemon-set genom att köra ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Kontrollera att Log Analytics-agenten DaemonSet körs, ungefär så här:
 
@@ -409,7 +409,7 @@ För Windows Kubernetes använder du ett skript för att generera hemligheter ya
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Skapa din omsagent daemon-set genom att köra ``` kubectl create -f omsagentsecret.yaml ```
+    3. Skapa din omsagent daemon-set genom att köra ```kubectl create -f omsagentsecret.yaml```
     4. Du kan kontrollera genom att köra följande:
 
         ```

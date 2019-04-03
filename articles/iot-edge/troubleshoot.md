@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437109"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847542"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -346,7 +346,10 @@ Enheten har problem med att starta moduler som anges i distributionen. Endast ed
 Som standard startar IoT Edge moduler i sin egen isolerad behållare nätverk. Enheten kan ha problem med DNS-namnmatchning i det här privata nätverket.
 
 ### <a name="resolution"></a>Lösning
-Ange DNS-server för din miljö i motorn behållarinställningar. Skapa en fil med namnet `daemon.json` anger DNS-server som ska användas. Exempel:
+
+**Alternativ 1: Ange DNS-server i behållaren motorn inställningarna**
+
+Ange DNS-server för din miljö i behållaren motorinställningar som gäller för alla behållare moduler igång av motorn. Skapa en fil med namnet `daemon.json` anger DNS-server som ska användas. Exempel:
 
 ```
 {
@@ -371,6 +374,22 @@ Om platsen innehåller redan `daemon.json` Lägg till den **dns** nyckeln till d
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**Alternativ 2: Ange DNS-server i IoT Edge-distribution per modul**
+
+Du kan ställa in DNS-server för varje modul *createOptions* i IoT Edge-distribution. Exempel:
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+Se till att konfigurera detta för den *edgeAgent* och *edgeHub* samt moduler. 
 
 ## <a name="next-steps"></a>Nästa steg
 Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett ärende](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461785"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881740"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob, File och Table storage med hjälp av enkla kommandon som är utformad för bästa prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
@@ -57,7 +57,7 @@ Nu ska vi titta på flera sätt att ladda ned blobar med hjälp av AzCopy.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Observera att om mappen `C:\myfolder` finns inte, AzCopy skapar den och ladda ned `abc.txt ` till den nya mappen.
+Observera att om mappen `C:\myfolder` finns inte, AzCopy skapar den och ladda ned `abc.txt` till den nya mappen.
 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Hämta en enda blob från den sekundära regionen
 
@@ -851,7 +851,7 @@ Tillgängliga attribut är:
 
 Anger avgränsningstecken som används för att avgränsa virtuella kataloger i ett blobnamn.
 
-Som standard använder AzCopy / som avgränsningstecken. Dock AzCopy stöder användning av alla vanliga tecken (till exempel @, #, eller %) som avgränsare. Om du vill inkludera en av dessa specialtecken på kommandoraden kan du omger du filnamnet med dubbla citattecken.
+Som standard använder AzCopy / som avgränsningstecken. Dock AzCopy stöder användning av alla vanliga tecken (till exempel @, #, eller %) som en avgränsare. Om du vill inkludera en av dessa specialtecken på kommandoraden kan du omger du filnamnet med dubbla citattecken.
 
 Det här alternativet gäller endast för att ladda ned blobar.
 

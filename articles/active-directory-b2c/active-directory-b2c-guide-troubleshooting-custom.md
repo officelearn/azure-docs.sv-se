@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 15924f2da72318603d11b2d4aadff72cb14ad5f7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156963"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880652"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och Identitetsupplevelse
 
@@ -28,7 +28,7 @@ Om du använder Azure Active Directory B2C (Azure AD B2C) anpassade principer, k
 
 De vanligaste fel i hur du konfigurerar anpassade principer är felaktigt formaterad XML. En bra XML-redigerare är nästan viktigt. En bra XML-redigerare visar XML internt, färgkodar innehåll, prefills vanliga termer, ser till att XML-element som indexeras och kan verifiera med schema. Här följer två av våra favorit XML-redigerare:
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-koden](https://code.visualstudio.com/)
 * [Anteckningar ++](https://notepad-plus-plus.org/)
 
 XML-schemavalideringen identifierar fel innan du laddar upp din XML-fil. I rotmappen på startpaket, får du XML-schemadefinitionen TrustFrameworkPolicy_0.3.0.0.xsd. Mer information i dokumentationen för XML-redigerare, leta efter *XML-verktyg* och *XML-verifiering*.
@@ -44,7 +44,7 @@ Du kan vara användbara en granskning av XML-regler. Azure AD B2C avvisar alla X
 Fel utdrag: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType-värdet kan vara felstavad, eller så finns inte i schemat.
 * ClaimType-värden måste definieras i minst en av filerna i principen. 
-    Exempel: ` <ClaimType Id="socialIdpUserId">`
+    Exempel: `<ClaimType Id="socialIdpUserId">`
 * Om ClaimType definieras i tilläggsfilen, men den används också i TechnicalProfile-värdet i filen grundläggande, resulterar ladda upp filen grundläggande i ett fel.
 
 Fel utdrag: `...makes a reference to a ClaimsTransformation with id...`

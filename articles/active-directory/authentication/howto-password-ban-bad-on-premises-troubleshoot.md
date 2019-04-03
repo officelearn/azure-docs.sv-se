@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487243"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863193"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Felsökning av Azure AD-lösenordsskydd
 
@@ -44,7 +44,13 @@ Den huvudsakliga symtom på det här problemet är 30018 händelser i händelsel
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy-tjänsten kan ta emot samtal från DC-agenter i domänen men kan inte kommunicera med Azure
 
-Kontrollera proxy-datorn är ansluten till de slutpunkter som anges i den [distributionskrav](howto-password-ban-bad-on-premises-deploy.md).
+1. Kontrollera proxy-datorn är ansluten till de slutpunkter som anges i den [distributionskrav](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Se till att skogen och alla proxy-servrar är registrerade mot samma Azure-klient.
+
+   Du kan kontrollera detta genom att köra den `Get-AzureADPasswordProtectionProxy` och `Get-AzureADPasswordProtectionDCAgent` PowerShell-cmdletar, jämför den `AzureTenant` egenskapen för varje objekt returneras. Dessa måste vara samma i en skog, på alla DC-agenter och proxyservrar för att fungera korrekt.
+
+   Ett Azure-klient registrering matchningsfel villkor finns, kan du reparera det genom att köra den `Register-AzureADPasswordProtectionProxy` och/eller `Register-AzureADPasswordProtectionForest` PowerShell-cmdletar efter behov, se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC-agenten kan inte att kryptera eller dekryptera lösenordet principfiler och andra tillstånd
 

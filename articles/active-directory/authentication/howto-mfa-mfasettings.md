@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311772"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886003"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -34,7 +34,7 @@ Några av de här inställningarna gäller för MFA-servern eller den Azure MFA.
 | ------- | ----------- |
 | Kontoutelåsning | Tillfälligt låsa konton i Multi-Factor authentication-tjänsten om det finns för många nekade autentiseringsförsök i följd. Den här funktionen gäller enbart för användare som anger en PIN-kod för att autentisera. (MFA Server) |
 | [Blockera/avblockera användare](#block-and-unblock-users) | För att blockera specifika användare på MFA Server (lokalt) från att kunna ta emot Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade. |
-| [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som rör användare möjlighet att rapportera bedrägliga begäranden från MFA-servern. |
+| [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar för användare möjlighet att rapportera bedrägliga begäranden |
 | Meddelanden | Aktivera meddelanden av händelser från MFA-servern. |
 | [OATH-token](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i molnbaserade miljöer för Azure MFA för att hantera OATH-token för användare. |
 | [Inställningarna för telefonsamtal](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för molnet och lokala miljöer. |
@@ -57,7 +57,7 @@ Reporting tillgänglig här är specifik för MFA Server (lokalt). Azure MFA (mo
 
 ## <a name="block-and-unblock-users"></a>Blockera och avblockera användare
 
-Använd den _blockera och avblockera användare_ funktionen för att förhindra att användare tar emot begäranden om autentisering. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade. Den här funktionen är specifik för MFA Server (lokalt).
+Använd den _blockera och avblockera användare_ funktionen för att förhindra att användare tar emot begäranden om autentisering. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade.
 
 ### <a name="block-a-user"></a>Blockera en användare
 
@@ -77,7 +77,7 @@ Använd den _blockera och avblockera användare_ funktionen för att förhindra 
 
 ## <a name="fraud-alert"></a>Bedrägerivarning
 
-Konfigurera den _bedrägerivarning_ funktion så att dina användare kan rapportera bedrägliga försöker komma åt sina resurser. Användare kan rapportera bedrägeri försök med hjälp av mobilappen eller via telefonen. Den här funktionen är specifik för MFA Server (lokalt).
+Konfigurera den _bedrägerivarning_ funktion så att dina användare kan rapportera bedrägliga försöker komma åt sina resurser. Användare kan rapportera bedrägeri försök med hjälp av mobilappen eller via telefonen.
 
 ### <a name="turn-on-fraud-alerts"></a>Aktivera bedrägerivarningar
 

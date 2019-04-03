@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121425"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884133"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Självstudier: Skapa en kunskapsbas och besvara sedan fråga via QnA Maker-portalen
 
@@ -66,7 +66,7 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
     |Inställningsnamn|Inställningsvärde|Syfte|
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
-    |Fil |_används inte i den här självstudien_|Det här laddar upp filer för frågor och svar. |
+    |Fil |_inte används i den här självstudien_|Det här laddar upp filer för frågor och svar. |
     |Kommunikationspersonlighet|Vännen|Detta ger en informell och avslappnad personlighet för vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
 
     ![Steg 4 i skapandeprocessen för kunskapsbas](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
@@ -105,7 +105,7 @@ När kunskapsbasen har publicerats visas slutpunkten
 
     ![Curl-kommando](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Kopiera texten för fliken **Curl** och kör i en Curl-aktiverad terminal eller på eller kommandoraden. Auktoriseringsrubrikens värde innehåller texten `Endpoint ` med ett avslutande blanksteg och därefter nyckeln.
+1. Kopiera texten för fliken **Curl** och kör i en Curl-aktiverad terminal eller på eller kommandoraden. Auktoriseringsrubrikens värde innehåller texten `Endpoint` med ett avslutande blanksteg och därefter nyckeln.
 
 1. Ersätt `<Your question>` med `How large can my KB be?`. Det här är nära frågan `How large a knowledge base can I create?` men inte exakt densamma. QnA Maker tillämpar bearbetning av naturligt språk för att fastställa att de två frågorna är desamma.     
 
@@ -208,4 +208,4 @@ Mer information om [kommunikationspersonligheter](../Concepts/best-practices.md#
 Mer information om standardsvaret finns i [Ingen matchning hittades](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Kunskapsbasbegrepp](../Concepts/knowledge-base.md)
+> [Knowledge base-begrepp](../Concepts/knowledge-base.md)

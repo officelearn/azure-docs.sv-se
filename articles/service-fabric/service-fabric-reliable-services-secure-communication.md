@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: b6d4a44a53ba553ab4fd514c81867156192b69f5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662547"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886275"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Säkra kommunikationer för fjärrkommunikation i en C# service
 > [!div class="op_single_selector"]
@@ -129,7 +129,7 @@ För att skydda en tjänst när du använder en fjärrtjänst med C# tjänster, 
        }
        ```
 
-        Om du lägger till en `TransportSettings` avsnitt i filen settings.xml `FabricTransportRemotingListenerSettings ` laddas alla inställningar från det här avsnittet som standard.
+        Om du lägger till en `TransportSettings` avsnitt i filen settings.xml `FabricTransportRemotingListenerSettings` laddas alla inställningar från det här avsnittet som standard.
 
         ```xml
         <!--"TransportSettings" section .-->

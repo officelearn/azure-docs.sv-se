@@ -3,20 +3,20 @@ title: Autentisering i Azure Data Lake Storage Gen1 med hjälp av Azure Active D
 description: Lär dig hur du autentiserar med Azure Data Lake Storage Gen1 med Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: b74696be433b00a5afb3416295b6317975aa6873
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: twooley
+ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967667"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884643"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259626"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881638"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Självstudier: Anropa API: er med Cognitive Services i ett Azure Search indexering pipeline (förhandsversion)
 
@@ -129,9 +129,6 @@ Eftersom detta var din första begäran ska du kolla Azure-portalen för att bek
   ![Datakällspanel i portalen](./media/cognitive-search-tutorial-blob/data-source-tile.png "Datakällspanel i portalen")
 
 Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `api-version=2017-11-11-Preview` ska vara på slutpunkten, `api-key` ska vara i rubriken efter `Content-Type` och dess värde måste vara giltigt för en söktjänst. Du kan återanvända rubriken för de kvarvarande stegen i den här självstudien.
-
-> [!TIP]
-> Innan du börjar utföra allt arbete bör du kontrollera att söktjänsten körs på någon av de platser som stöds och som tillhandahåller förhandsversionen: USA, södra centrala eller Europa, västra.
 
 ## <a name="create-a-skillset"></a>Skapa en kunskapsuppsättning
 
@@ -554,4 +551,4 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 Anpassa eller utöka pipelinen med anpassade kunskaper. När du skapar en anpassad kunskap och lägger till den i en kunskapsuppsättning kan du publicera text eller bildanalys som du skriver själv. 
 
 > [!div class="nextstepaction"]
-> [Exempel: skapa en anpassad kunskap](cognitive-search-create-custom-skill-example.md)
+> [Exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md)

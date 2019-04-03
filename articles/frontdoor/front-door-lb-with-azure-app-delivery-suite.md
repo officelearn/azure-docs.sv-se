@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439034"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879667"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -26,10 +26,10 @@ Microsoft Azure tillhandahåller flera global och regionala tjänster för att h
 ![Application Delivery Suite ][1]
  
 De här tjänsterna är uppdelat i två kategorier:
-1. **Globala tjänster för belastningsutjämning** som Traffic Manager och ytterdörren distribuerar trafik från dina slutanvändare i din regionala serverdelar, över moln eller till och med din lokala hybridtjänster. Global nätverksbelastning dirigerar trafiken till närmaste service-serverdelen och reagerar på förändringar i tjänstpålitligheten eller prestanda till att alltid, maximal prestanda för dina användare. 
+1. **Globala tjänster för belastningsutjämning** som Traffic Manager och ytterdörren distribuerar trafik från dina slutanvändare över serverdelen regionala mellan moln eller till och med dina lokala tjänster. Global nätverksbelastning dirigerar trafiken till närmaste service-serverdelen och reagerar på förändringar i tjänstpålitligheten eller prestanda till att alltid, maximal prestanda för dina användare. 
 2. **Regionala tjänster för belastningsutjämning** som Standard Load Balancer eller Application Gateway ger möjlighet att distribuera trafik i virtuella nätverk (Vnet) mellan dina virtuella datorer (VM) eller zonindelad tjänstslutpunkter inom en region.
 
-Kombinera global och regionala tjänster i ditt program ger en slutpunkt till slutpunkt tillförlitligt, effektivt och säkert sätt att dirigera trafik till och från dina användare till din IaaS, PaaS, eller lokala tjänster. I nästa avsnitt beskrivs var och en av dessa tjänster.
+Kombinera global och regionala tjänster i ditt program ger en slutpunkt till slutpunkt tillförlitligt, effektivt och säkert sätt att dirigera trafik till och från dina användare till IaaS, PaaS, eller lokala tjänster. I nästa avsnitt beskrivs var och en av dessa tjänster.
 
 ## <a name="global-load-balancing"></a>Global belastningsbalansering
 **Traffic Manager** tillhandahåller globala DNS belastningsutjämning. Den tittar på DNS-förfrågningar och svarar med en felfri backend, i enlighet med routningsprincip som kunden har valts. Alternativ för routningsmetoder är:
@@ -59,7 +59,7 @@ När du väljer en global belastningsutjämnare mellan Traffic Manager och Azure
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Alla protokoll:** Eftersom Traffic Manager fungerar på DNS-nivå, kan du dirigera alla typer av nätverkstrafik; HTTP, TCP, UDP, osv. | **HTTP-acceleration:** Med ytterdörren är trafik via proxy på den Edge av Microsofts nätverk.  Därför se begäranden för HTTP (S) svarstid och dataflöde förbättringar svarstiden för SSL-förhandling och använder frekvent anslutningar från AFD till ditt program.|
-|**En lokal routning:** Trafiken går alltid från punkt till punkt med routning på en DNS-nivå.  Routning från filialen till din lokalt datacenter kan ta en direkt sökväg. med Traffic Manager även på ditt eget nätverk. | **Oberoende skalbarhet:** Eftersom ytterdörren arbetar med HTTP-begäran, begäranden till olika URL-sökvägar kan vara dirigera till andra backend / regionala pooler (mikrotjänster) baserat på regler och hälsotillståndet för varje program mikrotjänst-tjänsten.|
+|**Lokal routning:** Trafiken går alltid från punkt till punkt med routning på en DNS-nivå.  Routning från filialen till din lokalt datacenter kan ta en direkt sökväg. med Traffic Manager även på ditt eget nätverk. | **Oberoende skalbarhet:** Eftersom ytterdörren arbetar med HTTP-begäran, begäranden till olika URL-sökvägar kan vara dirigera till andra backend / regionala pooler (mikrotjänster) baserat på regler och hälsotillståndet för varje program mikrotjänst-tjänsten.|
 |**Fakturering format:** DNS-baserade fakturering kan skalas upp med dina användare och tjänster med fler användare, högplaåter för att minska kostnaden vid högre användning. |**Infogad säkerhet:** Åtkomsten kan regler som t.ex hastighetsbegränsning, och IP-åtkomstkontrollposter så att du kan skydda serverdelen innan trafiken når ditt program. 
 
 </br>På grund av prestanda, funktionalitet och säkerhetsfördelarna till HTTP-arbetsbelastningar med ytterdörren rekommenderar vi att kunder använder åtkomsten för sina HTTP-arbetsbelastningar.    Traffic Manager och ytterdörren kan användas parallellt för att hantera all trafik för ditt program. 

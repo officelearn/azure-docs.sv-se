@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791531"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882800"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -163,7 +163,7 @@ Det här exemplet används den [Azure-portalen](https://portal.azure.com) att up
 >[!NOTE]
 >Om du vill använda ett anpassat anspråk måste du också ha en anpassad princip definieras och tilldelas programmet.  Den här principen ska inkludera alla nödvändiga anpassade attribut.
 >
->Principdefinitionen och tilldelningen kan göras via PowerShell, Azure AD Graph Explorer eller MS Graph.  Om du vill göra detta i PowerShell, kan du behöva använda först `New-AzureADPolicy `och tilldela den till programmet med `Set-AzureADServicePrincipalPolicy`.  Mer information finns i den [dokumentation om Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Principdefinitionen och tilldelningen kan göras via PowerShell, Azure AD Graph Explorer eller MS Graph.  Om du vill göra detta i PowerShell, kan du behöva använda först `New-AzureADPolicy` och tilldela den till programmet med `Set-AzureADServicePrincipalPolicy`.  Mer information finns i den [dokumentation om Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Valfritt – Använd ett anpassat anspråk
 För att göra ditt program använder ett anpassat anspråk och ta med ytterligare fält, bör du se till att även [skapas en anpassad princip för Anspråksmappning och den tilldelas programmet](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).

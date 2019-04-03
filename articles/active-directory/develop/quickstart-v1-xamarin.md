@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078711"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881893"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
 
@@ -72,25 +72,25 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 
 1. Lägg till ADAL i DirectorySearcher-projektet med hjälp av Package Manager-konsolen.
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     Observera att två biblioteksreferenser läggs till varje projekt: PCL-delen av ADAL och en plattformsspecifik del.
 2. I projektet DirectorySearcherLib öppnar du DirectorySearcher.cs.
@@ -104,7 +104,7 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 
 Nästan allt av appens autentiseringslogik finns i `DirectorySearcher.SearchByAlias(...)`. Allt som behövs i de plattformsspecifika projekten är att skicka en sammanhangsberoende parameter till `DirectorySearcher`-PCL.
 
-1. Öppna DirectorySearcher.cs och lägg sedan till en ny parameter i metoden `SearchByAlias(...)`. `IPlatformParameters` är den sammanhangsberoende parameter som kapslar in de plattformsspecifika objekt som ADAL behöver för att utföra autentiseringen.
+1. Öppna DirectorySearcher.cs och lägg sedan till en ny parameter i metoden `SearchByAlias(...)`. `IPlatformParameters` är sammanhangsberoende parametern som kapslar in plattformsspecifika objekten som ADAL krävs för att utföra autentiseringen.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -130,7 +130,7 @@ Nästan allt av appens autentiseringslogik finns i `DirectorySearcher.SearchByAl
     ...
     ```
 
-    `AcquireTokenAsync(...)` försöker först att returnera en token för den begärda resursen (Graph API i det här fallet) utan att ombe användarna att ange sina autentiseringsuppgifter (via cachelagring eller uppdatering av gamla token). Vid behov visar den användarna Azure AD-inloggningssidan innan begärd token hämtas.
+    `AcquireTokenAsync(...)` först försöker denna att returnera en token för den begärda resursen (Graph API i det här fallet) utan att fråga användaren måste ange sina autentiseringsuppgifter (via cachelagring eller uppdatera gamla token). Vid behov visar den användarna Azure AD-inloggningssidan innan begärd token hämtas.
 4. Koppla åtkomsttoken till Graph API-begäran i den **auktoriseringshuvudet**:
 
     ```csharp

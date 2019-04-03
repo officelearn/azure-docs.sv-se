@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101779"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877388"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
@@ -119,4 +119,5 @@ App Service innehåller verktyg som hjälper dig att felsöka problem med ditt p
 
 -   Aktivera loggning genom att klicka på **diagnostikloggar** i det vänstra navigeringsfönstret. Klicka på **filsystem** att din kvot och kvarhållning period för lagring och spara dina ändringar. Du hittar de här loggarna under `/home/LogFiles/`.
 -   [Använda SSH för att ansluta till programinstansen](app-service-linux-ssh-support.md) att visa loggar för att köra program.
--   Kontrollera diagnostikloggar den **diagnostikloggar** panelen i portalen eller med hjälp av Azure CLI-kommando: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   Kontrollera diagnostikloggar den **diagnostikloggar** panelen i portalen eller med hjälp av Azure CLI-kommando:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

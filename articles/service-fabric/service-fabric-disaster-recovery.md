@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0804095a9e12e91d6b0fa88b626b006b78bdf3a5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670820"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883249"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveriberedskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver några vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Här beskrivs även åtgärder och åtgärder som ska vidtas om en katastrof har inträffat ändå. Målet är att begränsa eller eliminera risken för avbrott eller dataförluster när de uppstår fel, planerat eller i annat fall sker.
@@ -98,7 +98,7 @@ För tillståndskänsliga tjänster beror situationen på om tjänsten har spara
 2. Avgör om förlorar kvorum är permanent eller inte
    - De flesta fall är fel tillfälligt. Processer har startats om, noder startas om, virtuella datorer är relaunched, nätverkspartitioner reparation av nodtjänst. Ibland är fel permanent. 
      - För tjänster utan sparade tillstånd, ett fel för ett kvorum eller flera av repliker resultat _omedelbart_ förlorar kvorum permanent. När Service Fabric upptäcker förlorar kvorum i ett icke-beständiga tillståndskänslig tjänst, fortsätter den genast till steg 3 genom att deklarera () förlust av data. Fortsätter att data är går förlorade naturligt eftersom Service Fabric vet att det ingen finns i väntan på att replikerna kommer tillbaka, eftersom även om de har återställts de skulle vara tom.
-     - För tillståndskänsliga permanenta tjänster orsakar ett fel i ett kvorum eller flera av repliker Service Fabric för att starta väntar på att replikerna komma tillbaka och återställa kvorum. Detta resulterar i ett tjänstavbrott för någon _skriver_ till berörda partition (eller ”replikuppsättningen”) av tjänsten. Läsningar kan dock fortfarande vara möjligt med lägre konsekvensgarantier. Standard för lång tid som Service Fabric väntar för kvorum som ska återställas är oändliga, eftersom du fortsätter en (potentiella) dataförlusthändelse och har andra risker. Åsidosätter förvalda `QuorumLossWaitDuration` värde är möjligt, men rekommenderas inte. I stället för tillfället bör yttersta göra för att återställa på replikerna. Detta kräver att de noder som är nere säkerhetskopiera och att säkerställa att de kan montera om de enheter där de lagras lokalt beständiga tillståndet. Om förlorar kvorum orsakas av fel, försöker Service Fabric automatiskt återskapa processerna och starta om repliker i dem. Om det inte rapporterar problem med hälsotillståndet i Service Fabric. Om det kan vara löst gå replikerna vanligtvis sedan tillbaka. Ibland kan dock kan inte replikerna hämtas tillbaka. Till exempel enheterna kan alla har misslyckats eller datorerna förstörs fysiskt på något sätt. I dessa fall kan har vi nu en permanent kvorum dataförlust inträffat. Om du vill se Service Fabric för att stoppa väntar på replikerna ska komma tillbaka en Klusteradministratör måste bestämma vilka partitioner som tjänster som påverkas och anropa den `Repair-ServiceFabricPartition -PartitionId` eller ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API.  Detta API kan du ange ID för partitionen som ska flytta ut från QuorumLoss till potentiella dataloss.
+     - För tillståndskänsliga permanenta tjänster orsakar ett fel i ett kvorum eller flera av repliker Service Fabric för att starta väntar på att replikerna komma tillbaka och återställa kvorum. Detta resulterar i ett tjänstavbrott för någon _skriver_ till berörda partition (eller ”replikuppsättningen”) av tjänsten. Läsningar kan dock fortfarande vara möjligt med lägre konsekvensgarantier. Standard för lång tid som Service Fabric väntar för kvorum som ska återställas är oändliga, eftersom du fortsätter en (potentiella) dataförlusthändelse och har andra risker. Åsidosätter förvalda `QuorumLossWaitDuration` värde är möjligt, men rekommenderas inte. I stället för tillfället bör yttersta göra för att återställa på replikerna. Detta kräver att de noder som är nere säkerhetskopiera och att säkerställa att de kan montera om de enheter där de lagras lokalt beständiga tillståndet. Om förlorar kvorum orsakas av fel, försöker Service Fabric automatiskt återskapa processerna och starta om repliker i dem. Om det inte rapporterar problem med hälsotillståndet i Service Fabric. Om det kan vara löst gå replikerna vanligtvis sedan tillbaka. Ibland kan dock kan inte replikerna hämtas tillbaka. Till exempel enheterna kan alla har misslyckats eller datorerna förstörs fysiskt på något sätt. I dessa fall kan har vi nu en permanent kvorum dataförlust inträffat. Om du vill se Service Fabric för att stoppa väntar på replikerna ska komma tillbaka en Klusteradministratör måste bestämma vilka partitioner som tjänster som påverkas och anropa den `Repair-ServiceFabricPartition -PartitionId` eller `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API.  Detta API kan du ange ID för partitionen som ska flytta ut från QuorumLoss till potentiella dataloss.
 
    > [!NOTE]
    > Det är _aldrig_ säkert att använda detta API än på ett sätt som är riktade mot specifika partitioner. 
@@ -139,7 +139,7 @@ I både fristående Service Fabric-kluster och Azure är ”primära nodtypen”
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du simulera olika fel med den [testmöjlighet framework](service-fabric-testability-overview.md)
 - Läs andra resurser för haveriberedskap och hög tillgänglighet. Microsoft har publicerat en stor mängd information om dessa ämnen. Även om vissa av dessa dokument refererar till specifika tekniker för användning i andra produkter, innehåller de många allmänna metodtips som du kan använda i kontexten Service Fabric:
-  - [Tillgänglighetschecklista](../best-practices-availability-checklist.md)
+  - [Checklista för tillgänglighet](../best-practices-availability-checklist.md)
   - [Utföra ett programåterställningstest](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Haveriberedskap och hög tillgänglighet för Azure-program][dr-ha-guide]
 - Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

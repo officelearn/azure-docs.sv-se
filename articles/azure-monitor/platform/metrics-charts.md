@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337084"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848856"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -21,7 +21,7 @@ Azure Monitor metrics explorer är en komponent i Microsoft Azure-portalen som t
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
-[Mått i Azure Monitor](data-collection.md#metrics) är serie mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [tillägget för Windows Azure Diagnostics SÄKERHETSSPECIFIKA](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), eller genom [Azure Övervaka REST-API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Mått i Azure Monitor](data-platform-metrics.md) är serie mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [tillägget för Windows Azure Diagnostics SÄKERHETSSPECIFIKA](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), eller genom [Azure Övervaka REST-API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Skapa ett nytt diagram
 

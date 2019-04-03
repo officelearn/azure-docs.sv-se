@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883929"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Självstudie för Azure Log Integration: Bearbeta händelser med Azure Key Vault med hjälp av Event Hubs
 
@@ -92,10 +92,10 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Ditt prenumerationsnamn kan vara annorlunda. Du kan se det som en del av utdata från föregående kommando.)
     - ```$location = 'West US'``` (Den här variabeln används för att skicka den plats där resurser ska skapas. Du kan ändra den här variabeln för att vara vilken plats som du väljer.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (Namnet kan vara vad som helst, men den bör innehålla endast gemener och siffror.)
-    - ``` $storageName = $name``` (Den här variabeln används för lagringskontonamnet.)
-    - ```$rgname = $name ``` (Den här variabeln används för resursgruppens namn.)
-    - ``` $eventHubNameSpaceName = $name``` (Detta är namnet på namnområdet för event hub.)
+    - ```$name = 'azlogtest' + $random``` (Namnet kan vara vad som helst, men den bör innehålla endast gemener och siffror.)
+    - ```$storageName = $name``` (Den här variabeln används för lagringskontonamnet.)
+    - ```$rgname = $name``` (Den här variabeln används för resursgruppens namn.)
+    - ```$eventHubNameSpaceName = $name``` (Detta är namnet på namnområdet för event hub.)
 1. Ange den prenumeration som du kommer att arbeta med:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Hämta regel-ID som ska användas med insights-providern:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Hämta alla möjliga Azure-platser och lägga till namn till en variabel som kan användas i ett senare steg:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
     Mer information om Azure log-profilen finns i [översikt över Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Du kan få ett felmeddelande när du försöker skapa en loggprofil för. Du kan sedan granska dokumentationen för Get-AzLogProfile och ta bort AzLogProfile. Om du kör Get-AzLogProfile kan se du information om loggprofil. Du kan ta bort den befintliga log-profilen genom att ange den ```Remove-AzLogProfile -name 'Log Profile Name' ``` kommando.
+> Du kan få ett felmeddelande när du försöker skapa en loggprofil för. Du kan sedan granska dokumentationen för Get-AzLogProfile och ta bort AzLogProfile. Om du kör Get-AzLogProfile kan se du information om loggprofil. Du kan ta bort den befintliga log-profilen genom att ange den ```Remove-AzLogProfile -name 'Log Profile Name'``` kommando.
 >
 >![Resource Manager-profilfel](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
 
 1. Skapa key vault:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Konfigurera loggning för key vault:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Generera loggaktivitet
 
@@ -157,7 +157,8 @@ Begäranden måste skickas till Key Vault för att generera loggaktivitet. Åtg�
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Ange och läsa en hemlighet för att generera ytterligare poster:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Returnerade hemliga](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Nu när du har konfigurerat de obligatoriska elementen för Key Vault-loggning t
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Kör kommandot AzLog för varje händelsehubb:
 

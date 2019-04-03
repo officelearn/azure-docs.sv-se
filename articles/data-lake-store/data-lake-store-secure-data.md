@@ -3,21 +3,21 @@ title: Skydda data som lagrats i Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Lär dig att skydda data i Azure Data Lake Storage Gen1 med hjälp av grupper och åtkomstkontrollistor
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296744"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885680"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagrats i Azure Data Lake Storage Gen1
 Skydda data i Azure Data Lake Storage Gen1 är en trestegsmetod.  Både rollbaserad åtkomstkontroll (RBAC) och åtkomstkontrollistor (ACL) måste anges till fullständigt Aktivera åtkomst till data för användare och säkerhetsgrupper.
@@ -130,7 +130,7 @@ När du tar bort säkerhetsgrupper från Data Lake Storage Gen1 konton kan ändr
 1. I ditt Data Lake Storage Gen1-kontoblad klickar du på **åtkomstkontroll (IAM)**. 
    
     ![Tilldela säkerhetsgrupp till Data Lake Storage Gen1 konto](./media/data-lake-store-secure-data/adl.select.user.icon.png "tilldela säkerhetsgrupp till Data Lake Storage Gen1 konto")
-2. I den **åtkomstkontroll (IAM)** bladet klickar du på security-grupper som du vill ta bort. Klicka på **ta bort**.
+2. I den **åtkomstkontroll (IAM)** bladet klickar du på security-grupper som du vill ta bort. Klicka på **Ta bort**.
    
     ![Säkerhetsgrupp bort](./media/data-lake-store-secure-data/adl.remove.group.png "säkerhetsgrupp som har tagits bort")
 

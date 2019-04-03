@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401223"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885034"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Utöka med R-kod i Azure Data Lake Analytics U-SQL-skript
 
 I följande exempel visas de grundläggande stegen för att distribuera R-kod:
 * Använd den `REFERENCE ASSEMBLY` -uttrycket för att aktivera R-tillägg för U-SQL-skriptet.
-* Använd den` REDUCE` åtgärden att partitionera inkommande data på en nyckel.
+* Använd den `REDUCE` åtgärden att partitionera inkommande data på en nyckel.
 * R-tillägg för U-SQL är en inbyggd reducer (`Extension.R.Reducer`) som kör R-kod på varje brytpunkt som tilldelats reducer. 
-* Användning av dedikerade med namnet dataramar kallas `inputFromUSQL` och `outputToUSQL `att överföra data mellan U-SQL och R. indata och utdata DataFrame identifierarnamn korrigeras (dvs, användare kan inte ändra dessa fördefinierade namnen på indata och utdata DataFrame identifierare).
+* Användning av dedikerade med namnet dataramar kallas `inputFromUSQL` och `outputToUSQL` att överföra data mellan U-SQL och R. indata och utdata DataFrame identifierarnamn korrigeras (dvs, användare kan inte ändra dessa fördefinierade namnen på indata och utdata DataFrame identifierare).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Bädda in R-kod i U-SQL-skript
 

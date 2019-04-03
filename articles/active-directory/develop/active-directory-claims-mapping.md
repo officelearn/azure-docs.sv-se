@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102133"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884085"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
@@ -52,142 +52,142 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabell 1: JSON Web Token (JWT) begränsade anspråksuppsättningen
 
-|Anspråkstyp (namn)|
+| Anspråkstyp (namn) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|aktör|
-|actortoken|
-|AIO|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|försäkran|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|Kod|
-|kontroller|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceid|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|e-post|
-|slutpunkt|
-|enfpolids|
-|EXP|
-|expires_on|
-|_typ av beviljande|
-|graf|
-|group_sids|
-|grupper|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|IAT|
-|identityprovider|
-|IDP: n|
-|in_corp|
-|instans|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|lösenord|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|PUID|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resurs|
-|roll|
-|roles|
-|omfång|
-|scp|
-|SID|
-|signatur|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|UPN|
-|user_setting_sync_url|
-|användarnamn|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| aktör |
+| actortoken |
+| AIO |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appid |
+| appidacr |
+| försäkran |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| Kod |
+| kontroller |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceid |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| e-post |
+| slutpunkt |
+| enfpolids |
+| EXP |
+| expires_on |
+| _typ av beviljande |
+| graf |
+| group_sids |
+| grupper |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| IAT |
+| identityprovider |
+| IDP: n |
+| in_corp |
+| instans |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| lösenord |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| PUID |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resurs |
+| roll |
+| roles |
+| omfång |
+| scp |
+| SID |
+| signatur |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| UPN |
+| user_setting_sync_url |
+| användarnamn |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>Tabell 2: SAML begränsade anspråksuppsättningen
 
-|Anspråkstyp (URI)|
+| Anspråkstyp (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ Använd egenskaperna för en princip för Anspråksmappning för att styra vilka
 
 **Datatyp:** Booleskt värde (True eller False)
 
-**Sammanfattning:** Den här egenskapen anger om den grundläggande anspråksuppsättningen ingår i token som påverkas av den här principen. 
+**Sammanfattning:** Den här egenskapen anger om den grundläggande anspråksuppsättningen ingår i token som påverkas av den här principen.
 
 - Om värdet är True, alla anspråk i den grundläggande anspråksuppsättningen genereras i token som påverkas av principen. 
 - Om inställt på False, anspråk i den grundläggande anspråksuppsättningen inte är i token, om de inte enskilt läggs i egenskapen anspråk schemat för samma princip.
@@ -284,51 +284,51 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: Giltiga värden för ID per källa
 
-|Källa|ID|Beskrivning|
+| Källa | ID | Beskrivning |
 |-----|-----|-----|
-|Användare|surname|Produktfamilj|
-|Användare|givenname|Förnamn|
-|Användare|displayname (visningsnamn)|Visningsnamn|
-|Användare|objekt-ID|ObjectId|
-|Användare|e-post|E-postadress|
-|Användare|userprincipalname|User Principal Name|
-|Användare|avdelning|Avdelning|
-|Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
-|Användare|netbiosname|NetBios-namn|
-|Användare|DNS-domännamn|DNS-domännamn|
-|Användare|onpremisesecurityidentifier|lokala säkerhetsidentifierare|
-|Användare|Företagsnamn|Organisationens namn|
-|Användare|streetaddress|Gatuadress|
-|Användare|Postnummer|Postnummer|
-|Användare|preferredlanguange|Önskat språk|
-|Användare|onpremisesuserprincipalname|lokala UPN|
-|Användare|mailNickname|Smeknamn för e-post|
-|Användare|extensionattribute1|Tilläggsattribut 1|
-|Användare|extensionattribute2|Tilläggsattribut 2|
-|Användare|extensionattribute3|Tilläggsattribut 3|
-|Användare|extensionattribute4|Tilläggsattribut 4|
-|Användare|extensionattribute5|Tilläggsattribut 5|
-|Användare|extensionattribute6|Tilläggsattribut 6|
-|Användare|extensionattribute7|Tilläggsattribut 7|
-|Användare|extensionattribute8|Tilläggsattribut 8|
-|Användare|extensionattribute9|Tilläggsattribut 9|
-|Användare|extensionattribute10|Tilläggsattribut 10|
-|Användare|extensionattribute11|Tilläggsattribut 11|
-|Användare|extensionattribute12|Tilläggsattribut 12|
-|Användare|extensionattribute13|Tilläggsattribut 13|
-|Användare|extensionattribute14|Tilläggsattribut 14|
-|Användare|extensionattribute15|Tilläggsattribut 15|
-|Användare|othermail|Andra e-post|
-|Användare|Land|Land/region|
-|Användare|city|Ort|
-|Användare|state|Status|
-|Användare|jobtitle|Befattning|
-|Användare|employeeid|Anställnings-ID|
-|Användare|facsimiletelephonenumber|Telefonnummer för fax|
-|program, resurs, målgrupp|displayname (visningsnamn)|Visningsnamn|
-|program, resurs, målgrupp|objekt|ObjectId|
-|program, resurs, målgrupp|tags|Service Principal Tag|
-|Företag|tenantcountry|Klientens land/region|
+| Användare | surname | Produktfamilj |
+| Användare | givenname | Förnamn |
+| Användare | displayname (visningsnamn) | Visningsnamn |
+| Användare | objekt-ID | ObjectId |
+| Användare | e-post | E-postadress |
+| Användare | userprincipalname | User Principal Name |
+| Användare | avdelning|Avdelning|
+| Användare | onpremisessamaccountname | Den lokala SAM-kontonamn |
+| Användare | netbiosname| NetBios-namn |
+| Användare | DNS-domännamn | DNS-domännamn |
+| Användare | onpremisesecurityidentifier | lokala säkerhetsidentifierare |
+| Användare | Företagsnamn| Organisationens namn |
+| Användare | streetaddress | Gatuadress |
+| Användare | Postnummer | Postnummer |
+| Användare | preferredlanguange | Önskat språk |
+| Användare | onpremisesuserprincipalname | lokala UPN |
+| Användare | mailNickname | Smeknamn för e-post |
+| Användare | extensionattribute1 | Tilläggsattribut 1 |
+| Användare | extensionattribute2 | Tilläggsattribut 2 |
+| Användare | extensionattribute3 | Tilläggsattribut 3 |
+| Användare | extensionattribute4 | Tilläggsattribut 4 |
+| Användare | extensionattribute5 | Tilläggsattribut 5 |
+| Användare | extensionattribute6 | Tilläggsattribut 6 |
+| Användare | extensionattribute7 | Tilläggsattribut 7 |
+| Användare | extensionattribute8 | Tilläggsattribut 8 |
+| Användare | extensionattribute9 | Tilläggsattribut 9 |
+| Användare | extensionattribute10 | Tilläggsattribut 10 |
+| Användare | extensionattribute11 | Tilläggsattribut 11 |
+| Användare | extensionattribute12 | Tilläggsattribut 12 |
+| Användare | extensionattribute13 | Tilläggsattribut 13 |
+| Användare | extensionattribute14 | Tilläggsattribut 14 |
+| Användare | extensionattribute15 | Tilläggsattribut 15 |
+| Användare | othermail | Andra e-post |
+| Användare | Land | Land/region |
+| Användare | city | Ort |
+| Användare | state | Status |
+| Användare | jobtitle | Befattning |
+| Användare | employeeid | Anställnings-ID |
+| Användare | facsimiletelephonenumber | Telefonnummer för fax |
+| program, resurs, målgrupp | displayname (visningsnamn) | Visningsnamn |
+| program, resurs, målgrupp | objekt | ObjectId |
+| program, resurs, målgrupp | tags | Service Principal Tag |
+| Företag | tenantcountry | Klientens land/region |
 
 **TransformationID:** TransformationID-element måste anges bara om käll-elementet är inställt på ”omvandling”.
 
@@ -386,32 +386,32 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
-|Användare|e-post|E-postadress|
-|Användare|userprincipalname|User Principal Name|
-|Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
-|Användare|employeeid|Anställnings-ID|
-|Användare|extensionattribute1|Tilläggsattribut 1|
-|Användare|extensionattribute2|Tilläggsattribut 2|
-|Användare|extensionattribute3|Tilläggsattribut 3|
-|Användare|extensionattribute4|Tilläggsattribut 4|
-|Användare|extensionattribute5|Tilläggsattribut 5|
-|Användare|extensionattribute6|Tilläggsattribut 6|
-|Användare|extensionattribute7|Tilläggsattribut 7|
-|Användare|extensionattribute8|Tilläggsattribut 8|
-|Användare|extensionattribute9|Tilläggsattribut 9|
-|Användare|extensionattribute10|Tilläggsattribut 10|
-|Användare|extensionattribute11|Tilläggsattribut 11|
-|Användare|extensionattribute12|Tilläggsattribut 12|
-|Användare|extensionattribute13|Tilläggsattribut 13|
-|Användare|extensionattribute14|Tilläggsattribut 14|
-|Användare|extensionattribute15|Tilläggsattribut 15|
+| Användare | e-post|E-postadress|
+| Användare | userprincipalname|User Principal Name|
+| Användare | onpremisessamaccountname|På lokala Sam-kontonamn|
+| Användare | employeeid|Anställnings-ID|
+| Användare | extensionattribute1 | Tilläggsattribut 1 |
+| Användare | extensionattribute2 | Tilläggsattribut 2 |
+| Användare | extensionattribute3 | Tilläggsattribut 3 |
+| Användare | extensionattribute4 | Tilläggsattribut 4 |
+| Användare | extensionattribute5 | Tilläggsattribut 5 |
+| Användare | extensionattribute6 | Tilläggsattribut 6 |
+| Användare | extensionattribute7 | Tilläggsattribut 7 |
+| Användare | extensionattribute8 | Tilläggsattribut 8 |
+| Användare | extensionattribute9 | Tilläggsattribut 9 |
+| Användare | extensionattribute10 | Tilläggsattribut 10 |
+| Användare | extensionattribute11 | Tilläggsattribut 11 |
+| Användare | extensionattribute12 | Tilläggsattribut 12 |
+| Användare | extensionattribute13 | Tilläggsattribut 13 |
+| Användare | extensionattribute14 | Tilläggsattribut 14 |
+| Användare | extensionattribute15 | Tilläggsattribut 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabell 6: Omvandling metoder som tillåts för SAML NameID
 
-|TransformationMethod|Begränsningar|
+| TransformationMethod | Begränsningar |
 | ----- | ----- |
-|ExtractMailPrefix|Ingen|
-|Slå ihop|Suffixet är ansluten måste vara en verifierad domän för resurs-klienten.|
+| ExtractMailPrefix | Ingen |
+| Slå ihop | Suffixet är ansluten måste vara en verifierad domän för resurs-klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad nyckel för signeringscertifikatet
 
@@ -437,19 +437,19 @@ Utför följande steg för att komma igång:
 
 1. Hämta senaste [offentliga förhandsversionen av Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Kör kommandot Connect för att logga in på ditt Azure AD-administratörskonto. Kör det här kommandot varje gång startar du en ny session.
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. Kör följande kommando om du vill se alla principer som har skapats i din organisation. Vi rekommenderar att du kör det här kommandot när du har de flesta åtgärderna i följande scenarier för att kontrollera att dina principer skapas som förväntat.
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exempel: Skapa och tilldela en princip för att utelämna de grundläggande anspråk från token som utfärdas till ett huvudnamn för tjänsten.
-   I det här exemplet skapar du en princip som tar bort den grundläggande anspråksuppsättningen från token som utfärdas till länkade tjänstens huvudnamn.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exempel: Skapa och tilldela en princip för att utelämna de grundläggande anspråk från token som utfärdas till ett huvudnamn för tjänsten
+
+I det här exemplet skapar du en princip som tar bort den grundläggande anspråksuppsättningen från token som utfärdas till länkade tjänstens huvudnamn.
 
 1. Skapa en princip för Anspråksmappning. Den här principen, länkade till specifika tjänstens huvudnamn, tar bort den grundläggande anspråksuppsättningen från token.
    1. Om du vill skapa principen, kör du följande kommando: 
@@ -462,7 +462,7 @@ Utför följande steg för att komma igång:
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta ObjectId för tjänsten huvudnamn. 
+1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta ObjectId för tjänsten huvudnamn.
    1. Om du vill se din organisations tjänstens huvudnamn, kan du fråga Microsoft Graph. Eller i Azure AD Graph Explorer, logga in på din Azure AD-konto.
    2. När du har ObjectId för din tjänstens huvudnamn, kör du följande kommando:  
      
@@ -499,10 +499,10 @@ I det här exemplet skapar du en princip som lägger tillför EmployeeID och Ten
 I det här exemplet skapar du en princip som genererar ett anpassat anspråk ”JoinedData” till JWTs som utfärdats till länkade tjänstens huvudnamn. Denna begäran innehåller ett värde som skapats genom att gå med data som lagras i attributet extensionattribute1 användarobjektet med ”.sandbox”. I det här exemplet utesluter vi grundläggande anspråken i token.
 
 1. Skapa en princip för Anspråksmappning. Den här principen, länkade till specifika tjänstens huvudnamn, lägger till EmployeeID och TenantCountry anspråk till tokens.
-   1. Om du vill skapa principen, kör du följande kommando: 
+   1. Om du vill skapa principen, kör du följande kommando:
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. Se din nya princip och för att få principen ObjectId, kör du följande kommando: 
@@ -517,3 +517,7 @@ I det här exemplet skapar du en princip som genererar ett anpassat anspråk ”
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>Se också
+
+Läs hur du anpassar anspråk som utfärdats i SAML-token via Azure portal i [så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram](active-directory-saml-claims-customization.md)

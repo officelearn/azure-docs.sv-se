@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074921"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883283"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware Monitoring (inaktuell)-lösning i Azure Monitor
 
@@ -189,13 +189,13 @@ Det kan finnas flera anledningar:
   1. Bekräfta genom att logga in på ESXi-värden med hjälp av ssh och kör följande kommando: `nc -z ipaddressofVM 1514`
 
       Om detta inte lyckas, vSphere-inställningarna i avancerade förmodligen inte åtgärda. Se [konfigurera sysloginsamling](#configure-syslog-collection) information om hur du ställer in ESXi-värden för syslog-vidarebefordran.
-  1. Om syslog-portanslutningen har slutförts, men du fortfarande inte ser några data, sedan ladda in syslog på ESXi-värden med ssh och kör följande kommando: ` esxcli system syslog reload`
+  1. Om syslog-portanslutningen har slutförts, men du fortfarande inte ser några data, sedan ladda in syslog på ESXi-värden med ssh och kör följande kommando: `esxcli system syslog reload`
 * Den virtuella datorn med Log Analytics-agenten har inte angetts korrekt. Utför följande steg för att testa detta:
 
   1. Log Analytics lyssnar på port 1514. Kontrollera att den är öppen med följande kommando: `netstat -a | grep 1514`
   1. Du bör se port `1514/tcp` öppna. Om du inte gör det, kan du kontrollera att omsagent är korrekt installerad. Syslog-porten är inte öppen på den virtuella datorn om du inte ser portinformationen.
 
-     a. Kontrollera att Log Analytics-agenten körs med hjälp av `ps -ef | grep oms`. Om den inte körs, starta den genom att köra kommandot ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Kontrollera att Log Analytics-agenten körs med hjälp av `ps -ef | grep oms`. Om den inte körs, starta den genom att köra kommandot `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 

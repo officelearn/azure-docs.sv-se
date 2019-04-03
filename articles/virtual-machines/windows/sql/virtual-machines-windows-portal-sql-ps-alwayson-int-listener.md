@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 822dce08d4555d9039ce310464ba49b6e3d4849c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480659"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876997"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -35,8 +35,8 @@ Det här avsnittet kräver att din Tillgänglighetsgrupper är redan konfigurera
 
 Relaterade ämnen innefattar:
 
-* [Konfigurera AlwaysOn-Tillgänglighetsgrupper på Azure virtuella datorer (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Konfigurera AlwaysOn-tillgänglighetsgrupper på virtuella Azure-datorer (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [Konfigurera en virtuellt nätverk-till-virtuellt nätverksanslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -65,13 +65,13 @@ Aktuellt [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-av
 Exemplen i den här artikeln anger en standardbelastningsutjämnare. I exemplen är skriptet innehåller `-sku Standard`.
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 Om du vill skapa en basic load balancer, tar du bort `-sku Standard` från den rad som skapar belastningsutjämnaren. Exempel:
 
 ```powershell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exempel på skript: Skapa en intern belastningsutjämnare med PowerShell
@@ -79,7 +79,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 > [!NOTE]
 > Om du har skapat tillgänglighetsgruppen med den [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), den interna belastningsutjämnaren har redan skapats.
 
-Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar regler för belastningsutjämning och anger en IP-adress för belastningsutjämnaren. Öppna Windows PowerShell ISE för att köra skriptet, och klistra in skriptet i skriptfönstret. Använd `Connect-AzAccount` att logga in på PowerShell. Om du har flera Azure-prenumerationer kan du använda `Select-AzSubscription ` att ställa in prenumerationen. 
+Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar regler för belastningsutjämning och anger en IP-adress för belastningsutjämnaren. Öppna Windows PowerShell ISE för att köra skriptet, och klistra in skriptet i skriptfönstret. Använd `Connect-AzAccount` att logga in på PowerShell. Om du har flera Azure-prenumerationer kan du använda `Select-AzSubscription` att ställa in prenumerationen. 
 
 ```powershell
 # Connect-AzAccount

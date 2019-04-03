@@ -16,24 +16,24 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a7c6bea1c45cfe704bcff9ad2d4e47a30a9780cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439629"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848257"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Klassisk](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Automatisk uppdatering upprättar en underhållsperiod för en Azure virtuell dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under underhållsperioden. För SQL Server säkerställer den här begränsningen att uppdateringar och eventuella tillhörande omstarter klockan på bästa möjliga tid för databasen. 
+Automatisk uppdatering upprättar en underhållsperiod för en Azure virtuell dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer den här begränsningen att systemuppdateringar och eventuella tillhörande omstarter sker på bästa möjliga tid för databasen. 
 
 > [!IMPORTANT]
-> Endast Windows-uppdateringar som är markerade **viktigt** är installerade. Andra SQL Server-uppdateringar, till exempel kumulativa uppdateringar måste installeras manuellt. 
+> Endast Windows-uppdateringar som är markerade som **Viktiga** installeras. Andra SQL Server-uppdateringar, till exempel kumulativa uppdateringar, måste installeras manuellt. 
 
-Automatisk uppdatering är beroende av den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
+Automatisk uppdatering är beroende av [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att använda automatisk uppdatering, Överväg följande krav:
@@ -105,11 +105,11 @@ Om du aktiverar automatisk uppdatering för första gången, konfigurerar SQL Se
 ## <a name="configuration-with-powershell"></a>Med PowerShell
 När du har etablerat din SQL-VM, konfigurera automatisk uppdatering med hjälp av PowerShell.
 
-I följande exempel används PowerShell för att konfigurera automatisk uppdatering på en befintlig SQL Server-dator. Den **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig** kommando konfigurerar en ny underhållsperiod för automatiska uppdateringar.
+I följande exempel används PowerShell för att konfigurera automatisk uppdatering på en befintlig SQL Server-dator. Den **New AzVMSqlServerAutoPatchingConfig** kommando konfigurerar en ny underhållsperiod för automatiska uppdateringar.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
@@ -127,7 +127,7 @@ Utifrån det här exemplet beskrivs i följande tabell i praktiken på Virtuella
 
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS Agent.
 
-Om du vill inaktivera automatisk uppdatering, kör samma skript utan den **-aktivera** parametern till den **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig**. Om den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen.
+Om du vill inaktivera automatisk uppdatering, kör samma skript utan den **-aktivera** parametern till den **New AzVMSqlServerAutoPatchingConfig**. Om den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra tillgängliga automation-aktiviteter finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).

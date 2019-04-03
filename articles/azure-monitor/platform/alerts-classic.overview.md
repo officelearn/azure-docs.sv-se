@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993028"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847855"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -88,14 +88,14 @@ Webhooks gör automation och åtgärder, till exempel med hjälp av:
 ## <a name="next-steps"></a>Nästa steg
 Hämta information om Varningsregler och konfigurera dem med hjälp av:
 
-* Läs mer om [mått](../../azure-monitor/platform/data-collection.md)
+* Läs mer om [mått](data-platform.md)
 * Konfigurera [klassiska mått aviseringar via Azure-portalen](alerts-classic-portal.md)
 * Konfigurera [klassisk mått aviseringar PowerShell](alerts-classic-portal.md)
 * Konfigurera [klassiska mått aviseringar kommandoradsgränssnittet (CLI)](alerts-classic-portal.md)
 * Konfigurera [klassiska mått aviseringar Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Läs mer om [aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md)
-* Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](../../azure-monitor/platform/activity-log-alerts.md)
+* Läs mer om [aktivitetsloggen](activity-logs-overview.md)
+* Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](activity-log-alerts.md)
 * Konfigurera [Aktivitetsloggaviseringar via Resource Manager](alerts-activity-log.md)
-* Granska den [avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md)
-* Konfigurera [nyare aviseringar](../../azure-monitor/platform/alerts-metric.md)
+* Granska den [avisering webhook för aktivitetslogg](activity-log-alerts-webhook.md)
+* Läs mer om [åtgärdsgrupper](action-groups.md)
+* Konfigurera [nyare aviseringar](alerts-metric.md)

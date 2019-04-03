@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449552"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851177"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -1608,7 +1608,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
-
-* [Läs mer om mätvärden i Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Skapa aviseringar för mått](../../azure-monitor/platform/alerts-overview.md)
-* [Exportera mått till lagring, Event Hub eller Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Läs mer om mätvärden i Azure Monitor](data-platform.md)
+* [Skapa aviseringar för mått](alerts-overview.md)
+* [Exportera mått till lagring, Event Hub eller Log Analytics](diagnostic-logs-overview.md)

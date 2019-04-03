@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: c40f372d3574f940e475a6626f998adae37a6d61
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319422"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851164"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -149,7 +149,7 @@ Nej, men du kan distribuera andra application gatewayer i undernätet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Stöds Nätverkssäkerhetsgrupper på application gateway-undernät?
 
-Se [Nätverkssäkerhetsgrupper begränsningar för Application Gateway-undernätet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Lär dig mer om Nätverkssäkerhetsgrupper som stöds på application gateway-undernätet.
+Se [Nätverkssäkerhetsgrupper begränsningar för Application Gateway-undernätet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet) Lär dig mer om Nätverkssäkerhetsgrupper som stöds på application gateway-undernätet.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Användardefinierade vägar stöds på application gateway-undernät?
 

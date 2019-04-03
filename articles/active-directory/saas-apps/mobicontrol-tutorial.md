@@ -1,34 +1,34 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Tidemark | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tidemark.
+title: 'Självstudier: Azure Active Directory-integrering med MobiControl | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MobiControl.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
+ms.assetid: d656688f-245d-4d8f-b343-752d1656cd06
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d91e2971d05a53684a6ab2586a71f8abbd9b9a0e
+ms.openlocfilehash: d639727e5b002dfc0e961eaaad867e83867b59e0
 ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848419"
+ms.locfileid: "58851657"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Självstudier: Azure Active Directory-integrering med Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Självstudier: Azure Active Directory-integrering med MobiControl
 
-I den här självstudien får du lära dig hur du integrerar Tidemark med Azure Active Directory (AD Azure).
-Integrera Tidemark med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar MobiControl med Azure Active Directory (AD Azure).
+Integrera MobiControl med Azure AD ger dig följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Tidemark.
-* Du kan aktivera användarna att vara automatiskt inloggad till Tidemark (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till MobiControl.
+* Du kan aktivera användarna att vara automatiskt inloggad till MobiControl (Single Sign-On) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Tidemark, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med MobiControl, behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Tidemark enkel inloggning aktiverat prenumeration
+* MobiControl enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för tidemark **SP** -initierad SSO
+* Har stöd för MobiControl **SP** -initierad SSO
 
-## <a name="adding-tidemark-from-the-gallery"></a>Att lägga till Tidemark från galleriet
+## <a name="adding-mobicontrol-from-the-gallery"></a>Att lägga till MobiControl från galleriet
 
-För att konfigurera integrering av Tidemark i Azure AD, som du behöver lägga till Tidemark från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av MobiControl i Azure AD, som du behöver lägga till MobiControl från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Tidemark från galleriet:**
+**Utför följande steg för att lägga till MobiControl från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av Tidemark i Azure AD, som du behöver lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Tidemark**väljer **Tidemark** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **MobiControl**väljer **MobiControl** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![Tidemark i resultatlistan](common/search-new-app.png)
+     ![MobiControl i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tidemark baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Tidemark upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med MobiControl baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i MobiControl upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Tidemark, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med MobiControl, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Tidemark Single Sign-On](#configure-tidemark-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera MobiControl Single Sign-On](#configure-mobicontrol-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa testanvändare Tidemark](#create-tidemark-test-user)**  – du har en motsvarighet för Britta Simon i Tidemark som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa testanvändare MobiControl](#create-mobicontrol-test-user)**  – du har en motsvarighet för Britta Simon i MobiControl som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Tidemark:
+Utför följande steg för att konfigurera Azure AD enkel inloggning med MobiControl:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Tidemark** application integration markerar **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **MobiControl** application integration markerar **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,44 +103,22 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tidemar
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Tidemark domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![MobiControl domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
 
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/login` |
-    | `https://<subdomain>.tidemark.net/login` |
-    | |
-
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
-
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/saml` |
-    | `https://<subdomain>.tidemark.net/saml` |
-    | |
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Tidemark klienten supportteamet](http://www.tidemark.com/contact-us) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [MobiControl klienten supportteamet](https://www.soti.net/about/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-6. På den **konfigurera Tidemark** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+### <a name="configure-mobicontrol-single-sign-on"></a>Konfigurera MobiControl Single Sign-On
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-tidemark-single-sign-on"></a>Konfigurera Tidemark enkel inloggning
-
-Att konfigurera enkel inloggning på **Tidemark** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Tidemark supportteamet](http://www.tidemark.com/contact-us). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **MobiControl** sida, som du behöver skicka den **Appfederationsmetadata** till [MobiControl supportteamet](https://www.soti.net/about/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -168,15 +146,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Tidemark.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MobiControl.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Tidemark**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **MobiControl**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Tidemark**.
+2. I listan med program väljer **MobiControl**.
 
-    ![Länken Tidemark i listan med program](common/all-applications.png)
+    ![Länken MobiControl i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -192,15 +170,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-tidemark-test-user"></a>Skapa Tidemark testanvändare
+### <a name="create-mobicontrol-test-user"></a>Skapa MobiControl testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Tidemark. Arbeta med [Tidemark supportteamet](http://www.tidemark.com/contact-us) att lägga till användare i Tidemark-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i MobiControl. Arbeta med [MobiControl supportteamet](https://www.soti.net/about/contact-us/) att lägga till användare i MobiControl-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Tidemark i åtkomstpanelen, bör det vara loggas in automatiskt till Tidemark som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen MobiControl i åtkomstpanelen, bör det vara loggas in automatiskt till MobiControl som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

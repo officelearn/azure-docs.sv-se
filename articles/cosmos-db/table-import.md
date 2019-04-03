@@ -1,6 +1,6 @@
 ---
 title: Migrera befintliga data till ett tabell-API-konto i Azure Cosmos DB
-description: Lär dig att migrera eller importera lokala eller molnbaserade data till ett Azure Tabell-API-konto i Azure Cosmos DB.
+description: Lär dig hur migrera eller importera den lokala eller molnbaserade data till Azure Table API-konto i Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e709aa25a8fa0a8ff6c94bf2e813151e5ecbae65
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006241"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876825"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
@@ -39,11 +39,11 @@ Du kan använda det kommandoradsbaserade datamigreringsverktyget för Azure Cosm
 Utför följande åtgärder om du vill migrera tabelldata:
 
 1. Ladda ned migreringsverktyget från [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Kör `dt.exe` med kommandoradsargumenten för ditt scenario. `dt.exe` stöder kommandon i följande format:
+2. Kör `dt.exe` med kommandoradsargumenten för ditt scenario. `dt.exe` tar ett kommando i följande format:
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-```
+   ```
 
 Följande alternativ kan användas med kommandot:
 
@@ -72,11 +72,11 @@ När du importerar från Azure Table Storage hämtar du anslutningssträngen fö
 
 När du importerar från ett Azure Cosmos DB Table API-konto (förhandsversion) hämtar du anslutningssträngen för källan genom att öppna Azure Portal, klicka på **Azure Cosmos DB** > **Konto** > **Anslutningssträng** och kopierar sedan **anslutningssträngen** genom att klicka på kopieringsknappen.
 
-![Skärmbild av alternativ för källan i HBase](./media/table-import/cosmos-connection-string.png)
+![Skärmbild över alternativ för HBase-källor](./media/table-import/cosmos-connection-string.png)
 
-[Azure Table Storage-exempelkommando](#azure-table-storage)
+[Exempelkommando för Azure Table Storage](#azure-table-storage)
 
-[Azure Cosmos DB Table API-exempelkommando (förhandsversion)](#table-api-preview)
+[Exempelkommando för Azure Cosmos DB Table API (förhandsversion)](#table-api-preview)
 
 ### <a name="command-line-target-settings"></a>Kommandoradsinställningar för målet
 
@@ -147,4 +147,4 @@ I den här självstudiekursen lärde du dig att:
 Nu kan du fortsätta med nästa självstudiekurs där du lär dig hur du kör frågor mot data med hjälp av Azure Cosmos DB Table-API:et. 
 
 > [!div class="nextstepaction"]
->[Hur kör jag frågor för att hämta data?](../cosmos-db/tutorial-query-table.md)
+>[Hur du frågar data?](../cosmos-db/tutorial-query-table.md)

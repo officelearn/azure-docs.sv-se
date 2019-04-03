@@ -1,19 +1,19 @@
 ---
-title: Anpassade kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB
-description: Den här artikeln beskriver hur du använder anpassade kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB.
+title: MongoDB-tillägg-kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB
+description: Den här artikeln beskriver hur du använder MongoDB-tilläggskommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 238ba2722fef52d4607a7832113c03c097ef90b3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807054"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876896"
 ---
-# <a name="use-custom-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använda anpassade kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använda MongoDB-tillägg-kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB 
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB: s API för MongoDB med någon av öppen källkod [MongoDB-klientdrivrutiner](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB: s API för MongoDB kan du använda befintliga klientdrivrutiner genom att följa den [MongoDB-protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -21,7 +21,7 @@ Du kan dra nytta av fördelarna Cosmos DB som global distribution, automatisk de
 
 ## <a name="mongodb-protocol-support"></a>Protokollstöd för MongoDB
 
-Som standard kan Azure Cosmos DB: s API för MongoDB är kompatibelt med MongoDB server-version 3.2, mer information, se [funktioner och syntax som stöds](mongodb-feature-support.md). Funktioner eller frågeoperatorer som lagts till i MongoDB version 3.4 finns för närvarande som förhandsversion i Azure Cosmos DB: s API för MongoDB. Följande anpassade kommandon stödja Azure Cosmos DB specifika funktioner när du utför CRUD-åtgärder på data som lagras i Azure Cosmos DB API för MongoDB:
+Som standard kan Azure Cosmos DB: s API för MongoDB är kompatibelt med MongoDB server-version 3.2, mer information, se [funktioner och syntax som stöds](mongodb-feature-support.md). Funktioner eller frågeoperatorer som lagts till i MongoDB version 3.4 finns för närvarande som förhandsversion i Azure Cosmos DB: s API för MongoDB. Följande tilläggskommandon för stöder Azure Cosmos DB specifika funktioner när du utför CRUD-åtgärder på data som lagras i Azure Cosmos DB API för MongoDB:
 
 * [Skapa databas](#create-database)
 * [Uppdatera databas](#update-database)
@@ -32,7 +32,7 @@ Som standard kan Azure Cosmos DB: s API för MongoDB är kompatibelt med MongoDB
 
 ## <a id="create-database"></a> Skapa databas
 
-Kommandot create database anpassade skapar en ny MongoDB-databas. Namnet på databasen används i kontexten databaser som kommandot körs. Formatet för kommandot CreateDatabase är följande:
+Kommandot create database tillägget skapar en ny MongoDB-databas. Namnet på databasen används i kontexten databaser som kommandot körs. Formatet för kommandot CreateDatabase är följande:
 
 ```
 {
@@ -43,7 +43,7 @@ Kommandot create database anpassade skapar en ny MongoDB-databas. Namnet på dat
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction   |  sträng  |   Namn på anpassade kommandot det måste vara ”CreateDatabase”.      |
 | offerThroughput | int  | Dataflöde som du angett för databasen. Den här parametern är valfri. |
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a id="update-database"></a> Uppdatera databas
 
-Kommandot update databas anpassade uppdaterar egenskaperna som är associerade med den angivna databasen. För närvarande kan du bara uppdatera egenskapen ”offerThroughput”.
+Kommandot update databas tillägget uppdaterar egenskaperna som är associerade med den angivna databasen. För närvarande kan du bara uppdatera egenskapen ”offerThroughput”.
 
 ```
 {
@@ -85,7 +85,7 @@ Kommandot update databas anpassade uppdaterar egenskaperna som är associerade m
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    |    sträng     |   Namnet på det anpassade kommandot. Måste vara ”UpdateDatabase”.      |
 |  offerThroughput   |  int       |     Ny dataflöde som du vill ange för databasen.    |
@@ -107,7 +107,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 ## <a id="get-database"></a> Hämta databas
 
-Kommandot get databas anpassade returnerar databasobjektet. Databasnamnet används från databasens kontext som kommandot körs.
+Kommandot get databas tillägget returnerar databasobjektet. Databasnamnet används från databasens kontext som kommandot körs.
 
 ```
 {
@@ -118,7 +118,7 @@ Kommandot get databas anpassade returnerar databasobjektet. Databasnamnet använ
 I följande tabell beskrivs parametrarna i kommandot:
 
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 |  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetDatabase”|
         
@@ -126,7 +126,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 Om kommandot lyckas innehåller svaret ett dokument med följande fält:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `database`    |    `string`        |   Namnet på databasen.      |
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a id="create-collection"></a> Skapa samling
 
-Skapa samling anpassade kommando skapar en ny MongoDB-samling. Namnet på databasen används i kontexten databaser som kommandot körs. Formatet för kommandot CreateCollection är följande:
+Skapa samlingen Tilläggskommandot skapar en ny MongoDB-samling. Namnet på databasen används i kontexten databaser som kommandot körs. Formatet för kommandot CreateCollection är följande:
 
 ```
 {
@@ -160,7 +160,7 @@ Skapa samling anpassade kommando skapar en ny MongoDB-samling. Namnet på databa
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    | sträng | Namnet på det anpassade kommandot. Måste vara ”CreateDatabase”     |
 | samling      | sträng | Namnet på samlingen                                   |
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a id="update-collection"></a> Uppdatera samlingen
 
-Kommandot update samling anpassade uppdaterar egenskaperna som är associerade med den angivna samlingen.
+Kommandot update samling tillägget uppdaterar egenskaperna som är associerade med den angivna samlingen.
 
 ```
 {
@@ -205,7 +205,7 @@ Kommandot update samling anpassade uppdaterar egenskaperna som är associerade m
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 |  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”UpdateCollection”.      |
 |  samling   |   sträng      |   Namnet på samlingen.       |
@@ -240,7 +240,7 @@ Kommandot get samling anpassade returnerar samlingsobjektet.
 I följande tabell beskrivs parametrarna i kommandot:
 
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetCollection”.      |
 | samling    |    sträng     |    Namnet på samlingen.     |
@@ -250,7 +250,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 Om kommandot lyckas innehåller svaret ett dokument med följande fält
 
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `database`    |    `string`     |   Namnet på databasen.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Om inte anges innehåller en anpassad svaret ett dokument med följande fält:
 
-|**Fält**|**Typ** |**Beskrivning** |
+|**Fält**|**Type** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `code`    |   `int`      |   Returneras bara när kommandot misslyckades (d.v.s. ok == 0). Innehåller MongoDB-felkoden. Det här är en valfri svar-parameter.      |
@@ -286,4 +286,4 @@ Om inte anges innehåller en anpassad svaret ett dokument med följande fält:
 Sedan kan du fortsätta till Läs följande Azure Cosmos DB-begrepp: 
 
 * [Indexering i Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)
+* [Ta bort data i Azure Cosmos DB automatiskt med TTL-värde](../cosmos-db/time-to-live.md)

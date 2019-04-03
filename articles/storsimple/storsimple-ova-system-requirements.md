@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999517"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876844"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -76,7 +76,7 @@ Följande programvarukrav finns för iSCSI-initierare som har åtkomst till din 
 
 Följande krav är för SMB-klienter som har åtkomst till din StorSimple Virtual Array (konfigureras som en filserver).
 
-| **SMB Version** |
+| **SMB-version** |
 | --- |
 | SMB 2.x |
 | SMB 3.0 |
@@ -123,14 +123,14 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster | Komponenten/funktioner |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten|
 | `http://*.backup.windowsazure.com` |Enhetsregistrering |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallade certifikat |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Supportpaket |
-| `https://*.data.microsoft.com ` |Telemetritjänsten i Windows, finns i den [uppdatering för customer experience och diagnostiktelemetri](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetritjänsten i Windows, finns i den [uppdatering för customer experience och diagnostiktelemetri](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Förbereda portalen för att distribuera StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

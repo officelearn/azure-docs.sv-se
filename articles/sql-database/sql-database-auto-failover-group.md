@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483394"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848390"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -343,11 +343,11 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 | API | Beskrivning |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundansgruppen|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Hämtar redundanskonfiguration för grupp|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Utlösare redundans för redundansgruppen till den sekundära servern|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Tar bort en redundansgrupp|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundansgruppen|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hämtar redundanskonfiguration för grupp|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Utlösare redundans för redundansgruppen till den sekundära servern|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Tar bort en redundansgrupp|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: Hantera SQL database-redundansgrupper med enkel och delade databaser
 

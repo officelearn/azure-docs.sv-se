@@ -4,191 +4,208 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 03/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 605ab73a11874c85f20728f5524eb770a7a1b259
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892990"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Självstudier: Azure Active Directory-integrering med ThousandEyes
 
 I den här självstudien får du lära dig hur du integrerar ThousandEyes med Azure Active Directory (AD Azure).
-
 Integrera ThousandEyes med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till ThousandEyes
-- Du kan aktivera användarna att automatiskt få loggat in på ThousandEyes (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+* Du kan styra i Azure AD som har åtkomst till ThousandEyes.
+* Du kan aktivera användarna att vara automatiskt inloggad till ThousandEyes (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ThousandEyes, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En ThousandEyes enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en testmiljö för Azure AD kan du få en tre månaders kostnadsfri utvärdering här: [Utvärderingserbjudande](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* ThousandEyes enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till ThousandEyes från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för ThousandEyes **SP** -initierad SSO
+
+* Har stöd för ThousandEyes [ **automatisk** etableringen av användare](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
 
 ## <a name="adding-thousandeyes-from-the-gallery"></a>Att lägga till ThousandEyes från galleriet
+
 För att konfigurera integrering av ThousandEyes i Azure AD, som du behöver lägga till ThousandEyes från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till ThousandEyes från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **ThousandEyes**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/tutorial_thousandeyes_search.png)
+4. I sökrutan skriver **ThousandEyes**väljer **ThousandEyes** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **ThousandEyes**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![ThousandEyes i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/tutorial_thousandeyes_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ThousandEyes baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i ThousandEyes är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i ThousandEyes upprättas.
-
-I ThousandEyes, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ThousandEyes baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ThousandEyes upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ThousandEyes, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare ThousandEyes](#creating-a-thousandeyes-test-user)**  – du har en motsvarighet för Britta Simon i ThousandEyes som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera ThousandEyes Single Sign-On](#configure-thousandeyes-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare ThousandEyes](#create-thousandeyes-test-user)**  – du har en motsvarighet för Britta Simon i ThousandEyes som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt ThousandEyes program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med ThousandEyes:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med ThousandEyes:
 
-1. I Azure-portalen på den **ThousandEyes** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **ThousandEyes** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **ThousandEyes domän och URL: er** avsnittet, utför följande steg:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL: `https://app.thousandeyes.com/login/sso`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    ![ThousandEyes domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
 
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
+    I rutan **Inloggnings-URL** anger du en URL: `https://app.thousandeyes.com/login/sso`
 
-1. Klicka på knappen **Spara**.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **ThousandEyes Configuration** klickar du på **konfigurera ThousandEyes** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+6. På den **konfigurera ThousandEyes** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_configure.png) 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-thousandeyes-single-sign-on"></a>Konfigurera ThousandEyes Single Sign-On
 
 1. I ett annat webbläsarfönster, loggar du in på ditt **ThousandEyes** företagets plats som administratör.
 
-1. På menyn längst upp klickar du på **Inställningar**.
+2. På menyn längst upp klickar du på **Inställningar**.
 
     ![Inställningar](./media/thousandeyes-tutorial/ic790066.png "Inställningar")
 
-1. Klicka på **konto**
+3. Klicka på **konto**
 
     ![Kontot](./media/thousandeyes-tutorial/ic790067.png "konto")
 
-1. Klicka på den **säkerhet och autentisering** fliken.
+4. Klicka på den **säkerhet och autentisering** fliken.
 
     ![Säkerhet och autentisering](./media/thousandeyes-tutorial/ic790068.png "säkerhet och autentisering")
 
-1. I den **installationsprogrammet Single Sign-On** avsnittet, utför följande steg:
+5. I den **installationsprogrammet Single Sign-On** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/ic790069.png "Konfigurera enkel inloggning")
 
     a. Välj **aktivera enkel inloggning**.
 
-    b. I **inloggnings-URL för sidan** textrutan klistra in **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    b. I **inloggnings-URL för sidan** textrutan klistra in **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
-    c. I **sid-URL för utloggning** textrutan klistra in **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+    c. I **sid-URL för utloggning** textrutan klistra in **URL för utloggning**, som du har kopierat från Azure-portalen.
 
-    d. **Providerutgivare** textrutan klistra in **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    d. **Providerutgivare** textrutan klistra in **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
 
     e. I **verifieringscertifikatet**, klickar du på **Välj fil**, och sedan ladda upp det certifikat som du har hämtat från Azure-portalen.
 
     f. Klicka på **Spara**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/create_aaduser_03.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
-1. På den **användaren** dialogrutan utför följande steg:
-
-    ![Skapa en Azure AD-användare för testning](./media/thousandeyes-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-a-thousandeyes-test-user"></a>Skapa en ThousandEyes testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ThousandEyes.
+
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **ThousandEyes**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **ThousandEyes**.
+
+    ![Länken ThousandEyes i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-thousandeyes-test-user"></a>Skapa ThousandEyes testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i ThousandEyes. ThousandEyes stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information [här](thousandeyes-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
@@ -196,25 +213,25 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på webbplatsen ThousandEyes företag som administratör.
 
-1. Klicka på **Inställningar**.
+2. Klicka på **Inställningar**.
 
     ![Inställningar](./media/thousandeyes-tutorial/IC790066.png "Inställningar")
 
-1. Klicka på **Konto**.
+3. Klicka på **Konto**.
 
     ![Kontot](./media/thousandeyes-tutorial/IC790067.png "konto")
 
-1. Klicka på den **konton och användare** fliken.
+4. Klicka på den **konton och användare** fliken.
 
     ![Konton och användare](./media/thousandeyes-tutorial/IC790073.png "konton och användare")
 
-1. I den **lägga till användare och konton** avsnittet, utför följande steg:
+5. I den **lägga till användare och konton** avsnittet, utför följande steg:
 
     ![Lägga till användarkonton](./media/thousandeyes-tutorial/IC790074.png "lägga till användarkonton")
 
     a. I **namn** textrutan skriver du namnet på användaren som **Britta Simon**.
 
-    b. I **e-post** textrutan typ e-postmeddelandet av användare som **brittasimon\@contoso.com**.
+    b. I **e-post** textrutan typ e-postmeddelandet av användare som brittasimon@contoso.com.
 
     b. Klicka på **lägga till nya användare till kontot**.
 
@@ -224,61 +241,18 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 > [!NOTE]
 > Du kan använda alla andra ThousandEyes användare konto verktyg för att skapa eller API: er som tillhandahålls av ThousandEyes för att etablera Azure Active Directory användarkonton.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ThousandEyes.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon ThousandEyes, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **ThousandEyes**.
-
-    ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ThousandEyes i åtkomstpanelen du bör få automatiskt loggat in på ditt ThousandEyes program.
-
-Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen ThousandEyes i åtkomstpanelen, bör det vara loggas in automatiskt till ThousandEyes som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera användarförsörjning](thousandeyes-provisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[1]: ./media/thousandeyes-tutorial/tutorial_general_01.png
-[2]: ./media/thousandeyes-tutorial/tutorial_general_02.png
-[3]: ./media/thousandeyes-tutorial/tutorial_general_03.png
-[4]: ./media/thousandeyes-tutorial/tutorial_general_04.png
-
-[100]: ./media/thousandeyes-tutorial/tutorial_general_100.png
-
-[200]: ./media/thousandeyes-tutorial/tutorial_general_200.png
-[201]: ./media/thousandeyes-tutorial/tutorial_general_201.png
-[202]: ./media/thousandeyes-tutorial/tutorial_general_202.png
-[203]: ./media/thousandeyes-tutorial/tutorial_general_203.png
+- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)

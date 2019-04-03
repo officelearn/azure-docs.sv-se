@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002017"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848534"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -48,7 +48,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure Monitor-mått](data-collection.md)
+- Läs mer om [Azure Monitor-mått](data-platform.md)
 - Läs mer om [Azure-aktivitetsloggen](activity-logs-overview.md)
 - Läs mer om [Azure diagnostikloggar](diagnostic-logs-overview.md)
 

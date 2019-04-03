@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 2d296281f6865030bcdfec33d8c69cc313a358a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011906"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850886"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -178,7 +178,7 @@ ms.locfileid: "58011906"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
+[msdn-set-Azvmaemextension]:https://docs.microsoft.com/powershell/module/az.compute/set-azvmaemextension
 
 [planning-guide]:planning-guide.md (Azure virtuella datorer, planering och implementering av SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resurser)
@@ -234,7 +234,6 @@ ms.locfileid: "58011906"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure-nätverk)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Lagring: Microsoft Azure Storage- och datadiskar)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -262,7 +261,7 @@ ms.locfileid: "58011906"
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
+[virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Hantera virtuella datorer med hjälp av Azure Resource Manager och PowerShell)
@@ -318,6 +317,8 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 I den här artikeln beskriver vi hur du distribuerar SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributionsalternativ och felsökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]. Den kompletterar dokumentationen för installation av SAP och SAP Notes, vilka är de viktigaste resurserna för att installera och distribuera SAP-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 Konfigurera en Azure-dator för distribution av SAP omfattar flera steg och resurser. Innan du börjar bör du kontrollera att du uppfyller kraven för att installera SAP-program på virtuella datorer i Azure.
 
@@ -786,7 +787,7 @@ Efter uppdateringar för PowerShell-cmdletar, som vanligtvis uppdateras varje m�
 
 Om du vill kontrollera vilken version av Azure PowerShell-cmdlets som är installerade på datorn, kör du följande PowerShell-kommando:
 ```powershell
-(Get-Module AzureRm.Compute).Version
+(Get-Module Az.Compute).Version
 ```
 Resultatet ser ut så här:
 
@@ -937,22 +938,22 @@ Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av 
 
 1. Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].  
 1. Kör följande PowerShell-cmdlet:
-    En lista över tillgängliga miljöer, kör `commandlet Get-AzureRmEnvironment`. Om du vill använda globala Azure din miljö är **AzureCloud**. Azure i Kina, Välj **AzureChinaCloud**.
+    En lista över tillgängliga miljöer, kör `commandlet Get-AzEnvironment`. Om du vill använda globala Azure din miljö är **AzureCloud**. Azure i Kina, Välj **AzureChinaCloud**.
 
     ```powershell
-    $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Connect-AzureRmAccount -Environment $env
-    Set-AzureRmContext -SubscriptionName <subscription name>
+    $env = Get-AzEnvironment -Name <name of the environment>
+    Connect-AzAccount -Environment $env
+    Set-AzContext -SubscriptionName <subscription name>
 
-    Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
 När du har angett dina kontodata och identifiera Azure-dator skriptet distribuerar tillägg som krävs och gör att de nödvändiga funktionerna. Det kan ta flera minuter.
-Mer information om `Set-AzureRmVMAEMExtension`, se [Set-AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
+Mer information om `Set-AzVMAEMExtension`, se [Set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
-![Lyckad körning av SAP-specifika Azure cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
+![Lyckad körning av SAP-specifika Azure cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
 
-Den `Set-AzureRmVMAEMExtension` konfiguration har alla steg för att konfigurera övervakning för SAP-värd.
+Den `Set-AzVMAEMExtension` konfiguration har alla steg för att konfigurera övervakning för SAP-värd.
 
 Utdata från skriptet innehåller följande information:
 
@@ -1129,15 +1130,15 @@ Om någon av de här kontrollerna misslyckas och detaljerad information om hur d
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Hälsokontrollen för Azure konfigurationen av övervakningen infrastruktur
 
-Om några av övervakningen data levereras inte korrekt som anges av det prov som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning för SAP][deployment-guide-5.1], kör den `Test-AzureRmVMAEMExtension` cmdlet för att kontrollera om den Azure-övervakning av infrastruktur och övervakningstillägget för SAP har konfigurerats korrekt.
+Om några av övervakningen data levereras inte korrekt som anges av det prov som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning för SAP][deployment-guide-5.1], kör den `Test-AzVMAEMExtension` cmdlet för att kontrollera om den Azure-övervakning av infrastruktur och övervakningstillägget för SAP har konfigurerats korrekt.
 
 1. Se till att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].
-1. Kör följande PowerShell-cmdlet: En lista över tillgängliga miljöer, kör du cmdleten `Get-AzureRmEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
+1. Kör följande PowerShell-cmdlet: En lista över tillgängliga miljöer, kör du cmdleten `Get-AzEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
    ```powershell
-   $env = Get-AzureRmEnvironment -Name <name of the environment>
-   Connect-AzureRmAccount -Environment $env
-   Set-AzureRmContext -SubscriptionName <subscription name>
-   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   $env = Get-AzEnvironment -Name <name of the environment>
+   Connect-AzAccount -Environment $env
+   Set-AzContext -SubscriptionName <subscription name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
 1. Ange dina kontodata och identifiera virtuella Azure-datorer.
@@ -1168,7 +1169,7 @@ Installationskatalogen C:\\paket\\plugin-program\\Microsoft.AzureCAT.AzureEnhanc
 
 ###### <a name="solution"></a>Lösning
 
-Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
+Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn eller köra den `Set-AzVMAEMExtension` konfigurationsskript.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Tjänsten för Azure förbättrad övervakning finns inte
 
@@ -1201,7 +1202,7 @@ Konfigurationen är felaktig. Starta om övervakningstillägget för den virtuel
 
 AzureEnhancedMonitoring Windows-tjänsten samlar in prestandamått i Azure. Tjänsten hämtar data från flera källor. Vissa configuration-data som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Räknare för lagring som används från din loggning på prenumerationsnivå för lagring.
 
-Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzureRmVMAEMExtension` konfigurationsskript. Du måste kanske vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.
+Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzVMAEMExtension` konfigurationsskript. Du måste kanske vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure prestandaräknare visas inte alls
 
@@ -1215,13 +1216,13 @@ Katalogen \\var\\lib\\waagent\\ har inte en underkatalog för Azure Enhanced Mon
 
 ###### <a name="solution"></a>Lösning
 
-Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn och/eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
+Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn och/eller köra den `Set-AzVMAEMExtension` konfigurationsskript.
 
-##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Körning av Set-AzureRmVMAEMExtension och Test-AzureRmVMAEMExtension visa varningsmeddelanden som talar om att Standard Managed Disks inte stöds
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Körning av Set-AzVMAEMExtension och Test-AzVMAEMExtension visa varningsmeddelanden som talar om att Standard Managed Disks inte stöds
 
 ###### <a name="issue"></a>Problem
 
-När köra Set-AzureRmVMAEMExtension eller Test-AzureRmVMAEMExtension meddelanden som dessa visas:
+När köra Set-AzVMAEMExtension eller Test-AzVMAEMExtension meddelanden som dessa visas:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
@@ -1242,4 +1243,4 @@ Prestandamått i Azure samlas in av en daemon som hämtar data från flera käll
 
 En fullständig och uppdaterad lista över kända problem finns i SAP-kommentar [1999351], som innehåller ytterligare felsökningsinformation för förbättrad Azure övervakning för SAP.
 
-Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzureRmVMAEMExtension` konfigurationsskript enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP] [deployment-guide-4.5]. Du kan behöva vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.
+Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzVMAEMExtension` konfigurationsskript enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP] [deployment-guide-4.5]. Du kan behöva vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.

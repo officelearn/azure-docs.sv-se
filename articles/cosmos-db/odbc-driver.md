@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816636"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851051"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med BI analysverktyg med ODBC-drivrutin
 
@@ -97,7 +97,7 @@ Det finns två typer av sampling metoder som du kan använda: **samling mappning
 
 1. När du har definierat schemat klickar du på **filen** | **spara**, gå till katalogen för att spara schemat och klicka sedan på **spara**.
 
-    Om du vill i framtiden att använda det här schemat med en DNS, öppna fönstret DSN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen (via den ODBC-datakälla), klickar du på Avancerade alternativ och navigera till det sparade schemat i rutan schemafilen. Spara en schemafil till en befintlig DSN ändrar DSN-anslutningen till scope till data och struktur som definieras av schemat.
+1. Om du vill använda det här schemat med en Datakälla, öppna den **Azure Cosmos DB ODBC-drivrutinen DSN för fönstret** (via den ODBC-datakälla), klickar du på **avancerade alternativ**, och sedan i den **schemafilen** , bläddrar till sparade schemat. Spara en schemafil till en befintlig DSN ändrar DSN-anslutningen till scope till data och struktur som definieras av schemat.
 
 ## <a id="table-mapping"></a>Steg 4: Skapa en schemadefinitionen med tabell-avgränsare mappning metod
 

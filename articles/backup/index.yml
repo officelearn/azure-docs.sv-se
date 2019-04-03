@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bb766cb1ab2c38ea642262ace785cb0dde0c3c0a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328857"
 documentType: LandingData
 title: Dokumentation om Azure Backup
 metadata:
-  title: Dokumentation om Azure Backup – Självstudier, API-referens | Microsoft Docs
-  description: Med Azure Backup kan du säkerhetskopiera data för lokala servrar, virtuella datorer, virtualiserade arbetsbelastningar, SQL Server, SharePoint Server med mera. Lär dig hur du säkerhetskopierar och återställer data med våra snabbstarter, självstudier och exempel.
+  title: 'Dokumentation om Azure Backup – Självstudier, API-referens | Microsoft Docs'
+  description: 'Med Azure Backup kan du säkerhetskopiera data för lokala servrar, virtuella datorer, virtualiserade arbetsbelastningar, SQL Server, SharePoint Server med mera. Lär dig hur du säkerhetskopierar och återställer data med våra snabbstarter, självstudier och exempel.'
   services: backup
   author: rayne-wiselman
   manager: carmonm
@@ -19,57 +13,57 @@ metadata:
   ms.date: 05/22/2018
   ms.author: raynew
 abstract:
-  description: Med Azure Backup kan du skydda data för lokala servrar, virtuella datorer, virtualiserade arbetsbelastningar, SQL Server, SharePoint Server med mera. Lär dig hur du säkerhetskopierar och återställer data med våra snabbstarter, självstudier och exempel.
+  description: 'Med Azure Backup kan du skydda data för lokala servrar, virtuella datorer, virtualiserade arbetsbelastningar, SQL Server, SharePoint Server med mera. Lär dig hur du säkerhetskopierar och återställer data med våra snabbstarter, självstudier och exempel.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du säkerhetskopierar en virtuell Azure-dator i Azure.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
-      href: quick-backup-vm-portal
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: quick-backup-vm-powershell
-    - image:
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Azure CLI
-      href: quick-backup-vm-cli
-- title: Stegvisa självstudier
-  items:
-  - type: paragraph
-    text: Lär dig att säkerhetskopiera och återställa virtuella datorer i Azure eller från Windows Server.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Lär dig hur du säkerhetskopierar en virtuell Azure-dator i Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Azure Portal
+            href: quick-backup-vm-portal
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: quick-backup-vm-powershell
+          - image:
+              src: 'https://docs.microsoft.com/media/common/cli.svg'
+            text: Azure CLI
+            href: quick-backup-vm-cli
+  - title: Stegvisa självstudier
     items:
-    - html: <a href="tutorial-backup-vm-at-scale">Säkerhetskopiera flera virtuella Azure-datorer</a>
-    - html: <a href="tutorial-restore-disk">Återställa en disk och skapa en återställd virtuell dator</a>
-    - html: <a href="tutorial-restore-files">Återställa filer till en virtuell dator i Azure</a>
-    - html: <a href="tutorial-backup-windows-server-to-azure">Säkerhetskopiera Windows Server till Azure</a>
-    - html: <a href="tutorial-backup-restore-files-windows-server">Återställa filer från Azure till Windows Server</a>
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Använd följande exempel för att skydda dina data i Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Lär dig att säkerhetskopiera och återställa virtuella datorer i Azure eller från Windows Server.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-backup-vm-at-scale">Säkerhetskopiera flera virtuella Azure-datorer</a>
+          - html: <a href="tutorial-restore-disk">Återställa en disk och skapa en återställd virtuell dator</a>
+          - html: <a href="tutorial-restore-files">Återställa filer till en virtuell dator i Azure</a>
+          - html: <a href="tutorial-backup-windows-server-to-azure">Säkerhetskopiera Windows Server till Azure</a>
+          - html: <a href="tutorial-backup-restore-files-windows-server">Återställa filer från Azure till Windows Server</a>
+  - title: Exempel
     items:
-    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Använd följande exempel för att skydda dina data i Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/backup/">Referens för Azure Backup API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
+          - title: Språk
+            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/backup/">Referens för Azure Backup API</a></p>

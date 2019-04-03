@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7cbbc8d1d5142c4ddb400bb0698c703b82f5a82d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185595"
 documentType: LandingData
 title: Dokumentation om Network Watcher
 metadata:
-  document_id: 
-  title: Dokumentation om Network Watcher – självstudier, snabbstarter, API-referenser | Microsoft Docs
-  meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  document_id: null
+  title: 'Dokumentation om Network Watcher – självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  meta.description: 'Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.'
   services: network-watcher
   author: jdial
   manager: jeconnoc
@@ -21,68 +15,68 @@ metadata:
   ms.date: 04/24/2018
   ms.author: jdial
 abstract:
-  description: Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.
+  description: 'Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du diagnostiserar problem med trafikfiltrering till och från en virtuell dator.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: ./media/index/portal.svg
-      text: Azure Portal
-      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
-    - image:
-        src: ./media/index/powershell.svg
-      text: Azure PowerShell
-      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
-    - image:
-        src: ./media/index/cli.svg
-      text: Azure CLI
-      href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du felsöker problem i ditt virtuella nätverk.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Lär dig hur du diagnostiserar problem med trafikfiltrering till och från en virtuell dator.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/portal.svg
+            text: Azure Portal
+            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
+          - image:
+              src: ./media/index/powershell.svg
+            text: Azure PowerShell
+            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
+          - image:
+              src: ./media/index/cli.svg
+            text: Azure CLI
+            href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnostisera problem med nätverksroutning för virtuella datorer</a>
-    - html: <a href="/azure/network-watcher/connection-monitor">Övervaka nätverkskommunikation mellan två virtuella datorer</a>
-    - html: <a href="/azure/network-watcher/diagnose-communication-problem-between-networks">Diagnostisera ett kommunikationsproblem mellan nätverk</a>
-    - html: <a href="/azure/network-watcher/network-watcher-nsg-flow-logging-portal">Logga nätverkstrafik till och från en virtuell dator</a>
-- title: Kostnadsfri videoutbildning för Pluralsight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Lär dig hur du felsöker problem i ditt virtuella nätverk.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnostisera problem med nätverksroutning för virtuella datorer</a>
+          - html: <a href="/azure/network-watcher/connection-monitor">Övervaka nätverkskommunikation mellan två virtuella datorer</a>
+          - html: <a href="/azure/network-watcher/diagnose-communication-problem-between-networks">Diagnostisera ett kommunikationsproblem mellan nätverk</a>
+          - html: <a href="/azure/network-watcher/network-watcher-nsg-flow-logging-portal">Logga nätverkstrafik till och från en virtuell dator</a>
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
-    - title: Azure-administratör
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure-lösningsarkitekt
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Azure-administration för AWS-administratörer
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure-administratör
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Azure-lösningsarkitekt
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+          - title: Azure-administration för AWS-administratörer
+            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/azurerm.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/network-watcher/">REST API-referens</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: '<p><a href="/powershell/module/az.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>'
+          - title: Språk
+            html: <p><a href="/dotnet/api/overview/azure/virtual-network">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/network-watcher/">REST API-referens</a></p>

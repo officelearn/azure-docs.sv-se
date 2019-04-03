@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 24e096680e6118b19feeb26d6f5435811ccaa276
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985882"
 documentType: LandingData
 title: Dokumentation om Virtual Network
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: Dokumentation om Virtual Network – Självstudier, snabbstarter, API-referenser | Microsoft Docs
-  meta.description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+  title: 'Dokumentation om Virtual Network – Självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  meta.description: 'Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.'
   services: virtual-network
   author: jdial
   manager: jeconnoc
@@ -21,91 +15,91 @@ metadata:
   ms.date: 03/23/2018
   ms.author: jdial
 abstract:
-  description: Lär dig hur du använder Azure Virtual Network. Våra snabbstarter, självstudier och exempel med mera visar dig hur du distribuerar ett virtuellt nätverk, styr trafikfiltrering och routning samt ansluter ett virtuellt nätverk till andra virtuella nätverk.
+  description: 'Lär dig hur du använder Azure Virtual Network. Våra snabbstarter, självstudier och exempel med mera visar dig hur du distribuerar ett virtuellt nätverk, styr trafikfiltrering och routning samt ansluter ett virtuellt nätverk till andra virtuella nätverk.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar ett virtuellt nätverk, distribuerar virtuella datorer till nätverket och sedan kommunicerar mellan de virtuella datorerna och Internet.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/virtual-network/quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/powershell.svg
-      text: Azure PowerShell
-      href: /azure/virtual-network/quick-create-powershell
-    - image:
-        src: https://docs.microsoft.com/azure/virtual-network/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/virtual-network/quick-create-cli
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar och ansluter virtuella nätverk och styr routning och filtrering.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Lär dig hur du skapar ett virtuellt nätverk, distribuerar virtuella datorer till nätverket och sedan kommunicerar mellan de virtuella datorerna och Internet.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/portal.svg'
+            text: Azure Portal
+            href: /azure/virtual-network/quick-create-portal
+          - image:
+              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/powershell.svg'
+            text: Azure PowerShell
+            href: /azure/virtual-network/quick-create-powershell
+          - image:
+              src: 'https://docs.microsoft.com/azure/virtual-network/media/index/cli.svg'
+            text: Azure CLI
+            href: /azure/virtual-network/quick-create-cli
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/virtual-network/tutorial-filter-network-traffic">Filtrera nätverkstrafik</a>
-    - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">Dirigera nätverkstrafik</a>
-    - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">Begränsa nätverksåtkomst till resurser</a>
-    - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">Ansluta virtuella nätverk</a>
-- title: Utveckla dina färdigheter med Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Lär dig hur du skapar och ansluter virtuella nätverk och styr routning och filtrering.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-network/tutorial-filter-network-traffic">Filtrera nätverkstrafik</a>
+          - html: <a href="/azure/virtual-network/tutorial-create-route-table-portal">Dirigera nätverkstrafik</a>
+          - html: <a href="/azure/virtual-network/tutorial-restrict-network-access-to-resources">Begränsa nätverksåtkomst till resurser</a>
+          - html: <a href="/azure/virtual-network/tutorial-connect-virtual-networks-portal">Ansluta virtuella nätverk</a>
+  - title: Utveckla dina färdigheter med Microsoft Learn
     items:
-    - title: " Introduktion till Azure-nätverk"
-      href: /learn/modules/intro-to-azure-networking/
-      image:
-        src: /learn/achievements/intro-to-azure-networking.svg
-        href: /learn/modules/intro-to-azure-networking/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure">Mer interaktiv inlärning...</a>
-- title: Kostnadsfri videoutbildning för Pluralsight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: "\_Introduktion till Azure-nätverk"
+            href: /learn/modules/intro-to-azure-networking/
+            image:
+              src: /learn/achievements/intro-to-azure-networking.svg
+              href: /learn/modules/intro-to-azure-networking/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure">Mer interaktiv inlärning...</a>
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
-    - title: Azure-administratör
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure-lösningsarkitekt
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-    - title: Azure-administration för AWS-administratörer
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Skriptexempel för vanliga åtgärder.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure-administratör
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Azure-lösningsarkitekt
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+          - title: Azure-administration för AWS-administratörer
+            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
+  - title: Exempel
     items:
-    - html: <a href="/azure/virtual-network/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/virtual-network/powershell-samples">PowerShell</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Skriptexempel för vanliga åtgärder.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/virtual-network/cli-samples">Azure CLI</a>
+          - html: <a href="/azure/virtual-network/powershell-samples">PowerShell</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/virtual-network/">REST API-referens</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>'
+          - title: Språk
+            html: <p><a href="/dotnet/api/overview/azure/virtual-network">NET</a></p><p><a href="/java/api/overview/azure/network">Java</a></p><p><a href="/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/virtual-network/">REST API-referens</a></p>

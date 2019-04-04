@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905978"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -28,6 +28,7 @@ Den nya modellen för omedelbar återställning innehåller följande funktionsf
 * Stöder Standard SSD-diskar tillsammans med Standard HDD-diskar och Premium SSD-diskar.
 *   Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
 
@@ -74,9 +75,9 @@ I Azure-portalen kan du se ett fält har lagts till i den **VM Backup-principen*
 > Från Az PowerShell version 1.6.0 eller senare och senare, kan du uppdatera kvarhållningsperioden för omedelbar återställning ögonblicksbild i principen med hjälp av PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 Standard ögonblicksbild kvarhållning för varje princip har angetts till 2 dagar. Användaren kan ändra värdet till minst 1 och högst fem dagar. För varje vecka principer har ögonblicksbild kvarhållning åtgärdats till 5 dagar.
 

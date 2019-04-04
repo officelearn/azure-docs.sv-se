@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916401"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producent- och konsument-API:er
 
@@ -25,38 +25,22 @@ Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-kl
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ställt in din utvecklingsmiljö
-> * Konfigurera din distributionsmiljö
+> * Förutsättningar
 > * Förstå koden
 > * Skapa och distribuera programmet
 > * Köra programmet på klustret
 
 Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https://kafka.apache.org/documentation/#producerapi) och [Konsument-API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha följande komponenter installerade i utvecklingsmiljön:
+* Apache Kafka på HDInsight 3.6. Läs hur du skapar en Kafka på HDInsight-kluster i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 
-* [Java JDK 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
 
-* [Apache Maven](https://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt buildsystemet för Java-projekt.
 
-* En SSH-klient och kommandot `scp` . Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* Ett redigeringsprogram eller Java IDE.
-
-Följande miljövariabler kan konfigureras när du installerar Java och JDK på utvecklingsdatorn. Du bör dock kontrollera att de finns och att de innehåller rätt värden för ditt system.
-
-* `JAVA_HOME` – ska peka på den katalog där JDK har installerats.
-* `PATH` – ska innehålla följande sökvägar:
-
-    * `JAVA_HOME` (eller motsvarande sökväg).
-    * `JAVA_HOME\bin` (eller motsvarande sökväg).
-    * Den katalog där Maven är installerat.
-
-## <a name="set-up-your-deployment-environment"></a>Konfigurera din distributionsmiljö
-
-Den här självstudien kräver att Apache Kafka finns i HDInsight 3.6. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
@@ -92,7 +76,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt är från filen [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) på [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du anger producentegenskaperna:
+Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt kommer från den [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) fil från den [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du ställer in egenskaperna producent:
 
 ```java
 Properties properties = new Properties();
@@ -130,92 +114,102 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
 
 ### <a name="runjava"></a>Run.java
 
-[Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java)-filen innehåller ett kommandoradsgränssnitt som antingen kör producent- eller konsumentkoden. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID som används av konsumentprocessen. Om du skapar flera konsumentinstanser med samma grupp-ID, kommer de belastningsutjämna läsningen från ämnet.
+Den [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) filen tillhandahåller ett kommandoradsgränssnitt som kör antingen konsumenten eller producenten kod. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID: T värde, som används av konsument-processen. Om du skapar flera instanser av konsumenten med samma grupp-ID, kommer de belastningsutjämna läsa från ämnet.
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
-Du kan hoppa över steg 1 och 2 för version och hämta den färdiga jars(kafka-producer-consumer.jar) från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Du kan sedan kopiera den här JAR-filen till ditt HDInsight-kluster.
+1. Ladda ned och extrahera exemplen från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-1. Hämta exempel från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+2. Ange din aktuella katalog till platsen för den `hdinsight-kafka-java-get-started\Producer-Consumer` katalogen och Använd följande kommando:
 
-2. Ändra kataloger till platsen för katalogen `Producer-Consumer` och använd följande kommando:
-
-    ```
+    ```cmd
     mvn clean package
     ```
 
     Det här kommandot skapar en katalog med namnet `target`, som innehåller en fil med namnet `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Använd följande kommandon för att kopiera filen `kafka-producer-consumer-1.0-SNAPSHOT.jar` till ditt HDInsight-kluster:
+3. Ersätt `sshuser` med SSH-användare för klustret och ersätt `CLUSTERNAME` med namnet på klustret. Ange följande kommando för att kopiera den `kafka-producer-consumer-1.0-SNAPSHOT.jar` filen till ditt HDInsight-kluster. Ange lösenordet för SSH-användaren när du uppmanas till det.
 
-    ```bash
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+    ```cmd
+    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-
-    Ersätt **SSHUSER** med SSH-användare för klustret och ersätt **CLUSTERNAME** med namnet på klustret. Ange lösenordet för SSH-användaren när du uppmanas till det.
 
 ## <a id="run"></a> Köra exemplet
 
-1. Använd följande kommando för att öppna en SSH-anslutning till klustret:
+1. Ersätt `sshuser` med SSH-användare för klustret och ersätt `CLUSTERNAME` med namnet på klustret. Öppna en SSH-anslutning i klustret, genom att ange följande kommando. Ange lösenordet för SSH-användarkontot om du uppmanas till det.
 
-    ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Ersätt **SSHUSER** med SSH-användare för klustret och ersätt **CLUSTERNAME** med namnet på klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det. Mer information om hur du använder `scp` med HDInsight finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Använd följande steg för att skapa de Kafka-ämnen som används i exemplet:
-
-    1. Spara klustrets namn som en variabel och installera ett JSON-parsningsverktyg (`jq`) med följande kommandon. Ange Kafka-klustrets namn när du uppmanas till detta:
-    
-        ```bash
-        sudo apt -y install jq
-        read -p 'Enter your Kafka cluster name:' CLUSTERNAME
-        ```
-    
-    2. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
-    
-        ```bash
-        export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
-        ```
-
-    3. Om du vill skapa ämnet `test` använder du följande kommando:
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
-        ```
-
-3. Om du vill köra producenten och skriva data till ämnet, använder du följande kommando:
+2. Installera [jq](https://stedolan.github.io/jq/), en kommandorad JSON-processor. Från den öppna SSH-anslutningen anger du följande kommando för att installera `jq`:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
+    sudo apt -y install jq
     ```
 
-4. När producenten är klar kan du använda följande kommando för att läsa från ämnet:
+3. Konfigurera miljövariabler. Ersätt `PASSWORD` och `CLUSTERNAME` med inloggningslösenordet för klustret och klustret namnge respektive genom att ange sedan kommandot:
 
     ```bash
-    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
+    ```
+
+4. Extrahera korrekt alltid i klustrets namn. Faktiska versaler och gemener i klustrets namn kan skilja sig än förväntat, beroende på hur klustret har skapats. Det här kommandot ska hämta faktiska gemener och versaler, lagra det i en variabel och sedan visa korrekt cased namn och det namn du angav tidigare. Ange följande kommando:
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Om du vill ha Kafka-Meddelandeköer värdar och Apache Zookeeper-värdar, använder du följande kommando:
+
+    ```bash
+    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+6. Skapa Kafka-ämne `myTest`, genom att ange följande kommando:
+
+    ```bash
+    java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
+    ```
+
+7. Om du vill köra producenten och skriva data till ämnet, använder du följande kommando:
+
+    ```bash
+    java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
+    ```
+
+8. När producenten är klar kan du använda följande kommando för att läsa från ämnet:
+
+    ```bash
+    java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
     ```
 
     De lästa posterna, tillsammans med antalet poster, visas.
 
-5. Använd __Ctrl + C__ om du vill avsluta konsumenten.
+9. Använd __Ctrl + C__ om du vill avsluta konsumenten.
 
 ### <a name="multiple-consumers"></a>Flera konsumenter
 
 Kafka-konsumenter använder en konsumentgrupp vid läsning av poster. Att använda samma grupp med flera konsumenter resulterar i belastningsutjämnaravläsningar från ett ämne. Varje konsument i gruppen tar emot en del av posterna.
 
-Konsumentprogrammet accepterar en parameter som används som grupp-ID. Exempelvis startar följande kommando en konsument med hjälp av ett grupp-ID i `mygroup`:
+Konsumentprogrammet accepterar en parameter som används som grupp-ID. Exempelvis startar följande kommando en konsument med hjälp av ett grupp-ID i `myGroup`:
 
 ```bash
-java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
+java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
+
+Använd __Ctrl + C__ om du vill avsluta konsumenten.
 
 Använd följande kommando om du vill se hur det fungerar:
 
 ```bash
-tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; split-w
-indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; split-window -h 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; attach
 ```
 
 Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __Ctrl + C__ två gånger för att avsluta `tmux`.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823016"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904482"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -67,7 +67,7 @@ Här är parametrarna för offentliga konfiguration som stöds:
 * `ConfigurationModeFrequencyMins`: (valfritt, int) anger hur ofta (i minuter) DSC säkerställer att konfigurationen är i önskat läge.
 
 > [!NOTE]
-> Om du använder en version < 2.3 är lägesparametern samma som ExtensionAction. Läget verkar vara en term som är överbelastad. Om du vill undvika förvirringen därför används ExtensionAction från version 2.3 och senare. Tillägget stöder både läge och ExtensionAction för bakåtkompatibilitet. 
+> Om du använder en version < 2.3 är lägesparametern samma som ExtensionAction. Läget verkar vara en överbelastade term. Om du vill undvika förvirringen därför används ExtensionAction från version 2.3 och senare. Tillägget stöder både läge och ExtensionAction för bakåtkompatibilitet. 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 skyddade konfiguration

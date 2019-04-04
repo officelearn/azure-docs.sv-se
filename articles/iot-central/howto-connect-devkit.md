@@ -3,17 +3,17 @@ title: En ansluts DevKit till programmet Azure IoT Central | Microsoft Docs
 description: Lär dig hur du ansluter en enhet för MXChip IoT DevKit till Azure IoT Central programmet som utvecklare enheten.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113205"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905944"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -21,45 +21,47 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta MXChip IoT 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver följande för att slutföra stegen i den här artikeln:
+För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 1. En DevKit-enhet. Du kan köpa en DevKit enhet [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 ## <a name="sample-devkits-application"></a>Devkits exempelprogrammet
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper:
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen som definierar följande enhetsegenskaper:
 
-- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnetometer** (mätt längs X, Y, Z-axeln), **Accelerometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
-- Tillstånd som innehåller ett exempel mått för **enhetstillstånd**.
-- Mätning av händelse med en **knappen B nedtryckt** händelse. 
-- Inställningar som visar **Voltage**, **aktuella**, **fläkthastighet**, och en **IR** växlingsknappen.
-- Egenskaper som innehåller enhetsegenskap **dör nummer** och **enhetsplats** som är en Platsegenskapen samt som i en **tillverkade i** egenskap i molnet. 
+- Telemetri mätning av faktisk användning för **fuktighet**, **temperatur**, **tryck**, **Magnetometer** (mätt längs X, Y, Z-axeln), **Accelerometer** (mätt längs X, Y, Z-axeln), och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Tillstånd mått för **enhetstillstånd**.
+- Händelsen mått för **knappen B nedtryckt**.
+- Inställningar för **Voltage**, **aktuella**, **fläkthastighet**, och en **IR** växlingsknappen.
+- Enhetsegenskaper **dör nummer** och **enhetsplats**, vilket är en plats-egenskap.
+- Molnet egenskapen **tillverkade i**.
+- Kommandon **Echo** och **nedräkning**. När en riktig enhet tar emot en **Echo** kommandot visar det skickade värdet på enhetens skärm. När en riktig enhet tar emot en **nedräkning** kommandot LED växlar mellan ett mönster och enheten skickar nedräkning värden tillbaka till IoT Central.
 
-Fullständig information om konfigurationen finns i [MXChip mall enhetsinformation](#mxchip-device-template-details)
-
+Fullständig information om konfigurationen finns [MXChip mall enhetsinformation](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID och primära nyckel**).
+### <a name="get-your-device-connection-details"></a>Hämta anslutningsinformationen för din enhet
+
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutning: **Scope-ID, enhets-ID och primärnyckel**:
 
 1. Lägg till en **riktig enhet** Device Explorer, Välj **+ Ny > verkliga** att lägga till en riktig enhet.
 
-   * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
-   * Ange namnet på enheten eller använda det föreslagna namnet
+    * Ange en gemen **enhets-ID**, eller använda de föreslagna **enhets-ID**.
+    * Ange en **enhetsnamn**, eller använda det föreslagna namnet
 
-     ![Lägg till enhet](media/howto-connect-devkit/add-device.png)
+    ![Lägg till enhet](media/howto-connect-devkit/add-device.png)
 
-1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att välja **Connect** på enhetssidan.
+1. Att hämta anslutningsinformation för enheten **Scopeid**, **enhets-ID**, och **primärnyckel**väljer **Connect** på enhetssidan.
 
     ![Anslutningsinformation](media/howto-connect-devkit/device-connect.png)
 
-1. Se till att spara dessa uppgifter som du ska få bortkopplad från internet när du förbereder DevKit enheten.
+1. Anteckna anslutningsinformationen. Du är bortkopplad från internet när du förbereder enheten DevKit i nästa steg.
 
 ### <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit
 
-> [!NOTE]
-> Om du tidigare har använt enheten och har wifi autentiseringsuppgifter lagras och vill konfigurera om enheten för att använda ett annat Wi-Fi-nätverk eller anslutningssträng telemetri mätning, trycker du på både den **A** och **B** knappar på tavlan samtidigt. Om det inte fungerar, trycker du på **återställa** knappen och försök igen.
+Om du har tidigare använt enhet och vill konfigurera om den om du vill använda ett annat Wi-Fi-nätverk eller anslutningssträng telemetri mätning, trycker du på både den **A** och **B** knappar på samma gång. Om det inte fungerar, trycker du på **återställa** knappen och försök igen.
 
 #### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit
 
@@ -87,19 +89,18 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
 
     ![Konfigurationssidan för enhet](media/howto-connect-devkit/configpage.png)
 
-    På webbsidan: 
-    - Lägg till namnet på ditt Wi-Fi-nätverk 
+    På sidan, anger du:
+    - Namnet på ditt Wi-Fi-nätverk
     - lösenordet för Wi-Fi-nätverk
-    - PIN-koden som visas på enheten LCD 
-    - anslutningsinformationen **Scope-Id, enhets-Id och primära nyckel** för enheten (du bör redan har sparat den här följa stegen)      
-    - Välj all tillgänglig telemetri mätningar! 
+    - PIN-koden som visas på enhetens skärm
+    - Anslutningsinformationen **Scopeid**, **enhets-ID**, och **primärnyckel** för enheten (du bör redan har sparat den här följa stegen)
+    - Välj all tillgänglig telemetri-mått
 
 1. När du har valt **– konfigurera enhet**, visas den här sidan:
 
     ![Enheter som har konfigurerats](media/howto-connect-devkit/deviceconfigured.png)
 
 1. Tryck på den **återställa** knappen på din enhet.
-
 
 ## <a name="view-the-telemetry"></a>Visa telemetrin
 
@@ -110,9 +111,9 @@ När DevKit enheten startas om, visar skärmen på enheten:
 * Antalet önskade egenskaper som tagits emot och antalet rapporterade egenskaper som skickas.
 
 > [!NOTE]
-> Om enheten verkar vara slingor under connect kontrollera om enheten är *blockerad* i IoT Central och *avblockera* enheten så att den kan ansluta till appen.
+> Om enheten verkar köras i slinga vid försök att ansluta kan du kontrollera om enheten är **blockerad** i IoT Central och **avblockera** enheten så att den kan ansluta till appen.
 
-Skaka enheten öka antalet rapporterade egenskaper som skickas. Enheten skickar ett slumptal som den **dör nummer** enhetsegenskap.
+Skaka enheten för att skicka en rapporterad egenskap. Enheten skickar ett slumptal som den **dör nummer** enhetsegenskap.
 
 Du kan visa telemetri mätning av faktisk användning och rapporterade egenskapsvärden och konfigurera inställningar i Azure IoT Central:
 
@@ -132,10 +133,13 @@ Du kan visa telemetri mätning av faktisk användning och rapporterade egenskaps
 
     ![Visa Enhetsinställningar](media/howto-connect-devkit/devicesettingsnew.png)
 
+1. På den **kommandon** kan du anropa den **Echo** och **nedräkning** kommandon:
+
+    ![Call-kommandon](media/howto-connect-devkit/devicecommands.png)
+
 1. På den **instrumentpanelen** kan du se platsen mappa
 
     ![Visa instrumentpanelen](media/howto-connect-devkit/devicedashboardnew.png)
-
 
 ## <a name="download-the-source-code"></a>Ladda ned källkoden
 
@@ -147,30 +151,38 @@ Om du vill ladda ned källkoden, kör du följande kommando på din stationära 
 git clone https://github.com/Azure/iot-central-firmware
 ```
 
-Föregående kommando hämtar källkoden till en mapp med namnet `iot-central-firmware`. 
+Föregående kommando hämtar källkoden till en mapp med namnet `iot-central-firmware`.
 
 > [!NOTE]
 > Om **git** har inte installerats i din utvecklingsmiljö kan du hämta det från [ https://git-scm.com/download ](https://git-scm.com/download).
 
 ## <a name="review-the-code"></a>Granska koden
 
-Använd Visual Studio Code, som installerades när du har förberett din utvecklingsmiljö för att öppna den `AZ3166` mapp i den `iot-central-firmware` mapp: 
+Använd Visual Studio Code för att öppna den `MXCHIP/mxchip_advanced` mapp i den `iot-central-firmware` mapp:
 
 ![Visual Studio-koden](media/howto-connect-devkit/vscodeview.png)
 
-Om du vill se hur telemetri som skickas till programmet Azure IoT Central, öppna den **main_telemetry.cpp** filen i källmappen.
+Om du vill se hur telemetri som skickas till programmet Azure IoT Central, öppna den **telemetry.cpp** fil i den `src` mapp:
 
-Funktionen `buildTelemetryPayload` skapar JSON-telemetri-nyttolast med hjälp av data från sensorerna på enheten.
+- Funktionen `TelemetryController::buildTelemetryPayload` skapar JSON-telemetri-nyttolast med hjälp av data från sensorerna på enheten.
 
-Funktionen `sendTelemetryPayload` anrop `sendTelemetry` i den **iotHubClient.cpp** att skicka JSON-nyttolasten till IoT Hub ditt Azure IoT Central program använder.
+- Funktionen `TelemetryController::sendTelemetryPayload` anrop `sendTelemetry` i den **AzureIOTClient.cpp** att skicka JSON-nyttolasten till IoT Hub ditt Azure IoT Central program använder.
 
-Om du vill se hur egenskapsvärden rapporteras till programmet Azure IoT Central, öppna den **main_telemetry.cpp** filen i källmappen.
+Om du vill se hur egenskapsvärden rapporteras till programmet Azure IoT Central, öppna den **telemetry.cpp** fil i den `src` mapp:
 
-Funktionen `telemetryLoop` skickar den **doubleTap** rapporterade egenskap när accelerometer identifierar en dubbelknacka. Den använder den `sendReportedProperty` fungera i den **iotHubClient.cpp** källfilen.
+- Funktionen `TelemetryController::loop` skickar den **plats** rapporterade egenskap ungefär var 30: e sekund. Den använder den `sendReportedProperty` fungera i den **AzureIOTClient.cpp** källfilen.
 
-Koden i den **iotHubClient.cpp** källfilen använder funktioner från den [ Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c) att interagera med IoT Hub.
+- Funktionen `TelemetryController::loop` skickar den **dieNumber** rapporterade egenskap när enheten accelerometer identifierar en dubbelknacka. Den använder den `sendReportedProperty` fungera i den **AzureIOTClient.cpp** källfilen.
 
-Information om hur du ändrar, skapa och överföra kod till din enhet finns i den **readme.md** fil i den `AZ3166` mapp.
+Om du vill se hur enheten ska svara på kommandon som anropas från programmet IoT Central, öppna den **registeredMethodHandlers.cpp** fil i den `src` mapp:
+
+- Den **dmEcho** funktionen är hanteraren för den **echo** kommando. Den visar den **displayedValue** arkiverat i nyttolasten på enhetens skärm.
+
+- Den **dmCountdown** funktionen är hanteraren för den **nedräkning** kommando. Den ändras färgen på enhetens LED och använder en rapporterad egenskap för att skicka nedräkning värdet tillbaka till programmet IoT Central. Rapporterad egenskap har samma namn som kommandot. Funktionen använder den `sendReportedProperty` fungera i den **AzureIOTClient.cpp** källfilen.
+
+Koden i den **AzureIOTClient.cpp** källfilen använder funktioner från den [Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c) att interagera med IoT Hub.
+
+Information om hur du ändrar, skapa och överföra kod till din enhet finns i den **readme.md** fil i den `MXCHIP/mxchip_advanced` mapp.
 
 ## <a name="mxchip-device-template-details"></a>MXChip mall enhetsinformation
 
@@ -178,7 +190,7 @@ Ett program som skapats med mallen för exemplet Devkits program innehåller en 
 
 ### <a name="measurements"></a>Mått
 
-#### <a name="telemetry"></a>Telemetri 
+#### <a name="telemetry"></a>Telemetri
 
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -194,7 +206,6 @@ Ett program som skapats med mallen för exemplet Devkits program innehåller en 
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
 
 #### <a name="states"></a>Tillstånd 
 | Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
@@ -230,10 +241,13 @@ Visa/Dölj inställningar
 | Enhetsegenskap | Enhetsplats   | location  | location    |
 | Text            | Tillverkas på     | manufacturedIn   | Gäller inte       |
 
+### <a name="commands"></a>Kommandon
 
+| Visningsnamn | Fältnamn | Returtyp | Inmatningsfält visningsnamn | Inkommande fältnamn | Inkommande fälttyp |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| echo         | eko       | text        | värde som ska visas         | displayedValue   | text             |
+| Nedräkning    | nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en enhet för DevKit till programmet Azure IoT Central, är här nästa föreslagna steg:
-
-* [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
+Nu när du har lärt dig hur du ansluter en enhet för DevKit till programmet Azure IoT Central, föreslagna nästa steg är att [Förbered och ansluter en Raspberry Pi](howto-connect-raspberry-pi-python.md).

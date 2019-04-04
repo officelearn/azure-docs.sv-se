@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838807"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905893"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 ![Översikt på hög nivå](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Data-utvecklare skapar en lokal integration runtime i en Azure-datafabrik med hjälp av en PowerShell-cmdlet. Azure-portalen stöder för närvarande inte den här funktionen.
-2. Data-utvecklare skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager. Som en del av konfigurationen av den länkade tjänsten använder data utvecklaren Autentiseringshanteraren programmet (för närvarande stöds inte) för att ställa in typer av autentisering och autentiseringsuppgifter. Programmet Autentiseringshanteraren kommunicerar med datalagret för att testa anslutningen och den lokala integreringskörningen att spara autentiseringsuppgifter.
+2. Data-utvecklare skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager.
 3. Lokal integration runtime-noden krypterar autentiseringsuppgifterna med hjälp av Windows Data Protection Application Programming Interface (DPAPI) och sparar autentiseringsuppgifter lokalt. Om flera noder ställs in för hög tillgänglighet, synkroniseras ytterligare autentiseringsuppgifterna på andra noder. Varje nod krypterar autentiseringsuppgifterna med hjälp av DPAPI och lagrar dem lokalt. Synkroniseringen av autentiseringsuppgifter är transparent för data-utvecklare och hanteras av lokal IR.    
 4. Data Factory-tjänsten kommunicerar med den lokala integreringskörningen för schemaläggning och hantering av jobb via en *kontrollkanal* som använder en delad Azure Service Bus-kö. När en aktivitet jobbet måste köras, placerar Data Factory begäran tillsammans med eventuella autentiseringsuppgifter (om autentiseringsuppgifter inte lagras redan på den lokala integreringskörningen). Lokal integration runtime startar jobbet efter avsökning kön.
 5. Den lokala integreringskörningen kopierar data från en lokal databas till en molnlagring, och vice versa beroende på konfigureringen av kopieringsaktiviteten i datapipelinen. För det här steget kommunicerar lokal integration runtime direkt med molnbaserade storage-tjänster som Azure Blob storage via en säker kanal (HTTPS).
@@ -329,7 +329,7 @@ Om det uppstår fel som liknar det följande är det troligen på grund av felak
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Aktivera fjärråtkomst från intranät  
-Om du använder PowerShell eller programmet Autentiseringshanteraren för att kryptera autentiseringsuppgifter från en annan dator (i nätverket) än där lokal integration runtime har installerats kan du aktivera den **fjärråtkomst från intranät**alternativet. Om du kör PowerShell eller Autentiseringshanteraren kryptera autentiseringsuppgifterna på samma dator där den lokala integreringskörningen har installerats kan du inte aktivera **fjärråtkomst från intranät**.
+Om du använder PowerShell för att kryptera autentiseringsuppgifterna från en annan dator (i nätverket) än där lokal integration runtime är installerad, kan du aktivera den **fjärråtkomst från intranät** alternativet. Om du kör PowerShell för att kryptera autentiseringsuppgifterna på samma dator där den lokala integreringskörningen har installerats kan du inte aktivera **fjärråtkomst från intranät**.
 
 Du bör aktivera **fjärråtkomst från intranät** innan du lägger till en annan nod för hög tillgänglighet och skalbarhet.  
 
@@ -339,9 +339,7 @@ Om du använder en brandvägg från tredje part, kan du manuellt öppna port 806
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> Programmet Autentiseringshanteraren är ännu inte tillgänglig för kryptering av autentiseringsuppgifter i Azure Data Factory V2.  
+``` 
 
 Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, kan du använda metoder än programmet ange autentiseringsuppgifter för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda den **New AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 

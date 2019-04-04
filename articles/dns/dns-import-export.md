@@ -2,25 +2,18 @@
 title: Importera och exportera en zonfil domän till Azure DNS med Azure CLI | Microsoft Docs
 description: Lär dig att importera och exportera en DNS-zonfil till Azure DNS med hjälp av Azure CLI
 services: dns
-documentationcenter: na
 author: vhorne
-manager: timlt
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312659"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905417"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI
 
 Den här artikeln vägleder dig igenom hur du importera och exportera DNS-zonfiler för Azure DNS med Azure CLI.
 
@@ -32,7 +25,6 @@ Azure DNS stöder import och export av filer med hjälp av kommandoradsgränssni
 
 Azure CLI är ett kommandoradsverktyg för flera plattformar som används för att hantera Azure-tjänster. Den är tillgänglig för Windows, Mac och Linux-plattformar från den [Azure hämtningssidan](https://azure.microsoft.com/downloads/). Support för alla plattformar är viktigt för import och export av filer, eftersom namnet vanligaste serverprogramvaran [BINDA](https://www.isc.org/downloads/bind/), vanligtvis körs på Linux.
 
-
 ## <a name="obtain-your-existing-dns-zone-file"></a>Hämta din befintliga DNS-zonfil
 
 Innan du importerar en DNS-zonfil till Azure DNS måste du skaffa en kopia av zonfilen. Källan för den här filen är beroende av där DNS-zon finns för närvarande.
@@ -40,14 +32,6 @@ Innan du importerar en DNS-zonfil till Azure DNS måste du skaffa en kopia av zo
 * Om din DNS-zon är värd för en partner-tjänst (till exempel en domänregistrator, dedikerad DNS-värdtjänst eller annan molnleverantör), ska tjänsten ger möjlighet att hämta DNS-zonfilen.
 * Om din DNS-zon finns på Windows DNS, standardmappen för zonen filerna är **%systemroot%\system32\dns**. Den fullständiga sökvägen till varje zonfil visar även på den **Allmänt** fliken DNS-konsolen.
 * Om din DNS-zon är värd med BINDNING, platsen för zonfilen för varje zon har angetts i konfigurationsfilen för BINDNING **named.conf**.
-
-> [!NOTE]
-> Zonfiler som hämtas från GoDaddy har ett något avvikande format. Du måste åtgärda detta innan du importerar zonfilerna till Azure DNS.
->
-> DNS-namn i RDATA för varje DNS-post har angetts som fullständiga namn, men de inte har en avslutande ””. Det innebär att de tolkas av andra DNS-system som relativa namn. Du måste redigera zonfil för att lägga till den avslutande ””. i sina namn innan du importerar dem till Azure DNS.
->
-> Till exempel bör CNAME-post ”www 3600 i CNAME contoso.com” ändras till ”www 3600 i CNAME contoso.com”.
-> (med avslutande ””.).
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Importera en fil för DNS-zon till Azure DNS
 
@@ -88,7 +72,6 @@ Värden:
 * `<zone file name>` är sökvägen för zonen-fil som ska importeras.
 
 Om en zon med det här namnet inte finns i resursgruppen, skapas den åt dig. Om det finns redan i zonen, slås importerade postuppsättningar samman med befintliga uppsättningar av poster. 
-
 
 ### <a name="step-1-import-a-zone-file"></a>Steg 1. Importera en zonfil
 
@@ -191,3 +174,9 @@ Så här exporterar du den befintliga Azure DNS-zonen **contoso.com** i resursgr
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig hur du [hantera postuppsättningar och poster](dns-getstarted-create-recordset-cli.md) i din DNS-zon.
+
+* Lär dig hur du [Delegera din domän till Azure DNS](dns-domain-delegation.md).

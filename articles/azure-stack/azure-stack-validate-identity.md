@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403195"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486690"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identity
 
@@ -85,7 +85,7 @@ Följande installationskrav gäller:
 
 4. Granska utdata när verktyget körs. Bekräfta att statusen är **OK** för installationskraven. En lyckad validering visas som på följande bild:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ I följande exempel ger vägledning om vanliga verifieringsfel.
 
 ### <a name="expired-or-temporary-password"></a>Har upphört att gälla eller tillfälliga lösenord
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 Du kan också logga in på den [Azure-portalen](https://portal.azure.com) som ägare och användaren tvingas att ändra lösenordet.
 
-### <a name="unknown-user-type"></a>Okänd användartyp
-
-```shell
+### <a name="unknown-user-type"></a>Okänd användartyp 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Kontot är inte en administratör
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

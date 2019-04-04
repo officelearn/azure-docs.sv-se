@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905211"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -64,14 +64,14 @@ Du kan ställa in Azure SQL-databaser och instansdatabaser att samla in följand
 | :------------------- | ----- | ----- |
 | [Alla mått](#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel processor, LOG och låser. | Ja | Ja |
-| [Fel](#errors-dataset): Innehåller information om SQL-fel på databasen. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Innehåller information om hur lång tid att databasen har använt för att vänta på olika vänta typer. | Ja | Nej |
-| [Tidsgränser](#time-outs-dataset): Innehåller information om tidsgränser för databasen. | Ja | Nej |
-| [Block](#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
-| [Låsningar](#deadlocks-dataset): Innehåller information om händelser för deadlock i databasen. | Ja | Nej |
-| [AutomaticTuning](#automatic-tuning-dataset): Innehåller information om automatiska justeringsrekommendationer för databasen. | Ja | Nej |
-| [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel är processor, LOG och låser. | Ja | Ja |
+| [Fel](#errors-dataset): Innehåller information om SQL-fel på en databas. | Ja | Ja |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Innehåller information om hur lång tid en databas har använt för att vänta på olika vänta typer. | Ja | Nej |
+| [Tidsgränser](#time-outs-dataset): Innehåller information om timeout-fel på en databas. | Ja | Nej |
+| [Block](#blockings-dataset): Innehåller information om att blockera händelser på en databas. | Ja | Nej |
+| [Låsningar](#deadlocks-dataset): Innehåller information om händelser för deadlock på en databas. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): Innehåller information om automatiska justeringsrekommendationer för en databas. | Ja | Nej |
+| [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda för en databas. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
 > Elastiska pooler och hanterade instanser har en egen separat diagnostiktelemetri från databaser som de innehåller. Detta är viktigt att notera som diagnostiktelemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.

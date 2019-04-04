@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d6bbb9e8d6ef3f9192620b9039b36ae7dd728433
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 3dd4fbedd51e11e84303f997cef0bb28bf79b241
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632601"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918186"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Hur du skapar och leta upp ankare som använder Azure Spatial ankare i Objective-C
 
@@ -269,7 +269,7 @@ Läs mer om den [anchorLocated](https://docs.microsoft.com/objectivec/api/spatia
             // This anchor has already been reported and is being tracked
             break;
         case ASALocateAnchorStatusNotLocatedAnchorDoesNotExist:
-            // The anchor was deleted or never exited in the first place
+            // The anchor was deleted or never existed in the first place
             // Drop it, or show UI to ask user to anchor the content anew
             break;
         case ASALocateAnchorStatusNotLocated:

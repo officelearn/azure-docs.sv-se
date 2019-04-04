@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123733"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918900"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-resurser med tokenautentisering
 
@@ -33,7 +33,7 @@ Tokenautentisering är en mekanism som gör det möjligt att förhindra att Azur
 
 Tokenautentisering verifierar att begäranden genereras av en betrodd plats genom att kräva att begäranden som innehåller en token-värde som innehåller kodad information om den som begär. Innehållet visas till en beställare endast om kodad information uppfyller kraven. i annat fall nekas begäranden. Du kan ställa in kraven med hjälp av en eller flera av följande parametrar:
 
-- Land/region: Tillåt eller neka förfrågningar som kommer från de länder/regioner som anges av deras [landskod](https://msdn.microsoft.com/library/mt761717.aspx).
+- Land/region: Tillåt eller neka förfrågningar som kommer från de länder/regioner som anges av deras [landskod](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Tillåt endast begäranden som matchar den angivna resursen eller sökvägen.
 - Värd: Tillåt eller neka förfrågningar som använder de angivna värdarna i rubriken.
 - Referent: Tillåt eller neka begäran från den angivna referent.
@@ -120,7 +120,7 @@ I följande flödesschema beskriver hur Azure CDN verifierar en klientbegäran o
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Tillåter endast begäranden som kommer från en eller flera angivna länder. Begäranden som kommer från andra länder nekas. Använd två bokstäver [3166 ISO-landskod](https://msdn.microsoft.com/library/mt761717.aspx) för varje land/region och avgränsar du dem med kommatecken, inte till ett blanksteg. Om du vill tillåta åtkomst från endast USA och Frankrike, till exempel anger `US,FR`.</td>
+      >    <td>Tillåter endast begäranden som kommer från en eller flera angivna länder. Begäranden som kommer från andra länder nekas. Använd två bokstäver [3166 ISO-landskod](/previous-versions/azure/mt761717(v=azure.100)) för varje land/region och avgränsar du dem med kommatecken, inte till ett blanksteg. Om du vill tillåta åtkomst från endast USA och Frankrike, till exempel anger `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

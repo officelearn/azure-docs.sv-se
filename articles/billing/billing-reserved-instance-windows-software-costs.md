@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648528"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918730"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Kostnader för programvara som inte ingår i Azure Reserved VM Instances
 
-Om du inte har en Azure Hybrid Use Benefit på dina reserverade VM-instanser, är du debiteras för programvara som anges i följande avsnitt.
+Om du inte har en Azure Hybrid-förmånen på dina reserverade VM-instanser, är du debiteras för programvara som anges i följande avsnitt.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows software mätare som inte ingår i kostnaden för reservation
 
@@ -66,13 +66,13 @@ Om du inte har en Azure Hybrid Use Benefit på dina reserverade VM-instanser, ä
 
 ## <a name="rates-for-azure-meters"></a>Priser för Azure
 
-Du kan få kostnaden för var och en av mätarnas via Azure RateCard-API. Information om hur du hämtar priserna för en mätare som azure finns i [få information om priset och metadata för resurser som används i en Azure-prenumeration](https://msdn.microsoft.com/library/azure/mt219004).
+Du kan få kostnaden för var och en av mätarnas via Azure RateCard-API. Information om hur du hämtar priserna för en mätare som azure finns i [få information om priset och metadata för resurser som används i en Azure-prenumeration](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om reservationer för Azure finns i följande artiklar:
 
 - [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
-- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Hantera reservationer för Azure](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)

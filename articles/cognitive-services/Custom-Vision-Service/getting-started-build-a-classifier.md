@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886445"
+ms.locfileid: "58891488"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -125,9 +125,7 @@ Tolka förutsägande anrop med en tröskel för hög sannolikhet tenderar att re
 
 ## <a name="manage-training-iterations"></a>Hantera iterationer av utbildning
 
-Varje gång du lära din klassificerare kan du skapa en ny _iteration_ med sin egen uppdaterade prestandamått. Du kan visa alla dina iterationer i den vänstra rutan i den **prestanda** fliken. När du väljer en har möjlighet att göra det i _standard iteration_ genom att klicka på den **ange som standard** längst upp. Den _standard iteration_ är den modell som ska användas som standard när du frågar den via API: et för förutsägelse (från en app, till exempel). Om du väljer att inte uppdatera den _standard iteration_, du kan fortsätta att träna din modell utan att påverka din Apps aktuella beteende; och sedan, när du är nöjd med förbättrad modellen kan du uppdatera standardvärdet.
-
-I den vänstra rutan finns också i **ta bort** knappen som du kan använda för att ta bort en iteration om den är föråldrad. När du tar bort en iteration kan du ta bort eventuella avbildningar som är unikt associerade med den.
+Varje gång du lära din klassificerare kan du skapa en ny _iteration_ med sin egen uppdaterade prestandamått. Du kan visa alla dina iterationer i den vänstra rutan i den **prestanda** fliken. I den vänstra rutan finns också i **ta bort** knappen som du kan använda för att ta bort en iteration om den är föråldrad. När du tar bort en iteration kan du ta bort eventuella avbildningar som är unikt associerade med den.
 
 ## <a name="next-steps"></a>Nästa steg
 

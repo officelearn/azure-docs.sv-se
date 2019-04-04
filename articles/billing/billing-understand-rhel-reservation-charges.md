@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
-ms.openlocfilehash: 9eba59bcdc9974519fc1ed37078a205eff28f116
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917064"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur Red Hat Linux Enterprise software reservationsrabatten plan tillämpas för Azure
 
@@ -38,7 +38,7 @@ Om du köper en plan för Red Hat Linux Enterprise Server till en virtuell dator
 - 1 distribuerat med 3 eller 4 virtuella processorer,
 - eller 0.77 eller om 77% av en virtuell dator med 5 eller flera virtuella processorer.
 
-Kvoten för 5 eller flera virtuella processorer är 2.6. En reservation för Red Hat med en virtuell dator med 5 eller flera virtuella processorer täcker så en enda del av kostnad för programvara med cirka 77%.
+Kvoten för 5 eller flera virtuella processorer är 2.6. Så innehåller en reservation för Red Hat med en virtuell dator med 5 eller flera virtuella processorer en enda andel av kostnaden för programvara, vilket är ungefär 77%.
 
 ## <a name="understand-red-hat-vm-usage-before-you-buy"></a>Förstå användningen av Red Hat VM innan du köper
 
@@ -160,7 +160,7 @@ Mer information om reservationer, finns i följande artiklar:
 
 - [Vad är reservationer för Azure](billing-save-compute-costs-reservations.md)
 - [Betala i förskott för Red Hat programvaruplaner med Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Hantera reservationer för Azure](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

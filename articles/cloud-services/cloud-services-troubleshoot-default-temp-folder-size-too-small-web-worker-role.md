@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4757b20e1a3d9830c2d52a5fbc85fd935b27fb62
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7862e4d5c4dd603dacf5784df6c4194392ebc351
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245043"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918203"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>TEMP-standardmappen är för liten för en cloud service web/worker-roll
 Tillfällig standardkatalogen för en worker eller web molntjänstroll har en maximal storlek på 100 MB, som kan bli fullständig vid en viss tidpunkt. Den här artikeln beskriver hur du undviker slut på utrymme för den tillfälliga katalogen.
@@ -33,8 +33,8 @@ Standard Windows miljövariablerna TEMP och TMP är tillgängliga för kod som k
 ## <a name="suggestion-to-fix-the-problem"></a>Förslag på problemet
 Implementera en av följande alternativ:
 
-* Konfigurera en resurs för lokal lagring och åtkomst till den direkt istället för att använda TEMP och TMP. Du kommer åt en resurs för lokal lagring från kod som körs i ditt program genom att anropa den [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) metod.
-* Konfigurera en resurs för lokal lagring och peka TEMP och TMP kataloger att den pekar på sökvägen till resursen för lokal lagring. Den här ändringen bör utföras inom den [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) metod.
+* Konfigurera en resurs för lokal lagring och åtkomst till den direkt istället för att använda TEMP och TMP. Du kommer åt en resurs för lokal lagring från kod som körs i ditt program genom att anropa den [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) metod.
+* Konfigurera en resurs för lokal lagring och peka TEMP och TMP kataloger att den pekar på sökvägen till resursen för lokal lagring. Den här ändringen bör utföras inom den [RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) metod.
 
 I följande kodexempel visas hur du ändrar mål-kataloger för TEMP och TMP från inom OnStart-metoden:
 

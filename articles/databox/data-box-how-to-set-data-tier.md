@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905570"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Använda Azure Data Box för att skicka data till lämplig Azure Storage blob-nivå
 
 Azure Data Box flyttar stora mängder data till Azure genom att leverera en tillverkarspecifik lagringsenhet. Du fyller upp enheten med data och lämna tillbaka. Data från Data Box har överförts till en Standardnivå som är associerade med lagringskontot. Du kan sedan flytta data till en annan lagringsnivå.
 
 Den här artikeln beskriver hur de data som överförs i Data Box kan flyttas till en frekvent, lågfrekvent eller Arkiv blob-nivå.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Välj rätt lagringsnivå för dina data
 
@@ -58,7 +61,7 @@ Följande steg beskriver hur du kan ange blob-nivå till arkivet med hjälp av A
 
 2. Logga in på Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Definiera variabler för storage-konto, åtkomstnyckel, behållare och storage-kontext.
 
@@ -66,12 +69,12 @@ Följande steg beskriver hur du kan ange blob-nivå till arkivet med hjälp av A
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Hämta alla blobbar i behållaren.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Ange nivå för alla blobbar i behållaren till arkivet.
 
@@ -91,7 +94,7 @@ Följande steg beskriver hur du kan ange blob-nivå till arkivet med hjälp av A
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Följande steg beskriver hur du kan ange blob-nivå till arkivet med hjälp av A
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

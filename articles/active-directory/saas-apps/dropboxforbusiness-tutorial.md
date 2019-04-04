@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e54ea079789ddfb2a6d85f808453589637522f1d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d55ae4077b3ec14cb8dc2226714b094574ed9522
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896185"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Självstudier: Azure Active Directory-integrering med Dropbox for Business
 
@@ -53,7 +53,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att kunna konfigurera integreringen av Dropbox for Business i Azure AD måste du lägga till Dropbox for Business från galleriet i din lista över hanterade SaaS-appar.
 
-**Gör följande för att lägga till Dropbox for Business från galleriet:**
+**Utför följande steg för att lägga till Dropbox för företag från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -107,9 +107,9 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Dropbox fo
 
     ![Dropbox for Business – enkel inloggning-information för domän och -URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.dropbox.com/sso/<id>`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://www.dropbox.com/sso/<id>`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du ett värde: `Dropbox`
+    b. I den **identifierare (entitets-ID)** anger du ett värde: `Dropbox`
 
     > [!NOTE]
     > Föregående inloggnings-URL är inte verkligt. Du uppdaterar värdet med den faktiska inloggnings-URL:en, som förklaras senare i självstudien.
@@ -154,7 +154,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Dropbox fo
 
     ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurera enkel inloggning")
 
-    a. Välj **Required** (Obligatoriskt) som alternativ i listrutan för **enkel inloggning**.
+    a. Välj **krävs** som ett alternativ i listrutan för den **enkel inloggning**.
 
     b. Klicka på **Add sign-in URL** (Lägg till inloggnings-URL), och i textrutan **Identity provider sign-in URL** (Inloggnings-URL för identitetsprovider) klistrar in du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen och väljer sedan **Done** (Klart).
 
@@ -232,7 +232,7 @@ När du klickar på Dropbox for Business-panelen i åtkomstpanelen bör du autom
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

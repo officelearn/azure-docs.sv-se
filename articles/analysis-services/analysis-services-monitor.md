@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190860"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893188"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 
@@ -57,7 +57,7 @@ Använd den här tabellen för att avgöra vilka mått som är bäst för ditt �
 |MemoryUsage|Minne: Minnesanvändning|Byte|Medel|Minnesanvändning för serverprocessen som används för att beräkna tydligare minnespris. Lika med räknare Process\PrivateBytes plus storleken på minnesmappade data och ignorerar minne, som har mappats eller allokerats av den minnesintern Analysmotorn (VertiPaq) utöver motorns minnesgräns.|
 |Kvot|Minne: Kvot|Byte|Medel|Aktuella minneskvoten, i byte. Minneskvoten är även känd som en minnesreservation för bevilja eller minne.|
 |QuotaBlocked|Minne: Kvot blockerad|Antal|Medel|Aktuella antalet kvotbegäranden som blockeras tills andra minneskvoter.|
-|VertiPaqNonpaged|Minne: VertiPaq oväxlat|Byte|Medel|Byte av minne låst i arbetsminnet för användning av InMemory-motorn.|
+|VertiPaqNonpaged|Minne: VertiPaq Nonpaged|Byte|Medel|Byte av minne låst i arbetsminnet för användning av InMemory-motorn.|
 |VertiPaqPaged|Minne: VertiPaq växlat|Byte|Medel|Bytes med växlingsbart minne som används för data i minnet.|
 |ProcessingPoolJobQueueLength|Bearbetning av poolen Jobbkölängd|Antal|Medel|Antal icke-I/O-jobb i kön för bearbetningstrådpoolen.|
 |RowsConvertedPerSec|Bearbetar: Rader konverterade per sekund|CountPerSecond|Medel|Frekvensen som rader konverteras under bearbetning.|
@@ -87,4 +87,4 @@ Använd den här tabellen för att avgöra vilka mått som är bäst för ditt �
 ## <a name="next-steps"></a>Nästa steg
 [Övervaka i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Mått i Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Mått i Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Mått i Azure Monitor REST-API](/rest/api/monitor/metrics)

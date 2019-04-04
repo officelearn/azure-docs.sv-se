@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892763"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Varaktiga funktioner mönster och tekniska begrepp (Azure Functions)
 
@@ -415,7 +415,7 @@ Du kan förvänta dig att se redundant loggposter för uppspelat åtgärder på 
 
 Köer, tabeller och blobbar använder i Azure Storage tillägget varaktiga funktioner för att bevara körning historik tillstånd och utlöser körning av funktion. Du kan använda standardkontot för lagring för funktionsappen eller du kan konfigurera ett separat lagringskonto. Du kanske vill ett separat konto baserat på dataflöde gränser. Orchestrator-koden du skriver interagera inte med entiteter i dessa lagringskonton. Hållbar uppgift ramverket hanterar entiteterna direkt som en implementeringsdetalj.
 
-Orchestrator-funktioner schemalägga Aktivitetsfunktioner och få svar via interna Kömeddelanden. När en funktionsapp som körs i Azure Functions-förbrukningsplanen, den [Azure Functions skala controller](../functions-scale.md#how-the-consumption-plan-works) övervakar dessa köer. Nya instanser läggs efter behov. Vid utskalning till flera virtuella datorer, köra en orchestrator-funktion på en virtuell dator när Aktivitetsfunktioner som orchestrator-funktionsanrop som kan köras på flera olika virtuella datorer. Mer information om beteendet skala varaktiga funktioner finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
+Orchestrator-funktioner schemalägga Aktivitetsfunktioner och få svar via interna Kömeddelanden. När en funktionsapp som körs i Azure Functions-förbrukningsplanen, den [Azure Functions skala controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) övervakar dessa köer. Nya instanser läggs efter behov. Vid utskalning till flera virtuella datorer, köra en orchestrator-funktion på en virtuell dator när Aktivitetsfunktioner som orchestrator-funktionsanrop som kan köras på flera olika virtuella datorer. Mer information om beteendet skala varaktiga funktioner finns i [prestanda och skalning](durable-functions-perf-and-scale.md).
 
 Körningstiden för orchestrator-konton lagras i table storage. När en instans rehydrates på en viss virtuell dator, hämtar orchestrator dess körningshistorik från table storage så att den kan återskapa det lokala tillståndet. En praktisk aspekt av historik som är tillgängliga i table storage är att du kan använda verktyg som [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) att se historiken för din orkestreringar.
 

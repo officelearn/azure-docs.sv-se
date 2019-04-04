@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999966"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894977"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -57,15 +57,15 @@ Med Azure Migrate får du hjälp med att:
 
 Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegenskaperna sammanfattas i tabellen nedan.
 
-**Egenskap** | **Detaljer**
+**Egenskap ** | **Information**
 --- | ---
 **Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 33 regioner som målplatser för migrering. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, östra.
 **Lagringstyp** | Typen av de hanterade diskar som du vill allokera för alla virtuella datorer som ingår i utvärderingen. Om storlekskriteriet är *som lokal storleksbestämning* kan du ange måldisktypen som antingen premium-diskar (standard), standard-SSD-diskar eller standardhårddiskar. För *prestandabaserad storleksbestämning* har du utöver alternativen ovan även möjligheten att välja Automatiskt, vilket ser till att rekommendationen för storleksbestämning sker automatiskt baserat på prestandadata för de virtuella datorerna. Om du till exempel vill uppnå ett [serviceavtal för enskild virtuell datorinstans på 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) kan du ange lagringstypen som hanterade Premium-diskar, vilket säkerställer att alla diskar i utvärderingen rekommenderas som hanterade Premium-diskar. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
 **Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
-**Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
+**Kriterium för storleksändring** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
 **Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %.
 **Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. Standardkomfortinställningen är 1,3x.
-**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
+**Virtuell datorserie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
 **Valuta** | Faktureringsvalutan. Standardvärdet är USD.
 **Rabatt (%)** | Prenumerationsspecifika rabatter som du får utöver Azure-erbjudandet. Standardinställningen är 0%.
 **VM-drifttid** | Om dina virtuella datorer inte längre kommer att köra dygnet runt i Azure kan du ange hur länge (antalet dagar per månad och antalet timmar per dag) de kommer att köras så sker kostnadsuppskattningen i enlighet med detta. Standardvärdet är 31 dagar per månad och 24 timmar per dag.
@@ -103,6 +103,12 @@ När du har utvärderat lokala datorer kan du använda några olika verktyg för
 
 - **Azure Site Recovery**: Du kan använda Azure Site Recovery till att migrera till Azure. Det kan du göra genom att [förbereda Azure-komponenterna](../site-recovery/tutorial-prepare-azure.md) du behöver, bland annat ett lagringskonto och ett virtuellt nätverk. Lokalt [förbereder du VMware-miljön](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). När allt är förberett konfigurerar och aktiverar du replikering till Azure och migrerar de virtuella datorerna. [Läs mer](../site-recovery/vmware-azure-tutorial.md).
 - **Azure Database Migration**: Om de lokala datorerna använder en databas som SQL Server, MySQL eller Oracle, kan du använda [Azure Database Migration Service](../dms/dms-overview.md) till att migrera dem till Azure.
+
+## <a name="want-to-learn-more-from-community-experts"></a>Om du vill veta mer från experter?
+Gå till den [Azure Migrate MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) eller [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.  
+Om du har frågor eller behöver hjälp med att skapa en [supportförfrågan](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Om din supportbegäran kräver djupgående teknisk vägledning kan du besöka [supportavtal för Azure](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a66217641c833061d4626b7d393fd3cdd0fd56cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734633"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483617"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure Stack
 
@@ -55,20 +55,20 @@ När du ersätter disken identifieras den nya disken automatiskt i Azure Stack o
  När du ersätter disken kan du övervaka hälsostatus för virtuell disk och reparera jobbförlopp genom att använda privilegierad slutpunkt. Följ dessa steg från alla datorer som har en nätverksanslutning till privilegierad slutpunkt.
 
 1. Öppna en Windows PowerShell-session och Anslut till privilegierad slutpunkt.
-    ```PowerShell
+    ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ``` 
   
 2. Kör följande kommando för att visa hälsotillstånd för virtuell disk:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
    ![PowerShell-utdata från kommandot Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Kör följande kommando för att visa aktuell status för jobbet av lagring:
-    ```PowerShell
+    ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
       ![PowerShell-utdata från kommandot Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
@@ -76,6 +76,6 @@ När du ersätter disken identifieras den nya disken automatiskt i Azure Stack o
 ## <a name="troubleshoot-virtual-disk-repair"></a>Felsöka virtuell disk reparation
 
 Om den virtuella disken reparera visas jobb har fastnat, kör följande kommando för att starta om jobbet:
-  ```PowerShell
+  ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ``` 

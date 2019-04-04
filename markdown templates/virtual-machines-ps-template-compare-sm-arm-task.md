@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: aec6282daadc61b4e1bcf6bbaf1266d9bc98cdac
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895806"
+---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
 Info to help you use the template are enclosed in the Markdown comments using the caret, hyphen, dash syntax. Delete these from your file.
@@ -13,7 +21,7 @@ Pay attention to spacing and indents. They affect formatting.
 # <a name="use-azure-powershell-to-task"></a>Använda Azure PowerShell för att [aktivitet]
 Den här artikeln visar hur du [uppgift] med hjälp av kommandon från både Azure-modulen och Azure Resource Manager-modulen. Detta är avsett för att lära dig de nya kommandona också migrera befintliga skript till de nya kommandona.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Förutsättning: Installera en ny Version av Azure PowerShell
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Förutsättning: Installera den senaste versionen av Azure PowerShell
 Om du inte redan har gjort du minst installera [versionsnumret]-versionen av Azure PowerShell på den lokala datorn. Om du använder en tidigare version, inte den Azure Resource Manager-cmdletar som beskrivs i den här artikeln. Mer information finns i:
 
 * [Hur du installerar och konfigurerar du Azure PowerShell](install-configure-powershell.md) anvisningar om hur du konfigurerar Azure PowerShell.
@@ -36,7 +44,7 @@ Then, use the following syntax to add a reference to the image in your article:
 
 Dessa kommandoexempel använda följande variabler:
 
-$FriendlyName ”<Describe value>”
+$FriendlyName"<Describe value>"
 
 <!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
@@ -97,5 +105,5 @@ Här är ett exempel som använder [cmdlet-namnen)] till [aktivitet]. Det inklud
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Dokumentation om Virtual machines](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Dokumentation om virtuella datorer](/previous-versions/azure/jj156003(v=azure.100))
 

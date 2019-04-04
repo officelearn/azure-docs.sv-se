@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165836"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445251"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service i Azure Stack update 1 viktig information
 
@@ -56,6 +56,8 @@ Azure App Service i Azure Stack uppdatering 1 innehåller följande förbättrin
 - **Distribuera i befintliga virtuella nätverket** -kunder kan nu distribuera App Service i Azure Stack i ett befintligt virtuellt nätverk. Distribuera i ett befintligt virtuellt nätverk ger kunder möjlighet att ansluta till SQL Server och filserver, krävs för Azure App Service över privata portar. Under distributionen meddelar kunderna kan välja för att distribuera i ett befintligt virtuellt nätverk, men [måste skapa undernät för användning av App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) före distributionen.
 
 - Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
+
+- Uppdateringar **Azure Functions-körningen** till **v1.0.11388**.
 
 - **Uppdateringar till följande ramverk för programmet och verktyg**:
     - Lagt till **.NET Core 2.0** stöd

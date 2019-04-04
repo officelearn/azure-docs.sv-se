@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9f328e47a49a5c6c53c21baa880c38578c657a33
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733748"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904074"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrera en ASP.NET-app till Azure App Service med hjälp av en Windows-container (förhandsversion)
 
@@ -27,11 +27,11 @@ ms.locfileid: "55733748"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
-- <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
+- <a href="https://hub.docker.com/" target="_blank">Registrera dig för en Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2017</a> med arbetsbelastningarna **ASP.NET och webbutveckling** och **Azure-utveckling**. Om du redan har installerat Visual Studio 2017:
@@ -80,7 +80,7 @@ Från Solution Explorer öppnar du **Dockerfile**.
 Du måste använda en [överordnad avbildning som stöds](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod:
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Lägg till följande rad i slutet av filen och spara filen:
@@ -119,7 +119,7 @@ Konfigurera det nya containerregistret baserat på de föreslagna värdena i tab
 
 | Inställning  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
-|**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
+|**DNS Prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
 |**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
 |**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Västra Europa | |
@@ -144,7 +144,7 @@ I gränssnittet konfigurerar du inställningarna enligt tabellen nedan:
 | ----------------- | ------------ | ----|
 |**Appnamn**| Skriv ett unikt namn. | Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn. |
 |**Resursgrupp**| Välj **Använd befintlig** och skriv **myResourceGroup**. |  |
-|**OS**| Windows (förhandsversion) | |
+|**Operativsystem**| Windows (förhandsversion) | |
 
 ### <a name="configure-app-service-plan"></a>Konfigurera App Service-plan
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: b8c0d84f6989e60c7abef0d423230300896663de
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877915"
+ms.locfileid: "58905281"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger loggar
 
@@ -40,33 +40,37 @@ Om du använder en tidigare version av Microsoft.ApplicationInsights.AspNet SDK 
 2. ändra `Program.cs` enligt nedan
 
 ```csharp
-    using Microsoft.AspNetCore;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
-    public class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-       public static void Main(string[] args)
-       {
-           CreateWebHostBuilder(args).Build().Run();
-       }
+        CreateWebHostBuilder(args).Build().Run();
+    }
 
-       public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
         .UseStartup<Startup>()
         .ConfigureLogging(
             builder =>
-                {
-                    // Providing an instrumentation key here is required if you are using standalone package Microsoft.Extensions.Logging.ApplicationInsights
-                    // or if you want to capture logs from early in the application startup pipeline from Startup.cs or Program.cs itself.
-                    builder.AddApplicationInsights("ikey");
+            {
+                // Providing an instrumentation key here is required if you are using
+                // standalone package Microsoft.Extensions.Logging.ApplicationInsights
+                // or if you want to capture logs from early in the application startup
+                // pipeline from Startup.cs or Program.cs itself.
+                builder.AddApplicationInsights("ikey");
 
-                    // Optional: Apply filters to control what logs are sent to Application Insights.
-                    // The following configures LogLevel Information or above to be sent to Application Insights for all categories.
-                    builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("", LogLevel.Information);
-                }
-            );
-    }
+                // Optional: Apply filters to control what logs are sent to Application Insights.
+                // The following configures LogLevel Information or above to be sent to
+                // Application Insights for all categories.
+                builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                                 ("", LogLevel.Information);
+            }
+        );
+}
 ```
 
 Koden ovan kommer att konfigurera `ApplicationInsightsLoggerProvider`. Följande visar ett exempel kontrollantklassen som använder `ILogger` skicka loggar som avbildas av ApplicationInsights.
@@ -106,40 +110,46 @@ Följande visar exempel på `Program.cs` och `Startup.cs` med den här funktione
 #### <a name="example-programcs"></a>Exempel Program.cs
 
 ```csharp
-    using Microsoft.AspNetCore;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
 
-    public class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var host = CreateWebHostBuilder(args).Build();
-            var logger = host.Services.GetRequiredService<ILogger<Program>>();
-            // This will be picked up by AI
-            logger.LogInformation("From Program. Running the host now..");
-            host.Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>()
-            .ConfigureLogging(
-              builder =>
-                  {
-                    // providing an instrumentation key here is required if you are using standalone package Microsoft.Extensions.Logging.ApplicationInsights
-                    // or if you want to capture logs from early in the application startup pipeline from Startup.cs or Program.cs itself.
-                    builder.AddApplicationInsights("ikey");
-
-                    // Adding the filter below to ensure logs of all severity from Program.cs is sent to ApplicationInsights.
-                    // Replace YourAppName with the namespace of your application's Program.cs
-                    builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("YourAppName.Program", LogLevel.Trace);
-                    // Adding the filter below to ensure logs of all severity from Startup.cs is sent to ApplicationInsights.
-                    // Replace YourAppName with the namespace of your application's Startup.cs
-                    builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("YourAppName.Startup", LogLevel.Trace);
-                  }
-                );
+        var host = CreateWebHostBuilder(args).Build();
+        var logger = host.Services.GetRequiredService<ILogger<Program>>();
+        // This will be picked up by AI
+        logger.LogInformation("From Program. Running the host now..");
+        host.Run();
     }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureLogging(
+        builder =>
+            {
+            // providing an instrumentation key here is required if you are using
+            // standalone package Microsoft.Extensions.Logging.ApplicationInsights
+            // or if you want to capture logs from early in the application startup 
+            // pipeline from Startup.cs or Program.cs itself.
+            builder.AddApplicationInsights("ikey");
+
+            // Adding the filter below to ensure logs of all severity from Program.cs
+            // is sent to ApplicationInsights.
+            // Replace YourAppName with the namespace of your application's Program.cs
+            builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                             ("YourAppName.Program", LogLevel.Trace);
+            // Adding the filter below to ensure logs of all severity from Startup.cs
+            // is sent to ApplicationInsights.
+            // Replace YourAppName with the namespace of your application's Startup.cs
+            builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                             ("YourAppName.Startup", LogLevel.Trace);
+            }
+        );
+}
 ```
 
 #### <a name="example-startupcs"></a>Exempel Startup.cs
@@ -235,13 +245,13 @@ class Program
         );
 
         // Add the logging pipelines to use. We are using Application Insights only here.
-        services.AddLogging(loggingBuilder =>
+        services.AddLogging(builder =>
         {
-            // Optional: Apply filters to configure LogLevel Trace or above is sent to Application Insights for all
-            // categories.
-            loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
-                                                                                    ("", LogLevel.Trace);
-            loggingBuilder.AddApplicationInsights("--YourAIKeyHere--");
+            // Optional: Apply filters to configure LogLevel Trace or above is sent to
+            // Application Insights for all categories.
+            builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                             ("", LogLevel.Trace);
+            builder.AddApplicationInsights("--YourAIKeyHere--");
         });
 
         // Build ServiceProvider.
@@ -337,8 +347,10 @@ Den under kodfragmentet konfigurerar loggar `Warning` och senare från alla kate
     WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
     .ConfigureLogging(logging =>
-        logging.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("", LogLevel.Warning)
-               .AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Error);
+      logging.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                        ("", LogLevel.Warning)
+             .AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                        ("Microsoft", LogLevel.Error);
 ```
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
@@ -382,7 +394,8 @@ Den under kodfragmentet konfigurerar loggar `Warning` och senare från alla kate
   I koden
 
     ```csharp
-        builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("", LogLevel.None);
+        builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
+                          ("", LogLevel.None);
     ```
 
   I konfigurationen
@@ -409,6 +422,50 @@ Om du vill skicka alltid `TraceTelemetry`, använda kodfragmentet ```builder.Add
 *5. Jag behöver SDK är installerat, och jag använder Azure Web App Extension för att aktivera Application Insights för Mina Asp.Net Core-program. Hur kan jag använda den nya providern?*
 
 * Application Insights-tillägget i Azure Web App använder den gamla-providern. Filtreringsregler kan ändras i `appsettings.json` för ditt program. Om du vill dra nytta av den nya providern kan du använda byggning instrumentation genom att nuget beroende på SDK: N. Det här dokumentet kommer att uppdateras när tillägget växlar till att använda den nya providern.
+
+*6. Jag är med hjälp av det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och aktivera Application Insights-providern genom att anropa builder. AddApplicationInsights("ikey"). Finns det ett alternativ för att hämta instrumenteringsnyckeln från konfigurationen?*
+
+
+* Ändra `Program.cs` och `appsettings.json` enligt nedan.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                // hostingContext.HostingEnvironment can be used to determine environments as well.
+                var appInsightKey = hostingContext.Configuration["myikeyfromconfig"];
+                logging.AddApplicationInsights(appInsightKey);
+            });
+}
+```
+
+Relevant avsnitt från `appsettings.json`
+
+```json
+{
+  "myikeyfromconfig": "putrealikeyhere"
+}
+```
+
+Koden ovan krävs endast när du använder fristående loggningsprovider. För vanliga Application Insights-övervakning, instrumenteringsnyckeln läses in automatiskt från konfigurationssökvägen `ApplicationInsights:Instrumentationkey` och `appsettings.json` bör se ut som nedan.
+
+```json
+{
+  "ApplicationInsights":
+    {
+        "Instrumentationkey":"putrealikeyhere"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

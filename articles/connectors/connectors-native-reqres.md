@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552188"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892837"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Kom igång med begäranden och svar-komponenter
 Med begäranden och svar-komponenter i en logikapp kan du svara i realtid på händelser.
@@ -34,7 +34,8 @@ Du kan till exempel:
 Kom igång med åtgärderna som begäran och svar i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Använda HTTP-begäran-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare](connectors-overview.md).
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. 
+[Mer information om utlösare](../connectors/apis-list.md).
 
 Här är en Exempelsekvens av hur du ställer in en HTTP-begäran i Logic App Designer.
 

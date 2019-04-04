@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745681"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916707"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Kända problem med Azure Monitor för virtuella datorer (förhandsversion)
 
@@ -31,7 +31,6 @@ Följande är kända problem med den aktuella versionen av funktionen hälsotill
 - Om en Azure-dator har tagits bort eller tagits bort, visas den i VM-listvyn under en viss tid. Även om du klickar på tillståndet för en virtuell dator har tagits bort eller borttagna öppnas den **hälsotillstånd diagnostik** visa och sedan startar en inläsning av slinga. Väljer namnet på den borttagna virtuella datorn öppnas ett fönster med ett meddelande om att den virtuella datorn har tagits bort.
 - Konfigurationsändringar, till exempel att uppdatera ett tröskelvärde ta upp till 30 minuter, även om portalen eller arbetsbelastning övervakaren API kan uppdatera dem omedelbart. 
 - Diagnostik för hälsa får uppdateringar snabbare än andra vyer. Informationen kan fördröjas när du växlar mellan dem. 
-- Stänga av virtuella datorer uppdateras vissa av Hälsokriterier som *kritiska* och andra i *felfri*. Net VM-status visas som *kritiska*.
 - För virtuella Linux-datorer har titeln på den sida där hälsotillstånd villkoren för en enda VM-vy hela domännamnet för den virtuella datorn i stället för en användardefinierad VM-namn. 
 - När du inaktiverar övervakning för en virtuell dator med en av metoderna som stöds och du försöker distribuera den igen, bör du distribuera den på samma arbetsyta. Om du väljer en annan arbetsyta och försök att visa hälsotillståndet för den virtuella datorn kan visas det inkonsekvent beteende.
 - Total processoranvändning hälsotillstånd kriterium för Windows visas ett tröskelvärde för *inte lika med* **4**, betydelse CPU-belastningen är större än 95% och kölängden för systemet är större än 15. Det här kriteriet för hälsotillstånd kan inte konfigureras i den här förhandsversionen.  

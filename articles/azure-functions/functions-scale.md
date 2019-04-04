@@ -1,31 +1,31 @@
 ---
 title: Azure Functions skalning och värdtjänster | Microsoft Docs
-description: Lär dig hur du väljer mellan Azure Functions-förbrukningsplanen och App Service-plan.
+description: Lär dig hur du väljer mellan Azure Functions-förbrukningsplanen och premiumplan.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure functions, funktion, förbrukningsplan, app service-plan, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
+keywords: Azure functions, funktion, förbrukningsplan, premiumplan, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/28/2019
+ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117259"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893596"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
-Azure Functions körs i två olika lägen: Förbrukningsplan och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.
+Azure Functions som körs i två olika planer: Förbrukningsplan och premiumplan (offentlig förhandsversion). Med förbrukningsplanen läggs automatiskt datorkraft när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalas när koden har körts. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.  Premium-prenumerationen kommer också automatiskt skala och lägga till ytterligare datorkraft när koden körs.  Premiumprenumerationen levereras med ytterligare funktioner som premium-beräkningsinstanser, möjlighet att behålla instanser varma på obestämd tid och VNet-anslutning.  Du kan också köra dina funktionsappar i dem om du har en befintlig App Service-Plan.
 
 > [!NOTE]  
-> Förbrukningsplan för Linux är [nu som offentlig förhandsversion](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
+> Båda [premiumprenumerationen](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) och [förbrukningsplan för Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) finns för närvarande i förhandsversion.
 
 Om du inte är bekant med Azure Functions finns i den [översikt över Azure Functions](functions-overview.md).
 
@@ -33,42 +33,62 @@ När du skapar en funktionsapp kan välja du värdplanen för funktioner i appen
 
 * Hur ha instanser skalas ut.
 * Resurser som är tillgängliga för varje värd.
+* Instansfunktioner som VNet-anslutning.
 
-> [!IMPORTANT]
-> Du måste välja vilken typ av värdplan under genereringen av funktionsappen. Du kan inte ändra efteråt.
-
-Du kan skala mellan nivåerna för att allokera olika mängd resurser på en App Service-plan. I förbrukningsplanen hanterar Azure Functions automatiskt alla resursallokering. 
+> [!NOTE]
+> Du kan växla mellan förbrukning och Premium-prenumerationen genom att ändra egenskapen plan för funktionen app-resursen.
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
-När du använder en förbrukningsplan är dynamiskt instanser av Azure Functions-värden har lagts till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras för beräkningsresurser bara när dina funktioner körs. I en förbrukningsplan gör körning av en funktion timeout när en konfigurerbar tidsperiod.
+När du använder förbrukningsplanen är dynamiskt instanser av Azure Functions-värden har lagts till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras för beräkningsresurser bara när dina funktioner körs. I en förbrukningsplan gör körning av en funktion timeout när en konfigurerbar tidsperiod.
 
-Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions-priserna sidan].
+Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions sidan med priser].
 
 Med förbrukningsplanen är standard värdplan och har följande fördelar:
 
 * Betala endast när dina funktioner körs.
 * Skala ut automatiskt, även under perioder med hög att läsa in.
 
-## <a name="app-service-plan"></a>App Service-plan
+## <a name="premium-plan-public-preview"></a>Premiumprenumerationen (offentlig förhandsversion)
 
-I den dedikerade App Service-planen kör dina funktionsappar på dedikerade virtuella datorer på Basic, Standard, Premium och isolerade SKU: er, vilket är samma som andra App Service-appar. Dedikerade virtuella datorer allokeras till din funktionsapp, vilket innebär att functions-värden kan vara [alltid körs](#always-on). App Service-planer har stöd för Linux.
+När du använder Premium-prenumerationen, läggs och tas bort baserat på antalet inkommande händelser precis som med förbrukningsplanen snabbt instanser av Azure Functions-värden.  Premiumprenumerationen erbjuder dock även:
 
-Överväg en App Service-plan i följande fall:
+* Alltid värmt instanser för att undvika eventuella kallstart.
+* VNet-anslutning.
+* Obegränsade körningstid.
+* Premium instansstorlekar (en kärna, två kärnor och fyra kärnor instanser).
+* Predictable prisalternativ.
+* Högdensitet app tilldelning för planer med flera funktionsappar.
 
-* Du har befintliga, underutnyttjade virtuella datorer som redan kör andra App Service-instanser.
+Information om hur du kan konfigurera de här alternativen finns i den [premiumplan för Azure Functions](functions-premium-plan.md).
+
+I stället för fakturering per körning och minne som förbrukas baseras fakturering på antalet kärnor sekunder och GB-sekunder som används för nödvändiga och reserverade instanser.  Minst en instans behöver vara varma på alla tider, det är en fast månatlig kostnad per plan som är aktiv (oavsett antalet körningar).
+
+Överväg premiumplan för Azure Functions i följande fall:
 * Dina funktionsappar kör kontinuerligt eller nästan kontinuerligt. I det här fallet kan en App Service Plan vara mer kostnadseffektivt.
 * Du behöver fler alternativ än vad som tillhandahålls på förbrukningsplanen som CPU eller minne.
 * Koden ska köras längre än den [högsta körningstiden tillåtna](#timeout) på förbrukningsplanen.
 * Du behöver funktioner som endast är tillgängliga i en App Service-plan, till exempel stöd för App Service Environment, virtuellt nätverk/VPN-anslutning och större storlekar för Virtuella datorer.
+
+> [!NOTE]
+> Förhandsversionen av premium-plan stöder för närvarande funktioner som körs i .NET, noden eller Java via Windows-infrastrukturen.
+
+När du kör JavaScript-funktioner på en premiumplan, bör du välja en instans som har färre virtuella processorer. Mer information finns i den [väljer enkel kärna premiumplaner](functions-reference-node.md#considerations-for-javascript-functions).  
+
+## <a name="app-service-plan"></a>App Service-plan
+
+Dina funktionsappar kan också köra på samma dedikerade virtuella datorer som andra App Service-appar (Basic, Standard, Premium och isolerade SKU: er). App Service-planer har stöd för Linux.
+
+Överväg en App Service-plan i följande fall:
+
+* Du har befintliga, underutnyttjade virtuella datorer som redan kör andra App Service-instanser.
 * Du vill köra funktionsappen på Linux eller vill du ange en anpassad avbildning som du vill köra dina funktioner.
 
-En virtuell dator frikopplar kostnaden från antalet körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för den VM-instans som du tilldelar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md). 
+Betala samma för funktionsappar i en App Service Plan som för andra App Service-resurser, t.ex. webbappar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md). 
 
 Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
 
-När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i [väljer App Service-planer med enkel kärna](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
-
+När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i [väljer App Service-planer med enkel kärna](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
 ### <a name="always-on"></a> Alltid på
@@ -90,26 +110,26 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-När utdata från det här kommandot är `dynamic`, funktionsappen är i förbrukningsplanen. Alla andra värden ange nivån för en App Service plan.
+När utdata från det här kommandot är `dynamic`, funktionsappen är i förbrukningsplanen. När utdata från det här kommandot är `ElasticPremium`, funktionsappen är i Premium-prenumerationen.  Alla andra värden ange nivån för en App Service plan.
 
 Även med alltid aktiverad, tidsgränsen för körningar för enskilda funktioner styrs av den `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-En funktionsapp kräver ett allmänt Azure Storage-konto som har stöd för Azure Blob, kö, filer och tabell för lagring på en förbrukningsplan eller en App Service plan. Detta beror på funktioner som förlitar sig på Azure Storage för åtgärder som att hantera utlösare och logga funktionskörningar, men vissa lagringskonton stöder inte köer och tabeller. Dessa konton, bland annat endast blob storage-konton (inklusive premiumlagring) och lagringskonton med replikering för zonredundant lagring, är filtrerat ut från din befintliga **Lagringskonto** val när du skapar en funktionsapp.
+En funktionsapp kräver ett allmänt Azure Storage-konto som har stöd för Azure Blob, kö, filer och tabell för lagring på ett schema. Detta beror på funktioner som förlitar sig på Azure Storage för åtgärder som att hantera utlösare och logga funktionskörningar, men vissa lagringskonton stöder inte köer och tabeller. Dessa konton, bland annat endast blob storage-konton (inklusive premiumlagring) och lagringskonton med replikering för zonredundant lagring, är filtrerat ut från din befintliga **Lagringskonto** val när du skapar en funktionsapp.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Mer information om lagringskontotyper finns [introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-plan-works"></a>Hur förbrukningsplanen fungerar
+## <a name="how-the-consumption-and-premium-plans-work"></a>Så här fungerar användnings- och premium-planer
 
-I förbrukningsplan kan skalas kontrollanten skala automatiskt Processorn och minnesresurser genom att lägga till ytterligare instanser för Functions-värden, baserat på antalet händelser som utlöses på dess funktioner. Varje instans av Functions-värden är begränsad till 1,5 GB minne.  En instans av värden är funktionsappen, vilket innebär att alla funktioner i en funktionen app-resurs i en instans och skala på samma gång. Funktionsappar som delar samma förbrukningsplan skalas oberoende av varandra.  
+I förbrukning och premium-prenumerationer skalas kontrollanten skala automatiskt Processorn och minnesresurser genom att lägga till ytterligare instanser för Functions-värden, baserat på antalet händelser som utlöses på dess funktioner. Varje instans av Functions-värd i förbrukningsplanen är begränsad till 1,5 GB minne och 1 CPU.  En instans av värden är hela funktionsappen, vilket innebär att alla funktioner i en funktionen app-resurs i en instans och skala på samma gång. Funktionsappar som delar samma förbrukningsplan skalas oberoende av varandra.  I premiumplanen avgör storleken på din plan tillgängligt minne och CPU för alla appar i den här planen på instansen.  
 
-När du använder Förbrukningsvärdplanen lagras funktionen kodfiler på Azure-filresurser på funktionens huvudlagringskontot. När du tar bort huvudlagringskontot av funktionsappen kodfiler funktionen tas bort och kan inte återställas.
+Funktionen kodfiler lagras på Azure-filresurser på funktionens huvudlagringskontot. När du tar bort huvudlagringskontot av funktionsappen kodfiler funktionen tas bort och kan inte återställas.
 
 > [!NOTE]
-> När du använder en blob-utlösare i en förbrukningsplan, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar. Den här fördröjningen uppstår när en funktionsapp är inaktiv. När appen körs behandlas BLOB-objekt direkt. För att undvika den här kallstart fördröjningen kan använda en App Service-plan med **Always On** aktiverad, eller använda Event Grid-utlösaren. Mer information finns i [referensartikeln för blob-utlösare bindning](functions-bindings-storage-blob.md#trigger).
+> När du använder en blob-utlösare i en förbrukningsplan, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar. Den här fördröjningen uppstår när en funktionsapp är inaktiv. När appen körs behandlas BLOB-objekt direkt. Använd Premium-prenumerationen för att undvika denna kallstart fördröjning, eller Använd den [Event Grid-utlösare](functions-bindings-event-grid.md). Mer information finns i [referensartikeln för blob-utlösare bindning](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Runtime skalning
 
@@ -137,9 +157,11 @@ Det finns många aspekter av en funktionsapp som påverkar hur väl den skalas, 
 
 ### <a name="billing-model"></a>Faktureringsmodell
 
-Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Functions-priserna sidan]. Användning sammanställs på funktionen app-nivå och räknar bara den tid som Funktionskoden körs. Här följer några enheter för fakturering:
+Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Functions sidan med priser]. Användning sammanställs på funktionen app-nivå och räknar bara den tid som Funktionskoden körs. Här följer några enheter för fakturering:
 
 * **Resursförbrukning i gigabyte-sekunder (GB-s)**. Beräknad som en kombination av minnesstorlek och körningstid för alla funktioner i en funktionsapp. 
 * **Körningar**. Räknas varje gång en funktion körs som svar på en händelseutlösare.
+
+Användbara frågor och information om hur du förstå fakturan förbrukning finns [på fakturering vanliga](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions-priserna sidan]: https://azure.microsoft.com/pricing/details/functions

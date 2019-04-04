@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093688"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916826"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
-Den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network (CDN)](cdn-overview.md) slutpunkt i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan börja du leverera innehåll till dina kunder. En Snabbstart om hur du skapar en profil och slutpunkt finns [Snabbstart: skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md).
+Den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network (CDN)](cdn-overview.md) slutpunkt i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan börja du leverera innehåll till dina kunder. En Snabbstart om hur du skapar en profil och slutpunkt finns [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en CDN-slutpunkt, måste du ha skapat minst en CDN-profil som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-priserna tillämpas på CDN-profilnivå, måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN-prisnivåer. Om du vill skapa en CDN-profil, [skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > [!NOTE]
    > Den **ursprungsport** värdet påverkar bara vilken port slutpunkten använder för att hämta information från den ursprungliga servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  
    > 
-   > Slutpunkter i **Azure CDN from Akamai**-profiler tillåter inte hela TCP-portintervallet för ursprungsportar. En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > Slutpunkter i **Azure CDN from Akamai**-profiler tillåter inte hela TCP-portintervallet för ursprungsportar. En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](/previous-versions/azure/mt757337(v=azure.100)).  
    > 
    > HTTPS-stöd för anpassade Azure CDN-domäner stöds inte på **Azure CDN från Akamai** produkter. Mer information finns i [Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
     
@@ -84,7 +84,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
     - **Azure CDN Standard från Akamai** profiler:
        - [**Allmän webbleverans**](cdn-optimization-overview.md#general-web-delivery)
        - [**Allmän mediedirektuppspelning**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Video på begäran**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Mediedirektuppspelning av video på begäran**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Nedladdning av stora filer**](cdn-optimization-overview.md#large-file-download)
        - [**Acceleration av dynamisk webbplats**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

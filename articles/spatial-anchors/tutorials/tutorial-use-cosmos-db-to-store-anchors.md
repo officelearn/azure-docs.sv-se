@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628928"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915263"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudier: Dela Azure Spatial ankare flera sessioner och enheter med ett Azure Cosmos DB-serverdel
 
@@ -70,7 +70,7 @@ Leta upp den `StorageConnectionString` egenskap och ange det värde som ska vara
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du använda Azure Cosmos DB för att dela fästpunktsidentifierare mellan enheter. Om du vill veta mer om Azure Spatial Anchors-biblioteket fortsätter du till vår guide om hur du skapar och hittar fästpunkter.
+I den här självstudien har du använda Azure Cosmos DB för att dela fästpunktsidentifierare mellan enheter. Om du vill veta mer om hur du använder Azure Spatial fästpunkter i en ny Android-app kan du fortsätta till nästa självstudie.
 
 > [!div class="nextstepaction"]
-> [Skapa och hitta fästpunkter med hjälp av Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Startar en ny Android-app](./tutorial-new-android-app.md)

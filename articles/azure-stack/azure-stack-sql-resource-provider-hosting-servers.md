@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210534"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499241"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -186,14 +186,19 @@ SKU: er kan inte tilldelas till specifika användare eller grupper.
 
 SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
 
-Om du vill redigera en SKU, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
+Om du vill redigera en SKU, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. 
 
-> [!TIP]
-> Du kan redigera eller ta bort SQL-providern resurskvoter på samma plats.
+Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
+
+> [!IMPORTANT]
+> Det kan ta upp till en timme innan nya SKU: er ska vara tillgängliga i användarportalen.
 
 ## <a name="make-sql-databases-available-to-users"></a>Gör SQL-databaser som är tillgängliga för användare
 
 Skapa planer och erbjudanden att tillgängliggöra SQL-databaser för användare. Lägg till den **Microsoft.SqlAdapter** service för att planen och skapa en ny kvot.
+
+> [!IMPORTANT]
+> Det kan ta upp till två timmar för nya kvoter att vara tillgänglig i användarportalen eller innan en ändrad kvot tillämpas.
 
 ## <a name="next-steps"></a>Nästa steg
 

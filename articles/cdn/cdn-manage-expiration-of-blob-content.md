@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531937"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916809"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Hanterar du förfallodatum för Azure Blob-lagring i Azure CDN
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Inställningen Cache-Control-huvuden med hjälp av .NET
-Ange en blob `Cache-Control` rubrik med hjälp av .NET-kod, Använd den [Azure Storage-klientbiblioteket för .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) att ställa in den [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) egenskapen.
+Ange en blob `Cache-Control` rubrik med hjälp av .NET-kod, Använd den [Azure Storage-klientbiblioteket för .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) att ställa in den [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl) egenskapen.
 
 Exempel:
 
@@ -163,18 +163,18 @@ Att uppdatera den *CacheControl* egenskapen för en blob med Azure Storage Explo
 ![Azure Storage Explorer-egenskaper](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
-Med den [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), kan du hantera Azure blob-resurser från kommandoraden. Att ställa in cache-control-huvudet när du laddar upp en blob med Azure CLI i *cacheControl* egenskapen genom att använda den `-p` växla. I följande exempel visas hur du ställer in TTL-värdet till en timme (3 600 sekunder):
+Med den [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure) (CLI), kan du hantera Azure blob-resurser från kommandoraden. Att ställa in cache-control-huvudet när du laddar upp en blob med Azure CLI i *cacheControl* egenskapen genom att använda den `-p` växla. I följande exempel visas hur du ställer in TTL-värdet till en timme (3 600 sekunder):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure storage services REST API
-Du kan använda den [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) att explicit ange det *x-ms-blob-cache-control* egenskapen med hjälp av följande åtgärder på en begäran:
+Du kan använda den [Azure storage services REST API](/rest/api/storageservices/) att explicit ange det *x-ms-blob-cache-control* egenskapen med hjälp av följande åtgärder på en begäran:
   
-   - [Placera Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
-   - [Placera Blockeringslista](https://msdn.microsoft.com/library/azure/dd179467.aspx)
-   - [Ange Blob-egenskaper](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](/rest/api/storageservices/Put-Blob)
+   - [Placera Blockeringslista](/rest/api/storageservices/Put-Block-List)
+   - [Ange Blob-egenskaper](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
 Du kan enkelt kontrollera TTL-inställningarna för dina blobar. Med din webbläsare [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som innehåller din blob i `Cache-Control` svarshuvudet. Du kan också använda ett verktyg som [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), eller [Fiddler](https://www.telerik.com/fiddler) att undersöka svarshuvuden.

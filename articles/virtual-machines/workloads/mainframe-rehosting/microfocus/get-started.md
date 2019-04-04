@@ -1,19 +1,17 @@
 ---
 title: Micro fokus dev/test-miljöer i Azure | Microsoft Docs
 description: Ange ny värd för dina IBM z/OS stordatorprogram arbetsbelastningar med hjälp av Micro fokus lösningar på Azure virtual machines (VM).
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739846"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893784"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Micro fokus dev/test-miljöer i Azure
 
@@ -25,5 +23,6 @@ Micro fokus erbjuder rehosting av utveckling och testning rehosting lösningar s
 
 **Nästa steg**
 
-- [Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure](./set-up-micro-focus-on-azure.md)
+- [Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure](./set-up-micro-focus-azure.md)
 - [Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 i Azure](./demo.md)
+- [Kör företagsservern i Docker-behållare i Azure](./run-enterprise-server-container.md)

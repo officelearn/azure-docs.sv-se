@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862003"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918526"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automatiseringsscenarier för hantering av fakturerings- och kostnad
 
@@ -80,9 +80,9 @@ Web Direct och Enterprise-kunder kan använda alla de följande API: er, utom d�
 
 -   [Användning beskriver API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Få information om kostnad och användning på alla Azure-resurser från Microsoft. Informationen är i form av den användningsposter för information, som genereras för närvarande en gång per mätnings per dag. Du kan använda informationen för att lägga till upp kostnader över alla resurser eller undersöka kostnader/användning på specifika resurser.
 
--   [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx): Få mätaren betalning om du är direktkund Web. Du kan sedan använda den returnerade informationen med din resurs användningsinformation för att beräkna den förväntade fakturan manuellt. 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Få mätaren betalning om du är direktkund Web. Du kan sedan använda den returnerade informationen med din resurs användningsinformation för att beräkna den förväntade fakturan manuellt. 
 
--   [Oklassificerat användnings-API](https://msdn.microsoft.com/library/azure/mt219003.aspx): Få information om rådata användningen innan Azure gör eventuella mätning/debitera.
+-   [Oklassificerat användnings-API](/previous-versions/azure/reference/mt219003(v=azure.100)): Få information om rådata användningen innan Azure gör eventuella mätning/debitera.
 
 ### <a name="billing"></a>Fakturering
 -   [Fakturering perioder API](https://docs.microsoft.com/rest/api/billing/billingperiods): Fastställa en faktureringsperiod att analysera, tillsammans med fakturan ID: N för den perioden. Du kan använda faktura ID: N med API för fakturor.
@@ -121,7 +121,7 @@ Dessa API: er ger helt olika data:
    - Ändringar för användning av förbetalda monetära åtaganden
    - Ändringar för användning avvikelser som identifierats av Azure
 
-- Den [användning API](https://msdn.microsoft.com/library/Mt219003.aspx) innehåller raw användningen av Azure information innan den går igenom kostnaden för Avläsning av system i Azure. Dessa data kanske inte har alla samband med användning eller laddning belopp som visas när Azure debiterar Avläsning av systemet.
+- Den [användning API](/previous-versions/azure/reference/mt219003(v=azure.100)) innehåller raw användningen av Azure information innan den går igenom kostnaden för Avläsning av system i Azure. Dessa data kanske inte har alla samband med användning eller laddning belopp som visas när Azure debiterar Avläsning av systemet.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Vad är skillnaden mellan API: et faktura och användning information om API: et?
 Dessa API: er ger en annan vy av samma data:
@@ -135,7 +135,7 @@ Dessa API: er tillhandahåller en liknande uppsättning data men har olika målg
 
 - Den [Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) innehåller den anpassade priser som var förhandlas för en företagskund.
 
-- Den [: T för RateCard](https://msdn.microsoft.com/library/mt219005.aspx) innehåller den offentliga pris som gäller för Web Direct-kunder.
+- Den [: T för RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) innehåller den offentliga pris som gäller för Web Direct-kunder.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007787"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917625"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Hur du konfigurerar och köra startåtgärder för en molntjänst
 Du kan använda startåtgärder för att utföra åtgärder innan en roll startas. Åtgärder som du kanske vill utföra omfattar installera en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process.
@@ -30,7 +30,7 @@ Du kan använda startåtgärder för att utföra åtgärder innan en roll starta
 > 
 
 ## <a name="how-startup-tasks-work"></a>Hur fungerar startåtgärder
-Startåtgärder är åtgärder som vidtas innan dina roller startas och definieras i den [ServiceDefinition.csdef] filen med hjälp av den [Aktivitet] element i den [Start] element. Startåtgärder är ofta batch-filer, men de kan även vara konsolprogram eller batchfiler som startar PowerShell-skript.
+Startåtgärder är åtgärder som vidtas innan dina roller startas och definieras i den [ServiceDefinition.csdef] filen med hjälp av den [uppgift] element i den [Start] element. Startåtgärder är ofta batch-filer, men de kan även vara konsolprogram eller batchfiler som startar PowerShell-skript.
 
 Miljövariabler skickar information till en startåtgärd och lokal lagring som kan användas för att överföra information från en startåtgärd. Till exempel en miljövariabel kan ange sökvägen till ett program som du vill installera och går att skriva filer till lokal lagring som kan läsas senare sedan av dina roller.
 
@@ -50,13 +50,13 @@ Här nedan listas startproceduren roll i Azure:
    * Den **bakgrund** och **förgrunden** aktiviteterna startas asynkront, parallell till startåtgärden.  
      
      > [!WARNING]
-     > IIS kan inte konfigureras fullständigt under start uppgift valet i startprocessen, så rollspecifika data är inte kanske tillgänglig. Startåtgärder som kräver att rollspecifika data bör använda [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > IIS kan inte konfigureras fullständigt under start uppgift valet i startprocessen, så rollspecifika data är inte kanske tillgänglig. Startåtgärder som kräver att rollspecifika data bör använda [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. Värdprocess för rollen har startats och webbplatsen skapas i IIS.
-4. Den [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) metoden anropas.
+4. Den [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) metoden anropas.
 5. Instansen är markerad som **redo** och trafiken dirigeras till instansen.
-6. Den [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) metoden anropas.
+6. Den [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) metoden anropas.
 
 ## <a name="example-of-a-startup-task"></a>Exempel på en startåtgärd
 Startåtgärder är definierade i den [ServiceDefinition.csdef] filen den **uppgift** element. Den **commandLine** attributet anger namnet och parametrarna Start batch-fil eller konsolen kommandot den **executionContext** attributet anger behörighetsnivå för startåtgärden, och **taskType** attributet anger hur aktiviteten körs.
@@ -128,13 +128,13 @@ Nedan beskrivs attributen för den **uppgift** elementet i den [ServiceDefinitio
 ## <a name="environment-variables"></a>Miljövariabler
 Miljövariabler är ett sätt att skicka information till en startåtgärd. Du kan till exempel ange sökvägen till en blob som innehåller ett program att installera, eller portnummer som ska använda för din roll eller inställningar för att styra funktioner på dina startåtgärd.
 
-Det finns två typer av miljövariabler för startåtgärder; statisk miljövariabler och miljövariabler baserat på medlemmar i den [RoleEnvironment] klass. Båda finns i den [miljö] delen av den [ServiceDefinition.csdef] fil- och båda använda den [Variabel] element och **namn** attributet.
+Det finns två typer av miljövariabler för startåtgärder; statisk miljövariabler och miljövariabler baserat på medlemmar i den [RoleEnvironment] klass. Båda finns i den [miljö] delen av den [ServiceDefinition.csdef] fil- och båda använda den [variabeln] element och **namn** attributet.
 
-Statisk miljövariabler använder den **värdet** attributet för den [Variabel] element. Exemplet ovan skapar miljövariabeln **MyVersionNumber** som har ett statiskt värde för ”**1.0.0.0**”. Ett annat exempel är att skapa en **StagingOrProduction** miljövariabeln som du kan manuellt lägga till värden för ”**mellanlagring**” eller ”**produktion**” att utföra olika startåtgärderna baserat på värdet för den **StagingOrProduction** miljövariabeln.
+Statisk miljövariabler använder den **värdet** attributet för den [variabeln] element. Exemplet ovan skapar miljövariabeln **MyVersionNumber** som har ett statiskt värde för ”**1.0.0.0**”. Ett annat exempel är att skapa en **StagingOrProduction** miljövariabeln som du kan manuellt lägga till värden för ”**mellanlagring**” eller ”**produktion**” att utföra olika startåtgärderna baserat på värdet för den **StagingOrProduction** miljövariabeln.
 
-Använd inte miljövariabler baserat på medlemmar i klassen RoleEnvironment den **värdet** attributet för den [Variabel] element. I stället den [RoleInstanceValue] underordnat element med lämplig **XPath** attributvärde, används för att skapa en miljövariabel som baseras på en viss medlem i den [RoleEnvironment] klass. Värden för den **XPath** attribut för att få åtkomst till olika [RoleEnvironment] värden finns [här](cloud-services-role-config-xpath.md).
+Använd inte miljövariabler baserat på medlemmar i klassen RoleEnvironment den **värdet** attributet för den [variabeln] element. I stället den [RoleInstanceValue] underordnat element med lämplig **XPath** attributvärde, används för att skapa en miljövariabel som baseras på en viss medlem i den [ RoleEnvironment] klass. Värden för den **XPath** attribut för att få åtkomst till olika [RoleEnvironment] värden finns [här](cloud-services-role-config-xpath.md).
 
-Till exempel vill skapa en miljövariabel som är ”**SANT**” när instansen körs i beräkningsemulatorn, och ”**FALSKT**” vid körning i molnet kan du använda följande [Variabel] och [RoleInstanceValue] element:
+Till exempel vill skapa en miljövariabel som är ”**SANT**” när instansen körs i beräkningsemulatorn, och ”**FALSKT**” vid körning i molnet kan du använda följande [variabel ] och [RoleInstanceValue] element:
 
 ```xml
 <Startup>
@@ -163,7 +163,7 @@ Lär dig hur du utför några [vanliga startuppgifter](cloud-services-startup-ta
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Aktivitet]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Start]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Körmiljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Miljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabel]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

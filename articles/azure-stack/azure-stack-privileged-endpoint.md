@@ -15,18 +15,18 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef75b161bcdb9e1b9658612b783dff46d1fa2502
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082678"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484346"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med hjälp av privilegierad slutpunkt i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Som Azure Stack-operatör, bör du använda administratörsportal, PowerShell eller Azure Resource Manager API: er för de flesta dagliga hanteringsuppgifter. Men för vissa mindre vanliga åtgärder, som du behöver använda den *privilegierad slutpunkt* (program). Detta program är en förkonfigurerad PowerShell fjärrkonsolen ger tillgång till tillräckligt funktioner för att utföra en viss uppgift. Slutpunkten använder [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) att exponera endast en begränsad uppsättning cmdlets. Ett lågprivilegierat konto används för att komma åt detta program och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
+Som Azure Stack-operatör bör du använda administratörsportalen, PowerShell eller Azure Resource Manager-API:er för de flesta dagliga hanteringsuppgifter. Men för vissa mindre vanliga åtgärder, som du behöver använda den *privilegierad slutpunkt* (program). Detta program är en förkonfigurerad PowerShell fjärrkonsolen ger tillgång till tillräckligt funktioner för att utföra en viss uppgift. Slutpunkten använder [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) att exponera endast en begränsad uppsättning cmdlets. Ett lågprivilegierat konto används för att komma åt detta program och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
 
 Du kan använda detta program för att utföra uppgifter, till exempel följande:
 
@@ -53,7 +53,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
 
     - Kör följande kommando från en upphöjd Windows PowerShell-session för att lägga till detta program som en betrodd värd på den strikta virtuella datorn körs på maskinvara livscykel värden eller den privilegierade åtkomst-arbetsstationen på ett integrerat system.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Om du kör ASDK, kan du logga in på värden development kit.
@@ -61,7 +61,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
    - På ett integrerat system:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -70,7 +70,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
      Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
    - Om du kör ASDK:
      
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName azs-ercs01 `
@@ -113,7 +113,7 @@ Som nämnts ovan är detta program är en [PowerShell JEA](https://docs.microsof
 
 Därför exempelvis köra för att få en lista med parametrar för en viss cmdlet kan du följande kommando:
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -125,7 +125,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
 
     -Kör följande kommando från en upphöjd Windows PowerShell-session för att lägga till detta program som en betrodd värd på strikt virtuell dator som körs på maskinvara livscykel värden eller Privileged Access Workstation på ett integrerat system.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Om du kör ASDK, kan du logga in på värden development kit.
@@ -133,7 +133,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
    - På ett integrerat system:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -142,7 +142,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
      Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
    - Om du kör ASDK:
      
-     ```PowerShell
+     ```powershell
       $cred = Get-Credential
 
       $session = New-PSSession -ComputerName azs-ercs01 `
@@ -154,7 +154,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
      - **Lösenord**: Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-sessionen till den lokala datorn
-    ```PowerShell 
+    ```powershell 
         Import-PSSession $session
     ```
 4. Du kan nu använda tabbifyllning och göra skript som vanligt på din lokala PowerShell-session med alla funktioner och cmdletar för detta program, utan att minska säkerhetspositionen för Azure Stack. Ha det så kul!

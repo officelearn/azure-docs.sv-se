@@ -3,19 +3,19 @@ title: API för textöversättning översätta metod
 titleSuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API översätta.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f6c420ab76462818fb17308d062cc9d881af7df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8533a5b2a974af3bd426e9b70ba298534b0365f7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091043"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917523"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -97,7 +97,7 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_header_</td>
+    <td>_En auktorisering_<br/>_sidhuvud_</td>
     <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -233,7 +233,7 @@ Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden ä
 
 Det här exemplet visar hur du översätta en mening från engelska till kinesiska (förenklad).
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -259,7 +259,7 @@ Den `translations` matris innehåller ett element som tillhandahåller översät
 
 Det här exemplet visar hur du översätta en mening från engelska till kinesiska (förenklad). Begäran anger inte språket. Automatisk identifiering av källspråket används i stället.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -285,7 +285,7 @@ Svaret liknar svaret från föregående exempel. Eftersom automatisk språkident
 
 Vi utökar det tidigare exemplet genom att lägga till transkriberingsspråk. Följande begäran begär en kinesiska översättning som skrivits i Latin-skript.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -316,7 +316,7 @@ Svarstexten är:
 
 Översättning av flera strängar på samma gång är bara att ange en matris med strängar i begärandetexten.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -345,7 +345,7 @@ Svarstexten är:
 
 Det här exemplet visar hur du översätta samma indata för flera språk i en begäran.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -403,7 +403,7 @@ För <code>ProfanityMarker=Tag</code>, olämpliga ord. omges av XML-taggar &lt;s
 
 Exempel:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -425,7 +425,7 @@ Detta returnerar:
 
 Jämför med:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -456,7 +456,7 @@ Det är vanligt att översätta innehåll som innehåller markup, till exempel i
 
 Här är ett exempel på begäran för att illustrera.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -480,7 +480,7 @@ Svaret är:
 
 För att få information om justering, ange `includeAlignment=true` i frågesträngen.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -518,7 +518,7 @@ Observera följande begränsningar:
 
 För att få information om Meningslängd i källtext och översatt text, ange `includeSentenceLength=true` i frågesträngen.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

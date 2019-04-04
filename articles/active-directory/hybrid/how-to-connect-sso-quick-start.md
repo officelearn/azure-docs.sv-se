@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086827"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894773"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -93,7 +93,10 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat sömlös enk
 ![Azure-portalen: Azure AD Connect-fönstret](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` (som representerar Azure AD) i din lokala Active Directory (AD) i varje AD-skog. Det här datorkontot krävs för funktionen ska fungera. Om du använder Pass-the-Hash-och problemlösning för stöld av autentiseringsuppgifter i din lokala miljö, kontrollerar du att den `AZUREADSSOACC` datorkontot inte hamnar i behållaren karantän. Gör önskade ändringar för att skapa datorkontot i behållaren datorer. När sömlös enkel inloggning har aktiverats på Azure AD Connect-guiden, flytta den `AZUREADSSOACC` datorkonto till en organisation enhet (OU) där andra konton hanteras så att den inte bort av misstag.
+> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` i din lokala Active Directory (AD) i varje AD-skog. Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar.
+
+>[!NOTE]
+> Om du använder Pass-the-Hash-och problemlösning för stöld av autentiseringsuppgifter i din lokala miljö, gör lämpliga ändringar så att den `AZUREADSSOACC` datorkontot inte hamnar i behållaren karantän. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Lansera funktionen
 

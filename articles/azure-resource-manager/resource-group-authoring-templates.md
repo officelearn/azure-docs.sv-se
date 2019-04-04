@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781909"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904941"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
 
 Den här artikeln är avsedd för användare som har bekant med Resource Manager-mallar. Den innehåller detaljerad information om strukturen och syntaxen för mallen. Om du vill att en introduktion till hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Mallformat
 
@@ -49,8 +52,8 @@ I sin enklaste struktur har en mall följande element:
 | apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen för den resurstyp som definieras i profilen.<br><br>API-profilegenskapen är särskilt användbart när du distribuerar en mall till olika miljöer, till exempel Azure Stack och globala Azure. Använda profilversionen API för att kontrollera att mallen använder automatiskt de versioner som stöds i båda miljöerna. En lista över de aktuella versionerna av API-profilen och resurserna som API-versioner som anges i profilen för finns i [API profil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
-| [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| [Resurser](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
+| [functions](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
+| [resurser](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
 | [utdata](#outputs) |Nej |Värden som returneras efter distributionen. |
 
 Varje element har egenskaper som du kan ange. Den här artikeln beskriver avsnitt i mallen i större detalj.

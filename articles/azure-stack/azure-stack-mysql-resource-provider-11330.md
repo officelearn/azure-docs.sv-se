@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252021"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882843"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL resource provider 1.1.33.0 viktig information
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och kända problem i MySQL resurs-providerversion 1.1.33.0.
 
@@ -50,7 +50,8 @@ Den här versionen av Azure Stack MySQL-resursprovider innehåller följande fö
 
 - **Föregående MySQL resource provider (1.1.30.0) distribution kan misslyckas om TLS 1.2 inte aktiveras**. Uppdatera MySQL-resursprovider 1.1.33.0 för att aktivera TLS 1.2 när du distribuerar resursprovidern, uppdaterar resursprovidern eller roterar hemligheter. 
 
-- **MySQL resource provider hemliga rotation misslyckas**. Problem har åtgärdats vilket resulterar i följande felkod när du roterar hemligheter: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **MySQL resource provider hemliga rotation misslyckas**. Problem har åtgärdats vilket resulterar i följande felkod när du roterar hemligheter:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Kända problem 
 

@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088442"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485758"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -61,7 +61,7 @@ Kör den *Get-AzureStackRootCert.ps1* skriptet från den mapp där du extraherad
 
 När du kör följande PowerShell-kommando, måste du ange privilegierad slutpunkt och autentiseringsuppgifterna för AzureStack\CloudAdmin.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -353,7 +353,7 @@ Följ de här stegen:
 13. Välj **inställningar**.
 14. Välj **nödvändiga behörigheter** > **bevilja** > **Ja**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ Följ de här stegen:
 5. I den **Credential** fönstret anger du AD FS molnet administratörskonto och lösenord. Välj **OK**.
 6. Ange filsökväg till certifikat och lösenord för certifikatet för den [certifikatet som skapades tidigare](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). Certifikatet som skapades för det här steget som standard är **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

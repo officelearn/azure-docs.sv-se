@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152174"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892304"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Hur du avgör om Azure AD Domain Services som passar ditt användningsområde
 Du kan distribuera dina arbetsbelastningar i Azure Infrastructure Services, utan att behöva bekymra dig om hur du underhåller infrastruktur för Identitetshantering i Azure med Azure AD Domain Services. Den här hanterade tjänsten skiljer sig från en typisk distribution för Windows Server Active Directory som du distribuerar och administrera på egen hand. Tjänsten är enkla att distribuera och ger automatiserade hälsoövervakning och reparation. Vi utvecklas ständigt tjänsten för att lägga till stöd för vanliga scenarier för distribution.
@@ -38,7 +38,7 @@ I följande tabell kan du välja mellan med hjälp av Azure AD Domain Services o
 | --- |:---:|:---:|
 | [**Hanterad tjänst**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Säker distribution**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administratören måste skydda distributionen. |
-| [**DNS-server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(hanterad tjänst) |**&#x2713;** |
+| [**DNS-server (Domain Name System)**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(hanterad tjänst) |**&#x2713;** |
 | [**Administratörsbehörighet för domänen eller Enterprise**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Domänanslutning**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Domain-autentisering med hjälp av NTLM och Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
@@ -49,7 +49,7 @@ I följande tabell kan du välja mellan med hjälp av Azure AD Domain Services o
 | [**Läsa LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**LDAP-write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**En Grupprincip**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Grupprincip**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**Geodistribution**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Hanterad tjänst
@@ -58,7 +58,7 @@ Azure AD Domain Services-domäner som hanteras av Microsoft. Du behöver inte be
 #### <a name="secure-deployments"></a>Säker distribution
 Den hanterade domänen är säkert låst enligt Microsofts säkerhetsrekommendationer för AD-distributioner. De här rekommendationerna som härrör från AD-produktteamet lång erfarenhet av tekniska och stöd för AD-distributioner. För distributioner som gör det själv, som du behöver och vidta åtgärder för specifik distribution låsa ned/skydda din distribution.
 
-#### <a name="dns-server"></a>DNS-server
+#### <a name="dns-server"></a>DNS-server (Domain Name System)
 En Azure AD Domain Services-hanterad domän innehåller hanterade DNS-tjänster. Medlemmar i gruppen ”AAD DC-administratörer” kan hantera DNS på den hanterade domänen. Medlemmar i gruppen ges fullständig DNS-administratörsrättigheter för den hanterade domänen. DNS-hantering kan utföras via ”DNS-administrationskonsolen” ingår i paketet Remote verktyg för fjärrserveradministration (RSAT).
 [Mer information](active-directory-ds-admin-guide-administer-dns.md)
 
@@ -115,9 +115,9 @@ Du kan ha distribution användningsfall där du behöver några av de funktioner
 >
 >
 
-Vi har publicerat [riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) för att underlätta gör det själv-installationer.
+Vi har publicerat [riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) för att underlätta gör det själv-installationer.
 
 ## <a name="related-content"></a>Relaterat innehåll
 * [Funktioner – Azure AD Domain Services](active-directory-ds-features.md)
 * [-Scenarier för Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Riktlinjer för att distribuera Windows Server Active Directory på virtuella Azure-datorer](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Riktlinjer för att distribuera Windows Server Active Directory på virtuella Azure-datorer](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

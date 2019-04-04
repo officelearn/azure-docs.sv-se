@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c7bfa8351a2599ff8616364a093cd6154e90830c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850869"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917098"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure portal  
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST-API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -42,6 +42,8 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 > Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 
 1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
+
+    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
 1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.

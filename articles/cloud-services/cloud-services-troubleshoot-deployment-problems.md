@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226948"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916860"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsök distributionsproblem med cloud service
 När du distribuerar ett program för molntjänstpaket till Azure kan du kan få information om hur du distribuerar från den **egenskaper** fönstret i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan lämna denna information till supporten för Azure när du öppnar en ny supportbegäran.
@@ -43,7 +43,7 @@ Webbplats-URL-länk som visas i portalen innehåller inte porten. Standardporten
 2. I den **egenskaper** rutan i Azure-portalen, Kontrollera portar för rollinstanserna (under **indata slutpunkter**).
 3. Om porten inte är 80, lägger du till rätt Portvärdet i URL: en när du har åtkomst till programmet. Om du vill ange en icke-standardport skriver du URL, följt av ett kolon (:), följt av portnummer, utan blanksteg.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problem: Min rollinstanser startas utan mig gör ingenting
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problem: Min rollinstanser har återvunnits utan mig gör ingenting
 Tjänsten återställning sker automatiskt när Azure upptäcker problem noder och därför flyttar rollinstanser till nya noder. När detta inträffar kan du se dina rollinstanser återvinning automatiskt. Att ta reda på om tjänståterställning inträffade:
 
 1. Klicka på distributionen av din molntjänst i Azure-portalen.
@@ -52,7 +52,7 @@ Tjänsten återställning sker automatiskt när Azure upptäcker problem noder o
 Roller kommer också Papperskorgen ungefär en gång per månad under värd-OS och Gäst-OS-uppdateringar.  
 Mer information finns i bloggposten [rollen instansen startas om på grund av OS-uppgraderingar](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problem: Det går inte att jag gör en VIP-växling och får ett felmeddelande
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problem: Jag kan inte utföra en VIP-växling och får ett felmeddelande
 En VIP-växling är inte tillåtet om en uppdatering av distribution pågår. Distribution av uppdateringar kan ske automatiskt när:
 
 * Ett nytt gästoperativsystem är tillgängligt och du har konfigurerats för automatiska uppdateringar.
@@ -70,11 +70,11 @@ Det här tillståndet kan tyda på ett problem med programkoden, paketet eller k
 
 Mer information om hur du felsöker för det här problemet finns i blogginlägget [Compute diagnostikdata i Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) och [vanliga problem som gör att roller återvinns](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-## <a name="problem-my-application-stopped-working"></a>Problem: Mitt program slutade fungera
+## <a name="problem-my-application-stopped-working"></a>Problem: Mitt program som har slutat fungera
 1. I Azure-portalen klickar du på rollinstansen.
 2. I den **egenskaper** rutan i Azure-portalen, ta hänsyn till följande för att lösa problemet:
    * Om rollinstansen nyligen har stoppats (du kan kontrollera värdet för **antal avbrutna**), det gick att uppdatera distributionen. Vänta med att se om rollinstansen återupptar fungerar på egen hand.
-   * Om rollinstansen är **upptagen**, kontrollera din programkod för att se om den [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) händelsen hanteras. Du kan behöva lägga till eller åtgärda kod som hanterar den här händelsen.
+   * Om rollinstansen är **upptagen**, kontrollera din programkod för att se om den [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) händelsen hanteras. Du kan behöva lägga till eller åtgärda kod som hanterar den här händelsen.
    * Gå igenom diagnostiska data och felsökning i blogginlägget [Compute diagnostikdata i Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]

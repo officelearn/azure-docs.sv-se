@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/25/2019
 ms.author: victorh
-ms.openlocfilehash: c5f1cb992f27a8d3f97967ff6b885b3296be8710
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1284ddec4cd9cea3ea53c20d437550405dd614d9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448441"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905876"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure portal
 
@@ -129,7 +129,7 @@ I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
    ```azurepowershell-interactive
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
      -ResourceGroupName myResourceGroupAG `
      -ExtensionName IIS `
      -VMName myVM `
@@ -140,7 +140,7 @@ I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte
      -Location EastUS
    ```
 
-3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* som namn på den virtuella datorn och för inställningen **VMName** i **Set-AzureRmVMExtension**-cmdleten.
+3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* för virtuella datornamn och den **VMName** inställningen för den **Set-AzVMExtension** cmdlet.
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Lägg till backend-servrarna till serverdelspoolen
 

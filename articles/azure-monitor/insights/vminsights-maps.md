@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984857"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916741"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) kartan för att förstå programkomponenter
 Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
@@ -43,7 +43,7 @@ På höger sida av fönstret, klicka på den **logghändelser** ikon för att v�
 
 ![Log söklistan i egenskapsrutan](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Stäng *loggar** och återgå till den **egenskaper** rutan och välj **aviseringar** kunna se aviseringar som varnar har aktiverats för den virtuella datorn från health-villkor. Kartan kan integreras med Azure-aviseringar att visa aktiverade aviseringar för den valda servern i det valda tidsintervallet. Servern visas en ikon om det finns aktuella aviseringar och datorn aviseringsfönstret visar en lista över aviseringarna. 
+Stäng **loggar** och återgå till den **egenskaper** rutan och välj **aviseringar** kunna se aviseringar som varnar har aktiverats för den virtuella datorn från health-villkor. Kartan kan integreras med Azure-aviseringar att visa aktiverade aviseringar för den valda servern i det valda tidsintervallet. Servern visas en ikon om det finns aktuella aviseringar och datorn aviseringsfönstret visar en lista över aviseringarna. 
 
 ![Datorn aviseringar i egenskapsrutan](./media/vminsights-maps/properties-pane-alerts-01.png)
 

@@ -3,19 +3,19 @@ title: Translator Text API BreakSentence metod
 titlesuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API BreakSentence.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8aa726d8a00e76c1b4311140a433e6c7e476dc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884910"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916299"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -45,7 +45,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfritt Frågeparametern*.<br/>Språktaggen som identifierar språket i indatatexten. Om en kod inte anges används automatisk språkidentifiering.</td>
   </tr>
   <tr>
-    <td>skriptet</td>
+    <td>skript</td>
     <td>*Valfritt Frågeparametern*.<br/>Skripttypen identifiera skript som används av indatatexten. Om ett skript inte anges, antas standardskript för språket.</td>
   </tr>
 </table> 
@@ -56,7 +56,7 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_header_</td>
+    <td>_En auktorisering_<br/>_sidhuvud_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -172,7 +172,7 @@ Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden ä
 
 I följande exempel visas hur du skaffar mening gränser för en enskild mening. Språket i meningen identifieras automatiskt av tjänsten.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

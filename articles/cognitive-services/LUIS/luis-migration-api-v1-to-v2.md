@@ -1,7 +1,7 @@
 ---
 title: V1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
-description: 'Version 1-slutpunkten och redigera Lanugage förstå API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
+description: 'Version 1-slutpunkten och redigera Language Understanding API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087932"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894089"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2-Migreringsguide för LUIS-appar
 Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
@@ -134,7 +134,7 @@ Flera API: er som returnerar LUIS metadata har nya namn.
 
 
 ## <a name="sample-renamed-to-suggest"></a>”Exempel” filnamnstillägget ”föreslå”
-LUIS föreslår yttranden från befintliga [endpoint yttranden](luis-how-to-review-endoint-utt.md) som kan förbättra modellen. I den tidigare versionen det hette **exempel**. I den nya versionen, namnet ändras från exemplet för att **föreslår**. Detta kallas **[granska endpoint yttranden](luis-how-to-review-endoint-utt.md)** på LUIS-webbplatsen.
+LUIS föreslår yttranden från befintliga [endpoint yttranden](luis-how-to-review-endpoint-utterances.md) som kan förbättra modellen. I den tidigare versionen det hette **exempel**. I den nya versionen, namnet ändras från exemplet för att **föreslår**. Detta kallas **[granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md)** på LUIS-webbplatsen.
 
 | version | route |
 |--|--|

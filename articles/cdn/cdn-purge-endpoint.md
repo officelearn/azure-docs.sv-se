@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093858"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916487"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Rensa en Azure CDN-slutpunkt
 ## <a name="overview"></a>Översikt
@@ -52,12 +52,12 @@ Den här självstudien vägleder dig genom att rensa tillgångar från alla edge
    > 
    > 
 4. Välj vilka resurser som du vill ta bort från edge-noder.  Om du vill ta bort alla tillgångar, klickar du på den **tar bort alla** kryssrutan.  I annat fall skriver sökvägen för varje tillgång som du vill ta bort i den **sökväg** textrutan. Nedan format som stöds i sökvägen.
-    1. **Den enda URL Rensa**: Rensa enskilda tillgångar genom att ange en fullständig URL med eller utan filtillägget, t.ex.`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    1. **Den enda URL Rensa**: Ta bort enskilda tillgångar genom att ange en fullständig URL med eller utan filtillägget, t.ex.`/pictures/strasbourg.png`; `/pictures/strasbourg`
     2. **Jokerteckensrensning**: Asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer på en slutpunkt med `/*` i sökvägen eller rensa alla undermappar och filer under en viss mapp genom att ange mappen följt av `/*`, t.ex`/pictures/*`.  Observera att jokerteckensrensning inte stöds för närvarande av Azure CDN från Akamai. 
     3. **Rot domän Rensa**: Rensa roten för slutpunkten med ”/” i sökvägen.
    
    > [!TIP]
-   > Sökvägar måste anges för rensning och måste vara en relativ URL som passar följande [reguljärt uttryck](https://msdn.microsoft.com/library/az24scfc.aspx). **Rensa alla** och **jokerteckensrensning** inte stöds av **Azure CDN från Akamai** för närvarande.
+   > Sökvägar måste anges för rensning och måste vara en relativ URL som passar följande [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Rensa alla** och **jokerteckensrensning** inte stöds av **Azure CDN från Akamai** för närvarande.
    > > Enkel URL-rensning `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Frågesträng `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Jokerteckensrensning `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
@@ -75,5 +75,5 @@ Den här självstudien vägleder dig genom att rensa tillgångar från alla edge
 
 ## <a name="see-also"></a>Se också
 * [Läsa in tillgångar för en Azure CDN-slutpunkt i förväg](cdn-preload-endpoint.md)
-* [Azure CDN REST API-referens - rensa eller läsa in en slutpunkt i förväg](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure CDN REST API-referens - rensa eller läsa in en slutpunkt i förväg](/rest/api/cdn/endpoints)
 

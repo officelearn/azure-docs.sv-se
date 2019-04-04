@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a192f5cbd0fb5a4dcb911f40753efcbd996a418
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793852"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892338"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -42,7 +42,7 @@ Diskarna krypteras med hjälp av Microsoft BitLocker-enhetskryptering, och dina 
 A. Om du har högst 40 TB data som du vill överföra till Azure kan du använda Data Box-diskar.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>F. Hur mycket kostar Data Box-diskarna?
-A. Information om priset för Data Box-diskar finns på [sidan med prisinformation](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+A. Information om priset för Data Box-diskar finns på [sidan med prisinformation](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>F. Hur får jag Data Box-diskarna? 
 A.  Du skaffar Azure Data Box-diskar genom att logga in på Azure-portalen och skapa en Data Box-beställning på diskar. Ange din kontakt- och aviseringsinformation. Beroende på tillgängligheten skickas diskarna till dig inom tio dagar.
@@ -129,8 +129,8 @@ A. Verktygsuppsättningen som är tillgänglig med Data Box-diskar består av tr
  - **Verktyget Data Box Disk Split Copy**: Använd det här verktyget om du använder flera diskar och har en stor datauppsättning som behöver delas upp och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget validerar också som data kopieras, därför du kan hoppa över verifieringen steg när du använder det här verktyget.
 
 Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hämta verktygen här:
-- [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 
-- [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux)
+- [Hämta Data Box-Disk-verktygen för Windows](https://aka.ms/databoxdisktoolswin) 
+- [Hämta Data Box-Disk-verktygen för Linux](https://aka.ms/databoxdisktoolslinux)
  
   ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
   A. Azure Files stöds med Data Box-Disk, men kommer inte att fungera bra med Azure File Sync. Metadata sparas inte om fildata som används med Azure File Sync.

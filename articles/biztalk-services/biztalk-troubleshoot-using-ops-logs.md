@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35c30ec97d4c033a687204b926d2f686c52be069
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108264"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916033"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Felsök med hjälp av åtgärdsloggar
 
@@ -31,8 +31,8 @@ ms.locfileid: "58108264"
 Åtgärdsloggar är en Management Services-funktion som gör det möjligt att visa historiska loggarna för åtgärder som utförs på dina Azure-tjänster, inklusive BizTalk Services. På så sätt kan du visa historiska data som rör hanteringsåtgärder på din BizTalk Service-prenumeration så långt tillbaka som 180 dagar.
 
 > [!NOTE]
-> Den här funktionen endast samlar in loggar för hanteringsåtgärder på BizTalk Services, till exempel när tjänsten har startats säkerhetskopieras upp, och så vidare. Sådana åtgärder spåras med hjälp av den [BizTalk Service REST API: er](https://msdn.microsoft.com/library/azure/dn232347.aspx). En fullständig lista över åtgärder som spåras med hjälp av tjänster finns i [Operations spårade med hjälp av Azure Management Services](#bizops).<br/><br/>
-> Detta in inte loggar för aktiviteter som rör BizTalk Service-körning (t.ex (meddelande bearbetas av bryggor, osv.). Använd vyn spårning från BizTalk Services-portalen om du vill visa dessa loggar. Mer information finns i [spårning av meddelanden](https://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Den här funktionen endast samlar in loggar för hanteringsåtgärder på BizTalk Services, till exempel när tjänsten har startats säkerhetskopieras upp, och så vidare. Sådana åtgärder spåras med hjälp av den [BizTalk Service REST API: er](/previous-versions/azure/reference/dn232347(v=azure.100)). En fullständig lista över åtgärder som spåras med hjälp av tjänster finns i [Operations spårade med hjälp av Azure Management Services](#bizops).<br/><br/>
+> Detta in inte loggar för aktiviteter som rör BizTalk Service-körning (t.ex (meddelande bearbetas av bryggor, osv.). Använd vyn spårning från BizTalk Services-portalen om du vill visa dessa loggar. Mer information finns i [spårning av meddelanden](/previous-versions/azure/hh949805(v=azure.100)).
 > 
 > 
 

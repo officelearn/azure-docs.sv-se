@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540164"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918288"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Hantera Azure CDN-Cachelagringsprincip i Azure Media Services
 Azure Media Services tillhandahåller en HTTP-baserad anpassad strömning och progressiv nedladdning. HTTP-baserade direktuppspelning är mycket skalbara med fördelarna med cachelagring i proxy och CDN-lager samt klientcachelagring. Slutpunkter för direktuppspelning ger allmänna strömmande funktioner och konfiguration för HTTP-huvuden för cache. Slutpunkter för direktuppspelning anger HTTP Cache-Control: maxåldern och Expires-huvuden. Du kan få mer information för HTTP-cache rubriker från [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -39,7 +39,7 @@ Azure Media Services innehåller [integrerad CDN](https://azure.microsoft.com/up
 Du kan använda Azure portal eller API: er för Azure Media Services för att konfigurera huvudvärden för cache.
 
 1. Om du vill konfigurera cache-huvuden med hjälp av Azure portal, referera till [hur du hanterar Strömningsslutpunkter](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) avsnittet Konfigurera slutpunkt för direktuppspelning.
-2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl egenskaper](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## <a name="cache-configuration-precedence-order"></a>Prioritetsordning för cache-konfiguration

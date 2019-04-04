@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097448"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918781"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 
@@ -68,7 +68,7 @@ Tjänstidentiteten för Access Control är en uppsättning autentiseringsuppgift
 > 
 > 
 
-I [Hantera ditt ACS-namnområde](https://msdn.microsoft.com/library/azure/hh674478.aspx) visas några riktlinjer och rekommendationer.
+I [Hantera ditt ACS-namnområde](/previous-versions/azure/azure-services/hh674478(v=azure.100)) visas några riktlinjer och rekommendationer.
 
 ## <a name="requirements-explained"></a>Kraven beskrivs
 Dessa krav gäller inte för Free-utgåvan.
@@ -93,7 +93,7 @@ Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som 
 <br/><br/>
 Du kan använda en befintlig Azure SQL Server, Azure SQL Database eller automatiskt skapa en ny server eller databas när du skapar en BizTalk-tjänst.
 <br/><br/>
-SQL Database-skalan konfigureras automatiskt. Vanligtvis räcker standardskalan för en BizTalk-tjänst. Om du ändrar skalan påverkas prissättningen. Se <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Konton och fakturering i Azure SQL Database</a>
+SQL Database-skalan konfigureras automatiskt. Vanligtvis räcker standardskalan för en BizTalk-tjänst. Om du ändrar skalan påverkas prissättningen. Se <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> konton och fakturering i Azure SQL Database</a>
 <br/><br/>
 <strong>Anteckningar</strong>
 <br/>
@@ -168,9 +168,9 @@ Hybridanslutningar används för att ansluta en Azure-webbplats eller mobil Azur
 Nu när en BizTalk Service har skapats kan du bekanta dig med de olika [BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Se också
-* [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Versionsdiagram](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Statusdiagram](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Säkerhetskopiera och återställ](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
 * [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

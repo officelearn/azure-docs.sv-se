@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259779"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904873"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
 När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig hur du aktiverar diagnostikloggning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), så strömma loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
 
@@ -132,7 +135,7 @@ Om du redan har installerat Azure PowerShell och inte vet vilken version från P
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot och som standard använder det första.
@@ -140,13 +143,13 @@ Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i w
 Om du har mer än en prenumeration kan behöva du ange specifika prenumerationen som används för att skapa din Azure-nyckelvalv. Om du vill visa prenumerationerna för ditt konto, skriver du följande kommando:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Om du vill ange den prenumeration som är associerat med Azure Cosmos DB-kontot som du inloggad, skriver du följande kommando:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Men du kan använda ett befintligt lagringskonto för dina loggar i den här sj�
 För att ytterligare underlätta hantering i den här självstudien använder vi samma resursgrupp som det som innehåller Azure Cosmos DB-databasen. Ersätt värdena för den **ContosoResourceGroup**, **contosocosmosdblogs**, och **norra centrala USA** parametrar, i tillämpliga fall:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Ange namnet på Azure Cosmos DB-kontot till en variabel med namnet **konto**, där **ResourceName** är namnet på Azure Cosmos DB-kontot.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Aktivera loggning
-Om du vill aktivera loggning för Azure Cosmos DB kan använda den `Set-AzureRmDiagnosticSetting` cmdlet med variabler för det nya lagringskontot, Azure Cosmos DB-konto och kategori för att aktivera för loggning. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
+Om du vill aktivera loggning för Azure Cosmos DB kan använda den `Set-AzDiagnosticSetting` cmdlet med variabler för det nya lagringskontot, Azure Cosmos DB-konto och kategori för att aktivera för loggning. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 Utdata för kommandot bör likna följande exempel:
@@ -221,7 +224,7 @@ Utdata från kommandot bekräftar att loggning är aktiverat för databasen och 
 Du kan också kan du också ange bevarandeprincipen för dina loggar så att äldre loggar tas bort automatiskt. Till exempel ange bevarandeprincip med den **- RetentionEnabled** -flaggan inställd på **$true**. Ange den **- RetentionInDays** parameter **90** så att loggar som är äldre än 90 dagar tas bort automatiskt.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Börja med att skapa en variabel för containerns namn. Variabeln används i hel
 Om du vill visa alla blobar i den här behållaren skriver du:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Utdata för kommandot bör likna följande exempel:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Sedan kan hämta en lista över alla blobar:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Skicka den här listan via den `Get-AzureStorageBlobContent` kommando för att ladda ned blobbarna till målmappen:
+Skicka den här listan via den `Get-AzStorageBlobContent` kommando för att ladda ned blobbarna till målmappen:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 * Om du har flera databaser och vill hämta loggar för en databas med namnet **CONTOSOCOSMOSDB3**, Använd kommandot:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Om du har flera resursgrupper och vill hämta loggar för en resursgrupp kan använda kommandot `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Om du vill hämta alla loggar för månaden för juli 2017 kan använda kommandot `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 Du kan också köra följande kommandon:
 
-* Använd kommandot för att fråga efter statusen för nyckelvalvsresursens diagnostikinställningar för `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Du vill inaktivera loggning för den **DataPlaneRequests** kategori för kontot, Använd kommandot `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Använd kommandot för att fråga efter statusen för nyckelvalvsresursens diagnostikinställningar för `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Du vill inaktivera loggning för den **DataPlaneRequests** kategori för kontot, Använd kommandot `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 BLOB-objekt som returneras i var och en av de här frågorna lagras som text och formaterade som en JSON-blob som visas i följande kod:
@@ -437,20 +440,20 @@ I följande tabell beskrivs innehållet i varje loggpost.
 
 | Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskapen | Beskrivning |
 | --- | --- | --- |
-| **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
-| **Resurs-ID** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
-| **Kategori** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
-| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
-| **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
+| **time** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
+| **resourceId** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
+| **category** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
+| **operationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **properties** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
-| **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
+| **requestResourceId** | **ResourceId** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
 | **requestCharge** | **requestCharge_s** | Antalet enheter för programbegäran som används av åtgärden |
 | **collectionRid** | **collectionId_s** | Unikt ID för samlingen.|
-| **Varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
+| **varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Längden på svaret, i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är inte tom när [resurstokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet som pekar på resurs-ID för användaren. |
@@ -460,6 +463,6 @@ I följande tabell beskrivs innehållet i varje loggpost.
 - Om du vill lära dig mer om att aktivera loggning och mått och loggfiler kategorier som stöds av olika Azure-tjänster kan läsa både den [översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och [översikt över Azure diagnostikloggar ](../azure-monitor/platform/diagnostic-logs-overview.md) artiklar.
 - Läs de här artiklarna om du vill veta mer om event hubs:
    - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-   - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+   - [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Läs [hämta mått och diagnostikloggar från Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Läs [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md).

@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439025"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918033"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
 En Automation-anslutningstillgång innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfiguration. Detta kan inkludera information som krävs för autentisering, t.ex ett användarnamn och lösenord utöver anslutningsinformation, till exempel en URL eller en port. Värdet för en anslutning är att hålla alla egenskaper för att ansluta till ett visst program i en tillgång till skillnad från skapar flera variabler. Du kan redigera värdena för en anslutning på samma plats och du kan skicka namnet på en anslutning till en runbook eller DSC-konfiguration i en enda parameter. Egenskaperna för en anslutning kan nås i runbook eller DSC-konfiguration med den **Get-AutomationConnection** aktivitet. 
 
-När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningstypen är en mall som definierar en uppsättning egenskaper. Anslutningen definierar värden för varje egenskap som definierats i dess anslutningstyp. Anslutningstyper som läggs till Azure Automation i integreringsmoduler eller skapats med den [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163818.aspx) om integration-modulen innehåller en anslutningstyp och importeras till ditt Automation-konto. I annat fall behöver du skapa en metadatafil om du vill ange en Automation-anslutningstyp.  Ytterligare information om detta finns i [integreringsmoduler](automation-integration-modules.md).  
+När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningstypen är en mall som definierar en uppsättning egenskaper. Anslutningen definierar värden för varje egenskap som definierats i dess anslutningstyp. Anslutningstyper som läggs till Azure Automation i integreringsmoduler eller skapats med den [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100)) om integration-modulen innehåller en anslutningstyp och importeras till ditt Automation-konto. I annat fall behöver du skapa en metadatafil om du vill ange en Automation-anslutningstyp.  Ytterligare information om detta finns i [integreringsmoduler](automation-integration-modules.md).  
 
 >[!NOTE]
 >Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault hanteras av en datorn. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången. Den här processen hanteras av Azure Automation.

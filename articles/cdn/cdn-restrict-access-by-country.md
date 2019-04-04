@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093314"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917761"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Begränsa Azure CDN-innehåll efter land
 
@@ -48,15 +48,15 @@ Till exempel är alla följande directory sökväg filter giltiga:
 */*                                 
 */Photos/*     
 */Photos/Strasbourg /*     
-*/Photos/Strasbourg/City.PNG*
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definiera typ av åtgärd
 
 Från den **åtgärd** väljer **Tillåt** eller **blockera**: 
 
-- **Tillåt**: bara användare från de angivna länderna får åtkomst till tillgångar som begärs från den rekursiva sökvägen.
+- **Tillåt**: Endast användare från de angivna länderna får åtkomst till tillgångar som begärs från den rekursiva sökvägen.
 
-- **Blockera**: användare från de angivna länderna nekas åtkomst till resurser som begärs från den rekursiva sökvägen. Om inga andra land filtreringsalternativ har konfigurerats för den platsen, kommer sedan alla andra användare att ges tillgång.
+- **Blockera**: Användare från de angivna länderna nekas åtkomst till resurser som begärs från den rekursiva sökvägen. Om inga andra land filtreringsalternativ har konfigurerats för den platsen, kommer sedan alla andra användare att ges tillgång.
 
 Till exempel en geo-filtrering regel för blockering av sökvägen */foton/Strasbourg/* filtrerar följande filer:     
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
@@ -110,5 +110,5 @@ I land filtrering tabellen, väljer du ikonen Ta bort bredvid en regel för att 
 
 * Endast en regel kan tillämpas på samma relativa sökväg. Det vill säga att du inte skapa flera land filter som pekar på samma relativa sökväg. Eftersom land filter är rekursiv, kan en mapp ha flera land filter. Med andra ord en undermapp till en tidigare konfigurerade mapp som kan tilldelas ett annat land-filter.
 
-* Funktionen för geo-filtrering använder landskoder för att definiera de länder/regioner som en begäran tillåts eller blockeras för en skyddad katalog. Akamai och Verizon-profiler stöder de flesta av samma landskoder, finns men det några skillnader. Mer information finns i [Azure CDN landskoder](https://msdn.microsoft.com/library/mt761717.aspx). 
+* Funktionen för geo-filtrering använder landskoder för att definiera de länder/regioner som en begäran tillåts eller blockeras för en skyddad katalog. Akamai och Verizon-profiler stöder de flesta av samma landskoder, finns men det några skillnader. Mer information finns i [Azure CDN landskoder](/previous-versions/azure/mt761717(v=azure.100)). 
 

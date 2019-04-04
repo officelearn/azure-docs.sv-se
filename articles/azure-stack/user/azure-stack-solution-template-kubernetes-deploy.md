@@ -1,6 +1,6 @@
 ---
-title: Distribuera Kubernetes till Azure Stack | Microsoft Docs
-description: Lär dig hur du distribuerar Kubernetes i Azure Stack.
+title: Distribuera Kubernetes för att använda Azure Stack-behållare | Microsoft Docs
+description: Lär dig hur du distribuerar Kubernetes för att använda behållare med Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986251"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877201"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Distribuera Kubernetes för att använda behållare med Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
+> Kubernetes på Azure Stack är en förhandsversion. Ett frånkopplat Azure Stack-scenario stöds inte för närvarande av förhandsversionen.
 
 Du kan följa stegen i den här artikeln för att distribuera och konfigurera resurser för Kubernetes i en enda, samordnad åtgärd. Stegen använder en lösningsmall för Azure Resource Manager. Du behöver för att samla in nödvändig information om installationen av Azure Stack, generera mallen och sedan distribuera till molnet. Azure Stack-mallen använder inte samma hanterade AKS-tjänsten erbjuds i globala Azure.
 
@@ -43,14 +43,14 @@ Du kan använda Kubernetes:
 
 Du debiteras endast för beräkning användningen enligt de noder som har stöd för ditt kluster. Mer information finns i [användning och fakturering i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Distribuera Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Distribuera Kubernetes för att använda behållare
 
 Stegen för att distribuera ett Kubernetes-kluster på Azure Stack beror på identity management-tjänsten. Kontrollera identitetshanteringslösning som används av din installation av Azure Stack. Kontakta Azure Stack-administratören för att verifiera identity management-tjänsten.
 
 - **Azure Active Directory (Azure AD)**  
 Anvisningar om hur du installerar klustret när du använder Azure AD finns i [distribuera Kubernetes i Azure Stack med Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md).
 
-- **Active Directory Federation Services (AD FS)**  
+- **Active Directory Federated Services (AD FS)**  
 Anvisningar om hur du installerar klustret när du använder AD FS finns i [distribuera Kubernetes i Azure Stack med hjälp av Active Directory Federation Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md).
 
 ## <a name="connect-to-your-cluster"></a>Anslut till klustret

@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892585"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
 
-När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter, ocrs, ansikten, ämnen, block, osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
+När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter OCRs, ansikten, ämnen, block osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
 
 Du kan också visuellt undersöka videons sammanfattade insikter genom att trycka på den **spela upp** knappen på videon på den [Video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [visa och redigera videoinsikter](video-indexer-view-edit.md).
 
@@ -83,7 +83,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
 |nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
 |sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
-|audioEffects| Kan innehålla noll eller flera audioEffects. Mer information finns i [audioEffects](#audioeffects).|
+|audioEffects| Kan innehålla noll eller flera audioEffects. Mer information finns i [audioEffects](#audioEffects).|
 |etiketter| Kan innehålla noll eller fler etiketter. Detaljerad information finns i [etiketter](#labels).|
 |varumärken| Kan innehålla noll eller flera varumärken. Mer information finns i [varumärken](#brands).|
 |statistik | Mer information finns i [statistik](#statistics).|
@@ -153,14 +153,14 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |sourceLanguage|Videons källspråk (förutsatt att ett master språk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
 |language|Insights-språk (översätts från källspråk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
 |avskrift|Den [avskrift](#transcript) dimension.|
-|OCR|Den [ocr](#ocr) dimension.|
+|OCR|Den [OCR](#ocr) dimension.|
 |nyckelord|Den [nyckelord](#keywords) dimension.|
 |block|Kan innehålla en eller flera [block](#blocks)|
 |ansikten|Den [ansikten](#faces) dimension.|
 |etiketter|Den [etiketter](#labels) dimension.|
 |skärmbilder|Den [skärmbilder](#shots) dimension.|
 |varumärken|Den [varumärken](#brands) dimension.|
-|audioEffects|Den [audioEffects](#audioeffects) dimension.|
+|audioEffects|Den [audioEffects](#audioEffects) dimension.|
 |sentiment|Den [sentiment](#sentiments) dimension.|
 |visualContentModeration|Den [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualContentModeration|Den [textualContentModeration](#textualcontentmoderation) dimension.|
@@ -419,61 +419,85 @@ Exempel:
   ] 
 ```
 
+#### <a name="scenes"></a>scener
+
+|Namn|Beskrivning|
+|---|---|
+|id|Scen-ID.|
+|instanser|En lista över tidsintervall i det här scen (en scen kan endast ha 1 instans).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### <a name="shots"></a>skärmbilder
 
 |Namn|Beskrivning|
 |---|---|
 |id|Som ID.|
-|Nyckelrutor|En lista över viktiga ramarna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Viktiga bildrutor instanser har ett thumbnailId fält med den bildrutan miniatyr-ID.|
-|instanser|En lista över tidsintervall för den här som visar (skärmbilder har endast 1 instans).|
+|Nyckelrutor|En lista över nyckelbildrutorna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Varje instans av bildrutan har ett thumbnailId fält, som innehåller den bildrutan miniatyr-ID.|
+|instanser|En lista över tidsintervall för den här som visar (en som visar kan endast ha 1 instans).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### <a name="brands"></a>varumärken

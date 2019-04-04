@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403399"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891811"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Data Box Edge säkerhet och dataskydd
 
@@ -35,6 +35,7 @@ Data Box Edge/Data Box Gateway-tjänsten är en management-tjänst från Microso
 
 - Åtkomst till Data Box Edge/Data Box Gateway-tjänsten kräver din organisation att ha ett Enterprise Agreement (EA) eller en prenumeration för Cloud Solution Provider (CSP). Mer information går du till [registrera dig för en Azure-prenumeration](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Eftersom din management-tjänsten finns i Azure, är den skyddad med säkerhet i Azure-funktioner. Läs mer om säkerhetsfunktionerna i Microsoft Azure på [Microsoft Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/security/).
+- För SDK-hanteringsåtgärder, krypteringsnyckeln är tillgängliga för din Data Box-Edge / Data Box Gateway-resurs under **enhetsegenskaper**. Du kan visa krypteringsnyckeln endast om du har behörighet för resursen Graph API.
 
 ## <a name="data-box-edge-device-protection"></a>Skydd för data Box-Edge-enhet
 
@@ -44,7 +45,8 @@ Data Box Edge-enhet är en lokal enhet som hjälper dig att transformera data me
 - Skyddas vid alla tidpunkter av enhetens lösenord.
 - Är en låst enhet. Enheten BMC och BIOS är lösenordsskyddad med begränsad användaråtkomst för BIOS.
 - Har säker Start aktiverat.
-- Kör Windows Defender Device Guard. Device Guard kan du köra de betrodda program som du definierar i dina kodintegritetsprinciper. 
+- Kör Windows Defender Device Guard. Device Guard kan du köra de betrodda program som du definierar i dina kodintegritetsprinciper.
+- Har en inuti framsidan som kan användas för att låsa enheten. Vi rekommenderar att när du har konfigurerat enheten, öppna omslaget. Leta upp nyckeln och låsa räcker för att förhindra otillåten åtkomst till datadiskar finns först i enheten.
 
 ### <a name="protect-the-device-via-activation-key"></a>Skydda enheten via aktiveringsnyckeln
 

@@ -1,21 +1,18 @@
 ---
-title: Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 i Azure | Microsoft Docs
-description: Kör Micro fokus BankDemo programmet på Azure för att lära dig att använda Micro fokus Enterprise Server och Enterprise.
-services: virtual-machines-linux
-documentationcenter: ''
-author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+title: Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 på Azure Virtual Machines
+description: Kör programmet Micro fokus BankDemo på Azure Virtual Machines (VM) för att lära dig att använda Micro fokus Enterprise Server och företagsutvecklare.
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099475"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892491"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 i Azure
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 på Azure
 
 När du ställer in Micro fokus Enterprise Server 4.0 och Enterprise Developer 4.0 på Azure kan du testa distributioner av IBM z/OS-arbetsbelastningar. Den här artikeln visar hur du ställer in CICS BankDemo, ett exempelprogram som medföljer företagsutvecklare.
 
@@ -23,7 +20,7 @@ CICs står för kontrollsystem kund, transaktion-plattform som används av mång
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En virtuell dator med [företagsutvecklare](set-up-micro-focus-on-azure.md). Tänk på att företagsutvecklare har en fullständig instans av Enterprise-Server på den för utveckling och testning. Det här är instansen av Enterprise-Server som används för demon.
+- En virtuell dator med [företagsutvecklare](set-up-micro-focus-azure.md). Tänk på att företagsutvecklare har en fullständig instans av Enterprise-Server på den för utveckling och testning. Det här är instansen av Enterprise-Server som används för demon.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Ladda ned och installera den på den virtuella datorn Developer Enterprise. Enterprise-servern kräver en databas för hanteringen av CICS regioner och BankDemo programmet använder också en SQL Server-databas som heter BANKDEMO. Den här demon förutsätter att du använder SQL Server Express för båda databaserna. När du installerar, väljer du grundläggande installationen.
 
@@ -269,9 +266,10 @@ Det sista som du behöver göra är att konfigurera en 3270-session med surfa, e
 
 Grattis! Nu körs ett CICS program i Azure med hjälp av Micro fokus Enterprise Server.
 
-## <a name="learn-more"></a>Läs mer
+## <a name="next-steps"></a>Nästa steg
 
+- [Kör företagsservern i Docker-behållare i Azure](run-enterprise-server-container.md)
 - [Stordatormigrering - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Avmystifiera stordatorprogram till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Avmystifiera migreringen av stordatordriften till Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

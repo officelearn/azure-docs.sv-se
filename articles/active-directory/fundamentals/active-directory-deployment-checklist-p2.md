@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8046721244b31539dc79eba3f2ba11d34c2df256
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170371"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904193"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktionen
 
@@ -46,8 +46,8 @@ I den här fasen kan aktivera administratörer grundläggande säkerhetsfunktion
 | [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två molnbaserad permanent globala administratörskonton för användning om det finns ett nödfall. Dessa konton är inte användas för varje dag och ska ha långa och komplexa lösenord. | Azure AD Kostnadsfri |
 | [Använda icke-globala administrativa roller, där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer endast åtkomst till de områden som de behöver åtkomst till. Inte alla administratörer måste vara globala administratörer. | Azure AD Kostnadsfri |
 | [Aktivera Privileged Identity Management för att spåra användning för admin-rollen](../privileged-identity-management/pim-getting-started.md) | Aktivera Privileged Identity Management att starta spårning av administrativ roll. | Azure AD Premium P2 |
-| [Lansera självåterställning av lösenord](../authentication/howto-sspr-deployment.md) | Minska antalet samtal till supportavdelningen för lösenordsåterställning genom att låta personal att återställa sina lösenord med hjälp av principer du som en administratör-kontroll. | Azure AD Basic |
-| [Skapa en organisation specifik anpassade förbjudna lösenordslista](../authentication/howto-password-ban-bad-configure.md) | Förhindra att användarna skapar lösenord som innehåller vanliga ord eller fraser från din organisation eller ditt område. | Azure AD Basic |
+| [Distribuera lösenordsåterställning via självbetjäning](../authentication/howto-sspr-deployment.md) | Minska antalet samtal till supportavdelningen för lösenordsåterställning genom att låta personal att återställa sina lösenord med hjälp av principer du som en administratör-kontroll. | Azure AD Basic |
+| [Skapa en lista med specifik anpassade förbjudna lösenord organisation](../authentication/howto-password-ban-bad-configure.md) | Förhindra att användarna skapar lösenord som innehåller vanliga ord eller fraser från din organisation eller ditt område. | Azure AD Basic |
 | [Aktivera lokal integrering med Azure AD-lösenordsskydd](../authentication/concept-password-ban-bad-on-premises.md) | Utöka lista med förbjudna lösenord till din lokala katalog så lösenord Ange lokala är också kompatibla med den globala och klientspecifik förbjudna lösenordslistor. | Azure AD Premium P1 |
 | [Aktivera Microsofts lösenord vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Stoppa att kräva att användare kan ändra sitt lösenord på ett schema, inaktivera krav på komplexitet och dina användare är mer apt att komma ihåg lösenorden och hålla dem något som är säker. | Azure AD Kostnadsfri |
 | [Inaktivera periodiska lösenordsåterställning för molnbaserade användarkonton](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Periodiska lösenordsåterställning Uppmana användarna att öka deras befintliga lösenord. Följ sedan riktlinjerna i Microsofts lösenord vägledning dokument och spegling av din lokala princip för endast molnbaserade användare. | Azure AD Kostnadsfri |

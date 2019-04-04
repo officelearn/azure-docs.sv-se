@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc27abf7dd21c4996cfd8cea0c2a478cb6dfb4fc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879377"
+ms.locfileid: "58905502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-katalogintegrering med Slack
 
@@ -119,7 +119,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Slack:
     ![image](common/edit-attribute.png)
 
     > [!NOTE] 
-    > Om du har användare med en **e-postadress** som inte finns på en Office365-licens visas inte **User.Email**-anspråket i SAML-token. I sådana fall föreslår vi att du använder **user.userprincipalname** som **User.Email**-attributvärdet att mappa som **unik identifierare** istället.
+    > Om du har användare som har tilldelats **e-postadress** finns inte på en Office 365-licens i **User.Email** anspråk visas inte i SAML-Token. I sådana fall föreslår vi att du använder **user.userprincipalname** som **User.Email**-attributvärdet att mappa som **unik identifierare** istället.
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 

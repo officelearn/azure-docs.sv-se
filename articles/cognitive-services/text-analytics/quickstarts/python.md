@@ -1,53 +1,72 @@
 ---
 title: 'Snabbstart: Använda Python för att anropa API för textanalys'
 titleSuffix: Azure Cognitive Services
-description: Få information och kodexempel som hjälper dig att snabbt komma igång med att använda API för textanalys i Microsoft Cognitive Services på Azure.
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: 1219a5f43d8abd78c4840e824c2f4c69a6fa7939
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330145"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893086"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Python 
 <a name="HOLTop"></a>
 
 Den här genomgången visar hur du [identifierar språk](#Detect), [analyserar sentiment](#SentimentAnalysis) och [extraherar nyckelfraser](#KeyPhraseExtraction) med hjälp av [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Python.
 
-Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
+Du kan köra det här exemplet från kommandoraden eller som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org) genom att klicka på Starta Binder ge en skylt:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
+### <a name="command-line"></a>Kommandorad
+
+Du kan behöva uppdatera [IPython](https://ipython.org/install.html), kärnan i Jupyter:
+```bash
+pip install --upgrade IPython
+```
+
+Du kan behöva uppdatera den [begäranden](http://docs.python-requests.org/en/master/) bibliotek:
+```bash
+pip install requests
+```
+
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
+* Den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig under registreringen.
 
-För att fortsätta med den här genomgången ersätter du `subscription_key` med en giltig prenumerationsnyckel som du hämtade tidigare.
+* Följande importer, prenumerationsnyckel, och `text_analytics_base_url` används för alla snabbstarter nedan. Lägg till importer.
 
-
-```python
-subscription_key = None
-assert subscription_key
-```
-
-Kontrollera att regionen i `text_analytics_base_url` motsvarar den du använde när du konfigurerade tjänsten. Om du använder en kostnadsfri utvärderingsnyckel behöver du inte göra några ändringar.
-
-
-```python
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
-```
+    ```python
+    import requests
+    # pprint is pretty print (formats the JSON)
+    from pprint import pprint
+    from IPython.display import HTML
+    ```
+    
+    Lägg till följande rader och sedan ersätta `subscription_key` med en giltig prenumeration-nyckel som du fick tidigare.
+    
+    ```python
+    subscription_key = '<ADD KEY HERE>'
+    assert subscription_key
+    ```
+    
+    Därefter lägger du till den här raden och sedan kontrollera att regionen i `text_analytics_base_url` motsvarar den som du använde när du konfigurerar tjänsten. Om du använder en kostnadsfri utvärderingsversion nyckel, behöver du inte ändra något.
+    
+    ```python
+    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+    ```
 
 <a name="Detect"></a>
 
@@ -55,19 +74,18 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) (Identifiera språk). Tjänstslutpunkt för språkidentifierings-API för din region finns via följande webbadress:
 
-
 ```python
 language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-
+```url
+https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+```
 
 Nyttolasten i API: n består av en lista över `documents`, och var och en innehåller i sin tur ett `id`- och ett `text`-attribut. `text`-attributet lagrar texten som ska analyseras. 
 
-Ersätt ordlistan `documents` med annan text för språkidentifiering. 
-
+Ersätt ordlistan `documents` med annan text för språkidentifiering.
 
 ```python
 documents = { 'documents': [
@@ -79,16 +97,27 @@ documents = { 'documents': [
 
 Nästa kodrader anropar språkidentifiering-API med hjälp av `requests`-biblioteket i Python för att identifiera språket i dokumenten.
 
-
 ```python
-import requests
-from pprint import pprint
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(language_api_url, headers=headers, json=documents)
 languages = response.json()
 pprint(languages)
 ```
 
+Följande rader med kod renderar JSON-data som en HTML-tabell.
+
+```python
+table = []
+for document in languages["documents"]:
+    text  = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]
+    langs = ", ".join(["{0}({1})".format(lang["name"], lang["score"]) for lang in document["detectedLanguages"]])
+    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, langs))
+HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table>".format("\n".join(table)))
+```
+
+Lyckad JSON-svar:
+
+```json
     {'documents': [{'detectedLanguages': [{'iso6391Name': 'en',
                                            'name': 'English',
                                            'score': 1.0}],
@@ -102,40 +131,23 @@ pprint(languages)
                                            'score': 1.0}],
                     'id': '3'}],
      'errors': []}
-
-
-Följande rader med kod renderar JSON-data som en HTML-tabell.
-
-
-```python
-from IPython.display import HTML
-table = []
-for document in languages["documents"]:
-    text  = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]
-    langs = ", ".join(["{0}({1})".format(lang["name"], lang["score"]) for lang in document["detectedLanguages"]])
-    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, langs))
-HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
+API för Attitydstextanalys Analysis identifierar sentiment (intervall mellan positiva eller negativa) av en uppsättning textposter, med hjälp av den [Sentiment metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
 Tjänstslutpunkten för attitydanalys är tillgänglig för din region via följande webbadress:
-
 
 ```python
 sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
-
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
-
-Precis som i exemplet på språkidentifiering tillhandahålls tjänsten med en ordlista med en `documents`-nyckel som består av en lista över dokument. Varje dokument är en tuppel som består av `id`, `text` som ska analyseras och textens `language`. Du kan använda språkidentifierings-API:et i föregående avsnitt för att fylla i det här fältet. 
-
+Precis som i exemplet på språkidentifiering tillhandahålls tjänsten med en ordlista med en `documents`-nyckel som består av en lista över dokument. Varje dokument är en tuppel som består av `id`, `text` som ska analyseras och textens `language`. Du kan använda språkidentifierings-API:et i föregående avsnitt för att fylla i det här fältet.
 
 ```python
 documents = {'documents' : [
@@ -148,7 +160,6 @@ documents = {'documents' : [
 
 Sentiment-API:et kan nu användas för att analysera dokument för deras sentiment.
 
-
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(sentiment_api_url, headers=headers, json=documents)
@@ -156,13 +167,16 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-    {'documents': [{'id': '1', 'score': 0.7673527002334595},
-                   {'id': '2', 'score': 0.18574094772338867},
-                   {'id': '3', 'score': 0.5}],
-     'errors': []}
+Lyckad JSON-svar:
 
+```json
+{'documents': [{'id': '1', 'score': 0.7673527002334595},
+                {'id': '2', 'score': 0.18574094772338867},
+                {'id': '3', 'score': 0.5}],
+    'errors': []}
+```
 
-Sentimentpoängen för ett dokument är mellan $0$ och $1$, där en högre poäng anger en mer positiv attityd.
+Sentimentresultatet för ett dokument är mellan 0,0 och 1,0, med en högre poäng som anger en mer positiv attityd.
 
 <a name="KeyPhraseExtraction"></a>
 
@@ -172,17 +186,13 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 
 Tjänstslutpunkten för tjänsten för nyckelfrasextrahering nås via följande webbadress:
 
-
 ```python
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
-
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
-
 Samlingen av dokument är samma som den du använde för attitydanalysen.
-
 
 ```python
 documents = {'documents' : [
@@ -191,27 +201,11 @@ documents = {'documents' : [
   {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
   {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
 ]}
-headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
-response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
-key_phrases = response.json()
-pprint(key_phrases)
 ```
 
-
-    {'documents': [
-        {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
-        {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
-        {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
-        {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
-     'errors': []
-    }
-
-
-JSON-objektet kan återigen återges som en HTML-tabell med följande rader med kod:
-
+JSON-objekt kan återges som en HTML-tabell med följande rader med kod:
 
 ```python
-from IPython.display import HTML
 table = []
 for document in key_phrases["documents"]:
     text    = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]    
@@ -220,12 +214,30 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
+Nästa kodrader anropar språkidentifiering-API med hjälp av `requests`-biblioteket i Python för att identifiera språket i dokumenten.
+```python
+headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
+response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
+key_phrases = response.json()
+pprint(key_phrases)
+```
+
+Lyckad JSON-svar:
+```json
+{'documents': [
+    {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
+    {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
+    {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
+    {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
+    'errors': []
+}
+```
+
 ## <a name="identify-entities"></a>Identifiera entiteter
 
 API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
 Tjänstslutpunkten för entitetslänkningens tjänst nås via följande webbadress:
-
 
 ```python
 entity_linking_api_url = text_analytics_base_url + "entities"
@@ -234,9 +246,7 @@ print(entity_linking_api_url)
 
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
-
 Samlingen med dokument finns nedan:
-
 
 ```python
 documents = {'documents' : [
@@ -244,7 +254,6 @@ documents = {'documents' : [
   {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
-
 Dokumenten kan nu skickas till API för textanalys för att ta emot svaret.
 
 ```python
@@ -253,6 +262,7 @@ response  = requests.post(entity_linking_api_url, headers=headers, json=document
 entities = response.json()
 ```
 
+Lyckad JSON-svar:
 ```json
 {
     "Documents": [
@@ -412,9 +422,9 @@ entities = response.json()
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Textanalys med Powerbi](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
- [Översikt över Textanalys](../overview.md)  
+ [Översikt över text Analytics](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

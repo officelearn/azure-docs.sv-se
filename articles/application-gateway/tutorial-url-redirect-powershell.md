@@ -3,19 +3,15 @@ title: Skapa en programgateway med webbadressbaserad omdirigering – Azure Powe
 description: Lär dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken med Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 23541543daaf1a354da370178f82b222acfebe72
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876641"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918390"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
 
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8080/video/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
+Ändra webbadressen till http://&lt;ip-adress&gt;:8080/images/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 

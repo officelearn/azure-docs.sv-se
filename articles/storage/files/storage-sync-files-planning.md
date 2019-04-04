@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480727"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918645"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -278,6 +278,8 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Östasien           | Sydostasien     |
 | Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
+| Sydkorea, centrala       | Sydkorea, södra        |
+| Sydkorea, södra         | Sydkorea, centrala      |
 | Norra Europa        | Västra Europa        |
 | Norra centrala USA    | Södra centrala USA   |
 | Södra Indien         | Indien, centrala      |
@@ -292,7 +294,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg att brandvägg och proxyinställningar](storage-sync-files-firewall-and-proxy.md)
-* [Planera för en Azure Files-distribution](storage-files-planning.md)
+* [Planera för distribution av Azure Files](storage-files-planning.md)
 * [Distribuera Azure Files](storage-files-deployment-guide.md)
 * [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

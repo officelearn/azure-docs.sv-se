@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648647"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904449"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
 När du köper en reservation för Azure kan du behöva använda reservationen i en annan prenumeration, ändra vem som kan hantera reservationen eller ändra omfattningen för reservationen. Du kan också dela upp en reservation i två reservationer att tillämpa vissa av de instanser som du har köpt till en annan prenumeration.
 
 Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra inställningen Optimera för reservationen. Rabatten kan använda för virtuella datorer i samma serie eller reservera datacentrets kapacitet för en specifik VM-storlek.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="change-the-scope-for-a-reservation"></a>Ändra omfattningen för en reservation
 
@@ -70,34 +73,34 @@ Att delegera hantering för en reservation:
 
     ```powershell
     # Get the reservation orders you have access to
-    Get-AzureRmReservationOrder
+    Get-AzReservationOrder
     ```
 
 2. Hämta information om en reservation:
 
     ```powershell
-    Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
 
 3. Dela upp reservationen i två och distribuera instanser:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. Du kan uppdatera omfattningen genom att köra följande kommando:
 
     ```powershell
-    Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
 ## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
 
 Beroende på reservationstyp av kan du annullera eller byta en reservation. Mer information finns i annullering och utbyten avsnitt i följande avsnitt:
 
-- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Betala i förskott för SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Ändra optimera inställning för reserverade VM-instanser
 
@@ -126,13 +129,13 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
 
 Köp en serviceplan:
-- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
 - [Betala i förskott för Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Köp en plan för programvara:
 - [Betala i förskott för Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Betala i förskott för SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Förstå rabatt och användning:
 - [Förstå hur VM-reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)

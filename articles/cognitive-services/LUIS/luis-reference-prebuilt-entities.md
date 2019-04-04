@@ -9,32 +9,32 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ms.author: diberry
-ms.openlocfilehash: fdb105fa5aa9baefc9e64b65c275f07db802daad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091706"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905060"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kulturen i LUIS-modellen
 
 Språkförståelse (LUIS) tillhandahåller förskapade entiteter. När en entitet som är färdiga ingår i ditt program, innehåller LUIS motsvarande entitet förutsägelser i svaret slutpunkt. Alla exempel yttranden är också märkta med entiteten. Fördefinierade entiteternas beteende **kan** ändras. Om inget annat anges, är fördefinierade entiteter tillgängliga i alla THOMAS programmet språk (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
-|Kultur|Subkulturer|
-|--|--|
-|Kinesiska|[zh-CN](#chinese-entity-support)|
-|Nederländska|[NL-NL](#dutch-entity-support)|
-|Svenska|[en-US (American)](#english-american-entity-support)|
-|Franska|[fr-CA (Kanada)](#french-canadian-entity-support), [fr-FR (Frankrike)](#french-france-entity-support), |
-|Tyska|[de-DE](#german-entity-support)|
-|Italienska|[IT-IT](#italian-entity-support)|
-|Japanska|[Ja-JP](#japanese-entity-support)|
-|Koreanska|[ko-KR](#korean-entity-support)|
-|Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)|
-|Spanska|[es-ES (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)|
-|Turkiska|[Turkiska](#turkish-entity-support)|
+|Kultur|Subkulturer|Anteckningar|
+|--|--|--|
+|Kinesiska|[zh-CN](#chinese-entity-support)||
+|Nederländska|[NL-NL](#dutch-entity-support)||
+|Svenska|[en-US (American)](#english-american-entity-support)||
+|Franska|[fr-CA (Kanada)](#french-canadian-entity-support), [fr-FR (Frankrike)](#french-france-entity-support), ||
+|Tyska|[de-DE](#german-entity-support)||
+|Italienska|[IT-IT](#italian-entity-support)||
+|Japanska|[ja-JP](#japanese-entity-support)||
+|Koreanska|[ko-KR](#korean-entity-support)||
+|Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)||
+|Spanska|[es-ES (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)||
+|Turkiska|[Turkiska](#turkish-entity-support)|Inga förskapade entiteter som stöds i turkiska|
 
 ## <a name="chinese-entity-support"></a>Stöd för kinesiska entitet
 
@@ -49,8 +49,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -70,8 +70,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -91,8 +91,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -112,8 +112,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -133,8 +133,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -154,8 +154,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -175,8 +175,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -196,8 +196,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -217,8 +217,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    -   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Tal](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -238,8 +238,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -259,8 +259,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -280,8 +280,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -294,29 +294,32 @@ KeyPhrase är inte tillgänglig i alla subkulturer av portugisiska (Brasilien) -
 
 ## <a name="turkish-entity-support"></a>Stöd för turkiska entitet
 
-Följande enheter stöds:
+**Det finns inga förskapade entiteter som stöds i turkiska.** 
 
-|Fördefinierade entitet|```tr-tr``` |
+<!--
+
+|Prebuilt entity|```tr-tr``` |
 ------|:------:|
-[Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>dag   |    -   |
-[Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>dollar<br>bråkdelar enhet (ex: penny)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    -   | 
-[Dimensionen](luis-reference-prebuilt-dimension.md):<br>volym<br>området<br>vikt<br>information (t.ex.: bitars/byte)<br>längden (ex: mätaren)<br>hastighet (ex: mil per timme)  |    -   | 
-[E-post](luis-reference-prebuilt-email.md)   |    -   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   | 
+[Email](luis-reference-prebuilt-email.md)   |    -   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Nummer](luis-reference-prebuilt-number.md)   |    -   |  
-[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
-[Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    -   | 
-[Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
-Se information på [inaktuell fördefinierade entiteter](luis-reference-prebuilt-deprecated.md)
+See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase är inte tillgänglig.
 
+KeyPhrase is not available.
+-->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Bidra till fördefinierade entitet kulturer
 Fördefinierade entiteter har utvecklats i identifierare fulltext open source-projektet. [Bidra](https://github.com/Microsoft/Recognizers-Text) i projektet. Det här projektet innehåller exempel på valuta per kultur. 

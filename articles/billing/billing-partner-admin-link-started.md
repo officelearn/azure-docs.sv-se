@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444897"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904839"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
 Som partner kan spåra du din inverkan mellan dina kundrelationer. Du kan länka ditt partner-ID för de konton som används för att hantera resurser för en kund.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>Hämta från kunden
 
@@ -57,9 +59,8 @@ När du har åtkomst till kundens resurser, använda Azure portal, PowerShell el
 2. Logga in på kundens klient med användarkonton eller tjänstens huvudnamn. Mer information finns i [logga in med PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. Länka till ny partner-ID. Partner-ID är den [Microsoft Partner Network](https://partner.microsoft.com/) ID för din organisation.
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa logikappar med Azure Resource Manager-mallar – Azure Logic Apps | Microsoft Docs
-description: Skapa och distribuera arbetsflöden i logikappar med Azure Resource Manager-mallar i Azure Logic Apps
+title: Distribuera logic apps i Azure Resource Manager-mallar – Azure Logic Apps
+description: Distribuera logic apps med hjälp av Azure Resource Manager-mallar
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,122 +10,114 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 7543859a916de97d471db2894887e640db51dfc2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652492"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893432"
 ---
-# <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Skapa och distribuera logikappar med Azure Resource Manager-mallar
+# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Distribuera logic apps i Azure Resource Manager-mallar
 
-Azure Logic Apps ger Azure Resource Manager-mallar som du kan använda, inte bara att skapa logikappar för automatisering av arbetsflöden, men också att definiera resurser och parametrar som används för distribution.
-Du kan använda den här mallen för dina egna affärsscenarier eller anpassa mallen så att den uppfyller dina krav. Läs mer om den [Resource Manager-mall för logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) och [Azure Resource Manager-mall strukturen och syntaxen](../azure-resource-manager/resource-group-authoring-templates.md). JSON-syntax och egenskaper finns i [Microsoft.Logic resurstyper](/azure/templates/microsoft.logic/allversions).
+När du har skapat en Azure Resource Manager-mall för att distribuera logikappen kan du distribuera din mall på följande sätt:
 
-## <a name="define-the-logic-app"></a>Definiera logikappen
-Det här exemplet logikappsdefinitionen körs en gång i timmen och pingar den plats som anges i den `testUri` parametern.
-Mallen använder parametervärden för namn för logikappen (```logicAppName```) och på plats för att pinga för testning (```testUri```). Läs mer om [definierar dessa parametrar i mallen](#define-parameters).
-Mallen ställs även platsen för logikappen till samma plats som Azure-resursgruppen.
+* [Azure Portal](#portal)
+* [Azure PowerShell](#powershell)
+* [Azure CLI](#cli)
+* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure DevOps Azure Pipelines](#azure-pipelines)
 
-```json
-{
-   "type": "Microsoft.Logic/workflows",
-   "apiVersion": "2016-06-01",
-   "name": "[parameters('logicAppName')]",
-   "location": "[resourceGroup().location]",
-   "tags": {
-      "displayName": "LogicApp"
-   },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-            "testURI": {
-               "type": "string",
-               "defaultValue": "[parameters('testUri')]"
-            }
-         },
-         "triggers": {
-            "Recurrence": {
-               "type": "Recurrence",
-               "recurrence": {
-                  "frequency": "Hour",
-                  "interval": 1
-               }
-            }
-         },
-         "actions": {
-            "Http": {
-              "type": "Http",
-              "inputs": {
-                  "method": "GET",
-                  "uri": "@parameters('testUri')"
-              },
-              "runAfter": {}
-           }
-         },
-         "outputs": {}
-      },
-      "parameters": {}
-   }
-}
-```
+<a name="portal"></a>
 
-<a name="define-parameters"></a>
+## <a name="deploy-through-azure-portal"></a>Distribuera via Azure-portalen
 
-### <a name="define-parameters"></a>Definiera parametrar
+För att automatiskt distribuera en mall för logikapp till Azure, kan du välja följande **distribuera till Azure** knapp, som loggar du in på Azure-portalen och du uppmanas att ange information om din logikapp. Du kan sedan göra nödvändiga ändringar till mall för logikapp eller parametrar.
 
-[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+[![Deploy till Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Här följer beskrivningar av parametrar i mallen:
-
-| Parameter | Beskrivning | Exempel för JSON-definition |
-| --------- | ----------- | ----------------------- |
-| `logicAppName` | Definierar namnet logikappens mallen som skapas. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Definierar platsen för att pinga för testning. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
-||||
-
-Läs mer om [REST API för Logic Apps-arbetsflödet definitions- och egenskaper](https://docs.microsoft.com/rest/api/logic/workflows) och [att skapa logikappsdefinitioner med JSON](logic-apps-author-definitions.md).
-
-## <a name="deploy-logic-apps-automatically"></a>Distribuera automatiskt i logikappar
-
-Om du vill skapa och distribuera automatiskt en logic app till Azure, Välj **distribuera till Azure** här:
-
-[![Distribuera till Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
-
-Den här åtgärden loggar du in på Azure-portalen där du kan ange dina logic Apps information och göra ändringar i mallen eller parametrar.
-Till exempel uppmanas Azure-portalen du för dessa uppgifter:
+Till exempel uppmanas du för den här informationen när du loggar in på Azure Portal:
 
 * Namn på Azure-prenumeration
 * Resursgruppen som du vill använda
 * Logic app-plats
-* Ett namn för din logikapp
+* Logikappens namn
 * Ett test URI
 * Godkännande av de angivna allmänna villkoren
 
-## <a name="deploy-logic-apps-with-commands"></a>Distribuera logic apps med kommandon
+Mer information finns i [distribuera resurser med Azure Resource Manager-mallar och Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+## <a name="authorize-oauth-connections"></a>Godkänna OAuth-anslutningar
 
-### <a name="powershell"></a>PowerShell
+Efter distributionen fungerar logikappen slutpunkt till slutpunkt med giltiga parametrar. Du måste dock fortfarande godkänna OAuth-anslutningar för att skapa en giltig åtkomsttoken. För automatisk distribution kan du använda ett skript som godkänner varje OAuth-anslutning, som detta [exempelskript i GitHub LogicAppConnectionAuth projektet](https://github.com/logicappsio/LogicAppConnectionAuth). Du kan också godkänna OAuth-anslutningar via Azure portal eller i Visual Studio genom att öppna logikappen i Logic Apps Designer.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<a name="powershell"></a>
+
+## <a name="deploy-with-azure-powershell"></a>Distribuera med Azure PowerShell
+
+Distribuera till en specifik *Azure-resursgrupp*, Använd det här kommandot:
 
 ```powershell
-New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+Använd följande kommando om du vill distribuera till en specifik Azure-prenumeration:
+
+```powershell
+New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
+```
+
+* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azdeployment)
+
+<a name="cli"></a>
+
+## <a name="deploy-with-azure-cli"></a>Distribuera med Azure CLI
+
+Distribuera till en specifik *Azure-resursgrupp*, Använd det här kommandot:
 
 ```azurecli
-azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
+az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
+
+Använd följande kommando om du vill distribuera till en specifik Azure-prenumeration:
+
+```azurecli
+az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+```
+
+Mer information finns i följande avsnitt: 
+
+* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
+
+<a name="azure-pipelines"></a>
+
+## <a name="deploy-with-azure-devops"></a>Distribuera med Azure DevOps
+
+Om du vill distribuera mallar för logikappar och hantera miljöer, ofta använda ett verktyg som [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) i [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Pipelines som Azure tillhandahåller en [Azure Resursgruppsdistribution uppgift](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) att du kan lägga till någon version eller frigöra pipeline.
+För att godkänna att distribuera och generera versionspipelinen, måste du också en Azure Active Directory (AD) [tjänstens huvudnamn](../active-directory/develop/app-objects-and-service-principals.md). Läs mer om [med tjänstens huvudnamn med Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+Här följer allmänna anvisningar för att använda Azure Pipelines:
+
+1. Skapa en tom pipeline i Azure-Pipelines.
+
+1. Välj de resurser du behöver för pipelinen, t.ex din mall för logikapp och mallfilerna för parametrar, som skapas manuellt eller som en del av skapandeprocessen.
+
+1. För din agent-jobbet, hitta och Lägg till den **Azure Resursgruppsdistribution** uppgift.
+
+   ![Lägg till ”Azure Resursgruppsdistribution” aktivitet](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
+
+1. Konfigurera med en [tjänstens huvudnamn](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+
+1. Lägg till referenser till din mall för logikapp och mallfilerna för parametrar.
+
+1. Fortsätt att bygga ut steg i processen för versionen för alla andra miljö, automatiserad testning och godkännare efter behov.
 
 ## <a name="get-support"></a>Få support
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
+Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Nästa steg
 

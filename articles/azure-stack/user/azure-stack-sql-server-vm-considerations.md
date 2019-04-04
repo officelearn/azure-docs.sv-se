@@ -1,6 +1,6 @@
 ---
-title: Prestandametodtips för SQL Server i Azure Stack-datorer
-description: Ta del av metodtips för att optimera prestanda för SQL Server i Microsoft Azure Stack-datorer.
+title: Följ rekommenderade säkerhetsmetoder för SQL Server och öka prestanda på virtuella datorer i Azure Stack | Microsoft Docs
+description: Den här artikeln innehåller metodtips för SQL server för att öka prestanda och optimera SQL Server i virtuella datorer i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123410"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879072"
 ---
-# <a name="optimize-sql-server-performance"></a>Optimera prestanda för SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Metodtips för SQL server att optimera prestanda i Azure Stack
 
-Den här artikeln innehåller vägledning för att optimera prestanda för SQL Server på Microsoft Azure Stack-datorer. När du kör SQL Server på Azure Stack-datorer kan använda samma databas prestandajustering alternativ gäller för SQL Server i en lokal server-miljö. Prestanda för en relationsdatabas i ett Azure Stack-moln beror på många faktorer. Faktorer är family storleken på en virtuell dator och konfigurationen för datadiskar.
+Den här artikeln innehåller metodtips för SQL server för att optimera SQL Server och förbättra prestanda i Microsoft Azure Stack-datorer. När du kör SQL Server på Azure Stack-datorer kan använda samma databas prestandajustering alternativ gäller för SQL Server i en lokal server-miljö. Prestanda för en relationsdatabas i ett Azure Stack-moln beror på många faktorer. Faktorer är family storleken på en virtuell dator och konfigurationen för datadiskar.
 
 När du skapar SQL Server-avbildningar, [Överväg att etablera virtuella datorer i Azure Stack portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Ladda ned SQL IaaS-tillägget från Marketplace-hantering i Azure Stack Admin Portal och ladda ned ditt val av SQL VM virtuella hårddiskar (VHD). Dessa inkluderar SQL2014SP2 och SQL2016SP1 SQL2017.
 
@@ -37,7 +37,8 @@ Hämta den *bästa* prestanda för SQL Server på Azure Stack virtuella datorer 
 > [!NOTE]  
 > Prestandavägledning för SQL Server på Azure virtuella datorer, finns i [i den här artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="checklist-for-sql-server-best-practices"></a>Checklista för Metodtips för SQL server
+
 Följande checklista är optimala prestanda för SQL Server på Azure Stack-datorer:
 
 
@@ -112,7 +113,7 @@ Vi rekommenderar att du lagrar TempDB på en datadisk som innehåller högst upp
 
        Exempelvis skapar en ny lagringspool med interfoliering storlek 64 KB och antalet kolumner till 2 med följande PowerShell:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

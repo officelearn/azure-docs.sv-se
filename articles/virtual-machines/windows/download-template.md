@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984536"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903122"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas automatiskt en Resource Manager-mall för dig. Du kan använda den här mallen för att snabbt kopiera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator innebär detta att mallen innehåller allt som har skapats som stöd för den virtuella datorn i den resursgruppen, inklusive nätverksresurser.
@@ -29,7 +29,7 @@ När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. En den vänstra menyn, Välj **virtuella datorer**.
 3. Välj den virtuella datorn i listan.
-4. Välj **automationsskript**.
+4. Välj **exportmallen**.
 5. Välj **hämta** från menyn längst upp och spara ZIP-filen till din lokala dator.
 6. Öppna ZIP-filen och extrahera filerna till en mapp. ZIP-filen innehåller:
    

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097465"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905859"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
 Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
 
 I den här artikeln får du lära dig att använda [Visual Studio 2017 med Azure-utveckling och ASP.NET-arbetsbelastningar installerade](/dotnet/azure/dotnet-tools). Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
 
@@ -148,7 +150,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
    > [!NOTE]
    > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Installera dem om du uppmanas att göra det. Du behöver Azure PowerShell-moduler för att distribuera resursgrupper. PowerShell-skriptet i projektet fungerar inte med den nya [Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az). 
    >
-   > Mer information finns i [Install and configure Azure PowerShell modules](/powershell/azure/azurerm/install-azurerm-ps) (Installera och konfigurera Azure PowerShell-moduler).
+   > Mer information finns i [Install and configure Azure PowerShell modules](/powershell/azure/install-Az-ps) (Installera och konfigurera Azure PowerShell-moduler).
    > 
    > 
 6. Distributionen kan ta några minuter. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:

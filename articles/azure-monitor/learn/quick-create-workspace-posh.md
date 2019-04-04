@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871219"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905740"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure PowerShell-modulen för att distribuera en Log Analytics-arbetsyta i Azure Monitor. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor-loggdata. Varje arbetsyta har sin egen databas och konfiguration och datakällor och lösningar som är konfigurerade för att lagra sina data i en viss arbetsyta. Du behöver en Log Analytics-arbetsyta om du avser att samla in data från följande källor:
-
 
 * Azure-resurser i din prenumeration  
 * Lokala datorer som övervakas av System Center Operations Manager  
@@ -40,9 +37,11 @@ Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-dato
 
 Om du inte har en Azure-prenumeration kan du skapa [ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modulen AzureRM version 5.7.0-installationsprogram eller Az-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell Az-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 Skapa en arbetsyta med [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). I följande exempel skapas en arbetsyta med namnet *TestWorkspace* i resursgruppen *Lab* i den *eastus* plats med hjälp av en Resource Manager-mall från din lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. 

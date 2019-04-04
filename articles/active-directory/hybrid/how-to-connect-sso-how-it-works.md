@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083945"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896133"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: Teknisk djupdykning
 
@@ -39,15 +39,12 @@ Det här avsnittet har tre delar:
 
 Sömlös enkel inloggning har aktiverats med Azure AD Connect enligt [här](how-to-connect-sso-quick-start.md). När du aktiverar funktionen genomförs följande steg:
 
-- Ett datorkonto med namnet `AZUREADSSOACC` (som representerar Azure AD) skapas i din lokala Active Directory (AD) i varje AD-skog.
-- Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar, har var och en sin egen nyckel för dekryptering av Kerberos.
-- Dessutom skapas två Kerberos tjänsternas huvudnamn (SPN) för att representera två URL: er som används under Azure AD-inloggningen.
-
->[!NOTE]
-> Datorkontot och de Kerberos SPN skapas i varje AD-skog du synkroniserar till Azure AD (med Azure AD Connect) och vars användare du vill ha sömlös enkel inloggning. Flytta den `AZUREADSSOACC` datorkonto till en organisation enhet (OU) där andra konton lagras så att den hanteras på samma sätt och inte tas bort.
+- Ett datorkonto (`AZUREADSSOACC`) skapas i din lokala Active Directory (AD) i varje AD-skog som synkroniseras till Azure AD (med Azure AD Connect).
+- Dessutom skapas ett antal Kerberos tjänsthuvudnamn (SPN) för att användas vid inloggningsprocess för Azure AD.
+- Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar, har alla datorkonton en egen unik dekrypteringsnyckel för Kerberos.
 
 >[!IMPORTANT]
->Vi rekommenderar starkt att som du [förnyar Kerberos-krypteringsnyckel](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) av den `AZUREADSSOACC` datorkontot minst var 30: e dag.
+> Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar. Kerberos-krypteringsnyckel på datorkontot ska också behandlas som känsliga. Vi rekommenderar starkt att som du [förnyar Kerberos-krypteringsnyckel](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) av den `AZUREADSSOACC` datorkontot minst var 30: e dag.
 
 När inställningarna har slutförts, fungerar sömlös SSO på samma sätt som alla andra logga in som använder integrerad Windows autentisering (IWA).
 

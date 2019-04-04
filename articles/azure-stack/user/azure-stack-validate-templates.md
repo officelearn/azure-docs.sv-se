@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247314"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484058"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Kontrollera dina mallar för Azure Stack med verktyget för mall-validering
 
@@ -47,13 +47,13 @@ Innan du använder mallen verifieraren kan köra den **AzureRM.CloudCapabilities
 1. Kontrollera att du är ansluten till Azure Stack. De här stegen kan utföras från Azure Stack development kit värden eller använda en [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta från din arbetsstation.
 2. Importera den **AzureRM.CloudCapabilities** PowerShell-modulen:
 
-    ```PowerShell
+    ```powershell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
 3. Använd den `Get-CloudCapabilities` cmdlet för att hämta service-versioner och skapa en cloud funktioner JSON-fil. Om du inte anger **- OutputPath**, filen AzureCloudCapabilities.Json har skapats i den aktuella katalogen. Använd din faktiska plats:
 
-    ```PowerShell
+    ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
@@ -63,14 +63,14 @@ Använd de här stegen för att validera mallar med hjälp av den **AzureRM.Temp
 
 1. Importera den **AzureRM.TemplateValidator.psm1** PowerShell-modulen:
 
-    ```PowerShell
+    ```powershell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
 2. Köra verifieraren mall:
 
-    ```PowerShell
+    ```powershell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
@@ -98,7 +98,7 @@ Mall-verifieraren stöder följande parametrar.
 
 Det här exemplet verifierar att alla de [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates) laddas ned till lokal lagring. I exempel validerar också storlekar för virtuella datorer och tillägg mot Azure Stack Development Kit funktioner:
 
-```PowerShell
+```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `

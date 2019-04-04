@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847458"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916696"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -67,7 +67,7 @@ Följande tabeller är ordnade efter felkod.
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Azure Backup är inte kan ansluta till SQL-instansen. | Azure Backup kan inte ansluta till SQL-instansen. | Använd ytterligare information på menyn Azure portal fel för att begränsa den bakomliggande orsaken. Referera till [SQL felsöka säkerhetskopiering av](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) åtgärda felet.<br/><ul><li>Om standardinställningarna för SQL inte tillåter fjärranslutningar, ändra inställningarna. Referera till den via länkarna för att ändra inställningarna nedan.<ul><li>[https://msdn.microsoft.com/library/bb326495.aspx](https://msdn.microsoft.com/library/bb326495.aspx)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Om det finns problem med inloggningen, referera till den via länkarna kan åtgärdas nedan:<ul><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup är inte kan ansluta till SQL-instansen. | Azure Backup kan inte ansluta till SQL-instansen. | Använd ytterligare information på menyn Azure portal fel för att begränsa den bakomliggande orsaken. Referera till [SQL felsöka säkerhetskopiering av](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) åtgärda felet.<br/><ul><li>Om standardinställningarna för SQL inte tillåter fjärranslutningar, ändra inställningarna. Se följande artiklar för information om hur du ändrar inställningarna.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Om det finns problem med inloggningen, referera till den via länkarna kan åtgärdas nedan:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -169,7 +169,8 @@ Dessa problem kan uppstå på grund av en eller flera av följande orsaker:
   * Virtuella datorer stängdes av under en längre period på grund av som tilläggskonfigurationen på den upphört att gälla
   * Virtuell dator har tagits bort och en annan virtuell dator har skapats med samma namn, i samma resursgrupp som den borttagna virtuella datorn
   * En av noderna AG fick inte konfigurationen för fullständig säkerhetskopiering, detta kan inträffa antingen vid tidpunkten för tillgänglighet av gruppregistrering till valvet eller när en ny nod läggs  <br>
-    I situationerna ovan rekommenderas att utlösa Omregistrera åtgärden på den virtuella datorn. Det här alternativet är bara tillgänglig via PowerShell och kommer snart att vara tillgängliga på Azure Portal.
+   
+I situationerna ovan rekommenderas att utlösa Omregistrera åtgärden på den virtuella datorn. Det här alternativet är bara tillgänglig via PowerShell och kommer snart att vara tillgängliga på Azure Portal.
 
 
 ## <a name="next-steps"></a>Nästa steg

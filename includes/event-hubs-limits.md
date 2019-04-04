@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: cd64bdabc2b7b34687296c855c27882925d80f63
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d6b54027adcf2b12c6ca4081a11208a31f620e8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124417"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919375"
 ---
 I följande tabell visas kvoter och gränser specifika för [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om priser för Event Hubs finns i [priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Gräns | Scope | Anteckningar | Värde |
 | --- | --- | --- | --- |
-| Antal Event Hubs-namnområden per prenumeration |Prenumeration |- |1,000 |
+| Antal Event Hubs-namnområden per prenumeration |Prenumeration |- |100 |
 | Antal event-hubbar per namnområde |Namnområde |Efterföljande förfrågningar för att skapa en ny händelsehubb avvisas. |10 |
 | Antalet partitioner per händelsehubb |Entitet |- |32 |
 | Antal konsumentgrupper per händelsehubb |Entitet |- |20 |

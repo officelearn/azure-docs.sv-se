@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001566"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916316"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Anpassa livscykeln för en webb- eller arbetsroll i .NET
-När du skapar en arbetsroll kan du utöka den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen som innehåller metoder för att åsidosätta som du kan svara på Livscykelhändelser. För webbroller kan den här klassen är valfritt, så du måste använda den för att svara på Livscykelhändelser.
+När du skapar en arbetsroll kan du utöka den [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) klassen som innehåller metoder för att åsidosätta som du kan svara på Livscykelhändelser. För webbroller kan den här klassen är valfritt, så du måste använda den för att svara på Livscykelhändelser.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Utöka klassen RoleEntryPoint
-Den [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) klassen innehåller metoder som anropas av Azure när det **startar**, **körs**, eller **stoppar** en web- eller worker-roll. Du kan också åsidosätta dessa metoder för att hantera rollen initieringen eller roll-avstängning sekvenser tråden för körning av rollen. 
+Den [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) klassen innehåller metoder som anropas av Azure när det **startar**, **körs**, eller **stoppar** en web- eller worker-roll. Du kan också åsidosätta dessa metoder för att hantera rollen initieringen eller roll-avstängning sekvenser tråden för körning av rollen. 
 
 När du utökar **RoleEntryPoint**, bör du vara medveten om följande beteenden av metoder:
 
-* Den [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) och [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metoder returnerar ett booleskt värde, så det är möjligt att returnera **FALSKT** från dessa metoder.
+* Den [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) och [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) metoder returnerar ett booleskt värde, så det är möjligt att returnera **FALSKT** från dessa metoder.
   
    Om din kod returnerar **FALSKT**, roll processen avslutas tvärt, utan att köra flera avstängning har på plats. I allmänhet bör du undvika att returnera **FALSKT** från den **OnStart** metod.
 * Någon ofångat undantag i en överlagring för en **RoleEntryPoint** metoden behandlas som ett ohanterat undantag.
   
-   Om ett undantag inträffar inom någon av metoderna livscykel Azure höjer de [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelse och processen avslutas. När din roll har varit offline, startas av Azure. Om ett ohanterat undantag inträffar den [stoppar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) inte inträffar händelsen och **OnStop** metoden inte anropas.
+   Om ett undantag inträffar inom någon av metoderna livscykel Azure höjer de [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) händelse och processen avslutas. När din roll har varit offline, startas av Azure. Om ett ohanterat undantag inträffar den [stoppar](/previous-versions/azure/reference/ee758136(v=azure.100)) inte inträffar händelsen och **OnStop** metoden inte anropas.
 
-Om din roll startar inte, eller återanvänds mellan initierar, upptagen och stoppa tillstånd, kan din kod utlöste ett ohanterat undantag i någon av de Livscykelhändelser för varje gång rollen startas om. I det här fallet den [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) händelse att ta reda på orsaken för undantaget och hantera på rätt sätt. Din roll kan också returnera från den [kör](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) metoden, vilket gör att rollen startas om. Mer information om distributionstillstånd finns [vanliga problem som orsak roller till återvinning](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Om din roll startar inte, eller återanvänds mellan initierar, upptagen och stoppa tillstånd, kan din kod utlöste ett ohanterat undantag i någon av de Livscykelhändelser för varje gång rollen startas om. I det här fallet den [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) händelse att ta reda på orsaken för undantaget och hantera på rätt sätt. Din roll kan också returnera från den [kör](/previous-versions/azure/reference/ee772746(v=azure.100)) metoden, vilket gör att rollen startas om. Mer information om distributionstillstånd finns [vanliga problem som orsak roller till återvinning](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Om du använder den **Azure Tools för Microsoft Visual Studio** för att utveckla ditt program kan projektmallar rollen automatiskt utöka den **RoleEntryPoint** klassen för dig, i den  *WebRole.cs* och *WorkerRole.cs* filer.

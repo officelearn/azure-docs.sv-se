@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328876"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918475"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Hantera Azure Cloud Services med Azure Automation
 Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av dina Azure-molntjänster.
@@ -32,7 +32,7 @@ Azure Automation tillhandahåller en mycket pålitlig och mycket tillgänglig mo
 Minska driftsomkostnader och frigör IT / DevOps-personal att fokusera på arbete som lägger till företag värde genom att flytta din molnhanteringsuppgifter att köras automatiskt av Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hur kan Azure Automation till att hantera Azure-molntjänster?
-Azure-molntjänster kan hanteras i Azure Automation med hjälp av PowerShell-cmdlets som är tillgängliga i den [Azure PowerShell-verktyg](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation har dessa molnet PowerShell cmdlet: ar tillgängliga direkt, så att du kan utföra alla dina molntjänsthantering i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
+Azure-molntjänster kan hanteras i Azure Automation med hjälp av PowerShell-cmdlets som är tillgängliga i den [Azure PowerShell-verktyg](/powershell/). Azure Automation har dessa molnet PowerShell cmdlet: ar tillgängliga direkt, så att du kan utföra alla dina molntjänsthantering i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
 
 Vissa exempel användningsområden för Azure Automation för att hantera Azure Cloud Services är:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097982"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905332"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -28,11 +28,11 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 ## <a name="create-a-device-template"></a>Skapa en mall för enhet
 
-I Azure IoT Central programmet behöver du en mall för enheten med följande mätningar och enhetsegenskaper som definierats:
+I Azure IoT Central programmet behöver du en mall för enheten med de följande mått, enhetsegenskaper, inställningar och kommandon:
 
 ### <a name="telemetry-measurements"></a>Telemetri mätning av faktisk användning
 
-Lägg till följande telemetri i den **mätningar** sidan:
+Lägg till följande telemetri på den **mätningar** sidan:
 
 | Visningsnamn | Fältnamn  | Enheter | Min | Max | Antal decimaler |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
@@ -41,59 +41,77 @@ Lägg till följande telemetri i den **mätningar** sidan:
 | Tryck     | tryck    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
->   Datatypen för måttet telemetri är en flytande peka tal.
+> Datatypen för måttet telemetri är en flytande peka tal.
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar fältnamnen kan inte visas telemetri i programmet.
+Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande kod för enheten kan inte visas telemetri i programmet.
 
 ### <a name="state-measurements"></a>Statliga mätning av faktisk användning
 
-Lägg till följande tillstånd i den **mätningar** sidan:
+Lägg till följande tillstånd på den **mätningar** sidan:
 
 | Visningsnamn | Fältnamn  | Värde 1 | Visningsnamn | Värde 2 | Visningsnamn |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 
 > [!NOTE]
->   Datatypen för måttet tillstånd är sträng.
+> Datatypen för måttet tillstånd är sträng.
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar namnen på kan tillståndet inte visas i programmet.
+Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan tillståndet inte visas i programmet.
 
 ### <a name="event-measurements"></a>Händelsen mätning av faktisk användning
 
-Lägg till följande händelse i den **mätningar** sidan:
+Lägg till följande händelse på den **mätningar** sidan:
 
 | Visningsnamn | Fältnamn  | Severity |
 | ------------ | ----------- | -------- |
 | Överhettning  | överhettas    | Fel    |
 
 > [!NOTE]
->   Datatypen för måttet händelse är sträng.
+> Datatypen för måttet händelse är sträng.
 
 ### <a name="device-properties"></a>Enhetsegenskaper
 
-Lägg till följande enhetsegenskaper i den **egenskapssidan**:
+Lägg till följande enhetsegenskaper på den **egenskaper** sidan:
 
 | Visningsnamn        | Fältnamn        | Datatyp |
 | ------------------- | ----------------- | --------- |
 | Serienummer       | serieNummer      | text      |
 | Enhetstillverkare | tillverkare      | text      |
 
-Ange namnen på exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar namnen på kan inte programmet visa egenskapsvärdet för enheten.
+Ange namnen på exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan egenskaperna inte visas i programmet.
 
 ### <a name="settings"></a>Inställningar
 
-Lägg till följande **nummer** inställningar i den **inställningssidan**:
+Lägg till följande **nummer** inställningarna på den **inställningar** sidan:
 
 | Visningsnamn    | Fältnamn     | Enheter | Decimals | Min | Max  | Inledande |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fläkthastighet       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Ange temperatur | angeTemperatur | F     | 0        | 20  | 200  | 80      |
 
-Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar namnen på enheten kan inte ta emot inställningens värde.
+Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden inte enheten ta emot inställningens värde.
+
+### <a name="commands"></a>Kommandon
+
+Lägg till följande kommando på den **kommandon** sidan:
+
+| Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
+| --------------- | -------------- | --------------- | --------- |
+| Nedräkning       | nedräkning      | 30              | nummer    |
+
+Lägg till följande indatafältet nedräkning-kommando:
+
+| Visningsnamn    | Fältnamn     | Datatyp | Värde |
+| --------------- | -------------- | --------- | ----- |
+| Räkna från      | countFrom      | nummer    | 10    |
+
+Ange fältnamn exakt som de visas i tabellerna i mallar för enheten. Om fältnamnen inte matchar egenskapsnamnen i motsvarande enhet koden kan inte enheten bearbeta kommandot.
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens anslutningssträng i programmet Azure IoT Central. Stegvisa instruktioner om hur du ansluter en Node.js-program till IoT Central finns i [generera anslutningssträngen för riktig enhet från programmet](tutorial-add-device.md#generate-connection-string) och [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+Lägg till en riktig enhet för enhet-mallen som du skapade i föregående avsnitt i programmet Azure IoT Central.
+
+Följ sedan instruktionerna i guiden ”Lägg till en enhet” för att [Generera en anslutningssträng för den faktiska enheten](tutorial-add-device.md#generate-connection-string). Du kan använda den här anslutningssträngen i följande avsnitt:
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
@@ -129,12 +147,9 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     var client = clientFromConnectionString(connectionString);
     ```
 
-    > [!NOTE]
-    > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+    Uppdatera platshållaren `{your device connection string}` med den [enhetsanslutningssträngen](tutorial-add-device.md#generate-connection-string). I det här exemplet du initiera `targetTemperature` till noll och, du kan använda den aktuella läsningen från enheten eller ett värde från enhetstvillingen.
 
-    Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
-
-1. Om du vill skicka telemetri, tillstånd och mätning av faktisk användning till programmet Azure IoT Central, lägger du till följande funktion i filen:
+1. Om du vill skicka telemetri, tillstånd och händelsen mått till programmet Azure IoT Central, lägger du till följande funktion i filen:
 
     ```javascript
     // Send device measurements.
@@ -143,9 +158,9 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
-      var data = JSON.stringify({ 
-        temperature: temperature, 
-        humidity: humidity, 
+      var data = JSON.stringify({
+        temperature: temperature,
+        humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
         overheat: (temperature > 35) ? "ER123" : undefined });
@@ -159,13 +174,9 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
 1. Om du vill skicka enhetsegenskaper till programmet Azure IoT Central, lägger du till följande funktion i filen:
 
     ```javascript
-    // Send device properties.
-    function sendDeviceProperties(twin) {
-      var properties = {
-        serialNumber: '123-ABC',
-        manufacturer: 'Contoso'
-      };
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties; ` +
+    // Send device reported properties.
+    function sendDeviceProperties(twin, properties) {
+      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
         (err ? `error: ${err.toString()}` : `status: success`)));
     }
     ```
@@ -223,7 +234,41 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     }
     ```
 
-1. Lägg till följande för att slutföra anslutningen till Azure IoT Central och kopplar in funktioner i klientkoden:
+1. Lägg till följande kod för att hantera en nedräkning för kommandot som skickades från programmet IoT Central:
+
+    ```javascript
+    // Handle countdown command
+    function onCountdown(request, response) {
+      console.log('Received call to countdown');
+
+      var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
+
+      response.send(200, (err) => {
+        if (err) {
+          console.error('Unable to send method response: ' + err.toString());
+        } else {
+          client.getTwin((err, twin) => {
+            function doCountdown(){
+              if ( countFrom >= 0 ) {
+                var patch = {
+                  countdown:{
+                    value: countFrom
+                  }
+                };
+                sendDeviceProperties(twin, patch);
+                countFrom--;
+                setTimeout(doCountdown, 2000 );
+              }
+            }
+
+            doCountdown();
+          });
+        }
+      });
+    }
+    ```
+
+1. Lägg till följande kod för att slutföra anslutningen till Azure IoT Central och koppla samman funktionerna i klientkoden:
 
     ```javascript
     // Handle device connection to Azure IoT Central.
@@ -232,6 +277,9 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handler for countdown command
+        client.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
@@ -242,7 +290,12 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
             // Send device properties once on device start up.
-            sendDeviceProperties(twin);
+            var properties = {
+              serialNumber: '123-ABC',
+              manufacturer: 'Contoso'
+            };
+            sendDeviceProperties(twin, properties);
+
             // Apply device settings and handle changes to device settings.
             handleSettings(twin);
           }
@@ -268,16 +321,18 @@ Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
 
     ![Visa telemetrin](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskaper för paneler uppdaterats om anslutningen är klar.
+* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskapen paneler uppdaterats när enheten ansluter:
 
     ![Visa egenskaper för enhet](media/howto-connect-nodejs/viewproperties.png)
 
-* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan. För inställningsvärden att synkronisera om anslutningen är klar.
+* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan:
 
     ![Hastighet för set-fläkt](media/howto-connect-nodejs/setfanspeed.png)
 
+* Anropa kommandot nedräkning från den **kommandon** sidan:
+
+    ![Anropskommando för nedräkning](media/howto-connect-nodejs/callcountdown.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en allmän Node.js-klient till Azure IoT Central programmet, är här nästa föreslagna steg:
-* [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
-<!-- Next how-tos in the sequence -->
+Nu när du har lärt dig hur du ansluter en allmän Node.js-klient till Azure IoT Central programmet föreslagna nästa steg är att lära dig hur du [förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md).

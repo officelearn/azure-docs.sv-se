@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116906"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895740"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
 
@@ -100,7 +100,7 @@ De två avsnitten i diagrammet i grönt matchade den förväntade förutsägelse
 
 Om testningen visar att LUIS-appen inte kan identifiera rätt avsikter och entiteter, kan du arbeta för att förbättra prestanda för dina LUIS-app genom märkning mer yttranden eller lägga till funktioner. 
 
-* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endoint-utt.md) 
+* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 
 * [Förstå batch testning med den här självstudien](luis-tutorial-batch-testing.md)
 * [Lär dig batch testning begrepp](luis-concept-batch-test.md).

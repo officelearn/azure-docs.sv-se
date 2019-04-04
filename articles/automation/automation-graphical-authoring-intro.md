@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427244"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918152"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -48,7 +48,7 @@ Bibliotekskontrollen är här du väljer [aktiviteter](#activities) att lägga t
 |:--- |:--- |
 | Cmdlet: ar |Innehåller alla cmdletar som kan användas i din runbook. Cmdlet: ar är ordnade efter modulen. Alla moduler som du har installerat i ditt automation-konto är tillgängliga. |
 | Runbooks |Innehåller runbooks i ditt automation-konto. Dessa runbooks kan läggas till arbetsytan som ska användas som underordnade runbooks. Endast runbook-flöden av typen samma kärnor som den runbook som redigeras visas; för grafiska visas runbooks endast PowerShell-baserade runbooks, medan för grafiska PowerShell Workflow-runbooks endast PowerShell-arbetsflöde-baserade runbooks visas. |
-| Tillgångar |Innehåller den [automationstillgångar](https://msdn.microsoft.com/library/dn939988.aspx) i ditt automation-konto som kan användas i din runbook. När du lägger till en tillgång till en runbook, läggs en arbetsflödesaktivitet som hämtar den markerade tillgången. När det gäller variabler för tillgångar, kan du välja om du vill lägga till en aktivitet för att hämta variabeln eller Ställ in variabeln. |
+| Tillgångar |Innehåller den [automationstillgångar](/previous-versions/azure/dn939988(v=azure.100)) i ditt automation-konto som kan användas i din runbook. När du lägger till en tillgång till en runbook, läggs en arbetsflödesaktivitet som hämtar den markerade tillgången. När det gäller variabler för tillgångar, kan du välja om du vill lägga till en aktivitet för att hämta variabeln eller Ställ in variabeln. |
 | Runbook-kontroll |Innehåller runbook kontrollaktiviteter som kan användas i din aktuella runbook. En *knutpunkt* tar flera inmatningar och väntar tills alla har slutförts innan du fortsätter arbetsflödet. En *kod* aktivitet kör en eller flera rader med PowerShell eller PowerShell-arbetsflöde kod beroende på vilken typ av grafisk runbook. Du kan använda den här aktiviteten för anpassad kod eller funktioner som är svåra att uppnå med andra aktiviteter. |
 
 ### <a name="configuration-control"></a>Konfigurationskontroll
@@ -119,7 +119,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 | Certifikattillgång |Välj ett Automation-certifikat som indata. |
 | Anslutningstillgång |Välj ett Automation-anslutningens som indata. |
 | PowerShell-uttryck |Ange enkla [PowerShell-uttryck](#powershell-expressions). Uttrycket utvärderas innan aktiviteten och resultatet som används för parametervärdet. Du kan använda variabler för att referera till utdata för en aktivitet eller en indataparameter för runbook. |
-| Inte konfigurerad |Tar bort ett värde som konfigurerats tidigare. |
+| Ej konfigurerad |Tar bort ett värde som konfigurerats tidigare. |
 
 #### <a name="optional-additional-parameters"></a>Valfria ytterligare parametrar
 
@@ -249,7 +249,7 @@ Exemplet nedan är en del av en runbook som startar en uppsättning virtuella da
 
 En cykel är när en mål-aktivitet länkar tillbaka till dess källaktiviteten eller till en annan aktivitet som så småningom länkar tillbaka till källan. Cykler är inte tillåtna i grafisk redigering. Om din runbook har en cykel, sparar korrekt, men får ett fel när den körs.
 
-![Cykel](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Cykler](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Dela data mellan aktiviteter
 
@@ -326,7 +326,7 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 |:--- |:--- |
 | Namn |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
 | Beskrivning |En valfri beskrivning av Indataparametern. |
-| Typ |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
+| Type |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
 | Obligatorisk |Anger om ett värde måste anges för parametern. Runbook kan inte startas om du inte anger ett värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
 | Standardvärde |Anger vilket värde som ska användas för parametern om inget anges. Detta kan antingen vara Null eller ett specifikt värde. |
 

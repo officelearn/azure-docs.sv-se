@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306450"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916180"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 
@@ -43,11 +43,11 @@ Sekvensen är följande:
 
 1. ADO.NET 4.5 (eller senare) initierar en kort interaktion med Azure-molnet och tar emot ett dynamiskt identifierade portnummer.
 
-   * Dynamiskt identifierade portnumret är i intervallet 11000 11999 eller 14000 14999.
+   * Dynamiskt identifierade portnumret är i intervallet 11000 11999.
 2. ADO.NET ansluter sedan till SQL Database-server direkt, med inga mellanprogram däremellan.
 3. Frågor skickas direkt till databasen och resultaten returneras direkt till klienten.
 
-Kontrollera att port cellområden 11000 11999 och 14000-14999 på Azure klientdatorn lämnas tillgänglig för ADO.NET 4.5 klienten interaktioner med SQL-databas.
+Kontrollera att port intervallen för 11000-11999 på Azure klientdatorn lämnas tillgänglig för ADO.NET 4.5 klienten interaktioner med SQL-databas.
 
 * I synnerhet måste portar i intervallet vara fria från andra utgående blockeringar.
 * På din Azure-dator, den **Windows-brandväggen med avancerad säkerhet** styr vilka portinställningar som.
@@ -82,7 +82,7 @@ Det här avsnittet visar monikers som refererar till produktversioner. Den visar
 * Ansluta till Azure SQL Database V12 via omdirigering https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS-protokollversionslistan](http://www.freetds.org/userguide/tdshistory.htm)
-* [Översikt över SQL Database-utveckling](sql-database-develop-overview.md)
+* [Översikt över SQL Database Development](sql-database-develop-overview.md)
 * [Azure SQL Database-brandvägg](sql-database-firewall-configure.md)
 * [Anvisningar: Konfigurera brandväggsinställningar för SQL Database](sql-database-configure-firewall-settings.md)
 

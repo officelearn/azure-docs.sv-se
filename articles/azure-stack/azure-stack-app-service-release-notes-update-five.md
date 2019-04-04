@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993085"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500210"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service i Azure Stack uppdatering 5 viktig information
 
@@ -59,11 +59,14 @@ Azure App Service i Azure Stack uppdatering 5 innehåller följande förbättrin
 
 - Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
 
+- Uppdateringar **Azure Functions-körningen** till **v1.0.12205**.
+
 - Uppdaterar till **Kudu verktyg** att lösa problem med formatering och funktioner för kunder som är verksamma **frånkopplad** Azure Stack. 
 
 - Core-tjänst för att förbättra tillförlitlighet och felmeddelanden aktiverar enklare undersöka vanliga problem med uppdateringar.
 
 - **Uppdateringar till följande ramverk för programmet och verktyg**:
+  - Har lagts till ASP.NET-Core 2.1.6 och 2.2.0
   - Har lagts till NodeJS 10.14.1
   - Har lagts till NPM punkterna 6.4.1
   - Uppdaterade Kudu till 79.20129.3767

@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398182"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916588"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Ange och hämta egenskaper och metadata
 
@@ -20,15 +20,14 @@ Objekt i Azure Storage support Systemegenskaper och användardefinierade metadat
 
 * **Systemegenskaper**: Systemegenskaper finns på varje resurs för lagring. Vissa av dem kan läsas eller ange, medan andra är skrivskyddade. Under försättsbladen motsvarar vissa Systemegenskaper vissa standard HTTP-huvuden. Azure Storage-klientbibliotek underhålla dessa egenskaper åt dig.
 
-* **Användardefinierade metadata**: användardefinierade metadata består av en eller flera namn / värde-par som du anger för en Azure Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med en resurs. Metadatavärden efter behov endast, och påverkar inte hur resursen fungerar.
+* **Användardefinierade metadata**: Användardefinierade metadata består av en eller flera namn / värde-par som du anger för en Azure Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med en resurs. Metadatavärden efter behov endast, och påverkar inte hur resursen fungerar.
 
 Hämtar värden för egenskapen och metadata för en resurs för lagring är en tvåstegsprocess. Innan du kan läsa dessa värden, måste du uttryckligen hämta dem genom att anropa den **FetchAttributes** eller **FetchAttributesAsync** metod. Undantaget är om du anropar den **Exists** eller **ExistsAsync** metod på en resurs. När du anropar någon av följande metoder, Azure Storage anropar rätt **FetchAttributes** metod under försättsbladen som en del av anropet till den **Exists** metod.
 
 > [!IMPORTANT]
 > Om du upptäcker att värdena för egenskapen eller metadata för en storage-resurs inte är ifyllda, kontrollerar du att koden anropar den **FetchAttributes** eller **FetchAttributesAsync** metod.
 >
-> Metadata namn/värde-par kan endast innehålla ASCII-tecken. Metadata namn/värde-par är giltig HTTP-huvuden och därför måste följa alla begränsningar som reglerar HTTP-huvuden. Du rekommenderas att du använder URL-kodning eller Base64-kodning för namn och värden som innehåller icke-ASCII-tecken.
->
+> Metadata namn/värde-par är giltig HTTP-huvuden och så ska följa alla begränsningar som reglerar HTTP-huvuden. Metadatanamnen måste vara giltiga HTTP-huvud namn får innehålla endast ASCII-tecken och ska behandlas som skiftlägesokänsligt. Metadata-värden som innehåller icke-ASCII-tecken måste vara Base64-kodad eller URL-kodade.
 
 ## <a name="setting-and-retrieving-properties"></a>Ange och läsa egenskaper
 Om du vill hämta egenskapsvärden anropa den **FetchAttributesAsync** metod på din blob eller behållare för att fylla i egenskaperna kan sedan läsa värdena.

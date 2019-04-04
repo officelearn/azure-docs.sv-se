@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769224"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482937"
 ---
 # <a name="deploy-the-local-agent"></a>Distribuera lokal agent
 
@@ -57,7 +57,7 @@ Kontrollera att datorn uppfyller följande kriterier:
 1. Öppna Windows PowerShell i en upphöjd kommandotolk på den dator som du använder för att köra testerna.
 2. Kör följande kommando för att hämta den lokala agenten:
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -65,7 +65,7 @@ Kontrollera att datorn uppfyller följande kriterier:
 
 3. Kör följande kommando för att installera lokal agent beroenden:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -113,14 +113,15 @@ Testerna köra fjärråtgärder. Den dator som kör testerna måste ha åtkomst 
 
 2. Kör följande kommando:
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Parametrar**  
+
     | Parameter | Beskrivning |
     | --- | --- |
-    | VaaSUserId | Användar-ID som används för att logga in på portalen VaaS (till exempel UserName@Contoso.com) |
+    | VaaSUserId | Användar-ID som används för att logga in på portalen VaaS (till exempel användarnamn\@Contoso.com) |
     | VaaSTenantId | Azure AD-klient-ID för Azure-konto som har registrerats med verifiering som en tjänst. |
 
     > [!Note]  

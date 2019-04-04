@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d2324f9538ce8079be5e660a1613c1c093ecc85a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258759"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484604"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Hantera Nyckelvalv i Azure Stack med hjälp av PowerShell
 
@@ -45,7 +45,7 @@ Du kan hantera Nyckelvalv i Azure Stack med hjälp av PowerShell. Lär dig hur d
 
 Innan du kan utfärda alla åtgärder mot ett nyckelvalv, måste du kontrollera att din klientorganisation prenumeration är aktiverat för valvet. Kontrollera att valvet åtgärder har aktiverats genom att köra följande kommando:
 
-```PowerShell  
+```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
@@ -57,7 +57,7 @@ Om prenumerationen har aktiverats för valvet åtgärder visar utdata ”Registr
 
 Om valvet åtgärder inte är aktiverade kan du anropa följande kommando för att registrera Key Vault-tjänsten i din prenumeration:
 
-```PowerShell
+```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
@@ -71,7 +71,7 @@ Om registreringen lyckas returneras följande utdata:
 
 Innan du skapar ett nyckelvalv måste du skapa en resursgrupp så att alla resurser som rör key vault finns i en resursgrupp. Använd följande kommando för att skapa en ny resursgrupp:
 
-```PowerShell
+```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ```
@@ -84,7 +84,7 @@ Nu kan använda den **New-AzureRMKeyVault** kommando för att skapa ett nyckelva
 
 Kör följande kommando för att skapa ett nyckelvalv:
 
-```PowerShell
+```powershell
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
@@ -98,7 +98,7 @@ Kommandots utdata visar egenskaper för nyckelvalvet som du skapade. När ett pr
 
 Du kan få den här varningen i en AD FS-distribution: ”Åtkomstprincip har inte angetts. Inga användare eller ett program har behörighet att använda det här valvet ”. Lös problemet genom att ställa in en åtkomstprincip för valvet genom att använda den [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) kommando:
 
-```PowerShell
+```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
@@ -115,7 +115,7 @@ När du har skapat ett valv kan du använda följande steg för att skapa och ha
 
 Använd den **Add-AzureKeyVaultKey** kommando för att skapa eller importera en programvaruskyddad nyckel i key vault.
 
-```PowerShell
+```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
@@ -134,7 +134,7 @@ Du kan nu referera nyckeln med hjälp av dess URI. Om du skapar eller importera 
 
 Använd den **Get-AzureKeyVaultKey** kommando för att läsa en nyckel och dess egenskaper.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
@@ -142,7 +142,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 Använd den **Set-AzureKeyVaultSecret** kommando för att skapa eller uppdatera en hemlighet i ett valv. En hemlighet skapas om det inte redan finns. En ny version av hemligheten skapas om det finns redan.
 
-```PowerShell
+```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 Använd den **Get-AzureKeyVaultSecret** kommando för att läsa en hemlighet i key vault. Det här kommandot kan returnera alla eller specifika versioner av en hemlighet.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
@@ -166,13 +166,13 @@ Du kan auktorisera externa program att använda dem när du har skapat nycklar o
 Använd den **Set-AzureRmKeyVaultAccessPolicy** kommando för att auktorisera ett program för att få åtkomst till en nyckel eller hemlighet i nyckelvalvet.
 I följande exempel valvnamnet är *ContosoKeyVault* och program som du vill auktorisera har klient-ID *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Kör följande kommando för att godkänna programmet. Alternativt kan du ange den **PermissionsToKeys** parametern för att ange behörigheter för en användare, program eller en säkerhetsgrupp.
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 Om du vill att samma program att läsa hemligheter i valvet, kör du följande cmdlet:
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 

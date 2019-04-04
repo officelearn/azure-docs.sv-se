@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855826"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Självstudier: Azure Active Directory-integrering med Jamf Pro
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ja
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.jamfcloud.com/saml/SSO`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -160,11 +160,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ja
 
     ![Konfiguration av Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Välj **Annan** som alternativ i listrutan **IDENTITY PROVIDER** (Identitetsprovider).
+    a. Välj **andra** som ett alternativ från den **IDENTITETSPROVIDER** listrutan.
 
     b. I textrutan **OTHER PROVIDER** (Annan provider) anger du **Azure AD**.
 
-    c. Välj **Metadata-URL** som alternativ i listrutan **IDENTITY PROVIDER METADATA SOURCE** (Metadatakälla för identitetsprovider). I följande textruta klistrar du in det värde för **Appfederationsmetadata** som du har kopierat från Azure-portalen.
+    c. Välj **Metadata-URL** som ett alternativ från den **IDENTITETSKÄLLA PROVIDERN METADATA** listrutan och klistra in i textrutan följande den **Appfederationsmetadata** värde som du har kopierat från Azure-portalen.
 
     d. Kopiera värdet för **entitets-ID** och klistra in det i textrutan **Identifierare (entitets-ID)** i avsnittet **Jamf Pro Domain and URLs** (Domän och URL:er för Jamf Pro) på Azure-portalen.
 
@@ -228,7 +228,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att Azure AD-användare ska kunna logga in på Jamf Pro måste de etableras till Jamf Pro. För Jamf Pro är etablering en manuell uppgift.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din Jamf Pro-företagsplats som administratör.
 
@@ -274,7 +274,7 @@ När du klickar på Jamf Pro-panelen i åtkomstpanelen bör du automatiskt logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

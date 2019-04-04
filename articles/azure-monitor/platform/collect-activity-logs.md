@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540439"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905995"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta i Azure Monitor
 
@@ -31,7 +31,7 @@ Med aktivitetsloggen kan du fastställa den *vad*, *som*, och *när* för alla s
 När du ansluter din Azure-aktivitetsloggar till Log Analytics-arbetsytan kan du:
 
 - Analysera aktivitetsloggar med fördefinierade vyer
-- Analysera och sökning och aktivitet loggar från flera Azure-prenumerationer
+- Analysera och Sök aktivitetsloggar från flera Azure-prenumerationer
 - Behåll aktivitetsloggar längre än 90 dagar<sup>1</sup>
 - Korrelera aktivitetsloggar med andra Azure-plattformen och programdata
 - Se driftaktiviteter aggregeras efter status

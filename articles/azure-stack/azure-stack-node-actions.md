@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090975"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483156"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure Stack
 
@@ -85,7 +85,7 @@ Den här åtgärden används vanligtvis när en nod är i ett låst tillstånd o
 
 Om du vill köra instruktionen stoppa, öppna en förhöjd PowerShell och kör följande cmdlet:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ Den **starta** stängs på noden. Det är samma som om du trycker på strömknap
  
 Om du vill köra instruktionen start, öppna en förhöjd PowerShell och kör följande cmdlet:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Den här åtgärden används vanligtvis under fältet ersättning av delar, till
 
 Om du vill köra instruktionen drain, öppna en förhöjd PowerShell och kör följande cmdlet:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ Den **återuppta** åtgärden återupptar en inaktiverad nod och markerar den ak
 
 Om du vill köra instruktionen återuppta, öppna en förhöjd PowerShell och kör följande cmdlet:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ När du kör reparationsåtgärden kan behöva du ange BMC IP-adress.
 
 Öppna en förhöjd PowerShell för att köra reparationsåtgärden, och kör följande cmdlet:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Om avstängningen misslyckas, försöker den [tömma](#drain) åtgärden följt 
 
 Öppna en förhöjd PowerShell för att köra avstängningsåtgärden, och kör följande cmdlet:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

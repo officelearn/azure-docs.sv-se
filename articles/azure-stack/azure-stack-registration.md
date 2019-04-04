@@ -16,16 +16,16 @@ ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 70408f11c8656fb62c8613777d1837d934f67074
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337933"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487574"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
-Registrera Azure Stack med Azure kan du hämta marketplace-objekt från Azure och konfigurera handelsdata rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure commerce och du kan se dem under Azure fakturering prenumerations-ID används för registrering.
+När du registrerar Azure Stack med Azure kan du ladda ned Marketplace-objekt från Azure och konfigurera handelsdata som rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure commerce och du kan se dem under Azure fakturering prenumerations-ID används för registrering.
 
 I den här artikeln beskrivs registrera integrerade Azure Stack-system med Azure. Information om hur du registrerar ASDK med Azure finns i [Azure Stack-registrering](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) i ASDK-dokumentationen.
 
@@ -70,7 +70,7 @@ Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa et
 
 För att kunna registrera Azure Stack, PowerShell-läget för språk måste anges till **FullLanguageMode**.  För att verifiera att det aktuella språkläget har angetts till full, öppna en upphöjd PowerShell-fönster och kör följande PowerShell-cmdletar:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -127,7 +127,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
-   ```PowerShell
+   ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
@@ -137,25 +137,25 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 3. Om du har flera prenumerationer kör du följande kommando för att välja den du vill använda:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Kör följande kommando för att registrera resursprovidern Azure Stack i Azure-prenumerationen:
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
 6. Kontrollera sedan du är inloggad rätt kontext i Azure PowerShell i samma PowerShell-session. Det här är den Azure-konto som används för att registrera resursprovidern Azure Stack tidigare. PowerShell för att köra:
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
@@ -165,7 +165,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 7. I samma PowerShell-session kör du den **Set-AzsRegistration** cmdlet. PowerShell för att köra:  
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -191,7 +191,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
-   ```PowerShell  
+   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
@@ -201,19 +201,19 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 3. Om du har flera prenumerationer kör du följande kommando för att välja den du vill använda:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Kör följande kommando för att registrera resursprovidern Azure Stack i Azure-prenumerationen:
 
-   ```PowerShell  
+   ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
 5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -236,7 +236,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
 
 1. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen:  
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
@@ -257,7 +257,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
 
 På den dator som är ansluten till Internet och utföra samma steg för att importera modulen RegisterWithAzure.psm1 och logga in på rätt Azure Powershell-kontexten. Anropa sedan registrera AzsEnvironment. Ange registreringstoken för att registrera med Azure. Om du registrerar fler än en instans av Azure Stack med samma Azure-prenumerationens ID, ange ett unika registrerings-namn. Kör följande cmdlet:
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
@@ -265,7 +265,7 @@ På den dator som är ansluten till Internet och utföra samma steg för att imp
 
 Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som innehåller din registreringstoken:
 
-  ```PowerShell  
+  ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
@@ -347,7 +347,7 @@ Du behöver uppdatera eller förnya din registrering under följande omständigh
 
 Om du vill ändra prenumerationen du använder, måste du först köra den **Remove-AzsRegistration** cmdlet, kontrollera att du är inloggad rätt sammanhang för Azure PowerShell och kör slutligen **Set-AzsRegistration**  med ändrade parametrar, inklusive \<faktureringsmodellen\>:
 
-  ```PowerShell  
+  ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
@@ -357,7 +357,7 @@ Om du vill ändra prenumerationen du använder, måste du först köra den **Rem
 
 Om du vill ändra faktureringsmodellen eller hur du erbjuder funktioner för din installation kan du anropa registreringsfunktionen för att ställa in de nya värdena. Du behöver inte först ta bort den aktuella registreringen:
 
-  ```PowerShell  
+  ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
@@ -405,7 +405,7 @@ Inaktivera för Azure Stack-miljöer som använder ett prispaket av fakturering,
 
 #### <a name="with-a-connected-azure-stack"></a>Med en ansluten Azure Stack
 
-   ```PowerShell  
+   ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
    $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
@@ -443,7 +443,7 @@ Om du vill köra cmdleten, behöver du:
 - En global Azure-prenumeration av valfri typ.
 - Du måste också vara inloggad på Azure PowerShell med ett konto som är ägare eller deltagare till den prenumerationen.
 
-```PowerShell
+```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
@@ -467,7 +467,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarna.
 
-```PowerShell  
+```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]

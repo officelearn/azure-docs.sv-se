@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255429"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918424"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka Cloud Service-roller som inte vill starta
 Här följer några vanliga problem och lösningar relaterade till Azure Cloud Services-roller som inte att starta.
@@ -76,7 +76,7 @@ Gå till webbplatsen returnerar nu mer utförlig felmeddelanden:
 
 * Serverfel i programmet '/'.
 * Beskrivning: Ett ohanterat undantag uppstod under körningen av den aktuella webbegäran. Granska stackspårning för mer information om felet och var det uppstod i koden.
-* Undantagsinformation: System.IO.FIleNotFoundException: kunde inte läsa in filen eller sammansättningen ' Microsoft.WindowsAzure.StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ”eller något av dess beroenden. Det går inte att hitta den angivna filen.
+* Information om undantag: System.IO.FIleNotFoundException: Kunde inte läsa in filen eller sammansättningen ' Microsoft.WindowsAzure.StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ”eller något av dess beroenden. Det går inte att hitta den angivna filen.
 
 Exempel:
 
@@ -96,7 +96,7 @@ För bästa resultat i med hjälp av den här metoden för diagnos bör du anvä
 7. När rollen startar visas detaljerad felinformation i Internet Explorer. Du kan också använda standard Windows felsökningsverktyg för att diagnosticera problemet.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnostisera problem med hjälp av IntelliTrace
-Du kan använda för arbete och web-roller som använder .NET Framework 4, [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), som finns i Microsoft Visual Studio Enterprise.
+Du kan använda för arbete och web-roller som använder .NET Framework 4, [IntelliTrace](/visualstudio/debugger/intellitrace), som finns i Microsoft Visual Studio Enterprise.
 
 Följ dessa steg om du vill distribuera tjänsten med IntelliTrace aktiverat:
 

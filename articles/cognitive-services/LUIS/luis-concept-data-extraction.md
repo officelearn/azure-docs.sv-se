@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099839"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893987"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extrahering av data från avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -432,13 +432,13 @@ Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara näs
 [PersonName](luis-reference-prebuilt-person.md) och [GeographyV2](luis-reference-prebuilt-geographyV2.md) entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Namnen på personer
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="names-of-places"></a>Namnen på platser
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
-Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ## <a name="pattern-roles-data"></a>Mönstret roller data
 Roller är sammanhangsberoende skillnader med entiteter.

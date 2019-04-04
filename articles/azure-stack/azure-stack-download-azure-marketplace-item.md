@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768407"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487642"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -101,14 +101,14 @@ Det finns två delar i det här scenariot:
 
 3. Om du har flera prenumerationer kör du följande kommando för att välja den du har använt för registrering:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. Ladda ned den senaste versionen av verktyget för marketplace-syndikering genom att använda följande skript:  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ Det finns två delar i det här scenariot:
 
 5. Importera modulen syndikering och starta verktyget genom att köra följande kommandon. Ersätt `Destination folder path` med en plats att lagra de filer som hämtas från Azure Marketplace.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ Det finns två delar i det här scenariot:
 
 3. Importera modulen syndikering och sedan starta verktyget marketplace syndikering genom att köra följande skript:
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ Det finns två delar i det här scenariot:
 
    Som ett alternativ till det här skriptet kan du använda den [proceduren som beskrivs i den här artikeln](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) att importera den. VHD-avbildning med hjälp av Azure portal.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ Det finns två delar i det här scenariot:
 
 
 4.  Använd PowerShell för att publicera Azure Stack marketplace-objekt med hjälp av den **Lägg till AzsGalleryItem** cmdlet. Exempel:  
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ Det finns två delar i det här scenariot:
 
 Du kan nu lägga till tillägg för virtuell dator med versionen av Azure Stack PowerShell 1.3.0. Exempel:
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

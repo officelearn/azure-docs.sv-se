@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154617"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894864"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Beroende på program förordning behöva medgivandenivå beviljas av en använda
 
 Följande är ett exempel på ett användarflöde för att samla in föräldrars tillstånd:
 
-1. En [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
+1. En [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
 
 2. Programmet bearbetar JSON-token och visar en skärm till mindre, meddela honom eller henne att föräldrars tillstånd krävs och begära medgivande från en överordnad online. 
 

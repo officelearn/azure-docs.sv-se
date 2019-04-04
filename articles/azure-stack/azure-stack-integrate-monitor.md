@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258742"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904006"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure Stack
 
@@ -81,10 +81,10 @@ Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 
 | Parameter | Beskrivning | Exempel |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administratör)-slutpunkt |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administratör)-slutpunkt  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administratör)-slutpunkt | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administratör)-slutpunkt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Administratören prenumerations-ID | Hämta via administratörsportalen eller PowerShell |
-| *Användarnamn* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
+| *User_name* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operatorn prenumeration lösenord | mittlösenord |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
 | *region* |  Azure Stack-Regionsnamn | lokal |
@@ -96,35 +96,36 @@ Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 
 Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning, kan du använda PowerShell för att aktivera ett brett utbud av övervakning av lösningar som kan integreras med Azure Stack.
 
-1. Om du vill använda PowerShell, se till att du har [PowerShell installeras och konfigureras](azure-stack-powershell-configure-quickstart.md) för en Azure-stacken operator-miljö. Installera PowerShell på en lokal dator som kan nå slutpunkten för Resource Manager (administratör) (https:\//adminmanagement. [ Region]. [External_FQDN]).
+1. Om du vill använda PowerShell, se till att du har [PowerShell installeras och konfigureras](azure-stack-powershell-configure-quickstart.md) för en Azure-stacken operator-miljö. Installera PowerShell på en lokal dator som kan nå slutpunkten för Resource Manager (administratör) (https://adminmanagement. [Region]. [External_FQDN]).
 
 2. Kör följande kommandon för att ansluta till Azure Stack-miljön som Azure Stack-operatör:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   ```powershell
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Använd kommandon till exempel för att arbeta med aviseringar:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## <a name="learn-more"></a>Läs mer

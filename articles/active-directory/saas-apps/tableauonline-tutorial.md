@@ -4,260 +4,247 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1d4b1149-ba3b-4f4e-8bce-9791316b730d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2017
+ms.topic: tutorial
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5e3087c21908600be9cd369a15f3036e5acb2f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: cdebeefac1a77cd834466a8731d0652136bdbd47
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884711"
+ms.locfileid: "58906182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Självstudier: Azure Active Directory-integrering med Tableau Online
 
 I den här självstudien får du lära dig hur du integrerar Tableau Online med Azure Active Directory (AD Azure).
-
 Integrera Tableau Online med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Tableau Online
-- Du kan aktivera användarna att automatiskt få loggat in på Tableau Online (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+* Du kan styra i Azure AD som har åtkomst till Tableau Online.
+* Du kan aktivera användarna att vara automatiskt inloggad till Tableau Online (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Tableau Online, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Tableau Online enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Tableau Online enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Tableau Online från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Tableau Online stöder **SP** -initierad SSO
 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Att lägga till Tableau Online från galleriet
+
 För att konfigurera integrering av Tableau Online i Azure AD, som du behöver lägga till Tableau Online från galleriet i din lista över hanterade SaaS-appar.
 
 **Om du vill lägga till Tableau Online från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Tableau Online**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_search.png)
+4. I sökrutan skriver **Tableau Online**väljer **Tableau Online** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Tableau Online**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Tableau Online i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tableau Online baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i Tableau Online är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Tableau Online upprättas.
-
-I Online Tableau, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tableau Online baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Tableau Online upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Tableau Online, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en Tableau Online testanvändare](#creating-a-tableau-online-test-user)**  – du har en motsvarighet för Britta Simon i Tableau Online som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Tableau Online enkel inloggning](#configure-tableau-online-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Tableau Online testanvändare](#create-tableau-online-test-user)**  – du har en motsvarighet för Britta Simon i Tableau Online som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program som Tableau Online.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau Online:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau Online:
 
-1. I Azure-portalen på den **Tableau Online** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Tableau Online** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Tableau Online domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_url.png)
-    
-    a. I rutan **Inloggnings-URL** anger du URL:en: `https://sso.online.tableau.com`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I textrutan **Identifierare** anger du URL:en: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_certificate.png) 
+    ![Tableau Online domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-1. Klicka på knappen **Spara**.
+    a. I den **inloggnings-URL** text skriver du URL: en: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_general_400.png)
+    b. I den **identifierare (entitets-ID)** text skriver du URL: en: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+
+    > [!NOTE]
+    > Du får den `<entityid>` värdet från den **konfigurera Tableau Online** avsnitt i den här självstudien. ID-värdet entitet kommer att **Azure AD-identifierare** värde i **konfigurera Tableau Online** avsnittet.
+
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+6. På den **konfigurera Tableau Online** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-tableau-online-single-sign-on"></a>Konfigurera Tableau Online enkel inloggning
 
 1. I ett annat webbläsarfönster inloggning till programmets Tableau Online. Gå till **inställningar** och sedan **autentisering**.
-   
+
     ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
-    
-1. Aktivera SAML, Under **autentiseringstyper** avsnittet. Kontrollera den **enkel inloggning med SAML** kryssrutan.
-   
+
+2. Aktivera SAML, Under **autentiseringstyper** avsnittet. Kontrollera **aktivera ytterligare en autentiseringsmetod** och kontrollera **SAML** kryssrutan.
+
     ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
-1. Rulla nedåt tills **importfilen metadata i Tableau Online** avsnittet.  Klicka på Bläddra och importera metadatafilen som du har laddat ned från Azure AD. Klicka sedan på **tillämpa**.
-   
+3. Rulla nedåt upp till **importfilen metadata i Tableau Online** avsnittet.  Klicka på Bläddra och importera metadatafilen, som du har laddat ned från Azure AD. Klicka sedan på **tillämpa**.
+
    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
-1. I den **matchar intyg** avsnittet, infoga motsvarande identitetsprovider assertion namn för **e-postadress**, **Förnamn**, och **efternamn**. Hämta den här informationen från Azure AD: 
+4. I den **matchar intyg** avsnittet, infoga motsvarande identitetsprovider assertion namn för **e-postadress**, **Förnamn**, och **efternamn**. Hämta den här informationen från Azure AD: 
   
     a. I Azure-portalen går du vidare den **Tableau Online** integrering programsidan.
-    
-    b. I attributavsnittet, väljer du den **”visa och redigera alla andra användarattribut”** kryssrutan. 
-    
+
+    b. I den ** användarattribut och anspråk *** avsnittet, klickar du på redigeringsikonen.
+
    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection.png)
-      
+
     c. Kopiera namnområdesvärdet för dessa attribut: givenname, e-post- och efternamn med hjälp av följande steg:
 
    ![Azure AD enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
-    
-    d. Klicka på **user.givenname** värde 
-    
-    e. Kopiera värdet från den **namnområde** textrutan.
 
-   ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection2.png)
+    d. Klicka på **user.givenname** värde
 
-    f. För att kopiera namnområdet Följ värden för e-post och efternamn föregående steg.
+    e. Kopiera värdet från den **Namespace** textrutan.
 
-    g. Växla till programmet Tableau Online och ange sedan den **Tableau Onlineattribut** avsnittet på följande sätt:
-     * E-postadress: **e** eller **userprincipalname**
-     * Förnamn: **givenname**
-     * Efternamn: **efternamn**
-   
-   ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection2.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    f. Värden för e-post och efternamn upprepar du ovanstående steg om du vill kopiera namnområdet.
+
+    g. Växla till programmet Tableau Online och ange sedan den **användarattribut och anspråk** avsnittet på följande sätt:
+
+    * E-postadress: **e** eller **userprincipalname**
+
+    * Förnamn: **givenname**
+
+    * Efternamn: **efternamn**
+
+    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-tableau-online-test-user"></a>Skapa en Tableau Online testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Tableau Online.
-
-1. På **Tableau Online**, klickar du på **inställningar** och sedan **autentisering** avsnittet. Rulla ned till **Välj användare** avsnittet. Klicka på **lägga till användare** och sedan **ange e-postadresser**.
-   
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
-1. Välj **lägga till användare för enkel inloggning (SSO) autentisering**. I den **ange e-postadresser** textrutan Lägg till britta.simon@contoso.com
-   
-    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
-1. Klicka på **Skapa**.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Tableau Online.
 
-![Tilldela användare][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Tableau Online**.
 
-**Om du vill tilldela Britta Simon Tableau Online, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Tableau Online**.
 
-    ![Tilldela användare][201] 
+    ![Länken Tableau Online i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Tableau Online**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_app.png) 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Tilldela användare][202] 
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-tableau-online-test-user"></a>Skapa Tableau Online testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Tableau Online.
 
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
+1. På **Tableau Online**, klickar du på **inställningar** och sedan **autentisering** avsnittet. Rulla ned till **hantera användare** avsnittet. Klicka på **Lägg till användare** och klicka sedan på **ange e-postadresser**.
+  
+    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-När du klickar på panelen Tableau Online i åtkomstpanelen du bör få automatiskt loggat in på programmets Tableau Online.
+2. Välj **lägga till användare för autentisering (SAML)**. I den **RETUR e-postadresser** textrutan Lägg till britta.simon@contoso.com
+  
+    ![Skapa en Azure AD-användare för testning](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+
+3. Klicka på **lägga till användare**.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+
+När du klickar på panelen Tableau Online i åtkomstpanelen, bör det vara loggas in automatiskt i Tableau online som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/tableauonline-tutorial/tutorial_general_01.png
-[2]: ./media/tableauonline-tutorial/tutorial_general_02.png
-[3]: ./media/tableauonline-tutorial/tutorial_general_03.png
-[4]: ./media/tableauonline-tutorial/tutorial_general_04.png
-
-[100]: ./media/tableauonline-tutorial/tutorial_general_100.png
-
-[200]: ./media/tableauonline-tutorial/tutorial_general_200.png
-[201]: ./media/tableauonline-tutorial/tutorial_general_201.png
-[202]: ./media/tableauonline-tutorial/tutorial_general_202.png
-[203]: ./media/tableauonline-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

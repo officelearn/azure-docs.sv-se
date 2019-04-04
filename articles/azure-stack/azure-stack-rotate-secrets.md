@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251358"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917568"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -102,7 +102,7 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
     > [!Note] 
     > Du behöver inte rotera hemligheter för att lägga till värden tilläggscertifikat för pre-1811 versioner. Du bör följa anvisningarna i artikeln [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md) att lägga till tillägget värd certifikat.
 
-2. Operatörer kan få aviseringar öppnar och stänger automatiskt under rotation av Azure Stack-hemligheter.  Det här beteendet är förväntat och aviseringar kan ignoreras.  Operatörer kan verifiera giltigheten för de här aviseringarna genom att köra **Test-AzureStack**.  Operatörer med SCOM för att övervaka Azure Stack-system, placera ett system i underhållsläge hindrar dessa aviseringar från att nå sina ITSM-system, men fortsätter att varna om Azure Stack-system blir oåtkomlig.
+2. Operatorer kan märka att aviseringar öppnas och stängs automatiskt under rotationen av Azure Stack-hemligheter.  Det här beteendet är förväntat och aviseringar kan ignoreras.  Operatörer kan verifiera giltigheten för de här aviseringarna genom att köra **Test-AzureStack**.  Operatörer med SCOM för att övervaka Azure Stack-system, placera ett system i underhållsläge hindrar dessa aviseringar från att nå sina ITSM-system, men fortsätter att varna om Azure Stack-system blir oåtkomlig.
 
 3. Meddela användarna om eventuella underhållsåtgärder. Schemalägga normala underhållsfönster, så mycket som möjligt, under tider utanför kontorstid. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
 
@@ -122,7 +122,7 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
 > **.\Certificates\AAD** eller ***.\Certificates\ADFS*** beroende på din identitetsprovider som används för Azure Stack
 >
 > Det är av stor betydelse som mappstrukturen slutar med **AAD** eller **ADFS** mappar och alla underkataloger som är inom den här strukturen; i annat fall **Start-SecretRotation**kommer med:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Så här roterar externa hemligheter:
 1. I den nyligen skapade **\Certificates\\\<IdentityProvider >** katalog som skapades i steg före placera den nya uppsättningen ersättning externa certifikat i katalogstrukturen enligt den format som beskrivs i avsnittet obligatoriska certifikat i den [Azure Stack PKI-certifikatkrav](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Exempel på mappstrukturen för AAD-identitetsprovidern:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Så här roterar externa hemligheter:
     > [!Note]
     > Om det inte går att hemliga rotation, följ instruktionerna i felmeddelandet och kör **Start SecretRotation** med den **-kör** parametern.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Kontakta supporten om du får upprepas hemliga rotation fel.
@@ -220,7 +220,7 @@ Så här roterar externa hemligheter:
 
 Följande PowerShell-exempel visar cmdlets och parametrar för att rotera din hemliga.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ När hemlig rotation har slutförts, visar konsolen **övergripande Åtgärdssta
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,25 +270,25 @@ Roterar hemligheterna i ett Azure Stack-System. Körs bara mot Azure Stack privi
 
 #### <a name="for-external-secret-rotation"></a>Externa hemliga rotation
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>För interna hemliga rotation
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Externa hemliga rotation kör
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>För interna hemliga rotation kör
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -300,9 +300,9 @@ Den **Start SecretRotation** cmdlet roterar infrastruktur hemligheterna i ett Az
 
 | Parameter | Type | Krävs | Position | Standard | Beskrivning |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Sträng  | False  | med namnet  | Ingen  | Sökvägen till filresursen i **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter. End-katalogen måste vara **\Certificates**. |
+| PfxFilesPath | String  | False  | med namnet  | Ingen  | Sökvägen till filresursen i **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter. End-katalogen måste vara **\Certificates**. |
 | CertificatePassword | SecureString | False  | med namnet  | Ingen  | Lösenordet för alla certifikat som anges i - PfXFilesPath. Obligatoriskt värde om PfxFilesPath anges när externa hemligheter roteras. |
-| Intern | Sträng | False | med namnet | Ingen | Intern flaggan måste användas när som helst Azure Stack-operatör önskar att rotera interna infrastrukturfel hemligheter. |
+| Intern | String | False | med namnet | Ingen | Intern flaggan måste användas när som helst Azure Stack-operatör önskar att rotera interna infrastrukturfel hemligheter. |
 | PathAccessCredential | PSCredential | False  | med namnet  | Ingen  | PowerShell-autentiseringsuppgift för filresursen i den **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter.  |
 | Kör | SwitchParameter | False  | med namnet  | Ingen  | Kör måste användas när som helst hemliga rotation återförsöks efter ett misslyckat försök. |
 
@@ -312,7 +312,7 @@ Den **Start SecretRotation** cmdlet roterar infrastruktur hemligheterna i ett Az
 
 Detta måste köras via Azure Stack [miljö är privilegierad slutpunkt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ Det här kommandot roterar alla infrastruktur-hemligheter som är exponerade fö
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>Rotera endast infrastruktur för externa hemligheter  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Det här kommandot roterar TLS-certifikat som används för infrastrukturslutpun
 >
 > **Från *1811 +* du kan inte rotera både interna och externa certifikat något mer!**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Det här kommandot roterar alla infrastruktur-hemligheter som är exponerade fö
 
 Huvudkortshantering (BMC) övervakar det fysiska tillståndet för dina servrar. Information och anvisningar om hur du uppdaterar användarens kontonamn och lösenord för BMC varierar beroende på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Du bör uppdatera ditt lösenord för Azure Stack-komponenter med jämna mellanrum.
 
-1. Uppdatera bmc-Styrenheten på de fysiska Azure Stack-servrarna med OEM-instruktioner. Användarens kontonamn och lösenord för varje BMC-enhet i din miljö måste vara samma.
+1. Uppdatera bmc-Styrenheten på de fysiska Azure Stack-servrarna med OEM-instruktioner. Användarnamn och lösenord för varje BMC-enhet i din miljö måste vara samma. Observera att BMC-användarnamn inte får överstiga 16 tecken.
 2. Öppna en privilegierad slutpunkt i Azure Stack-sessioner. Anvisningar finns i [med hjälp av privilegierad slutpunkt i Azure Stack](azure-stack-privileged-endpoint.md).
 3. När din PowerShell-prompten har ändrats till **[IP-adress eller ERCS VM name]: PS >** eller **[azs-ercs01]: PS >**, beroende på miljön, kör `Set-BmcCredential` genom att köra `Invoke-Command`. Skicka din privilegierad slutpunkt sessionsvariabeln som en parameter. Exempel:
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ Huvudkortshantering (BMC) övervakar det fysiska tillståndet för dina servrar.
 
     Du kan också använda den statiska PowerShell-versionen med lösenord som kodrader:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

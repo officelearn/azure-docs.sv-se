@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337126"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905723"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -80,7 +80,7 @@ Funktionen DNSSEC spåras i Azure DNS-eftersläpning. Använda webbplatsen feedb
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Stöder zonöverföringar (AXFR/IXFR) i Azure DNS?
 
-Nej. Azure DNS stöder inte för närvarande zonöverföringar. DNS-zoner kan vara [importeras till Azure DNS med hjälp av Azure CLI](dns-import-export.md). DNS-poster som hanteras den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [ CLI-verktyget](dns-operations-recordsets-cli.md).
+Nej. Azure DNS stöder inte för närvarande zonöverföringar. DNS-zoner kan vara [importeras till Azure DNS med hjälp av Azure CLI](dns-import-export.md). DNS-poster som hanteras den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [ CLI-verktyget](dns-operations-recordsets-cli.md).
 
 Funktionen zon överföring spåras i Azure DNS-eftersläpning. Använda webbplatsen feedback till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -149,7 +149,7 @@ Ja. Azure DNS stöder delad hosting domäner med andra DNS-tjänster.
 
 Om du vill konfigurera delade hosting ändra NS-poster för domänen så att den pekar till namnservrarna för båda providers. Namnserver (NS) registrerar kontroll vilka leverantörer får DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i en annan provider och i den överordnade zonen. Den överordnade zonen konfigureras vanligtvis via domännamnsregistratorn. Mer information om DNS-delegering finns i [DNS domändelegering](dns-domain-delegation.md).
 
-Kontrollera också att DNS-poster för domänen är synkroniserade mellan båda DNS-providers. Azure DNS stöder inte för närvarande DNS-zonöverföring. DNS-poster måste synkroniseras genom att använda antingen den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
+Kontrollera också att DNS-poster för domänen är synkroniserade mellan båda DNS-providers. Azure DNS stöder inte för närvarande DNS-zonöverföring. DNS-poster måste synkroniseras genom att använda antingen den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Måste jag delegera min domän till alla fyra Azure DNS-namnservrarna?
 

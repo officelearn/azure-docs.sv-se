@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895235"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906063"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -27,11 +27,11 @@ ms.locfileid: "55895235"
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
-- <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
+- <a href="https://hub.docker.com/" target="_blank">Registrera dig för en Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2017</a> med arbetsbelastningarna **ASP.NET och webbutveckling** och **Azure-utveckling**. Om du redan har installerat Visual Studio 2017:
@@ -61,7 +61,7 @@ Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution E
 Du måste använda en [överordnad avbildning som stöds](#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webbappen lokalt.
@@ -178,18 +178,15 @@ Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub 
 
 Du kan använda en annan anpassad Docker-avbildning för att köra appen. Men du måste välja rätt [överordnad avbildning](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk du vill använda: 
 
-- Om du vill distribuera .NET Framework-appar använder du en överordnad avbildning baserad på Windows Server Core 2016-versionen av [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
-- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning baserad på Windows Server Nano 2016-versionen av [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc). 
+- Om du vill distribuera appar med .NET Framework, använder du en överordnad avbildning baserat på Windows Server Core 2019 [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) versionen. 
+- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning baserat på Windows Server Nano 1809 [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) versionen. 
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
-- [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [MCR.microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – detta är grundläggande behållaren som används i Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft Windows Nano Server-avbildningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Migrera till Windows-container i Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)
+> [Migrera till Windows-behållare i Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d627c3c4419affa0d71cdb23df945c96d9fd7585
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652441"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904805"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -233,13 +233,13 @@ Mer information finns i referensdokumentationen: [LargePersonGroup – skapa](ht
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace är en datastruktur i Ansikts-API. PersistedFace levereras med en PersistedFace-ID, samt andra attribut, till exempel namn och användardata.
+PersistedFace är en datastruktur i Ansikts-API. PersistedFace levereras med en [PersistedFace ID](#persisted-face-id), samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i referensdokumentationen: [LargeFaceList – Lägg till Ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="person-id"></a>Person-ID
+#### <a name="persisted-face-id"></a>Beständiga Face ID
 
-Person-ID genereras när en [PersistedFace](#persistedface) har skapats. En sträng har skapats för att representera den här ansikte i [Ansikts-API](#face-api).
+Beständiga Face ID genereras när en [PersistedFace](#persistedface) har skapats. En sträng har skapats för att representera den här ansikte i [Ansikts-API](#face-api).
 
 Mer information finns i referensdokumentationen: [LargeFaceList – Lägg till Ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 399a6bcb6e0bfd0edaddca471ba2c8e0802d3394
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886459"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904788"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använd Azure Monitor-loggar för att övervaka HDInsight-kluster
 
-Lär dig hur du aktiverar Azure Monitor-loggar att övervaka åtgärder för Hadoop-kluster i HDInsight och hur du lägger till ett Hdinsight övervakningslösning.
+Lär dig hur du aktiverar Azure Monitor-loggar att övervaka åtgärder för Hadoop-kluster i HDInsight och hur du lägger till ett HDInsight övervakningslösning.
 
 [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) är en tjänst i Azure Monitor som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
 

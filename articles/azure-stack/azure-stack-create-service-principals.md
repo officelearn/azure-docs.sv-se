@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0f5a4dc76830740d69547a01ce40b5e10cf4a74b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809256"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499416"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
@@ -89,11 +89,11 @@ Du kan använda någon av två metoder för att skapa din tjänstens huvudnamn m
 | Type | Åtgärd |
 | --- | --- |
 | AD FS-certifikat | [Skapa](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS-certifikat | [Uppdatering](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS-certifikat | [ta bort](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS-certifikat | [Uppdatering](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS-certifikat | [ta bort](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | Klienthemlighet för AD FS | [Skapa](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | Klienthemlighet för AD FS | [Uppdatering](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| Klienthemlighet för AD FS | [ta bort](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| Klienthemlighet för AD FS | [ta bort](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>Skapa ett huvudnamn för tjänsten som använder ett certifikat
 
@@ -124,7 +124,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande cmdlets:
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -173,7 +173,7 @@ Följande information måste anges som indata för automation-parametrar:
    > [!Note]  
    > För ett självsignerat certifikat kan skapas med verifiering i exemplet nedan:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -254,7 +254,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande cmdlets:
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -272,7 +272,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 2. När du kör cmdlet: ar, visas informationen som krävs för att använda tjänstens Huvudnamn. Kontrollera att du lagrar klienthemligheten.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -304,7 +304,7 @@ I exemplet används den **ResetClientSecret** parameter, vilket genast ändrar k
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande cmdlets:
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -318,7 +318,7 @@ I exemplet används den **ResetClientSecret** parameter, vilket genast ändrar k
 
 2. När automation är klar visas den nyligen skapade hemligheten som krävs för SPN-autentisering. Se till att spara den nya klienthemligheten.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

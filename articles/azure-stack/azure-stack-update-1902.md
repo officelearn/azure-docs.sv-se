@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 04/03/2019
+ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372378"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862088"
 ---
 # <a name="azure-stack-1902-update"></a>Uppdatering av Azure Stack 1902
 
-*Gäller för: Integrerade Azure Stack-system*
+*Gäller för Azure Stack-integrerade system*
 
 Den här artikeln beskriver innehållet i 1902 uppdateringspaketet. Uppdateringen innehåller nya funktioner för den här versionen av Azure Stack, korrigeringar och förbättringar. Den här artikeln kan du också beskrivs kända problem i den här versionen, och innehåller en länk för att hämta uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
@@ -57,12 +57,12 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 ## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
-> - Installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1901 (i förekommande fall) innan du uppdaterar till 1902.
+> Du kan installera 1902 direkt från antingen den [1.1901.0.95 eller 1.1901.0.99](azure-stack-update-1901.md#build-reference) versionen utan att första installera en snabbkorrigering 1901. Men om du har installerat den äldre **1901.2.103** snabbkorrigeringen, måste du installera den nyare [1901.3.105 snabbkorrigering](https://support.microsoft.com/help/4495662) innan du fortsätter att 1902.
 
 - Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd:
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
 - När Azure Stack hanteras av System Center Operations Manager (SCOM), se till att uppdatera den [Management Pack för Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) till version 1.0.3.11 innan du tillämpar 1902.
@@ -77,6 +77,9 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 - 1902-build introducerar ett nytt användargränssnitt på Azure Stack-administratörsportalen för att skapa planer, erbjudanden, kvoter och tilläggsplaner. Mer information, inklusive skärmdumpar, se [skapa planer, erbjudanden och kvoter](azure-stack-create-plan.md).
 
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Förbättringar i tillförlitlighet för kapacitetsexpansion under Lägg till nod när du växlar skala enhet tillstånd från ”Expanding storage” i körningstillstånd.
+
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
 1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
@@ -84,23 +87,21 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- För att förbättra paketets integritet och säkerhet och lättare att hantera offline datainmatning, har Microsoft ändrats formatet för uppdateringspaketet från .exe och .bin-filer till en .zip-fil. Det nya formatet lägger till ytterligare tillförlitlighet packar upp processen som ibland orsaka förberedelsen av uppdateringen uppehåll. Samma paket format gäller även om du vill uppdatera paket från OEM-tillverkaren.
-
-- Att förbättra Azure Stack operatörens upplevelse när du kör **Test-AzureStack**, operatörer kan du nu använda `Test-AzureStack -Group UpdateReadiness` istället för att skicka tio ytterligare parametrar när du har en `include` instruktionen. Exempel:
+- För att förbättra paketets integritet och säkerhet samt enklare hantering för offline-inmatning, har Microsoft ändrats formatet för uppdateringspaketet från .exe och .bin-filer till en .zip-fil. Det nya formatet lägger till ytterligare tillförlitlighet för packar upp processen som ibland orsaka förberedelsen av uppdateringen uppehåll. Samma paket format gäller även om du vill uppdatera paket från OEM-tillverkaren.
+- För att förbättra Azure Stack operatörens upplevelse när du kör testet AzureStack, operatörer kan nu helt enkelt använda ”, Test-AzureStack-gruppen UpdateReadiness” till skillnad från skicka tio ytterligare parametrar när du har en Include-sats.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
-- För att förbättra den övergripande pålitlighet och tillgänglighet av grundläggande infrastruktur för tjänster under uppdateringen, uppdatera interna resursprovidern som en del av åtgärdsplan update identifierar och anropa automatisk globala reparationer efter behov. Global reparation ”reparera” arbetsflöden är:
-
-  - Sök efter infrastrukturens virtuella datorer som är i ett icke-optimala tillstånd och försöker reparera dem efter behov.
-  - Sök efter problem med SQL-tjänsten som en del av plan för åtkomstkontroll och försöker reparera dem efter behov.
-  - Kontrollera status för tjänsten Software Load Balancer (SLB) som en del av Network Controller (NC) och försöker reparera dem efter behov.
-  - Kontrollera status för tjänsten Network Controller (NC) och försöker reparera det vid behov.
-  - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella.
-  - Kontrollera tillståndet för XRP service fabric-noder och åtgärda eventuella.
-  - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella.
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- För att förbättra på övergripande tillförlitlighet och tillgänglighet av grundläggande infrastruktur för tjänster under uppdateringen, interna Update-resursprovidern som en del av åtgärdsplan update identifierar och anropa automatisk globala reparationer när det behövs. Global reparation ”reparera” arbetsflöden är:
+    - Söker efter infrastrukturens virtuella datorer som är i ett icke-optimala tillstånd och försöker reparera dem efter behov 
+    - Sök efter problem med SQL-tjänsten som en del av plan för åtkomstkontroll och försöker reparera dem efter behov
+    - Kontrollera tillståndet för tjänsten Software Load Balancer (SLB) som en del av Network Controller (NC) och försöker reparera dem efter behov
+    - Kontrollera tillståndet för tjänsten Network Controller (NC) och försöker reparera det vid behov
+    - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella
+    - Kontrollera tillståndet för XRP service fabric-noder och åtgärda eventuella
+    - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
 - Förbättringar i tillförlitlighet för kapacitetsexpansion under Lägg till nod när du växlar skala enhet tillstånd från ”Expanding storage” i körningstillstånd.    
@@ -115,13 +116,13 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 - Förbättringar av Azure stack diagnostiska verktyg för att förbättra log samling tillförlitlighet och prestanda. Ytterligare loggning för Nätverks-och identitetstjänster. 
 
 <!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
-- Förbättringar i tillförlitlighet för **Test AzureStack** för hemliga rotation av driftberedskapen.
+- Förbättringar i tillförlitlighet för Test-AzureStack för hemliga rotation beredskap testa.
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- Förbättringar som ökar AD Graph tillförlitlighet vid kommunikation med en kunds Active Directory-miljö.
+- Förbättringar som ökar AD Graph tillförlitlighet vid kommunikation med kundens Active Directory-miljö
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
-- Förbättringar av maskinvara inventera samling i **Get-AzureStackStampInformation**.
+- Förbättringar av maskinvarusamlingen i Get-AzureStackStampInformation.
 
 - För att förbättra tillförlitligheten för åtgärder som körs på ERCS infrastruktur, ökar minne för varje instans ERCS 8 GB till 12 GB. På en installation av integrerade Azure Stack-system resulterar detta i en ökning av 12 GB övergripande.
 
@@ -219,19 +220,6 @@ Här följer efter installation kända problem för den här build-versionen.
    - Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för att logga in. Som en lösning kan använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
-
-- Om du inte har en maskinvara livscykel värden (HLH): Innan du build 1902, var du tvungen att ställa in Grupprincip **Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Lokala Principer\säkerhetsalternativ** till **Skicka LM & NTLM – använd NTLMv2-sessionssäkerhet om förhandlas**. Sedan build 1902, måste du lämna den som **inte har definierats** eller anger **endast skicka NTLMv2-svar** (vilket är standardvärdet). Annars kan du inte kan upprätta en PowerShell-fjärrsession och du får en **åtkomst nekas** fel:
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### <a name="networking"></a>Nätverk  
 

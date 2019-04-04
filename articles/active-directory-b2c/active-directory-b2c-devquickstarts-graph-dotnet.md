@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075909"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895062"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
 
 >[!NOTE]
-> Du måste använda den [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) att hantera användare i en Azure AD B2C-katalog. Detta skiljer sig från Microsoft Graph API. Lär dig mer [här](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
+> Du måste använda den [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) att hantera användare i en Azure AD B2C-katalog. Detta skiljer sig från Microsoft Graph API. Lär dig mer [här](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Azure Active Directory (Azure AD) B2C-klienter brukar vara mycket stor. Det innebär att många vanliga klient administrationsuppgifter måste utföras via programmering. En primärt exempel är användarhantering. Du kan behöva migrera en befintlig användararkivet till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av Azure AD Graph API.
 
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-De flesta av de här egenskaperna i den här begäran krävs för att skapa konsumentanvändare. Mer information klickar du på [här](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Observera att den `//` kommentarer har inkluderats för bilden. Ta inte med dem i en faktiska begäran.
+De flesta av de här egenskaperna i den här begäran krävs för att skapa konsumentanvändare. Mer information klickar du på [här](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Observera att den `//` kommentarer har inkluderats för bilden. Ta inte med dem i en faktiska begäran.
 
 Om du vill se begäran, kör du något av följande kommandon:
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-Den `Create-User` kommandot tar en JSON-fil som indataparameter. Innehåller en JSON-representation av ett användarobjekt. Det finns två exempel .json-filer i exempelkoden: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra de här filerna så att den passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fält som du kan använda i de här filerna. Information om de valfria fälten finns i den [Azure AD Graph API-referens för entiteten](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+Den `Create-User` kommandot tar en JSON-fil som indataparameter. Innehåller en JSON-representation av ett användarobjekt. Det finns två exempel .json-filer i exempelkoden: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra de här filerna så att den passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fält som du kan använda i de här filerna. Information om de valfria fälten finns i den [Azure AD Graph API-referens för entiteten](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 Du kan se hur POST-begäran är konstruerat av `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -257,7 +257,7 @@ Du kan se hur POST-begäran är konstruerat av `B2CGraphClient.SendGraphPostRequ
 * Den innehåller JSON-användarobjektet i brödtexten i begäran.
 
 > [!NOTE]
-> Om de konton som du vill migrera från en befintlig användararkivet har lägre lösenordssäkerhet än den [stark lösenordssäkerhet som tillämpas av Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), kan du inaktivera den starkt lösenord krav med hjälp av den `DisableStrongPassword` värde i den `passwordPolicies` egenskapen. Exempelvis kan du ändra skapa användarbegäran som anges ovan på följande sätt: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Om de konton som du vill migrera från en befintlig användararkivet har lägre lösenordssäkerhet än den [stark lösenordssäkerhet som tillämpas av Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), kan du inaktivera den starkt lösenord krav med hjälp av den `DisableStrongPassword` värde i den `passwordPolicies` egenskapen. Exempelvis kan du ändra skapa användarbegäran som anges ovan på följande sätt: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 Granska den `B2CGraphClient.SendGraphDeleteRequest(...)` metod för information om hur du skickar denna begäran.
 
-Du kan utföra många andra åtgärder med Azure AD Graph-API förutom hantering av användare. Den [Azure AD Graph API-referens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) innehåller information om varje åtgärd, tillsammans med exempelförfrågan.
+Du kan utföra många andra åtgärder med Azure AD Graph-API förutom hantering av användare. Den [Azure AD Graph API-referens](/previous-versions/azure/ad/graph/api/api-catalog) innehåller information om varje åtgärd, tillsammans med exempelförfrågan.
 
 ## <a name="use-custom-attributes"></a>Använd anpassade attribut
 De flesta konsumentprogram behöva lagra någon typ av anpassad information om användarprofiler. Ett sätt som du kan göra detta är att definiera ett anpassat attribut i din B2C-klient. Du kan sedan hantera attributet på samma sätt som du behandla någon annan egenskap på ett användarobjekt. Du kan uppdatera attributet, ta bort attributet, fråga med attributet, skicka attributet som ett anspråk i token-inloggningen och mycket annat.

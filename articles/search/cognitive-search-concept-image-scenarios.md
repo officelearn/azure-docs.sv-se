@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430275"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916979"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du bearbetar och extrahera information från bilder i scenarier med kognitiv sökning
 
@@ -34,7 +34,7 @@ Du kan inte inaktivera normalisering av avbildningen. Som en itererar över avbi
 
 | Konfigurationsparameter | Beskrivning |
 |--------------------|-------------|
-| imageAction   | Ange ”none” om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler uppstår. <br/>Ange till ”generateNormalizedImages” för att generera en matris med normaliserad avbildningar som en del av document cracking.<br/>Ange till ”generateNormalizedImagePerPage” att generera en matris med normaliserad avbildningar för PDF-filer i din datakälla, återges där varje sida som en utdata-bild.  Funktionen är samma som ”generateNormalizedImages” för icke-PDF-filtyper.<br/>För alla alternativ som inte är ”none” bilderna visas i den *normalized_images* fält. <br/>Standardvärdet är ”ingen”. Den här konfigurationen är bara relevant till blob-datakällor, när ”dataToExtract” är inställt på ”contentAndMetadata”. |
+| imageAction   | Ange ”none” om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler uppstår. <br/>Ange till ”generateNormalizedImages” för att generera en matris med normaliserad avbildningar som en del av document cracking.<br/>Ange till ”generateNormalizedImagePerPage” att generera en matris med normaliserad avbildningar för PDF-filer i din datakälla, återges där varje sida som en utdata-bild.  Funktionen är samma som ”generateNormalizedImages” för icke-PDF-filtyper.<br/>För alla alternativ som inte är ”none” bilderna visas i den *normalized_images* fält. <br/>Standardvärdet är ”ingen”. Den här konfigurationen är bara relevant till blob-datakällor, när ”dataToExtract” är inställt på ”contentAndMetadata”. <br/>Högst 1000 avbildningar kommer att extraheras från ett visst dokument. Om det finns fler än 1000 bilder i ett dokument, första 1000 kommer att extraheras och kommer att genereras en varning. |
 |  normalizedImageMaxWidth | Den maximala bredden (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 |  normalizedImageMaxHeight | Maximal höjd (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 

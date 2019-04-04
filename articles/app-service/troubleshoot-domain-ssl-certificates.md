@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449130"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905825"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka domän och SSL-certifikat problem i Azure App Service
 
 Den här artikeln innehåller vanliga problem som kan uppstå när du konfigurerar en domän eller SSL-certifikat för web apps i Azure App Service. Här beskrivs också möjliga orsaker och lösningar för dessa problem.
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **få Support**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problem med säkerhetscertifikat
 
@@ -314,7 +317,7 @@ Ja. När du använder anpassade domäner och SSL-bladet i Azure-portalen kan se 
 
 **Kan jag överföra en domän från en prenumeration till en annan prenumeration?**
 
-Du kan flytta en domän till en annan prenumeration/resurs med det [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell-cmdlet.
+Du kan flytta en domän till en annan prenumeration/resurs med det [flytta AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell-cmdlet.
 
 **Hur hanterar jag mina anpassade domäner om jag inte för närvarande har en Azure App Service-app?**
 

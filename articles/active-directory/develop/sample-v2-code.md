@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b518235efa4cd236afd8f79cb70cf30696931fdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1aca8eb16e9474f8ec834178748c27682372f7b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086776"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905400"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Kodexempel för Azure Active Directory (v2.0-slutpunkt)
 
@@ -64,7 +64,7 @@ Följande exempel illustrerar webbprogram som loggar in användare. Några exemp
  Plattform | Endast loggar in användare | Loggar in användare och anropar Microsoft Graph
  -------- | ------------------- | ---------------------------------
 ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [Självstudie för ASP.NET Core WebApp loggar in användare](https://aka.ms/aspnetcore-webapp-sign-in) | Samma prov i den [ASP.NET Core-Webbapp anropar Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fas
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Snabbstart för ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Quickstart](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Snabbstart för node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
@@ -74,7 +74,7 @@ Följande exempel visar offentlig klient program (desktop/mobila program) som ha
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | En ASP.NET Core 2.0 webb-API-anrop
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interaktiv | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interaktiv | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi)
 Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NET.png) | Integrerad Windows-autentisering |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NETcore.png) | Användarnamn/lösenord |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | Interaktiv |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
@@ -101,11 +101,11 @@ Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_
 
 ## <a name="web-apis"></a>Webb-API:er
 
-I följande exempel visas hur du skyddar ett webb-API med Azure AD v2.0-slutpunkten. Detta API utnyttjas av en WPF-program, men den kan anropas av alla program.
+I följande exempel visas hur du skyddar ett webb-API med Azure AD v2.0-slutpunkten. Detta API utnyttjas av en WPF-program, men den kan anropas av alla program. Webb-API-anrop även Microsoft Graph.
 
 Plattform | Exempel
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (tjänst) för [dotnet-intern-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (tjänst) för [dotnet-intern-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)
 
 ## <a name="other-microsoft-graph-samples"></a>Andra Microsoft Graph-exempel
 

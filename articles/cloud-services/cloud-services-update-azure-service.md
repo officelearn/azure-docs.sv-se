@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008101"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917234"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en tjänst i molnet
 
@@ -28,7 +28,7 @@ Uppdatering av en tjänst i molnet, inklusive dess roller och ett gäst-OS, är 
 ## <a name="update-an-azure-service"></a>Uppdatera en Azure-tjänst
 Azure ordnar dina rollinstanser i logiska grupper som kallas uppgraderingsdomäner (UD). Uppgraderingsdomäner (UD) är en logisk uppsättning rollinstanser som har uppdaterats som en grupp.  Azure-uppdateringar a cloud service en UD samtidigt, vilket ger instanser i andra ud fortsätta trafik.
 
-Standardvärdet för antal uppgraderingsdomäner är 5. Du kan ange ett annat antal uppgraderingsdomäner genom att inkludera attributet upgradeDomainCount i tjänstens-definitionsfil (.csdef). Läs mer om attributet upgradeDomainCount [WebRole-Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) eller [WorkerRole-Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+Standardvärdet för antal uppgraderingsdomäner är 5. Du kan ange ett annat antal uppgraderingsdomäner genom att inkludera attributet upgradeDomainCount i tjänstens-definitionsfil (.csdef). Läs mer om attributet upgradeDomainCount [WebRole-Schema](/previous-versions/azure/reference/gg557553(v=azure.100)) eller [WorkerRole-Schema](/previous-versions/azure/reference/gg557552(v=azure.100)).
 
 När du utför en uppdatering på plats av en eller flera roller i din tjänst, uppdaterar Azure uppsättningar rollinstanser enligt vilken uppgraderingsdomän de tillhör. Azure-uppdateringar alla instanser i en viss uppgraderingsdomän – stoppar dem, uppdaterar dem, infogar tillbaka online – flyttar till nästa domän. Azure ser till att en uppdatering sker med minsta möjliga påverkan på tjänsten som körs genom att stoppa de instanser som körs i aktuell uppgraderingsdomän. Mer information finns i [hur uppdateringen fortsätter](#howanupgradeproceeds) senare i den här artikeln.
 
@@ -82,7 +82,7 @@ Följande objekt stöds inte under en uppdatering:
 * Ändringar av antalet Uppgraderingsdomänen.
 * Minska storleken på de lokala resurserna.
 
-Om du gör andra uppdateringar i din tjänst-definition, som att minska storleken på lokal resurs måste du utföra en VIP-växling uppdatering i stället. Mer information finns i [växla distribution](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Om du gör andra uppdateringar i din tjänst-definition, som att minska storleken på lokal resurs måste du utföra en VIP-växling uppdatering i stället. Mer information finns i [växla distribution](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -106,7 +106,7 @@ Infrastrukturkontrollanten väntar 30 minuter för varje rollinstans att nå til
 
 När du uppgraderar en tjänst från en enda instans till flera instanser ska din tjänst framställas medan uppgraderingen utförs på grund av sättet uppgraderingar av Azure-tjänster. Servicenivåavtal garanterande tjänsttillgänglighet för tjänsten gäller bara för tjänster som har distribuerats med fler än en instans. I följande lista beskrivs hur data på varje enhet påverkas av uppgraderingsscenariot varje Azure-tjänsten:
 
-|Scenario|C-enheten|D-hårddisken|E-enheten|
+|Scenario|C Drive|D-hårddisken|E Drive|
 |--------|-------|-------|-------|
 |Omstart av virtuell dator|Bevaras|Bevaras|Bevaras|
 |Portalen omstart|Bevaras|Bevaras|Förstörs|
@@ -121,7 +121,7 @@ Distribuera en ny tjänst för flera instanser till den tillfälliga servern fö
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Återställning av en uppdatering
-Azure tillhandahåller flexibilitet vid hanteringen av tjänster under en uppdatering genom att du kan starta ytterligare åtgärder för en tjänst, när den inledande uppdateringsbegäran har godkänts av Azure-Infrastrukturkontrollanten. En återställning kan endast utföras när en uppdatering (konfigurationsändring) eller uppgraderingen finns i den **pågår** tillstånd för distributionen. En uppdatering eller uppgradering anses vara pågår så länge det finns minst en instans av tjänsten som ännu inte uppdaterats till den nya versionen. Du kan testa om en återställning är tillåtet, kontrollera värdet för flaggan RollbackAllowed som returneras av [få distribution](https://msdn.microsoft.com/library/azure/ee460804.aspx) och [hämta egenskaper för molntjänst](https://msdn.microsoft.com/library/azure/ee460806.aspx) åtgärder, har angetts till true.
+Azure tillhandahåller flexibilitet vid hanteringen av tjänster under en uppdatering genom att du kan starta ytterligare åtgärder för en tjänst, när den inledande uppdateringsbegäran har godkänts av Azure-Infrastrukturkontrollanten. En återställning kan endast utföras när en uppdatering (konfigurationsändring) eller uppgraderingen finns i den **pågår** tillstånd för distributionen. En uppdatering eller uppgradering anses vara pågår så länge det finns minst en instans av tjänsten som ännu inte uppdaterats till den nya versionen. Du kan testa om en återställning är tillåtet, kontrollera värdet för flaggan RollbackAllowed som returneras av [få distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämta egenskaper för molntjänst](/previous-versions/azure/reference/ee460806(v=azure.100)) åtgärder, har angetts till true.
 
 > [!NOTE]
 > Det finns ingen anledning att anropa återställning i en **plats** eller -uppgradering eftersom VIP-växling uppgraderingar avser ersätta hela köra en instans av din tjänst med en annan.
@@ -135,13 +135,13 @@ Azure tillhandahåller flexibilitet vid hanteringen av tjänster under en uppdat
 
 Detta är funktionellt tillhandahålls av följande funktioner:
 
-* Den [återställning uppdatera eller uppgradera](https://msdn.microsoft.com/library/azure/hh403977.aspx) åtgärd, som kan anropas på en konfigurationsuppdateringen (utlöses genom att anropa [ändra distributionskonfiguration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) eller en uppgradering (utlöses genom att anropa [ Uppgraderingsdistribution](https://msdn.microsoft.com/library/azure/ee460793.aspx)) så länge det finns minst en instans i tjänsten som ännu inte uppdaterats till den nya versionen.
-* Låst elementet och RollbackAllowed-element som returneras som en del av svarstexten av den [få distribution](https://msdn.microsoft.com/library/azure/ee460804.aspx) och [hämta egenskaper för molntjänst](https://msdn.microsoft.com/library/azure/ee460806.aspx) åtgärder:
+* Den [återställning uppdatera eller uppgradera](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärd, som kan anropas på en konfigurationsuppdateringen (utlöses genom att anropa [ändra distributionskonfiguration](/previous-versions/azure/reference/ee460809(v=azure.100))) eller en uppgradering (utlöses genom att anropa [ Uppgraderingsdistribution](/previous-versions/azure/reference/ee460793(v=azure.100))) så länge det finns minst en instans i tjänsten som ännu inte uppdaterats till den nya versionen.
+* Låst elementet och RollbackAllowed-element som returneras som en del av svarstexten av den [få distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämta egenskaper för molntjänst](/previous-versions/azure/reference/ee460806(v=azure.100)) åtgärder:
 
   1. Elementet låst kan du identifiera när en mutating åtgärd kan anropas på en viss distribution.
-  2. RollbackAllowed-elementet kan du identifiera när den [återställning uppdatering eller uppgradera](https://msdn.microsoft.com/library/azure/hh403977.aspx) åtgärden kan anropas på en viss distribution.
+  2. RollbackAllowed-elementet kan du identifiera när den [återställning uppdatering eller uppgradera](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärden kan anropas på en viss distribution.
 
-  För att kunna utföra en återställning, behöver du inte kontrollera både låst och RollbackAllowed-element. Det tillräckligt för att bekräfta att RollbackAllowed har angetts till true. Dessa element returneras bara om de här metoderna anropas med rubriken inställd på ”x-ms-version: 2011-10-01” eller en senare version. Läs mer om versionshantering huvuden [Management versionshantering](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  För att kunna utföra en återställning, behöver du inte kontrollera både låst och RollbackAllowed-element. Det tillräckligt för att bekräfta att RollbackAllowed har angetts till true. Dessa element returneras bara om de här metoderna anropas med rubriken inställd på ”x-ms-version: 2011-10-01 ”eller en senare version. Läs mer om versionshantering huvuden [Management versionshantering](/previous-versions/azure/gg592580(v=azure.100)).
 
 Det finns vissa situationer där en återställning av en uppdatering eller uppgradering stöds inte, här visas på följande sätt:
 
@@ -149,9 +149,9 @@ Det finns vissa situationer där en återställning av en uppdatering eller uppg
 * Kvotbegränsningar - ha om uppdateringen har en skala ned åtgärden som du kanske inte längre tillräcklig beräkningskvot att slutföra åtgärden för återställning. Varje Azure-prenumeration har en kvot som är associerade med den som anger det maximala antalet kärnor som kan användas av alla värdbaserade tjänster som hör till den prenumerationen. Om en återställning av en viss uppdatering lägger din prenumeration via kvot och som aktiveras inte en återställning.
 * Konkurrenstillstånd – om den första uppdateringen har slutförts, en återställning är inte möjlig.
 
-Är ett exempel på när återställningen av en uppdatering kan vara användbar om du använder den [Uppgraderingsdistribution](https://msdn.microsoft.com/library/azure/ee460793.aspx) åtgärden i manuellt läge för att styra den hastighet med vilken en större uppgradering på plats till ditt Azure-värdtjänsten distribueras.
+Är ett exempel på när återställningen av en uppdatering kan vara användbar om du använder den [Uppgraderingsdistribution](/previous-versions/azure/reference/ee460793(v=azure.100)) åtgärden i manuellt läge för att styra den hastighet med vilken en större uppgradering på plats till ditt Azure-värdtjänsten distribueras.
 
-Under distributionen av uppgraderingen du anropar [Uppgraderingsdistribution](https://msdn.microsoft.com/library/azure/ee460793.aspx) i manuellt läge och börjar gå igenom uppgraderingsdomäner. Om någon gång när du övervakar uppgraderingen måste du observera vissa rollinstanser i de första uppgradera domäner som du undersöker har svarar, kan du anropa den [återställning uppdatering eller uppgradera](https://msdn.microsoft.com/library/azure/hh403977.aspx) åtgärd avseende distributionen, vilket leder till orörda instanser som inte hade har uppgraderats och rollback-instanser som har uppgraderats till den föregående service-paketet och konfigurationen.
+Under distributionen av uppgraderingen du anropar [Uppgraderingsdistribution](/previous-versions/azure/reference/ee460793(v=azure.100)) i manuellt läge och börjar gå igenom uppgraderingsdomäner. Om någon gång när du övervakar uppgraderingen måste du observera vissa rollinstanser i de första uppgradera domäner som du undersöker har svarar, kan du anropa den [återställning uppdatering eller uppgradera](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärd avseende distributionen, vilket leder till orörda instanser som inte hade har uppgraderats och rollback-instanser som har uppgraderats till den föregående service-paketet och konfigurationen.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ När den första begäran att uppdatera eller uppgradera tjänsten har tagits em
 
 Initierar en andra uppdateringsåtgärd medan den första uppdateringen pågår utför liknar ångring. Om den andra uppdateringen är i läget för automatisk, uppgraderas den första uppgraderingsdomänen direkt, kan leda till instanser från flera uppgraderingsdomäner är offline vid samma tidpunkt i tid.
 
-Mutating åtgärderna är följande: [ändra distributionskonfiguration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Uppgraderingsdistribution](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Distributionsstatus](https://msdn.microsoft.com/library/azure/ee460808.aspx), [ta bort distribution ](https://msdn.microsoft.com/library/azure/ee460815.aspx), och [Återställ uppdatering eller uppgradering](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+Mutating åtgärderna är följande: [Ändra distributionskonfiguration](/previous-versions/azure/reference/ee460809(v=azure.100)), [Uppgraderingsdistribution](/previous-versions/azure/reference/ee460793(v=azure.100)), [uppdatera Distributionsstatus](/previous-versions/azure/reference/ee460808(v=azure.100)), [ta bort distributionen](/previous-versions/azure/reference/ee460815(v=azure.100)), och [återställning Uppdatera eller uppgradera](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Två åtgärder [få distribution](https://msdn.microsoft.com/library/azure/ee460804.aspx) och [hämta egenskaper för molntjänst](https://msdn.microsoft.com/library/azure/ee460806.aspx), returnera flaggan låst som kan undersökas för att avgöra om en mutating åtgärd kan anropas på en viss distribution.
+Två åtgärder [få distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämta egenskaper för molntjänst](/previous-versions/azure/reference/ee460806(v=azure.100)), returnera flaggan låst som kan undersökas för att avgöra om en mutating åtgärd kan anropas på en viss distribution.
 
-För att kunna anropa den version av dessa metoder som returnerar flaggan låst, måste du ange huvudet i begäran till ”x-ms-version: 2011-10-01” eller en senare. Läs mer om versionshantering huvuden [Management versionshantering](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+För att kunna anropa den version av dessa metoder som returnerar flaggan låst, måste du ange huvudet i begäran till ”x-ms-version: 2011-10-01 ”eller en senare. Läs mer om versionshantering huvuden [Management versionshantering](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

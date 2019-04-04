@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226869"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649415"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -56,18 +56,20 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack-snabbkorrigeringar
 
+Om du redan har 1901 och du inte har installerat eventuella snabbkorrigeringar än kan du [installera 1902 direkt](azure-stack-update-1902.md), utan att först installera snabbkorrigeringen 1901.
+
 - **1809**: [KB 4481548 – Azure Stack-snabbkorrigeringen 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Inga aktuella snabbkorrigeringen är tillgänglig.
-- **1901**: [KB 4481548 – Azure Stack-snabbkorrigeringen 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – Azure Stack-snabbkorrigeringen 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
-> - Installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1811 (i förekommande fall) innan du uppdaterar till 1901.
+> Installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1811 (i förekommande fall) innan du uppdaterar till 1901. Om du redan har 1901 och du inte har installerat eventuella snabbkorrigeringar ännu, kan du installera 1902 direkt, utan att första installera snabbkorrigeringen 1901.
 
 - Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
    * **AzureRm.Insights**  
          Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.1.5 den **api-versionen 2018-01-01** för mått, definitioner av mätvärden för resurstyper.
 
-- **AzureStack 1.7.0** detta en viktig ändring versionen. Mer information om de senaste ändringarna finns i https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1** detta en viktig ändring versionen. Mer information om de senaste ändringarna finns i https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin modul**  
          Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserat krypteringsläge. Stöd för symmetriska nycklar fasas ut.  
    * **Azs.Fabric.Admin modul**  
@@ -117,9 +119,6 @@ Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https:/
 
 - <!-- 3235634 – IS, ASDK -->
   Ett problem har åtgärdats där distribuera de virtuella datorerna med storlekar som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, obligatoriskt att ange suffixet som **Standard_A2_v2** () gemener v). Som med globala Azure kan du nu använda **Standard_A2_V2** (versaler V).
-
-<!-- 2869209 – IS, ASDK --> 
-- Ett problem har åtgärdats när du använder den [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), i vilket du var tvungen att använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Du kan nu också använda den lokala sökvägen till disken.
 
 <!--  2795678 – IS, ASDK --> 
 - Ett problem som gav en varning när du har använt portalen för att skapa virtuella datorer (VM) i en premium VM-storlek (DS, Ds_v2, FS, FSv2) har åtgärdats. Den virtuella datorn har skapats i ett standardlagringskonto. Även om detta inte påverkade funktionellt, IOPs och fakturering, har varningen åtgärdats.

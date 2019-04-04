@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77cfade382d2c2533b803412157a1d5268e89983
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b7a5aef76ec72b0de76fb4517ffda02808eab9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764327"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882504"
 ---
 # <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
@@ -55,7 +55,7 @@ Du kan skapa en delad tunnel virtuella privata nätverk (VPN)-anslutning till en
 
 Öppna en upphöjd PowerShell-session från din lokala Windows-baserad dator för att skapa en VPN-anslutning i development Kit och kör följande skript (se till att uppdatera IP-adress och lösenord värden för din miljö):
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -92,9 +92,9 @@ Om inställningarna lyckas, bör du se **azurestack** i din lista över VPN-ansl
 
 Anslut till Azure Stack-instans med hjälp av något av följande två metoder:  
 
-* Med hjälp av den `Connect-AzsVpn ` kommando: 
+* Med hjälp av den `Connect-AzsVpn` kommando: 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

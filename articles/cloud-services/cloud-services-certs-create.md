@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812386"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918679"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
 Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med API för hantering ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och distribuera dem till Azure.
@@ -69,7 +69,7 @@ Du kan använda ett verktyg som kan användas för att skapa ett självsignerat 
 Det finns två enkla sätt för att skapa ett certifikat på Windows, med den `makecert.exe` verktyg eller IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Det här verktyget är inaktuell och är inte längre dokumenteras här. Mer information finns i [den här MSDN-artikeln](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+Det här verktyget är inaktuell och är inte längre dokumenteras här. Mer information finns i [den här MSDN-artikeln](/windows/desktop/SecCrypto/makecert).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell

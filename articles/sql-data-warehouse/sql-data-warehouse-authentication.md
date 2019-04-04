@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183806"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917914"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autentisera till Azure SQL Data Warehouse
 Lär dig hur du autentiserar till Azure SQL Data Warehouse med hjälp av Azure Active Directory (AAD) eller SQL Server-autentisering.
@@ -56,7 +56,7 @@ Azure fördelar Active Directory:
 * Eliminerar lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
 * Använder innesluten databasanvändare för att autentisera identiteter på databasnivå.
 * Har stöd för tokenbaserad autentisering för program som ansluter till SQL Data Warehouse.
-* Stöder multifaktorautentisering via Active Directory Universal-autentisering för SQL Server Management Studio. En beskrivning av Multifaktorautentisering finns i [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+* Har stöd för multifaktorautentisering via Active Directory Universal-autentisering för olika verktyg, inklusive [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
 > Azure Active Directory är fortfarande relativt nytt och har vissa begränsningar. För att säkerställa att Azure Active Directory är ett bra alternativ för din miljö, se [Azure AD-funktioner och begränsningar][Azure AD features and limitations], särskilt ytterligare överväganden.

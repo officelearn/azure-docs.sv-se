@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4cf454a654124468fd31e6412530416da381acf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 52aa57b0a0de0a8ca82e57adda8b41862aa66980
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884905"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918662"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 
@@ -145,7 +145,7 @@ I följande tabell visas Resource Manager-mallens parametrar för befintliga ell
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Kryptera VM-skalningsuppsättningar med Azure PowerShell
 
-Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet för att aktivera kryptering på en Windows VM-skalningsuppsättning. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav.
+Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet för att aktivera kryptering på en Windows VM-skalningsuppsättning. Resursgruppen, virtual machine scale Sets och nyckelvalvet bör redan har skapats som krav.
 
 -  **Kryptera en VM-skalningsuppsättning**:
     ```azurepowershell
@@ -191,7 +191,7 @@ Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>Kryptera VM-skalningsuppsättningar med Azure CLI
 
-Använd den [az vmss-kryptering aktiverar](/cli/azure/vmss/encryption#az-vmss-encryption-enable) att aktivera kryptering på en Windows VM-skalningsuppsättning. Om du anger uppgraderingsprincipen för skalningsuppsättningen att manuellt starta kryptering med [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav.
+Använd den [az vmss-kryptering aktiverar](/cli/azure/vmss/encryption#az-vmss-encryption-enable) att aktivera kryptering på en Windows VM-skalningsuppsättning. Om du anger uppgraderingsprincipen för skalningsuppsättningen att manuellt starta kryptering med [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). Resursgruppen, virtual machine scale Sets och nyckelvalvet bör redan har skapats som krav.
 
 -  **Kryptera en VM-skalningsuppsättning**
     ```azurecli-interactive

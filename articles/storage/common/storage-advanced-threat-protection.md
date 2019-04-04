@@ -1,29 +1,29 @@
 ---
-title: Avancerat skydd för Azure Storage
+title: Advanced Threat Protection för Azure Storage
 description: Konfigurera Azure Storage Advanced Threat Protection för att identifiera avvikelser i kontoaktivitet och meddela dig om potentiellt skadliga försök att komma åt ditt konto.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133237"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904125"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Avancerat skydd för Azure Storage
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
 Avancerat skydd för Azure Storage ger ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja storage-konton. Du kan hantera hot utan att behöva vara säkerhetsexpert eller hantera säkerhetssystem för övervakning i den här skyddsnivå. 
 
 Säkerhetsvarningar utlöses när avvikelser i aktivitet inträffar.  Dessa säkerhetsaviseringar som är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och också skickas via e-post till prenumerationens administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöka och åtgärda hot.
 
 > [!NOTE]
-> * Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen. 
-> * Information om de nya priserna är tillgänglig i den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) prissättningssidan, bland annat ett alternativ för en utvärderingsperiod under de första 30 dagarna utan kostnad. 
+> * Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen.
+> * Prisinformationen, inklusive en kostnadsfria 30-dagars utvärderingsversion finns i den [sidan med priser för Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
 > * ATP för Azure storage-funktionen är för närvarande inte tillgänglig i Azure government och nationellt molnregioner.
 
 Avancerat skydd för Azure Storage matar in diagnostiska loggar för Läs-, Skriv- och delete-begäranden till Blob storage för identifiering av hot. Du kan visa relaterade storage-aktivitet som använder loggning av Storage Analytics för att undersöka aviseringar från Avancerat skydd. Läs mer om hur du [konfigurera Storage Analytics loggning](storage-monitor-storage-account.md#configure-logging).
@@ -52,6 +52,24 @@ När du prenumererar på Standard-nivån i Azure Security Center Advanced Threat
 Använd en Azure Resource Manager-mall för att distribuera ett Azure Storage-konto med avancerat skydd aktiverat.
 Mer information finns i [Storage-konto med Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
+### <a name="using-azure-policy"></a>Med Azure-princip
+
+Använda en Azure för att aktivera Avancerat skydd på lagringskonton under en viss prenumeration eller resursgrupp grupp.
+
+1. Lunch Azure **princip – definitioner** sidan.
+
+1. Sök efter den **distribuera Avancerat skydd på Storage-konton** princip.
+
+     ![Sök efter princip](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Välj en Azure-prenumeration eller resursgrupp grupp.
+
+    ![Välj en prenumeration eller grupp](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Tilldela principen.
+
+    ![Sidan definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+
 ### <a name="using-rest-api"></a>Använda REST-API:et
 Använda Rest API-kommandon för att skapa, uppdatera eller få Avancerat skydd-inställningarna för ett specifikt lagringskonto.
 
@@ -62,7 +80,7 @@ Använda Rest API-kommandon för att skapa, uppdatera eller få Avancerat skydd-
 
 Använd följande PowerShell-cmdletar:
 
-  * [Aktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Få Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

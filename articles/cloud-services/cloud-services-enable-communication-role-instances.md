@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539640"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918169"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Aktivera kommunikation för rollinstanser i azure
 Molntjänstroller kommunicerar via interna och externa anslutningar. Externa anslutningar kallas **inkommande slutpunkter** medan interna anslutningar kallas **interna slutpunkter**. Det här avsnittet beskrivs hur du ändrar den [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef) att skapa slutpunkter.
 
 ## <a name="input-endpoint"></a>Slutpunkt för indata
-Slutpunkt för indata används när du vill exponera en port på utsidan. Anger vilken typ av protokoll och porten för den slutpunkt som gäller för externa och interna portar för slutpunkten. Om du vill kan du ange en annan Intern port för slutpunkten med den [lokal port](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribut.
+Slutpunkt för indata används när du vill exponera en port på utsidan. Anger vilken typ av protokoll och porten för den slutpunkt som gäller för externa och interna portar för slutpunkten. Om du vill kan du ange en annan Intern port för slutpunkten med den [lokal port](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) attribut.
 
 Slutpunkt för indata kan använda följande protokoll: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ Azure Managed-biblioteket innehåller metoder för rollinstanser att kommunicera
 > 
 > 
 
-Du kan använda den [instanser](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) egenskap för att hämta instanser av en roll. Först använder den [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) att returnera en referens till den aktuella rollinstansen och sedan använda den [rollen](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) som returnerar en referens till rollen själva.
+Du kan använda den [instanser](/previous-versions/azure/reference/ee741904(v=azure.100)) egenskap för att hämta instanser av en roll. Först använder den [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) att returnera en referens till den aktuella rollinstansen och sedan använda den [rollen](/previous-versions/azure/reference/ee741918(v=azure.100)) som returnerar en referens till rollen själva.
 
 När du ansluter till en rollinstans programmässigt via .NET SDK, är det relativt enkelt att komma åt information om slutpunkten. Du kan exempelvis få porten för en viss slutpunkt med den här koden när du redan har anslutit till en viss roll-miljö:
 
@@ -111,7 +111,7 @@ Den **instanser** egenskapen returnerar en samling **Rollinstans** objekt. Den h
 > 
 > 
 
-Du kan använda för att fastställa portnumret för en intern slutpunkt på en rollinstans som den [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) egenskapen att returnera ett Dictionary-objekt som innehåller slutpunktsnamn och deras motsvarande IP-adresser och portar. Den [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) egenskapen returnerar IP-adressen och porten för den angivna slutpunkten. Den **PublicIPEndpoint** egenskapen returnerar porten för en belastningsutjämnad slutpunkt. IP-adress-delen av den **PublicIPEndpoint** egenskapen används inte.
+Du kan använda för att fastställa portnumret för en intern slutpunkt på en rollinstans som den [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) egenskapen att returnera ett Dictionary-objekt som innehåller slutpunktsnamn och deras motsvarande IP-adresser och portar. Den [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) egenskapen returnerar IP-adressen och porten för den angivna slutpunkten. Den **PublicIPEndpoint** egenskapen returnerar porten för en belastningsutjämnad slutpunkt. IP-adress-delen av den **PublicIPEndpoint** egenskapen används inte.
 
 Här är ett exempel som upprepas över rollinstanser.
 
@@ -368,7 +368,7 @@ Tillåter endast trafik från **WebRole1** till **WorkerRole1**, **WebRole1** ti
 </ServiceDefinition>
 ```
 
-En XML-Schemareferens för element som används ovan finns [här](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+En XML-Schemareferens för element som används ovan finns [här](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om Molntjänsten [modellen](cloud-services-model-and-package.md).

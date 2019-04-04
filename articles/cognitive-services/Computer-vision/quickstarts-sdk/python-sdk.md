@@ -10,51 +10,51 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: 23db6f889e2ca4266b7e3566c18cf9a85d4062a8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904924"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
-Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av. 
+Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av.
 
 * [Analysera en bild](#analyze-an-image)
-* [Hämta ämnesdomänlista](#get-subject-domain-list)
+* [Hämta en ämnesdomänlista](#get-subject-domain-list)
 * [Analysera en bild efter domän](#analyze-an-image-by-domain)
-* [Hämta textbeskrivning av en bild](#get-text-description-of-an-image)
-* [Hämta handskriven text från en bild](#get-text-from-image)
+* [Hämta en textbeskrivning av en bild](#get-text-description-of-an-image)
+* [Hämta handskriven text från avbildningen](#get-text-from-image)
 * [Skapa en miniatyrbild](#generate-thumbnail)
 
 Mer information om den här tjänsten finns i [Vad är visuellt innehåll?][computervision_docs].
 
 Letar du efter mer dokumentation?
 
-* [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
-* [Dokumentation för Cognitive Services – Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
+* [SDK referensdokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+* [Dokumentation för kognitiva tjänster för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.6+][python]
-* Kostnadsfri [nyckel för Visuellt innehåll][computervision_resource] och associerad region. Du behöver dessa värden när du skapar en instans av klientobjektet [ComputerVisionAPI][ref_computervisionclient]. Använd en av följande metoder för att hämta dessa värden. 
+* Kostnadsfria [visuellt nyckeln] [ computervision_resource] och associerade slutpunkten. Du behöver dessa värden när du skapar en instans av den [ComputerVisionClient] [ ref_computervisionclient] klientobjektet. Använd en av följande metoder för att hämta dessa värden.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Om du inte har en Azure-prenumeration
 
-Skapa en kostnadsfri nyckel giltigt i 7 dagar med den **[prova] [ computervision_resource]** för tjänsten för visuellt innehåll. När nyckeln har skapats kopierar du namnet på nyckeln och regionen. Du behöver detta för att [skapa klienten](#create-client).
+Skapa en kostnadsfri nyckel giltigt i 7 dagar med den **[prova] [ computervision_resource]** för tjänsten för visuellt innehåll. När nyckeln skapas, kopierar du nyckel och slutpunkt-namnet. Du behöver detta för att [skapa klienten](#create-client).
 
 Spara följande när nyckeln har skapats:
 
-* Nyckelvärdet: en sträng med 32 tecken med formatet `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
-* Nyckelregion: underdomänen för slutpunkts-URL:en https://**westcentralus**.api.cognitive.microsoft.com
+* Nyckelvärdet: en 32 tecken lång sträng med formatet `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Viktiga slutpunkt: grundläggande slutpunkts-URL https://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Om du har en Azure-prenumeration
 
-Det enklaste sättet att skapa en resurs i din prenumeration är att använda följande [Azure CLI] [ azure_cli] kommando. Detta skapar en Cognitive Service-nyckel som kan användas i många kognitiva tjänster. Du måste välja den _befintliga_ resursgruppens namn, till exempel ”min cogserv-grupp” och den nya dator visionen resursen namnet, till exempel ”min dator-vision-resurs”. 
+Det enklaste sättet att skapa en resurs i din prenumeration är att använda följande [Azure CLI] [ azure_cli] kommando. Detta skapar en Cognitive Service-nyckel som kan användas i många kognitiva tjänster. Du måste välja den _befintliga_ resursgruppens namn, till exempel ”min cogserv-grupp” och den nya dator visionen resursen namnet, till exempel ”min dator-vision-resurs”.
 
 ```Bash
-RES_REGION=westeurope 
+RES_REGION=westeurope
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
@@ -92,31 +92,31 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## <a name="authentication"></a>Authentication
 
-När du skapar resursen för visuellt innehåll måste dess **region** och en av dess **kontonycklar** skapa en instans av klientobjektet.
+När du skapar resursen för visuellt innehåll, måste dess **endpoint**, och en av dess **kontonycklar** att skapa en instans av klientobjektet.
 
-Använd dessa värden när du skapar en instans av klientobjektet [ComputerVisionAPI][ref_computervisionclient]. 
+Genom att använda dessa värden när du skapar en instans av den [ComputerVisionClient] [ ref_computervisionclient] klientobjektet.
 
 Exempelvis kan du använda Bash-terminalen för att ställa in miljövariablerna som:
 
 ```Bash
-ACCOUNT_REGION=<resourcegroup-name>
+ACCOUNT_ENDPOINT=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>Hämta autentiseringsuppgifter för Azure-prenumerationsanvändare för nyckel och din region
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>Hämta autentiseringsuppgifter för nyckel och slutpunkt för Azure-prenumerationsanvändare
 
-Om du inte kommer ihåg ditt region och nyckel, kan du använda följande metod för att hitta dem. Om du vill skapa en nyckel och region, kan du använda metoden för [innehavare av Azure-prenumeration](#if-you-have-an-azure-subscription) eller för [användare utan en Azure-prenumeration](#if-you-dont-have-an-azure-subscription).
+Om du inte kommer ihåg din slutpunkt och nyckel, kan du använda följande metod för att hitta dem. Om du vill skapa en nyckel och slutpunkt kan du använda metoden för [innehavare av Azure-prenumeration](#if-you-have-an-azure-subscription) eller för [användare utan en Azure-prenumeration](#if-you-dont-have-an-azure-subscription).
 
-Använd kodavsnittet [Azure CLI][cloud_shell] nedan för att fylla i två miljövariabler med kontots **region** för visuellt innehåll och en av dess **nycklar** (du hittar även dessa värden i [Azure-portalen][azure_portal]). Kodfragmentet är formaterat för Bash-gränssnittet.
+Använd den [Azure CLI] [ cloud_shell] kodavsnittet nedan för att fylla i två miljövariabler med kontot visuellt **endpoint** och en av dess **nycklar**(du hittar även dessa värden i den [Azure-portalen][azure_portal]). Kodfragmentet är formaterat för Bash-gränssnittet.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
+export ACCOUNT_ENDPOINT=$(az cognitiveservices account show \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
-    --query location \
+    --query endpoint \
     --output tsv)
 
 export ACCOUNT_KEY=$(az cognitiveservices account keys list \
@@ -129,28 +129,28 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>Skapa en klient
 
-Hämta region och nyckeln från miljövariabler och skapa sedan den [ComputerVisionAPI] [ ref_computervisionclient] klientobjektet.  
+Hämta slutpunkten och nyckeln från miljövariabler och skapa sedan den [ComputerVisionClient] [ ref_computervisionclient] klientobjektet.
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-# Get region and key from environment variables
+# Get endpoint and key from environment variables
 import os
-region = os.environ['ACCOUNT_REGION']
+endpoint = os.environ['ACCOUNT_ENDPOINT']
 key = os.environ['ACCOUNT_KEY']
 
 # Set credentials
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(endpoint, credentials)
 ```
 
 ## <a name="examples"></a>Exempel
 
-Du behöver [ComputerVisionAPI-klientobjektet][ref_computervisionclient] innan du använder någon av följande uppgifter.
+Du behöver en [ComputerVisionClient] [ ref_computervisionclient] klientobjektet innan du använder någon av följande uppgifter.
 
 ### <a name="analyze-an-image"></a>Analysera en bild
 
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>Analysera en bild efter domän
 
-Du kan analysera en bild av ämnesdomänen med [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Hämta [listan med ämnesdomäner som stöds](#get-subject-domain-list) för att kunna använda rätt domännamn.  
+Du kan analysera en bild av ämnesdomänen med [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Hämta [listan med ämnesdomäner som stöds](#get-subject-domain-list) för att kunna använda rätt domännamn.
 
 ```Python
 # type of prediction
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Hämta text från bilden
 
-Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK:n: [`recognize_text`][ref_computervisionclient_recognize_text] och [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. Anropet till recognize_text är asynkront. I resultatet av anropet get_text_operation_result, måste du kontrollera om det första anropet slutfördes med [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] innan du extraherar textdatan. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält. 
+Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK:n: [`recognize_text`][ref_computervisionclient_recognize_text] och [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. Anropet till recognize_text är asynkront. I resultatet av anropet get_text_operation_result, måste du kontrollera om det första anropet slutfördes med [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] innan du extraherar textdatan. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält.
 
 ```Python
 # import models
@@ -238,13 +238,14 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-while result.status in ['NotStarted', 'Running']:
-    time.sleep(1)
+while True:
     result = client.get_text_operation_result(operationId)
+    if result.status not in ['NotStarted', 'Running']:
+        break
+    time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-
     for line in result.recognition_result.lines:
         print(line.text)
         print(line.bounding_box)
@@ -252,13 +253,13 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>Skapa en miniatyrbild
 
-Du kan skapa en miniatyrbild (JPG) av en bild med [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. Miniatyren behöver inte ha samma proportioner som den ursprungliga bilden. 
+Du kan skapa en miniatyrbild (JPG) av en bild med [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. Miniatyren behöver inte ha samma proportioner som den ursprungliga bilden.
 
 Installera **Pillow** för att använda det här exemplet:
 
 ```bash
 pip install Pillow
-``` 
+```
 
 När Pillow har installerats använder du paketet i följande kodexempel för att generera miniatyrbilden.
 
@@ -285,7 +286,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Allmänt
 
-När du interagerar med [ComputerVisionAPI][ref_computervisionclient]-klientobjektet med hjälp av Python-SDK, används [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception]-klassen till att returnera fel. Fel som returneras av tjänsten motsvarar samma HTTP-statuskoder som returneras för REST API-begäranden.
+När du interagerar med den [ComputerVisionClient] [ ref_computervisionclient] klientobjektet med hjälp av Python-SDK i [ `ComputerVisionErrorException` ] [ ref_computervision_computervisionerrorexception] klassen används att returnera fel. Fel som returneras av tjänsten motsvarar samma HTTP-statuskoder som returneras för REST API-begäranden.
 
 Om du exempelvis försöker analysera en bild med en ogiltig nyckel, returneras felet `401`. I följande kodfragment hanteras [felet][ref_httpfailure] korrekt genom att fånga upp undantaget och visa ytterligare information om felet.
 
@@ -304,14 +305,14 @@ try:
         print(caption.confidence)
 except HTTPFailure as e:
     if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
+        print("Error unauthorized. Make sure your key and endpoint are correct.")
     else:
         raise
 ```
 
 ### <a name="handle-transient-errors-with-retries"></a>Hantera tillfälliga fel med återförsök
 
-När du arbetar med [ComputerVisionAPI][ref_computervisionclient]-klienten, kan det uppstå tillfälliga fel som orsakas av [hastighetsbegränsningar][computervision_request_units] i tjänsten eller andra tillfälliga problem som t.ex. nätverksavbrott. Information om hur du hanterar dessa typer av fel finns i [Återförsöksmönster][azure_pattern_retry] i guiden för molndesignmönster och relaterade [Kretsbrytarmönster][azure_pattern_circuit_breaker].
+När du arbetar med den [ComputerVisionClient] [ ref_computervisionclient] klienten, som kan uppstå tillfälliga fel som orsakas av [hastighetsbegränsningar] [ computervision_request_units] tvingande av tjänsten eller andra tillfälliga problem angående avbrott i nätverket. Information om hur du hanterar dessa typer av fel finns i [Återförsöksmönster][azure_pattern_retry] i guiden för molndesignmönster och relaterade [Kretsbrytarmönster][azure_pattern_circuit_breaker].
 
 ### <a name="more-sample-code"></a>Mer exempelkod
 
@@ -322,7 +323,7 @@ Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Applicera innehållstaggar på bilder](../concept-tagging-images.md)
+> [Använda innehåll taggar till avbildningar](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

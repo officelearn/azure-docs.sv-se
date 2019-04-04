@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af30568d3ab35b35d2a0e0bef00921debb1ea451
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110128"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917812"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -42,76 +42,67 @@ För testning av stegen i den här självstudien rekommenderar vi att du använd
 
 Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
-1. I [Azure-portalen](https://portal.azure.com) går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), på den vänstra navigeringspanelen väljer **Azure Active Directory**.
 
-2. På bladet **Azure Active Directory** klickar du på **Företagsprogram**.
+2. I den **Azure Active Directory** väljer **företagsprogram**.
 
     ![Öppna företagsprogram](media/add-application-portal/open-enterprise-apps.png)
 
-3. Bladet **Alla program** öppnas och visar ett slumpmässigt urval av programmen i din Azure AD-klientorganisation.
-
-    ![Bladet Alla program](media/add-application-portal/applications-blade.png)
-
-
-4. Klicka på **Nytt program** överst på bladet **Alla program**.
+3. Den **alla program** öppnas fönstret för att visa ett slumpmässigt urval av program i Azure AD-klienten. Välj **nytt program** överst i den **alla program** fönstret.
 
     ![Nytt program](media/add-application-portal/new-application.png)
 
-5. Om du vill se en lista över program i galleriet är det enklast att använda **kategorierna** eftersom ikonerna under **Aktuella program** är ett slumpmässigt urval av galleriprogram.
+4. I den **kategorier** fönstret visas ikonerna under de **aktuellt program** område som är ett slumpmässigt urval av galleriprogram.  Om du vill se fler program kan du välja **visa fler**. Men vi rekommenderar inte att söka på så sätt eftersom det finns tusentals program i galleriet.
 
     ![Sök efter namn eller kategori](media/add-application-portal/categories.png)
 
-    Om du vill se fler program kan du klicka på **Visa mer**. Vi rekommenderar inte att du söker på det här sättet eftersom det finns tusentals program i galleriet.
-
-6. För att söka efter ett program går du till **Lägg till från galleriet** och anger namnet på det program som du vill lägga till. Välj programmet från resultaten och klicka på **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
+5. Att söka efter ett program under **Lägg till från galleriet**, anger du namnet på programmet som du vill lägga till. Markera programmet i resultaten och välj **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
 
     ![Lägga till ett program](media/add-application-portal/add-an-application.png)
 
 6. I det programspecifika formuläret kan du ändra egenskapsinformation. Till exempel kan du redigera namnet på programmet så att det matchar behoven i din organisation. I det här exemplet används namnet **GitHub-test**.
 
-8. När du är klar med ändringarna av egenskaperna klickar du på **Lägg till**.
+7. När du är klar gör ändringar i egenskaperna, väljer **Lägg till**.
 
-9. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
-
-    ![Kom igång-meny](media/add-application-portal/get-started.png)
+8. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
 
 Du har lagt till ditt program. Passa på att ta en paus. Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Hitta ditt Azure AD-klientorganisationsprogram
 
-Vi förutsätter att du behövde gå iväg en stund och nu har kommit tillbaka för att konfigurera programmet. Det första du behöver göra är att hitta ditt program.
+Vi förutsätter att du behövde gå iväg en stund och nu har kommit tillbaka för att konfigurera programmet. Det första du ska göra är att hitta dina program.
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**.
+1. I den  **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen väljer **Azure Active Directory**.
 
-2. På bladet Azure Active Directory klickar du på **Företagsprogram**.
+2. I den **Azure Active Directory** väljer **företagsprogram**.
 
-3. På den nedrullningsbara menyn **Programtyp** väljer du **Alla program** och klickar på **Applicera**. Mer information om visningsalternativ finns på sidan om att [visa klientorganisationsprogram](view-applications-portal.md).
+3. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj sedan **tillämpa**. Mer information om visningsalternativ finns på sidan om att [visa klientorganisationsprogram](view-applications-portal.md).
 
-4. Du kan nu se en lista över alla program i Azure AD-klientorganisationen. Listan är ett slumpmässigt urval. Om du vill se fler program klickar du på **Visa mer** en eller flera gånger.
+4. Du kan nu se en lista över alla program i Azure AD-klientorganisationen. Listan är ett slumpmässigt urval. Om du vill se fler program **visa fler** en eller flera gånger.
 
-5. För att snabbt hitta ett program i klientorganisationen anger du namnet på programmet i sökrutan och klickar på **Applicera**. Det här exemplet hittar det GitHub-test-program som vi lade till tidigare.
+5. För att snabbt hitta ett program i din klient, ange namnet på programmet i sökrutan och välj **tillämpa**. Det här exemplet hittar GitHub-test-programmet har lagts till tidigare.
 
     ![Söka efter ett program](media/add-application-portal/find-application.png)
 
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurera egenskaper för användarinloggning
 
-Nu när du har hittat programmet kan du öppna det och konfigurera programegenskaper.
+Nu när du har hittat programmet, kan du öppna den och konfigurera egenskaper för program.
 
-Så här redigerar du programegenskaperna
+Redigera egenskaper för program:
 
-1. Klicka på programmet för att öppna det.
-2. Klicka på **Egenskaper** för att öppna egenskapsbladet för redigering.
+1. Välj program att öppna den.
+2. Välj **egenskaper** att öppna egenskapsfönstret för redigering.
 
-    ![Redigera egenskapsbladet](media/add-application-portal/edit-properties.png)
+    ![Redigera egenskapsrutan](media/add-application-portal/edit-properties.png)
 
-3. Läs igenom alternativen för inloggning. **Aktiverad för användare att logga in**, **Användartilldelning krävs** och **Synlig för användare** kombineras för att bestämma huruvida användare som är tilldelade eller inte tilldelade till programmet kan logga in. De bestämmer även om användaren kan se programmet i åtkomstpanelen.
+3. Läs igenom alternativen för inloggning. De fastställer hur användare som tilldelats eller otilldelade till programmet kan logga in i programmet. Och alternativen också bestämma om en användare kan se programmet i åtkomstpanelen.
 
     - **Aktiverad för användare att logga in** bestämmer huruvida användare som är tilldelade till programmet kan logga in.
-    - **Användartilldelning krävs** bestämmer huruvida användare som inte har tilldelats programmet kan logga in.
+    - **Användartilldelning krävs** styr huruvida användare som inte har tilldelats till programmet kan logga in.
     - **Synlig för användaren** bestämmer huruvida användare som är tilldelade till en app kan se den i åtkomstpanelen och O365-appfönstret.
 
-4. Använd följande tabeller för att få hjälp med att välja de alternativ som är bäst för dina behov.
+4. Använd följande tabeller för att hjälpa dig att välja de bästa alternativen för dina behov.
 
    - Beteende för **tilldelade** användare:
 
@@ -148,10 +139,10 @@ Så här redigerar du programegenskaperna
 Så här använder du en anpassad logotyp:
 
 1. Skapa en logotyp som är 215 x 215 bildpunkter och spara den i PNG-format.
-2. Eftersom du redan har hittat ditt program klickar du på programmet.
-2. På det vänstra bladet klickar du på **Egenskaper**.
+2. Eftersom du redan har hittat ditt program, Välj ett program.
+2. I den vänstra rutan väljer **egenskaper**.
 4. Ladda upp logotypen.
-5. När du är klar klickar du på **Spara**.
+5. När du är klar väljer du **spara**.
 
     ![Ändra logotypen](media/add-application-portal/change-logo.png)
 

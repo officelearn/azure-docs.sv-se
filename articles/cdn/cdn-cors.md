@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551848"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917778"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -85,7 +85,7 @@ Om det reguljära uttrycket matchar regeln ersätter den **Access-Control-Allow-
 ![Exempel på regler med reguljära uttryck](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Begära huvud-regel för varje ursprung.
-I stället för reguljära uttryck kan du istället skapa en separat regel för varje ursprung som du vill att med hjälp av den **begära huvud med jokertecken** [matchningsvillkor](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). Precis som med metoden reguljärt uttryck anger enbart regelmotorn CORS-huvuden. 
+I stället för reguljära uttryck kan du istället skapa en separat regel för varje ursprung som du vill att med hjälp av den **begära huvud med jokertecken** [matchningsvillkor](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). Precis som med metoden reguljärt uttryck anger enbart regelmotorn CORS-huvuden. 
 
 ![Regler för exemplet utan reguljärt uttryck](./media/cdn-cors/cdn-cors-no-regex.png)
 

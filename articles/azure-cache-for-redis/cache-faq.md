@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
-ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234364"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895604"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -35,7 +35,7 @@ Om din fråga inte visas kan för oss berätta och vi hjälper dig att hitta nå
 ## <a name="azure-cache-for-redis-basics"></a>Azure Cache för Redis-grunderna
 Frågor och svar i det här avsnittet beskriver några av grunderna i Azure Cache för Redis.
 
-* [Vad är Azure Cache för Redis?](#what-is-azure-cache-for-redis)
+* [Vad är Azure Cache for Redis?](#what-is-azure-cache-for-redis)
 * [Hur kan jag komma igång med Azure Cache för Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 Följande vanliga frågor och svar täcker grundläggande begrepp och frågor om Azure Cache för Redis och besvaras i de andra vanliga frågor och svar-avsnitt.
@@ -175,7 +175,7 @@ Se följande länkar för mer information om överväganden när du använder Az
 
 - [Azure Government-databaser – Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
 - [Azure Kina-molnet – Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
-- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+- [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Cache Redis med PowerShell i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Germany finns i [hur du ansluter till andra moln – Azure Cache för Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
@@ -192,7 +192,7 @@ StackExchange.Redis har många alternativ. Det här avsnittet innehåller inform
 
 Vanligtvis är standardvärdena för klienten tillräckliga. Du kan finjustera alternativ baserat på din arbetsbelastning.
 
-* **Återförsök**
+* **Antal försök**
   * För ConnectRetry och ConnectTimeout är allmänna riktlinjer att misslyckas snabbt och försök igen. Den här vägledningen baseras på din arbetsbelastning och hur lång tid på genomsnittlig det tar för klienten att utfärda ett Redis-kommando och ta emot ett svar.
   * Låt StackExchange.Redis återansluta automatiskt i stället för att kontrollera anslutningsstatus och återansluter själv. **Undvik att använda egenskapen ConnectionMultiplexer.IsConnected**.
   * Snowballing - ibland kan du stöta på ett problem där du försöker igen och nya försök snowball och aldrig återställs. Om snowballing inträffar bör du använda en exponentiell backoff återförsök algoritm enligt beskrivningen i [allmänna riktlinjer för återförsök](../best-practices-retry-general.md) har publicerats av Microsoft Patterns & Practices-gruppen.
@@ -392,7 +392,7 @@ Hur du konfigurerar den här inställningen:
   > Värdet som anges i den här konfigurationselement är en *per kärna* inställningen. Till exempel om du har en dator med 4 kärnor och vill att din minIOThreads inställningen ska vara 200 vid körning, använder du `<processModel minIoThreads="50"/>`.
   >
 
-* Utanför ASP.NET, och Azure WebSites global.asax, använda den [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Utanför ASP.NET, och Azure WebSites global.asax, använda den [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
 
   > [!NOTE]
   > Värdet som angetts för detta API är en global inställning som påverkar hela AppDomain. Om du har en dator med 4 kärnor och ställa in minWorkerThreads och minIOThreads på 50 per CPU under körning, använder du ThreadPool.SetMinThreads (200, 200).
@@ -402,9 +402,9 @@ Hur du konfigurerar den här inställningen:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Aktivera server GC att få större dataflöde på klienten när du använder StackExchange.Redis
 Aktivera server GC kan optimera klienten och ger bättre prestanda och dataflöde när du använder StackExchange.Redis. Mer information om server GC och hur du aktiverar det finns i följande artiklar:
 
-* [Aktivera server GC](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Grunderna i skräpinsamling](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Skräpinsamling och prestanda](https://msdn.microsoft.com/library/ee851764.aspx)
+* [Aktivera server GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Grunderna i skräpinsamling](/dotnet/standard/garbage-collection/fundamentals)
+* [Skräpinsamling och prestanda](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Prestandaöverväganden runt anslutningar
@@ -469,11 +469,11 @@ Läs mer om att komma igång med Azure Cache för Redis [så Använd Azure Cache
 ### <a name="managed-cache-service"></a>Managed Cache service
 [Managed Cache service drogs tillbaka den 30 November 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Arkiverad dokumentation finns [arkiverade Managed Cache Service-dokumentationen](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+Arkiverad dokumentation finns [arkiverade Managed Cache Service-dokumentationen](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Cache i roller
 [Cachelagring i Rollinstanser drogs tillbaka den 30 November 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Arkiverad dokumentation finns [arkiverad dokumentation för Cache i roller](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+Arkiverad dokumentation finns [arkiverad dokumentation för Cache i roller](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881103"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905791"
 ---
 # <a name="how-application-gateway-works"></a>Hur fungerar Application Gateway
 
@@ -36,7 +36,7 @@ När en backend-servern har fastställts, Programgateway öppnas en ny TCP-sessi
 
 En intern Application-Gateway har endast privat IP-adress. DNS-namnet på en intern Application-Gateway är internt matchas till dess privata IP-adress. Interna belastningsutjämnare kan därför bara vidarebefordra begäranden från klienter med åtkomst till det virtuella nätverket för Application Gateway.
 
-Observera att både webbservergrupper på Internet och interna Application Gateway dirigera begäranden till ditt backend-servrar med hjälp av privata IP-adresser om din pool serverdelsresurs innehåller en privat IP-adress, VM NIC-konfiguration eller en internt matchas adress, och om din backend-pool är en offentlig slutpunkt, Application Gateway använder sin klientdel offentlig IP-adress för att nå servern. Om du inte har etablerat en offentlig IP-adress för klientdel, tilldelas en utgående extern anslutning.
+Om poolen innehåller ett internt matchbar FQDN eller en privat IP-adress, dirigerar Application Gateway begäran till backend-servern med dess privata IP-adresser för instansen. Om poolen innehåller en extern slutpunkt eller en externt matchbar FQDN, dirigerar Application Gateway begäran till backend-servern med dess offentliga IP-adress för klientdel. DNS-matchningen baseras på en privat DNS-zon eller en anpassad DNS-server om konfigurerat eller det tar standardalternativet av DNS i Azure. Om du inte har etablerat en offentlig IP-adress för klientdel, tilldelas en utgående extern anslutning.
 
 ### <a name="modifications-to-the-request"></a>Ändringar av begäran
 

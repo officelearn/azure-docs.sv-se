@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059198"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918339"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell
 Du kan samla in diagnostikdata som Programloggar, prestandaräknare osv från en molntjänst med Azure Diagnostics-tillägget. Den här artikeln beskriver hur du aktiverar Azure Diagnostics-tillägget för en molntjänst med hjälp av PowerShell.  Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.
@@ -136,5 +136,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du använder Azure-diagnostik och andra metoder för att felsöka problem finns i [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](cloud-services-dotnet-diagnostics.md).
-* Den [diagnostik konfigurationsschema](https://msdn.microsoft.com/library/azure/dn782207.aspx) beskriver de olika alternativen för diagnostiktillägget gäller xml-konfigurationer.
+* Den [diagnostik konfigurationsschema](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2) beskriver de olika alternativen för diagnostiktillägget gäller xml-konfigurationer.
 * Läs hur du aktiverar diagnostics-tillägg för virtuella datorer i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md)

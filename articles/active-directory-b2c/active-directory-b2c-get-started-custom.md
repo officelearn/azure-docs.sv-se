@@ -1,21 +1,21 @@
 ---
-title: Kom igång med anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: Hur du kommer igång med Azure Active Directory B2C anpassade principer.
+title: Kom igång med anpassade principer – Azure Active Directory B2C | Microsoft Docs
+description: Lär dig hur du kommer igång med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298747"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916758"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -25,12 +25,13 @@ ms.locfileid: "55298747"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har ett redan, måste du [skapa en Azure AD B2C-klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
+- Om du inte har ett redan, måste du [skapa en Azure AD B2C-klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
+- [Registrera ditt program](tutorial-register-applications.md) i klienten som du skapade så att den kan kommunicera med Azure AD B2C.
 
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till nycklar för signering och kryptering
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
 
@@ -59,11 +60,11 @@ Om du redan har en [Facebook programhemlighet](active-directory-b2c-setup-fb-app
 1. Välj **Principnycklar** och välj sedan **Lägg till**.
 2. För **alternativ**, Välj `Manual`.
 3. För **namn**, ange `FacebookSecret`. Prefixet `B2C_1A_` kan läggas till automatiskt.
-4. I **hemlighet**, ange din Facebook-hemlighet från developers.facebook.com eller `0` som platshållare. Det här är hemligheten inte program-ID.
+4. I **hemlighet**, ange din Facebook-hemlighet från developers.facebook.com eller `0` som platshållare. Det här värdet är hemligheten inte program-ID.
 5. För **nyckelanvändning**väljer **signatur**.
 6. Klicka på **Skapa**.
 
-## <a name="register-applications"></a>Registrera program
+## <a name="register-identity-experience-framework-applications"></a>Registrera Identitetsramverk program
 
 Azure AD B2C måste du registrera två program som används för att registrera dig och logga in användare: IdentityExperienceFramework (en webbapp) och ProxyIdentityExperienceFramework (en inbyggd app) med delegerad behörighet från IdentityExperienceFramework app. Lokala konton finns bara i din klientorganisation. Dina användare registrera sig med en unik e-postadress/lösenord kombination åtkomst till din klient-registrerade program.
 
@@ -85,8 +86,7 @@ Azure AD B2C måste du registrera två program som används för att registrera 
 4. För **omdirigerings-URI**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `yourtenant` är din Azure AD B2C-klient.
 5. Klicka på **Skapa**. När den har skapats kan du kopiera program-ID och spara den för senare användning.
 6. På sidan Inställningar väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**.
-7. Välj alternativet **Välj ett API**.
-8. Sök efter och välj **IdentityExperienceFramework**, och klicka sedan på **Välj**.
+7. Välj **Välj en API**, Sök efter och välj **IdentityExperienceFramework**, och klicka sedan på **Välj**.
 9. Markera kryssrutan bredvid **åtkomst IdentityExperienceFramework**, klickar du på **Välj**, och klicka sedan på **klar**.
 10. Välj **bevilja behörigheter**, och bekräfta sedan genom att välja **Ja**.
 
@@ -131,12 +131,11 @@ Lägg till program-ID i tilläggsfilen *TrustFrameworkExtensions.xml*.
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. På sidan anpassade principer väljer **B2C_1A_signup_signin**. 
-2. Välj **kör nu**.
-
-3. Du ska kunna registrera dig med en e-postadress.
-
-4. Logga in med samma konto för att bekräfta att du har korrekt konfiguration.
+1. På sidan anpassade principer väljer **B2C_1A_signup_signin**.
+2. För **Välj program** på översiktssidan av den anpassade principen väljer du webbprogrammet med namnet *webapp1* som du tidigare har registrerat. Se till att den **svars-URL** är `https://jwt.ms`.
+3. Välj **kör nu**.
+4. Du ska kunna registrera dig med en e-postadress.
+5. Logga in med samma konto för att bekräfta att du har korrekt konfiguration.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Lägg till Facebook som identitetsprovider
 

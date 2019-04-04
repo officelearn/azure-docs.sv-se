@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449359"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904856"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -34,6 +34,9 @@ En typisk arkitektur med hög tillgänglighet för distribution i flera regioner
 ![distribution i flera regioner](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
 Den här självstudien fokuserar på integreringen av ett par HSM:er och den nödvändiga ExpressRoute-gatewayen (se Undernät 1 ovan) i ett befintligt virtuellt nätverk (se VNET 1 ovan).  Alla andra resurser är Azure-standardresurser. Samma integreringsprocess kan användas för HSM:er i undernät 4 på VNET 3 ovan.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,13 +59,13 @@ Etableringen av HSM:er och integreringen i ett befintligt virtuellt nätverk via
 Som nämnts ovan kräver alla etableringsaktiviteter att tjänsten Dedikerad HSM har registrerats för din prenumeration. För att verifiera det kör du följande PowerShell-kommando i Azure-portalens Cloud Shell. 
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
+Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
 Följande kommando verifierar de nätverksfunktioner som krävs för tjänsten Dedikerad HSM.
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
 ```
 
 Båda kommandona bör returnera statusen ”Registrerad” (som visas nedan) innan du fortsätter vidare.  Om du behöver registrera dig för den här tjänsten kontaktar du din Microsoft-kontorepresentant.
@@ -75,12 +78,12 @@ En HSM-enhet etableras till en kunds virtuella nätverk. Detta förutsätter kra
 
 När du har filerna behöver du redigera parameterfilen om du vill infoga dina önskade namn för resurser. Det innebär att redigera rader med ”value”: ””.
 
-- `namingInfix` Prefix för namn på HSM-resurser
-- `ExistingVirtualNetworkName` Namn på det virtuella nätverk som används för HSM:erna
-- `DedicatedHsmResourceName1` Namnet på HSM-resursen i datacenterstämpel 1
-- `DedicatedHsmResourceName2` Namnet på HSM-resursen i datacenterstämpel 2
-- `hsmSubnetRange` Undernätets IP-adressintervall för HSM:er
-- `ERSubnetRange` Undernätets IP-adressintervall för VNET-gateway
+- `namingInfix` Prefix för filnamn HSM-resurser
+- `ExistingVirtualNetworkName` Namnet på det virtuella nätverket som används för HSM: erna
+- `DedicatedHsmResourceName1` Namnet på HSM-resurs i datacenterstämpeln 1
+- `DedicatedHsmResourceName2` Namnet på HSM-resurs i datacenterstämpeln 2
+- `hsmSubnetRange` Undernät IP-adressintervall för HSM: er
+- `ERSubnetRange` Undernät IP-adressintervall för gateway för virtuellt nätverk
 
 Ett exempel på dessa ändringar är följande:
 
@@ -130,20 +133,20 @@ När filerna har laddats upp är du redo att skapa resurser.
 Innan du skapar nya HSM-resurser finns det vissa nödvändiga resurser som du bör kontrollera så att de finns plats. Du måste ha ett virtuellt nätverk med undernätsintervall för beräkning, HSM:er och gateway. Följande kommandon utgör ett exempel på vad som skulle skapa ett sådant virtuellt nätverk.
 
 ```powershell
-$compute = New-AzureRmVirtualNetworkSubnetConfig `
+$compute = New-AzVirtualNetworkSubnetConfig `
   -Name compute `
   -AddressPrefix 10.2.0.0/24
 ```
 
 ```powershell
-$delegation = New-AzureRmDelegation `
+$delegation = New-AzDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 
 ```
 
 ```powershell
-$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+$hsmsubnet = New-AzVirtualNetworkSubnetConfig ` 
   -Name hsmsubnet ` 
   -AddressPrefix 10.2.1.0/24 ` 
   -Delegation $delegation 
@@ -152,7 +155,7 @@ $hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-$gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
+$gwsubnet= New-AzVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
   -AddressPrefix 10.2.255.0/26
 
@@ -160,7 +163,7 @@ $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -Name myHSM-vnet `
   -ResourceGroupName myRG `
   -Location westus `
@@ -176,7 +179,7 @@ När alla förutsättningar är uppfyllda kör du följande kommando för att an
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
+New-AzResourceGroupDeployment -ResourceGroupName myRG `
      -TemplateFile .\Deploy-2HSM-toVNET-Template.json `
      -TemplateParameterFile .\Deploy-2HSM-toVNET-Params.json `
      -Name HSMdeploy -Verbose
@@ -195,10 +198,10 @@ Kontrollera att enheterna har etablerats och visa enhetsattribut genom att köra
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG"
 $resourceName = "HSM1"  
-Get-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
 
 ```
 
@@ -218,7 +221,7 @@ När du har loggat in på den virtuella Linux-datorn kan du logga in till HSM me
 
 ```powershell
 
-(Get-AzureRmResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
+(Get-AzResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
 
 ```
 När du har IP-adressen kör du följande kommando:
@@ -262,10 +265,10 @@ Om du är klar med resurserna i den här resursgruppen kan du ta bort dem alla m
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG" 
 $resourceName = "HSMdeploy"  
-Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
+Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
 
 ```
 

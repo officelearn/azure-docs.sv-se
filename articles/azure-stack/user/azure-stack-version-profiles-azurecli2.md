@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975635"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487591"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -95,13 +95,13 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
 
 2. Uppgradera PIP. PIP är en pakethanterare för Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Installera den **certifi** modulen. [Certifi](https://pypi.org/project/certifi/) en modul och en samling av rotcertifikat för att verifiera trovärdigheten för SSL-certifikat vid verifiering av identiteten för TLS-värdar. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i d
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat 
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

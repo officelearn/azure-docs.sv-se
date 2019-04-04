@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731917"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482189"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
@@ -47,13 +47,13 @@ Azure Stack-beredskap för installation-verktyget erbjuder möjligheten att skap
 1. Öppna PowerShell med förhöjd behörighet på maskinvara livscykel värd eller arbetsstationen för hantering av Azure Stack.
 2. Kör följande cmdlet för att installera verktyget Azure Stack-beredskap för installation.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Kör följande skript för att skapa nödvändiga mappstrukturen:
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ Azure Stack-beredskap för installation-verktyget erbjuder möjligheten att skap
 4. Placera de befintliga certifikat som du använder i Azure Stack, i rätt kataloger. Till exempel placera den **Admin ARM** -certifikatet i den `Arm Admin` mapp. Och sedan placera de nyligen skapade värdbaserade certifikat i den `Admin extension host` och `Public extension host` kataloger.
 5. Kör följande cmdlet för att starta kontrollen certifikat:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
 2. Öppna PowerShell ISE för att köra nästa skriptblock
 3. Importera certifikatet för administratören som är värd för slutpunkten.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
     }
     ```
 4. Importera certifikat för värdbaserade slutpunkten.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ I artikeln [datacenter-integrering med Azure Stack - publicera slutpunkter](azur
 
 Det finns två nya slutpunkter som krävs för att publiceras via brandväggen. Den allokerade IP-adresser från den offentliga VIP-poolen kan hämtas med följande kod som måste köras från Azure Stack [miljö är privilegierad slutpunkt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>Exempel på utdata
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

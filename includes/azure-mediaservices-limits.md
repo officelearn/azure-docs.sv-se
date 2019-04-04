@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554232"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919369"
 ---
 >[!NOTE]
 >Öppna ett supportärende och be om en ökning av kvoter för resurser som inte har åtgärdats. Skapa inte ytterligare Azure Media Services-konton i ett försök att få högre gränser.
@@ -39,7 +39,7 @@ ms.locfileid: "57554232"
 
 Från och med den 1 April 2017 raderas automatiskt alla jobbposter i ditt konto som är äldre än 90 dagar, tillsammans med dess associerade uppgiftsposter. Automatisk borttagning sker även om det totala antalet poster är lägre än den maximala kvoten. Om du vill arkivera informationen om jobb- och använda koden som beskrivs i [hantera tillgångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup>när du gör en begäran att lista jobb entiteter, högst 1 000 jobben returneras per begäran. Håll koll på alla skickade jobb, Använd upp eller hoppa över frågor enligt beskrivningen i [system för OData-frågealternativ](https://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup>när du gör en begäran att lista jobb entiteter, högst 1 000 jobben returneras per begäran. Håll koll på alla skickade jobb, Använd upp eller hoppa över frågor enligt beskrivningen i [system för OData-frågealternativ](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
 <sup>4</sup>positionerare är inte utformade för att hantera åtkomstkontroll per användare. Använd lösningar för digital rights management (DRM) för att ge olika åtkomsträttigheter till enskilda användare. Mer information finns i [skydda ditt innehåll med Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 

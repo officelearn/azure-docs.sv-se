@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446332"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915698"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack compute-kapacitetsplanering
 Den [VM-storlekar som stöds på Azure Stack](./user/azure-stack-vm-sizes.md) är en delmängd av de som stöds på Azure. Azure tillämpar resursbegränsningar längs många vektorer att undvika överförbrukning av resurser (server lokalt och tjänstnivå). Klient-upplevelser blir lidande när andra klienter overconsume resurser utan att införa vissa begränsningar på klientförbrukningen. Det finns bandbredd caps på plats på Azure Stack som matchar Azure begränsningar för nätverk utgående data från den virtuella datorn. För lagringsresurser, har IOPs Lagringsgränser implementerats på Azure Stack för att undvika grundläggande överförbrukning av resurser av klienter för lagringsåtkomst.  
@@ -45,7 +45,7 @@ Följande beräkning resulterar i totalt, tillgängligt RAM-minne som kan använ
 
   Tillgängligt minne för placering av virtuella datorer = totalt minne – Reservresurs återhämtning – minne som används genom att köra virtuella datorer – Azure Stack-infrastruktur Overhead <sup>1</sup>
 
-  Återhämtning reservera = H + R * (N-1) + V * (N-2)
+  Återhämtning reservera = H + R * ((N-1) * H) + V * (N-2)
 
 > Där:
 > - H = storleken på enskild serverminne
@@ -53,7 +53,7 @@ Följande beräkning resulterar i totalt, tillgängligt RAM-minne som kan använ
 > - R = operativsystemet reserverad för OS-omkostnader<sup>2</sup>
 > - V = största virtuella datorn i skalningsenheten
 
-  <sup>1</sup> azure Stack-infrastruktur Overhead = 208 GB
+  <sup>1</sup> azure Stack-infrastruktur Overhead = 230 GB
 
   <sup>2</sup> operativsystemet reserverad för omkostnader = 15% av nod minne. Reservvärdet operativsystemet är en uppskattning och varierar beroende på kapaciteten fysiskt minne på servern och allmän operativsystemet kräver.
 

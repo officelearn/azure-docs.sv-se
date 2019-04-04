@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652101"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904584"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -356,7 +356,7 @@ Om du har befintliga .NET-kod som skrivits för en version 1 (anpassad) DotNet-a
   - Det krävs inte längre Microsoft.Azure.Management.DataFactories NuGet-paketet.
   - Kompilera koden, överför den körbara filen och dess beroenden till Azure Storage och definiera sökvägen i den `folderPath` egenskapen.
 
-Ett mer komplett exempel på hur slutpunkt till slutpunkt DLL-filen och pipeline exemplet beskrivs i Data Factory version 1 artikeln [Använd anpassade aktiviteter i en Azure Data Factory-pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en Data Factory-anpassad aktivitet, se [ Data Factory anpassad aktivitet, exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+Ett mer komplett exempel på hur slutpunkt till slutpunkt DLL-filen och pipeline exemplet beskrivs i Data Factory version 1 artikeln [Använd anpassade aktiviteter i en Azure Data Factory-pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en Data Factory-anpassad aktivitet, se [ Data Factory anpassad aktivitet, exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning i Azure Batch
 
@@ -382,7 +382,7 @@ Om poolen använder standard [autoScaleEvaluationInterval](https://msdn.microsof
 Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
-* [Hive-aktivitet](transform-data-using-hadoop-hive.md)
+* [Dölj aktivitet](transform-data-using-hadoop-hive.md)
 * [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804878"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891964"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -47,7 +47,7 @@ Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-poli
 
 Åtgärderna som markerats med `x-ms-long-running-operation` i Azure Media Services [swagger filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långa åtgärder. 
 
-Mer information om hur du spårar asynkrona åtgärder i Azure finns [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Mer information om hur du spårar asynkrona åtgärder i Azure finns [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Media Services har följande långvariga åtgärder:
 
@@ -65,7 +65,6 @@ Media Services har följande långvariga åtgärder:
 * Starta StreamingEndpoint
 * Stoppa StreamingEndpoint
 * Skala StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, skrivordning, växling av Media Services-entiteter
 
@@ -356,4 +355,4 @@ Följande tabell visar hur dessa alternativ kan användas på den [omvandlar](ht
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Strömma en fil](stream-files-dotnet-quickstart.md)
+[Stream en fil](stream-files-dotnet-quickstart.md)

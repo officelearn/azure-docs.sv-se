@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877575"
+ms.locfileid: "58891593"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -30,7 +30,7 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** Den **widgetar** URL param stöds inte om **version = 2** används. |
+|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** URL-param widgetar stöds inte i version 2. |
 
 ### <a name="player-widget"></a>Spelarwidget
 
@@ -254,4 +254,4 @@ Auto play – spelaren börjar spela upp videon som standard. Du kan välja bort
 
 Information om hur du visar och redigerar Video Indexer-insikter finns i [den här artikeln](video-indexer-view-edit.md).
 
-Ta även en titt på [CodePen för Video Indexer](https://codepen.io/videoindexer/pen/eGxebZ).
+Kolla dessutom in [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

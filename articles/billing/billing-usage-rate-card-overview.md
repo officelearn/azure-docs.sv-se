@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351583"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918220"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att programmässigt få insikt i din Azure-användning
 Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  
@@ -36,7 +36,7 @@ När den [anmälan har slutförts](billing-manage-access.md#opt-in), ladda ned f
 > Den här funktionen är i första versionen av förhandsgranskning och kan vara föremål för bakåtkompatibilitet inkompatibel ändringar. För närvarande, är det inte tillgänglig för vissa prenumerationserbjudanden (EA, CSP, AIO som inte stöds) och Azure Germany.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure-Resursanvändning API (förhandsversion)
-Använd Azure [Resource användning API](https://msdn.microsoft.com/library/azure/mt219003) att hämta uppskattad Azure-förbrukning-data. API: et innehåller:
+Använd Azure [Resource användning API](/previous-versions/azure/reference/mt219003(v=azure.100)) att hämta uppskattad Azure-förbrukning-data. API: et innehåller:
 
 * **Azure rollbaserad åtkomstkontroll** -konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den Prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen till antingen den Billing Reader, läsare, ägare eller deltagare roll för att få åtkomst till användningsdata för en viss Azure-prenumeration.
 * **Varje timme eller varje dag** – anropare ange buckets om de vill ha sina data i Azure-användning i per timme eller varje dag buckets. Standardvärdet är varje dag.
@@ -45,7 +45,7 @@ Använd Azure [Resource användning API](https://msdn.microsoft.com/library/azur
 * **Användningen av olika erbjudandetyper** – användningsdata är tillgängliga för typer av erbjudanden som betalar per användning, MSDN, monetära åtaganden, kredit och EA, utom [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure-resurs RateCard-API (förhandsversion)
-Använd den [RateCard-API för Azure Resource](https://msdn.microsoft.com/library/azure/mt219005) att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformationen för varje. API: et innehåller:
+Använd den [RateCard-API för Azure Resource](/previous-versions/azure/reference/mt219005(v=azure.100)) att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformationen för varje. API: et innehåller:
 
 * **Azure rollbaserad åtkomstkontroll** -konfigurera dina åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen läsare, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
 * **Stöd för betala per användning, MSDN, monetära åtaganden och krediterbjudanden (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** -API: et tillhandahåller Azure erbjudandet på servernivå rate information.  Anroparen av detta API måste klara i erbjudandeinformation att få information om resursen och priser. Vi kan för närvarande inte att tillhandahålla EA-priser eftersom EA erbjudanden har anpassat kostnader per registrering.

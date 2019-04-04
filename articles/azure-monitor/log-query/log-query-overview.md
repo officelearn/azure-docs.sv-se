@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 6ed3a98282221d5ac148e88b6646bfaa4da768be
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: dcac701f3c1b6d64a7017c31679c019b91103ba2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446434"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904737"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analysera loggdata i Azure Monitor
 
@@ -20,20 +20,15 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="log-queries"></a>Loggfrågor
 
 Du behöver en loggfråga för att hämta alla loggdata från Azure Monitor.  Om du är [analysera data i portalen](portals.md), [konfigurera en varningsregel](../platform/alerts-metric.md) för att aviseras om ett visst villkor eller hämta data med hjälp av den [API: T för Azure Monitor-loggar](https://dev.loganalytics.io/) , du använder en fråga för att ange de data du vill.  Den här artikeln beskriver hur du använder loggfrågor i Azure Monitor och innehåller begrepp som du bör känna till innan du skapar en.
 
-
-
 ## <a name="where-log-queries-are-used"></a>Där loggfrågor används
 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Olika sätt som du ska använda frågor i Azure Monitor är följande:
-
 
 - **Portalen.** Du kan utföra interaktiva analyser av loggdata i de [Azure-portalen](portals.md).  På så sätt kan du redigera din fråga och analysera resultaten i olika format och visualiseringar.  
 - **Varningsregler.** [Aviseringsregler](../platform/alerts-overview.md) proaktivt identifiera problem från data i din arbetsyta.  Varje varningsregel baseras på en loggsökning som körs automatiskt med jämna mellanrum.  Resultatet är föremål för att avgöra om en avisering ska skapas.
@@ -41,7 +36,7 @@ Olika sätt som du ska använda frågor i Azure Monitor är följande:
 - **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i instrumentpaneler för användare med [Vydesigner](../platform/view-designer.md).  Loggfrågor tillhandahåller de data som används av [paneler](../platform/view-designer-tiles.md) och [visualisering delar](../platform/view-designer-parts.md) i varje vy.  
 
 - **Exportera.**  När du importerar loggdata från Azure Monitor till Excel eller [Power BI](../platform/powerbi.md), skapar du en loggfråga för att definiera data som ska exporteras.
-- **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults) att hämta loggdata från Azure Monitor.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
+- **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) att hämta loggdata från Azure Monitor.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
 - **API för Azure Monitor-loggar.**  Den [API: T för Azure Monitor-loggar](../platform/alerts-overview.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Azure Monitor för att fastställa data som ska hämtas.
 
 ![Loggsökningar](media/log-query-overview/queries-overview.png)

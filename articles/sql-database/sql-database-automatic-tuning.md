@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863227"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905366"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -70,9 +70,9 @@ Alternativen för automatisk justering i Azure SQL Database är:
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** -identifierar index som kan förbättra prestandan för din arbetsbelastning, skapar index och automatiskt verifierar att prestanda för frågor har förbättrats. | Ja | Nej | 
 | **DROP INDEX** -identifierar redundant och duplicerade index dagligen, förutom unika index och index som inte använts under en längre tid (> 90 dagar). Observera att just nu alternativet inte är kompatibel med program som använder partition växla och index-tips. | Ja | Nej |
-| **Tvinga fram den senaste bra PLANERINGEN** – identifierar SQL-frågor med Körningsplan som är lägre än den tidigare bra planering och frågor med senaste kända planen i stället för försämrad planen. | Ja | Ja |
+| **Tvinga fram den senaste bra PLANERINGEN** (plan för automatisk korrigering) – identifierar SQL-frågor med Körningsplan som är lägre än den tidigare bra planering och frågor med senaste kända planen i stället för försämrad planen. | Ja | Ja |
 
-Automatisk justering identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databasprestanda och visar dem i [Azure-portalen](sql-database-advisor-portal.md), och visar dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
+Automatisk justering identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databasprestanda och visar dem i [Azure-portalen](sql-database-advisor-portal.md), och visar dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Mer information om den senaste bra PLANERINGEN kraft och konfigurera alternativen för automatisk justering via T-SQL, se [automatisk justering introducerar plan för automatisk korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av portalen eller du kan låta automatisk justering självständigt gäller justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt gäller justeringsrekommendationer för dig är att den verifierar automatiskt det finns en positiv vinst arbetsbelastningsprestandan och om det finns inga betydande prestandaförbättringar har identifierats, kommer det att automatiskt återgå justering rekommendationen. Observera att valideringsfasen vid frågor som påverkas av justeringsrekommendationer som inte utförs ofta, kan ta upp till 72 timmar avsiktligt.
 

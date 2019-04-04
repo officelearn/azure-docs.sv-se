@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294237"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918356"
 ---
 # <a name="scaling-media-processing-overview"></a>Bearbetning av Media översikt över skalning 
 Den här sidan ger en översikt över hur och varför att skala mediebearbetning. 
@@ -48,7 +48,7 @@ Tabellen nedan hjälper dig att fatta ett beslut när du väljer mellan olika ko
 
 ## <a name="billing"></a>Fakturering
 
-Du debiteras efter faktiska använda minuter av mediereserverade enheter. En detaljerad förklaring finns i avsnittet vanliga frågor och svar i den [prissättning för Media Services](https://azure.microsoft.com/pricing/details/media-services/) sidan.   
+Du debiteras baserat på antalet minuter som den Mediereserverade enheter etableras i ditt konto. Detta inträffar oberoende av om det finns några jobb som körs i ditt konto. En detaljerad förklaring finns i avsnittet vanliga frågor och svar i den [prissättning för Media Services](https://azure.microsoft.com/pricing/details/media-services/) sidan.   
 
 ## <a name="quotas-and-limitations"></a>Kvoter och begränsningar
 Läs om hur kvoter och begränsningar och hur du öppnar ett supportärende [kvoter och begränsningar](media-services-quotas-and-limitations.md).
@@ -57,8 +57,8 @@ Läs om hur kvoter och begränsningar och hur du öppnar ett supportärende [kvo
 Få skalning media bearbetning uppgiften med någon av dessa tekniker: 
 
 > [!div class="op_single_selector"]
-> * [NET](media-services-dotnet-encoding-units.md)
-> * [Portal](media-services-portal-scale-media-processing.md)
+> * [.NET](media-services-dotnet-encoding-units.md)
+> * [Portalen](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)

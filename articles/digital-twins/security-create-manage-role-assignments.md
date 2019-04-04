@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118599"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905315"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera rolltilldelningar i Azure Digital Twins
 
 Azure Digital Twins använder rollbaserad åtkomstkontroll ([RBAC](./security-role-based-access-control.md)) att hantera åtkomst till resurser.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Översikt över webbserverroll tilldelningar
 
@@ -38,11 +41,11 @@ Tabellen nedan beskrivs alla attribut:
 
 | Attribut | Namn | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
-| RoleId | Identifierare för rollen arbetsflödesdefinition | Ja | Sträng | Unikt ID för den önskade rolltilldelningen. Hitta roll- och deras ID genom att fråga System-API: et eller granskar tabellen nedan. |
-| objekt-ID | Objekt-ID: | Ja | Sträng | ID för Azure Active Directory, service principal objekt-ID eller domännamn. Vad eller vem rolltilldelningen har tilldelats. Rolltilldelningen måste vara formaterad enligt dess associerade typ. För den `DomainName` objectIdType, objectId måste börja med den `“@”` tecken. |
-| objectIdType | Typ av identifierare | Ja | Sträng | Vilken typ av objekt-ID som används. Se **stöds ObjectIdTypes** nedan. |
-| sökväg | Utrymme sökväg | Ja | Sträng | Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
-| TenantId | Klient-ID | Varierar | Sträng | I de flesta fall en Azure Active Directory-klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
+| roleId | Identifierare för rollen arbetsflödesdefinition | Ja | String | Unikt ID för den önskade rolltilldelningen. Hitta roll- och deras ID genom att fråga System-API: et eller granskar tabellen nedan. |
+| objekt-ID | Objekt-ID: | Ja | String | ID för Azure Active Directory, service principal objekt-ID eller domännamn. Vad eller vem rolltilldelningen har tilldelats. Rolltilldelningen måste vara formaterad enligt dess associerade typ. För den `DomainName` objectIdType, objectId måste börja med den `“@”` tecken. |
+| objectIdType | Typ av identifierare | Ja | String | Vilken typ av objekt-ID som används. Se **stöds ObjectIdTypes** nedan. |
+| sökväg | Utrymme sökväg | Ja | String | Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
+| tenantId | Klient-ID | Varierar | String | I de flesta fall en Azure Active Directory-klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identifierare för definition av roll som stöds
 
@@ -83,8 +86,8 @@ Program-ID har angetts till dig i Azure Active Directory. Om du vill veta mer om
 När du har program-ID, kör du följande PowerShell-kommandon:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 En användare med den **Admin** rollen kan sedan tilldela utrymme administratörsroll till en användare genom att göra en autentiserad HTTP POST-begäran till URL:
@@ -162,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Parametervärde** | **Krävs** |  **Typ** |  **Beskrivning** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Sträng |   ObjectId för användar-ID-objectIdType. |
-| YOUR_PATH | True | Sträng |   Den valda sökvägen att kontrollera åtkomst för. |
-| YOUR_ACCESS_TYPE |  True | Sträng |   Åtkomsttyp att söka efter. |
-| YOUR_RESOURCE_TYPE | True | Sträng |  Resursen att kontrollera. |
+| YOUR_USER_ID |  True | String |   ObjectId för användar-ID-objectIdType. |
+| YOUR_PATH | True | String |   Den valda sökvägen att kontrollera åtkomst för. |
+| YOUR_ACCESS_TYPE |  True | String |   Åtkomsttyp att söka efter. |
+| YOUR_RESOURCE_TYPE | True | String |  Resursen att kontrollera. |
 
 En lyckad begäran returnerar ett booleskt värde `true` eller `false` att indikera om vilken åtkomst har tilldelats till användaren för den angivna sökvägen och resursen.
 

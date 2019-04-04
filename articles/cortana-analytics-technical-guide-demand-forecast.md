@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231180"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893647"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till lösningsmallen Cortana Intelligence för begäran Prognostisera i energi
-## <a name="overview"></a>**Översikt**
+## **<a name="overview"></a>Översikt**
 Lösningsmallar är utformade att skynda på processen för att skapa en E2E-demo ovanpå Cortana Intelligence Suite. En mall för distribuerade etablerar din prenumeration med nödvändig komponent för Cortana Intelligence och skapa relationer mellan. Det lägger även datapipelinen med exempeldata komma genereras från ett program för simulering av data. Ladda ned datasimulatorn från länken och installera den på din lokala dator, finns i filen Viktigt.txt anvisningar om hur du använder simulatorn. Data som genereras från simulatorn hydrates datapipeline och starta genererar förutsägelser för maskininlärning, som sedan kan visualiseras i Power BI-instrumentpanelen.
 
 Lösningsmallen finns [här](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,14 +27,14 @@ Distributionsprocessen vägleder dig genom stegen för att ställa in dina auten
 
 Målet med det här dokumentet är att förklara Referensarkitektur och olika komponenter som etablerats i din prenumeration som en del av den här lösningsmallen. Dokumentet berättar också om hur du ersätter exempeldata, med verkliga data på egen hand för att kunna se insikter/förutsägelser från du vann data. Dessutom kan de dokumentet berättar om delar av lösningsmallen som kommer att ändras om du vill anpassa lösningen med dina egna data. Anvisningar om hur du skapar Power BI-instrumentpanelen för den här lösningsmallen finns i slutet.
 
-## <a name="details"></a>**Detaljer**
+## **<a name="details"></a>Information**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>Arkitekturen beskrivs
 När lösningen har distribuerats kan olika Azure-tjänster i Cortana Analytics Suite aktiveras (det vill säga Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning, *etc.*). I arkitekturdiagrammet visas, på en hög nivå hur Efterfrågeprognostisering för energi lösningsmallen konstrueras från slutpunkt till slutpunkt. Du kan undersöka dessa tjänster genom att klicka på dem på mallen lösningsdiagrammet skapat med distribution av lösningen. I följande avsnitt beskrivs varje del.
 
-## <a name="data-source-and-ingestion"></a>**Datakällan och inmatning**
-### <a name="synthetic-data-source"></a>Syntetisk datakälla
+## **<a name="data-source-and-ingestion"></a>Datakällan och inmatning**
+### <a name="synthetic-data-source"></a>Synthetic Data Source
 I den här mallen skapas den använda datakällan från ett program som du hämtar och kör lokalt efter slutförd distribution. Du hittar anvisningar för att ladda ned och installera det här programmet i fältet egenskaper när du väljer den första noden energi prognoser Datasimulatorn med namnet på mallen diagrammet. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) tjänst med datapunkter eller händelser som används i resten av lösningsflödet.
 
 Händelsen generation programmet fyller Azure Event Hub endast medan det körs på datorn.
@@ -42,7 +42,7 @@ Händelsen generation programmet fyller Azure Event Hub endast medan det körs p
 ### <a name="azure-event-hub"></a>Azure händelsehubb
 Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) tjänsten är mottagaren av indata som angetts av syntetiska datakällan som beskrivs.
 
-## <a name="data-preparation-and-analysis"></a>**Förberedelse av data och analys**
+## **<a name="data-preparation-and-analysis"></a>Förberedelse av data och analys**
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) används för att tillhandahålla analys på Indataströmmen från nära realtid den [Azure Event Hub](#azure-event-hub) -tjänsten och publicera resultaten på en [Power BI](https://powerbi.microsoft.com)instrumentpanelen som arkiverar alla inkommande råhändelser i [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
 
@@ -52,15 +52,15 @@ Tjänsten Azure HDInsight används till att köra [Hive](https://blogs.msdn.com/
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) tjänsten används (orkestreras via Azure Data Factory) till att göra prognoser för framtida energiförbrukningen för en viss region givet mottagna indata.
 
-## <a name="data-publishing"></a>**Publicering av data**
-### <a name="azure-sql-database-service"></a>Azure SQL Database-tjänsten
+## **<a name="data-publishing"></a>Publicering av data**
+### <a name="azure-sql-database-service"></a>Azure SQL Database Service
 Den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) används för att lagra (hanteras av Azure Data Factory) förutsägelser som tagits emot av tjänsten Azure Machine Learning som förbrukas i den [Power BI](https://powerbi.microsoft.com) instrumentpanelen.
 
-## <a name="data-consumption"></a>**Dataförbrukning**
+## **<a name="data-consumption"></a>Dataförbrukning**
 ### <a name="power-bi"></a>Power BI
 Den [Power BI](https://powerbi.microsoft.com) används för att visa en instrumentpanel som innehåller aggregeringar som tillhandahålls av den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tjänsten samt begäran förutspå resultaten lagras i [Azure SQL Databasen](https://azure.microsoft.com/services/sql-database/) som skapas med hjälp av den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service. Anvisningar om hur du skapar Power BI-instrumentpanelen för den här lösningsmallen finns i följande avsnitt.
 
-## <a name="how-to-bring-in-your-own-data"></a>**Hur du hanterar dina egna data**
+## **<a name="how-to-bring-in-your-own-data"></a>Hur du hanterar dina egna data**
 Det här avsnittet beskrivs hur du hanterar dina egna data till Azure och vilka områden kräver ändringar för de data du sätta i den här arkitekturen.
 
 Det är osannolikt att alla datauppsättningar som du kan aktivera matchar den datauppsättning som används för den här lösningsmallen. Förstå dina data och kraven är avgörande i hur du ändrar den här mallen ska fungera med dina egna data. Om inte har använt Azure Machine Learning-tjänsten, du kan få en introduktion till den med hjälp av exemplet i [hur du skapar ditt första experiment](machine-learning/studio/create-experiment.md).
@@ -106,40 +106,40 @@ Fem av pipelines för den här fabriken innehåller [Hive](https://blogs.msdn.co
 
 Liknar den [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skripten har implicit kunskap om dataformat för inkommande, de här frågorna skulle behöva ändras beroende på dataformat och [funktionstekniker](machine-learning/team-data-science-process/create-features.md) krav.
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript till sammanställda strömmas i begäran data var tionde sekund i omformaren nivå till varje timme regionnivå och placera i [Azure Storage](https://azure.microsoft.com/services/storage/) via Azure Stream Analytics-jobbet.
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript till sammanställda strömmas i begäran data var tionde sekund i omformaren nivå till varje timme regionnivå och placera i [Azure Storage](https://azure.microsoft.com/services/storage/) via Azure Stream Analytics-jobbet.
 
 Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateDemandRegion1Hr.hql***
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller två aktiviteter:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett Hive-skript för att aggregera data per timme historik begäran i omformaren nivå till varje timme regionnivå och placera i Azure Storage under Azure Stream Analytics-jobb
-* [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar sammanställda data från Azure Storage-blob till Azure SQL-databasen som har etablerats som en del av lösningen mall installationen.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) som kör ett Hive-skript för att aggregera data per timme historik begäran i omformaren nivå till varje timme regionnivå och placera i Azure Storage under Azure Stream Analytics-jobb
+* [Kopiera](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar sammanställda data från Azure Storage-blob till Azure SQL-databasen som har etablerats som en del av lösningen mall installationen.
 
 Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för den här uppgiften är ***AggregateDemandHistoryRegion.hql***.
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 Dessa [pipelines](data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter och vars slutresultatet är poängsatta förutsägelser från Azure Machine Learning-experiment som är associerade med den här lösningsmallen. De är nästan identiska förutom dem endast hanterar annan region, som görs av olika RegionID som skickades i ADF pipelinen och hive-skriptet för varje region.  
 De aktiviteter i denna pipeline är:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett Hive-skript för att utföra aggregeringar och funktionstekniker som krävs för Azure Machine Learning-experiment. Hive-skript för den här uppgiften är respektive ***PrepareMLInputRegionX.hql***.
-* [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultaten från den [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) aktivitet till en enda Azure Storage-blob som kan vara åtkomst av den [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet som anropar Azure Machine Learning-experiment, vilket resulterar i resultaten de placeras i en enda Azure Storage-blob.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) som kör ett Hive-skript för att utföra aggregeringar och funktionstekniker som krävs för Azure Machine Learning-experiment. Hive-skript för den här uppgiften är respektive ***PrepareMLInputRegionX.hql***.
+* [Kopiera](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar resultaten från den [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) aktivitet till en enda Azure Storage-blob som kan vara åtkomst av den [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) aktivitet.
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) aktivitet som anropar Azure Machine Learning-experiment, vilket resulterar i resultaten de placeras i en enda Azure Storage-blob.
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet av Azure Machine Learning-experiment från respektive ***MLScoringRegionXPipeline***till Azure SQL-databas som har etablerats som en del av lösningen mall installationen.
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar resultatet av Azure Machine Learning-experiment från respektive ***MLScoringRegionXPipeline***till Azure SQL-databas som har etablerats som en del av lösningen mall installationen.
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar data aggregerade pågående begäran från ***LoadHistoryDemandDataPipeline*** till Azure SQL Databas som har etablerats som en del av lösningen mall installationen.
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar data aggregerade pågående begäran från ***LoadHistoryDemandDataPipeline*** till Azure SQL Databas som har etablerats som en del av lösningen mall installationen.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar referensdata för Region/understation/Topologygeo som överförs till Azure Storage-blob som en del av lösningsmallen installationen till Azure SQL-databas som har etablerats som en del av lösningen mall installationen.
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar referensdata för Region/understation/Topologygeo som överförs till Azure Storage-blob som en del av lösningsmallen installationen till Azure SQL-databas som har etablerats som en del av lösningen mall installationen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentera används för den här lösningsmallen erbjuder förutsägelser av begäran av region. Experimentet är specifik för den datauppsättning som används och därför kräver ändras eller ersättas som är specifika för de data som är online i.
 
-## <a name="monitor-progress"></a>**Övervaka förloppet**
+## **<a name="monitor-progress"></a>Övervaka förloppet**
 När Datageneratorn startas pipelinen börjar hämta hydrerat och de olika komponenterna i din lösning starta starta i åtgärden följande kommandon som utfärdas av Data Factory. Det finns två sätt som du kan övervaka pipelinen.
 
 1. Kontrollera data från Azure Blob Storage.
@@ -154,7 +154,7 @@ När Datageneratorn startas pipelinen börjar hämta hydrerat och de olika kompo
 
     Du kan ställa in Power BI-instrumentpanel för heta sökvägen för att övervaka inkommande rådata. Följ anvisningarna i avsnittet ”Power BI-instrumentpanel”.
 
-## <a name="power-bi-dashboard"></a>**Power BI-instrumentpanel**
+## **<a name="power-bi-dashboard"></a>Power BI-instrumentpanel**
 ### <a name="overview"></a>Översikt
 Det här avsnittet beskrivs hur du ställer in Power BI-instrumentpanelen för att visualisera dina data i realtid från Azure stream analytics (het sökväg), samt förutspå resultaten från Azure machine learning-(kall sökväg).
 
@@ -224,14 +224,14 @@ I kalla sökvägen datapipeline är viktigt målet att hämta prognosen för eft
    * Expandera den **Schemalägg uppdatering** avsnittet. Aktivera ”Håll dina data aktuella”.
    * Schemalägga en uppdatering efter dina behov. Mer information finns i [datauppdatering i Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
-## <a name="how-to-delete-your-solution"></a>**Ta bort din lösning**
+## **<a name="how-to-delete-your-solution"></a>Ta bort din lösning**
 Se till att du stoppar datageneratorn när du inte aktivt använder lösningen som att köra datageneratorn medför högre kostnader. Ta bort lösningen om du inte använder den. Tar bort lösningen tar du bort alla komponenter som etablerats i din prenumeration när du distribuerade lösningen. Om du vill ta bort lösningen klickar du på din lösningsnamn i den vänstra panelen lösningsmallen och klicka på Ta bort.
 
-## <a name="cost-estimation-tools"></a>**Kostnad uppskattning av verktyg**
+## **<a name="cost-estimation-tools"></a>Kostnad uppskattning av verktyg**
 Följande två verktyg är tillgängliga för att bättre förstå totala kostnader för att köra Efterfrågeprognostisering för energi lösningsmallen i din prenumeration:
 
 * [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator Tool (skrivbord)](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**Bekräftelser**
+## **<a name="acknowledgements"></a>Bekräftelser**
 Den här artikeln har skrivits av dataexpert Yijing Chen och programvaruutvecklare Qiu Min på Microsoft.

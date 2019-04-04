@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499258"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904635"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -37,6 +37,7 @@ När funktionen har körts i granskningsläge i rimlig tid, kan du byta konfigur
 ## <a name="deployment-requirements"></a>Krav för distribution
 
 * Alla domänkontrollanter som ta DC tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 eller senare. Det här kravet innebär inte att Active Directory-domän eller skog måste också vara på Windows Server 2012 domänens eller skogens funktionsnivå. Som vi nämnde i [designprinciper](concept-password-ban-bad-on-premises.md#design-principles), det finns ingen minsta DFL eller FFL som krävs för antingen DC-agenten eller proxy programvaran ska köras.
+* Alla datorer som får DC-agent-tjänsten installerad måste ha .NET 4.5 installerat.
 * Alla datorer som får proxyn tjänst för Azure AD-lösenordsskydd installerad måste köra Windows Server 2012 R2 eller senare.
 * Alla datorer där Azure AD-lösenord Protection proxytjänsten installeras måste ha .NET 4.7 installerad.
   .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -109,6 +110,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Det här läget fungerar inte på Server Core-operativsystem. Använd i stället något av följande autentiseringslägen. Det här läget kan också misslyckas om Förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat. Lösningen är att inaktivera den konfigurationen, registrera proxyn och sedan aktivera det igen.
 
@@ -133,7 +135,6 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
        Du för närvarande inte behöver ange den *- ForestCredential* parametern, som är reserverat för framtida funktioner.
 
-   
    Registreringen av proxytjänsten lösenordsskydd krävs bara en gång av tjänsten. Efter det utför proxytjänsten automatiskt andra nödvändiga underhåll.
 
    > [!TIP]
@@ -149,6 +150,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Det här läget fungerar inte på Server Core-operativsystem. I stället använda en av följande två autentiseringslägen. Det här läget kan också misslyckas om Förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat. Lösningen är att inaktivera den konfigurationen, registrera proxyn och sedan aktivera det igen.  
 
@@ -162,6 +164,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
         Slutför autentiseringen genom att följa anvisningarna som visas på en annan enhet.
 
      * Tyst () lösenordsbaserade läge:
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 
    > [!NOTE]
    > Om flera proxyservrar är installerade i din miljö, spelar vilken proxyserver som du använder för att registrera skogen.
-
+   >
    > [!TIP]
    > Det kan finnas en märkbar fördröjning innan slutförande första gången som den här cmdleten körs för en specifik Azure-klient. Om inte ett fel rapporteras, oroa dig inte om den här fördröjningen.
 
@@ -221,6 +224,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
 1. Valfritt: Konfigurera proxytjänsten lösenordsskydd att lyssna på en viss port.
    * DC-agentprogramvaran lösenordsskydd på domänkontrollanter använder RPC över TCP kan kommunicera med proxytjänsten. Proxy-tjänsten lyssnar på alla tillgängliga dynamiska RPC-slutpunkt som standard. Men du kan konfigurera tjänsten för att lyssna på en specifik TCP-port, om detta krävs på grund av nätverkets topologi eller krav på brandvägg i miljön.
       * <a id="static" /></a>För att konfigurera tjänsten körs under en statisk port, använda den `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd. 
          > Du måste stoppa och starta om tjänsten för att ändringarna ska börja gälla.
 
       * Använd samma procedur för att konfigurera tjänsten körs under en dynamisk port, men ange *StaticPort* till noll:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```

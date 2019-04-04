@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998202"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918696"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språkmodell med Video Indexer-webbplats
 
@@ -116,6 +116,34 @@ Ta bort en språkmodell från ditt konto genom att klicka på den **...**  på h
 Detta öppnar ett nytt fönster som talar om att borttagningen inte kan ångras. Klicka på den **ta bort** alternativet i nytt fönster.
 
 Den här åtgärden tar bort språkmodellen helt från ditt konto. En video som använde har tagits bort språkmodellen behåller samma index tills du indexera om videon. Om du indexera om videon, kan du tilldela en ny språkmodell till videon. I annat fall använder Video Indexer dess standardmodell för att indexera om videon. 
+
+## <a name="customize-language-models-by-correcting-transcripts"></a>Anpassa språkmodeller genom att korrigera avskrifter
+
+Video Indexer stöder automatisk anpassning av modeller med faktiska korrigeringar användare gör i avskrifter av deras videor språk.
+
+1. Om du vill göra ändringar av en avskrift för att öppna videon som du vill redigera från ditt konto-videor. Välj den **tidslinje** fliken.
+
+    ![Anpassa språkmodellen](./media/customize-language-model/timeline.png)
+1. Klicka på pennikonen för att redigera avskrifter av din avskrift. 
+
+    ![Anpassa språkmodellen](./media/customize-language-model/edits.png)
+
+    Video Indexer samlar in alla rader som har korrigerats av dig i utskrift av videon och lägger till dem automatiskt i en textfil med namnet ”från avskrift redigeringar”. Dessa ändringar används för att träna modellen för specifika språk som användes för att indexera den här videon igen. 
+    
+    Om du inte angav en språkmodell vid indexering av den här videon, kommer alla ändringar för den här videon att lagras i en modell för standard-språk som kallas konto anpassningar av inom det identifierade språket av videon. 
+    
+    Om flera ändringar har gjorts till samma rad, används bara den senaste versionen av den korrigerade raden för att uppdatera språkmodellen.  
+    
+    > [!NOTE]
+    > Endast text korrigeringar används för anpassning. Det innebär att ändringar som inte rör ord (till exempel punkter eller blanksteg) inte ingår. 
+    
+1. Avskriften ändringar visas i fliken språk på innehållsmodellen anpassningssidan visas.
+
+    ![Anpassa språkmodellen](./media/customize-language-model/customize.png)
+
+   Om du vill titta på ”från avskrift redigeringar”-fil för var och en av dina språkmodeller, klickar du på den för att öppna den. 
+
+    ![Från avskriftsredigeringar](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

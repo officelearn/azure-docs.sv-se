@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58111488"
+ms.locfileid: "58896167"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -131,7 +131,7 @@ public static class BindingExpressionsExample
 
 Skapandeprocessen skapar en *function.json* fil i en mapp för funktionen i build-mappen. Som tidigare nämnts är den här filen inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. 
 
-Syftet med den här filen är att ge information för att skala kontrollanten ska användas för [skalning beslut på förbrukningsplanen](functions-scale.md#how-the-consumption-plan-works). Därför har filen bara utlösaren info, inte indata eller utdatabindningar.
+Syftet med den här filen är att ge information för att skala kontrollanten ska användas för [skalning beslut på förbrukningsplanen](functions-scale.md#how-the-consumption-and-premium-plans-work). Därför har filen bara utlösaren info, inte indata eller utdatabindningar.
 
 Den genererade *function.json* -filen innehåller en `configurationSource` egenskap som meddelar körning för att använda .NET-attribut för bindningar, snarare än *function.json* konfiguration. Här är ett exempel:
 
@@ -274,7 +274,7 @@ Du kan inte använda `out` parametrar i async-funktioner. Utdatabindningar, anv�
 
 ## <a name="cancellation-tokens"></a>Annulleringstoken
 
-En funktion kan acceptera en [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parametern, som gör det möjligt för operativsystemet för att meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+En funktion kan acceptera en [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parametern, som gör det möjligt för operativsystemet för att meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
 
 I följande exempel visas hur du kontrollerar om nära förestående uppsägning av funktionen.
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar den [lagringsblob](functions-bindings-storage-blob.md) indata eller utdata bindning, och [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) är av typen stöds utdata-bindning.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar den [lagringsblob](functions-bindings-storage-blob.md) indata eller utdata bindning, och [TextWriter](/dotnet/api/system.io.textwriter) är av typen stöds utdata-bindning.
 
 ### <a name="multiple-attribute-example"></a>Flera attribut-exempel
 

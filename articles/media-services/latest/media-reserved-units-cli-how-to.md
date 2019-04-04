@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351073"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915704"
 ---
 # <a name="scaling-media-processing"></a>Skala mediebearbetning
 
-Azure Media Services kan du skala mediebearbetning i ditt konto genom att hantera Mediereserverade enheter (MRUs). MRUs avgör hastigheten med vilken din mediebearbetning uppgifter bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** eller **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. 
+Med Azure Media Services kan du skala mediebearbetning i ditt konto genom att hantera mediereserverade enheter (MRU:er). MRUs avgör hastigheten med vilken din mediebearbetning uppgifter bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** eller **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. 
 
 Förutom att ange typ av reserverad enhet kan ange du att etablera ditt konto med reserverade enheter. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Till exempel om ditt konto har fem reserverade enheter, och sedan fem medieuppgifter körs samtidigt så länge som det finns aktiviteter som ska bearbetas. De återstående aktiviteterna ska vänta i kön och ska få hämtas för bearbetning av sekventiellt när en aktivitet är klar. Om ett konto inte har några mediereserverade enheter etablerade sedan hämtas uppgifter sekventiellt. I det här fallet beror väntetiden mellan en uppgift slutförs och nästa start på tillgängligheten för resurser i systemet.
 
@@ -45,9 +45,9 @@ Tabellen nedan hjälper dig att fatta ett beslut när du väljer mellan olika ko
 Resten av artikeln visar hur du använder [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) att skala MRUs.
 
 > [!NOTE]
-> För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 S3 MRUs. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+> För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
 >
-> För närvarande kan använda du inte Azure-portalen för att hantera andra v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
+> För närvarande kan använda du inte Azure-portalen för att hantera andra v3-resurser. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Fakturering
 
-Du debiteras baserat på antalet, typen och tid som MRUs levereras i ditt konto. Avgifter oavsett om du köra några jobb. En detaljerad förklaring finns i avsnittet vanliga frågor och svar i den [prissättning för Media Services](https://azure.microsoft.com/pricing/details/media-services/) sidan.   
+Du debiteras baserat på antalet minuter som den Mediereserverade enheter etableras i ditt konto. Detta inträffar oberoende av om det finns några jobb som körs i ditt konto. En detaljerad förklaring finns i avsnittet vanliga frågor och svar i den [prissättning för Media Services](https://azure.microsoft.com/pricing/details/media-services/) sidan.   
 
 ## <a name="next-step"></a>Nästa steg
 

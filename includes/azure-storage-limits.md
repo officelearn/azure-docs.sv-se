@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553973"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891110"
 ---
 I följande tabell beskrivs standardgränser för Azure Storage. Den *ingående* gränsen syftar på alla data från förfrågningar som skickas till ett lagringskonto. Den *utgående* gränsen syftar på alla data från svar som tas emot från ett lagringskonto.
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Antal lagringskonton per region per prenumeration, vilket innefattar Standard och Premium-konton | 250 |
+| Antal lagringskonton per region per prenumeration, inklusive konton för standard- och premium | 250 |
 | Maximal lagringskapacitet för konto | 2 PB för USA och Europa, 500 TB för alla andra regioner, vilket innefattar Storbritannien |
 | Maximalt antal blob-behållare, blobar, filresurser, tabeller, köer, enheter eller meddelanden per lagringskonto | Obegränsad |
 | Maximala hastigheten<sup>1</sup> per lagringskonto | 20 000 begäranden per sekund |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b8a7cd69c7b8d8f44d059fd15718e3493875e20
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894452"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Självstudier: Azure Active Directory-integrering med Cherwell
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cherw
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<companyname>.cherwellondemand.com/cherwellclient`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Cherwell-kundsupporten](https://csm.cherwell.com/contact) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Cherwell-kundsupporten](https://cherwellsupport.com/CherwellPortal) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -197,7 +197,7 @@ När du klickar på Cherwell-panelen på åtkomstpanelen så bör du automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

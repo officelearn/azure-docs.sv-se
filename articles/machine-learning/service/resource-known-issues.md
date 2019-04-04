@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791753"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892746"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -50,7 +50,7 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-Tensor Flow automatiserad maskininlärning stöder för närvarande inte tensor flow version 1.13. Installera detta medför paketberoenden slutar att fungera. Vi arbetar för att åtgärda detta i en framtida version. 
+Tensor Flow automatiserad maskininlärning stöder för närvarande inte tensor flow version 1.13. Installera den här versionen kommer paketberoenden slutar att fungera. Vi arbetar för att åtgärda problemet i en framtida version. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Om du ser det här felet automatisk när du använder maskininlärning:
 
 1. Koppla från och Återanslut klustret för att din bärbara dator. 
 
-Om detta inte löser problemet, försök att starta om klustret.
+Om det inte går att lösa problemet, försök att starta om klustret.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -104,7 +104,7 @@ Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: 
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Vissa loggar finns [Azure-portalen](https://portal.azure.com) och gå till din arbetsyta där och välj **Arbetsyta > Experiment > Kör > loggar**.
+Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Vissa loggar finns [Azure-portalen](https://portal.azure.com) och gå till arbetsytan och välj **Arbetsyta > Experiment > Kör > loggar**.
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
@@ -123,7 +123,3 @@ Om du gör en management-åtgärd i ett beräkningsmål från en fjärransluten 
 ```
 
 Exempel: du får ett fel om du försöker skapa eller koppla en beräkningsmål från en ML-Pipeline som skickas för fjärrkörning.
-
-## <a name="get-more-support"></a>Få mer support
-
-Du kan skicka begäran om support och få hjälp från teknisk support och forum. [Lära sig mer...](support-for-aml-services.md)

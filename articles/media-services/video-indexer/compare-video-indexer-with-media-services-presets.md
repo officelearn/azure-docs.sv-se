@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: b4c74a67c66b12e3a7333f3e679e7c61a750cf7e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 041e76ccecb4dd0fe9c060681609dfb92c03ec5a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002399"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893154"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Jämför Azure Media Services v3 förinställningar och Video Indexer 
 
 Den här artikeln jämförs funktionerna i **Video Indexer API: er** och **API: er för Media Services v3**. 
 
-För närvarande finns ett överlapp mellan funktioner som erbjuds av den [API: er för Video Indexer-v2](https://api-portal.videoindexer.ai/) och [API: er för Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). Följande tabell ger de aktuella riktlinjerna för att förstå skillnader och likheter. 
+För närvarande finns ett överlapp mellan funktioner som erbjuds av den [Video Indexer API: er](https://api-portal.videoindexer.ai/) och [API: er för Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). Följande tabell ger de aktuella riktlinjerna för att förstå skillnader och likheter. 
 
 ## <a name="compare"></a>Jämför
 
 |Funktion|Video Indexer API: er |Video Analyzer och ljud Analyzer förinställningar<br/>i API: er för Media Services v3|
 |---|---|---|
-|Media Insights|[Förbättrad](video-indexer-output-json-v2.md) |[Grunderna](../latest/intelligence-concept.md)|
+|Media Insights|[Optimerad](video-indexer-output-json-v2.md) |[Grunder](../latest/intelligence-concept.md)|
 |Upplevelser|Se en fullständig lista över funktioner som stöds: <br/> [Översikt](video-indexer-overview.md)|Returnerar endast videoinsikter|
 |Fakturering|[Prissättningen av Medietjänsterna](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Prissättningen av Medietjänsterna](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Efterlevnad|[Efterlevnad i Azure](https://aka.ms/AzureCompliance)|Media Services är kompatibelt med många certifieringar. Kolla in [Azure efterlevnad Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och Sök efter ”Media Services” för att se om den överensstämmer med ett certifikat av intresse.|
+|Efterlevnad|[Azure-efterlevnad](https://aka.ms/AzureCompliance)|Media Services är kompatibelt med många certifieringar. Kolla in [Azure efterlevnad Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och Sök efter ”Media Services” för att se om den överensstämmer med ett certifikat av intresse.|
 |Kostnadsfri utvärderingsversion|Östra USA|Inte tillgängligt|
 |Tillgänglighet |Västra USA, östra Asien, Nordeuropa|Se [Azure-status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt över Video Indexer](video-indexer-overview.md)
+[Video Indexer-översikt](video-indexer-overview.md)
 
 [Översikt över Media Services v3](../latest/media-services-overview.md)

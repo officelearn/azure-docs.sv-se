@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181834"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916666"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga startuppgifter för Cloud Service
 Den här artikeln innehåller några exempel på vanliga startuppgifter som du utför i din molntjänst. Du kan använda startåtgärder för att utföra åtgärder innan en roll startas. Åtgärder som du kanske vill utföra omfattar installera en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process. 
@@ -31,7 +31,7 @@ Se [i den här artikeln](cloud-services-startup-tasks.md) att förstå hur start
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definiera miljövariabler innan en roll startar
-Om du behöver miljövariabler som definieras för en viss aktivitet kan använda den [miljö] -element inuti den [Aktivitet] element.
+Om du behöver miljövariabler som definieras för en viss aktivitet kan använda den [miljö] -element inuti den [uppgift] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -68,12 +68,12 @@ Det finns dock några saker att se upp för vid användning av *AppCmd.exe* som 
 
 Det är en bra idé att kontrollera den **errorlevel** efter anropet *AppCmd.exe*, som är lätt att göra om du omsluta anropet till *AppCmd.exe* med en *.cmd* fil. Om du kan identifiera en känd **errorlevel** svar, du kan ignorera det eller skickar den igen.
 
-Errorlevel som returneras av *AppCmd.exe* anges i filen winerror.h och visas också på [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Errorlevel som returneras av *AppCmd.exe* anges i filen winerror.h och visas också på [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exempel på att hantera Felnivån
 Det här exemplet lägger till ett avsnitt för komprimering och en post för komprimering för JSON till det *Web.config* -fil med felhantering och loggning.
 
-De relevanta avsnitten i den [ServiceDefinition.csdef] filen visas här, som innehåller inställningen den [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) attributet `elevated` att ge *AppCmd.exe* tillräcklig behörighet för att ändra inställningarna på den *Web.config* fil:
+De relevanta avsnitten i den [ServiceDefinition.csdef] filen visas här, som innehåller inställningen den [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) attributet `elevated` att ge *AppCmd.exe* tillräcklig behörighet för att ändra inställningarna på den *Web.config* fil:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ Andra brandväggen styr anslutningar mellan den virtuella datorn och processer i
 
 Azure skapar brandväggsregler för processer som startas inom dina roller. Till exempel när du startar en tjänst eller program, skapar Azure automatiskt de nödvändiga brandväggsreglerna för att tillåta att tjänsten ska kunna kommunicera med Internet. Men om du skapar en tjänst som startas av en process utanför din roll (till exempel en COM +-tjänst eller en schemalagd uppgift i Windows) kan behöva du manuellt skapa en brandväggsregel som tillåter åtkomst till tjänsten. Brandväggsreglerna kan skapas med hjälp av en startåtgärd.
 
-En startåtgärd som skapar en brandväggsregel måste ha en [executionContext][aktivitet] av **upphöjd**. Lägg till följande startåtgärd för att den [ServiceDefinition.csdef] fil.
+En startåtgärd som skapar en brandväggsregel måste ha en [executionContext][uppgift] av **upphöjd**. Lägg till följande startåtgärd för att den [ServiceDefinition.csdef] fil.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Du har åtkomst till lokal lagringsmapp från Azure SDK med hjälp av den [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) metod.
+Du har åtkomst till lokal lagringsmapp från Azure SDK med hjälp av den [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) metod.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -306,7 +306,7 @@ Du kan ha din startåtgärd utföra olika steg när det körs i molnet jämfört
 
 Den här möjligheten att utföra olika åtgärder på compute-emulatorn och molnet kan åstadkommas genom att skapa en miljövariabel i den [ServiceDefinition.csdef] fil. Du kan sedan testa att miljövariabeln för ett värde i din startåtgärd.
 
-För att skapa miljövariabeln, lägger du till den [Variabel]/[RoleInstanceValue] element och skapa en XPath-värdet för `/RoleEnvironment/Deployment/@emulated`. Värdet för den **% ComputeEmulatorRunning %** miljövariabeln `true` vid körning på compute-emulatorn och `false` när du kör i molnet.
+För att skapa miljövariabeln, lägger du till den [variabeln]/[RoleInstanceValue] element och skapa en XPath-värdet för `/RoleEnvironment/Deployment/@emulated`. Värdet för den **% ComputeEmulatorRunning %** miljövariabeln `true` vid körning på compute-emulatorn och `false` när du kör i molnet.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -472,12 +472,12 @@ Exempel på utdata i den **StartupLog.txt** fil:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Ange executionContext för startåtgärder
 Ange behörighet för startåtgärden. Ibland måste startåtgärder köras med utökade privilegier trots att rollen körs med normala privilegier.
 
-Den [executionContext][aktivitet] attributet anger behörighetsnivå för startåtgärden. Med hjälp av `executionContext="limited"` innebär startåtgärden har samma behörighetsnivå som rollen. Med hjälp av `executionContext="elevated"` innebär startåtgärden har administratörsbehörighet, vilket gör att startåtgärd för att utföra administratörsåtgärder utan att bevilja administratörsbehörighet för din roll.
+Den [executionContext][uppgift] attributet anger behörighetsnivå för startåtgärden. Med hjälp av `executionContext="limited"` innebär startåtgärden har samma behörighetsnivå som rollen. Med hjälp av `executionContext="elevated"` innebär startåtgärden har administratörsbehörighet, vilket gör att startåtgärd för att utföra administratörsåtgärder utan att bevilja administratörsbehörighet för din roll.
 
 Ett exempel på en startåtgärd som kräver utökade privilegier är en startåtgärd som använder **AppCmd.exe** att konfigurera IIS. **AppCmd.exe** kräver `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Använd lämplig taskType
-Den [taskType][aktivitet] attributet avgör hur startåtgärden körs. Det finns tre värden: **enkel**, **bakgrund**, och **förgrunden**. Förgrunden och bakgrunden aktiviteterna startas asynkront och sedan enkla uppgifter körs synkront i taget.
+Den [taskType][uppgift] attributet avgör hur startåtgärden körs. Det finns tre värden: **enkel**, **bakgrund**, och **förgrunden**. Förgrunden och bakgrunden aktiviteterna startas asynkront och sedan enkla uppgifter körs synkront i taget.
 
 Med **enkel** startåtgärder, kan du ange den ordning som uppgifterna köras i den ordning som uppgifterna är visas i filen ServiceDefinition.csdef. Om en **enkel** uppgiften avslutas med en slutkod som inte är noll och sedan avbryts start och rollen startar inte.
 

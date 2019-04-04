@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98d084794accb99e0fecac85f7de861ec35bc15e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848906"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446034"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service i Azure Stack uppdatering 2 viktig information
 
@@ -52,6 +52,8 @@ Referera till den [innan du börjar dokumentation](azure-stack-app-service-befor
 Azure App Service i Azure Stack Update 2 innehåller följande förbättringar och korrigeringar:
 
 - Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
+
+- Uppdateringar **Azure Functions-körningen** till **v1.0.11612**.
 
 - Core-tjänst för att förbättra tillförlitlighet och felmeddelanden aktiverar enklare undersöka vanliga problem med uppdateringar.
 

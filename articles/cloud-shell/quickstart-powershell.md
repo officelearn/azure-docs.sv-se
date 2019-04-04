@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905077"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabbstart för PowerShell i Azure Cloudshell
 
@@ -267,7 +267,7 @@ För att autentisera till servrar eller virtuella datorer med SSH, generera offe
 
 ### <a name="using-ssh"></a>Med hjälp av SSH
 
-Följ instruktionerna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med hjälp av AzureRM-cmdletar.
+Följ instruktionerna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med hjälp av Azure PowerShell-cmdlets.
 Tidigare anrop till `New-AzVM` för att sätta igång distributionen, lägga till offentlig SSH-nyckel i VM-konfigurationen.
 Den nya virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, vilket innebär att autentiseringsuppgifter är kostnadsfria SSH-session till den virtuella datorn.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Under `Azure` enhet, Skriv `Get-AzCommand` att hämta sammanhangsberoende Azure-kommandon.
 
-Du kan alltid använda `Get-Command *azurerm* -Module AzureRM.*` att ta reda på tillgängliga Azure-kommandon.
+Du kan alltid använda `Get-Command *az* -Module Az.*` att ta reda på tillgängliga Azure-kommandon.
 
 ## <a name="install-custom-modules"></a>Installera anpassade moduler
 

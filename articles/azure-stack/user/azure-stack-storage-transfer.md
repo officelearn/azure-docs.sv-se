@@ -14,16 +14,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774345"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905961"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Använd verktyg för överföring av data för Azure Stack-lagring
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Microsoft Azure Stack tillhandahåller en uppsättning lagringstjänster för diskar, blobbar, tabeller, köer och hanteringsfunktioner för kontot. Du kan använda en uppsättning verktyg för Azure storage om du vill hantera eller flytta data till eller från Azure Stack-lagring. Den här artikeln innehåller en översikt över tillgängliga verktyg.
 
@@ -71,7 +71,7 @@ Det finns två versioner av AzCopy-verktyget: AzCopy i Windows och AzCopy i Linu
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>AzCopy kommandoexempel för dataöverföring
 
-I följande exempel följer några vanliga scenarier för att kopiera data till och från Azure Stack-blobar. Mer information finns i [AzCopy på Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) och [AzCopy i Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+I följande exempel följer några vanliga scenarier för att kopiera data till och från Azure Stack-blobar. Mer information finns i [AzCopy på Windows](../../storage/common/storage-use-azcopy.md) och [AzCopy i Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Ladda ned alla blobar till en lokal disk
 
@@ -156,7 +156,7 @@ Det här exemplet förutsätter att du har lyckats [installerat PowerShell för 
    > [!NOTE]
    > Det här skriptet måste köras i rotkatalogen för **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884575"
+ms.locfileid: "58894686"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -81,7 +81,7 @@ När behållaren är på den [värddatorn](#the-host-computer), använder du fö
 1. [Kör behållaren](##run-the-container-with-docker-run), med de nödvändiga _inkommande montera_ och fakturering inställningar. Mer [exempel](luis-container-configuration.md#example-docker-run-commands) av den `docker run` kommandot är tillgängliga. 
 1. [Fråga förutsägelse behållarslutpunkten](#query-the-containers-prediction-endpoint). 
 1. När du är klar med behållaren, [importera endpoint-loggarna](#import-the-endpoint-logs-for-active-learning) från utdata montera i LUIS-portalen och [stoppa](#stop-the-container) behållaren.
-1. Använd LUIS portalen [aktiv inlärning](luis-how-to-review-endoint-utt.md) på den **granska endpoint yttranden** sidan för att förbättra appen.
+1. Använd LUIS portalen [aktiv inlärning](luis-how-to-review-endpoint-utterances.md) på den **granska endpoint yttranden** sidan för att förbättra appen.
 
 När appen körs i behållaren kan inte ändras. Ordna ändringen appen i behållaren, måste du ändra appen i LUIS-tjänsten med den [LUIS](https://www.luis.ai) portal eller Använd LUIS [redigera API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Sedan träna och/eller publicera, ladda ned ett nytt paket och kör behållaren igen.
 
@@ -268,7 +268,7 @@ Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
 |`verbose`|boolesk|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
 |`staging`|boolesk|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
-|`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endoint-utt.md). Standardvärdet är true.|
+|`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
 
 ### <a name="query-published-app"></a>Fråga efter publicerade appen
 

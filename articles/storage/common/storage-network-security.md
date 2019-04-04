@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486401"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906097"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -241,7 +241,7 @@ Varje lagringskonto har stöd för upp till 100 IP-nätverk (MPR), som kan kombi
 
 Om du vill bevilja åtkomst från ditt lokala nätverk till ditt lagringskonto med en regel för IP-nätverk, måste du identifiera den internetuppkopplade IP-adresser som används av nätverket. Kontakta nätverksadministratören om du behöver hjälp.
 
-Du kan använda [ExpressRoute](/azure/expressroute/expressroute-introduction) att ansluta ditt nätverk till Azure-nätverket. Varje krets konfigureras här, med två offentliga IP-adresser. De finns i Microsoft Edge och använda [Azure offentlig Peering](/azure/expressroute/expressroute-circuit-peerings) att ansluta till Microsoft Services som Azure Storage. Skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar för att tillåta kommunikation med Azure Storage. Du hittar din ExpressRoute-krets offentliga IP-adresser, [öppnar ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Hantera regler för IP-nätverk
 

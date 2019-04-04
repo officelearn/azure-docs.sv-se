@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 06f1cdccc135d8f025d6256a12d47a97c92dbee8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579350"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918849"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -117,7 +117,7 @@ Service Bus är helt integrerad med följande Azure-tjänster:
 
 - [Event Grid](https://azure.microsoft.com/services/event-grid/) 
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Funktioner](https://azure.microsoft.com/services/functions/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
@@ -125,7 +125,7 @@ Service Bus är helt integrerad med följande Azure-tjänster:
 
 Om du vill komma igång med Service Bus-meddelanden, kan du läsa följande artiklar:
 
-* [Jämföra Azure-meddelandetjänster](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* [Jämföra Azure meddelandetjänster](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Lär dig mer om Azure Service Bus [Standard och Premium](https://azure.microsoft.com/pricing/details/service-bus/)-nivåer och deras prisnivå
-* [Prestanda och fördröjning av Azure Service Bus Premium-nivån](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* [Prestanda och svarstider för Azure Service Bus Premium-nivån](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Prova snabbstart i [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) eller [JMS](service-bus-java-how-to-use-jms-api-amqp.md)

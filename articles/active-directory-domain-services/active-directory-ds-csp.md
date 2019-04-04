@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187104"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892814"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services för Azure Cloud Solution Providers (CSP)
 Den här artikeln förklarar hur du kan använda Azure AD Domain Services i en Azure CSP-prenumeration.
@@ -41,7 +41,7 @@ Mer information finns i den [Azure CSP-översikt](https://docs.microsoft.com/azu
 ## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Fördelarna med att använda Azure AD Domain Services i en Azure CSP-prenumeration
 Azure AD Domain Services tillhandahåller Windows Server AD-kompatibla tjänster i Azure, till exempel LDAP, Kerberos/NTLM-autentisering, domänanslutning, Grupprincip och DNS. Under årtiondena har många program skapats för att arbeta mot AD med hjälp av dessa funktioner. Många oberoende programvaruleverantörer (ISV) har skapats och distribuerade program i sina kunders lokaler. Dessa program är betungande för eftersom som ofta kräver åtkomst till olika miljöer där programmen distribueras. Med Azure CSP-prenumerationer har du ett enklare alternativ med skala och flexibilitet i Azure.
 
-Azure AD Domain Services har nu stöd för Azure CSP-prenumerationer. Du kan nu distribuera ditt program i en Azure CSP-prenumeration som är kopplad till din kunds Azure AD-katalog. Dina anställda (supportpersonalen) kan därför hantera, administrera och de virtuella datorerna som ditt program har distribuerats med din organisations företagsuppgifter-tjänsten. Dessutom kan du etablera en Azure AD Domain Services-hanterad domän för din kunds Azure AD-katalog. Ditt program är ansluten till din kunds hanterade domänen. Därför kan de funktioner i ditt program som förlitar sig på Kerberos/NTLM, LDAP, eller [System.DirectoryServices API](https://msdn.microsoft.com/library/system.directoryservices) arbets sömlöst mot din kunds katalog. Dina slutkunder dra avsevärt använder ditt program som en tjänst, utan att behöva bekymra dig om att underhålla infrastrukturen som programmet har distribuerats på.
+Azure AD Domain Services har nu stöd för Azure CSP-prenumerationer. Du kan nu distribuera ditt program i en Azure CSP-prenumeration som är kopplad till din kunds Azure AD-katalog. Dina anställda (supportpersonalen) kan därför hantera, administrera och de virtuella datorerna som ditt program har distribuerats med din organisations företagsuppgifter-tjänsten. Dessutom kan du etablera en Azure AD Domain Services-hanterad domän för din kunds Azure AD-katalog. Ditt program är ansluten till din kunds hanterade domänen. Därför kan de funktioner i ditt program som förlitar sig på Kerberos/NTLM, LDAP, eller [System.DirectoryServices API](/dotnet/api/system.directoryservices) arbets sömlöst mot din kunds katalog. Dina slutkunder dra avsevärt använder ditt program som en tjänst, utan att behöva bekymra dig om att underhålla infrastrukturen som programmet har distribuerats på.
 
 Alla fakturering för Azure-resurser du förbrukar i den prenumerationen, inklusive Azure AD Domain Services debiteras till dig. Du kan ha fullständig kontroll över relationen med kunden när det gäller försäljning, fakturering, teknisk support osv. Med flexibilitet i Azure CSP-plattformen, en liten grupp agenter kan underhålla många kunder som har instanser av ditt program distribuerats.
 

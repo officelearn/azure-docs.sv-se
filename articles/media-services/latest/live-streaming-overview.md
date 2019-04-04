@@ -11,20 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879394"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916045"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
 Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. För att strömma din direktsända händelser med Media Services behöver du följande:  
 
 - En kamera som används för att hämta live-händelse.<br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
+
+    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
 - En live-videokodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till ett bidrag feed som skickas till Media Services. Bidrag feed kan innehålla signaler som rör reklam, till exempel SCTE 35 markörer.<br/>En lista över rekommenderade livekodare för direktuppspelning finns i [liveuppspelning kodare](recommended-on-premises-live-encoders.md). Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 

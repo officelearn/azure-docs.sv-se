@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286388"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895757"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure Functions)
 
@@ -56,7 +56,7 @@ Tillägget varaktiga uppgift implementerar en exponentiell backoff-algoritmen f�
 Maximal avsökningen fördröjningen kan konfigureras via den `maxQueuePollingInterval` -egenskapen i den [host.json filen](../functions-host-json.md#durabletask). Du anger detta till ett högre värde kan resultera i högre svarstider för meddelandebehandling. Högre latens är förväntat förrän perioder av inaktivitet. Du anger detta till ett lägre värde kan resultera i högre kostnader för lagring på grund av ökad lagringstransaktioner.
 
 > [!NOTE]
-> När du kör i Azure Functions-förbrukning och Premium-planer i [Azure Functions skala Controller](../functions-scale.md#how-the-consumption-plan-works) ska söka varje kontroll och arbetsobjektet kö var 10: e sekund. Den här ytterligare avsökningen är nödvändigt för att avgöra om att aktivera funktionen app-instanserna och att fatta beslut om skalning. Vid tidpunkten som skrivs 10 andra intervallet är konstant och kan inte konfigureras.
+> När du kör i Azure Functions-förbrukning och Premium-planer i [Azure Functions skala Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) ska söka varje kontroll och arbetsobjektet kö var 10: e sekund. Den här ytterligare avsökningen är nödvändigt för att avgöra om att aktivera funktionen app-instanserna och att fatta beslut om skalning. Vid tidpunkten som skrivs 10 andra intervallet är konstant och kan inte konfigureras.
 
 ## <a name="storage-account-selection"></a>Val av Storage-konto
 
@@ -244,4 +244,4 @@ Om du inte ser dataflöde siffrorna du förväntar dig och din CPU och minnesanv
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa din första beständiga funktion i C#](durable-functions-create-first-csharp.md)
+> [Skapa din första varaktiga funktion iC#](durable-functions-create-first-csharp.md)

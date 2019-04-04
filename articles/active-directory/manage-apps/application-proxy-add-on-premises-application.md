@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f2de6eb0171e5e1c792e8860a56f014dad501f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314832"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917846"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -49,7 +49,7 @@ Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillg
 
 1. Placera fysiskt anslutningsservern nära programservrarna för att optimera prestandan mellan anslutningsprogrammet och programmet. Mer information finns i [Överväganden för nätverkstopologi](application-proxy-network-topology.md).
 
-2. Anslutningsservern och webbprogramservern ska tillhöra samma Active Directory-domän. Det är ett krav att ha servrar i samma domän vid användning av enkel inloggning (SSO) med integrerad Windows-autentisering (IWA) och Kerberos begränsad delegering (KCD). Om anslutningsservern och webbprogramservrarna är i olika Active Directory-domäner så måste du använda resursbaserad delegering för enkel inloggning. Mer information finns i [KCD för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-kcd.md).
+2. Connector-server och program webbservrarna ska tillhöra samma Active Directory-domän eller sträcker sig över domäner. Med servrar i samma domän eller domäner med förtroende är ett krav för att använda enkel inloggning (SSO) med integrerad Windows-autentisering (IWA) och Kerberos-begränsad delegering (KCD). Om anslutningsservern och webbprogramservrarna är i olika Active Directory-domäner så måste du använda resursbaserad delegering för enkel inloggning. Mer information finns i [KCD för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 #### <a name="software-requirements"></a>Programvarukrav
 
@@ -173,7 +173,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
     | Fält | Beskrivning |
     | :---- | :---------- |
     | **Namn** | Namnet på programmet som ska visas på åtkomstpanelen och i Azure-portalen. |
-    | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Exempel: om din app ligger i https:\//yourapp/app och använder bilder som finns på https:\//yourapp/media och du bör publicera https:\//yourapp/ som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
+    | **Intern URL** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Exempel: om din app ligger i https:\//yourapp/app och använder bilder som finns på https:\//yourapp/media och du bör publicera https:\//yourapp/ som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
     | **Extern webbadress** | Adressen som ger användare åtkomst till programmet från utanför ditt nätverk. Om du inte vill använda standarddomänen för programproxy kan du läsa om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).|
     | **Förautentisering** | Hur programproxyn verifierar användare innan de ges åtkomst till ditt program.<br><br>**Azure Active Directory** – Programproxyn omdirigerar användarna till att logga in med Azure AD, som autentiserar deras katalog- och programbehörigheter. Vi rekommenderar det här alternativet som standard så att du kan dra nytta av säkerhetsfunktioner i Azure AD, exempelvis villkorlig åtkomst och multifaktorautentisering. **Azure Active Directory** krävs för övervakning av program med Microsoft Cloud Application Security.<br><br>**Genomströmning** – Användarna behöver inte autentisera sig mot Azure Active Directory för att få åtkomst till programmet. Du kan fortfarande konfigurera autentiseringskrav från serverdelen. |
     | **Anslutningsgrupp** | Anslutningsprogram bearbetar fjärråtkomsten till programmet och anslutningsgrupper hjälper dig att organisera anslutningsprogram och program efter region, nätverk eller syfte. Om du inte har skapat några anslutningsgrupper än kommer programmet att tilldelas **Standard**.<br><br>Om ditt program använder WebSockets för att ansluta måste alla anslutningsprogram i gruppen vara version 1.5.612.0 eller senare.|
@@ -182,12 +182,12 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
 
     | Fält | Beskrivning |
     | :---- | :---------- |
-    | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. |
+    | **Tidsgränsen gick ut för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|
     | **Använd säker cookie**| Ställ in värdet på **Ja** för att skicka cookies via en säker kanal, som en krypterad HTTPS-begäran.
     | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej**. Den här inställningen bör endast användas för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i avsnittet om [cookie-inställningar för åtkomst till lokala program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
-    | **Översätt webbadresser i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
-    | **Översätt webbadresser i brödtext för program** | Behåll det här värdet som **Nej** såvida du inte har hårdkodade HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) (Konfigurera övervakning av realtidsprogramåtkomst med Microsoft Cloud App Security och Azure Active Directory) |
+    | **Översätt URL: er i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
+    | **Översätt URL: er i brödtext för program** | Behåll det här värdet som **Nej** såvida du inte har hårdkodade HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) (Konfigurera övervakning av realtidsprogramåtkomst med Microsoft Cloud App Security och Azure Active Directory) |
    
 6. Välj **Lägg till**.
 

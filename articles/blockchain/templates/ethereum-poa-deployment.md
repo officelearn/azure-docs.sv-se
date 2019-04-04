@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549076"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905927"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 [Den här lösningen](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) har utformats för att göra det enklare att distribuera, konfigurera och reglerar ett flera medlem Proof-of-authority Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum.
@@ -250,7 +252,7 @@ En detaljerad beskrivning av varje parameter visas nedan:
   Verifieraren noden lagringsprestanda|Typ av hanterad disk säkerhetskopiering varje distribuerade verifieraren nod.|Standard SSD- eller Premium|Standard SSD
   Verifieraren nodstorlek för virtuell dator|VM-storleken som används för systemhälsoverifierarens noder.|Standard A Standard D, Standard D-v2, Standard F-serien, Standard DS och Standard FS|Standard D1 v2
 
-[Prisinformation om lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Prisinformation om Lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 [Prisinformation för virtuell dator](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,10 +407,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### <a name="service-monitoring"></a>Tjänstövervakning

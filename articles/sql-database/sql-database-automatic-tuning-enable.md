@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726965"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904363"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk inställning att övervaka frågor och förbättra prestanda för arbetsbelastning
 
 Azure SQL Database är ett automatiskt hanterad tjänst som ständigt övervakar dina frågor och anger vilka åtgärder som du kan utföra för att förbättra prestanda för din arbetsbelastning. Du kan granska rekommendationer och manuellt tillämpa dem eller låta Azure SQL Database automatiskt tillämpa åtgärder – den här funktionen kallas **läget för automatisk justering**.
 
-Automatisk justering kan aktiveras på servern eller databasnivå via den [Azure-portalen](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) anrop och [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) kommandon.
+Automatisk justering kan aktiveras på servern eller databasnivå via den [Azure-portalen](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) anrop och [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) kommandon.
 
 > [!NOTE]
-> För hanterad instans alternativet stöds FORCE_LAST_GOOD_PLAN kan konfigureras via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) endast. Portal-baserad konfiguration och automatisk justering Indexalternativ i den här artikeln gäller inte för hanterad instans.
+> För hanterad instans alternativet stöds FORCE_LAST_GOOD_PLAN kan konfigureras via [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) endast. Portal-baserad konfiguration och automatisk justering Indexalternativ i den här artikeln gäller inte för hanterad instans.
 
 > [!NOTE]
 > Konfigurera alternativen för automatisk justering via ARM (Azure Resource Manager) mallen stöds inte just nu.

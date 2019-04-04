@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a739b958ad60e39c38e81ce887edf68349340bb0
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285841"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905808"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Ange obligatoriska artefakter för ditt labb i Azure DevTest Labs
-Som ägare för ett labb, kan du ange obligatoriska artefakter som tillämpas på varje dator som har skapats i laboratoriet. Tänk dig ett scenario där du vill att varje dator i labbet vara anslutna till företagsnätverket. Varje labb-användaren behöver i det här fallet lägger du till en domän join-artefakt vid skapande av virtuella datorer att kontrollera att deras dator är ansluten till företagsdomänen. Med andra ord behöver labbanvändare i stort sett skapa en virtuell dator om de glömmer att tillämpa obligatoriska artefakter på sin dator. Som labbägare kan göra du den domän join-artefakten som en obligatorisk artefakt i labbet. Det här steget säkerställer att varje dator är ansluten till företagsnätverket och spara tid och arbete för dina labbanvändare.
+Ägare av ett labb kan ange du obligatoriska artefakter som tillämpas på varje dator som har skapats i laboratoriet. Tänk dig ett scenario där du vill att varje dator i labbet vara anslutna till företagsnätverket. Varje labb-användaren behöver i det här fallet lägger du till en domän join-artefakt vid skapande av virtuella datorer att kontrollera att deras dator är ansluten till företagsdomänen. Med andra ord behöver labbanvändare i stort sett skapa en virtuell dator om de glömmer att tillämpa obligatoriska artefakter på sin dator. Som labbägare kan göra du den domän join-artefakten som en obligatorisk artefakt i labbet. Det här steget säkerställer att varje dator är ansluten till företagsnätverket och spara tid och arbete för dina labbanvändare.
  
 Andra obligatoriska artefakter kan omfatta ett vanliga verktyg som använder ditt team eller en plattformsrelaterade security-paket som krävs för varje dator har som standard osv. Kort sagt så blir eventuella vanliga program som alla virtuella datorer i labbet måste ha en obligatorisk artefakt. Om du skapar en anpassad avbildning från en dator som har obligatoriska artefakter som tillämpas på den och sedan skapa en ny dator från avbildningen, obligatoriska artefakter tillämpas på nytt på datorn när du skapar. Detta innebär också som trots att den anpassade avbildningen är gammal varje gång du skapar en virtuell dator från den mest uppdaterade versionen av obligatoriska artefakter tillämpas på det vid skapa flödet. 
  

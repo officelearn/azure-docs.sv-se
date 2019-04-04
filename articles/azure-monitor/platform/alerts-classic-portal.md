@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480642"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905452"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -89,7 +89,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hantera klassiska måttaviseringar. Exemplen i den här artikeln visar hur du kan använda Azure Monitor-cmdletar för klassiska måttaviseringar.
 
-1. Om du inte redan gjort konfigurera PowerShell att köra på datorn. Mer information finns i [installera och konfigurera PowerShell](/powershell/azure/overview). Du kan också granska hela listan med Azure Monitor PowerShell-cmdlets på [Azure Monitor (insikter) Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights).
+1. Om du inte redan gjort konfigurera PowerShell att köra på datorn. Mer information finns i [installera och konfigurera PowerShell](/powershell/azure/overview). Du kan också granska hela listan med Azure Monitor PowerShell-cmdlets på [Azure Monitor (insikter) Cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 2. Logga först in på Azure-prenumerationen.
 

@@ -13,16 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 403cbeb0a68e39eab714ceb428fcfaefe8de0ff7
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f41198761604a16e5d8a983f8bf2200b32c06fb9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576249"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906029"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hur du integrera Azure Monitor för behållare  
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
@@ -31,6 +29,7 @@ Azure Monitor för behållare kan aktiveras för nya eller stöd för en eller f
 * Från Azure-portalen, Azure PowerShell eller med Azure CLI
 * Med hjälp av [Terraform och AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar 
 Innan du börjar bör du kontrollera att du har följande:

@@ -3,19 +3,19 @@ title: Sökmetod för Translator Text API-ordlista
 titlesuffix: Azure Cognitive Services
 description: Använd sökmetod för Translator Text API ordlista.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: e97d308bca585cdb26ccc2f20e125436707c481e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89b4058c384440b83f60fb6147cd373ecf893011
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876342"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917013"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Slå upp i ordlista
 
@@ -56,7 +56,7 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_header_</td>
+    <td>_En auktorisering_<br/>_sidhuvud_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -140,7 +140,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Det här exemplet visar hur du leta upp alternativa översättningar på spanska engelska har löpt ut `fly` .
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ Svarstexten (förkortat för tydlighetens skull) är:
 
 Det här exemplet visar vad som händer när termen som du söker efter inte finns för giltiga ordlista paret.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

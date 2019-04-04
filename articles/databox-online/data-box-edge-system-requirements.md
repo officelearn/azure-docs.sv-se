@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884660"
+ms.locfileid: "58905247"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge-systemkrav
 
@@ -80,15 +80,23 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 ### <a name="url-patterns-for-compute-feature"></a>URL-mönster för compute-funktion
 
-| URL-mönster                      | Komponenten eller funktioner                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |   |
-| https://\*.azurecr.io                     | Personliga och tredje parts behållarregister (valfritt) |   |
-| https://\*.azure-devices.net              | IoT Hub-åtkomst (krävs)                             |   |
+| URL-mönster                      | Komponenten eller funktioner                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |
+| https://\*.azurecr.io                     | Personliga och tredje parts behållarregister (valfritt) | 
+| https://\*.azure-devices.net              | IoT Hub-åtkomst (krävs)                             | 
 
-### <a name="url-patterns-for-azure-government"></a>URL-mönster för Azure Government
+### <a name="url-patterns-for-gateway-for-azure-government"></a>URL-mönster för gateway för Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### <a name="url-patterns-for-compute-for-azure-government"></a>URL-mönster för beräkning för Azure Government
+
+| URL-mönster                      | Komponenten eller funktioner                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft behållarregister (krävs)               |
+| https://\*.azure-devices.us              | IoT Hub-åtkomst (krävs)           |
+| https://\*.azurecr.us                    | Personliga och tredje parts behållarregister (valfritt) | 
 
 ## <a name="internet-bandwidth"></a>Internetbandbredd
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199252"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905774"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper (begränsad offentlig förhandsversion)
 
@@ -21,6 +21,8 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 
 > [!NOTE]
 > Om du vill flytta ett Recovery Services-valv och dess kopplade resurser till en annan resursgrupp, bör du först [registrera datakälla prenumerationen](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Förutsättningar för att flytta ett valv
 
@@ -50,24 +52,24 @@ Att registrera datakälla prenumerationen **flytta** Recovery Services-valvet, k
 1. Logga in på ditt Azure-konto
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Välj den prenumeration som du vill registrera
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Registrera den här prenumerationen
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Köra kommandot
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Vänta i 30 minuter för prenumerationen som ska vitlistas innan du börjar med flyttåtgärden med hjälp av Azure portal eller PowerShell.
@@ -137,18 +139,18 @@ Du kan flytta ett Recovery Services-valv och dess kopplade resurser till en anna
 
 ## <a name="use-powershell-to-move-a-vault"></a>Använd PowerShell för att flytta ett valv
 
-Flytta ett Recovery Services-valv till en annan resursgrupp genom att använda den `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` kräver resursnamn och typ av resurs. Du kan hämta båda från den `Get-AzureRmRecoveryServicesVault` cmdlet.
+Flytta ett Recovery Services-valv till en annan resursgrupp genom att använda den `Move-AzResource` cmdlet. `Move-AzResource` kräver resursnamn och typ av resurs. Du kan hämta båda från den `Get-AzRecoveryServicesVault` cmdlet.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 För att flytta resurser till en annan prenumeration, innehåller den `-DestinationSubscriptionId` parametern.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Efter körning av ovanstående cmdletar, blir du ombedd att bekräfta att du vill flytta de angivna resurserna. Typ **Y** att bekräfta. Efter en lyckad validering flyttar resursen.

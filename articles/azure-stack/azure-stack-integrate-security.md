@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3694425ac72d3b75d66d870e3746bc1738ba0138
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009472"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481917"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrering med Azure Stack datacenter - syslog-vidarebefordran
 
@@ -185,13 +185,13 @@ Ta bort syslog-serverkonfiguration helt och hållet och stoppa syslog-vidarebefo
 
 **Ta bort syslog-serverkonfiguration från klienten**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **Ta bort klientcertifikatet från klienten**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -201,13 +201,13 @@ Om du har anslutit syslog-klienten till syslog-servern, bör du snart börja ta 
 
 **Verifiera serverkonfigurationen i syslog-klienten**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Verifiera certifikat-konfiguration i syslog-klienten**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Hantera kapacitet i Azure Stack | Microsoft Docs
-description: Övervaka och hantera tillgängligt lagringsutrymme för Azure Stack.
+description: Övervaka och hantera Azure Stack storage kapacitet och tillgänglighet lagringsutrymme för Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: e5188a7f7a1ce889c8f4340f100cfe767ff2dff8
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225713"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629402"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
@@ -53,7 +53,6 @@ Resurser på volymer håller klientdata. Klientdata innehåller sidblobar, block
 
 När en resurs har för lite ledigt utrymme och åtgärder för att [frigöra](#reclaim-capacity) utrymme är inte lyckades eller tillgänglig, operatorn Azure Stack-molnet kan migrera blob-behållare från en resurs till en annan.
 
-- Mer information om behållare och blobbar finns i [Blob-lagring](azure-stack-key-features.md#blob-storage) i nyckel-funktioner och koncept i Azure Stack.
 - Information om hur klientanvändare fungerar med blob storage i Azure Stack finns i [Azure Stack-lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
@@ -142,14 +141,14 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 1. Bekräfta att du har [Azure PowerShell installerad och konfigurerad](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Granska behållare för att förstå vilka data som finns på den resurs som du planerar att migrera. Använd för att identifiera de bästa kandidat behållarna för migrering i en volym på **Get-AzsStorageContainer** cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name
    $shares = Get-AzsStorageShare -FarmName $farm_name
    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
    ```
    Granska $containers:
 
-   ```PowerShell
+   ```powershell
    $containers
    ```
 
@@ -157,14 +156,14 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 
 3. Identifiera de bästa mål-resurserna för att lagra den behållare som du migrerar:
 
-   ```PowerShell
+   ```powershell
    $destinationshares = Get-AzsStorageShare -SourceShareName
    $shares[0].ShareName -Intent ContainerMigration
    ```
 
    Granska $destinationshares:
 
-   ```PowerShell 
+   ```powershell 
    $destinationshares
    ```
 
@@ -172,20 +171,20 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 
 4. Starta migreringen för en behållare. Migreringen är asynkrona. Om du startar migreringen av ytterligare behållare innan den första migreringen är klar, kan du använda jobb-ID för att spåra status för var och en.
 
-   ```PowerShell
+   ```powershell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
    Granska $jobId. I följande exempel ersätter *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* med jobb-ID som du vill undersöka:
 
-   ```PowerShell
+   ```powershell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
 5. Du kan använda jobb-ID för att kontrollera statusen för migreringsjobbet. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
 
-   ```PowerShell 
+   ```powershell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
@@ -193,7 +192,7 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 
 6. Du kan avbryta ett pågående migreringsjobb. Har avbrutits migrering som jobb ska bearbetas asynkront. Du kan spåra uppsägningen av prenumerationen med hjälp av $jobid:
 
-   ```PowerShell
+   ```powershell
    Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
    ```
 

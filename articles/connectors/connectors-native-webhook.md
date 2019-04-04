@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182123"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895587"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Skapa händelse-baserade arbetsflöden eller åtgärder med webhooks och Azure Logic Apps
 
@@ -29,7 +29,7 @@ Läs mer om [hur du skapar anpassade API: er som har stöd för en webhook](../l
 
 ## <a name="use-the-webhook-trigger"></a>Använd webhook-utlösaren
 
-En [ *utlösaren* ](connectors-overview.md) är en händelse som startar en logikappens arbetsflöde. Webhook-utlösaren är händelsebaserad, som inte beror på avsökningen för nya objekt. När du sparar din logikapp med en webhooksutlösare eller när du ändrar din logikapp från inaktiverat aktiverat, webhook-utlösaren *prenumererar* till den angivna tjänsten eller slutpunkten genom att registrera en *Motringnings-URL för* med tjänsten eller slutpunkt. Utlösaren använder sedan den URL: en för att köra logikappen efter behov. Som den [begäransutlösare](connectors-native-reqres.md), logikappen utlöses omedelbart när den förväntade händelsen inträffar. Utlösaren *avbrutna prenumerationer* om du tar bort utlösaren och spara din logikapp, eller när du ändrar din logikapp från aktiverad till inaktiverad.
+En [ *utlösaren* ](../connectors/apis-list.md) är en händelse som startar en logikappens arbetsflöde. Webhook-utlösaren är händelsebaserad, som inte beror på avsökningen för nya objekt. När du sparar din logikapp med en webhooksutlösare eller när du ändrar din logikapp från inaktiverat aktiverat, webhook-utlösaren *prenumererar* till den angivna tjänsten eller slutpunkten genom att registrera en *Motringnings-URL för* med tjänsten eller slutpunkt. Utlösaren använder sedan den URL: en för att köra logikappen efter behov. Som den [begäransutlösare](connectors-native-reqres.md), logikappen utlöses omedelbart när den förväntade händelsen inträffar. Utlösaren *avbrutna prenumerationer* om du tar bort utlösaren och spara din logikapp, eller när du ändrar din logikapp från aktiverad till inaktiverad.
 
 Här är ett exempel som visar hur du ställer in en HTTP-utlösare i Logic App Designer. Anvisningarna förutsätter att du redan har distribuerat eller har åtkomst till ett API som följer den [webhook prenumerera och avsluta prenumerationen mönster i logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,7 +48,7 @@ Här är ett exempel som visar hur du ställer in en HTTP-utlösare i Logic App 
 
 ## <a name="use-the-webhook-action"></a>Använd webhook-åtgärd
 
-En [ *åtgärd* ](connectors-overview.md) är en åtgärd som definieras och körning av logikappens arbetsflöde. När en logikapp körs en webhook-åtgärd, åtgärden *prenumererar* till den angivna tjänsten eller slutpunkten genom att registrera en *Motringnings-URL för* med tjänsten eller slutpunkt. Webhook-åtgärd och väntar tills som tjänsten anrop URL innan logic app-återupptar körs. Logikappen Avbryt prenumerationen på tjänsten eller slutpunkten i dessa fall: 
+En [ *åtgärd* ](../connectors/apis-list.md) är en åtgärd som definieras och körning av logikappens arbetsflöde. När en logikapp körs en webhook-åtgärd, åtgärden *prenumererar* till den angivna tjänsten eller slutpunkten genom att registrera en *Motringnings-URL för* med tjänsten eller slutpunkt. Webhook-åtgärd och väntar tills som tjänsten anrop URL innan logic app-återupptar körs. Logikappen Avbryt prenumerationen på tjänsten eller slutpunkten i dessa fall: 
 
 * Då webhook-åtgärden slutförs
 * Om logikappen att köra avbryts under väntan på svar

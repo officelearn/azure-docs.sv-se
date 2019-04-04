@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093549"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918883"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk Services
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093549"
 Viktig information om Microsoft Azure BizTalk Services innehåller kända problem i den här versionen.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Vad är nytt i novemberuppdatering för BizTalk Services
-* Du kan aktivera kryptering i vila i BizTalk Services-portalen. Se [Aktivera kryptering i vila i BizTalk Services-portalen](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* Du kan aktivera kryptering i vila i BizTalk Services-portalen. Se [Aktivera kryptering i vila i BizTalk Services-portalen](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## <a name="update-history"></a>Uppdateringshistorik
 ### <a name="october-update"></a>Uppdatering oktober
@@ -39,14 +39,14 @@ Viktig information om Microsoft Azure BizTalk Services innehåller kända proble
   * **Scenario**: Du har registrerat en BizTalk Service-distribution med ett organisationskonto i en Azure Active Directory (t.ex. user@fabrikam.com eller user@contoso.com). I det här scenariot kan endast Azure Active Directory-användare inom samma organisation hantera den BizTalk Service med hjälp av BizTalk Services-portalen. Ett Microsoft-konto kan inte användas.  
 * När du skapar en BizTalk Service kan registrerade du automatiskt i BizTalk Services-portalen.
   * **Scenario**: Du loggar in på Azure, skapa en BizTalk Service och välj sedan **hantera** för första gången. När BizTalk Services-portalen öppnas registreras automatiskt i BizTalk Service och är redo för dina distributioner.  
-    Se [registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk Services-portalen](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    Se [registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk Services-portalen](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### <a name="august-14-update"></a>14 augusti Update
-* Avtalet och brygga Frikoppling – partner avtal och bryggor är nu fristående i BizTalk Services-portalen. Du nu skapa avtal och bryggor separat och vid körning bryggor lösa Agreement baserat på värdena i EDI-meddelande. Se [skapa avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689908.aspx), [skapa ett EDI-brygga med hjälp av BizTalk Services-portalen](https://msdn.microsoft.com/library/azure/dn793986.aspx), [skapa ett AS2-brygga med hjälp av BizTalk Services-portalen](https://msdn.microsoft.com/library/azure/dn793993.aspx), och [ Hur löser bryggor avtal vid körning?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Avtalet och brygga Frikoppling – partner avtal och bryggor är nu fristående i BizTalk Services-portalen. Du nu skapa avtal och bryggor separat och vid körning bryggor lösa Agreement baserat på värdena i EDI-meddelande. Se [skapa avtal i Azure BizTalk Services](/previous-versions/azure/hh689908(v=azure.100)), [skapa ett EDI-brygga med hjälp av BizTalk Services-portalen](/previous-versions/azure/dn793986(v=azure.100)), [skapa ett AS2-brygga med hjälp av BizTalk Services-portalen](/previous-versions/azure/dn793993(v=azure.100)), och [ Hur löser bryggor avtal vid körning?](/previous-versions/azure/dn794001(v=azure.100))  
 * Alternativet för att skapa mallar för avtal kommer att upphöra.  
-* För sändningssidan avtalet, kan du nu ange olika avgränsare uppsättningar för varje schema. Den här konfigurationen har angetts under protokollinställningarna för Skicka sida avtal. Mer information finns i [skapa en X12 avtalet i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) och [skapar ett EDIFACT-avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Två nya entiteter har också lagts till OM TPM-API för samma ändamål. Se [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) och [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Standard XSD-konstruktioner, inklusive härledda typer stöds nu. Se [Använd standard XSD konstruktioner i dina kartor](https://msdn.microsoft.com/library/azure/dn793987.aspx) och [använda härledda typer i mappning av scenarier och exempel](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 har stöd för nya MIC-algoritmer för att signera meddelandet och nya krypteringsalgoritmer. Se [skapar ett AS2-avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* För sändningssidan avtalet, kan du nu ange olika avgränsare uppsättningar för varje schema. Den här konfigurationen har angetts under protokollinställningarna för Skicka sida avtal. Mer information finns i [skapa en X12 avtalet i Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100)) och [skapar ett EDIFACT-avtal i Azure BizTalk Services](/previous-versions/azure/dn606267(v=azure.100)). Två nya entiteter har också lagts till OM TPM-API för samma ändamål. Se [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) och [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* Standard XSD-konstruktioner, inklusive härledda typer stöds nu. Se [Använd standard XSD konstruktioner i dina kartor](/previous-versions/azure/dn793987(v=azure.100)) och [använda härledda typer i mappning av scenarier och exempel](/previous-versions/azure/).  
+* AS2 har stöd för nya MIC-algoritmer för att signera meddelandet och nya krypteringsalgoritmer. Se [skapar ett AS2-avtal i Azure BizTalk Services](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -85,7 +85,7 @@ Om det finns blanksteg utöver ett IEA segment, disassembler behandlar det som s
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Spåra i BizTalk Services-portalen
 Spåra händelser fångas upp till EDI-meddelandebehandling och alla samband. Om ett meddelande inte utanför scenen protokoll, visas spårning som slutförd. I så fall kan referera till avsnittet LOG under den **information** kolumn i **spåra** för felinformation.
-X12 ta emot och skicka inställningar ([skapa en X12 avtalet i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) innehåller information om protokoll-steget.  
+X12 ta emot och skicka inställningar ([skapa en X12 avtalet i Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100))) innehåller information om protokoll-steget.  
 
 ### <a name="update-agreement"></a>Uppdatera avtal
 BizTalk Services-portalen kan du ändra kvalificeraren för en identitet när ett avtal har konfigurerats. Detta kan leda till inkonsekvent egenskaper. Det finns till exempel ett avtal med ZZ:1234567 och ZZ:7654321 kvalificeraren. Du kan ändra ZZ:1234567 för att vara 01:ChangedValue i Profilinställningar BizTalk Services-portalen. Du öppnar avtalet och 01:ChangedValue visas i stället för ZZ:1234567.
@@ -109,7 +109,8 @@ Tänk dig ett scenario i följande ordning:
 * Stäng filen .bcs (genom att stänga fliken i Visual Studio) utan att spara ändringarna.  
 * Öppna filen .bcs igen från Solution Explorer.  
   Du ser att medan den associera .bridgeconfig-filen har det nya namnet som du angav, enhetens namn på designytan som är fortfarande det gamla namnet. Om du försöker öppna Bryggkonfigurationen genom att dubbelklicka på komponenten brygga får du följande fel:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Om du vill undvika det här scenariot, se till att spara ändringarna när du byter namn på entiteter i en BizTalk Service-projekt.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  Om du vill undvika det här scenariot, se till att spara ändringarna när du byter namn på entiteter i en BizTalk Service-projekt.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>BizTalk Service projektversioner har även om en artefakt har undantagits från ett Visual Studio-projekt
 Tänk dig ett scenario där du lägger till en artefakt (till exempel en XSD-fil) till ett BizTalk Service-projekt, inkludera den artefakten i Bryggkonfigurationen (till exempel genom att ange den som en begäran meddelandetyp) och utesluter den från Visual Studio-projektet. I detta fall är får att skapa projektet inte något fel så länge den borttagna artefakten finns på disken på samma plats från där den ingår i Visual Studio-projektet.
@@ -224,5 +225,5 @@ Anta att ett scenario där du har en XML-brygga som distribuerats på förhandsv
 I det här dokumentet används termen ”pipelines' och 'bryggor” synonymt. Båda innebär i stort sett samma sak, vilket är en bearbetningsenhet för meddelandet som distribuerats på BizTalk Services.  
 
 ### <a name="concepts"></a>Begrepp
-[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk Services](/previous-versions/azure/hh689864(v=azure.100))   
 

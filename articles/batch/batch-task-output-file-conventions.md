@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a3032ee96accdbafb32c96f4e9f3c89a0b3458
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d30a5ca0910c5ceebb38dec7b4cdbffd9b3cf27e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539504"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916792"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET
 
@@ -110,7 +110,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-Den `kind` -parametern för den [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) metoden kategoriserar bevarade filer. Det finns fyra fördefinierade [TaskOutputKind] [ net_taskoutputkind] typer: `TaskOutput`, `TaskPreview`, `TaskLog`, och `TaskIntermediate.` du kan också definiera anpassade kategorier av utdata.
+Den `kind` -parametern för den [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) metoden kategoriserar bevarade filer. Det finns fyra fördefinierade [TaskOutputKind] [ net_taskoutputkind] typer: `TaskOutput`, `TaskPreview`, `TaskLog`, och `TaskIntermediate.` du kan också definiera anpassade kategorier av utdata.
 
 Dessa typer av utdata kan du ange vilken typ av utdata till när du senare frågor mot Batch för beständiga utdata för en viss uppgift. Med andra ord kan du filtrera listan på en av utdatatyper som när du listar utdata för en aktivitet. Till exempel ”ge mig den *förhandsversion* utdata för aktiviteten *109*”. Mer information om lista och hämta utdata visas i hämta utdata senare i artikeln.
 

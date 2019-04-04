@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Använd förutsägelseslutpunkt för att programmatiskt testa bilder med klassificerare – Custom Vision'
+title: Använd förutsägelseslutpunkt för att programmatiskt testa bilder med klassificerare – Custom Vision
 titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder API:et för att programmatiskt testa bilder med din klassificerare för Custom Vision Service.
 services: cognitive-services
@@ -8,62 +8,52 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 715fa526c83608c9922315e3a0d89b67b31e0d16
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472735"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895621"
 ---
-#  <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägande API
+# <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägande API
 
-När du tränar din modell kan du testa bilder programmatiskt genom att skicka dem till förutsägelse-API:et.
+När du har träna din modell, kan du testa avbildningar via programmering genom att skicka dem till förutsägelse-API-slutpunkt.
 
 > [!NOTE]
-> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel på användning av API:et finns i [Referens för förutsägelse-API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel finns i den [förutsägelse-API-referens](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## <a name="publish-your-trained-iteration"></a>Publicera din tränade iteration
 
 Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__.
 
-För att skicka avbildningar förutsägelse-API: et, du måste först publicera din upprepningen för förutsägelse som kan göras genom att välja __publicera__ och ange ett namn för den publicerade upprepningen. Detta aktiverar din modell ska vara tillgänglig för förutsägelse-API: et för din anpassade Vision Azure-resurs. 
+För att skicka avbildningar förutsägelse-API: et, du måste först publicera din upprepningen för förutsägelse som kan göras genom att välja __publicera__ och ange ett namn för den publicerade upprepningen. Det gör din modell är tillgängliga för förutsägelse-API: et för din anpassade Vision Azure-resurs.
 
 ![Fliken prestanda visas med en röd rektangel omger knappen Publicera.](./media/use-prediction-api/unpublished-iteration.png)
 
-När modellen har publicerats, visas en ”publicerad” etikett som visas bredvid din iteration i vänster sidofält samt namnet på den publicerade iterationen i beskrivningen i iteration.
+När din modell har publicerats, ser du en etikett för ”publicerad” visas bredvid din iteration i vänster sidofält och dess namn visas i beskrivningen av iterationen.
 
 ![Fliken prestanda visas med en röd rektangel omger den publicerade etiketten och namnet på den publicerade iterationen.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-När din modell har publicerats kan du hämta information om hur du använder förutsägelse-API genom att välja __förutsägelse URL__. Då öppnas en dialogruta som liknar den nedan med information för att använda förutsägelse-API, inklusive den __förutsägelse URL__ och __förutsägelse-nyckeln__.
+När din modell har publicerats kan du hämta informationen som krävs genom att välja __förutsägelse URL__. Då öppnas en dialogruta med information för att använda förutsägelse-API, inklusive den __förutsägelse URL__ och __förutsägelse-nyckeln__.
 
 ![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-knappen.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-värdet för att använda en bildfil och förutsägelse-nyckel-värde.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Din __förutsägelse-Key__ finns också i den [Azure-portalen](https://portal.azure.com) sidan för Custom Vision Azure-resurs som är kopplad till ditt projekt, under __nycklar__. 
+> Din __förutsägelse-Key__ finns också i den [Azure-portalen](https://portal.azure.com) sidan för Custom Vision Azure-resurs som associeras med ditt projekt, under den __nycklar__ bladet.
 
-Kopiera följande information för användning i programmet från dialogrutan:
-
-* __URL: en förutsägelse__ för att använda en __bildfil__.
-* __Förutsägelse-Key__ värde.
+I den här guiden ska du använda en lokal avbildning, så Kopiera URL som under **om du har en bildfil** till en tillfällig plats. Kopiera motsvarande __förutsägelse-Key__ även värdet.
 
 ## <a name="create-the-application"></a>Skapa programmet
 
-1. Skapa ett nytt C#-konsolprogram från Visual Studio.
+1. I Visual Studio skapar du en ny C# -konsolapp.
 
 1. Använd följande kod som brödtext i filen __Program.cs__.
-
-    > [!IMPORTANT]
-    > Ändra följande information:
-    >
-    > * Ange __namnområdet__ till namnet på ditt projekt.
-    > * Ange den __förutsägelse-Key__ värde som du hämtade tidigare i den rad som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Ange den __förutsägelse URL__ värde som du hämtade tidigare i den rad som börjar med `string url =`.
 
     ```csharp
     using System;
@@ -92,10 +82,10 @@ Kopiera följande information för användning i programmet från dialogrutan:
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
+                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
 
                 // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
+                string url = "<Your prediction URL>";
 
                 HttpResponseMessage response;
 
@@ -120,9 +110,14 @@ Kopiera följande information för användning i programmet från dialogrutan:
     }
     ```
 
-## <a name="use-the-application"></a>Använd programmet
+1. Ändra följande information:
+   * Ange den `namespace` fältet med namnet på ditt projekt.
+   * Ersätt platshållaren `<Your prediction key>` för nyckelvärdet som du hämtade tidigare.
+   * Ersätt platshållaren `<Your prediction URL>` med URL-Adressen som du hämtade tidigare.
 
-När du kör programmet, anger du sökvägen till en bildfil i konsolen. Avbildningen skickas förutsägelse-API: et och resultatet returneras som JSON-dokument. Följande JSON är ett exempel på svaret.
+## <a name="run-the-application"></a>Köra programmet
+
+När du kör programmet, uppmanas du att ange en sökväg till en bildfil i konsolen. Avbildningen skickas sedan förutsägelse-API: et och resultatet returneras som en JSON-formaterad sträng. Följande är ett exempel på ett svar.
 
 ```json
 {
@@ -139,14 +134,10 @@ När du kör programmet, anger du sökvägen till en bildfil i konsolen. Avbildn
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Exportera modellen för mobilanvändning](export-your-model.md)
+I den här handboken beskrivs hur du skickar bilder till din egen bild klassificerare/detektor och få ett svar via programmering med den C# SDK. Därefter lär dig hur du färdigställa scenarion för slutpunkt till slutpunkt med C#, eller komma igång med ett annat språk SDK.
 
-[Kom igång med .NET SDK: er](csharp-tutorial.md)
-
-[Kom igång med Python SDK: er](python-tutorial.md)
-
-[Kom igång med Java SDK: er](java-tutorial.md)
-
-[Kom igång med Node SDK: er](node-tutorial.md)
-
-[Kom igång med Go-SDK: er](go-tutorial.md)
+* [Quickstart: .NET SDK](csharp-tutorial.md)
+* [Snabbstart: Python SDK](python-tutorial.md)
+* [Snabbstart: Java SDK](java-tutorial.md)
+* [Snabbstart: SDK för Node](node-tutorial.md)
+* [Snabbstart: Go SDK](go-tutorial.md)

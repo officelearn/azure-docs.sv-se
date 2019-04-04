@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: bcfb50a2d7d5221abaa15a5b286163cf63b7a875
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 0c1c466149b4992d99e18cfb1fd5d8416834df35
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904533"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka Azure Application Gateway problem med Sessionstillhörighet
 
 Lär dig att diagnostisera och lösa problem med sessionstillhörighet med Azure Application Gateway.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -50,7 +53,7 @@ De problem med sessionstillhörighet kan ibland uppstå när du glömmer att akt
 
 Du kan också kontrollera värdet för den ”**CookieBasedAffinity**” är inställt på *aktiverad*under ”**backendHttpSettingsCollection**” med någon av följande metoder:
 
-- Kör [Get-AzureRmApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationgatewaybackendhttpsettings) i PowerShell
+- Kör [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) i PowerShell
 - Titta igenom JSON-fil med hjälp av Azure Resource Manager-mall
 
 ```

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976570"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904720"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure 
 
@@ -36,13 +36,13 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
     - **Senaste**: Det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter redundans har alla data som replikeras till Site Recovery när redundansen utlöstes.
     - **Senaste multi-VM bearbetas**: Det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer med inställningen aktiverad växlar över till den senaste vanliga Konsekvens programkonsekvent återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.  
     - **Senaste multi-VM appkonsekvent**: Det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga Konsekvens programkonsekventa återställningspunkten. Andra virtuella datorer som växlar över till sina senaste programkonsekventa återställningspunkten.
-    - **Anpassad**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en specifik återställningspunkt.
+    - **Anpassat**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en specifik återställningspunkt.
 3. Välj Azure-nätverk där test virtuella datorer kommer att skapas.
 
     - Site Recovery försöker skapa testa virtuella datorer i ett undernät med samma namn och samma IP-adress som anges i den **beräkning och nätverk** inställningarna för den virtuella datorn.
     - Om ett undernät med samma namn inte är tillgängligt i Azure-nätverk som används för att testa redundans, sedan testet VM skapas i det första undernätet i alfabetisk ordning.
     - Om samma IP-adress inte är tillgänglig i undernätet, får den virtuella datorn en annan tillgänglig IP-adress i undernätet. [Läs mer](#create-a-network-for-test-failover).
-4. Om du växlar över till Azure och datakryptering är aktiverat i **krypteringsnyckeln**, Välj det certifikat som utfärdades när du har aktiverat kryptering under providerinstallationen. Du kan ignorera det här steget Ingen kryptering har aktiverats.
+4. Om du växlar över till Azure och datakryptering är aktiverat i **krypteringsnyckeln**, Välj det certifikat som utfärdades när du har aktiverat kryptering under providerinstallationen. Du kan ignorera det här steget om ingen kryptering har aktiverats.
 5. Följa redundansförloppet på den **jobb** fliken. Du bör kunna se replikdator för testning i Azure-portalen.
 6. Om du vill initiera en RDP-anslutning till den virtuella Azure-datorn, måste du [lägga till en offentlig IP-adress](https://aka.ms/addpublicip) för gränssnitt på den redundansväxlade virtuella datorn.
 7. När allt fungerar som förväntat, klickar du på **Rensa redundanstestning**. Detta tar bort de virtuella datorerna som skapades under redundanstestningen.
@@ -68,7 +68,7 @@ I följande scenarier kräver ett extra steg som vanligtvis tar cirka 8 till 10 
 * Hyper-V-dator som skyddas som fysiska servrar
 * VMware VM där följande drivrutiner inte startdrivrutiner:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * Intelide
     * ATAPI

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339643"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894926"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -36,10 +36,10 @@ Du kan aktivera eller inaktivera följande typer av loggar:
 
 * **Detaljerad felloggning** -detaljerad information för varje begäran som resulterar i HTTP-statuskod 400 eller större. Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden. En HTML-fil skapas för varje fel i appens filsystemet och upp till 50 fel (filer) bevaras. När antalet HTML-filer överskrider 50 är tas de äldsta 26 filerna bort automatiskt.
 * **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill förbättra webbplatsernas prestanda eller isolera ett specifikt HTTP-fel. En mapp skapas för varje fel i appens filsystem. Principer för kvarhållning av filer är samma som detaljerad felloggning ovan.
-* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
+* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](/windows/desktop/Http/w3c-logging). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
 
 ### <a name="application-diagnostics"></a>Programdiagnostik
-Programdiagnostik kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) klassen för att logga information till programloggen för diagnostik. Exempel:
+Programdiagnostik kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) klassen för att logga information till programloggen för diagnostik. Exempel:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -57,11 +57,11 @@ När du aktiverar **programdiagnostik**, du också välja den **nivå**. I följ
 
 | Nivå| Inkluderade loggkategorier |
 |-|-|
-|**Inaktiverad** | Ingen |
+|**Disabled** | Ingen |
 |**Fel** | Fel, kritiska |
 |**Varning** | Varning, kritiskt fel|
 |**Information** | Info, varning, kritiskt fel|
-|**utförlig** | Spårning, Avbugga, Info, varning, fel, kritiskt (alla kategorier) |
+|**Utförlig** | Spårning, Avbugga, Info, varning, fel, kritiskt (alla kategorier) |
 |-|-|
 
 För **programloggning**, du kan aktivera system filalternativet tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob för att välja en blobbehållare loggfiler ska skrivas i.
@@ -101,7 +101,7 @@ Katalogstrukturen som loggar lagras i är följande:
 * **Programloggar** -/LogFiles/program /. Den här mappen innehåller en eller flera textfiler som innehåller information som genereras av programloggning.
 * **Det gick inte begäran spårningar** -/ LogFiles/W3SVC ### /. Den här mappen innehåller en XSL-fil och en eller flera XML-filer. Se till att du hämtar XSL-fil i samma katalog som XML-filer eftersom XSL-filen innehåller funktioner för att formatera och filtrera innehållet i XML-filen när den visas i Internet Explorer.
 * **Detaljerade felloggar** -/LogFiles/DetailedErrors /. Den här mappen innehåller en eller flera .htm-filer som innehåller omfattande information för alla HTTP-fel som har inträffat.
-* **Web Server-loggar** -/LogFiles/http/RawLogs. Den här mappen innehåller en eller flera textfiler formaterade med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server-loggar** -/LogFiles/http/RawLogs. Den här mappen innehåller en eller flera textfiler formaterade med hjälp av den [W3C utökat loggfilsformat](/windows/desktop/Http/w3c-logging).
 * **Distributionsloggar** -/ LogFiles/Git. Den här mappen innehåller loggar som genereras av de interna distributionsprocesser som används av Azure App Service samt loggar för Git-distributioner. Du kan också hitta distributionsloggar under D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -222,7 +222,7 @@ Spårning av misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml
 Detaljerade felloggar är HTML-dokument som innehåller mer detaljerad information om HTTP-fel som har inträffat. Eftersom de är helt enkelt HTML-dokument, kan de granskas med en webbläsare.
 
 ### <a name="web-server-logs"></a>Webbserverloggar
-Webbserverloggarna är formaterade med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Den här informationen kan läsas med hjälp av en textredigerare eller parsas med verktyg som [Loggparser](https://go.microsoft.com/fwlink/?LinkId=246619).
+Webbserverloggarna är formaterade med hjälp av den [W3C utökat loggfilsformat](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med hjälp av en textredigerare eller parsas med verktyg som [Loggparser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Loggar som producerats av Azure App Service stöder inte den **s-computername**, **s-ip**, eller **cs-version** fält.

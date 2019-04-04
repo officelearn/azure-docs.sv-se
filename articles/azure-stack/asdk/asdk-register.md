@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4dc4c9d4d936bbcf626884c5c90e16f640f268a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078184"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487778"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering krävs så att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -32,7 +32,7 @@ Innan du använder dessa instruktioner för att registrera ASDK med Azure, se ti
 
 Dessutom språkläge PowerShell måste anges till **FullLanguageMode** på den dator som används för att registrera ASDK med Azure. För att verifiera att det aktuella språkläget har angetts till full, öppna en upphöjd PowerShell-fönster och kör följande PowerShell-kommandon:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -50,7 +50,7 @@ Följ dessa steg för att registrera ASDK med Azure.
 
 2. Kör följande PowerShell-kommandon för att registrera din ASDK-installation med Azure. Du behöver att logga in på både Azure fakturering prenumerations-ID och den lokala ASDK-installationen. Om du inte har en Azure-fakturering prenumerations-ID än kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.<br><br>Ange ett unikt namn för registrering när du kör den **Set-AzsRegistration** cmdlet. Den **RegistrationName** parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet.
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -89,7 +89,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Hämta en registrering åtkomsttoken från Azure Stack-miljön
 Starta PowerShell som administratör på värddatorn ASDK och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Använd följande PowerShell-kommandon för att importera den **RegisterWithAzure.psm1** modulen och använder sedan den **Get-AzsRegistrationToken** cmdlet för att hämta registreringstoken:  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -110,7 +110,7 @@ Spara den här registreringstoken för användning på den Internetanslutna dato
 ### <a name="connect-to-azure-and-register"></a>Ansluta till Azure och registrera
 På internet ansluta datorn använder följande PowerShell-kommandon för att importera den **RegisterWithAzure.psm1** modulen och använder sedan den **registrera AzsEnvironment** cmdlet för att registrera med Azure med hjälp av registreringstoken som du just har skapat och ett unika registrerings-namn:  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -134,7 +134,7 @@ På internet ansluta datorn använder följande PowerShell-kommandon för att im
 
 Du kan också använda den **Get-innehåll** cmdlet för att peka på en fil som innehåller din registreringstoken:
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"

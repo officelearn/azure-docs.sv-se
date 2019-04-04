@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 4ecf8b0808b1eea3af8997caecfdd942f1ff7418
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: d85f8f1ca4617a1bedb783b5f13e5b28c433403d
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793692"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904550"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 
 Den här artikeln berättar om hur du använder Azure VM Backup för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och hemlighet inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (Nyckelkrypteringsnyckel) och en hemlighet (BitLocker-krypteringsnyckel) för den återställda virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Se artikeln [hantera säkerhetskopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) mer information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
 * **Konfigurera Azure Key Vault** – se till att det nyckelvalv som nycklar och hemligheter måste återställas finns redan. Se artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) mer information om hantering av nyckelvalv.
@@ -33,8 +33,6 @@ Den här artikeln berättar om hur du använder Azure VM Backup för att utföra
 > När disken har återställts för den krypterade virtuella datorn, kan du se till att:
 > * $details fylls med återställning för jobbet diskinformation som vi nämnde i [PowerShell steg i Restore-avsnittet diskar](backup-azure-vms-automation.md#restore-an-azure-vm)
 > * Virtuell dator bör skapas från återställda diskar **när nyckel och hemlighet har återställts till nyckelvalvet**.
->
->
 
 Fråga återställda disken egenskaperna för Jobbinformationen.
 
@@ -134,7 +132,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 > [!NOTE]
 > * Värdet för $secretname kan hämtas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemlighet URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
-> * Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

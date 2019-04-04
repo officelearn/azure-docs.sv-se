@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651251"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906114"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure PowerShell
 
@@ -33,9 +33,9 @@ Den här artikeln visar hur du hanterar DNS-poster för din DNS-zon med hjälp a
 
 Exemplen i den här artikeln förutsätter att du redan har [installerat Azure PowerShell, loggat in och skapat en DNS-zon](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Introduktion
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Introduktion
 
 Innan du skapar DNS-poster i Azure DNS, måste du först förstå hur Azure DNS organiserar DNS-poster i DNS-postuppsättningar.
 
@@ -398,4 +398,4 @@ Läs mer om [zoner och poster i Azure DNS](dns-zones-records.md).
 <br>
 Lär dig hur du [skydda zoner och poster](dns-protect-zones-recordsets.md) när du använder Azure DNS.
 <br>
-Granska den [referensdokumentation för Azure DNS PowerShell](/powershell/module/azurerm.dns).
+Granska den [referensdokumentation för Azure DNS PowerShell](/powershell/module/az.dns).

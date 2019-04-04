@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 54eb2ff43a5f36999294b8d0c580bc425ab65b28
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983380"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629076"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Vad är Azure Stack Development Kit?
 [Integrerade Microsoft Azure Stack-system](../azure-stack-poc.md) i intervallet från 4 – 16 noder och gemensamt stöds av en partner för maskinvara och Microsoft. Du kan använda integrerade Azure Stack-systemen för att aktivera nya scenarier för produktionsarbetsbelastningar. Om du är en Azure Stack-operatör som hanterar den integrerade system-infrastrukturen och erbjuder tjänster, se vår [operatorn dokumentation](https://docs.microsoft.com/azure/azure-stack).
@@ -49,7 +49,7 @@ Nod ASDK distributioner skiljer sig från flera noder Azure Stack-distributioner
 |Beskrivning|ASDK|Flera noder Azure Stack|
 |-----|-----|-----|
 |**Skalning**|Alla komponenter är installerade på en nod serverdator.|Kan variera i storlek från 4 – 16 noder.|
-|**Återhämtning**|Konfiguration av en nod ge inte hög tillgänglighet|[Hög tillgänglighet](../azure-stack-key-features.md#high-availability-for-azure-stack) funktioner som stöds.|
+|**Återhämtning**|Konfiguration av en nod ge inte hög tillgänglighet|[Hög tillgänglighet](../azure-stack-overview.md#providing-high-availability) funktioner som stöds.|
 |**Nätverk**|ASDK värden dirigerar alla ASDK nätverkstrafik. Det finns inga krav på ytterligare växel.|Mer komplexa [network routningsinfrastruktur](../azure-stack-network.md#network-infrastructure) i flernodiga distributioner krävs inklusive Top-Of-Rack (TOR), Hanteringsstyrenheten för baskort (BMC) och kantlinje (datacenternätverk) växlar.|
 |**Patch- och uppdateringsprocessen**|Om du vill flytta till en ny version av ASDK, måste du distribuera om ASDK på värddatorn för development kit.|[Korrigera och uppdatera](../azure-stack-updates.md) process som används för att uppdatera den installerade versionen av Azure Stack.|
 |**Support**|MSDN Azure Stack-forum. Microsofts kundservice och Support (CSS) support är *inte* tillgänglig för icke-produktionsmiljöer.|[MSDN Azure Stack-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) och stöd för fullständig CSS.|

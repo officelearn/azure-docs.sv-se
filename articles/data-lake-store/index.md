@@ -1,16 +1,22 @@
 ---
-title: 'Dokumentation om Azure Data Lake Storage Gen1 – självstudier, API-referens | Microsoft Docs'
-description: 'Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter.'
+title: Dokumentation om Azure Data Lake Storage Gen1 – självstudier, API-referens | Microsoft Docs
+description: Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904669"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Dokumentation om Azure Data Lake Storage Gen1
 
@@ -175,7 +181,7 @@ Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake
                 <div class="card">
                     <div class="cardText">
                         <h3>Kommandorad</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure CLI</a></p>
                     </div>
                 </div>
@@ -188,7 +194,7 @@ Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/overview/azure/data-lake-store">NET</a></p>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (kontohantering)</a></p>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453175"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903802"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory
 Du kan kryptera och lagra autentiseringsuppgifter för dina lokala datalager (länkade tjänster med känslig information) på en dator med lokal integration runtime. 
@@ -51,7 +51,7 @@ Ersätt `<servername>`, `<databasename>`, `<username>`, och `<password>` med vä
 ```
 
 ## <a name="encrypt-credentials"></a>Kryptera autentiseringsuppgifter
-För att kryptera känsliga data från JSON-nyttolasten på en lokal lokal integration runtime kan köra **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, och skicka vidare JSON-nyttolast. Denna cmdlet säkerställer att autentiseringsuppgifterna krypteras med hjälp av DPAPI och lagras på lokal integration runtime-noden lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter.
+För att kryptera känsliga data från JSON-nyttolasten på en lokal lokal integration runtime kan köra **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, och skicka vidare JSON-nyttolast. Denna cmdlet säkerställer att autentiseringsuppgifterna krypteras med hjälp av DPAPI och lagras på lokal integration runtime-noden lokalt. Nyttolasten i utdata som innehåller krypterade referensen till autentiseringsuppgifter kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”).
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

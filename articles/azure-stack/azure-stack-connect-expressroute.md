@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339609"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486707"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -232,7 +232,7 @@ Routern är en Windows Server-dator (AzS-BGPNAT01) som kör rollen Routing och R
 1. Logga in på Azure Stack-värddatorn med ditt administratörskonto.
 1. Kopiera och redigera följande PowerShell-skript. Ersätt `your administrator password` med administratörslösenordet och kör skriptet i en upphöjd PowerShell ISE. Det här skriptet returnerar din **externa BGPNAT adress**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ Routern är en Windows Server-dator (AzS-BGPNAT01) som kör rollen Routing och R
 
    Kör följande skript från en upphöjd PowerShell ISE:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Utför följande ping-test:
 
 Som standard tillåter Windows Server 2016 inte inkommande ICMP-paket genom brandväggen. Du måste tillåta inkommande ICMP-paket för varje virtuell dator som du använder för Pingtest. Om du vill skapa en brandväggsregel för ICMP, kör du följande cmdlet i en upphöjd PowerShell-fönster:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

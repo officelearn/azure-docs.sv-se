@@ -4,21 +4,21 @@ items:
 - name: Översikt
   items:
   - name: Vad är Azure Stack?
-    href: azure-stack-poc.md
-  - name: Huvudfunktioner och koncept
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Jämföra Azure-ekosystemet
+    href: compare-azure-azure-stack.md
   - name: Viktig information
     items:
     - name: Senaste uppdateringarna
       href: azure-stack-servicing-policy.md
+    - name: 1903 update
+      href: azure-stack-update-1903.md
     - name: 1902-uppdatering
       href: azure-stack-update-1902.md
     - name: 1901 update
       href: azure-stack-update-1901.md
     - name: 1811 update
       href: azure-stack-update-1811.md
-    - name: 1809 update
-      href: azure-stack-update-1809.md
 - name: Snabbstarter
   items:
   - name: Använda portalen för enhetsadministration
@@ -115,12 +115,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: Granskning av enhet
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Grundläggande om administration
-    href: azure-stack-manage-basics.md
 - name: Instruktionsguider
   items:
   - name: Hantera Azure Stack
     items:
+    - name: Grundläggande om administration
+      href: azure-stack-manage-basics.md
     - name: Konfigurera insamling av enhetstelemetri
       href: azure-stack-telemetry.md
     - name: Registrera Azure Stack
@@ -233,6 +233,8 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Erbjud ett Kubernetes-kluster
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Skapa en plats-till-plats VPN-anslutning
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Erbjuda tjänster
     href: azure-stack-offer-services-overview.md
   - name: Erbjudande om SQL som PaaS
@@ -403,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Utbildning och certifiering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a0c5682428d740bd109411333f13849c0e74d88e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906318"

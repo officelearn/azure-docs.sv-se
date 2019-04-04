@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170402"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918560"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
@@ -89,7 +89,8 @@ Det här alternativet är endast tillgänglig för **Azure CDN Premium från Ver
    ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Exempel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -137,7 +138,7 @@ Eftersom SAS-parametrar inte är synliga för Azure CDN kan kan inte Azure CDN �
 | --- | --- |
 | Start | Den tid som Azure CDN kan börja komma åt blob-fil. På grund av klockan förskjuta (när en signal klockan anländer vid olika tidpunkter för olika komponenter), Välj en tid 15 minuter tidigare om du vill att tillgången ska vara tillgängliga omedelbart. |
 | Slut | Den tid då Azure CDN inte längre har åtkomst till blobbfilen. Tidigare är cachelagrade filer på Azure CDN fortfarande tillgängliga. För att styra förfallotiden fil, ange rätt förfallotiden för Azure CDN-säkerhetstoken eller rensa tillgången. |
-| Tillåtna IP-adresser | Valfri. Om du använder **Azure CDN från Verizon**, du kan ställa in den här parametern till de intervall som har definierats i [Azure CDN från Verizon Edge Server IP-intervall](https://msdn.microsoft.com/library/mt757330.aspx). Om du använder **Azure CDN från Akamai**, du kan inte ange parametern IP-adressintervall eftersom de inte statisk IP-adresser.|
+| Tillåtna IP-adresser | Valfri. Om du använder **Azure CDN från Verizon**, du kan ställa in den här parametern till de intervall som har definierats i [Azure CDN från Verizon Edge Server IP-intervall](/azure/cdn/cdn-pop-list-api). Om du använder **Azure CDN från Akamai**, du kan inte ange parametern IP-adressintervall eftersom de inte statisk IP-adresser.|
 | Tillåtna protokoll | De protokoll som tillåts för en förfrågan gjord med kontot med delad Åtkomstsignatur. HTTPS-inställningen rekommenderas.|
 
 ## <a name="next-steps"></a>Nästa steg

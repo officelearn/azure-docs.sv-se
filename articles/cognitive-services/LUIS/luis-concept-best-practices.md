@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984211"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895823"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -122,12 +122,12 @@ Mer information:
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Utnyttja funktionen Föreslå för aktiv inlärning
 
-Använd [aktiv inlärning](luis-how-to-review-endoint-utt.md)'s **granska endpoint yttranden** regelbundet, i stället för att lägga till fler exempel yttranden avsikter. Eftersom appen ständigt tar emot endpoint yttranden, den här listan växer och ändra.
+Använd [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)'s **granska endpoint yttranden** regelbundet, i stället för att lägga till fler exempel yttranden avsikter. Eftersom appen ständigt tar emot endpoint yttranden, den här listan växer och ändra.
 
 Mer information:
 * Begrepp: [Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden](luis-concept-review-endpoint-utterances.md)
 * Självstudier: [Självstudier: Åtgärda osäker förutsägelser genom att granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md)
-* Så här gör du: [Granska endpoint yttranden LUIS-portalen](luis-how-to-review-endoint-utt.md)
+* Så här gör du: [Granska endpoint yttranden LUIS-portalen](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Att övervaka prestanda för din app
 

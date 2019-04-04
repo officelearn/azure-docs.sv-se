@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081516"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484856"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -78,7 +78,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
 
     - Öppna PowerShell med en upphöjd kommandotolk. Kör följande skript med parametrar uppdateras till dina värden:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
 
 2.  Anteckna den nya certifikat-ID som visas i din PowerShell-session `1C2ED76081405F14747DC3B5F76BB1D83227D824`. ID: T används när du skapar tjänstens huvudnamn.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -126,7 +126,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
 
     - Kör följande skript med parametrar uppdateras till dina värden:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ Ta bort Kubernetes-objekt:
 
 2. Hitta det aktuella objektet i Kubernetes-kluster i galleriet.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ Ta bort Kubernetes-objekt:
 
 4. Använd följande PowerShell-cmdlet för att ta bort objekt:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38454472"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916622"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "38454472"
 > 
 > 
 
-Du kan använda den [Azure CDN-biblioteket för .NET](https://msdn.microsoft.com/library/mt657769.aspx) att automatisera skapandet och hanteringen av CDN-profiler och slutpunkter.  Den här självstudiekursen beskriver skapandet av en enkel .NET-konsolprogram som visar flera av de tillgängliga åtgärderna.  Den här självstudien är inte avsedd att beskriva alla aspekter av Azure CDN-biblioteket för .NET i detalj.
+Du kan använda den [Azure CDN-biblioteket för .NET](/dotnet/api/overview/azure/cdn) att automatisera skapandet och hanteringen av CDN-profiler och slutpunkter.  Den här självstudiekursen beskriver skapandet av en enkel .NET-konsolprogram som visar flera av de tillgängliga åtgärderna.  Den här självstudien är inte avsedd att beskriva alla aspekter av Azure CDN-biblioteket för .NET i detalj.
 
 Du behöver Visual Studio 2015 att slutföra den här självstudien.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) är tillgängligt för hämtning.
 
@@ -155,7 +155,7 @@ Nu ska vi hämta grundstrukturen för vårt program som skrivits.
 
 Nu när grundstrukturen för vårt program skrivs vi ska skapa de metoder som anropas av den `Main` metoden.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 Innan vi kan använda Azure CDN Management-biblioteket, måste vi att autentisera vår tjänstens huvudnamn och få en autentiseringstoken.  Den här metoden använder ADAL för att hämta token.
 
 ```csharp
@@ -338,7 +338,7 @@ Vi kan sedan bekräfta anvisningarna för att köra resten av programmet.
 ## <a name="next-steps"></a>Nästa steg
 Se de slutförda projektet från den här genomgången [hämta exemplet](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-Mer dokumentation om Azure CDN Management-biblioteket för .NET visar den [reference på MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+Mer dokumentation om Azure CDN Management-biblioteket för .NET visar den [reference på MSDN](/dotnet/api/overview/azure/cdn).
 
 Hantera dina CDN-resurser med [PowerShell](cdn-manage-powershell.md).
 

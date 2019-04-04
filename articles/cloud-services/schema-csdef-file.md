@@ -13,15 +13,15 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533008"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918509"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services Definition Schema (.csdef File)
-Tjänstdefinitionsfilen definierar tjänstmodellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en molntjänst, anger Tjänsteslutpunkter och upprättar konfigurationsinställningarna för tjänsten. Konfigurationsvärden för inställningen är inställda i tjänstkonfigurationsfilen, enligt beskrivningen av den [molntjänst (klassisk) konfigurationsschema](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
+Tjänstdefinitionsfilen definierar tjänstmodellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en molntjänst, anger Tjänsteslutpunkter och upprättar konfigurationsinställningarna för tjänsten. Konfigurationsvärden för inställningen är inställda i tjänstkonfigurationsfilen, enligt beskrivningen av den [molntjänst (klassisk) konfigurationsschema](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
 Som standard installeras Azure Diagnostics schema konfigurationsfilen till den `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Ersätt `<version>` med den installerade versionen av den [Azure SDK](https://www.windowsazure.com/develop/downloads/).
 

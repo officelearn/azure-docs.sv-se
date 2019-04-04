@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868573"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893018"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: Automatisera containeravbildningar i molnet när du checkar in källkod
 
@@ -33,7 +33,7 @@ Självstudien förutsätter att du redan har slutfört stegen i den [föregåend
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="get-sample-code"></a>Hämta exempelkod
 
@@ -52,7 +52,7 @@ ACR Tasks stöder för närvarande följande utlösare:
 * Checka in på en Git-lagringsplats
 * Basavbildningsuppdatering
 
-I den här självstudien skapar och skickar din ACR-uppgift en enskild containeravbildning som anges i en Dockerfile. ACR-uppgifter kan även köra [uppgifter i flera steg](container-registry-tasks-multi-step.md) (för närvarande i förhandsversion) med hjälp av en YAML-fil för att definiera steg för att skapa, skicka och om så önskas testa flera containrar.
+I den här självstudien skapar och skickar din ACR-uppgift en enskild containeravbildning som anges i en Dockerfile. ACR-aktiviteter kan också köra [flerstegstest uppgifter](container-registry-tasks-multi-step.md), med en YAML-fil för att definiera stegen för att skapa, skicka och du kan också testa flera behållare.
 
 ## <a name="create-a-build-task"></a>Skapa en versionsuppgift
 
@@ -319,7 +319,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 I självstudien har du lärt dig att använda en uppgift för att utlösa containeravbildningsversioner i Azure automatiskt när du checkar in källkod på en Git-lagringsplats. Gå vidare till nästa självstudie för att lära dig att skapa uppgifter som utlöser versioner när en containeravbildnings basavbildning uppdateras.
 
 > [!div class="nextstepaction"]
-> [Automatisera versioner i basavbildningsuppdateringar](container-registry-tutorial-base-image-update.md)
+> [Automatisera bygger på grundläggande uppdateringar](container-registry-tutorial-base-image-update.md)
 
 <!-- LINKS - External -->
 [sample-repo]: https://github.com/Azure-Samples/acr-build-helloworld-node

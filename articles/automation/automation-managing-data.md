@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817464"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916843"
 ---
 # <a name="managing-azure-automation-data"></a>Hantera Azure Automation-data
 Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.
@@ -45,17 +45,17 @@ Men om du vill behålla data under en längre tidsperiod kan du skicka vidare ru
 När du tar bort ett automation-konto i Microsoft Azure kan tas alla objekt i kontot bort, inklusive runbooks, moduler, konfigurationer, inställningar, jobb och tillgångar. Objekten kan inte återställas när kontot har tagits bort.  Du kan använda följande information för att säkerhetskopiera innehållet i ditt automation-konto innan de tas bort. 
 
 ### <a name="runbooks"></a>Runbooks
-Du kan exportera runbooks till skriptfiler med Azure portal eller [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet i Windows PowerShell.  Dessa filer kan importeras till ett annat automation-konto som beskrivs i [skapa eller importera en Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Du kan exportera runbooks till skriptfiler med Azure portal eller [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet i Windows PowerShell.  Dessa filer kan importeras till ett annat automation-konto som beskrivs i [skapa eller importera en Runbook](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### <a name="integration-modules"></a>Integreringsmoduler
 Du kan inte exportera integreringsmoduler från Azure Automation.  Du måste se till att de är tillgängliga utanför automation-kontot.
 
 ### <a name="assets"></a>Tillgångar
-Du kan inte exportera [tillgångar](https://msdn.microsoft.com/library/dn939988.aspx) från Azure Automation.  Med Azure-portalen, måste du Observera information om variabler, autentiseringsuppgifter, certifikat, anslutningar och scheman.  Därefter måste du manuellt skapa tillgångar som används av runbooks som importeras till en annan automation.
+Du kan inte exportera [tillgångar](/previous-versions/azure/dn939988(v=azure.100)) från Azure Automation.  Med Azure-portalen, måste du Observera information om variabler, autentiseringsuppgifter, certifikat, anslutningar och scheman.  Därefter måste du manuellt skapa tillgångar som används av runbooks som importeras till en annan automation.
 
 Du kan använda [Azure-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) att hämta information om okrypterade tillgångar och antingen spara dem för framtida bruk eller skapa motsvarande tillgångar i en annan automation-konto.
 
-Du kan inte hämta värdet för krypterade variabler eller lösenordsfältet av autentiseringsuppgifter med hjälp av cmdlet: ar.  Om du inte vet dessa värden, så du kan hämta dem från en runbook med hjälp av den [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) och [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) aktiviteter.
+Du kan inte hämta värdet för krypterade variabler eller lösenordsfältet av autentiseringsuppgifter med hjälp av cmdlet: ar.  Om du inte vet dessa värden, så du kan hämta dem från en runbook med hjälp av den [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) och [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) aktiviteter.
 
 Du kan inte exportera certifikat från Azure Automation.  Du måste se till att alla certifikat är tillgängliga utanför Azure.
 

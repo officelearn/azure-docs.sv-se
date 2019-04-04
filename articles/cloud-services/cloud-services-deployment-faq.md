@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078829"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916265"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
@@ -70,7 +70,7 @@ Eftersom Cloud-Service är en klassisk resurs som inte är direkt kompatibla med
  
 - Distribuera via REST-API.
 
-    När du distribuerar via Service Management REST API, kan du komma runt begränsningen genom att ange en SAS-URL till blob-lagring, som fungerar med både klassiska och Resource Manager-lagring för Azure-konto. Läs mer om egenskapen 'PackageUrl' [här](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    När du distribuerar via Service Management REST API, kan du komma runt begränsningen genom att ange en SAS-URL till blob-lagring, som fungerar med både klassiska och Resource Manager-lagring för Azure-konto. Läs mer om egenskapen 'PackageUrl' [här](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Distribuera via [Azure-portalen](https://portal.azure.com).
 

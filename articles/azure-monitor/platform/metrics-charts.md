@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848856"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916350"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -76,11 +76,33 @@ Du kan använda filter på diagram som visar mått med dimensioner. Till exempel
 
 5. Du kan upprepa steg 1 – 4 använda flera filter i samma diagram.
 
+## <a name="multiple-metrics-and-charts"></a>Flera mått och diagram
+
+Du kan också skapa diagram som beskriver flera mått eller visa flera diagram med mätvärden på samma gång. Den här funktionen kan du:
+
+- korrelera relaterade mått på samma diagram för att se hur ett värde som är relaterad till en annan
+- Visa mått med olika enheter i närheten
+- visuellt sammanställa och jämföra mått från flera resurser
+
+Om du har 5 storage-konton och du vill veta hur mycket diskutrymme som används mellan dem, kan du skapa en (staplat) ytdiagram som visar person och summan av alla värden vid specifika tidpunkter i tid.
+
+### <a name="multiple-metrics-on-a-chart"></a>Flera mått i ett diagram
+
+Först [skapa ett nytt diagram](#create-a-new-chart). Klicka på **Lägg till måttet** och upprepa stegen för att lägga till ett annat mått på samma diagram.
+
+### <a name="multiple-charts"></a>Flera diagram
+
+Klicka på den **Lägg till diagram** och skapa ett annat diagram med ett annat mått.
+
+### <a name="order-or-delete-multiple-charts"></a>Sortera eller ta bort flera diagram
+
+Om du vill sortera eller ta bort flera diagram, klickar du på ellipserna ( **...**  ) symbol att öppna diagram-menyn och väljer lämplig menyalternativet av **Flytta upp**, **Flytta ned**, eller **ta bort**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Tillämpa delar upp till ett diagram
 
-Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått jämför mot varandra och identifiera öar segmenten i en dimension. 
+Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått jämför mot varandra och identifiera öar segmenten i en dimension.
 
-### <a name="to-apply-splitting"></a>Att tillämpa dela
+### <a name="apply-splitting"></a>Tillämpa dela
 
 1. Klicka på **gäller dela** ovanför diagrammet.
  

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660731"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915938"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisera framework uppdatering med ACR uppgifter av operativsystem och
 
@@ -27,7 +27,7 @@ Skapa och testa behållaravbildningar med ACR uppgifter på fyra sätt:
 * [Snabb uppgift](#quick-task): Skapa och skicka container-avbildningar på begäran, i Azure, utan en lokal Docker-motorn-installation. Tror `docker build`, `docker push` i molnet. Skapa från lokala källkoden eller en Git-lagringsplats.
 * [Skapa på källan kodgenomförande](#automatic-build-on-source-code-commit): Utlös en behållare bild version automatiskt när koden strävar efter att en Git-lagringsplats.
 * [Bygg på grundläggande uppdateringar](#automate-os-and-framework-patching): Utlös en behållare bild version när den avbildningen basavbildning har uppdaterats.
-* [Uppgifter i flera steg](#multi-step-tasks-preview) (förhandsversion): Definiera flera steg uppgifter som att skapa avbildningar kör behållare som kommandon och push-överför avbildningar till ett register. Den här funktionen för förhandsgranskning av ACR uppgifter stöder körning av aktiviteten på begäran och parallella bild för att skapa, testa och push-åtgärder.
+* [Uppgifter i flera steg](#multi-step-tasks): Definiera flera steg uppgifter som att skapa avbildningar kör behållare som kommandon och push-överför avbildningar till ett register. Den här funktionen i ACR uppgifter stöder körning av aktiviteten på begäran och parallella bild för att skapa, testa och push-åtgärder.
 
 ## <a name="quick-task"></a>Snabb uppgift
 
@@ -36,6 +36,8 @@ Inre slingan utvecklingscykeln, iterativ process för att skriva kod, skapa och 
 Innan du skickar din första raden i kod, ACR uppgifter [snabb uppgift](container-registry-tutorial-quick-task.md) funktionen kan tillhandahålla en integrerad utvecklingsupplevelse genom att avlasta behållaravbildningen versioner till Azure. Med Snabbuppgifter, kan du kontrollera dina automatiserade byggesdefinitioner och fånga upp potentiella problem innan du checka in din kod.
 
 Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommandot i Azure CLI stöder en *kontext* (uppsättningen filer för att skapa), skickar det ACR uppgifter och som standard skickar den skapade avbildningen till dess registret när åtgärden har slutförts.
+
+En introduktion finns i Snabbstart för att [skapa och köra en behållaravbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
 
 I följande tabell visas några exempel på platser som stöds kontext för ACR uppgifter:
 
@@ -76,9 +78,9 @@ Lär dig mer om framework uppdatering i den tredje självstudien i ACR uppgifter
 > [!NOTE]
 > Basavbildningen uppdaterar utlösaren versioner bara om både bas- och program-avbildningar finns i samma Azure container registry eller basen finns i en offentlig Docker Hub-lagringsplats.
 
-## <a name="multi-step-tasks-preview"></a>Uppgifter i flera steg (förhandsversion)
+## <a name="multi-step-tasks"></a>Uppgifter i flera steg
 
-Flera steg aktiviteter, en funktion för förhandsgranskning i ACR uppgifter innehåller steg-baserade aktivitetsdefinition och körning för att skapa, testa och korrigeringar behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
+Uppgifter i flera steg ger steg baserade aktivitetsdefinition och körning för att skapa, testa och uppdatering behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
 
 Du kan till exempel skapa en uppgift i flera steg som automatiserar följande:
 
@@ -93,15 +95,12 @@ Uppgifter i flera steg kan du dela upp att bygga, köra och testa i en bild i me
 
 Lär dig om uppgifter i flera steg i [köra flera steg skapa, testa och patch uppgifter i ACR uppgifter](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> Flera steg uppgift möjligheterna för ACR uppgifter förhandsvisas just nu. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av den här funktionen kan ändras innan den allmänt tillgängliga (GA)
-
 ## <a name="next-steps"></a>Nästa steg
 
 När du är redo att automatisera OS och framework uppdatering genom att skapa dina behållaravbildningar i molnet, ta en titt självstudieserien i tre delar ACR uppgifter.
 
 > [!div class="nextstepaction"]
-> [Skapa containeravbildningar i molnet med Azure Container Registry-uppgifter](container-registry-tutorial-quick-task.md)
+> [Skapa behållaravbildningar i molnet med Azure Container Registry uppgifter](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

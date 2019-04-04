@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091325"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918373"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Läsa in tillgångar för en Azure CDN-slutpunkt i förväg
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,7 +49,7 @@ Den här självstudien vägleder dig genom förinläsning cachelagrat innehåll 
    > [!TIP]
    > När du har startat textinmatning, mer **innehållssökvägen** textrutor visas så att du kan skapa en lista över flera tillgångar. Om du vill ta bort tillgångar i listan, Välj knappen med tre punkter (...) och välj sedan **ta bort**.
    > 
-   > Varje sökväg till innehåll måste vara en relativ URL som passar följande [reguljära uttryck](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Varje sökväg till innehåll måste vara en relativ URL som passar följande [reguljära uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Läs in en enskild sökväg: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Läs in en enstaka fil med frågesträng: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 

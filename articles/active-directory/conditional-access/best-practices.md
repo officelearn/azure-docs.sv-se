@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517614"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895570"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorsstyrd åtkomst i Azure Active Directory
 
@@ -46,11 +46,11 @@ När du skapar en ny princip, finns det inga användare, grupper, appar eller å
 För att göra principen fungerar, måste du konfigurera:
 
 
-|Vad           | Så här                                  | Varför|
-|:--            | :--                                  | :-- |
-|**Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan styra hur behöriga användare har åtkomst till molnappar.|
+| Vad           | Så här                                  | Varför |
+| :--            | :--                                  | :-- |
+| **Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan styra hur behöriga användare har åtkomst till molnappar.|
 | **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | Principer för villkorlig åtkomst som har inga användare och grupper som har tilldelats, utlöses aldrig. |
-| **Åtkomstkontroller** | Välj minst en åtkomstkontroll. | Om dina villkor uppfylls, måste princip-processor veta vad du gör.|
+| **Åtkomstkontroller** | Välj minst en åtkomstkontroll. | Om dina villkor uppfylls, måste princip-processor veta vad du gör. |
 
 
 
@@ -111,6 +111,13 @@ För varje inloggning, Azure Active Directory utvärderar alla principer och sä
 
 Ja, du kan använda Exchange ActiveSync i en princip för villkorlig åtkomst.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hur ska jag konfigurera villkorlig åtkomst med Office 365-appar?
+
+Eftersom Office 365-appar är sammankopplade, rekommenderar vi att du tilldelar ofta tillsammans appar när du skapar principer.
+
+Vanliga sammankopplade program inkluderar Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online och Office 365 Yammer.
+
+Det är viktigt för principer som kräver att användarinteraktioner, som multifaktorautentisering, när åtkomst styrs i början av en session eller uppgift. Om du inte kan användarna inte att slutföra vissa uppgifter inom en app. Till exempel om du behöver multifaktorautentisering på ohanterade enheter att få åtkomst till SharePoint, men inte till e-post kan användare som arbetar i sin e-post inte att bifoga filer i SharePoint i ett meddelande. Mer information finns i artikeln [vad är tjänstens beroenden i Azure Active Directory villkorlig åtkomst?](service-dependencies.md).
 
 
 

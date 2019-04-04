@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762622"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917484"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
 ## <a name="overview"></a>Översikt
-Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
+Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob-tjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
 
 Under kursen får du lära dig hur du skapar och kör programmet lokalt, hur du distribuerar det till Azure och kör det i molnet, och hur du skapar det från grunden. Du kan börja med att skapa från grunden och sedan göra test- och distributionsstegen efteråt om du föredrar det.
 
@@ -81,7 +81,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 6. Om du använder Visual Studio 2015 eller högre, ska du ändra SQL Server-anslutningssträngen i filen *Web.config* i ContosoAdsWeb-projektet samt i filen *ServiceConfiguration.Local.cscfg* i ContosoAdsCloudService-projektet. I båda fallen ska du ändra ”(localdb)\v11.0” till ”(localdb)\MSSQLLocalDB”.
 7. Tryck på CTRL+F5 för att köra programmet.
 
-    När du kör ett molntjänstprojekt lokalt anropar Visual Studio automatiskt *beräkningsemulatorn* och *lagringsemulatorn* i Azure. Beräkningsemulatorn använder datorns resurser för att simulera webbrolls- och arbetsrollsmiljöerna. Lagringsemulatorn använder en [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)-databas för att simulera Azure-molnlagring.
+    När du kör ett molntjänstprojekt lokalt anropar Visual Studio automatiskt *beräkningsemulatorn* och *lagringsemulatorn* i Azure. Beräkningsemulatorn använder datorns resurser för att simulera webbrolls- och arbetsrollsmiljöerna. Lagringsemulatorn använder en [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb)-databas för att simulera Azure-molnlagring.
 
     Första gången du kör ett molntjänstprojekt tar det ungefär en minut för emulatorerna att starta. När emulatorerna har startats öppnas standardwebbläsaren med programmets startsida.
 
@@ -178,7 +178,7 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
     När molntjänsten och lagringskontot är i olika datacenter (olika regioner), ökar svarstiden och du debiteras för bandbredden utanför datacentret. Bandbredd inom ett datacenter är kostnadsfri.
 
-    Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. Klicka på **Skapa**.
 
     ![Nytt lagringskonto](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Större delen av kontrollantkoden är typisk när du arbetar med en Entity Framework-datamodell med en DbContext-klass. Ett undantag är HttpPost-metoden `Create`, som laddar upp en fil och sparar den i Blob Storage. Modellbindaren tillhandahåller ett [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-objekt till metoden.
+Större delen av kontrollantkoden är typisk när du arbetar med en Entity Framework-datamodell med en DbContext-klass. Ett undantag är HttpPost-metoden `Create`, som laddar upp en fil och sparar den i Blob Storage. Modellbindaren tillhandahåller ett [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase)-objekt till metoden.
 
 ```csharp
 [HttpPost]
@@ -775,7 +775,7 @@ Om du vill se en videointroduktion till bästa metoder och mönster i Azure Stor
 
 Mer information finns i följande resurser:
 
-* [Azure Cloud Services del1: Introduktion](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services del 1: Introduktion](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550130"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918968"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Självstudier: Bearbeta EDIFACT-fakturor med Azure BizTalk Services
 
@@ -55,9 +55,9 @@ För att uppnå det här scenariot för företag, använder Contoso funktioner s
 Om du vill slutföra scenariot måste använder vi Service Bus-köer för att skicka faktura från Contoso till Northwind eller få godkännande från exempeldatabasen. Dessa köer kan skapas med ett klientprogram som är tillgänglig för hämtning och ingår i det exemplet-paket som är tillgängliga som en del av den här självstudien.  
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Du måste ha ett Service Bus-namnområde. Mer information om hur du skapar ett namnområde, finns i [How To: Skapa eller ändra en Service Bus-tjänsten Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Låt oss anta att du redan har ett Service Bus-namnområde som etablerats kallas **edifactbts**.
+* Du måste ha ett Service Bus-namnområde. Mer information om hur du skapar ett namnområde, finns i [How To: Skapa eller ändra en Service Bus-tjänsten Namespace](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Låt oss anta att du redan har ett Service Bus-namnområde som etablerats kallas **edifactbts**.
 * Du måste ha en prenumeration för BizTalk Services. I den här självstudien kan vi anta att du har en BizTalk Services-prenumeration, som kallas **contosowabs**.
-* Registrera din BizTalk Services-prenumeration på BizTalk Services-portalen. Anvisningar finns i [registrerar en BizTalk Service-distribution på BizTalk Services-portalen](https://msdn.microsoft.com/library/hh689837.aspx)
+* Registrera din BizTalk Services-prenumeration på BizTalk Services-portalen. Anvisningar finns i [registrerar en BizTalk Service-distribution på BizTalk Services-portalen](/previous-versions/azure/hh689837(v=azure.100))
 * Du måste ha Visual Studio installerat.
 * Du måste ha BizTalk Services SDK är installerat. Du kan ladda ned SDK: N från [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

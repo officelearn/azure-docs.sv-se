@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/03/2019
+ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661794"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918611"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -37,7 +37,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 > - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program
 > - Automatisk distribution logic skapar en SQL-databasserver förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
 >
-> Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
+> Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 11999. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL Database-servrar som är värd för enkla databaser och elastiska pooler, SQL Data Warehouse-databaser, Azure Database for MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL. För enkelhetens skull används SQL-databas när du refererar till SQL Database, SQL Data Warehouse, Azure Database för MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL.
 
@@ -57,7 +57,7 @@ Följande steg beskriver hur upprättas en anslutning till en Azure SQL database
 
 Azure SQL Database stöder följande tre alternativ för den här inställningen för anslutning av en SQL Database-server:
 
-- **Omdirigering (rekommenderas):** Klienter ansluta direkt till den nod som värd för databasen. Om du vill aktivera anslutningen klienter måste tillåta utgående brandväggsregler till alla Azure-IP-adresser i regionen med Nätverkssäkerhetsgrupper (NSG) med [tjänsttaggar](../virtual-network/security-overview.md#service-tags)) för portar 11000-12000, inte bara Azure SQL Database gateway-IP adresser på port 1433. Eftersom paket går direkt till databasen, har svarstid och dataflöde bättre prestanda.
+- **Omdirigering (rekommenderas):** Klienter ansluta direkt till den nod som värd för databasen. Om du vill aktivera anslutningen klienter måste tillåta utgående brandväggsregler till alla Azure-IP-adresser i regionen med Nätverkssäkerhetsgrupper (NSG) med [tjänsttaggar](../virtual-network/security-overview.md#service-tags)) för portar 11000 till 11999, inte bara Azure SQL Database gateway-IP adresser på port 1433. Eftersom paket går direkt till databasen, har svarstid och dataflöde bättre prestanda.
 - **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database-gatewayer. Om du vill aktivera anslutning, måste klienten ha utgående brandväggsregler som tillåter endast Azure SQL Database-gateway IP-adresser (vanligtvis två IP-adresser per region). Om du väljer det här läget kan resultera i högre svarstider och lägre dataflöde, beroende på typen av arbetsbelastning. Vi rekommenderar starkt att den `Redirect` anslutningsprincip över den `Proxy` anslutningsprincip för lägsta svarstid och högsta dataflöde.
 - **standard:** Detta tillämpas principen på alla servrar när du har skapat, såvida inte du uttryckligen ändrar principen till antingen `Proxy` eller `Redirect`. Principen som beror på om anslutningar kommer från i Azure (`Redirect`) eller utanför Azure (`Proxy`).
 

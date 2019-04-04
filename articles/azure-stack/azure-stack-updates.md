@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894044"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487523"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack – översikt
 
@@ -29,7 +29,7 @@ Microsoft update-paket släpp för Azure Stack-integrerat system vanligtvis runt
 
 Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Du kan importera som en Azure Stack-operator, installation och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
 
-Maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) kommer också att släppa uppdateringar, t.ex drivrutinen och firmware-uppdateringar. Även om de här uppdateringarna levereras som separata paket av maskinvaruleverantören OEM, de importeras, installeras och hanteras på samma sätt uppdateringspaket från Microsoft uppdateringspaket importeras, installeras och hanteras.
+Maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) kommer också att släppa uppdateringar, t.ex drivrutinen och firmware-uppdateringar. Även om de här uppdateringarna levereras som separata paket av OEM-maskinvaruleverantören importeras, installeras och hanteras de på samma sätt som uppdateringspaket från Microsoft.
 
 Du måste hålla Azure Stack uppdateras till en specifik version-nivå för att hålla datorn under support. Se till att du läser igenom den [Azure Stack hanteringsprincip](azure-stack-servicing-policy.md).
 
@@ -48,7 +48,7 @@ Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtg�
 
 - Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 
@@ -71,7 +71,7 @@ Uppdatera panel visar den aktuella versionen av Azure Stack. Du kan få till Upd
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Stack som hanteringsprincip](azure-stack-servicing-policy.md) 
+- [Azure Stack-hanteringsprincip](azure-stack-servicing-policy.md) 
 - [Regionshantering i Azure Stack](azure-stack-region-management.md)     
 
 

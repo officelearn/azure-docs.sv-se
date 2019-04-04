@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010692"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893851"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -69,9 +69,9 @@ SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar sam
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Säkerhetskopiera en Analysis Services-databas.|  
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Ta bort medlem från en databasroll.|   
 |[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Köra ett TMSL-skript.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Bearbeta en databas.|  
+|[Anropa ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Bearbeta en databas.|  
 |[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Bearbeta en partition.| 
-|[Anropa ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Bearbeta en tabell.|  
+|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Bearbeta en tabell.|  
 |[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Koppla en partition.|  
 |[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Återställa en Analysis Services-databas.| 
   
@@ -81,4 +81,4 @@ SqlServer-modulen innehåller uppgiftsspecifika database management-cmdletar sam
 * [Hämta PowerShell-modulen för SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Ladda ned SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer-modulen i PowerShell-galleriet](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabular Model programmeringsspråk för kompatibilitet på 1200 och högre](https://msdn.microsoft.com/library/mt712541.aspx)
+* [Tabular Model programmeringsspråk för kompatibilitet på 1200 och högre](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

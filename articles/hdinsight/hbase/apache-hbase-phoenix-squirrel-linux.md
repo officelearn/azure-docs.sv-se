@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201678"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903310"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight
 Lär dig hur du använder [Apache Phoenix](https://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Apache Phoenix i 15 minuter eller mindre](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html).
@@ -47,7 +47,7 @@ När du ansluter till ett HBase-kluster måste du ansluta till en av de [Apache 
 
 2. Använd följande kommandon för att köra SQLLine i SSH:
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Om du vill skapa en HBase-tabell och infoga vissa data, kör du följande kommandon:
 

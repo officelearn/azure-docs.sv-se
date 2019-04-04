@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ff5aeddbf05011f7c7d105e6c48552bca81580c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770194"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483291"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure Stack
 
@@ -38,7 +38,7 @@ Varje virtuellt nätverk för Azure Stack har stöd för en enda virtuell nätve
 
 När du skapar en virtuell nätverksgateway måste du se till att gateway-typen är rätt för din konfiguration. En VPN-gateway kräver den `-GatewayType Vpn`flaggan; till exempel:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
 -VpnType RouteBased
@@ -72,7 +72,7 @@ Om du använder Azure Stack-portalen för att skapa en virtuell nätverksgateway
 
 Följande PowerShell-exempel anger den **- GatewaySku** som `VpnGw1`:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
 -GatewayType Vpn -VpnType RouteBased
@@ -86,7 +86,7 @@ Varje konfiguration kräver anslutningstypen för gatewayen ett specifikt virtue
 
    I följande PowerShell-exempel skapas en S2S-anslutning som kräver IPsec-anslutningstyp:
 
-   ```PowerShell
+   ```powershell
    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
    -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -110,7 +110,7 @@ Du måste ange en VPN-typ när du skapar den virtuella nätverksgatewayen för e
 
 Följande PowerShell-exempel anger den **- VpnType** som **RouteBased**. När du skapar en gateway, måste du kontrollera att den **- VpnType** är rätt för din konfiguration.
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig
 -GatewayType Vpn -VpnType RouteBased
@@ -140,7 +140,7 @@ Dessutom bör du kontrollera att gateway-undernätet har tillräckligt med IP-ad
 
 I följande Resource Managers PowerShell-exempel visar ett gateway-undernät med namnet **GatewaySubnet**. Du kan se att CIDR-noteringen anger en/27, vilket gör att tillräckligt många IP-adresser för de flesta konfigurationer som finns för närvarande.
 
-```PowerShell
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -155,7 +155,7 @@ Du ger den lokala nätverksgatewayen ett namn, offentliga IP-adress för VPN-enh
 
 I nästa PowerShell-exempel skapas en ny lokal nätverksgateway:
 
-```PowerShell
+```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

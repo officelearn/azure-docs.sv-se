@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077130"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916282"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Felsöka Azure CDN-slutpunkter som returnerar 404-statuskod
 Den här artikeln kan du felsöka problem med Azure Content Delivery Network (CDN)-slutpunkter som returnerar 404 statuskoder för HTTP-svar.
@@ -76,7 +76,7 @@ Kontrollera din **HTTP** och **HTTPS-portar**. I de flesta fall 80 och 443 är k
 Däremot URL: en för den ursprungliga filen som du tidigare har testat är http:\//www.contoso.com:8080/file.txt. Obs den *: 8080* del i slutet av hostname-segment. Att antalet instruerar webbläsaren att använda port 8080 för att ansluta till webbservern i www\.contoso.com, därför måste du ange *8080* i den **HTTP-porten** fält. Det är viktigt att notera att de här portinställningarna påverkar bara vilken port slutpunkten använder för att hämta information från ursprunget.
 
 > [!NOTE]
-> **Azure CDN Standard från Akamai** slutpunkter inte tillåter fullständig TCP-portintervallet för ursprung.  En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **Azure CDN Standard från Akamai** slutpunkter inte tillåter fullständig TCP-portintervallet för ursprung.  En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

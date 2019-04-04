@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620588"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918458"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 
@@ -84,7 +84,7 @@ Azure Automation-webbtjänsten tillhandahåller särskilda funktioner för param
 
 ### <a name="named-values"></a>Namngivna värden
 
-Om parametern är datatypen [objekt], så du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Dessa värden måste vara enkla typer. Runbooken får parametern som ett [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) med egenskaper som motsvarar varje namngivet värde.
+Om parametern är datatypen [objekt], så du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Dessa värden måste vara enkla typer. Runbooken får parametern som ett [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) med egenskaper som motsvarar varje namngivet värde.
 
 Överväg följande test-runbook som accepterar en parameter med namnet användare.
 

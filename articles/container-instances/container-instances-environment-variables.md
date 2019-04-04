@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370006"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904907"
 ---
 # <a name="set-environment-variables"></a>Ange miljövariabler
 
@@ -25,6 +25,8 @@ Exempel: Om du kör Microsofts [aci wordcount] [ aci-wordcount] behållaravbildn
 *MinLength*: Minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
 
 Om du vill skicka hemligheter som miljövariabler kan Azure Container Instances stöder [säkra värden](#secure-values) för både Windows och Linux-behållare.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Exempel på Azure CLI
 
@@ -255,6 +257,6 @@ Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera beh�
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

@@ -105,6 +105,8 @@ items:
         href: service-bus-sas.md
     - name: Ämnesfilter och åtgärder
       href: topic-filters.md
+    - name: Migrera från Standard- till Premium-namnområden
+      href: service-bus-migrate-standard-premium.md
     - name: Partitionerade köer och ämnen
       href: service-bus-partitioning.md
     - name: Meddelandesessioner
@@ -121,6 +123,8 @@ items:
         href: service-bus-amqp-protocol-guide.md
       - name: Åtgärder som är baserade på begäran-svar med AMQP
         href: service-bus-amqp-request-response.md
+      - name: AMQP-fel
+        href: service-bus-amqp-troubleshoot.md
     - name: Avancerade funktioner
       items:
       - name: Använda brandväggar
@@ -234,9 +238,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 09a7759c89411d53b374552a969f7aefdb89ee98
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 464e19bc796e41045d0c8422718da39f2aa66a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848092"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906284"

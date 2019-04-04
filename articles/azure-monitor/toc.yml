@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: Kontinuerlig övervakning
     href: continuous-monitoring.md
-  - name: Analysera loggdata
+  - name: Dataplattform
     items:
-    - name: Loggfrågor
-      href: log-query/log-query-overview.md
-    - name: Loggfrågeportaler
-      href: log-query/portals.md
-  - name: Övervaka data
+    - name: Översikt
+      href: platform/data-platform.md
+    - name: Mått
+      href: platform/data-platform-metrics.md
+    - name: Logs
+      href: platform/data-platform-logs.md
+  - name: Datakällor
     items:
-    - name: Mått och loggar
-      href: platform/data-collection.md
-    - name: Datakällor
+    - name: Sammanfattning av datakällor
       href: platform/data-sources.md
     - name: Azure-datakällor
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: Anpassade mått till måttlager
       href: platform/metrics-custom-overview.md
-    - name: Datasäkerhet
-      items:
-      - name: Loggdata
-        href: platform/data-security.md
-      - name: Hantering av personliga loggdata
-        href: platform/personal-data-mgmt.md
-      - name: Insamling, kvarhållning och lagring av programdata
-        href: app/data-retention-privacy.md
+  - name: Analysera loggdata
+    items:
+    - name: Loggfrågor
+      href: log-query/log-query-overview.md
+    - name: Loggfrågeportaler
+      href: log-query/portals.md
+  - name: Datasäkerhet
+    items:
+    - name: Loggdata
+      href: platform/data-security.md
+    - name: Hantering av personliga loggdata
+      href: platform/personal-data-mgmt.md
+    - name: Insamling, kvarhållning och lagring av programdata
+      href: app/data-retention-privacy.md
   - name: Insikter
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: Aktivitetsloggaviseringar
       href: platform/activity-log-alerts.md
+    - name: Vanligt aviseringsschema
+      href: platform/alerts-common-schema.md
   - name: Visualisera data
     href: visualizations.md
   - name: Partnerintegrering
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Ta bort en arbetsyta
         href: platform/delete-workspace.md
-      - name: Hantera en arbetsyta
-        href: platform/manage-access.md
       - name: Design för tjänstleverantörer
         href: platform/service-providers.md
   - name: Samla in data
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Felsökning av ögonblicksbild
+          href: app/snapshot-debugger.md
       - name: Java-appar
         items:
         - name: Webbappar
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostik- eller loggdata från Azure Storage
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS-resurser
+        href: platform/collect-azurepass-posh.md
       - name: Korrelera anpassade datakällor
         href: app/custom-data-correlation.md
     - name: Samla anpassade data
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Lagra diagnostikloggar
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure-resursdata till Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Strömma aktivitetsloggen till Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Loggar och mått till Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostikloggar till Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Programdata till Log Analytics
@@ -650,9 +660,8 @@ items:
   - name: Visualisera data
     items:
     - name: Vyer
+      href: platform/view-designer.md
       items:
-      - name: Vydesigner
-        href: platform/view-designer.md
       - name: Panelreferens
         href: platform/view-designer-tiles.md
       - name: Referens för visualiseringsdel
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: Lär dig mer om webhook-schemat
           href: platform/activity-log-alerts-webhook.md
+        - name: Vanliga aviseringsschemadefinitioner
+          href: platform/alerts-common-schema-definitions.md
         - name: Beteende för SMS-aviseringar
           href: platform/alerts-sms-behavior.md
         - name: Begränsningar för aviseringsfrekvensen
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: Övervaka
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Logs
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST-API
     items:
     - name: Övervaka
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629422"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886649"

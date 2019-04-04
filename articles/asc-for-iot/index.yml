@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757329"
 documentType: LandingData
 title: Dokumentation om förhandsversionen av Azure Security Center för IoT
 metadata:
-  title: Dokumentation om förhandsversionen av Azure Security Center för IoT – självstudier, snabbstarter | Microsoft Docs
+  title: 'Dokumentation om förhandsversionen av Azure Security Center för IoT – självstudier, snabbstarter | Microsoft Docs'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Använd förhandsversionen av Azure Security Center (ASC) för IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg. 
+  description: "Använd förhandsversionen av Azure Security Center (ASC) för IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg.\_"
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du aktiverar IoT Hub till ASC för IoT, installerar ASC för IoT-agenter och får överblick över dina data och potentiella hot.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: Aktivera ASC för IoT
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: Komma igång med ASC för IoT
-      href: /azure/asc-for-iot/getting-started
-- title: Instruktionsguider
-  items:
-  - type: paragraph
-    text: Lär dig att definiera säkerhetsprinciper, skydda dina enheter mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig hur du aktiverar IoT Hub till ASC för IoT, installerar ASC för IoT-agenter och får överblick över dina data och potentiella hot.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: Aktivera ASC för IoT
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: Komma igång med ASC för IoT
+            href: /azure/asc-for-iot/getting-started
+  - title: Instruktionsguider
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Identifiera hot med ASC för IoT</a>
-- title: Utveckla dina färdigheter med Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Lär dig att definiera säkerhetsprinciper, skydda dina enheter mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Identifiera hot med ASC för IoT</a>
+  - title: Utveckla dina färdigheter med Microsoft Learn
     items:
-    - title: Introduktion till säkerhet i Azure
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Mer interaktiv inlärning...</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introduktion till säkerhet i Azure
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Mer interaktiv inlärning...</a>
+  - title: Referens
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Tjänstuppdateringar</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Tjänstuppdateringar</a>'

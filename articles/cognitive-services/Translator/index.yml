@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731845"
 documentType: LandingData
 title: Dokumentation om Translator Text
 metadata:
-  title: Dokumentation om Translator Text – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: 'Dokumentation om Translator Text – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
   description: Lär dig hur du använder Translator Text för att översätta text på flera språk.
   services: cognitive-services
-  author: Jann-Skotdal
+  author: v-pawal
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
@@ -20,87 +14,87 @@ metadata:
   ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
-  description: Translator Text är en molnbaserad maskinöversättningstjänst som du kan använda för att översätta text nästan i realtid via ett enkelt REST API-anrop. API:et använder modern teknik för neural maskinöversättning och erbjuder teknik för statistisk maskinöversättning. Custom Translator är ett tillägg för Translator Text API:et som du kan bygga neurala översättningssystem med. Det anpassade översättningssystemet kan användas för att översätta text med Translator Text API:et eller <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Listan med språk som stöds, både för neural och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.
+  description: 'Translator Text är en molnbaserad maskinöversättningstjänst som du kan använda för att översätta text nästan i realtid via ett enkelt REST API-anrop. API:et använder modern teknik för neural maskinöversättning och erbjuder teknik för statistisk maskinöversättning. Custom Translator är ett tillägg för Translator Text API:et som du kan bygga neurala översättningssystem med. Det anpassade översättningssystemet kan användas för att översätta text med Translator Text API:et eller <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Listan med språk som stöds, både för neural och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/translator/translator-info-overview
+            html: <p>Mer information om Translator Text API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är Translator Text API?
+          - href: /azure/cognitive-services/translator/custom-translator/overview
+            html: <p>Mer information om Custom Translator</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är Custom Translator?
+          - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+            html: <p>Se hur du snabbt kommer igång med Custom Translator</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Snabbstart för Custom Translator
+  - title: Snabbstarter på 5 minuter
     items:
-    - href: /azure/cognitive-services/translator/translator-info-overview
-      html: <p>Mer information om Translator Text API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Vad är Translator Text API?
-    - href: /azure/cognitive-services/translator/custom-translator/overview
-      html: <p>Mer information om Custom Translator</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Vad är Custom Translator?
-    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-      html: <p>Se hur du snabbt kommer igång med Custom Translator</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Snabbstart för Custom Translator
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Kom igång med Translator Text API:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-      title: C#
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_go.svg
-      title: Go
-    rows:
-    - title: Översätt text från ett språk till ett annat
-      values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
-    - title: Konvertera text från ett skript till ett annat
-      values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: Identifiera språket i texten
-      values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
-    - title: Hämta alternativa översättningar och användning
-      values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig att utveckla program med hjälp av Translator Text API:'
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Skriva ett WPF-program för Translator Text med C#</a>
-- title: Referens
-  items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">API-referens</a></p>
+      - type: paragraph
+        text: 'Kom igång med Translator Text API:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_go.svg
+            title: Go
+        rows:
+          - title: Översätt text från ett språk till ett annat
+            values:
+              - href: quickstart-csharp-translate
+              - href: quickstart-java-translate
+              - href: quickstart-nodejs-translate
+              - href: quickstart-python-translate
+              - href: quickstart-go-translate
+          - title: Konvertera text från ett skript till ett annat
+            values:
+              - href: quickstart-csharp-transliterate
+              - href: quickstart-java-transliterate
+              - href: quickstart-nodejs-transliterate
+              - href: quickstart-python-transliterate
+              - href: quickstart-go-transliterate
+          - title: Identifiera språket i texten
+            values:
+              - href: quickstart-csharp-detect
+              - href: quickstart-java-detect
+              - href: quickstart-nodejs-detect
+              - href: quickstart-python-detect
+              - href: quickstart-go-detect
+          - title: Hämta alternativa översättningar och användning
+            values:
+              - href: quickstart-csharp-dictionary
+              - href: quickstart-java-dictionary
+              - href: quickstart-nodejs-dictionary
+              - href: quickstart-python-dictionary
+              - href: quickstart-go-dictionary
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig att utveckla program med hjälp av Translator Text API:'
+      - type: paragraph
+        text: '<a href="tutorial-wpf-translation-csharp.md">Skriva ett WPF-program för Translator Text med C#</a>'
+  - title: Referens
+    items:
+      - type: paragraph
+        text: <p><a href="reference/v3-0-reference.md">API-referens</a></p>

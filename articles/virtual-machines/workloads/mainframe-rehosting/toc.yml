@@ -7,16 +7,28 @@ items:
       href: overview.md
     - name: Arbetsbelastningar
       href: partner-workloads.md
+  - name: Begrepp
+    items:
+    - name: Compute
+      href: concepts/mainframe-compute-azure.md
+    - name: Storage
+      href: concepts/mainframe-storage-azure.md
   - name: Micro Focus
     items:
     - name: Kom igång
       href: microfocus/get-started.md
-    - name: Installera Micro Focus Enterprise Server
-      href: microfocus/set-up-micro-focus-on-azure.md
-    - name: Demo
+    - name: Installera Enterprise Server
+      href: microfocus/set-up-micro-focus-azure.md
+    - name: Kör CICS BankDemo
       href: microfocus/demo.md
+    - name: Enterprise Server i containrar
+      href: microfocus/run-enterprise-server-container.md
   - name: TmaxSoft OpenFrame
-    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+    items:
+    - name: Kom igång
+      href: tmaxsoft/get-started.md
+    - name: Installera OpenFrame
+      href: tmaxsoft/install-openframe-azure.md
   - name: IBM
     items:
     - name: Kom igång
@@ -29,9 +41,15 @@ items:
       href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Distribuera IBM Db2 pureScale
       href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-ms.openlocfilehash: e89b8301a325ab25d78598cfd3e58e6ac74198a6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+  - name: Resurser
+    items:
+    - name: White paper-faktablad
+      href: mainframe-white-papers.md
+    - name: Azure-översikt
+      href: https://azure.microsoft.com/updates/
+ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342555"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895232"

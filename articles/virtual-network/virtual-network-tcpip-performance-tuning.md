@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852017"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905111"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -128,7 +128,7 @@ Aktuella rekommendationen för Azure är att ange TCP-MSS-ihopfogning 1350 byte 
 
 #### <a name="latency-and-round-trip-time"></a>Svarstid och tidszonsbevarande tid
 
-Nätverksfördröjningen regleras av hastigheten för ljus över ett fiberoptiska fiber-nätverk. Är, genomflödet för TCP är också effektivt styrda (praktiska maximum) grund av av tidszonsbevarande tid (Retur) mellan två nätverksenheter.
+Nätverksfördröjningen regleras av hastigheten för ljus över ett fiberoptiska fiber-nätverk. De i verkligheten är genomflödet för TCP är också effektivt styrda (praktiska maximum) på grund av tidszonsbevarande tid (Retur) mellan två nätverksenheter.
 
 | | | | |
 |-|-|-|-|
@@ -343,7 +343,7 @@ Mer information finns nedan:
 
 - [Felsökning av nätverksprestanda för Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [Verifiera VPN-dataflöde till ett virtuellt nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [Hur du validerar VPN-dataflöde till ett virtuellt nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Identifiera ineffektiv TCP-beteenden
 

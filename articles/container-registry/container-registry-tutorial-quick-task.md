@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860481"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893715"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry Tasks
 
@@ -30,13 +30,13 @@ I den här självstudien, som är del ett i en serie:
 > * Skapa en containeravbildning i Azure
 > * Distribuera en behållare till Azure Container Instances
 
-I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-uppgifter kan även köra [uppgifter i flera steg](container-registry-tasks-multi-step.md) (för närvarande i förhandsversion) med hjälp av en YAML-fil för att definiera steg för att skapa, skicka och om så önskas testa flera containrar.
+I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-aktiviteter kan också köra [flerstegstest uppgifter](container-registry-tasks-multi-step.md), med en YAML-fil för att definiera stegen för att skapa, skicka och du kan också testa flera behållare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du vill använda Azure CLI lokalt, måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggningen][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="github-account"></a>GitHub-konto
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 Du har skapat ett Azure Key Vault och lagrat två hemligheter i det:
 
-* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
-* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.
+* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn.
+* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord.
 
 Nu kan du referera till dessa hemligheter efter namn när du eller dina program och tjänster hämtar avbildningar från registret.
 
@@ -312,7 +312,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Nu när du har testat den inre loopen med en snabbuppgift kan du konfigurera en **versionsuppgift** för att utlösa containeravbildningsversioner när du har skickat källkod till en Git-lagringsplats:
 
 > [!div class="nextstepaction"]
-> [Utlös automatiska versioner med uppgifter](container-registry-tutorial-build-task.md)
+> [Automatisk utlösare bygger med uppgifter](container-registry-tutorial-build-task.md)
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip

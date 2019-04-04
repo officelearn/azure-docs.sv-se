@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890567"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877648"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå fakturan för Azure Cosmos DB
 
-Som en fullständigt hanterad molnbaserade databastjänst, Azure Cosmos DB förenklar fakturering genom att debitera bara för etablerat dataflöde och förbrukad lagring. Det finns inga ytterligare licensavgifter, maskinvara, verktyget kostnader eller anläggning kostnader jämfört med en lokal eller alternativ för IaaS-värd. När du överväger att samskapa region funktionerna i Azure Cosmos DB och ger databastjänsten en betydande minskning i kostnader jämfört med befintliga lokala eller IaaS-lösningar.
+Som en fullständigt hanterad molnbaserade databastjänst, Azure Cosmos DB förenklar fakturering genom att debitera bara för etablerat dataflöde och förbrukad lagring. Det finns inga ytterligare licensavgifter, maskinvara, verktyget kostnader eller anläggning kostnader jämfört med lokala eller alternativ för IaaS-värd. När du överväger att samskapa region funktionerna i Azure Cosmos DB och ger databastjänsten en betydande minskning i kostnader jämfört med befintliga lokala eller IaaS-lösningar.
 
 Du debiteras per timme baserat på etablerat dataflöde och förbrukad lagring med Azure Cosmos DB. För det etablerade dataflödet enheten för fakturering är 100 RU/SEK per timme, debiteras enligt $0.008 per timme, förutsatt att standardpriserna för offentlig, finns i den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/). Förbrukad lagring du är faktureras $0.25 per 1 GB lagringsutrymme per månad, finns i den [prissidan](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 

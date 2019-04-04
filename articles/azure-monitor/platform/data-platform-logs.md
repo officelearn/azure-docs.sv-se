@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852032"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904159"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -46,7 +46,7 @@ I följande tabell visas de olika sätt som du kan använda loggarna i Azure Mon
 | Analysera | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure portal för att skriva [logga frågor](../log-query/log-query-overview.md) och analysera loggdata med hjälp av kraftfulla Data Explorer analysis motorn interaktivt.<br>Använd den [Application Insights analytics-konsolen](../app/analytics.md) i Azure portal för att skriva loggfrågor och analysera loggdata från Application Insights interaktivt. |
 | Visualisera | Fästa resultatet av frågan renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbetsboken](../app/usage-workbooks.md) du kombinerar med flera uppsättningar av data i en interaktiv rapport. <br>Exportera resultatet av en fråga till [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) att utnyttja dess dashboarding och kombinera med andra datakällor.|
 | Varning | Konfigurera en [loggvarningsregler](alerts-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när frågans resultat matchar ett visst resultat.<br>Konfigurera en [måttaviseringsregel](alerts-metric-logs.md) på vissa loggar för data som extraheras som mått. |
-| Hämta | Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1).<br>Få åtkomst till loggresultat för frågan från ett anpassat program som använder [REST API](https://dev.loganalytics.io/). |
+| Hämta | Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till loggresultat för frågan från ett anpassat program som använder [REST API](https://dev.loganalytics.io/). |
 | Exportera | Skapa ett arbetsflöde för att hämta loggdata och kopiera den till en extern plats med hjälp av [Logikappar](~/articles/logic-apps/index.yml). |
 
 

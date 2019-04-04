@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 67bf0499b6dcf4257380f601c802723b2993a092
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771488"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893358"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Skapa en Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -37,7 +37,7 @@ Du måste slutföra den här kursen innan du börjar någon annan kurs om Mobile
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](/visualstudio/cross-platform/setup-and-install).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 Följ de här stegen för att skapa en mobilapp-serverdel.
@@ -71,9 +71,9 @@ Om du får problem med att skapa lösningen kan du köra pakethanteraren för Nu
 Observera att alla supportpaket som det refereras till i ditt projekt måste ha samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Lägg till offlinesynkronisering i appen](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Lägg till autentisering i appen](app-service-mobile-xamarin-android-get-started-users.md)
-* [Lägg till push-meddelanden till din Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
+* [Lägg till push-meddelanden i Xamarin.Android-appen](app-service-mobile-xamarin-android-get-started-push.md)
 * [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->

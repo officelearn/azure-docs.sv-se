@@ -7,13 +7,15 @@ items:
     href: container-registry-intro.md
 - name: Snabbstarter
   items:
-  - name: Container Registry – CLI
+  - name: Skapa ett containerregister – CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry – Portal
+  - name: Skapa ett containerregister – Portal
     href: container-registry-get-started-portal.md
-  - name: Container Registry – PowerShell
+  - name: Skapa ett containerregister – PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Händelser med Event Grid – CLI
+  - name: Skapa och köra avbildning – CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Skicka händelser till Event Grid – CLI
     href: container-registry-event-grid-quickstart.md
   expanded: true
 - name: Självstudier
@@ -89,10 +91,8 @@ items:
     items:
     - name: ACR-uppgifter
       href: container-registry-tasks-overview.md
-    - name: Uppgifter i flera steg (förhandsversion)
+    - name: Uppgifter i flera steg
       href: container-registry-tasks-multi-step.md
-    - name: Referens för uppgifter i flera steg (förhandsversion)
-      href: container-registry-tasks-reference-yaml.md
   - name: Register och andra Azure-tjänster
     items:
     - name: Azure Container Instances
@@ -119,6 +119,8 @@ items:
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager-mall
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: ACR-uppgifter – YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: Webhook-schema
     href: container-registry-webhook-reference.md
   - name: Event Grid-schema
@@ -140,9 +142,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 3b5c8cc63db967fd582d15765f2fd1ca1c7bbb3e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 987b70f527afe9b9d09eeef70c7fa706c3e58932
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847675"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917880"

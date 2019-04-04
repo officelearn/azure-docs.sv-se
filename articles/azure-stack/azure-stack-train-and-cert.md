@@ -8,13 +8,13 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: mabrigg
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: d4f7ec8f4b6960650b98d8f2d2f051c0873c9754
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 3/20/2019
+ms.openlocfilehash: d15a981e0f43c686a5b6f60387dab6aa6f4b8096
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242509"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540337"
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack-utbildning och certifiering
 
@@ -24,9 +24,18 @@ Följande möjligheter för utbildning och certifiering är tillgängliga när d
 
 ## <a name="training"></a>Utbildning
 
-- [Kurs 20537A: Konfigurera och använda ett Hybridmoln med Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
-- [edX: Azure Stack-utbildning Online](https://aka.ms/AzureStackMOOC)
-- [Arbetsroller och utbildningsvägar](https://azure.microsoft.com/training/learning-paths/)
+- Microsofts officiella kurser på begäran
+   - [ODX20537: Konfigurera och använda ett Hybridmoln med Microsoft Azure Stack (180 dagars)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537: Konfigurera och använda ett Hybridmoln med Microsoft Azure Stack (90-dagars)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+
+- Microsoft IT-utbildning
+   - [Kurs 20537A: Konfigurera och använda ett Hybridmoln med Microsoft Azure Stack](https://aka.ms/azsmoc)
+
+- Öppna edx
+   - [edX: Konfigurera och hantera Microsoft Azure Stack-onlinekurs](https://aka.ms/AzureStackMOOC)
+   
+- Microsoft-utbildningsvägar
+   - [Arbetsroller och utbildningsvägar](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certifiering
 

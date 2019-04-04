@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551984"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893409"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Anropa REST-slutpunkter med HTTP + Swagger anslutning i Azure Logic Apps
 
@@ -28,7 +28,7 @@ Läs hur du skapar logikappar med kopplingar i [skapa en ny logikapp](../logic-a
 
 HTTP + Swagger utlösa och åtgärden som fungerar på samma sätt som den [HTTP-åtgärd](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API struktur och utdata från den [Swagger-metadata](https://swagger.io). Du kan också använda HTTP + Swagger-anslutningsapp som en utlösare. Om du vill implementera en avsökning utlösare följer avsökningen mönster som beskrivs i [skapa anpassade API: er för att anropa andra API: er, tjänster och system från logikappar](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Läs mer om [logic app-utlösare och åtgärder](connectors-overview.md).
+Läs mer om [logic app-utlösare och åtgärder](../connectors/apis-list.md).
 
 Här är ett exempel på hur till Använd HTTP + Swagger-åtgärden eftersom en åtgärd i ett arbetsflöde i en logikapp.
 
@@ -72,14 +72,14 @@ Här följer stegen för att skapa, konfigurera och lagra Swagger-dokument i Azu
 Följande visas information om utlösare och åtgärder som den här HTTP + Swagger anslutningsappen stöder.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare.](connectors-overview.md) HTTP + Swagger-anslutningsappen har en utlösare.
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. HTTP + Swagger-anslutningsappen har en utlösare. [Mer information om utlösare](../connectors/apis-list.md).
 
 | Utlösare | Beskrivning |
 | --- | --- |
 | HTTP + Swagger |Ett HTTP-anrop och gå tillbaka svarsinnehållet |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger-åtgärder
-En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. [Läs mer om åtgärder.](connectors-overview.md) HTTP + Swagger-anslutningsappen har en möjlig åtgärd.
+En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. HTTP + Swagger-anslutningsappen har en möjlig åtgärd. [Läs mer om åtgärder](../connectors/apis-list.md).
 
 | Åtgärd | Beskrivning |
 | --- | --- |
@@ -123,7 +123,6 @@ När du anropar olika åtgärder, kan du få vissa svar. Följande är en tabell
 | 404 |Kunde inte hittas |
 | 500 |Internt serverfel. Okänt fel uppstod. |
 
-- - -
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)

@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349713"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497185"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-[Kvoter](azure-stack-plan-offer-quota-overview.md#plans) definiera gränserna för resurser som en användarprenumeration kan etablera eller förbrukar. En kvot kan till exempel tillåta en användare kan skapa upp till fem virtuella datorer. Varje resurs kan ha sin egen typer av kvoter.
+[Kvoter](azure-stack-plan-offer-quota-overview.md#plans) definiera gränserna för resurser som en användarprenumeration kan etablera eller förbrukar. En kvot kan till exempel tillåta en användare att skapa upp till fem virtuella datorer. Varje resurs kan ha sina egna typer av kvoter.
+
+> [!IMPORTANT]
+> Det kan ta upp till två timmar för nya kvoter att vara tillgänglig i användarportalen eller innan en ändrad kvot tillämpas.
 
 ## <a name="compute-quota-types"></a>Compute kvottyper
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349713"
 | Maximal kapacitet (i GB) av premium-hanterad disk | 2048 | Den maximala kapaciteten på premium-hanterade diskar som kan skapas på den här platsen. |
 
 > [!NOTE]  
-> Högsta kapacitet för ohanterade diskar (sidblob) skiljer sig från hanterade diskkvot, det ska ställas in i kvoten för lagringsutrymmet.
+> Den maximala kapaciteten på ohanterad disk (sidblob) är separat från den hanterade diskkvoten. Du kan ange ett värde **lagringskvoter**.
 
-## <a name="storage-quota-types"></a>Kvot lagringstyper 
+## <a name="storage-quota-types"></a>Kvot lagringstyper
 
 | **Objekt** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ ms.locfileid: "58349713"
 | Totalt antal lagringskonton |20 |Det maximala antalet lagringskonton som en prenumeration kan skapa i den här platsen. |
 
 > [!NOTE]  
-> Det kan ta upp till två timmar innan en lagringskvoten tillämpas. Högsta kapacitet för hanterad disk är separat från totala lagringskvoten, det ska ställas in i Compute-kvoten.
+> Den maximala kapaciteten på hanterade diskar är separat från den totala lagringskvoten. Du kan ange ett värde **Compute kvoter**.
 
 ## <a name="network-quota-types"></a>Nätverkstyper kvot
 

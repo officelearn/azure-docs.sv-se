@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904278"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Rollbaserad åtkomstkontroll i Azure Digital Twins
 
@@ -67,7 +67,7 @@ En rolldefinition är en uppsättning behörigheter och andra attribut som utgö
 I följande dokumentation referensartiklar beskriver:
 
 - Så här [fråga eller objekt-ID för en användare](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Så här [hämta objekt-ID för tjänstens huvudnamn](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+- Så här [hämta objekt-ID för tjänstens huvudnamn](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - Så här [hämta objekt-ID för en Azure AD-klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Rolltilldelningar

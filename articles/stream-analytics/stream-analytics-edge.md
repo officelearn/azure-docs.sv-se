@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: c64bf11a5e0d95e2896bb717d4069f9b0d7ea721
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570002"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892236"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
@@ -44,12 +44,14 @@ ASA använder IoT Hub för att distribuera edge-jobb till enheter. Mer informati
 
 ### <a name="installation-instructions"></a>Installationsinstruktioner
 De övergripande stegen beskrivs i följande tabell. Mer information ges i följande avsnitt.
+
 |      |Steg   | Anteckningar   |
 | ---   | ---   |  ---      |
 | 1   | **Skapa en lagringsbehållare**   | Storage-behållare används för att spara din jobbdefinition där de kan användas av dina IoT-enheter. <br>  Du kan återanvända eventuella befintliga lagringsbehållare.     |
 | 2   | **Skapa ett ASA edge-jobb**   |  Skapa ett nytt jobb väljer **Edge** som **värdmiljö**. <br> Dessa jobb finns skapas/hanteras från molnet och kör på dina egna IoT Edge-enheter.     |
 | 3   | **Konfigurera din IoT Edge-miljö på dina enheter**   | Anvisningar om hur [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Distribuera ASA på IoT Edge-enheter**   |  ASA jobbdefinitionen exporteras till den lagringsbehållare som skapades tidigare.       |
+
 Du kan följa [den här stegvisa självstudien](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) att distribuera ditt första ASA-jobb på IoT Edge. Följande videoklipp hjälper dig att förstå processen för att köra ett Stream Analytics-jobb på en IoT edge-enhet:  
 
 
@@ -142,7 +144,7 @@ Det här exemplet definierar följande vägar:
 
 ## <a name="technical-information"></a>Teknisk information
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Aktuella begränsningar för IoT Edge-jobb jämfört med molnjobb
-Målet är att har paritet mellan IoT Edge-jobb och molnjobb. De flesta SQL query language-funktioner stöds redan.
+Målet är att har paritet mellan IoT Edge-jobb och molnjobb. De flesta SQL-fråga språkfunktioner stöds, aktivering för att köra samma logik på både i molnet och IoT Edge.
 Men de följande funktionerna stöds inte ännu för edge-jobb:
 * Användardefinierade funktioner (UDF) i JavaScript. UDF är tillgängliga i [ C# för IoT Edge-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (förhandsversion).
 * Användardefinierade aggregeringar (UDA).
@@ -150,14 +152,6 @@ Men de följande funktionerna stöds inte ännu för edge-jobb:
 * Med hjälp av mer än 14 aggregat i ett enda steg.
 * AVRO-format för indata/utdata. För närvarande stöds endast CSV och JSON.
 * Följande SQL-operatorer:
-    * Geospatial operatorer:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * PARTITION BY
     * GetMetadataPropertyValue
 

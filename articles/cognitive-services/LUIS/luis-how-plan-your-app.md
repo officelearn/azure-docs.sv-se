@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873207"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893443"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planera din LUIS-app med ämne domän, avsikter och entiteter
 
@@ -49,7 +49,7 @@ När du bestämmer vilka entiteter som ska använda i din app, Kom ihåg att det
 
 ## <a name="next-steps"></a>Nästa steg
 
-När din app har tränats publicerats och hämtar endpoint yttranden, planerar att implementera förutsägelse förbättringar med [aktiv inlärning](luis-how-to-review-endoint-utt.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
+När din app har tränats publicerats och hämtar endpoint yttranden, planerar att implementera förutsägelse förbättringar med [aktiv inlärning](luis-how-to-review-endpoint-utterances.md), [fras listor](luis-concept-feature.md), och [mönster](luis-concept-patterns.md). 
 
 
 * Se [skapa din första app Language Understanding Intelligent Service (LUIS)](luis-get-started-create-app.md) för en snabb genomgång av hur du skapar en LUIS-app.

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763375"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622016"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Anslut storage explorer till en Azure Stack-prenumeration eller ett lagringskonto
 
@@ -49,25 +49,27 @@ Exportera och importera sedan Azure Stack-certifikatet för ASDK. Certifikatet �
 
 1. Öppna `mmc.exe` på en värddator för Azure Stack eller en lokal dator med en VPN-anslutning till Azure Stack. 
 
-2. I **filen**väljer **Lägg till/ta bort snapin-modulen**, och Lägg sedan till **certifikat** att hantera **mitt användarkonto**.
+2. I **filen**väljer **Lägg till/ta bort snapin-modulen**. Välj **certifikat** i tillgängliga snapin-moduler. 
 
-3.  Under **konsolen \certificated (lokal dator) \Trusted Root Certification Authorities\Certificates**. Find **AzureStackSelfSignedRootCert**.
+3. Välj **datorkontot**, och välj sedan **nästa**. Välj **lokala**, och välj sedan **Slutför**.
+
+4.  Under **konsolen \certificated (lokal dator) \Trusted Root Certification Authorities\Certificates**. Find **AzureStackSelfSignedRootCert**.
 
     ![Läsa in rotcertifikatet för Azure Stack via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Högerklicka på certifikatet, Välj **alla uppgifter** > **exportera**, och följ sedan anvisningarna för att exportera certifikatet med **Base 64-kodad X.509 (. CER)**.
+5. Högerklicka på certifikatet, Välj **alla uppgifter** > **exportera**, och följ sedan anvisningarna för att exportera certifikatet med **Base 64-kodad X.509 (. CER)**.
 
     Det exporterade certifikatet ska användas i nästa steg.
 
-5. Startar storage explorer och om du ser den **Anslut till Azure Storage** dialogrutan rutan, avbryter du den.
+6. Startar storage explorer och om du ser den **Anslut till Azure Storage** dialogrutan rutan, avbryter du den.
 
-6. På den **redigera** menyn, peka på **SSL-certifikat**, och välj sedan **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg.
+7. På den **redigera** menyn, peka på **SSL-certifikat**, och välj sedan **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg.
 
     När du har importerat certifikatet, uppmanas du att starta om Lagringsutforskaren.
 
     ![Importera certifikatet till Lagringsutforskaren](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. När Lagringsutforskaren har startats om väljer du den **redigera** menyn och kontrollera om **Target Azure Stack** har valts. Om det inte finns väljer **Target Azure Stack**, och sedan starta om Lagringsutforskaren så att ändringen ska börja gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
+8. När Lagringsutforskaren har startats om väljer du den **redigera** menyn och kontrollera om **Target Azure Stack-API: er** har valts. Om det inte finns väljer **Target Azure Stack**, och sedan starta om Lagringsutforskaren så att ändringen ska börja gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
 
     ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Använd följande steg för att Anslut storage explorer till en prenumeration p�
 
     ![Lägga till ett Azure Stack-konto](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. I Anslut till Azure Storage dialogrutan under **Azure-miljön**väljer **Azure** eller **Azure Kina**, beroende på Azure Stack-konto som används, Välj **Logga in** att logga in med Azure Stack-konto som är associerad med minst en aktiv Stack Azure-prenumeration.
+3. I Anslut till Azure Storage dialogrutan under **Azure-miljön**väljer **Azure**, **Azure Kina**, **Azure Germany**,  **Azure US Government**, eller **Lägg till ny miljö**, beroende på Azure Stack-konto som används. Välj **logga in** att logga in med Azure Stack-konto som är associerad med minst en aktiv Stack Azure-prenumeration.
 
     ![Anslut till Azure Storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

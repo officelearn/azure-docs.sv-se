@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ff1239093f7562bd314305ae3ea8a580fddb8326
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862283"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895840"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Träna din aktiva version av LUIS-app 
 
@@ -60,5 +60,5 @@ Du måste avsöka status tills alla modeller har tränas om du vill veta när ut
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endoint-utt.md) 
+* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 

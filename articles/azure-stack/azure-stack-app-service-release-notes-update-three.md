@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886447"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447497"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service i Azure Stack uppdatering 3 viktig information
 
@@ -55,6 +55,8 @@ Azure App Service i Azure Stack Update 3 innehåller följande förbättringar o
 - Parameter har lagts till ny miljö att skapa AADIdentityApp helper skriptet att hjälpa målobjekt olika AAD-regioner.
 
 - Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
+
+- Uppdateringar **Azure Functions-körningen** till **v1.0.11820**.
 
 - Core-tjänst för att förbättra tillförlitlighet och felmeddelanden aktiverar enklare undersöka vanliga problem med uppdateringar.
 

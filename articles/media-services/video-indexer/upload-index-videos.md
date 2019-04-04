@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516977"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893460"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -22,7 +22,7 @@ När du laddar upp videor med Video Indexer API, har följande Uppladdningsalter
 
 * ladda upp videon från en URL (rekommenderas),
 * skicka videofilen som en bytematris i begärandetexten,
-* Använd befintliga Azure Media Services-tillgångar genom att tillhandahålla [tillgångs-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds i endast betalda konton).
+* Använder befintliga Azure Media Services-tillgången genom att tillhandahålla den [tillgångs-ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds i endast betalda konton).
 
 Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen. <br/>Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
 
@@ -61,7 +61,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
     
         |Namn|Beskrivning|
         |---|---|
-        |id|Video-ID:n|
+        |id|Video-ID|
         |state|Videotillståndet|  
     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person som identifierades i videon:
@@ -69,7 +69,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
     
       |Namn|Beskrivning|
       |---|---|
-      |id| Video-ID:n|
+      |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
@@ -86,8 +86,8 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
-- `AudioOnly` – Indexera och extrahera insikter med hjälp av endast ljud (video ignoreras)
-- `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
+- `AudioOnly` – Indexera och extrahera insikter med hjälp av ljud endast (ignorera video)
+- `DefaultWithNoiseReduction` – Indexera och lyfta ut kunskaper från både ljud och video, samtidigt som du använder bruset minskning algoritmer på ljudström
 
 Priset beror på det valda indexeringsalternativet.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgär
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska Azure Video Indexer-utdata som genereras av v2-API](video-indexer-output-json-v2.md)
+[Granska Azure Video Indexer-utdata som genereras av API](video-indexer-output-json-v2.md)

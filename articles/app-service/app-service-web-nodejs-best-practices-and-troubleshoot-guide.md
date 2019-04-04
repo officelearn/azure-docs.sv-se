@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898864"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895791"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
@@ -98,7 +98,7 @@ Standardvärdet är FALSKT. Om aktiverad, node-programmet kan ansluta till en na
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-Standardvärdet är 0, vilket innebär att den här funktionen är inaktiverad. Om värdet är ett värde större än 0, kommer iisnode sidan ut alla dess underordnade processer var 'idlePageOutTimePeriod' i millisekunder. Se [dokumentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) att förstå vad sidan ut innebär. Den här inställningen är användbar för program som förbrukar en hög mängd minne och vill sidan ut minne till disk ibland för att frigöra RAM-minne.
+Standardvärdet är 0, vilket innebär att den här funktionen är inaktiverad. Om värdet är ett värde större än 0, kommer iisnode sidan ut alla dess underordnade processer var 'idlePageOutTimePeriod' i millisekunder. Se [dokumentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) att förstå vad sidan ut innebär. Den här inställningen är användbar för program som förbrukar en hög mängd minne och vill sidan ut minne till disk ibland för att frigöra RAM-minne.
 
 > [!WARNING]
 > Var försiktig när du aktiverar följande konfigurationsinställningarna på program i produktion. Rekommendationen är att inte aktivera dem på live produktionsprogram.
@@ -281,7 +281,7 @@ NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES`. Det här 
 Du kan följa dessa länkar om du vill veta mer om node.js-program på Azure App Service.
 
 * [Kom igång med Node.js-webbappar i Azure App Service](app-service-web-get-started-nodejs.md)
-* [Felsöka en Node.js-webbapp i Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Felsöka en Node.js-webbapp i Azure Apptjänst](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)

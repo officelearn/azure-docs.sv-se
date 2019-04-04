@@ -16,12 +16,12 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a271edd710356ff612a4558034e9f7459a17ecaa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119011"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666298"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gästoperativsystem som stöds på Azure Stack
 
@@ -53,7 +53,7 @@ Datacenter-versionerna är tillgängliga i marketplace för att ladda ned; kunde
 Linux-distributioner som är listat som är tillgänglig i Marketplace innehåller den nödvändiga Windows Azure Linux Agent (WALA). Om du överför en egen avbildning till Azure Stack, följer du riktlinjerna i [Lägg till Linux-avbildningar till Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Anpassade avbildningar som bör skapas med den senaste versionen för offentliga WALA eller med version 2.2.20. Versioner som är äldre än 2.2.20 och mellan 2.2.20 och 2.2.36 kanske inte fungerar korrekt på Azure Stack. 
+> Anpassade avbildningar som bör skapas med den senaste versionen för offentliga WALA eller med version 2.2.20. Versioner som är äldre än 2.2.20 och mellan 2.2.20 och 2.2.35.1 (exklusiva) kanske inte fungerar korrekt på Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: aaa7db14f3afe8eec000e14c7f5a9db032b87fe0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765942"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892440"
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,8 +33,8 @@ Du måste slutföra den här kursen innan du påbörjar någon annan Xamarin.iOS
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
-* En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](/visualstudio/cross-platform/setup-and-install).
+* En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](/visualstudio/cross-platform/setup-and-install) och om [konfiguration, installation och verifieringar för Mac-användare](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (MSDN).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 Följ de här stegen för att skapa en mobilapp-serverdel.
@@ -49,7 +49,7 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>Hämta och kör Xamarin.iOS-appen
-1. Öppna [Azure Portal] i ett webbläsarfönster.
+1. Öppna [Azure-portalen] i ett webbläsarfönster.
 2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
 
       Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
@@ -71,9 +71,9 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 >
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Lägg till offlinesynkronisering i appen](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Lägg till autentisering i appen](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Lägg till push-meddelanden till din Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
+* [Lägg till push-meddelanden i Xamarin.Android-appen](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->

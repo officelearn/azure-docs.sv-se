@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499785"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
@@ -90,16 +90,19 @@ Som bästa praxis, bör värdservrar i en SKU ha samma resurs- och egenskaper.
 
 SKU: er kan inte tilldelas till specifika användare eller grupper.
 
-SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
+Om du vill redigera en SKU, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. 
 
-Om du vill redigera en SKU, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
+Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
 
-> [!TIP]
-> Du kan redigera eller ta bort MySQL-providern resurskvoter på samma plats.
+> [!IMPORTANT]
+> Det kan ta upp till en timme innan nya SKU: er ska vara tillgängliga i användarportalen.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Gör MySQL database-servrar som är tillgängliga för dina användare
 
 Skapa planer och erbjudanden för att göra MySQL database-servrar som är tillgängliga för användare. Lägga till tjänsten Microsoft.MySqlAdapter i planen och skapa en ny kvot. MySQL tillåter inte begränsar storleken på databaserna.
+
+> [!IMPORTANT]
+> Det kan ta upp till två timmar för nya kvoter att vara tillgänglig i användarportalen eller innan en ändrad kvot tillämpas.
 
 ## <a name="next-steps"></a>Nästa steg
 

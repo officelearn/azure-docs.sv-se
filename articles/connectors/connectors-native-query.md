@@ -1,6 +1,6 @@
 ---
-title: Lägg till instruktionen frågan i logikappar | Microsoft Docs
-description: Översikt över frågeåtgärden för att utföra åtgärder som filter matris.
+title: Lägg till fråga-åtgärd i logic apps | Microsoft Docs
+description: Översikt över frågeåtgärden för att utföra åtgärder som att filtrera matris.
 services: ''
 documentationcenter: ''
 author: jeffhollan
@@ -15,42 +15,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962653"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893575"
 ---
 # <a name="get-started-with-the-query-action"></a>Kom igång med frågeåtgärden
-Genom att använda åtgärden fråga kan arbeta du med batchar och matriser för att utföra arbetsflöden för att:
+Genom att använda frågeåtgärden kan arbeta du med batchar och matriser till att utföra arbetsflöden för att:
 
-* Skapa en aktivitet för alla viktiga poster från en databas.
-* Spara alla bifogade PDF-filer för e-postmeddelanden till en Azure blob.
+* Skapa en uppgift för alla viktiga poster från en databas.
+* Spara alla bifogade PDF-filer för e-postmeddelanden till en Azure-blob.
 
-Om du vill komma igång med åtgärden fråga i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Kom igång med frågeåtgärden i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="use-the-query-action"></a>Använd åtgärden fråga
-En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. [Mer information om åtgärder](connectors-overview.md).  
+## <a name="use-the-query-action"></a>Använd frågeåtgärden
+En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. 
+[Läs mer om åtgärder](../connectors/apis-list.md).  
 
-Åtgärden fråga har för närvarande en åtgärd som kallas filter-matrisen som visas i designern. På så sätt kan du fråga en matris och returnerar en uppsättning filtrerade resultat.
+Frågeåtgärden har för närvarande en åtgärd som kallas filtermatris som exponeras i designern. På så sätt kan du fråga en matris och returnerar en uppsättning med filtrerade resultat.
 
-Här är hur du lägger till den i en logikapp:
+Här är hur du kan lägga till den i en logikapp:
 
 1. Välj den **nytt steg** knappen.
-2. Välj **lägga till en åtgärd**.
-3. Skriv i sökrutan åtgärd **filter** listan den **Filter matris** åtgärd.
+2. Välj **Lägg till en åtgärd**.
+3. Skriv i sökrutan åtgärd **filter** listan den **filtermatris** åtgärd.
    
-    ![Välj frågeåtgärden som](./media/connectors-native-query/using-action-1.png)
-4. Välj en matris för att filtrera. (Följande skärmbild visar matris av resultat från en Twitter-sökning.)
-5. Skapa ett villkor som ska utvärderas på varje objekt. (Följande skärmbild filtrerar tweets från användare som har fler än 100 blandare.)
+    ![Välj frågeåtgärden](./media/connectors-native-query/using-action-1.png)
+4. Välj en matris att filtrera. (Följande skärmbild visar ett antal resultat från en Twitter-sökning.)
+5. Skapa ett villkor utvärderas på varje objekt. (Följande skärmbild filtrerar tweets från användare som har fler än 100 följare.)
    
-    ![Utför åtgärden fråga](./media/connectors-native-query/using-action-2.png)
+    ![Slutför frågeåtgärden](./media/connectors-native-query/using-action-2.png)
    
-    Åtgärden kommer att skrivas ut en ny matris som innehåller endast resultat som uppfyller kraven för filtret.
-6. Klicka på det övre vänstra hörnet i verktygsfältet för att spara och logikappen både sparar och publicera (aktivera).
+    Åtgärden kommer utdata i en ny matris som innehåller endast de resultat som uppfyller kraven för filtret.
+6. Klicka på det övre vänstra hörnet i verktygsfältet för att spara och din logikapp kommer både spara och publicera (aktivera).
 
-\*Om du en HTTP-slutpunkt anropas och ta emot en JSON-svar kan använda den _parsa JSON_ åtgärd att parsa JSON-svar. Utan att det här steget _Filter matris_ kommer endast inte förstå och strukturen för JSON-nyttolast.
+\* Om du arbetar anropar en HTTP-slutpunkt och få ett JSON-svar kan använda den _parsa JSON_ åtgärder för att parsa JSON-svar. Utan att det här steget _Filtermatris_ kommer att visa endast brödtext och inte förstå strukturen för JSON-nyttolast.
 
 ## <a name="query-action"></a>Frågeåtgärden
 Här följer information om vad som har stöd för den här anslutningen. Kopplingen har en möjlig åtgärd.
@@ -60,26 +61,26 @@ Här följer information om vad som har stöd för den här anslutningen. Koppli
 | Filtermatris |Utvärderar ett villkor för varje objekt i en matris och returnerar resultaten |
 
 ## <a name="action-details"></a>Åtgärdsinformation
-Åtgärden fråga innehåller en möjlig åtgärd. I följande tabeller beskrivs de obligatoriska och valfria indatafält för åtgärden och detaljer om motsvarande utdata som är associerade med hjälp av åtgärden.
+Frågeåtgärden levereras med en möjlig åtgärd. I följande tabeller beskrivs de obligatoriska och valfria inmatningsfält för åtgärden och de motsvarande utdatainformation som är associerade med hjälp av åtgärden.
 
 ### <a name="filter-array"></a>Filtermatris
-Följande är inmatningsfält för åtgärden, vilket gör en utgående HTTP-begäran.
+Här följer inmatningsfält för åtgärden, vilket gör en utgående HTTP-begäran.
 A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Från * |från |Matrisen för att filtrera |
-| Villkoret * |där |Villkoret ska utvärderas för varje objekt |
+| From* |från |Matris att filtrera |
+| Villkor * |där |Villkor att utvärdera för varje objekt |
 
 <br>
 
 ### <a name="output-details"></a>Utdatainformation
-Nedan visas utdata information för HTTP-svaret.
+Här följer utdatainformation för HTTP-svaret.
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Filtrerade matris |matris |En matris som innehåller ett objekt för varje filtrerade resultat |
+| Filtrerade matris |matris |En matris som innehåller ett-objekt för varje filtrerat resultat |
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
+Nu kan prova att använda plattformen och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga anslutningsappar i logic apps genom att titta på våra [API: er lista](apis-list.md).
 

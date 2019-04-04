@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958566"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893239"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testa exempel yttranden i LUIS
 
@@ -48,7 +48,7 @@ Om du testa mot en slutpunkt och inte vill att de uttryck som loggas, Kom ihåg 
 ## <a name="where-to-find-utterances"></a>Var du hittar yttranden
 LUIS lagrar alla loggade yttranden i loggfilen för frågor, tillgänglig för hämtning på den [LUIS](luis-reference-regions.md) webbplats **appar** listsidan, samt LUIS [redigera API: er](https://aka.ms/luis-authoring-apis). 
 
-Yttranden LUIS är osäker på visas i den **[granska endpoint yttranden](luis-how-to-review-endoint-utt.md)** för den [LUIS](luis-reference-regions.md) webbplats. 
+Yttranden LUIS är osäker på visas i den **[granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md)** för den [LUIS](luis-reference-regions.md) webbplats. 
 
 ![Granska slutpunktsyttranden](./media/luis-concept-test/review-endpoint-utterances.png)
  

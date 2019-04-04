@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763460"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497865"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
@@ -47,11 +47,14 @@ När du har skapat erbjudandet kan kan dina användare prenumerera komma åt tj�
 
 ## <a name="plans"></a>Planer
 
-Prenumerationer är grupperingar av en eller flera tjänster. Som en Azure Stack-operatör du [skapa planer](azure-stack-create-plan.md) att erbjuda användarna. Användarna prenumererar i sin tur dina erbjudanden för att använda de planer och tjänster som ingår. När du skapar planer kan du se till att ange dina kvoter, definiera din basplaner och överväga att använda valfritt tilläggsplaner.
+Planer är grupperingar av en eller flera tjänster. Som en Azure Stack-operatör du [skapa planer](azure-stack-create-plan.md) att erbjuda användarna. Dina användare prenumererar i sin tur på dina erbjudanden för att använda de planer och tjänster som ingår i dem. När du skapar planer kan du se till att ange dina kvoter, definiera din basplaner och överväga att använda valfritt tilläggsplaner.
 
 ### <a name="quotas"></a>Kvoter
 
 Du kan använda för att hjälpa dig att hantera din kapacitet, förkonfigurerade *kvoter*, eller skapa en ny kvot för varje tjänst i en plan. Kvoter definiera övre resursbegränsningar som en användarprenumeration kan etablera eller använda. En kvot kan till exempel tillåta en användare kan skapa upp till fem virtuella datorer (VM).
+
+> [!IMPORTANT]
+> Det kan ta upp till två timmar för nya kvoter att vara tillgänglig i användarportalen eller innan en ändrad kvot tillämpas.
 
 Du kan konfigurera kvoter efter region. En plan som tillhandahåller beräkning för Region A kan till exempel ha en kvot på två virtuella datorer.
 

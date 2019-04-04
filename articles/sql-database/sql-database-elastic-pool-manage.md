@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842608"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892406"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -118,6 +118,5 @@ Använd dessa REST API-begäranden för att skapa och hantera SQL Database elast
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se en video [Microsoft Virtual Academy-videokurs om elastiska Azure SQL Database-funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Om du har en SaaS-självstudiekurs med hjälp av elastiska pooler finns i [introduktion till Wingtip SaaS-program](sql-database-wtp-overview.md).

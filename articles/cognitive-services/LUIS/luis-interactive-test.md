@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d8456595e244237a0fd92fae82a43a878ad41080
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857676"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893634"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa LUIS-appen i LUIS-portalen
 <a name="train-your-app"></a>
@@ -132,5 +132,5 @@ Se batch testning [begrepp](luis-concept-batch-test.md) och lär dig [så](luis-
 
 Om testningen visar att LUIS-appen inte kan identifiera rätt avsikter och entiteter, kan du arbeta för att förbättra din LUIS-app noggrannhet genom märkning mer yttranden eller lägga till funktioner. 
 
-* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endoint-utt.md) 
+* [Etiketten föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Använda funktioner för att förbättra prestanda för dina LUIS-app](luis-how-to-add-features.md) 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456354"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894157"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall kan utföra du uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
@@ -37,7 +37,7 @@ Oavsett hur ditt scenario, om du har alla artefakter som behövs för malldistri
 * Binärfilerna för programmet
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Kapslade mallar och konfigurationsskript
-När du använder mallar som skapas av Visual Studio (eller skapats med Visual Studio-kodfragment) PowerShell-skript skapar inte bara nivåer artefakter, den också funktionsfråga URI för resurser för olika distributioner. Skriptet och sedan kopierar artefakterna till en säker behållare i Azure, skapar en SaS-token för behållaren och skickar sedan informationen in malldistributionen. Se [skapar en för malldistribution](https://msdn.microsoft.com/library/azure/dn790564.aspx) mer information om kapslade mallar.  När du använder uppgifter i Azure DevOps-tjänsterna, måste du välja lämpliga uppgifter för malldistributionen och om det behövs, skickar parametervärden från mellanlagring steg till malldistributionen.
+När du använder mallar som skapas av Visual Studio (eller skapats med Visual Studio-kodfragment) PowerShell-skript skapar inte bara nivåer artefakter, den också funktionsfråga URI för resurser för olika distributioner. Skriptet och sedan kopierar artefakterna till en säker behållare i Azure, skapar en SaS-token för behållaren och skickar sedan informationen in malldistributionen. Se [skapar en för malldistribution](/previous-versions/azure/reference/dn790564(v=azure.100)) mer information om kapslade mallar.  När du använder uppgifter i Azure DevOps-tjänsterna, måste du välja lämpliga uppgifter för malldistributionen och om det behövs, skickar parametervärden från mellanlagring steg till malldistributionen.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Konfigurera kontinuerlig distribution i Azure-Pipelines
 För att anropa PowerShell-skriptet i Azure Pipelines, måste du uppdatera din build-pipeline. Enkelt uttryckt är stegen: 

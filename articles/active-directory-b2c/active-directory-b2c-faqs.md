@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499904"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893405"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -80,7 +80,7 @@ Det finns för närvarande inget sätt att ändra den ”från”: i e-postmedde
 Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Användarflödet vilka lösenord används för lokala konton i Azure AD B2C?
-Användarflödet för Azure AD B2C-lösenord för lokala konton baseras på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord för återställning av användarflöden använda ”starka” lösenordssäkerhet och inte går ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+Användarflödet för Azure AD B2C-lösenord för lokala konton baseras på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord för återställning av användarflöden använda ”starka” lösenordssäkerhet och inte går ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](/previous-versions/azure/jj943764(v=azure.100)) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumentidentiteter som lagras på min lokala Active Directory till Azure AD B2C?
 Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.

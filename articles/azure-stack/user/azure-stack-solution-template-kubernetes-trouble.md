@@ -1,6 +1,6 @@
 ---
-title: Felsöka ditt Kubernetes-distribution till Azure Stack | Microsoft Docs
-description: Lär dig hur du felsöker ditt Kubernetes-distribution till Azure Stack.
+title: Felsök Kubernetes-distribution på Azure Stack | Microsoft Docs
+description: Lär dig hur du felsöker Kubernetes-distribution på Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361548"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878136"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Felsök Kubernetes-distribution till Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
 
 I följande artikel tittar på felsökning av ditt Kubernetes-kluster. Du kan granska aviseringen för distribution och granska statusen för distributionen av element som krävs för distributionen. Du kan behöva samlar in distributionsloggarna från Azure Stack- eller Linux-datorer som är värdar för Kubernetes. Du kan också behöva arbeta med Azure Stack-administratören om du vill hämta loggar från en administrativ slutpunkt.
 
-## <a name="overview-of-deployment"></a>Översikt över distribution
+## <a name="overview-of-kubernetes-deployment"></a>Översikt över Kubernetes-distribution
 
 Innan du felsöker ditt kluster, kanske du vill granska distributionsprocessen för Azure Stack Kubernetes-kluster. Distributionen använder en lösningsmall för Azure Resource Manager-för att skapa de virtuella datorerna och installera ACS-motor för klustret.
 
-### <a name="deployment-workflow"></a>Arbetsflöde för distribution
+### <a name="kubernetes-deployment-workflow"></a>Arbetsflöde för distribution till Kubernetes
 
 Följande diagram visar den allmänna processen för att distribuera klustret.
 
@@ -85,7 +85,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 
 Du kan samla in loggar på de virtuella datorerna som har stöd för Kubernetes-klustret. Du kan också granska loggen för distribution. Du kan behöva tala med din Azure Stack-administratör för att kontrollera vilken version av Azure Stack som du behöver för att använda och hämta loggar från Azure Stack som är relaterade till din distribution.
 
-1. Granska den [Distributionsstatus](#review-deployment-status) och [hämta loggarna](#get-logs-from-a-vm) från huvudnoden i Kubernetes-klustret.
+1. Granska den [Distributionsstatus](#review-deployment-status) och hämta loggar från huvudnoden i Kubernetes-klustret.
 2. Var noga med att du använder den senaste versionen av Azure Stack. Om du är osäker på vilken version du använder administratören Azure Stack.
 3.  Granska dina filer för virtuell dator skapas. Du kanske har haft följande problem:  
     - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  

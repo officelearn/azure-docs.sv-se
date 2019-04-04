@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854330"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895458"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Köra flera steg skapa, testa och patch uppgifter i ACR-uppgifter
 
@@ -32,8 +32,6 @@ Du kan till exempel köra en aktivitet för steg och automatiserar följande log
 
 Alla åtgärder utförs i Azure, avlastning av arbetet som Azure-beräkningsresurser och så att du från infrastrukturhantering. Förutom Azure container registry betalar du bara för de resurser du använder. Mer information om priser finns i den **bygg Container** i avsnittet [priser för Azure Container Registry][pricing].
 
-> [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="common-task-scenarios"></a>Vanliga scenarier för uppgift
 
@@ -50,13 +48,13 @@ Uppgifter i flera steg gör det möjligt för scenarier som följande logik:
 En uppgift för flera steg i ACR uppgifter definieras som en serie steg inom en YAML-fil. Varje steg kan ange beroenden när åtgärden har slutförts för en eller flera föregående steg. Följande typer av uppgiften steg är tillgängliga:
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): Skapa en eller flera behållaravbildningar med välbekanta `docker build` syntax i serien eller parallellt.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Push bygger avbildningar till ett behållarregister. Privata register som Azure Container Registry stöds som är den offentliga Docker Hub.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Köra en behållare, så att den kan fungera som en funktion inom ramen för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]`, och ange egenskaper som env, koppla bort, och andra välbekanta `docker run` parametrar. Den `cmd` stegtyp möjliggör enhet och funktionstestning med samtidiga behållare körning.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Push-överför avbildningar till ett behållarregister. Privata register som Azure Container Registry stöds som är den offentliga Docker Hub.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Kör en behållare, så att den kan fungera som en funktion inom ramen för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]`, och ange egenskaper som env, koppla bort, och andra välbekanta `docker run` parametrar. Den `cmd` stegtyp möjliggör enhet och funktionstestning med samtidiga behållare körning.
 
 Följande kodfragment visar hur du kombinerar dessa steg aktivitetstyper. Uppgifter i flera steg kan vara lika enkelt som att skapa en enda avbildning från en Dockerfile och push-överföra till ditt register med en YAML-fil som liknar:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 Eller mer komplexa, till exempel det här fiktiva flera steg definition som innehåller stegen för att bygga, testa helm-paketet och helm distribuera (behållarregister och Helm-lagringsplatsen konfiguration inte visas):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 Mer information om automatiska versioner på Git bekräftas eller base uppdateringar finns i den [automatisera avbildningar](container-registry-tutorial-build-task.md) och [baserar uppdateringen avbildningar](container-registry-tutorial-base-image-update.md) självstudiekursens artiklar.
-
-## <a name="preview-feedback"></a>Feedback från förhandsversionen
-
-Funktionen uppgift för flera steg i ACR uppgifter är i förhandsversion, erbjuder vi dig att ge feedback. Flera kanaler är tillgängliga:
-
-* [Problem med](https://aka.ms/acr/issues) – visa befintliga buggar och problem och logga nya
-* [UserVoice](https://aka.ms/acr/uservoice) -rösta på befintliga funktion begäranden eller skapa nya begäranden
-* [Diskutera](https://aka.ms/acr/feedback) -engagera i Azure Container Registry-diskussion i Stack Overflow-communityn
 
 ## <a name="next-steps"></a>Nästa steg
 

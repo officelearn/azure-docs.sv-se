@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339501"
+ms.locfileid: "58891898"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -75,7 +75,7 @@ Funktionsappar kan skapas och publicerade med hjälp av en mängd olika verktyg,
 Functions-redigeraren är inbyggda i Azure-portalen kan du uppdatera din kod och dina *function.json* filen direkt infogade. Det här rekommenderas endast för små ändringar eller koncepttester – bästa praxis är att använda ett verktyg för lokal utveckling som VS Code.
 
 ## <a name="parallel-execution"></a>Parallell körning
-När flera utlösande händelser inträffar snabbare än en single-threaded funktionskörningen kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp med hjälp av den [Förbrukningsvärdplanen](functions-scale.md#how-the-consumption-plan-works), funktionsappen genom att skala upp automatiskt.  Varje instans av function-app om appen körs på förbrukningen som är värd för plan eller en vanlig [App Service-värdplanen](../app-service/overview-hosting-plans.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används, samt de resurser som används av andra funktioner i funktionsappen.
+När flera utlösande händelser inträffar snabbare än en single-threaded funktionskörningen kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp med hjälp av den [Förbrukningsvärdplanen](functions-scale.md#how-the-consumption-and-premium-plans-work), funktionsappen genom att skala upp automatiskt.  Varje instans av function-app om appen körs på förbrukningen som är värd för plan eller en vanlig [App Service-värdplanen](../app-service/overview-hosting-plans.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används, samt de resurser som används av andra funktioner i funktionsappen.
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime versionshantering
 

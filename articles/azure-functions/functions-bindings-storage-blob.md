@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437483"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895857"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
 Den här artikeln förklarar hur du arbetar med Azure Blob storage-bindningar i Azure Functions. Azure Functions stöder utlöser indata och utdatabindningar för blobar. Artikeln innehåller ett avsnitt för varje bindning:
 
-* [BLOB-utlösare](#trigger)
+* [Blob-utlösare](#trigger)
 * [BLOB-indatabindning](#input)
 * [BLOB-utdatabindning](#output)
 
@@ -318,8 +318,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. |
-|**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). |
+|**namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. |
+|**sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). |
 |**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -444,7 +444,7 @@ Om alla 5 försök misslyckas, Azure Functions lägger till ett meddelande till 
 
 Blob-utlösare används internt, en kö så att det maximala antalet samtidiga funktionsanrop styrs av den [köer konfigurationen i host.json](functions-host-json.md#queues). Standardinställningarna begränsa samtidighet till 24 anrop. Den här gränsen gäller separat för varje funktion som använder en blob-utlösare.
 
-[Med förbrukningsplanen](functions-scale.md#how-the-consumption-plan-works) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje funktion-instans som körs samtidigt och av funktionskörningen själva. Om en funktion som utlöses av blob läser in hela blob i minnet, maximalt minne som används av funktionen för blobar är 24 * maximala sidblobens storlek. Till exempel en funktionsapp med tre blob-utlösta funktioner och standardinställningarna skulle ha en maximal per VM samtidighet på 3 * 24 = 72 fungera anrop.
+[Med förbrukningsplanen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje funktion-instans som körs samtidigt och av funktionskörningen själva. Om en funktion som utlöses av blob läser in hela blob i minnet, maximalt minne som används av funktionen för blobar är 24 * maximala sidblobens storlek. Till exempel en funktionsapp med tre blob-utlösta funktioner och standardinställningarna skulle ha en maximal per VM samtidighet på 3 * 24 = 72 fungera anrop.
 
 JavaScript och Java läsa in hela blob i minnet, och C# funktioner gör det om du binder till `string`, `Byte[]`, eller POCO.
 
@@ -729,10 +729,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till `blob`. |
 |**riktning** | Saknas | Måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
-|**path** |**BlobPath** | Sökvägen till blobben. |
+|**namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
+|**sökväg** |**BlobPath** | Sökvägen till blobben. |
 |**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller den [lagringsanslutningssträng](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|Saknas | **Åtkomst** | Anger om du läser eller skriver. |
+|Saknas | **Access** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1063,10 +1063,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till `blob`. |
 |**riktning** | Saknas | Måste anges till `out` för en utdatabindning. Undantag anges i den [användning](#output---usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange `$return` att referera till returvärde för funktion.|
-|**path** |**BlobPath** | Sökvägen till blobco. |
+|**namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange `$return` att referera till returvärde för funktion.|
+|**sökväg** |**BlobPath** | Sökvägen till blobco. |
 |**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|Saknas | **Åtkomst** | Anger om du läser eller skriver. |
+|Saknas | **Access** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

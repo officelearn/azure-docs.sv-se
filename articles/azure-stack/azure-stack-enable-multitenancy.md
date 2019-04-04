@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 16d915ff6ce0f787febbdc4be4d41e1c2e714d7f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 78370dba4c54df5636e6d17d23ce7cc9d7671c15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336673"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487710"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Flera innehavare i Azure Stack
 
@@ -42,7 +42,7 @@ Det finns några krav att kompensera för innan du konfigurerar flera innehavare
  - Kontrollera att du har [installerat](azure-stack-powershell-install.md) och [konfigurerats](azure-stack-powershell-configure-admin.md) PowerShell för Azure Stack.
  - [Ladda ned Azure Stack Tools](azure-stack-powershell-download.md), och importera modulerna som Connect och identitet:
 
-    ```PowerShell  
+    ```powershell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
@@ -55,7 +55,7 @@ Publicera gäst-Directory-klient (Fabrikam) till Azure Stack genom att konfigure
 
 Service-administratör för contoso.onmicrosoft.com kör följande kommandon.
 
-```PowerShell  
+```powershell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -86,7 +86,7 @@ När Azure Stack-administratör / operator har aktiverat Fabrikam-katalog som sk
 
 Mary Katalogadministratör på Fabrikam kör följande kommandon i gästen directory fabrikam.onmicrosoft.com.
 
-```PowerShell
+```powershell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     

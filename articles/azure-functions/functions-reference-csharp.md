@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082117"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892423"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -274,7 +274,7 @@ Du kan inte använda `out` parametrar i async-funktioner. Utdatabindningar, anv�
 
 ## <a name="cancellation-tokens"></a>Annulleringstoken
 
-En funktion kan acceptera en [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parametern, som gör det möjligt för operativsystemet för att meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+En funktion kan acceptera en [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parametern, som gör det möjligt för operativsystemet för att meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
 
 I följande exempel visas hur du kontrollerar om nära förestående uppsägning av funktionen.
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar den [lagringsblob](functions-bindings-storage-blob.md) indata eller utdata bindning, och [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) är av typen stöds utdata-bindning.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar den [lagringsblob](functions-bindings-storage-blob.md) indata eller utdata bindning, och [TextWriter](/dotnet/api/system.io.textwriter) är av typen stöds utdata-bindning.
 
 ### <a name="multiple-attribute-example"></a>Flera attribut-exempel
 

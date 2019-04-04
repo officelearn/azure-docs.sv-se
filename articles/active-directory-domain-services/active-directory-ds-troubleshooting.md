@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184197"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893120"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - felsökningsguide
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera domäntjänster för Azure Active Directory (AD).
@@ -32,15 +32,15 @@ Välj felsökningsstegen som relaterar till det felmeddelande som uppstår.
 
 | **Felmeddelande** | **Lösning** |
 | --- |:--- |
-| *Namnet contoso100.com används redan i nätverket. Ange ett namn som inte används.* |[Domän namnkonflikt i det virtuella nätverket](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domain Services har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Programmet Domain Services har inte konfigurerats korrekt i din klient](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med programidentifieraren 00000002-0000-0000-c000-000000000000 och försök aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph-programmet har inaktiverats i Azure AD-klienten](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *Namnet contoso100.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namnkonflikt i det virtuella nätverket](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Det gick inte att aktivera Domain Services i den här Azure AD-klient. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort den programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domain Services har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Det gick inte att aktivera Domain Services i den här Azure AD-klient. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Programmet Domain Services har inte konfigurerats korrekt i din klient](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Det gick inte att aktivera Domain Services i den här Azure AD-klient. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med programidentifieraren 00000002-0000-0000-c000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph-programmet har inaktiverats i Azure AD-klienten](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Domän namnkonflikt
 **Felmeddelande:**
 
-*Namnet contoso100.com används redan i nätverket. Ange ett namn som inte används.*
+*Namnet contoso100.com används redan i det här nätverket. Ange ett namn som inte används.*
 
 **Reparation:**
 
@@ -51,7 +51,7 @@ Det här felet beror på namnkonflikter för domännamnet i det virtuella nätve
 ### <a name="inadequate-permissions"></a>Otillräckliga behörigheter
 **Felmeddelande:**
 
-*Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.*
+*Det gick inte att aktivera Domain Services i den här Azure AD-klient. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort den programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
 **Reparation:**
 
@@ -67,7 +67,7 @@ Utför följande steg för att söka efter förekomst av programmet och ta bort 
 ### <a name="invalid-configuration"></a>Ogiltig konfiguration
 **Felmeddelande:**
 
-*Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.*
+*Det gick inte att aktivera Domain Services i den här Azure AD-klient. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
 **Reparation:**
 
@@ -157,7 +157,7 @@ Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar 
 
 Användarkontot förblir inaktiverad i den hanterade domänen, även om du återskapar ett användarkonto med samma UPN i Azure AD-katalogen. Om du vill ta bort användarkontot från en hanterad domän som du behöver tvång ta bort den från Azure AD-klienten.
 
-Om du vill ta bort användarkontot helt från en hanterad domän, ta bort användaren permanent från Azure AD-klienten. Använd den `Remove-MsolUser` PowerShell-cmdlet med den `-RemoveFromRecycleBin` enligt beskrivningen i det här [MSDN-artikeln](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Om du vill ta bort användarkontot helt från en hanterad domän, ta bort användaren permanent från Azure AD-klienten. Använd den `Remove-MsolUser` PowerShell-cmdlet med den `-RemoveFromRecycleBin` enligt beskrivningen i det här [MSDN-artikeln](/previous-versions/azure/dn194132(v=azure.100)).
 
 
 ## <a name="contact-us"></a>Kontakta oss

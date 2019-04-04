@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0c89ed34b21ca0c41d4f7765d99d8fe8bf7c647d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889164"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891111"
 ---
 ## <a name="preparing-for-updates"></a>Förbereda för uppdateringar
 Behöver du utföra följande steg innan du skanna och tillämpa uppdateringen:
@@ -17,7 +17,7 @@ Behöver du utföra följande steg innan du skanna och tillämpa uppdateringen:
 1. Ta en molnögonblicksbild av enhetsdata.
 2. Kontrollera att din kontrollenheternas fasta IP-adresser är dirigerbara och kan ansluta till Internet. Dessa fasta IP-adresser används för att hantera uppdateringar till din enhet. Du kan testa detta genom att köra följande cmdlet på varje domänkontrollant från Windows PowerShell-gränssnittet på enheten:
    
-     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
     **Exempel på utdata för Test-Connection när fasta IP-adresser kan ansluta till Internet**
 

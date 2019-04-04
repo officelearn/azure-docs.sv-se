@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110876"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894174"
 ---
-# <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en lokal datagateway
+# <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
 En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar i samma region som ansluter till lokala datakällor. Läs mer om gatewayen i [lokal datagateway](analysis-services-gateway.md).
 
@@ -40,7 +40,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Installera gatewayen på en dator som finns kvar och går inte i viloläge.
 * Installera inte gatewayen på en dator som trådlöst anslutna till nätverket. Prestanda kan minskas.
 * När du installerar gatewayen, måste du är inloggad på datorn med användarkontot ha Log på som tjänsten privilegier. När installationen är klar använder lokala data gateway-tjänsten NT SERVICE\PBIEgwService-konto för att logga in som en tjänst. Ett annat konto kan anges under installationen eller i tjänster när installationen är klar. Kontrollera inställningarna för grupprincipen Tillåt både det konto som du är inloggad med när du installerar och det tjänstkonto som du väljer ha loggen som tjänsten privilegier.
-* Logga in på Azure med ett konto i Azure AD för samma [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
+* Logga in på Azure med ett konto i Azure AD för samma [klient](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
 * Om datakällor finns på Azure Virtual Network (VNet), måste du konfigurera den [AlwaysUseGateway](analysis-services-vnet-gateway.md) serveregenskap.
 * (Enhetlig) gatewayen beskrivs här stöds inte i Azure Tyskland-regioner. Använd i stället **dedikerad lokal gateway för Azure Analysis Services**, installerad från serverns **Snabbstart** i portalen. 
 

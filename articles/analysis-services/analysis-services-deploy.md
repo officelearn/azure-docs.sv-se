@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188597"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893613"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuera en modell från Visual Studio
 
@@ -24,7 +24,7 @@ När du har skapat en server i din Azure-prenumeration är du redo att distribue
 Du behöver följande för att komma igång:
 
 * **Analysis Services-server** i Azure. Läs mer i [Skapa en Azure Analysis Services-server](analysis-services-create-server.md).
-* **Tabellmodellprojekt** i SSDT eller en befintlig tabellmodell på kompatibilitetsnivå 1 200 eller högre. Har du aldrig skapat någon? Testa [Självstudier för Adventure Works Internetförsäljning – tabellmodell ](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Tabellmodellprojekt** i SSDT eller en befintlig tabellmodell på kompatibilitetsnivå 1 200 eller högre. Har du aldrig skapat någon? Testa [Självstudier för Adventure Works Internetförsäljning – tabellmodell ](/sql/analysis-services/tabular-modeling-adventure-works-tutorial).
 * **Lokala gateway** – Om en eller flera datakällor finns lokalt i din organisations nätverk måste du installera en [lokal datagateway](analysis-services-gateway.md). Gatewayen är nödvändig för att din server i molnet ska kunna ansluta till dina lokala datakällor för att bearbeta och uppdatera data i modellen.
 
 > [!TIP]

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763681"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894225"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -60,7 +60,7 @@ Sök efter **Microsoft.Media** och **Microsoft.EventGrid**. Om inte i tillstånd
 
 1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
 
-2. Klicka på den **Anslut till Azure** knappen:
+2. Klicka på den **Skapa nytt konto** knappen:
 
     ![Ansluta till Azure](./media/create-account/connect-to-azure.png)
 
@@ -90,9 +90,7 @@ Sök efter **Microsoft.Media** och **Microsoft.EventGrid**. Om inte i tillstånd
 
     ![nytt konto](./media/create-account/new-account.png)
 
-7. Bläddra till ditt nya konto:
-
-    ![Video Indexer-konto](./media/create-account/vi-account.png)
+7. Bläddra till ditt nya konto
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Ansluta till Azure manuellt (Avancerat alternativ)
 
@@ -140,11 +138,11 @@ Ange följande information i dialogrutan:
 
 |Inställning|Beskrivning|
 |---|---|
-|Region för video Indexer|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
+|Video Indexer-kontoregion|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
 |Azure Active Directory (AAD)-klient|Namnet på Azure AD-klient, till exempel ”contoso.onmicrosoft.com”. Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domän**.|
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas. Prenumerations-ID kan hämtas från Azure-portalen. Klicka på **alla tjänster** i den vänstra panelen och söka efter ”prenumerationer”. Välj **prenumerationer** och välj önskad ID i listan med dina prenumerationer.|
-|Azure Media Services resursgruppens namn|Namnet på resursgruppen där du skapade Media Services-kontot.|
-|Media service-resursnamn|Namnet på Media Services-konto som du skapade i föregående avsnitt.|
+|Azure Media Services-resursgruppens namn|Namnet på resursgruppen där du skapade Media Services-kontot.|
+|Mediatjänstresursnamn|Namnet på Media Services-konto som du skapade i föregående avsnitt.|
 |Program-ID:t|Azure AD application ID (med behörigheter för det angivna Media Services-kontot) som du skapade i föregående avsnitt.|
 |Programnyckel|Nyckeln för Azure AD-program som du skapade i föregående avsnitt. |
 

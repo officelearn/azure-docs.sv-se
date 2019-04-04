@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530270"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894021"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -43,8 +43,8 @@ Konfigurera ACR Tasks för att automatiskt återskapa programavbildningar när d
 * **Lagringsplats** – Ett register innehåller en eller flera lagringsplatser, som lagrar grupper med containeravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Med namnområden för flera nivåer kan du gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` representerar en företagsomfattande avbildning
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar, som delas på garantiavdelningen.
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, som ägs av garantiavdelningen.
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar som delas på garantiavdelningen.
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, ägs av garantiavdelningen.
 
 * **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-kompatibel container. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats. Förutom containeravbildningar lagrar Azure Container Registry [relaterade innehållsformat](container-registry-image-formats.md) som [Helm-diagram](container-registry-helm-repos.md) som används för att distribuera program till Kubernetes.
 
@@ -54,10 +54,10 @@ Konfigurera ACR Tasks för att automatiskt återskapa programavbildningar när d
 
 [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) är en uppsättning funktioner i Azure Container Registry som tillhandahåller strömlinjeformade och effektiva avbildningsversioner för Docker-behållaren i Azure. Använd ACR Tasks för att utöka din utvecklings inre-loop till molnet genom att avlasta `docker build`-åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverkscontainrar och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
 
-[Uppgifter i flera steg](container-registry-tasks-overview.md#multi-step-tasks-preview), en förhandsversion av ACR Tasks som innehåller steg-baserad aktivitetsdefinition och körning för att skapa, testa och patcha behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
+[Uppgifter i flera steg](container-registry-tasks-overview.md#multi-step-tasks) ger steg baserade aktivitetsdefinition och körning för att skapa, testa och korrigeringar behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett containerregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
-* [Automatisera korrigering av operativsystem och ramverk med ACR Tasks](container-registry-tasks-overview.md)
+* [Automatisera framework uppdatering med ACR uppgifter av operativsystem och](container-registry-tasks-overview.md)

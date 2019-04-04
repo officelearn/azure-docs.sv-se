@@ -8,18 +8,21 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b474d3579a7c20c190a427f503d97ec7471a1b12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091162"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903530"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
 Den här snabbstarten visar hur du använder Azure-portalen för att skapa en Programgateway.  Efter att application gateway kan testa du den och kontrollera att de fungerar korrekt. Med Azure Application Gateway dirigera application Internet-trafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och lägga till resurser till en serverdelspool. För enkelhetens skull använder den här artikeln en enkel installation med en offentlig frontend IP-adress, en grundläggande lyssnare till en plats på den här application gateway-värd, två virtuella datorer som används för serverdelspoolen och en regel för vidarebefordran av grundläggande begäran.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -123,7 +126,7 @@ I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -134,7 +137,7 @@ I det här exemplet installerar vi IIS på de virtuella datorerna endast i syfte
       -Location EastUS
     ```
 
-3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* som namn på den virtuella datorn och för inställningen **VMName** i **Set-AzureRmVMExtension**-cmdleten.
+3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* för virtuella datornamn och den **VMName** inställningen för den **Set-AzVMExtension** cmdlet.
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Lägg till backend-servrarna till serverdelspoolen
 

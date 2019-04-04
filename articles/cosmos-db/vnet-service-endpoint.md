@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860371"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894943"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -54,6 +54,9 @@ NSG-regler används för att begränsa anslutningsmöjligheten till och från et
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Finns tjänstslutpunkter för alla virtuella nätverk?
 Nej, endast Azure Resource Manager-nätverk kan ha tjänstslutpunkt aktiverad. Klassiska virtuella nätverk stöder inte tjänstslutpunkter.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Kan jag ”acceptera anslutningar från offentliga Azure-Datacenter” när tjänstens slutpunkt åtkomst är aktiverat för Azure Cosmos DB?  
+Detta krävs bara när du vill att Azure Cosmos DB-kontot som kan nås av andra Azure första part tjänster som Azure Data factory, Azure Search eller någon tjänst som distribueras i angivna Azure-region.
 
 
 ## <a name="next-steps"></a>Nästa steg

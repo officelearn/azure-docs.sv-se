@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418694"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895553"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -90,13 +90,13 @@ När entiteten har extraherat entitetsdata representeras som en enhet av informa
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Sammansatta**](#composite-entity)|Gruppering av enheter, oavsett typ av enhet.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarkisk**](#hierarchical-entity)|Gruppering av enkla enheter.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Visa lista**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
 |Blandad||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Enheten där det är svårt att avgöra att slutet av entiteten.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Fördefinierade**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Reguljärt uttryck**](#regular-expression-entity)|Använder reguljärt uttryck för att matcha texten.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Innehåller ett enda koncept i ord eller fraser.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Enkel**](#simple-entity)|Innehåller ett enda koncept i ord eller fraser.|
 
-Endast datorn lärt dig enheter måste markeras i exempel-uttryck för varje avsikt. Dator-lärt dig entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](luis-how-to-review-endoint-utt.md). 
+Endast datorn lärt dig enheter måste markeras i exempel-uttryck för varje avsikt. Dator-lärt dig entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md). 
 
 Pattern.any entiteter måste markeras i den [mönstret](luis-how-to-model-intent-pattern.md) mallexempel, inte avsikt användaren exemplen. 
 
@@ -116,7 +116,7 @@ Den här entiteten är ett bra passar när data:
 
 ![Sammansatt entitet](./media/luis-concept-entities/composite-entity.png)
 
-[Självstudie](luis-tutorial-composite-entity.md)<br>
+[Självstudier](luis-tutorial-composite-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Hierarkisk entitet
@@ -138,7 +138,7 @@ Använd inte om:
 
 ![hierarkisk entitet](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Självstudie](luis-quickstart-intent-and-hier-entity.md)<br>
+[Självstudier](luis-quickstart-intent-and-hier-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 ### <a name="roles-versus-hierarchical-entities"></a>Roller jämfört med hierarkisk entiteter
@@ -157,7 +157,7 @@ Entiteten är ett bra passar när textdata:
 
 ![lista entitet](./media/luis-concept-entities/list-entity.png)
 
-[Självstudie](luis-quickstart-intent-and-list-entity.md)<br>
+[Självstudier](luis-quickstart-intent-and-list-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entiteten Pattern.any
@@ -167,7 +167,7 @@ Pattern.any är en platshållare för variabel längd som används endast i ett 
 Entiteten är ett bra passar när:
 
 * Slut på entiteten kan blandas ihop med återstående texten för uttryck. 
-[Självstudie](luis-tutorial-pattern.md)<br>
+[Självstudier](luis-tutorial-pattern.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Exempel**  
@@ -194,7 +194,7 @@ Fördefinierade entiteter kan har lagts till och tas bort när som helst.
 
 ![Antal fördefinierade entitet](./media/luis-concept-entities/number-entity.png)
 
-[Självstudie](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Självstudier](luis-tutorial-prebuilt-intents-entities.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Några av de här fördefinierade entiteter har definierats i öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Om din specifika kultur eller entitet inte stöds för närvarande, bidra till projektet. 
@@ -242,7 +242,7 @@ Entiteten är ett bra passar när:
 
 ![Entitet för reguljära uttryck](./media/luis-concept-entities/regex-entity.png)
 
-[Självstudie](luis-quickstart-intents-regex-entity.md)<br>
+[Självstudier](luis-quickstart-intents-regex-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Enkel entitet 
@@ -255,7 +255,7 @@ Entiteten är ett bra passar när:
 
 ![enkel enhet](./media/luis-concept-entities/simple-entity.png)
 
-[Självstudie](luis-quickstart-primary-and-secondary-data.md)<br/>
+[Självstudier](luis-quickstart-primary-and-secondary-data.md)<br/>
 [Exempel på ett svar för entitet](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Entiteten gränser

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984366"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895130"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är avsedda för LUIS-app
 
@@ -72,7 +72,7 @@ Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg t
 
 LUIS skapar effektiva modeller med yttranden som väljs noggrant installationskommandot LUIS-modellen. Att lägga till för många yttranden inte värdefulla eftersom förvirring.  
 
-Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](luis-how-to-review-endoint-utt.md) för rätt avsikt extrahering av förutsägelser och entiteten.
+Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md) för rätt avsikt extrahering av förutsägelser och entiteten.
 
 ## <a name="punctuation-marks"></a>Skiljetecken
 
@@ -88,11 +88,11 @@ Utbildning som är allmänt icke-deterministisk: uttryck förutsägelsen kan var
 
 ## <a name="testing-utterances"></a>Testa yttranden 
 
-Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till den [förutsägelse endpoint](luis-how-to-azure-subscription.md) URL: en. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](luis-how-to-review-endoint-utt.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
+Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till den [förutsägelse endpoint](luis-how-to-azure-subscription.md) URL: en. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](luis-how-to-review-endpoint-utterances.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
 
 ## <a name="review-utterances"></a>Granska yttranden
 
-När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](luis-how-to-review-endoint-utt.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
+När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](luis-how-to-review-endpoint-utterances.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
 
 ## <a name="best-practices"></a>Bästa praxis
 

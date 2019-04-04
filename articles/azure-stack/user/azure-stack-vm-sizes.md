@@ -1,6 +1,6 @@
 ---
 title: Storlekar för virtuella datorer stöds i Azure Stack | Microsoft Docs
-description: Referens för storlekarna som stöds i Azure Stack.
+description: Referens för storlekar för virtuella datorer stöds i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176267"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886479"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Storlekar för virtuella datorer stöds i Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Den här artikeln innehåller de storlekar för virtuella datorer (VM) som är tillgängliga i Azure Stack.
+Den här artikeln visar en lista över storlekar för virtuella datorer som är tillgängliga i Azure Stack.
 
-Disken IOPS (antal Input/Output åtgärder Per sekund) på Azure Stack är en funktion av VM-storlek i stället för typ av disk. Det innebär att IOPS-gränsen för en enda ytterligare datadisk är 2300 IOPS för en serie Standard_Fs VM, oavsett om du väljer SSD och HDD för typ av disk. IOPS-begränsningar finns ett tak (högsta möjliga) för att förhindra bort störande grannar. Det är inte en garanti för IOPS som uppstår på en specifik VM-storlek.
+Disken IOPS (antal Input/Output åtgärder Per sekund) på Azure Stack är en funktion av storlek på virtuell dator (VM) i stället för typ av disk. Det innebär att IOPS-gränsen för en enda ytterligare datadisk är 2300 IOPS för en serie Standard_Fs VM, oavsett om du väljer SSD och HDD för typ av disk. IOPS-begränsningar finns ett tak (högsta möjliga) för att förhindra bort störande grannar. Det är inte en garanti för IOPS som uppstår på en specifik VM-storlek.
 
-## <a name="general-purpose"></a>Generellt syfte
+## <a name="virtual-machine-general-purpose"></a>Generell användning för virtuell dator
 
 Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar. Varje datadisk är 2300 IOPS för premium VM-storlekar, förutom grundläggande A-serien. För grundläggande A är datadiskstorleken 500 IOPS.
 

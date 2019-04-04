@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121404"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903768"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Användaren profilmallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -30,7 +30,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 -   [Prenumerationer](#Subscriptions)  
   
--   [Program](#Applications)  
+-   [Appar](#Applications)  
   
 -   [Uppdatera kontoinformation](#UpdateAccountInfo)  
   
@@ -106,17 +106,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Förnamn|sträng|Den aktuella användarens förnamn.|  
-|Efternamn|sträng|Efternamn för den aktuella användaren.|  
-|Företagsnamn|sträng|Företagsnamnet för den aktuella användaren.|  
-|addresserEmail|sträng|E-postadress för den aktuella användaren.|  
-|developersUsageStatisticsLinkk|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
-|prenumerationer|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
-|program|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|changePasswordUrl|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|changeNameOrEmailUrl|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
-|canChangePassword|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
-|isSystemUser|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Efternamn för den aktuella användaren.|  
+|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
+|`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
+|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   
@@ -327,17 +327,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Förnamn|sträng|Den aktuella användarens förnamn.|  
-|Efternamn|sträng|Efternamn för den aktuella användaren.|  
-|Företagsnamn|sträng|Företagsnamnet för den aktuella användaren.|  
-|addresserEmail|sträng|E-postadress för den aktuella användaren.|  
-|developersUsageStatisticsLinkk|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
-|prenumerationer|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
-|program|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|changePasswordUrl|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|changeNameOrEmailUrl|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
-|canChangePassword|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
-|isSystemUser|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Efternamn för den aktuella användaren.|  
+|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
+|`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
+|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   
@@ -490,17 +490,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Förnamn|sträng|Den aktuella användarens förnamn.|  
-|Efternamn|sträng|Efternamn för den aktuella användaren.|  
-|Företagsnamn|sträng|Företagsnamnet för den aktuella användaren.|  
-|addresserEmail|sträng|E-postadress för den aktuella användaren.|  
-|developersUsageStatisticsLinkk|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
-|prenumerationer|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
-|program|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|changePasswordUrl|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|changeNameOrEmailUrl|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
-|canChangePassword|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
-|isSystemUser|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Efternamn för den aktuella användaren.|  
+|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
+|`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
+|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   

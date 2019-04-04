@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890799"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895976"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -23,15 +23,17 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 ## <a name="video-insights"></a>Videoinsikter
 
 - **Ansiktsspårning**: Identifierar och grupperar ansikten visas i videon.
-- **Kändisar identifiering**: Video Indexer identifierar automatiskt över 1 miljon kändisar – till exempel world ledare, aktörer och actresses, tävlande, forskare, företag och tekniska ledare i hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
+- **Kändisar identifiering**: Video Indexer identifierar automatiskt över 1 miljon kändisar – till exempel world ledare, aktörer, actresses, tävlande, forskare, företag och tekniska ledare i hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
 - **Baserade ansiktsidentifiering**: Video Indexer träna en modell för ett visst konto. Sedan kan den identifiera ansikten i videon baserat på den tränade modellen. Mer information finns i [anpassa en Person modell från webbplatsen Video Indexer](customize-person-model-with-website.md) och [anpassa en Person modell med Video Indexer API](customize-person-model-with-api.md).
 - **Miniatyr extrahering för ansikten** (”bästa ansikte”): Automatiskt identifierar bäst avbildade ansikte i varje grupp med ansikten (baserat på kvalitet, storlek och främre placering) och extrahera den som en bild tillgång.
 - **Visual textigenkänning** (OCR): Extraherar text som visas visuellt i videon.
 - **Visual innehållsmoderering**: Identifierar vuxet/vågat eller visuella objekt.
 - **ID för etiketten**: Identifierar visuella objekt och åtgärder som visas.
-- **Som identifiering av**: Anger när en scen ändras i videon.
+- **Scen segmentering**: avgör när en scen ändras i videon baserat på visuella tips. En scen visar en enskild händelse och består av ett antal på varandra följande skärmbilder som semantiskt är relaterade. 
+- **Som identifiering**: avgör när en som visar ändringar i videon baserat på visuella tips. En är en serie ramar som kommer från samma film kameran. Mer information finns i [scener, skärmbilder och nyckelrutor](scenes-shots-keyframes.md).
 - **Svart ramtyp**: Identifierar svart ramar som visas i videon.
 - **Extrahering av bildrutan**: Identifierar stabil nyckelrutor i en video.
+- **Löpande krediter**: identifiera början och slutet av de löpande krediterna i slutet av och filmer.
 
 ## <a name="audio-insights"></a>Ljud insikter
 
@@ -69,15 +71,14 @@ Du kan registrera dig för tjänsten med ditt befintliga AAD-, LinkedIn-, Facebo
 Nedan visas några scenarier där Video Indexer kan vara användbart
 
 - Sökning – Insikter som extraheras från videon kan användas för att förbättra sökupplevelsen i ett videobibliotek. Indexering av tal och ansikten kan till exempel göra det möjligt att söka efter det ställe i en video där en viss person säger en viss sak eller när två personer har en scen tillsammans. Sökning baserad på sådana insikter från videofilmer kan användas av nyhetsbyråer, skolor och högskolor, media, ägare av underhållningsinnehåll, LOB-program på företag och i allmänhet av branscher som har videobibliotek som användare behöver söka i.
-
+- Skapa innehåll – insikter extraheras från videor och hjälper dig att effektivt skapa innehåll som släpfordon, sociala medieinnehåll, nyheter klipp etc. från befintligt innehåll i arkivet organisation 
 - Intäkter – Video Indexer kan öka värdet för videofilmer. Till exempel kan branscher som är beroende av annonsintäkter (som nyhetsmedier, sociala medier osv.) leverera mer relevant reklam genom att använda de extraherade insikterna som ytterligare signaler till annonsservern (att presentera reklam för sportskor är mer relevant under en fotbollsmatch än under en simtävling).
-
 - Användarengagemang – Videoinsikter kan användas för att förbättra användarnas engagemang genom positionering av relevanta videor. Ett exempel är en utbildningsvideo där sfärer förklaras under de första 30 minuterna och pyramider under efterföljande 30 minuter. En student som läser om pyramiderna har mer nytta av videon om den positioneras med start från 30-minutersmarkeringen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu är du redo att börja använda Video Indexer. Mer information finns i följande artiklar:
 
-- [Komma igång med Video Indexer-webbplatsen](video-indexer-get-started.md)
+- [Kom igång med Video Indexer-webbplats](video-indexer-get-started.md)
 - [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)
 - [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md)

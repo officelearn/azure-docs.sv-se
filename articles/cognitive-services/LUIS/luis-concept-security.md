@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089853"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894192"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
 Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 
@@ -35,7 +35,7 @@ Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat a
 |Gör appen offentlig|När en app är offentlig kan alla med en nyckel för redigering eller slutpunkt fråga appen.|
 |Ändra modellen|
 |Publicera|
-|Granska endpoint yttranden för [aktiv inlärning](luis-how-to-review-endoint-utt.md)|
+|Granska endpoint yttranden för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)|
 |Träna|
 
 ## <a name="access-to-endpoint"></a>Åtkomst till slutpunkten

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007491"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892185"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: Automatisera containeravbildningsversioner när en basavbildning uppdateras i ett Azure-containerregister 
 
@@ -45,9 +45,9 @@ I den här självstudien förutsätts det att du redan har slutfört stegen i de
 
 Om du inte redan gjort det, slutför du de två första självstudierna innan du fortsätter:
 
-[Skapa containeravbildningar i molnet med Azure Container Registry-uppgifter](container-registry-tutorial-quick-task.md)
+[Skapa behållaravbildningar i molnet med Azure Container Registry uppgifter](container-registry-tutorial-quick-task.md)
 
-[Automatisera containeravbildningar med Azure Container Registry-uppgifter](container-registry-tutorial-build-task.md)
+[Automatisera behållare avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Konfigurera miljön
 
@@ -79,7 +79,7 @@ Den här självstudien vägleder dig genom ett uppdateringsscenario för basavbi
 
 I följande avsnitt skapar du en uppgift, uppdaterar värdet `NODE_VERSION` i basavbildningen Dockerfile och använder sedan ACR Tasks för att skapa basavbildningen. När ACR-uppgiften skickar den nya basavbildningen till registret utlöser den automatiskt en version av programavbildningen. Du kan också köra programmets containeravbildning lokalt om du vill se andra versionssträngar i versionsavbildningarna.
 
-I den här självstudien skapar och skickar din ACR-uppgift en enskild containeravbildning som anges i en Dockerfile. ACR-uppgifter kan även köra [uppgifter i flera steg](container-registry-tasks-multi-step.md) (för närvarande i förhandsversion) med hjälp av en YAML-fil för att definiera steg för att skapa, skicka och om så önskas testa flera containrar.
+I den här självstudien skapar och skickar din ACR-uppgift en enskild containeravbildning som anges i en Dockerfile. ACR-aktiviteter kan också köra [flerstegstest uppgifter](container-registry-tasks-multi-step.md), med en YAML-fil för att definiera stegen för att skapa, skicka och du kan också testa flera behållare.
 
 ## <a name="build-the-base-image"></a>Skapa basavbildningen
 

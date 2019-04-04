@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337484"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891437"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -66,6 +66,17 @@ Du kan skapa en ny app med redigering API: er på ett par olika sätt:
 Möjliga fel är: 
 
 * Det finns redan en app med det namnet. Importera appen och ange den **valfritt namn** till ett nytt namn. 
+
+## <a name="export-app"></a>Exportera app
+
+1. På **Mina appar** väljer **importera ny app**.
+1. I den **importera ny app** dialogrutan Välj JSON-fil som definierar LUIS-app.
+
+## <a name="delete-app"></a>Ta bort app
+
+1. På **Mina appar** väljer du de tre punkterna (...) i slutet av appraden.
+1. Välj **ta bort** på menyn.
+1. Välj **Ok** i bekräftelsefönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

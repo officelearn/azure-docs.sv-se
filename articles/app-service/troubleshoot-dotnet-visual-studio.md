@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996773"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895021"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsök en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -35,7 +35,7 @@ Du får lära dig:
 * Så här visar du webbserverloggar, inklusive detaljerade felmeddelanden och spårning av misslyckade begäranden.
 * Så här att skicka diagnostikloggar till Azure Storage-kontot och visa dem det.
 
-Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) för felsökning. IntelliTrace ingår inte i den här självstudien.
+Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](/visualstudio/debugger/intellitrace) för felsökning. IntelliTrace ingår inte i den här självstudien.
 
 ## <a name="prerequisites"></a>Förhandskrav
 Den här självstudien fungerar med utvecklingsmiljö, webbprojektet och App Service-app som du har konfigurerat i [skapa en ASP.NET-app i Azure App Service](app-service-web-get-started-dotnet-framework.md). För WebJobs-avsnitt behöver du det program som du skapar i [Kom igång med Azure WebJobs SDK][GetStartedWJ].
@@ -252,13 +252,13 @@ Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki),
 ```
 * Om du upptäcker att felsökningsprogrammet inte Stega in koden som du vill felsöka, kan du behöva ändra inställningen bara min kod.  Mer information finns i [ange om du vill felsöka endast användarkod med bara min kod i Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * En timer börjar på servern när du aktiverar funktionen felsökning och efter 48 timmar funktionen inaktiveras automatiskt. Den här gränsen 48 timmar görs skäl för säkerhet och prestanda. Du kan enkelt aktivera funktionen igen så många gånger som helst. Vi rekommenderar dock inaktiveras när du inte aktivt felsöker.
-* Du kan manuellt koppla felsökaren till en process, inte bara app-processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Du kan manuellt koppla felsökaren till en process, inte bara app-processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="logsoverview"></a>Översikt över diagnostikloggar
 Ett ASP.NET-program som körs i en App Service-app kan skapa följande typer av loggar:
 
 * **Spårningsloggar för program**<br/>
-  Programmet skapar de här loggarna genom att anropa metoder i den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) klass.
+  Programmet skapar de här loggarna genom att anropa metoder i den [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) klass.
 * **Webbserverloggar**<br/>
   Webbservern skapar en loggpost för varje HTTP-begäran till appen.
 * **Detaljerade felloggar för meddelande**<br/>
@@ -633,7 +633,7 @@ Starta en tråd för hjälp med en specifik fråga för felsökning, i något av
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Felsökning i Visual Studio
-Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) och [felsökning Tips med Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) och [felsökning Tips med Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Fjärrfelsökning i Azure
 Mer information om fjärrfelsökning för App Service-appar och WebJobs finns i följande resurser:
@@ -650,14 +650,14 @@ Det finns inga omfattande och uppdaterad introduktioner för ASP.NET-spårning p
 
 * [Övervakning och telemetri (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-boken kapitel med rekommendationer för spårning i Azure molnprogram.
-* [ASP.NET-spårning](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET-spårning](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Gamla men fortfarande en bra resurs för en grundläggande introduktion till ämnet.
-* [Spåra lyssnare](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Information om spårning lyssnare men inte nämner det [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Genomgång: Knyts System.Diagnostics spårning av ASP.NET-spårning](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Spåra lyssnare](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
+  Information om spårning lyssnare men inte nämner det [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
+* [Genomgång: Knyts System.Diagnostics spårning av ASP.NET-spårning](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Den här artikeln är också gamla, men innehåller ytterligare information som inte tas upp den inledande artikeln.
 * [Spårning i ASP.NET MVC Razor-vyer](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Utöver spårning i Razor-vyer förklarar också hur du skapar ett fel-filter för att logga alla ohanterade undantag i ett MVC-program i inlägget. Information om hur du loggar in alla ohanterade undantag i ett Web Forms-program finns i exemplet Global.asax i [komplett exempel för felhanterare](https://msdn.microsoft.com/library/bb397417.aspx) på MSDN. I MVC eller webbformulär om du vill logga vissa undantag, men låt standardramverk hantering av gälla för dem, kan du fånga upp och skicka tillbaka som i följande exempel:
+  Utöver spårning i Razor-vyer förklarar också hur du skapar ett fel-filter för att logga alla ohanterade undantag i ett MVC-program i inlägget. Information om hur du loggar in alla ohanterade undantag i ett Web Forms-program finns i exemplet Global.asax i [komplett exempel för felhanterare](/previous-versions/bb397417(v=vs.140)) på MSDN. I MVC eller webbformulär om du vill logga vissa undantag, men låt standardramverk hantering av gälla för dem, kan du fånga upp och skicka tillbaka som i följande exempel:
 
 ``` c#
 try

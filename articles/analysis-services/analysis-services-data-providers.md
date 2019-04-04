@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfd488828d9c96461cb371b35bb0a0cb24fff373
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897426"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891947"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -66,7 +66,7 @@ Klientbibliotek för klientanslutningar skiljer sig från dataleverantörer som 
 
  ADOMD.NET är ett klientbibliotek för hanterade data som används för att fråga Analysis Services-data. Den har installerats och används av verktyg och program. 
   
- När du ansluter till en databas, liknar egenskaperna för anslutningssträngen för alla tre bibliotek. Nästan alla anslutningssträngen som du definierar för ADOMD.NET med hjälp av [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) fungerar även för AMO och den Analysis Services OLE DB-providern (MSOLAP). Mer information finns i [anslutningssträngsegenskaper &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ När du ansluter till en databas, liknar egenskaperna för anslutningssträngen för alla tre bibliotek. Nästan alla anslutningssträngen som du definierar för ADOMD.NET med hjälp av [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fungerar även för AMO och den Analysis Services OLE DB-providern (MSOLAP). Mer information finns i [anslutningssträngsegenskaper &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a> Så här kontrollerar du biblioteket klientversion   
@@ -92,5 +92,5 @@ Klientbibliotek för klientanslutningar skiljer sig från dataleverantörer som 
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Anslut till Excel](analysis-services-connect-excel.md)    
+[Anslut med Excel](analysis-services-connect-excel.md)    
 [Anslut med Power BI](analysis-services-connect-pbi.md)

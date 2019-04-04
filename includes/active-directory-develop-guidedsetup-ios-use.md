@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203534"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891114"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Använd Microsoft Authentication Library (MSAL) för att hämta en token för Microsoft Graph API
 
@@ -215,7 +215,7 @@ Metoden `acquireTokenSilent` hanterar hämtning och förnyelse av token utan nå
 
 Så småningom `acquireTokenSilent` misslyckas – t.ex. användaren har loggat ut eller har ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, det utlöses en `MSALErrorCode.interactionRequired` undantag. Programmet kan hantera det här undantaget på två sätt:
 
-1. Anropa mot `acquireToken` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inget offline innehåll i programmet tillgängligt för användaren. Exempelprogrammet som genererats av den här guidade konfigurationen använder det här mönstret: du ser i åtgärden först gången du kör programmet. Eftersom ingen användare har någonsin använt programmet, `applicationContext.allAccounts().first` innehåller ett null-värde och ett ` MSALErrorCode.interactionRequired ` undantagsfel. Koden i exemplet hanterar undantaget genom att anropa `acquireToken` vilket resulterar i uppmanar användaren att logga in.
+1. Anropa mot `acquireToken` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inget offline innehåll i programmet tillgängligt för användaren. Exempelprogrammet som genererats av den här guidade konfigurationen använder det här mönstret: du ser i åtgärden först gången du kör programmet. Eftersom ingen användare har någonsin använt programmet, `applicationContext.allAccounts().first` innehåller ett null-värde och ett `MSALErrorCode.interactionRequired` undantagsfel. Koden i exemplet hanterar undantaget genom att anropa `acquireToken` vilket resulterar i uppmanar användaren att logga in.
 
 2. Program kan också göra en visuell indikering för användaren som en interaktiv inloggning krävs, så att användaren kan välja rätt tid att logga in eller programmet kan försöka `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligtvis när användaren kan använda andra funktioner i programmet utan störs – till exempel finns offline innehåll i programmet. I det här fallet kan användaren avgöra när de vill logga in till den skyddade resursen eller uppdatera gammal information eller ditt program kan bestämma att försöka igen `acquireTokenSilent` när nätverket har återställts efter att ha tillfälligt otillgänglig.
 

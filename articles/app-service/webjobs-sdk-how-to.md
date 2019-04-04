@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518838"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895215"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -130,7 +130,7 @@ static void Main()
 
 I version 3. *x*, anslutningsgränsen som standard oändlig anslutningar. Om du av någon anledning som du vill ändra den här gränsen kan du använda den [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) egenskapen för den [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) klass.
 
-I version 2. *x*, du styr antalet samtidiga anslutningar till en värd med den [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. I 2. *x*, bör du öka det här värdet från standardvärdet 2 innan du börjar din WebJobs-värd.
+I version 2. *x*, du styr antalet samtidiga anslutningar till en värd med den [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. I 2. *x*, bör du öka det här värdet från standardvärdet 2 innan du börjar din WebJobs-värd.
 
 Alla utgående HTTP-begäranden som du gör en funktion med hjälp av `HttpClient` flödar genom `ServicePointManager`. När du når värdet i `DefaultConnectionLimit`, `ServicePointManager` startar jobbköer begäranden innan de skickas. Anta att dina `DefaultConnectionLimit` anges till 2 och din kod gör 1 000 HTTP-begäranden. Först har tillåts bara två begäranden via Operativsystemet. De andra 998 köas tills det finns plats för dessa. Det innebär att din `HttpClient` kan tidsgräns eftersom den verkar ha gjorde begäran, men förfrågan skickades aldrig av Operativsystemet till målservern. Så att du kan se beteende som inte verkar vara meningsfullt: lokalt `HttpClient` tar 10 sekunder att slutföra en begäran, men tjänsten returnerar varje begäran på 200 ms. 
 

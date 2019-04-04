@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884531"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892474"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Flera datamodeller funktionerna i Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database har utformats för att arbeta med relationsmodellen som tillh
 Du bör överväga att använda funktionerna för flera modeller i Azure SQL Database i följande fall:
 - Du har viss information eller strukturer som bättre passa för NoSQL-modeller och du vill inte använda separata NoSQL-databas.
 - En majoritet av dina data är lämpligt för relationsmodellen och behöver du skapa vissa delar av dina data med NoSQL-stil.
-- Du vill dra nytta av omfattande Transact-SQL-språket att fråga efter och analysera både Relations- och NoSQL-data och integrera det med en mängd olika verktyg och programlösningarna som kan använda SQL-språket.
+- Du vill dra nytta av omfattande Transact-SQL-språket att fråga efter och analysera både Relations- och NoSQL-data och integrera det med en mängd olika verktyg och program som kan använda SQL-språket.
 - Du vill tillämpa databasfunktioner som [minnesinterna tekniker](sql-database-in-memory.md) att förbättra prestanda för din analys eller använda bearbetning av dina data strucutres NoSQL [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller [läsbara repliker](sql-database-read-scale-out.md) att skapa kopia av dina data på annan plats och avlasta vissa analytiska arbetsbelastningar från den primära databasen.
 
 ## <a name="overview"></a>Översikt
@@ -122,7 +122,7 @@ Dokumentet modeller kan användas i stället för relationella modeller i vissa 
 - Måste du förenkla din datamodell genom att ta bort normalisering underordnade tabellerna eller entitet Objektvärde mönster.
 - Du behöver läsa in eller exportera data som lagras i XML-format utan några ytterligare verktyg som analyserar data.
 
-## <a name="key-value-pairs"></a>Nyckel / värde-par
+## <a name="key-value-pairs"></a>Nyckel/värde-par
 
 Azure SQL Database har inte särskilda typer eller strukturer som har stöd för nyckel / värde-par eftersom nyckel / värde-strukturer kan internt visas som standard Relationstabeller:
 

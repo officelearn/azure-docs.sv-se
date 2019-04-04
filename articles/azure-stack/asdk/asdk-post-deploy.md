@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7699c9279138aedfdcfe63fb42e65ad102ac92c9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102442"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652475"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
@@ -48,14 +48,14 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
 - Azure Stack 1901 eller senare:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack-Modulversion 1.7.0 är en viktig ändring. Migrera från Azure Stack 1.6.0 eller senare finns i den [Migreringsguide](https://aka.ms/azspshmigration170).
+    > Azure Stack-Modulversion 1.7.1 är en viktig ändring. Migrera från Azure Stack 1.6.0 eller senare finns i den [Migreringsguide](https://aka.ms/azspshmigration171).
 
   - Azure Stack 1811:
 
@@ -87,7 +87,7 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
 - **Utan Internetanslutning** från värddatorn ASDK. I ett scenario med frånkopplade måste du först hämta PowerShell-moduler på en dator som är ansluten till internet med hjälp av följande PowerShell-kommandon:
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -99,7 +99,7 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
   Sedan kopiera de hämta paketen till ASDK-dator och registrera platsen som standard-databasen och installerar AzureRM- och AzureStack-moduler från den här lagringsplatsen:
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -114,7 +114,7 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
 [Verktyg för AzureStack](https://github.com/Azure/AzureStack-Tools) är en GitHub-lagringsplats som är värd för PowerShell-moduler för att hantera och distribuera resurser till Azure Stack. Klona GitHub-databasen för att få dessa verktyg eller ladda ned mappen AzureStack verktyg genom att köra följande skript:
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 

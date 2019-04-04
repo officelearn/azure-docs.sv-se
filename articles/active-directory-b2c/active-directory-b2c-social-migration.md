@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089360"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894909"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -63,7 +63,7 @@ I följande lista visas de egenskaper som krävs när du skapar en användare.
 * **userIdentities** -en eller flera UserIdentity-poster som anger sociala kontotyp och unika användaridentifieraren från sociala identitetsprovidern.
 * [valfritt] **otherMails** – för socialt konto endast användarens e-postadresser 
 
-Mer information finns i: [Graph API-referens](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Mer information finns i: [Graph API-referens](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migrera sociala konto (endast)
 Skapa sociala kontot, utan att autentiseringsuppgifterna för lokalt konto. Skicka HTTPS-POST-begäran till Graph API. Begärandetexten innehåller egenskaperna för det sociala kontot till att skapa. Du måste ange de nödvändiga egenskaperna för ett minimum. 

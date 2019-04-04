@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243342"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879360"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL resource provider 1.1.33.0 viktig information
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och kända problem i SQL resurs-providerversion 1.1.33.0.
 
@@ -50,7 +50,8 @@ Den här versionen av Azure Stack SQL-resursprovider innehåller följande förb
 
 - **Tidigare SQL provider (1.1.30.0) resursdistributionen kan misslyckas om TLS 1.2 inte aktiveras**. Uppdatera SQL-resursprovider 1.1.33.0 för att aktivera TLS 1.2 när du distribuerar resursprovidern, uppdaterar resursprovidern eller roterar hemligheter. 
 
-- **SQL resource provider hemliga rotation misslyckas**. Problem har åtgärdats vilket resulterar i följande felkod när du roterar hemligheter: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **SQL resource provider hemliga rotation misslyckas**. Problem har åtgärdats vilket resulterar i följande felkod när du roterar hemligheter:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Kända problem 
 

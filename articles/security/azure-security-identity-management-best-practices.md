@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112113"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895694"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 
@@ -116,7 +116,7 @@ Följande är alternativ och fördelar för att aktivera tvåstegsverifiering:
 **Alternativ 1**: [Aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md).   
 **Förmånen**: Det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Med den här metoden kräver att användare utför en tvåstegsverifiering varje gång de loggar in och åsidosättningar principer för villkorlig åtkomst.
 
-**Alternativ 2**: [Aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Alternativ 2**: [Aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md).
 **Förmånen**: Det här alternativet kan du fråga efter tvåstegsverifiering vissa villkor med hjälp av [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md). Särskilda villkor kan vara användare logga in från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Definiera särskilda villkor där du kräver tvåstegsverifiering kan du undvika konstant fråga om dina användare, vilket kan vara en otrevlig användarupplevelse.
 
 Det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. När en princip för villkorlig åtkomst fungerar endast för Azure Multi-Factor Authentication i molnet och är en premiumfunktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserade Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).

@@ -1,6 +1,6 @@
 ---
-title: Lägga till och ta bort en VM-avbildning till Azure Stack | Microsoft Docs
-description: Lägg till eller ta bort din organisations anpassade Windows eller Linux VM-avbildning för att klienterna ska använda.
+title: Lägg till en VM-avbildning till Azure Stack | Microsoft Docs
+description: Lägg till en VM-avbildning eller ta bort en bild till din organisations anpassade Windows eller Linux VM-avbildning för att klienterna ska använda.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109178"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881468"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Lägg till en VM-avbildning för att erbjuda i Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-I Azure Stack, kan du tillgängliggöra avbildningar av virtuella datorer till dina användare. Dessa avbildningar kan användas av Azure Resource Manager-mallar. Du kan också lägga till dem i Azure Marketplace-användargränssnittet som ett Marketplace-objekt. Använda en avbildning form global Azure Marketplace eller en egen anpassad avbildning. Avbildningen kan läggas till med hjälp av portalen eller Windows PowerShell.
+Du kan lägga till en avbildning av virtuell dator (VM) i Azure Stack Marketplace för att göra tillgängliga för användarna. Du kan lägga till avbildningar av Virtuella datorer med hjälp av Azure Resource Manager-mallar för Azure Stack. Du kan också lägga till avbildningar av Virtuella datorer i Azure Marketplace-användargränssnittet som ett Marketplace-objekt. Använda en avbildning från global Azure Marketplace eller dina egna anpassade VM-avbildning. Du kan lägga till VM-avbildning med administrationsportalen eller Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Lägg till en VM-avbildning via portalen
 
@@ -83,7 +83,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -93,10 +93,10 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
    ```
 
    Den **Lägg till AzsPlatformimage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-   - **publisher**  
+   - **utgivare**  
      Exempel: `Canonical`  
      Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-   - **offer**  
+   - **erbjudande**  
      Exempel: `UbuntuServer`  
      Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
    - **sku**  
@@ -118,7 +118,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
  
 1. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 2. Om du använder **Active Directory Federation Services**, använder du följande cmdlet:
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 5. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX), överför avbildningen till ditt storage-konto och hämta URI där VM-avbildning kan hämtas med PowerShell.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 6. (Valfritt) Du kan överföra en matris med datadiskar som en del av avbildningen. Skapa din datadiskar med hjälp av cmdleten New-DataDiskObject. Öppna PowerShell från en upphöjd kommandotolk och kör:
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -197,10 +197,10 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
     -version "<version>" `
    ```
    Den **Remove-AzsPlatformImage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-   - **publisher**  
+   - **utgivare**  
      Exempel: `Canonical`  
      Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-   - **offer**  
+   - **erbjudande**  
      Exempel: `UbuntuServer`  
      Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
    - **sku**  

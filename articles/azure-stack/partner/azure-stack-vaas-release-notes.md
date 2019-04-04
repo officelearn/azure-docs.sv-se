@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091995"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486945"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Viktig information för verifiering som en tjänst
 
@@ -61,7 +61,7 @@ Den 8 oktober 2018
 
     `Install-VaaSPrerequisites` kräver inte längre administratörsautentiseringsuppgifter för molnet. Om du kör den senaste versionen av denna cmdlet finns i [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) för reviderade kommandon för att installera nödvändiga komponenter. Nedan visas kommandona:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ Den 29 augusti 2018
 
     `Install-VaaSPrerequisites` kräver nu att molnet administratörsautentiseringsuppgifter för att åtgärda problem vid verifiering av paketet. I dokumentationen på [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) har uppdaterats med följande:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

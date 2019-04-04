@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371867"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894601"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
-Azure AD för återställning av lösenord via självbetjäning (SSPR) och Multi-Factor Authentication (MFA) kan begära ytterligare information, kallas autentiseringsmetoder eller säkerhetsinformation för att bekräfta att du som du anta att du är när du använder de associera funktionerna.
+När återställning av en administratör väljer autentiseringsmetoder för Azure Multi-Factor Authentication och återställning av lösenord (SSPR) rekommenderar vi att du kräver att användare registrerar flera autentiseringsmetoder. När en autentiseringsmetod inte är tillgänglig för en användare, kan de välja att autentisera med någon annan metod.
 
-Administratörer kan definiera i vilka autentiseringsmetoder är tillgängliga för användare av SSPR och MFA-principen. Vissa autentiseringsmetoder är kanske inte tillgänglig för alla funktioner.
+Administratörer kan definiera i vilka autentiseringsmetoder är tillgängliga för användare av SSPR och MFA-principen. Vissa autentiseringsmetoder är kanske inte tillgänglig för alla funktioner. Mer information om hur du konfigurerar principer finns i artiklar [hur distribuera lösenordsåterställning via självbetjäning](howto-sspr-deployment.md) och [planera en molnbaserad Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft rekommenderar starkt att administratörer aktivera användare att välja fler än det minsta antalet nödvändiga autentiseringsmetoder om de inte har åtkomst till en.
 

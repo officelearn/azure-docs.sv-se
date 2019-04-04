@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d5f6a89d279f0e1b0babc98ed59a07fa1761707f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856452"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893698"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden
 Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
 
 ## <a name="what-is-active-learning"></a>Vad är aktiv inlärning
-Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas emot i appens slutpunkten som behöver verifiering. Det andra steget utförs av appägare eller deltagare för att verifiera de valda yttranden för [granska](luis-how-to-review-endoint-utt.md), inklusive rätt avsikten och alla entiteter i avsikten. När du har granskat talade, träna och publicera appen igen. 
+Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas emot i appens slutpunkten som behöver verifiering. Det andra steget utförs av appägare eller deltagare för att verifiera de valda yttranden för [granska](luis-how-to-review-endpoint-utterances.md), inklusive rätt avsikten och alla entiteter i avsikten. När du har granskat talade, träna och publicera appen igen. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Vilka yttranden finns med i listan för granskning
 LUIS lägger till yttranden granska listan när upp aktiveringen syftet har en låg poäng eller övre två avsikter är för Stäng. 
@@ -41,4 +41,4 @@ Använd den **[ta bort omärkta yttranden](https://westus.dev.cognitive.microsof
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [granska](luis-how-to-review-endoint-utt.md) endpoint yttranden
+* Lär dig hur du [granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden

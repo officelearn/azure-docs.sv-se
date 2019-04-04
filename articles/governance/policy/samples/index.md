@@ -1,6 +1,6 @@
 ---
 title: Index för principexempel
-description: 'Index för Azure Policy-exempel. Kategorierna omfattar namngivning, taggar, Key Vault, nätverk, lagring med mera.'
+description: Index för Azure Policy-exempel. Kategorierna omfattar namngivning, taggar, Key Vault, nätverk, lagring med mera.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,6 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
+ms.openlocfilehash: 14b61ffe96c6a75f6addf40ee411cd42b2532c55
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189741"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy-exempel
 

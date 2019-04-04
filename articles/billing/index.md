@@ -1,19 +1,24 @@
 ---
 layout: LandingPage
 title: Dokumentation om Azure-fakturering och kostnadshantering | Microsoft Docs
-description: 'Lär dig att förstå din Azure-fakturering, hantera och övervaka användning och kostnader, samt hantera ditt konto och dina prenumerationer.'
+description: Lär dig att förstå din Azure-fakturering, hantera och övervaka användning och kostnader, samt hantera ditt konto och dina prenumerationer.
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446723"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Dokumentation om Azure-fakturering och kostnadshantering
 
 Lär dig att förstå din Azure-fakturering, hantera, övervaka användning och kostnader, samt hantera ditt konto och dina prenumerationer.

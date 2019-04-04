@@ -1,6 +1,6 @@
 ---
-title: 'Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs'
-description: 'Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation.'
+title: Dokumentation om Azure Power BI Embedded – Självstudier, API-referens | Microsoft Docs
+description: Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation.
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,8 +9,13 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
+ms.openlocfilehash: 8c7ee917234891123392a7954bf704e1ff2a70e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447823"
 ---
-
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded-dokumentation
 
 Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i appar med hjälp av Power BI Embedded. Självstudier, API-referenser och annan dokumentation som visar hur du sömlöst kan bädda in Power BI-rapporter och instrumentpaneler i appar.

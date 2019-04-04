@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: false
-title: 'Dokumentation om Sakernas Internet i Azure – självstudier, API-referens | Microsoft Docs'
-description: 'Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. Enklare uttryckt består en IoT-lösning av en eller flera IoT-enheter och en eller flera serverdelstjänster som körs i molnet som kommunicerar med varandra.'
+title: Dokumentation om Sakernas Internet i Azure – självstudier, API-referens | Microsoft Docs
+description: Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. Enklare uttryckt består en IoT-lösning av en eller flera IoT-enheter och en eller flera serverdelstjänster som körs i molnet som kommunicerar med varandra.
 services: azure-iot
 author: dsk-2015
 manager: philmea
@@ -10,8 +10,13 @@ ms.service: azure-iot
 ms.topic: landing-page
 ms.date: 02/12/2019
 ms.author: dkshir
+ms.openlocfilehash: d19b6fff3bf2b43ecb692bd8d8e33a202e969570
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343905"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Dokumentation om Sakernas Internet i Azure</h1>

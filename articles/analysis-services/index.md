@@ -1,5 +1,5 @@
 ---
-title: 'Dokumentation om Azure Analysis Services – Självstudier, API-referens'
+title: Dokumentation om Azure Analysis Services – Självstudier, API-referens
 description: Lär dig hur du konfigurerar datamodellering med Analysis Services i molnet. Dokumentation som visar hur du skapar en företags-BI-lösning med hjälp av tabelldata.
 services: analysis-services
 author: minewiskan
@@ -8,6 +8,12 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
+ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106975"
 ---
 # <a name="analysis-services-documentation"></a>Dokumentation för Analysis Services
 

@@ -1,7 +1,7 @@
 ---
 layout: HubPage
 title: Dokumentation om Azure Cognitive Services
-description: 'Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala, förstå och tolka användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel visar hur du använder API:erna.'
+description: Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala, förstå och tolka användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel visar hur du använder API:erna.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,8 +9,13 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 02/21/2019
 ms.topic: hub-page
+ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472930"
 ---
-
 <div id="main" class="v2">
 <h1>Dokumentation om Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.</p>

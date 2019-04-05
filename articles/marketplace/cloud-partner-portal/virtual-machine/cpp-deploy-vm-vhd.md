@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106057"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046690"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
 
@@ -32,13 +32,14 @@ Mer information om VM-avbildningar finns i följande blogginlägg:
 - [VM-avbildning](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [Bild-dator med PowerShell, hur du'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Förutsättning: Installera nödvändiga verktyg
 
 Om du inte redan har gjort det installerar du Azure PowerShell och Azure CLI, med hjälp av följande anvisningar:
 
-- [Installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Distributionssteg
@@ -61,7 +62,7 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parametern**              |   **Beskrivning**                                                            |
+   |  **Parameter**              |   **Beskrivning**                                                            |
    |  -------------              |   ---------------                                                            |
    | Användaren Lagringskontonamn   | Lagringskontonamn där den generaliserade virtuella Hårddisken finns                    |
    | Namnet på användaren lagringsbehållaren | Behållarens namn där den generaliserade virtuella Hårddisken finns                          |

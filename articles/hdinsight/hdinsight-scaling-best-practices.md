@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316260"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050687"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -22,16 +22,19 @@ HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skal
 
 Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft.  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="utilities-to-scale-clusters"></a>Verktyg för att skala kluster
 
 Microsoft tillhandahåller följande verktyg för att skala kluster:
 
 |Verktyget | Beskrivning|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight ändra storlek på](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resursgrupp \<resursgrupp >--name \<klustrets namn >--target instansantalet \<NewSize >|
-|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål >|
+|[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål >|
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret ditt HDInsight-kluster, Välj **klusterstorlek** i den vänstra menyn och sedan i fönstret kluster storlek, Skriv i antalet arbetarnoder och klicka på Spara.|  
 
 ![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -326,4 +329,4 @@ Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i fel
 
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Skala kluster](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

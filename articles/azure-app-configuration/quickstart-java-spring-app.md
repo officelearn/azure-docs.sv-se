@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648477"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050517"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
 
@@ -48,17 +48,13 @@ Om du vill göra den här snabbstarten, installera en stödd [Java Development K
     | **Resursnamn** | Globalt unikt namn | Ange ett unikt resursnamn som ska användas för appkonfigurationsarkivets resurs. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte börja eller sluta med den `-` tecknet eller efterföljande `-` tecken är ogiltiga.  |
     | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration, det väljs automatiskt och **prenumeration** inte visas i listrutan. |
     | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resursgrupp för appkonfigurationsarkivets resurs. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
+    | **Plats** | *Centrala USA* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
 
     ![Skapa ett appkonfigurationsarkiv](./media/quickstarts/azure-app-configuration-create.png)
 
 4. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
 
-5. När distributionen är klar, Välj **inställningar** > **åtkomstnycklar**. Notera antingen eller primära skrivskyddade primärnyckelns anslutningssträng. Du kan använda den här anslutningssträngen senare för att konfigurera ditt program kan kommunicera med appbutiken för konfigurationen som du skapade. Anslutningssträngen har följande format:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Använd hela strängen i ditt program.
+5. När distributionen är klar, Välj **inställningar** > **åtkomstnycklar**. Notera antingen eller primära skrivskyddade primärnyckelns anslutningssträng. Du kan använda den här anslutningssträngen senare för att konfigurera ditt program kan kommunicera med appbutiken för konfigurationen som du skapade.
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 

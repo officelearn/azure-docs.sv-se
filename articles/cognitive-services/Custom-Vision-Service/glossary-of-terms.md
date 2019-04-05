@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352110"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048944"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Ordlista för Custom Vision Service
 
@@ -32,7 +32,6 @@ När du skapar ett projekt kan välja du en ”domän” för projektet. Domäne
 - **Mat-domän.** Optimerat för disk som du ser på en restaurang-meny. Det har inte optimerats för att identifiera enskilda frukt eller grönsaker. Om du vill klassificera fotografier av enskilda frukter och grönsaker använda den allmänna domänen för detta ändamål.
 - **Landmärken-domän.** Optimerat för identifierbara landmärken, både naturliga och konstgjorda. Den här domänen fungerar bäst när landmärken syns tydligt i fotot, även om landmärken något hindras av en grupp människor som utgör framför den.
 - **Retail-domän.** Optimerat för klassificera bilder i en i katalogen eller Shopping. Om du vill ha hög precision när klassificera klänningar, använder byxor, skjortor, osv, Retail-domänen.
-- **Domänen som är olämpligt för barn.** Optimerad för att definiera en bättre mellan vuxet innehåll och inte är vuxen innehåll. Till exempel om du vill blockera bilder av personer i badning passar kan den här domänen du skapa en anpassad klassificerare för att göra detta.
 - **Den allmänna domänen.** Utmärkt för många olika slags aktiviteter för klassificering av avbildning.
 
 Modeller som genererats av **komprimera domäner** kan exporteras med exportfunktionen iteration. De är optimerade för begränsningar i realtid klassificeringen på mobila enheter. Klassificerare som skapats med en kompakt domän kan vara något mindre exakt en standard domän med samma mängd träningsdata. Nackdelen är att de är tillräckligt liten för att köras lokalt i nära realtid. 

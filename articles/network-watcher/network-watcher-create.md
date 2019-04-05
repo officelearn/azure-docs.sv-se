@@ -14,19 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615228"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051571"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
 
 Network Watcher är en regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå, till och från Azure. Scenariot på övervakning kan du diagnostisera problem på vyn för slutpunkt till slutpunkt. Nätverksdiagnostik- och visualiseringsverktyg för Network Watcher hjälper dig att förstå, diagnostisera och få information om ditt nätverk i Azure. Network Watcher aktiveras genom att skapa en Network Watcher-resurs. Den här resursen kan du använda Network Watcher-funktioner.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher aktiveras automatiskt
-När du skapar eller uppdaterar ett virtuellt nätverk i din prenumeration, aktiveras Network Watcher automatiskt i ditt virtuella nätverk region. Dina resurser påverkas inte av den automatiska aktiveringen av Network Watcher, och inga kostnader tillkommer.
+När du skapar eller uppdaterar ett virtuellt nätverk i din prenumeration aktiveras Network Watcher automatiskt i din virtuella nätverksregion. Dina resurser påverkas inte av den automatiska aktiveringen av Network Watcher, och inga kostnader tillkommer.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Avstår från automatisk aktivering av Network Watcher
 Om du vill välja bort automatisk aktivering av Network Watcher kan göra du det genom att köra följande kommandon:
@@ -35,8 +38,8 @@ Om du vill välja bort automatisk aktivering av Network Watcher kan göra du det
 > Väljer ut av automatisk aktivering av Network Watcher är en permanent förändring. När du inte välja bort du kan anmäla sig utan [att kontakta supporten](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Om du vill anpassa namnet på en Network Watcher-instans och resursgruppen har p
 Om du vill skapa en instans av Network Watcher, kör du följande exempel:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Skapa en Network Watcher med Azure CLI
@@ -105,8 +108,8 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 Nu när du har en instans av Network Watcher lär du dig mer om tillgängliga funktioner:
 
 * [Topologi](network-watcher-topology-overview.md)
-* [Paketfångsten](network-watcher-packet-capture-overview.md)
-* [Verifiera IP-flöde](network-watcher-ip-flow-verify-overview.md)
+* [Paketinsamling](network-watcher-packet-capture-overview.md)
+* [Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md)
 * [Nästa hopp](network-watcher-next-hop-overview.md)
 * [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
 * [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md)

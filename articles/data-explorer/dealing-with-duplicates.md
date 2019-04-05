@@ -1,21 +1,20 @@
 ---
-title: Hantera duplicerade data
-description: Det här avsnittet beskriver olika sätt att hantera med kopierade data
-services: data-explorer
+title: Hantera duplicerade data i Datautforskaren i Azure
+description: Det här avsnittet beskriver olika metoder för att hantera duplicerade data när du använder Datautforskaren i Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756364"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045789"
 ---
-# <a name="deal-with-duplicate-data"></a>Hantera duplicerade data
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Hantera duplicerade data i Datautforskaren i Azure
 
 Enheter som skickar data till molnet underhålla en lokal cache av data. Beroende på storleken på data kunde den lokala cachen lagrar data för dagar eller till och med månader. Vill du skydda dina analytiska databaser från felaktig enheter som skicka cachelagrade data och orsaka duplicerade data i analytiska databasen. Det här avsnittet beskriver de bästa metoderna för hantering av duplicerade data för dessa typer av scenarier.
 
@@ -123,4 +122,4 @@ Duplicerade data kan hanteras på flera olika sätt. Utvärdera alternativ med n
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor för Azure Data Explorer](write-queries.md)
+> [Skriv frågor för Azure Data Explorer](write-queries.md)

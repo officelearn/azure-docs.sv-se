@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fa9026405789a6a90bbb9213cc54346aa8374c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845410"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045277"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar
 
@@ -29,14 +29,14 @@ Azure Resource Manager-mallar hjälper dig att definiera resurserna som ska dist
 
 > [!NOTE]
 > Exemplen i den här artikeln visar hur du använder Azure Resource Manager för att skapa en Service Bus-namnområde och en meddelandeentitet (kö). Andra mallexempel finns den [Azure-Snabbstartsmallar galleriet] [ Azure Quickstart Templates gallery] och Sök efter **Service Bus**.
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="service-bus-resource-manager-templates"></a>Service Bus Resource Manager-mallar
 
 De här Service Bus Azure Resource Manager-mallar är tillgängliga för hämtning och distribution. Klicka på följande länkar för ytterligare information om var och en med länkar till mallar på GitHub:
 
-* [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
+* [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
 * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
 * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
 * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
@@ -164,27 +164,27 @@ Mer information finns i den [parametrar](../azure-resource-manager/resource-grou
 Kör följande kommando från en PowerShell-kommandotolk:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Du uppmanas att logga in på ditt Azure-konto. Efter inloggningen, kör du följande kommando för att visa dina tillgängliga prenumerationer:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Det här kommandot returnerar en lista över tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för Azure-prenumeration du vill använda:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Ange resursgruppens namn
 
-Om du inte har en befintlig resurs, skapa en ny resursgrupp med det **New-AzureRmResourceGroup** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
+Om du inte har en befintlig resurs, skapa en ny resursgrupp med det **New AzResourceGroup** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Om detta lyckas visas en sammanfattning av den nya resursgruppen.
@@ -199,38 +199,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testa distributionen
 
-Verifiera distributionen genom att köra den `Test-AzureRmResourceGroupDeployment` cmdlet. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen.
+Verifiera distributionen genom att köra den `Test-AzResourceGroupDeployment` cmdlet. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="create-the-deployment"></a>Skapa distributionen
 
-Du skapar den nya distributionen måste köra den `New-AzureRmResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på resursgruppen, och sökvägen eller URL: en till mallfilen. Om den **läge** parametern inte anges standardvärdet för **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/deployment-modes.md).
+Du skapar den nya distributionen måste köra den `New-AzResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på resursgruppen, och sökvägen eller URL: en till mallfilen. Om den **läge** parametern inte anges standardvärdet för **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/deployment-modes.md).
 
 Kommandot frågar efter de tre parametrarna i PowerShell-fönstret:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 Om du vill ange en fil med parametrar i stället använder du följande kommando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 Du kan också använda infogade parametrar när du kör cmdlet för distribution. Kommandot är följande:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Att köra en [fullständig](../azure-resource-manager/deployment-modes.md) distributionen, den **läge** parameter **Slutför**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Verifiera distributionen

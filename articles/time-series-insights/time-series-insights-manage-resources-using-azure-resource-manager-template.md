@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009386"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045908"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights-resurser med Azure Resource Manager-mallar
 
@@ -38,6 +38,9 @@ En Resource Manager-mall är en JSON-fil som definierar infrastruktur och konfig
 - [Microsoft.TimeSeriesInsights resurstyper](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 Den [201-timeseriesinsights-miljö-med-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) snabbstartsmall publiceras på GitHub. Den här mallen skapar en Time Series Insights-miljö, en underordnad händelsekällan som konfigurerats för att konsumera händelser från en Event Hub och åtkomstprinciper som beviljar åtkomst till den miljön data. Om en befintlig Händelsehubb har inte angetts, skapas en med distributionen.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuera snabbstartsmall lokalt med hjälp av PowerShell
 
@@ -110,8 +113,8 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
    | eventSourceDisplayName | Ett valfritt eget namn ska visas i verktyg eller användaren gränssnitt i stället för händelsekällans namn. |
    | eventSourceTimestampPropertyName | Händelseegenskapen som ska användas som den händelsekälla tidsstämpel. Om du inte anger något värde för timestampPropertyName, eller om null eller tom sträng har angetts, kommer tiden för skapandet av händelsen att användas. |
    | eventSourceKeyName | Namnet på den delade åtkomstnyckeln som ska användas av Time Series Insights-tjänsten för att ansluta till event hub. |
-   | accessPolicyReaderObjectIds | En lista med objekt-ID för de användare eller program i Azure AD som ska ha läsåtkomst till miljön. Tjänstens huvudnamn objectId kan hämtas genom att anropa den **Get-AzureRMADUser** eller **Get-AzureRMADServicePrincipal** cmdletar. Skapa en åtkomstprincip för Azure AD-grupper stöds inte ännu. |
-   | accessPolicyContributorObjectIds | En lista med objekt-ID för de användare eller program i Azure AD som ska ha deltagaråtkomst till miljön. Tjänstens huvudnamn objectId kan hämtas genom att anropa den **Get-AzureRMADUser** eller **Get-AzureRMADServicePrincipal** cmdletar. Skapa en åtkomstprincip för Azure AD-grupper stöds inte ännu. |
+   | accessPolicyReaderObjectIds | En lista med objekt-ID för de användare eller program i Azure AD som ska ha läsåtkomst till miljön. Tjänstens huvudnamn objectId kan hämtas genom att anropa den **Get-AzADUser** eller **Get-AzADServicePrincipal** cmdletar. Skapa en åtkomstprincip för Azure AD-grupper stöds inte ännu. |
+   | accessPolicyContributorObjectIds | En lista med objekt-ID för de användare eller program i Azure AD som ska ha deltagaråtkomst till miljön. Tjänstens huvudnamn objectId kan hämtas genom att anropa den **Get-AzADUser** eller **Get-AzADServicePrincipal** cmdletar. Skapa en åtkomstprincip för Azure AD-grupper stöds inte ännu. |
 
 Till exempel skulle följande parameterfilen användas för att skapa en miljö och en händelsekälla som läser händelser från en befintlig händelsehubb. Det skapar också två åtkomstprinciper som beviljar deltagaråtkomst till miljön.
 
@@ -155,27 +158,27 @@ Mer information finns i den [parametrar](../azure-resource-manager/resource-grou
 Kör följande kommando från en PowerShell-kommandotolk:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Du uppmanas att logga in på ditt Azure-konto. Efter inloggningen, kör du följande kommando för att visa dina tillgängliga prenumerationer:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Det här kommandot returnerar en lista över tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för Azure-prenumeration du vill använda:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Ange resursgruppens namn
 
-Om du inte har en befintlig resurs, skapa en ny resursgrupp med det **New-AzureRmResourceGroup** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
+Om du inte har en befintlig resurs, skapa en ny resursgrupp med det **New AzResourceGroup** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Om detta lyckas visas en sammanfattning av den nya resursgruppen.
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testa distributionen
 
-Verifiera distributionen genom att köra den `Test-AzureRmResourceGroupDeployment` cmdlet. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen.
+Verifiera distributionen genom att köra den `Test-AzResourceGroupDeployment` cmdlet. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>Skapa distributionen
 
-Du skapar den nya distributionen måste köra den `New-AzureRmResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på resursgruppen, och sökvägen eller URL: en till mallfilen. Om den **läge** parametern inte anges standardvärdet för **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/deployment-modes.md).
+Du skapar den nya distributionen måste köra den `New-AzResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på resursgruppen, och sökvägen eller URL: en till mallfilen. Om den **läge** parametern inte anges standardvärdet för **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/deployment-modes.md).
 
 Kommandot frågar efter fem obligatoriska parametrar i PowerShell-fönstret:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 Om du vill ange en fil med parametrar i stället använder du följande kommando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 Du kan också använda infogade parametrar när du kör cmdlet för distribution. Kommandot är följande:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Att köra en [fullständig](../azure-resource-manager/deployment-modes.md) distributionen, den **läge** parameter **Slutför**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen

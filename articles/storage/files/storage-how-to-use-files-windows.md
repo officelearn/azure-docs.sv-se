@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482138"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048851"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -40,6 +40,9 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar 
 * **Lagringskontonamn**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
 
@@ -47,13 +50,13 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
 * **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Följande PowerShell-kod förutsätter att du har AzureRM PowerShell-modulen är installerad. Mer information finns på sidan om att [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
+    Följande PowerShell koden förutsätter att du har installerat Azure PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 När du har skapat den här registernyckeln måste du starta om servern för att inaktivera SMB 1.
 
 ### <a name="smb-resources"></a>SMB-resurser
-- [Sluta använda SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [Clearinghouse för SMB 1-produkt](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Sluta använda SMB-1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB-1 produkt Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
 - [Identifiera SMB 1 i din miljö med DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Inaktivera SMB 1 via en grupprincip](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Inaktivera SMB 1 via en Grupprincip](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
-- [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Vanliga frågor och svar](../storage-files-faq.md)
+- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
 - [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

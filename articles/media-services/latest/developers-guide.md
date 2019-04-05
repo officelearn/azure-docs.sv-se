@@ -16,18 +16,21 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755870"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044414"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg
 
 Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
 
 Det här avsnittet innehåller länkar till SDK:er, verktyg och dokumentation. Där finns även användbar information för olika utvecklarmiljöer.
+
+> [!NOTE]
+> SDK: er för Azure Media Services v3 garanteras vara trådsäkra. När du utvecklar ett flertrådiga program, bör du lägga till en egen logik för synkronisering av tråd för att skydda den eller använda ett nytt AzureMediaServicesClient objekt per tråd. Du bör också vara försiktig flertrådsteknik problem som introducerades av valfritt objekt som tillhandahålls av din kod till klienten (t.ex. en HttpClient-instans i .NET).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

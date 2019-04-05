@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 9b7df83b710bac0b37ac28c432f63a47ddda21d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440048"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051214"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Använd kommandoradsverktygen för att starta och stoppa virtuella datorer i Azure DevTest Labs
 Den här artikeln visar hur du använder Azure PowerShell eller Azure CLI för att starta eller stoppa virtuella datorer i ett labb i Azure DevTest Labs. Du kan skapa PowerShell/CLI-skript för att automatisera de här åtgärderna. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 Azure DevTest Labs är ett sätt att skapa snabba, enkla och resurssnåla dev/test-miljöer. Det kan du hantera kostnader, snabbt etablera virtuella datorer och minimera spill.  Det finns inbyggda funktioner i Azure portal så att du kan konfigurera virtuella datorer i ett testlabb för att automatiskt starta och stoppa vid specifika tidpunkter. 
@@ -32,7 +34,7 @@ Men i vissa situationer kan du automatisera starta och stoppa virtuella datorer 
 - Använda den som en aktivitet i ett CI/CD-arbetsflöde för att starta i början av flödet, använder de virtuella datorerna bygger datorer, testa datorer eller infrastruktur och sedan stoppa de virtuella datorerna när processen är klar. Ett exempel på detta är den anpassa avbildningen fabriken med Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Följande PowerShell-skript startar en virtuell dator i ett labb. [Anropa AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0) är primärt fokus för det här skriptet. Den **ResourceId** parametern är fullständigt kvalificerade resurs-ID för den virtuella datorn i laboratoriet. Den **åtgärd** parametern är där den **starta** eller **stoppa** alternativ ställs in beroende på vad som behövs.
+Följande PowerShell-skript startar en virtuell dator i ett labb. [Anropa AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) är primärt fokus för det här skriptet. Den **ResourceId** parametern är fullständigt kvalificerade resurs-ID för den virtuella datorn i laboratoriet. Den **åtgärd** parametern är där den **starta** eller **stoppa** alternativ ställs in beroende på vad som behövs.
 
 ```powershell
 # The id of the subscription
@@ -48,17 +50,17 @@ $vMToStart = "vmname"
 $vmAction = "Start"
 
 # Select the Azure subscription
-Select-AzureRMSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
 if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
+    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
 } else {
-    $devTestLab = Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
+    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
 }
 
 # Start the VM and return a succeeded or failed status
-$returnStatus = Invoke-AzureRmResourceAction `
+$returnStatus = Invoke-AzResourceAction `
                     -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vMToStart" `
                     -Action $vmAction `
                     -Force

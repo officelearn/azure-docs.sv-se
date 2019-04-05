@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104768"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045249"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure PowerShell för att skapa en Service Bus-kö
 Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och absolut tillförlitlighet. Ett typiskt Service Bus-scenario innefattar vanligen frikoppling av två eller flera program, tjänster eller processer från varandra och överföring av status- eller dataförändringar. Sådana scenarier kan handla om schemaläggning av flera batchjobb i ett annat program eller tjänster eller att utlösa beställningsuppfyllelse. En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller regionalt distributionscenter för påfyllning och lageruppdateringar. I det här scenariot, skickar klientappen och tar emot meddelanden från en Service Bus-kö.
@@ -25,6 +25,8 @@ Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrer
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,20 +42,20 @@ Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerSh
 1. Installera först Service Bus PowerShell-modulen, om du inte redan gjort det:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Kör följande kommando för att logga in i Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 3. Utfärda följande kommandon för att ställa in den aktuella prenumerationskontexten eller för att se den aktiva prenumerationen:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Etablera resurser
@@ -62,19 +64,19 @@ Från PowerShell-prompten, utfärdar du följande kommandon för att etablera Se
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
+New-AzResourceGroup –Name my-resourcegroup –Location eastus
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Efter att `Get-AzureRmServiceBusKey`-cmdleten körs, kopierar och klistrar du in anslutningssträngen och det könamn du valt, till en tillfällig plats som Anteckningar. Du behöver den i nästa steg.
+Efter att `Get-AzServiceBusKey`-cmdleten körs, kopierar och klistrar du in anslutningssträngen och det könamn du valt, till en tillfällig plats som Anteckningar. Du behöver den i nästa steg.
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
@@ -93,7 +95,7 @@ Om du vill köra koden gör du följande:
 4. Om du inte redan har gjort det, kan du hämta anslutningssträngen med hjälp av följande PowerShell-cmdlet. Se till att ersätta `my-resourcegroup` och `namespace-name` med dina specifika värden: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5. Vid PowerShell-prompten, skriver du följande kommando:
@@ -119,7 +121,7 @@ Om du vill köra koden gör du följande:
 Kör följande kommando för att ta bort resursgruppen, namnområdet och alla relaterade resurser:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
@@ -128,7 +130,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutningssträngen och könamnet skickas till `Main()`-metoden som kommandoradsargument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
+Anslutningssträngen och könamnet skickas till `Main()`-metoden som kommandoradsargument. `Main()` deklarerar två strängvariabler för dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -260,7 +262,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill läsa mer om att skriva kod för att skicka och ta emot meddelanden, fortsätter du till följande självstudier för Service Bus:
 
 > [!div class="nextstepaction"]
-> [Uppdatera lagringsplatsen med Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Uppdatera lagret med hjälp av Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installera och konfigurera Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Azure-konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Installera och konfigurera Azure PowerShell]: /powershell/azure/install-Az-ps

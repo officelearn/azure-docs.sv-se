@@ -1,19 +1,18 @@
 ---
 title: Ansluta till Azure Data Explorer med ODBC
 description: I den här anvisningen att lära dig hur du skapar en ODBC-anslutning till Datautforskaren i Azure och sedan använda anslutningen för att visualisera data med Tableau.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757630"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043889"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Ansluta till Azure Data Explorer med ODBC
 
@@ -101,6 +100,6 @@ Nu du har konfigurerat ODBC kan du sätta exempeldata i Tableau.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriva frågor för Azure Data Explorer](write-queries.md)
+[Skriv frågor för Azure Data Explorer](write-queries.md)
 
 [Självstudier: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)

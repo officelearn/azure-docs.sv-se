@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496929"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045090"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med en Azure Resource Manager-mall
 I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett Service Bus-namnområde av typen **Messaging** med en **Standard** SKU. Artikeln definierar också de parametrar som har angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates]. Läs den fullständiga mallen, den [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
@@ -34,17 +34,20 @@ I den här snabbstarten skapar du en Azure Resource Manager-mall som skapar ett 
 > 
 > Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter Service Bus.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="quick-deployment"></a>Snabb distribution
 Välj på följande knapp om du vill köra exemplet utan att skriva någon JSON och köra PowerShell/CLI-kommando:
 
-[![Distribuera till Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Deploy till Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Gå igenom följande avsnitt i den här artikeln för att skapa och distribuera mallen manuellt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+Om du vill använda **Azure PowerShell** att distribuera Resource Manager-mallen [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Om du vill använda **Azure CLI** att distribuera Resource Manager-mallen [installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -134,12 +137,12 @@ Skapa en JSON-fil med namnet **MyServiceBusNamespace-Parameters.json** med följ
 2. Kör följande kommandon för att logga in på Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. Om du har kan du utfärda följande kommandon för att ange den aktuella prenumerationskontexten:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="deploy-resources"></a>Distribuera resurser
@@ -156,12 +159,12 @@ Växla till den mapp där du har sparat JSON-filer för att distribuera resurser
 2. Skapa en Azure-resursgrupp.
 
     ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 3. Distribuera Resource Manager-mallen. Ange namnen på distributionen själva, resursgrupp, JSON-filen för mallen, JSON-fil för parametrar
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
     ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Använd Azure CLI för att distribuera mallen

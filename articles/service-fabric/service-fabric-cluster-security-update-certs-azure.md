@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315288"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050245"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och att du läser den [Klustersäkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du forsätter.
@@ -33,6 +33,9 @@ Service fabric kan du ange två klustercertifikat, en primär och en sekundär n
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Lägg till ett sekundärt klustercertifikat med hjälp av portalen
 Sekundära klustercertifikat kan inte läggas till via Azure portal, Använd Azure powershell. Processen beskrivs senare i det här dokumentet.
 
@@ -45,7 +48,7 @@ Om din avsikt är att ta bort det certifikat som har markerats primära, måste 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägg till ett sekundärt certifikat med hjälp av Powershell och Resource Manager
 > [!TIP]
-> Det är nu bättre och enklare sätt att lägga till ett sekundärt certifikat som använder den [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. Du behöver inte följa resten av stegen i det här avsnittet.  Dessutom behöver inte den mall som ursprungligen använde för att skapa och distribuera klustret när du använder den [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
+> Det är nu bättre och enklare sätt att lägga till ett sekundärt certifikat som använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. Du behöver inte följa resten av stegen i det här avsnittet.  Dessutom behöver inte den mall som ursprungligen använde för att skapa och distribuera klustret när du använder den [Lägg till AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 De här stegen förutsätter att du är bekant med så här fungerar Resource Manager och har distribuerat minst en Service Fabric-kluster med en Resource Manager-mall och har den mall som du använde för att konfigurera klustret till hands. Det förutsätts även att du är nöjd med JSON.
 
@@ -195,19 +198,19 @@ Redigera Resource Manager-mall parametern filen, lägga till två nya parametrar
 - Logga in på ditt Azure-konto och välj den specifika azure-prenumerationen. Det här är ett viktigt steg för dem som har åtkomst till fler än en azure-prenumeration.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Testa mallen innan du distribuerar den. Använd samma resursgrupp som klustret för närvarande har distribuerats till.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Distribuera mallen i resursgruppen. Använd samma resursgrupp som klustret för närvarande har distribuerats till. Kör kommandot New-AzureRmResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är **inkrementella**.
+Distribuera mallen i resursgruppen. Använd samma resursgrupp som klustret för närvarande har distribuerats till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är **inkrementella**.
 
 > [!NOTE]
 > Om du anger läget till slutför du oavsiktligt ta bort resurser som inte ingår i din mall. Så Använd inte den i det här scenariot.
@@ -215,7 +218,7 @@ Distribuera mallen i resursgruppen. Använd samma resursgrupp som klustret för 
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Här är ett fyllts i samma powershell-exempel.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

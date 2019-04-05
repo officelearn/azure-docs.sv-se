@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: e7d5e51ea7048a134a5085715dec1797af32da17
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664428"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050483"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikatet till unika namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
@@ -27,6 +27,9 @@ Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet f
 >[!NOTE]
 > Om du har två tumavtryck deklarerats i mallen kan behöva du utföra två distributioner.  Den första distributionen är klar innan du följer stegen i den här artikeln.  Den första distributionen anger din **tumavtryck** -egenskapen i mallen för att certifikatet som används och tar bort den **thumbprintSecondary** egenskapen.  Följ stegen i den här artikeln för den andra distributionen.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="get-a-certificate"></a>Få ett certifikat
 Först hämtar ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority).  Namnet på certifikatet ska vara namnet på klustret.  Till exempel ”myclustername.southcentralus.cloudapp.azure.com”.  
 
@@ -44,7 +47,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -56,10 +59,10 @@ $VmssResourceGroupName     = "myclustergroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
     -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
@@ -81,17 +84,17 @@ Write-Host "Common Name              :"  $CommName
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
-$certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
 
 # Get current VM scale set 
-$vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
+$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
     -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
+Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
@@ -193,7 +196,7 @@ Distribuera om den uppdaterade mallen när du har gjort ändringarna.
 ```powershell
 $groupname = "sfclustertutorialgroup"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d685b06b95af42f07449cc84e70220dd1a4afa9f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338436"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051792"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-utdata till Azure SQL Database
 
@@ -29,7 +29,7 @@ Här följer några konfigurationer inom varje tjänst som bidrar till att förb
 - **Ärv partitionering** – den här SQL utdata configuration alternativet aktiverar ärver partitioneringsschemat av din föregående frågesteg eller indata. Alternativet är aktiverat, skriver till en diskbaserad tabell och gör att en [fullständigt parallella](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) topologi för ditt jobb förvänta dig att se bättre genomströmning. Partitionering redan automatiskt sker för många andra [matar ut](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Tabellen låsning (TABLOCK) har också inaktiverats för bulkinfogningar som gjorts med det här alternativet.
 
 > [!NOTE] 
-> När det finns fler än 8 inkommande partitioner, kanske ärver indata partitioneringsschema inte är det bästa valet. Den här maxgräns observerades i en tabell med en enda identitetskolumn och ett grupperat index. Baserat på schemat och val av index, kan din observationer variera.
+> När det finns fler än 8 inkommande partitioner, kanske ärver indata partitioneringsschema inte är det bästa valet. Den här maxgräns observerades i en tabell med en enda identitetskolumn och ett grupperat index. I det här fallet bör du använda [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 i din fråga, kan du uttryckligen ange antalet utdata skrivare. Baserat på schemat och val av index, kan din observationer variera.
 
 - **Batchstorlek** -konfiguration av SQL-utdata kan du ange den maximala batchstorleken i Azure Stream Analytics SQL utdata baserat på typen av mål tabell/arbetsbelastningen. Batch är det maximala antalet poster som skickas med varje bulk insert transaktion. I klustrade columnstore-index, batch-storlekar runt [100 kB](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) tillåter flera parallellisering, minimal loggning och låsa optimeringar. I diskbaserade tabeller vara 10K (standard) eller lägre optimala för din lösning som högre batch-storlekar kan utlösa Lås eskalering under bulkinfogningar.
 

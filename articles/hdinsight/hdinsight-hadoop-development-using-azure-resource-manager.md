@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361871"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048927"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
@@ -94,7 +94,7 @@ Innan du kan använda HDInsight-cmdlet: ar, måste du ansluta till ditt Azure-ko
 ### <a name="renamed-cmdlets"></a>Omdöpt cmdlet: ar
 Visa en lista över HDInsight ASM-cmdlets i Windows PowerShell-konsolen:
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 I följande tabell visas de ASM-cmdletarna och deras namn i Resource Manager-läge:
 
@@ -180,7 +180,7 @@ Nytt kommando:
         -SshCredential $sshCredentials
 
 
-**Ta bort kluster**
+**Ta bort klustret**
 
 Gamla kommando (ASM):
 

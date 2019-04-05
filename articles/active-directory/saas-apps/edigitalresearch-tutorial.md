@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190899"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Självstudier: Azure Active Directory-integrering med eDigitalResearch
 
@@ -89,7 +89,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med eDigitalResearch,
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare eDigitalResearch](#create-a-edigitalresearch-test-user)**  – du har en motsvarighet för Britta Simon i eDigitalResearch som är länkad till en Azure AD-representation av användaren.
+1. **[Skapa en testanvändare eDigitalResearch](#create-an-edigitalresearch-test-user)**  – du har en motsvarighet för Britta Simon i eDigitalResearch som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<company-name>.edigitalresearch.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company-name>.edigitalresearch.com/login/consume`
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta dessa värden.
@@ -169,14 +169,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
   
-### <a name="create-a-edigitalresearch-test-user"></a>Skapa en eDigitalResearch testanvändare
+### <a name="create-an-edigitalresearch-test-user"></a>Skapa en eDigitalResearch testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i eDigitalResearch. 
 
 Arbeta med den [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta användare som har skapats.        
     
  > [!NOTE]
- > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
+ > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

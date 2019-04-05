@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862088"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051690"
 ---
 # <a name="azure-stack-1902-update"></a>Uppdatering av Azure Stack 1902
 
@@ -64,6 +64,8 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  Om den `AzsControlPlane` parametern är inkluderade när **Test-AzureStack** är körs, visas följande fel i den **Test AzureStack** utdata: **MISSLYCKAS Azure Stack kontroll plan webbplatser sammanfattning**. Du kan ignorera det här specifika felet.
 
 - När Azure Stack hanteras av System Center Operations Manager (SCOM), se till att uppdatera den [Management Pack för Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) till version 1.0.3.11 innan du tillämpar 1902.
 

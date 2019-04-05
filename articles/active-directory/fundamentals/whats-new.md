@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757646"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046707"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -157,7 +157,7 @@ För att förhindra att administratörer av misstag låser sig av sina egna klie
 **Tjänstekategori:** Användningsvillkor  
 **Produkten kapacitet:** Styrning
 
-Vi har uppdaterat våra befintliga villkor för användning upplevelser för att förbättra hur du kan granska och godkänna användningsvillkoren på en mobil enhet. Du kan nu Zooma in och ut, gå tillbaka, ladda ned informationen och välj hyperlänkar. Läs mer om de uppdaterade villkoren för användning, [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+Vi har uppdaterat våra befintliga villkor för användning upplevelser för att förbättra hur du kan granska och godkänna användningsvillkoren på en mobil enhet. Du kan nu Zooma in och ut, gå tillbaka, ladda ned informationen och välj hyperlänkar. Läs mer om de uppdaterade villkoren för användning, [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -534,7 +534,7 @@ Läs mer om hur du hämtar och använder den här tidsstämpeln [How To: Hantera
  
 Administratörer kan nu aktivera den **användare måste samtycka på alla enheter** att kräva användarna godkänna dina användningsvillkor på varje enhet de använder på din klient.
 
-Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
@@ -547,7 +547,7 @@ Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azu
 
 Administratörer kan nu aktivera den **upphör att gälla medgivanden** alternativ för att göra användningsvillkor upphör att gälla för alla användare baserat på ditt angivna återkommande schema. Schemat kan vara årligen, bi årligen, Kvartalsvis eller varje månad. När användningsvillkoren upphör att gälla, måste användarna måste godkänna.
 
-Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
@@ -559,7 +559,7 @@ Mer information finns i den [lägga till användningsvillkor Använd avsnittet A
 
 Administratörer kan nu ange en varaktighet som användaren måste godkänna användningsvillkor. Administratörer kan till exempel ange att användare måste godkänna användningsvillkoren efter 90 dagar.
 
-Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Mer information finns i den [lägga till användningsvillkor Använd avsnittet Azure Active Directory villkoren för användning funktionen](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

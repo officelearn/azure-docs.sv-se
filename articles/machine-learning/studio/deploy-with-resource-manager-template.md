@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 91413aa461261824782717ae4edacc2757ad5405
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648290"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048732"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsyta med Azure Resource Manager
 
 Med en Azure Resource Manager-mall för distribution av sparar du tid genom att ge ett skalbart sätt att distribuera sammankopplade komponenter med en verifiering och återförsöksmekanism. Om du vill konfigurera Azure Machine Learning Studio-arbetsytor, till exempel behöver du du först konfigurera ett Azure storage-konto och sedan distribuerar din arbetsyta. Tänk dig att göra detta manuellt för hundratals arbetsytor. Ett enklare alternativ är att använda en Azure Resource Manager-mall för att distribuera en Studio-arbetsyta och alla dess beroenden. Den här artikeln tar dig igenom processen steg för steg. En bra översikt över Azure Resource Manager finns i [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Steg för steg: skapa en Machine Learning-arbetsyta
 Vi ska skapa en Azure-resursgrupp och sedan distribuera ett nytt Azure storage-konto och ett nytt Azure Machine Learning Studio-arbetsyta med en Resource Manager-mall. När distributionen är klar kan ut vi viktig information om arbetsytor som har skapats (primärnyckel, workspaceID och URL: en till arbetsytan).
@@ -83,7 +85,7 @@ Spara den här mallen som mlworkspace.json filen under c:\temp\.
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
-Install-Module AzureRM -Scope CurrentUser
+Install-Module Az -Scope CurrentUser
 
 # Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
 Install-Module Azure -Scope CurrentUser
@@ -95,7 +97,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 Det här steget måste du upprepa för varje session. När autentiseringen är klar visas din prenumerationsinformation.
 
@@ -106,7 +108,7 @@ Nu när vi har åtkomst till Azure kan vi skapa resursgruppen.
 * Skapa en resursgrupp
 
 ```powershell
-$rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
+$rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
@@ -119,7 +121,7 @@ Resursgruppens namn används av mallen för att generera lagringskontonamnet. La
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
-$rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
+$rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 När distributionen är klar, är det enkelt att egenskaper i arbetsytan som du har distribuerat. Du kan till exempel komma åt den primära nyckeln-Token.
@@ -129,11 +131,11 @@ När distributionen är klar, är det enkelt att egenskaper i arbetsytan som du 
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Ett annat sätt att hämta token på befintlig arbetsyta är att använda kommandot Invoke-AzureRmResourceAction. Du kan exempelvis visa de primära och sekundära token för alla arbetsytor.
+Ett annat sätt att hämta token på befintlig arbetsyta är att använda kommandot Invoke-AzResourceAction. Du kan exempelvis visa de primära och sekundära token för alla arbetsytor.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 När arbetsytan har etablerats, du kan även automatisera många Azure Machine Learning Studio-uppgifter med hjälp av den [PowerShell-modulen för Azure Machine Learning Studio](https://aka.ms/amlps).
 

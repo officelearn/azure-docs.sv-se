@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891488"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051486"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -56,9 +56,8 @@ I din webbläsare, navigerar du till den [Custom Vision-webbsida](https://custom
     |__Livsmedel__|Optimerat för fotografier av disk som du ser dem på en restaurang-meny. Om du vill klassificera fotografier av enskilda frukter och grönsaker använda mat domänen.|
     |__Landmärken__|Optimerat för identifierbara landmärken, både naturliga och konstgjorda. Den här domänen fungerar bäst när landmärken syns tydligt i fotot. Den här domänen fungerar även om landmärken något hindras av personer framför den.|
     |__Detaljhandeln__|Optimerat för avbildningar som finns i en i katalogen eller Shopping. Om du vill hög precision klassificera mellan klänningar, byxor och skjortor, Använd den här domänen.|
-    |__Vuxet__|Optimerad för att definiera en bättre vuxet innehåll och inte är vuxen innehåll. Till exempel om du vill blockera bilder av personer i badning passar kan den här domänen du skapa en anpassad klassificerare för att göra detta.|
     |__Compact domäner__| Optimerat för begränsningar i realtid klassificeringen på mobila enheter. Modeller som genererats av compact domäner kan exporteras för att köras lokalt.|
-    
+
 1. Välj slutligen __skapa projekt__.
 
 ## <a name="choose-training-images"></a>Välj inlärningsbilder

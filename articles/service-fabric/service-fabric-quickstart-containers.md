@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758586"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051554"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containrar till Service Fabric
 
@@ -36,6 +36,9 @@ I den här snabbstarten lär du dig att:
 * Konfigurera kommunikation
 * Utveckla och distribuera ett Service Fabric-program
 * Distribuera containerprogrammet till Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -95,7 +98,7 @@ I följande exempelskript skapas ett Service Fabric-kluster med fem noder som sk
 
 Installera Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview) om det behövs.
 
-Innan du kör följande skript i PowerShell ska du köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Innan du kör följande skript i PowerShell ska du köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Klistra in innehållet i det tomma fönstret Untitled1.ps1. Ange värden för variablerna i skriptet, som `subscriptionId`, `certpwd`, `certfolder`, `adminuser` och `adminpwd`.  Katalogen du anger för `certfolder` måste finnas innan du kör skriptet.
 

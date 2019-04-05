@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665516"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046200"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa ett Service Fabric-kluster Resource Manager-mall
 
@@ -28,6 +28,9 @@ En [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nät
 Klustersäkerhet konfigureras när klustret skapas först och kan inte ändras senare. Innan du konfigurerar ett kluster, läsa [säkerhetsscenarier för Service Fabric-kluster][service-fabric-cluster-security]. I Azure, Service Fabric använder x509 certifikat till säkra ditt kluster och dess slutpunkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas för säker åtkomst till av hanteringsslutpunkter. Azure AD-klienter och användare måste skapas innan du skapar klustret.  Mer information finns i [ställa in Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 Innan du distribuerar ett produktionskluster för att köra arbetsbelastningar i produktion, bör du först läsa den [produktion beredskap checklista](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 Exemplet Resource Manager-mallar är tillgängliga i den [Azure-exempel på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångspunkt för mallen för klustret.
@@ -242,13 +245,13 @@ RM-moduler har inte möjlighet att skapa Azure AD-konfiguration för dig, så om
 Använd följande PowerShell-kommando för att testa Resource Manager-mallen med en parameterfil:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Om du stöter på problem och få kryptisk meddelanden, Använd sedan ”-Debug” som ett alternativ.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 Följande diagram illustrerar där dina nyckelvalv och Azure AD-konfiguration passar i Resource Manager-mallen.

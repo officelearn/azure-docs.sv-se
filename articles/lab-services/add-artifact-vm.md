@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e6a7cbc070d81de33fac07a89dabf2b469bd355
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450169"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047032"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Lägg till en artefakt i en virtuell dator
 När du skapar en virtuell dator måste du lägga till befintliga artefakter till den. Dessa artefakter kan vara från antingen den [offentliga DevTest Labs Git-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller från din egen Git-lagringsplats. Den här artikeln visar hur du lägger till artefakter i Azure-portalen och med hjälp av Azure PowerShell. 
@@ -27,6 +27,8 @@ När du skapar en virtuell dator måste du lägga till befintliga artefakter til
 Azure DevTest Labs *artefakter* kan du ange *åtgärder* som utförs när den virtuella datorn etableras, t.ex köra Windows PowerShell-skript, köra Bash-kommandon och installera programvara. Artefakten *parametrar* kan du anpassa artefakten för ditt specifika scenario.
 
 Mer information om hur du skapar anpassade artefakter finns i artikeln: [Skapa anpassade artefakter](devtest-lab-artifact-author.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -63,11 +65,10 @@ Följande steg illustrerar hur du vill visa eller ändra parametrarna för en ar
 1. Välj **OK** att Stäng den **valt artefakter** fönstret.
 
 ## <a name="use-powershell"></a>Använd PowerShell
-Följande skript gäller angivna artefakten till den angivna virtuella datorn. Den [Invoke-AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0) kommandot är det som utför åtgärden.  
+Följande skript gäller angivna artefakten till den angivna virtuella datorn. Den [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) kommandot är det som utför åtgärden.  
 
 ```powershell
-#Requires -Version 3.0
-#Requires -Module AzureRM.Resources
+#Requires -Module Az.Resources
 
 param
 (
@@ -86,14 +87,14 @@ param
 )
 
 # Set the appropriate subscription
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
-$repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$repository = Get-AzResource -ResourceGroupName $resourceGroupName `
                     -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
                     -ResourceName $DevTestLabName `
                     -ApiVersion 2016-05-15 `
@@ -103,7 +104,7 @@ $repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
 if ($repository -eq $null) { "Unable to find repository $RepositoryName in lab $DevTestLabName." }
 
 # Get the internal artifact name
-$template = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$template = Get-AzResource -ResourceGroupName $resourceGroupName `
                 -ResourceType "Microsoft.DevTestLab/labs/artifactSources/artifacts" `
                 -ResourceName "$DevTestLabName/$($repository.Name)" `
                 -ApiVersion 2016-05-15 `
@@ -116,7 +117,7 @@ if ($template -eq $null) { throw "Unable to find template $ArtifactName in lab $
 $FullVMId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
                 /providers/Microsoft.DevTestLab/labs/$DevTestLabName/virtualmachines/$virtualMachineName"
 
-$virtualMachine = Get-AzureRmResource -ResourceId $FullVMId
+$virtualMachine = Get-AzResource -ResourceId $FullVMId
 
 # Generate the artifact id
 $FullArtifactId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
@@ -150,7 +151,7 @@ artifacts = @(
 # Check the VM
 if ($virtualMachine -ne $null) {
    # Apply the artifact by name to the virtual machine
-   $status = Invoke-AzureRmResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
+   $status = Invoke-AzResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
    if ($status.Status -eq 'Succeeded') {
       Write-Output "##[section] Successfully applied artifact: $ArtifactName to $VirtualMachineName"
    } else {
@@ -167,5 +168,5 @@ Se följande artiklar på artefakter:
 
 - [Ange obligatoriska artefakter för ditt labb](devtest-lab-mandatory-artifacts.md)
 - [Skapa anpassade artefakter](devtest-lab-artifact-author.md)
-- [Lägg till en artefaktcentrallagret till ett labb](devtest-lab-artifact-author.md)
+- [Lägga till ett artefaktcentrallager till ett labb](devtest-lab-artifact-author.md)
 - [Diagnostisera fel i artefakter](devtest-lab-troubleshoot-artifact-failure.md)

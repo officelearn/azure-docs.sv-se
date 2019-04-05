@@ -8,18 +8,18 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049294"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabbstart: Hämta information om bilder med hjälp av Bing Visual Search REST API och Ruby
 
-Den här snabbstarten använder Ruby programmeringsspråk för att anropa Bing Visual Search och visa resultat. En Post-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
+Den här snabbstarten använder Ruby programmeringsspråk för att anropa Bing Visual Search och visa resultat. En POST-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +32,7 @@ Att köra den här snabbstarten:
 
 ## <a name="project-and-required-modules"></a>Projekt och moduler som krävs
 
-Skapa ett nytt projekt för Ruby i din IDE eller redigerare. Importera `net/http`, `uri` , och `json` att hantera JSON-texten i resultaten. Den `base64` biblioteket används för att koda filen namnsträngen. 
+Skapa ett nytt projekt för Ruby i din IDE eller redigerare. Importera `net/http`, `uri` , och `json` att hantera JSON-texten i resultaten. Den `base64` biblioteket används för att koda namnsträngen fil: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Följande kod tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och Ersätt den `accessKey` värde med en prenumerationsnyckel från ditt Azure-konto.  Den `batchNumber` är ett guid som krävs för inledande och avslutande gränserna för att skicka data.  Den `fileName` variabeln identifierar avbildningsfilen för inlägget.  Den `if` blockera tester för att en giltig prenumeration-nyckel.
+Följande kod tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och Ersätt den `accessKey` värde med en prenumerationsnyckel från ditt Azure-konto.  Den `batchNumber` är ett GUID som krävs för inledande och avslutande gränserna för att skicka data.  Den `fileName` variabeln identifierar avbildningsfilen för INLÄGGET.  Den `if` blockera tester för att en giltig prenumeration-nyckel.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Formulärdata för Post-begäran
+## <a name="form-data-for-post-request"></a>Formulärdata för POST-begäran
 
-Bilddata inlägget omges av inledande och avslutande gränser.  Följande funktioner ange gränserna.
+Bilddata inlägget omges av inledande och avslutande gränser. Gränserna för att ange följande funktioner:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-Konstruera bredvid slutpunkten URI och en matris som innehåller Post-brödtext.  Använda funktionen tidigare för att läsa in gräns för start i matrisen. Läsa bildfilen i matrisen. Läsa slutet gränsen i matrisen. 
+Skapa sedan slutpunkten URI och en matris som innehåller POST-brödtext.  Använda funktionen tidigare för att läsa in gräns för start i matrisen. Läsa bildfilen i matrisen. Läs sedan slutet gränsen i matrisen:
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>Skapa HTTP-begäran
 
-Ange den `Ocp-Apim-Subscription-Key` rubrik.  Skapa begäran.  Tilldela sedan rubrik och innehållstyp.  Ansluta till efter brödtexten skapade tidigare på begäran.
+Ange den `Ocp-Apim-Subscription-Key` rubrik.  Skapa begäran. Tilldela sedan rubrik och innehållstyp. Anslut till INLÄGG brödtexten skapade tidigare på begäran:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Begäran och svar
 
-Ruby skickar en begäran och får svar med följande rad med kod.
+Ruby skickar en begäran och får svar med följande rad med kod:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Skriva ut resultatet
 
-Skriva ut huvuden i svaret. Använd sedan JSON-biblioteket för att formatera utdata.
+Skriva ut huvuden i svaret och användning av JSON-biblioteket för att formatera utdata:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Resultat
 
-Följande JSON är en del av utdata.
+Följande JSON är en del av utdata:
 
 ```
 Relevant Headers:
@@ -287,4 +285,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Översikt över Bing Visual Search](../overview.md)
-> [skapa en anpassad sökning i webbapp](../tutorial-bing-visual-search-single-page-app.md)
+> [skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)

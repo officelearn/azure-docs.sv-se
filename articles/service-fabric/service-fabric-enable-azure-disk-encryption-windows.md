@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: a620563be9ffe18ae0f7fa4a78df83ea5b35a5d2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488418"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050450"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Aktivera diskkryptering för service fabric Windows-klusternoder 
 > [!div class="op_single_selector"]
@@ -35,33 +35,34 @@ Guiden innehåller följande procedurer:
 * Förutsättningar steg ska följas innan du aktiverar diskkryptering på Service Fabric-kluster i Windows virtual machine scale Sets.
 * Ange stegen för att om du vill aktivera diskkryptering på VM-skalningsuppsättning i Service Fabric Windows-kluster.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **Självregistrering** – om du vill använda, kryptering förhandsversionen för VM scale set disk kräver självregistrering
 * Du kan registrera din prenumeration genom att köra följande steg: 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * Vänta ungefär 10 minuter tills status som ”Registered”. Du kan kontrollera status genom att köra följande kommando: 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 * **Azure Key Vault** -skapa ett KeyVault i samma prenumeration och region som skalan och åtkomstprincip 'EnabledForDiskEncryption' i Nyckelvalvet med dess PS-cmdlet. Du kan också ange principen med KeyVault UI i Azure-portalen: 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* Installera senaste [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) , som innehåller de nya kommandona för kryptering.
-* Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) versionen. Följande är VM-skalningsuppsättningen ADE-cmdletar för att aktivera ([ange](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1))-kryptering, hämta ([hämta](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) krypteringsstatus och ta bort ([inaktivera](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) kryptering på skalningsuppsättningen instans.
+* Installera senaste [Azure CLI](/cli/azure/install-azure-cli) , som innehåller de nya kommandona för kryptering.
+* Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) versionen. Följande är VM-skalningsuppsättningen ADE-cmdletar för att aktivera ([ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension))-kryptering, hämta ([hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypteringsstatus och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalningsuppsättningen instans.
 
 | Kommando | Version |  Källa  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 eller senare | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 eller senare | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 eller senare | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 eller senare | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 eller senare | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 eller senare | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 eller senare | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 eller senare | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 eller senare | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 eller senare | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Scenarier som stöds för diskkryptering
@@ -77,8 +78,8 @@ Använd följande kommandon för att skapa kluster och aktivera diskkryptering m
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 
 ```powershell
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -119,7 +120,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -153,11 +154,11 @@ Följ stegen och den hjälp [distribuera programmet till ditt kluster](service-f
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -176,9 +177,9 @@ Dessutom kan användaren kan logga in på virtuell dator i skalningsuppsättning
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -196,7 +197,7 @@ Inaktivera diskkryptering gäller för hela virtual machine scale Sets och inte 
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

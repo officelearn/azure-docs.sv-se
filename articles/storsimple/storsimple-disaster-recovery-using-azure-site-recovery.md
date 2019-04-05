@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084886"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051945"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Översikt
 Microsoft Azure StorSimple är en hybridmolnlagringslösning som åtgärdar komplexiteten i Ostrukturerade data som vanligtvis är kopplad filresurser. StorSimple använder lagringsutrymmet i molnet som ett tillägg av lokal lösning och data i nivåer i den lokala lagringen och molnlagring. Integrerat dataskydd, med lokala och molnbaserade ögonblicksbilder, eliminerar behovet av en sprawling lagringsinfrastruktur.
 
@@ -167,7 +170,7 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
    
 1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
 
-   - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzureRmEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
    - *RecoveryPlanName***-ManagerName**: StorSimple-resursen med StorSimple-enheten.
    - *RecoveryPlanName***-DeviceName**: StorSimple-enheten som har växlas.

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 2755064190e787baa31ea0da7c375365fa6c29b5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 27ee1980fd60a2e301830f198a5f65c4d89df59f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733341"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046537"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics-jobb med Azure PowerShell-cmdlets
 Lär dig mer om att övervaka och hantera Stream Analytics-resurser med Azure PowerShell-cmdlets och powershell-skript som kör grundläggande Stream Analytics-uppgifter.
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdlets för Stream Analytics
 Följande Azure PowerShell-cmdletar kan användas för att övervaka och hantera Azure Stream Analytics-jobb. Observera att Azure PowerShell har olika versioner. 
-**I exemplen som visas är det första kommandot för Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1.0.** Azure PowerShell 1.0-kommandon har alltid ”AzureRM” i kommandot.
+**I exemplen som visas är det första kommandot för Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1.0.** Azure PowerShell 1.0-kommandon har alltid ”Az” i kommandot.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Visar en lista över alla Stream Analytics-jobb som definierats i Azure-prenumeration eller angivna resursgruppen eller hämtar jobbinformation om om ett specifikt jobb i en resursgrupp.
@@ -200,7 +200,7 @@ Get-AzStreamAnalyticsQuota –Location "Central US"
 
 Det här PowerShell-kommandot returnerar information om kvot och användning av enheter för strömning i regionen USA, centrala.
 
-### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
 Hämtar information om en omvandling som definierats i ett Stream Analytics-jobb.
 
 **Exempel 1**
@@ -551,7 +551,7 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

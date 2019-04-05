@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 96c69078d32e46c795b8c5240582b874a515dee8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670786"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045738"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudier: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:et för ASP.NET Core med hjälp av Kestrel
 
@@ -42,7 +42,10 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -357,13 +360,13 @@ Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och 
 
 I exportguiden väljer du **Ja, exportera den privata nyckeln** och sedan formatet PFX (Personal Information Exchange).  Exportera filen till *C:\Users\sfuser\votingappcert.pfx*.
 
-Installera sedan certifikatet på fjärrklustret med cmdleten [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate).
+Installera certifikatet på fjärrklustret med den [Lägg till AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet.
 
 > [!Warning]
 > Ett självsignerat certifikat räcker för utveckling och testning. För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority) istället för ett självsignerat certifikat.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
 $vaultname="sftestvault"
 $certname="VotingAppPFX"
@@ -396,7 +399,7 @@ Write-Host "Writing secret to $certname in vault $vaultname"
 $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
 
 # Add a certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>Öppna port 443 i Azure-lastbalanseraren
@@ -410,18 +413,18 @@ $RGname="voting_RG"
 $port=443
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
-$slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
+$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
+$slb = Get-AzLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
-$slb | Add-AzureRmLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
+$slb | Add-AzLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
 
 # Add rule configuration to the load balancer
-$probe = Get-AzureRmLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
-$slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
+$probe = Get-AzLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
+$slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
 
 # Set the goal state for the load balancer
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure

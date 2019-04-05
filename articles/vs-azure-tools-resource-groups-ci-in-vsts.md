@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894157"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047338"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall kan utföra du uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
@@ -28,6 +28,8 @@ För att distribuera en Azure-mall kan utföra du uppgifter i olika faser: Build
 2. Lägg till flera Azure DevOps-tjänsterna skapa steg, vart och ett utför en aktivitet för steg.
 
 Den här artikeln visar båda alternativen. Det första alternativet har fördelen med att använda samma skript används av utvecklare i Visual Studio och ger konsekvens i hela livscykeln. Det andra alternativet är ett praktiskt alternativ till inbyggda skriptet. Båda procedurerna förutsätter att du redan har ett projekt för distribution av Visual Studio som kontrolleras i Azure DevOps-tjänsterna.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Kopiera artefakter till Azure
 Oavsett hur ditt scenario, om du har alla artefakter som behövs för malldistribution, måste du ge Azure Resource Manager-åtkomst till dem. Dessa artefakter kan innehålla filer som:
@@ -87,7 +89,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       
       Använd för PowerShell-skript:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Om du använder Azure CLI använder du:
       

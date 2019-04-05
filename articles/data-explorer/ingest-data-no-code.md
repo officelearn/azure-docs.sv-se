@@ -1,19 +1,18 @@
 ---
 title: 'Självstudier: Mata in data för diagnostik- och aktivitetsloggar i Azure Data Explorer utan en enda kodrad'
 description: I den här självstudien lär du dig att mata in data till Azure Data Explorer utan en enda kodrad samt att köra frågor mot dessa data.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
-ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/14/2019
+ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756849"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051911"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Självstudier: Mata in data i Azure Data Explorer utan en enda kodrad
 
@@ -269,7 +268,7 @@ Azure-diagnostikloggar möjliggör export av mått till ett lagringskonto eller 
 
 1. Skapa en händelsehubb med hjälp av en Azure Resource Manager-mall i Azure-portalen. Följ resten av stegen i den här artikeln genom att högerklicka på knappen **Distribuera till Azure** och sedan välja **Öppna i nytt fönster**. Knappen **Distribuera till Azure** tar dig till Azure-portalen.
 
-    [![Knappen Distribuera till Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy till Azure knappen](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Skapa en Event Hubs-namnrymd och en händelsehubb för diagnostikloggarna.
 
@@ -282,9 +281,9 @@ Azure-diagnostikloggar möjliggör export av mått till ett lagringskonto eller 
     | **Prenumeration** | *Din prenumeration* | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | **Resursgrupp** | *test-resource-group* | Skapa en ny resursgrupp. |
     | **Plats** | Välj den region som bäst uppfyller dina behov. | Skapa Event Hubs-namnrymden på samma plats som andra resurser.
-    | **Namn på namnrymd** | *AzureMonitoringData* | Välj ett unikt namn som identifierar namnområdet.
+    | **Namn på namnområde** | *AzureMonitoringData* | Välj ett unikt namn som identifierar namnområdet.
     | **Namn på händelsehubb** | *DiagnosticLogsData* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. |
-    | **Namn på konsumentgrupp** | *adxpipeline* | Skapa ett konsumentgruppsnamn. Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
+    | **Konsumentgruppens namn** | *adxpipeline* | Skapa ett konsumentgruppsnamn. Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
     | | |
 
 ## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Ansluta Azure Monitor-loggar till händelsehubben
@@ -368,7 +367,7 @@ Nu behöver du skapa dataanslutningarna för diagnostikloggarna och aktivitetslo
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | **Namn på dataanslutning** | *DiagnosticsLogsConnection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
-    | **Namnrymd för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
+    | **Namnområde för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | **Händelsehubb** | *diagnosticlogsdata* | Händelsehubben som du skapade. |
     | **Konsumentgrupp** | *adxpipeline* | Konsumentgruppen som definierades i hubben som du skapade. |
     | | |
@@ -397,9 +396,9 @@ Upprepa stegen i avsnittet Skapa dataanslutningen för diagnostikloggar för att
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | **Namn på dataanslutning** | *ActivityLogsConnection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
-    | **Namnrymd för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
-    | **Händelsehubb** | *insights-operational-logs* | Händelsehubben som du skapade. |
-    | **Konsumentgrupp** | *$Default* | Den förinställda konsumentgruppen. Om det behövs kan du skapa en annan konsumentgrupp. |
+    | **Namnområde för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
+    | **Händelsehubb** | *Insights-operational-logs* | Händelsehubben som du skapade. |
+    | **Konsumentgrupp** | *$Standard* | Den förinställda konsumentgruppen. Om det behövs kan du skapa en annan konsumentgrupp. |
     | | |
 
     Måltabell:
@@ -461,4 +460,4 @@ Frågeresultat:
 Lär dig att skriva många fler frågor för de data som du extraherade från Azure Data Explorer med hjälp av följande artikel:
 
 > [!div class="nextstepaction"]
-> [Skriva frågor för Azure Data Explorer](write-queries.md)
+> [Skriv frågor för Azure Data Explorer](write-queries.md)

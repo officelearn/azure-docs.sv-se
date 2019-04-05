@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011659"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045430"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-avbildningar i Azure
 Den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux (RHEL)-avbildningar på Azure Marketplace tillsammans med principer avseende deras namngivning och kvarhållning.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Aktuella namngivningskonvention
 Alla publicerade RHEL-avbildningar använder modellen betala per användning och är anslutna till [Red Hat Update Infrastructure (RHUI) i Azure](https://aka.ms/rhui-update). På grund av punkter i RHUI, har en ny namngivningskonvention antagits för RHEL 7 family avbildningar. RHEL 6 family namngivningen har inte förändrats just nu.
 
-Begränsningen är i faktumet att om en icke-selektivt `yum update` körs mot en virtuell dator ansluten till RHUI, RHEL-versionen uppdateras till senast i den aktuella familjen. Mer information finns i [den här länken](https://aka.ms/rhui-udate). Detta kan resultera i förvirring när en etablerad RHEL 7.2-avbildning blir RHEL 7.6 efter en uppdatering. Du kan fortfarande etablera från en äldre avbildning som illustreras i exemplen ovan genom att uttryckligen ange versionen som krävs. Om versionen som krävs inte anges när du etablerar en ny avbildning för RHEL 7, kommer sedan den senaste avbildningen att tillhandahållas.
+Begränsningen är i faktumet att om en icke-selektivt `yum update` körs mot en virtuell dator ansluten till RHUI, RHEL-versionen uppdateras till senast i den aktuella familjen. Mer information finns i [den här länken](https://aka.ms/rhui-update). Detta kan resultera i förvirring när en etablerad RHEL 7.2-avbildning blir RHEL 7.6 efter en uppdatering. Du kan fortfarande etablera från en äldre avbildning som illustreras i exemplen ovan genom att uttryckligen ange versionen som krävs. Om versionen som krävs inte anges när du etablerar en ny avbildning för RHEL 7, kommer sedan den senaste avbildningen att tillhandahållas.
 
 >[!NOTE]
 > I RHEL for SAP uppsättning bilder förblir den RHEL-versionen har åtgärdats. Därför innehåller sina namngivningskonvention en viss version i SKU: N.

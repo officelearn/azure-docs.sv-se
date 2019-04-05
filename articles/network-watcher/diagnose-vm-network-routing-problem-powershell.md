@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912858"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051622"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell
 
@@ -30,22 +30,26 @@ I den här artikeln får du distribuera en virtuell dator (VM) och kontrollera k
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln AzureRM PowerShell-Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+
+
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
+Skapa den virtuella datorn med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -59,18 +63,18 @@ Om du vill testa nätverkskommunikation med Network Watcher måste du först akt
 
 ## <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en aktiverad nätverksbevakare i regionen Östra USA använder du [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) för att hämta nätverksbevakaren. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
+Om du redan har en network watcher som aktiverats i regionen USA, östra, använda [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) att hämta network watcher. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Om du inte redan har en aktiverad nätverksbevakare i östra USA använder du [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) för att skapa en nätverksbevakare i regionen Östra USA:
+Om du inte redan har en network watcher som aktiverats i regionen östra USA kan du använda [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) att skapa en network watcher i regionen östra USA:
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
@@ -78,12 +82,12 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
-Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med den [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) kommando för att fastställa nexthop routning när trafik är avsedd för en specifik adress.
+Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna vägar som ersätter standardvägarna. Ibland kan egna vägar göra att kommunikationen misslyckas. Testa routning från en virtuell dator med den [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) kommando för att fastställa nexthop routning när trafik är avsedd för en specifik adress.
 
 Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -95,7 +99,7 @@ Efter några sekunder utdata informerar dig som den **NextHopType** är **Intern
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -106,10 +110,10 @@ Informerar dig om de utdata som returneras som **ingen** är den **NextHopType**
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
-Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) kommando:
+Om du vill analysera routning ytterligare, granska de effektiva vägarna för nätverksgränssnittet med den [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) kommando:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveRouteTable `
+Get-AzEffectiveRouteTable `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup |
   Format-table
@@ -131,10 +135,10 @@ Som du ser i föregående utdata vägen med den **AddressPrefix** av **0.0.0.0/0
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
+När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

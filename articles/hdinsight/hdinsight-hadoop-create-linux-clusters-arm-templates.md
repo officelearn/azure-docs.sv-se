@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224217"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044988"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

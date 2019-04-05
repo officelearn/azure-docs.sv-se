@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313376"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050126"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (och svar FAQ)
 Den här artikeln sammanfattas vanliga frågor och svar om Azure Site Recovery. 
@@ -36,9 +36,9 @@ Ja, du kan replikera stöds virtuella Azure-datorer mellan Azure-regioner. [Läs
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Vad behöver jag i Hyper-V att samordna replikeringen med Site Recovery?
 Vad du behöver för Hyper-V-värdservern beror på distributionsscenariot. Du hittar kraven för Hyper-V i:
 
-* [Replikera Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replikera Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
-* [Replikera Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
+* [Replikera virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replikera virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
+* [Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
 * Om du replikerar till ett sekundärt datacenter Läs mer om [gästoperativsystem som stöds för Hyper-V-datorer](https://technet.microsoft.com/library/mt126277.aspx).
 * Om du replikerar till Azure Site Recovery stöder alla gästoperativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -153,7 +153,7 @@ Azure är utformat med flexibilitet i fokus. Site Recovery är redan utformat f�
 Du kan utlösa en oplanerad redundansväxling från den sekundära platsen. Site Recovery behöver ingen anslutning från den primära platsen för att utföra redundansväxlingen.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
-Den sker inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) att utlösa redundans. Växlar tillbaka är en enkel åtgärd i Site Recovery-portalen.
+Den sker inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [Site Recovery PowerShell](/powershell/module/az.recoveryservices) att utlösa redundans. Växlar tillbaka är en enkel åtgärd i Site Recovery-portalen.
 
 Om du vill automatisera du kan använda lokala Orchestrator eller Operations Manager för att identifiera fel på virtuella datorer och sedan utlösa en redundansväxling med hjälp av SDK.
 

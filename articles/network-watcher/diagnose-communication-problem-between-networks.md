@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997389"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046919"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure-portalen
 
@@ -33,10 +33,13 @@ En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett loka
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en befintlig, aktiv VPN-gateway för att kunna använda VPN-diagnostik. Om du inte har en befintlig VPN-gateway att diagnostisera kan du distribuera en med hjälp av ett [PowerShell-skript](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Du kan köra PowerShell-skriptet från:
-- **En lokal PowerShell-installation**: Skriptet kräver AzureRM PowerShell-modul version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- **En lokal PowerShell-installation**: Skriptet kräver Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - **Azure Cloud Shell**: [Azure Cloud Shell](https://shell.azure.com/powershell) har den senaste versionen av PowerShell installerad och konfigurerad, och loggar in dig i Azure.
 
 Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återstående stegen förutsätter vi att den gateway som du diagnostiserar är den som distribuerats med det här skriptet. Om du diagnostiserar en egen befintlig gateway i stället, kan resultatet variera.

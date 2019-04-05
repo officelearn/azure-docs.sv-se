@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 818136f24eb063e2bd7217d5441bda19bf141317
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666604"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047021"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uppgradera konfigurationen av ett kluster i Azure 
 
@@ -28,6 +28,9 @@ Den här artikeln beskriver hur du anpassar olika fabric inställningarna för S
 > [!NOTE]
 > Alla inställningar är inte tillgänglig i portalen och det är en [bästa praxis att anpassa den med hjälp av en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portalen är för Service Fabric Dev\Test scenariots endast.
 > 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Anpassa inställningar för klustret med hjälp av Resource Manager-mallar
 Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Läs mer om de olika inställningarna i [konfigurationsinställningar för kluster](service-fabric-cluster-fabric-settings.md). Till exempel stegen nedan visar hur du lägger till en ny inställning *MaxDiskQuotaInMB* till den *diagnostik* avsnittet med hjälp av Azure Resource Explorer.
@@ -54,7 +57,7 @@ Du kan också anpassa inställningar för klustret i något av följande sätt m
 - Använd den [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) att exportera och uppdatera Resource Manager-mall.
 - Använd [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) att exportera och uppdatera Resource Manager-mallen.
 - Använd den [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) att exportera och uppdatera Resource Manager-mallen.
-- Använda Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) och [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) kommandon för att ändra inställningen direkt.
+- Använda Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) och [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) kommandon för att ändra inställningen direkt.
 - Använda Azure CLI [az sf cluster inställningen](https://docs.microsoft.com/cli/azure/sf/cluster/setting) kommandon för att ändra inställningen direkt.
 
 ## <a name="next-steps"></a>Nästa steg

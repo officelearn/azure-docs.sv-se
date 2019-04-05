@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312282"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050653"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd i Azure Traffic Manager
 
@@ -42,7 +42,7 @@ Om hälsotillståndet för dina Traffic Manager visar en **inaktiv** status båd
 Om du vill felsöka ett avsökningsfel, behöver du ett verktyg som visar HTTP-statuskoden returnerade från URL för webbavsökning. Det finns många verktyg som visar rådata HTTP-svaret.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [curl](https://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Du kan också använda fliken nätverk i F12 felsökningsverktyg i Internet Explorer för att visa HTTP-svar.
@@ -88,8 +88,8 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Åtgärder för Traffic Manager (REST API-referens)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Åtgärder i Traffic Manager (REST-API-referens)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager-cmdletar][1]
 
-[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
+[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

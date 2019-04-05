@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577194"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049446"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -54,12 +54,12 @@ Du kan också tilldela och ansluta användare till dina virtuella skrivbord:
 
 Det finns några saker som du behöver för att konfigurera virtuella Windows-skrivbordet och ansluta dina användare till sina Windows-skrivbord och program.
 
-Kontrollera först att du har rätt licenser för dina användare baserat på skrivbordet och appar som du planerar att distribuera:
+Kontrollera först att du har den [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på skrivbordet och appar som du planerar att distribuera:
 
 |Operativsystem|Licens som krävs|
 |---|---|
-|Flera session för Windows 10 Enterprise eller Windows 10 single-session|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Flera session för Windows 10 Enterprise eller Windows 10 single-session|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS-klientåtkomstlicens (CAL) med Software Assurance|
 
 Din infrastruktur behöver följande för virtuella Windows-skrivbordet:

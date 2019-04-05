@@ -1,19 +1,18 @@
 ---
 title: 'Snabbstart: Mata in data från Event Hub i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur du matar in (load) data i Azure Data Explorer från Event Hub.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/2/2018
-ms.openlocfilehash: fcc4a50cb57e15021a3be1266d660c33501dbe82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/02/2018
+ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758684"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048395"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -23,7 +22,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [En testkluster och databas](create-cluster-database-portal.md)
 
 * [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb. Ladda ned exempelprogrammet till datorn.
 
@@ -39,7 +38,7 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
 
 1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
 
-    [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Knappen **Distribuera till Azure** tar dig till Azure-portalen där du kan fylla i ett distributionsformulär.
 
@@ -59,7 +58,7 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | Resursgrupp | *test-hub-rg* | Skapa en ny resursgrupp. |
-    | Plats | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
+    | Plats | *Västra USA* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
     | Namn på namnområde | Ett unikt namnområdesnamn | Välj ett unikt namn som identifierar namnområdet. Till exempel *mytestnamespace*. Domännamnet *servicebus.windows.net* läggs till i namnet som du anger. Namnet får endast innehålla bokstäver, siffror och bindestreck. Namnet måste börja med en bokstav och sluta med en bokstav eller siffra. Värdet måste innehålla mellan 6 och 50 tecken.
     | Namn på händelsehubb | *test-hub* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. Namnet på händelsehubben måste vara unikt inom namnområdet. |
     | Konsumentgruppens namn | *test-group* | Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |

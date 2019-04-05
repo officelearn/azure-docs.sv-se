@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649586"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050160"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -31,6 +31,9 @@ Som Microsoft-partner kan associera du Azure-användning med alla Azure-resurser
 Kundens användning attribution är för ny distribution och har inte stöd för taggning befintliga resurser som redan har distribuerats.
 
 Kundens användning attribution krävs på [Azure-program](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): lösning mall erbjudandet publicerats på Azure Marketplace.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera kundens användning attribution vara enkelt.
@@ -223,12 +226,12 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
 
-$deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
 # Find all deploymentOperations in a deployment by name
 # PowerShell doesn't surface outputResources on the deployment
@@ -239,7 +242,7 @@ foreach ($deployment in $deployments){
 # Get deploymentOperations by deploymentName
 # then the resourceId for any create operation
 
-($deployment | Get-AzureRmResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
 
 }
 ```

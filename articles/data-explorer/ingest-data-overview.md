@@ -1,19 +1,18 @@
 ---
 title: Azure Data Explorer-datainmatning
 description: Läs om hur du kan hämta (load) data i Datautforskaren i Azure
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
-ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/18/2019
+ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755775"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045602"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Data Explorer-datainmatning
 
@@ -69,7 +68,7 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga efter da
 
 * [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
+* [SDK för Node](/azure/kusto/api/node/kusto-node-client-library)
 
 * [REST-API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
@@ -151,13 +150,13 @@ Schemamappning hjälper till att binda datafält som källa till mål tabellkolu
 > [Mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med hjälp av Azure Data Explorer Python-bibliotek](python-ingest-data.md)
+> [Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med hjälp av Azure Data Explorer nod-bibliotek](node-ingest-data.md)
+> [Mata in data med hjälp av Node-biblioteket i Azure Data Explorer](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data från Logstash till Datautforskaren i Azure](ingest-data-logstash.md)
+> [Mata in data från Logstash i Azure Data Explorer](ingest-data-logstash.md)

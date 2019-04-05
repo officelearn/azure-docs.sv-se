@@ -1,19 +1,18 @@
 ---
 title: 'Snabbstart: Mata in data från Kafka i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur du matar in (load) data i Azure Data Explorer från Kafka.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 5c7d533cbd8a69b8fd9dcc704e7b83b0e476e499
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756631"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047117"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
  
@@ -23,7 +22,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
  
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. 
  
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [En testkluster och databas](create-cluster-database-portal.md)
  
 * [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar dem till Kafka
 

@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878714"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050143"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
 Du ställer in en konfigurationsservern lokalt när du använder den [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala datorer och Azure och hanterar datareplikering. Den här artikeln sammanfattas vanliga uppgifter för att hantera configuration server när det har distribuerats.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -265,28 +267,28 @@ Uppgradera servern på följande sätt:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller Avregistrerar en konfigurationsserver (PowerShell)
 
-1. [Installera](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell-modulen
+1. [Installera](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell-modulen
 2. Logga in på till ditt Azure-konto med hjälp av kommandot
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Välj den prenumeration som valvet finns
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Nu ställa in valvets sammanhang
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Hämta väljer konfigurationsservern
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Ta bort konfigurationsservern
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Den **-tvinga** alternativ i Remove-AzureRmSiteRecoveryFabric kan användas för att Framtvinga borttagning av/borttagning av konfigurationsservern.
+> Den **-tvinga** alternativ i Remove-AzSiteRecoveryFabric kan användas för att Framtvinga borttagning av/borttagning av konfigurationsservern.
 
 ## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
 Konfigurationsservern har en inbyggd webbserver som samordnar aktiviteter av Mobility service, processervrar och huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.

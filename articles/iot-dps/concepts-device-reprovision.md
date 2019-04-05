@@ -3,29 +3,29 @@ title: Enhetskoncept för reprovisioning för Azure IoT Hub Device Provisioning-
 description: Beskriver enheten reprovisioning begrepp för Azure IoT Hub Device Provisioning-tjänsten
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712287"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050857"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IoT Hub Device reprovisioning begrepp
 
 Under livscykeln för en IoT-lösning är det vanligt att flytta enheter mellan IoT-hubbar. Orsaker till flytten kan innehålla följande scenarier:
 
-* **Geoplats / GeoLatency**: när en enhet flyttas mellan platser Nätverksfördröjningen förbättras genom att låta enheten migreras till en närmare IoT-hubb.
+* **Geoplats / GeoLatency**: När en enhet flyttas mellan platser Nätverksfördröjningen förbättras genom att låta enheten migreras till en närmare IoT-hubb.
 
-* **Multitenans**: en enhet kan användas inom samma IoT-lösning och omtilldelas till en ny kund eller kundens plats. Den här nya kunden kan betjänas med hjälp av en annan IoT-hubb.
+* **Multitenans**: En enhet kan användas inom samma IoT-lösning och omtilldelas till en ny kund eller kundens plats. Den här nya kunden kan betjänas med hjälp av en annan IoT-hubb.
 
-* **Lösning ändra**: en enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Omtilldelningen kan kräva att enheten att kommunicera med en ny IoT-hubb som är ansluten till andra backend-komponenter.
+* **Lösning ändra**: En enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Omtilldelningen kan kräva att enheten att kommunicera med en ny IoT-hubb som är ansluten till andra backend-komponenter.
 
-* **Karantän**: liknar en ändring av lösningen. En enhet som fungerar, komprometteras eller inaktuella som kan tilldelas till en IoT-hubb kan bara uppdatera och få tillbaka efterlevnad. När enheten fungerar korrekt, har den sedan migreras till dess huvudsakliga hub.
+* **Karantän**: Liknar en ändring av lösningen. En enhet som fungerar, komprometteras eller inaktuella som kan tilldelas till en IoT-hubb kan bara uppdatera och få tillbaka efterlevnad. När enheten fungerar korrekt, har den sedan migreras till dess huvudsakliga hub.
 
 Reprovisioning stöd i Device Provisioning-tjänsten adresser dessa behov. Enheter kan tilldelas automatiskt till nya IoT-hubbar baserat på reprovisioning principen som är konfigurerad på enhetens registreringspost.
 
@@ -51,17 +51,17 @@ Beroende på scenario, som en enhet som flyttar mellan IoT-hubbar, kan det ocks�
 
 Beroende på scenario skickar en enhet vanligtvis en begäran till en allokering tjänstinstans vid omstart. Det stöder även en metod för att manuellt starta etablering på begäran. Reprovisioning principen på en registreringspost bestämmer hur den device provisioning-tjänstinstansen hanterar dessa etablering begäranden. Principen anger också om enhetens tillståndsdata ska migreras under reprovisioning. Samma principer är tillgängliga för enskilda registreringar och registreringsgrupper:
 
-* **Etablera och migrera data**: den här principen är standard för nya poster för registrering. Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skicka en ny begäran (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Den uppdaterade enhetsinformationen tillstånd från den första IoT-hubben kommer att migreras över till den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
+* **Etablera och migrera data**: Den här principen är standard för nya poster för registrering. Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skicka en ny begäran (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Den uppdaterade enhetsinformationen tillstånd från den första IoT-hubben kommer att migreras över till den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
 
     ![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Etablera och återställa till ursprungliga config**: den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skickar in en ny begäran om etablering (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Inledande konfigurationsdata som etablering tjänstinstansen tas emot när enheten har etablerats har angetts för den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
+* **Etablera och återställa till ursprungliga config**: Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skickar in en ny begäran om etablering (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Inledande konfigurationsdata som etablering tjänstinstansen tas emot när enheten har etablerats har angetts för den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
 
     Den här principen används ofta för en fabriksåterställning utan att ändra IoT-hubbar.
 
     ![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Aldrig etablera**: enheten aldrig omtilldelas till en annan hubb. Den här principen har angetts för att hantera bakåtkompatibilitet kompatibilitet.
+* **Aldrig etablera**: Enheten omtilldelas aldrig till en annan hubb. Den här principen har angetts för att hantera bakåtkompatibilitet kompatibilitet.
 
 ### <a name="managing-backwards-compatibility"></a>Hantera bakåtkompatibilitet kompatibilitet
 

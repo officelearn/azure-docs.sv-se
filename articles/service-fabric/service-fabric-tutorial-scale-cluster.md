@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669511"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049412"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudier: Skala ett Service Fabric-kluster i Azure
 
@@ -41,12 +41,15 @@ I den här självstudieserien får du lära du dig att:
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Att tänka på och riktlinjer
@@ -98,7 +101,7 @@ Om du arbetar för att bygga i, ta bort noder från en nodtyp Brons [hållbarhet
 Spara ändringar av den *template.json* och *parameters.json* filer.  Om du vill distribuera den uppdaterade mallen, kör du följande kommando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Eller med följande Azure CLI-kommando:
 ```azure-cli
@@ -804,7 +807,7 @@ I den *parameters.json* Lägg till följande nya parametrar och värden:
 Spara ändringar av den *template.json* och *parameters.json* filer.  Om du vill distribuera den uppdaterade mallen, kör du följande kommando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Eller med följande Azure CLI-kommando:
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 När du har skapat ett Service Fabric-kluster, kan du skala ett kluster horisontellt genom att ta bort en nodtyp (virtual machine scale Sets) och alla dess noder. Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret. När klustret skalas skalas programmen automatiskt samt.
 
 > [!WARNING]
-> Du bör inte använda Remove-AzureRmServiceFabricNodeType ta bort en nodtyp från ett produktionskluster som ska användas regelbundet. Det är ett farliga kommando som tar bort VM scale set resursen bakom nodtyp. 
+> Du bör inte använda Remove-AzServiceFabricNodeType att ta bort en nodtyp från ett produktionskluster som ska användas regelbundet. Det är ett farliga kommando som tar bort VM scale set resursen bakom nodtyp. 
 
-Om du vill ta bort nodtyp, kör den [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet.  Nodtypen måste vara Silver eller Gold [hållbarhetsnivå] [ durability] cmdlet: en tar bort skalningsuppsättningen som är associerade med nodtyp och tar lite tid att slutföra.  Kör sedan den [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdleten på varje nod att ta bort, vilket tar bort noden tillstånd och tar bort noder från klustret. Om det finns tjänster på noderna, sedan flyttas tjänsterna först till en annan nod. Om cluster manager i inte hittar en nod för repliken/tjänst, är åtgärden för fördröjd/blockerad.
+Om du vill ta bort nodtyp, kör den [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  Nodtypen måste vara Silver eller Gold [hållbarhetsnivå] [ durability] cmdlet: en tar bort skalningsuppsättningen som är associerade med nodtyp och tar lite tid att slutföra.  Kör sedan den [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdleten på varje nod att ta bort, vilket tar bort noden tillstånd och tar bort noder från klustret. Om det finns tjänster på noderna, sedan flyttas tjänsterna först till en annan nod. Om cluster manager i inte hittar en nod för repliken/tjänst, är åtgärden för fördröjd/blockerad.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ VM-SKU för alla typer av tre noder har angetts i den *vmImageSku* parametern.  
 Spara ändringar av den *template.json* och *parameters.json* filer.  Om du vill distribuera den uppdaterade mallen, kör du följande kommando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Eller med följande Azure CLI-kommando:
 ```azure-cli
@@ -874,6 +877,18 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Lägga till och ta bort noder (skala ut och skala i)
+> * Lägga till och ta bort nodtyper (skala ut och skala i)
+> * Öka noden resurser (skala upp)
+
+Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
+> [!div class="nextstepaction"]
+> [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+ND skalar in))
 > * Lägga till och ta bort nodtyper (skala ut och skala i)
 > * Öka noden resurser (skala upp)
 

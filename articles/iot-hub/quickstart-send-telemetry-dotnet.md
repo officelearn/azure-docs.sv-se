@@ -3,19 +3,19 @@ title: Snabbstart – Skicka telemetri till Azure IoT Hub (C#) | Microsoft Docs
 description: I den här snabbstarten kör du två C#-exempelprogram som skickar simulerad telemetri till en IoT-hubb, läser telemetrin från IoT-hubben och bearbetar den i molnet.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: 22be617d1789390cfa0c40fc4dc17ba32d482900
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008805"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049276"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läsa den med ett serverdelsprogram (C#)
 
@@ -41,6 +41,12 @@ Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följa
 dotnet --version
 ```
 
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
@@ -51,14 +57,13 @@ Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet.
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhetens identitet.
 
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
    **MyDotnetDevice**: Namnet på den enhet som du registrerar. Använd **MyDotnetDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
@@ -157,4 +162,4 @@ I den här snabbstarten har du konfigurerat en IoT-hubb, registrerat en enhet, s
 Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Kontrollera en enhet ansluten till en IoT Hub](quickstart-control-device-dotnet.md)
+> [Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub](quickstart-control-device-dotnet.md)

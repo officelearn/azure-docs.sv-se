@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 74c33d73f15c4edf63a02ea5c9a0cdcad88bb68c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437322"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049753"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso-migrering: Återskapa en lokal app till Azure
 
@@ -22,13 +22,13 @@ Den här artikeln visar hur Contoso migrerar och återskapar SmartHotel360-app i
 Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företaget Contoso migrerar lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migrering, utvärdera lokala resurser för migrering och som kör olika typer av migreringar. Scenarier växer i komplexitet. Vi lägger till ytterligare artiklar med tiden.
 
 
-**Artikel** | **Detaljer** | **Status**
+**Artikel** | **Information** | **Status**
 --- | --- | ---
-[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
+[Artikel 1: Översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
 [Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
 [Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för SmartHotel360-appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
-[Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar virtuella datorerna med Site Recovery endast för SmartHotel360-appen. | Tillgängligt
+[Artikel 5: Byta värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar virtuella datorerna med Site Recovery endast för SmartHotel360-appen. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
 [Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
 [Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
@@ -40,6 +40,9 @@ Artikel 13: Återskapa en app till Azure | Visar hur Contoso återskapa SmartHot
 [Artikel 14: Skala en migrering till Azure](contoso-migration-scale.md) | När du testar migreringen kombinationer, förbereder Contoso att skala upp till en fullständig migrering till Azure. | Tillgängligt
 
 I den här artikeln migrerar Contoso tvålagers-Windows. NET SmartHotel360-app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360-Backend).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer
 
@@ -93,7 +96,7 @@ Efter att fästa ned mål och krav, Contoso utformar och granska en distribution
 
 Contoso utvärderar den föreslagna designen genom att sätta ihop en lista med för- och nackdelar.
 
-**Beräkningen** | **Detaljer**
+**Beräkningen** | **Information**
 --- | ---
 **Experter** | Med PaaS och serverlösa lösningar för slutpunkt till slutpunkt-distributionen avsevärt minskar hanteringstiden för som Contoso måste ange.<br/><br/> Flytta till en mikrotjänstarkitektur kan Contoso till bygg ut lösningen över tid.<br/><br/> Nya funktioner kan anslutas utan att störa någon av de befintliga kodbaser lösningar.<br/><br/> Webbappen konfigureras med flera instanser med ingen enskild felpunkt.<br/><br/> Automatisk skalning aktiveras så att appen kan hantera olika trafikvolymer.<br/><br/> Contoso kan dra tillbaka gamla lösningar som körs på operativsystemet Windows Server 2008 R2 med flytten till PaaS-tjänster.<br/><br/> Cosmos DB har inbyggd feltolerans som kräver ingen konfiguration av Contoso. Det innebär att datanivån inte längre en enda åtkomstpunkt för redundans.
 **Nackdelar** | Behållare är mer komplexa än andra migreringsalternativ. Inlärningskurvan bero på ett problem för Contoso.  En ny nivå av komplexitet som erbjuder en mängd olika värdet trots kurvan medför de.<br/><br/> Driftsteamet på Contoso behöver snabbt igång med att förstå och stöd för Azure, behållare och mikrotjänster för appen.<br/><br/> Contoso har inte fullt ut DevOps för hela lösningen. Contoso behöver tänka som för distribution av tjänster till AKS, functions och App Services.
@@ -123,7 +126,7 @@ Contoso utvärderar den föreslagna designen genom att sätta ihop en lista med 
 
 Här är vad Contoso behöver för det här scenariot:
 
-**Krav** | **Detaljer**
+**Krav** | **Information**
 --- | ---
 **Azure-prenumeration** | Contoso skapades prenumerationer under en tidigare artikel. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Om du skapar ett kostnadsfritt konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> Om du använder en befintlig prenumeration och du inte är administratör, måste du be administratören tilldela dig ägar-eller deltagare.
 **Azure-infrastrukturen** | [Lär dig hur](contoso-migration-infrastructure.md) Contoso ställa in en Azure-infrastruktur.
@@ -175,7 +178,7 @@ Contoso-administratörer etablera enligt följande:
 
     ![AKS](./media/contoso-migration-rebuild/aks3.png)
 
-5. I PowerShell integrerade terminalen de loggar in på Azure med hjälp av kommandot Connect-AzureRmAccount. [Läs mer](https://docs.microsoft.com/powershell/azure/get-started-azureps) om att komma igång med PowerShell.
+5. I PowerShell integrerade terminalen de loggar in på Azure med hjälp av kommandot Connect-AzAccount. [Läs mer](https://docs.microsoft.com/powershell/azure/get-started-azureps) om att komma igång med PowerShell.
 
     ![AKS](./media/contoso-migration-rebuild/aks4.png)
 
@@ -196,7 +199,7 @@ Contoso-administratörer etablera enligt följande:
 
 9. När distributionen är klar som de installerar den **kubectl** kommandoradsverktyget. Verktyget är redan installerad på Azure CloudShell.
 
-    **az aks install-cli**
+    **AZ aks install-cli**
 
 10. De kontrollerar anslutningen till klustret genom att köra den **kubectl få noder** kommando. Noden är samma namn som den virtuella datorn automatiskt skapade resursgruppen.
 

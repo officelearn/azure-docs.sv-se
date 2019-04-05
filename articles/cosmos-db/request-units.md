@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762981"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047334"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Medan du uppskatta antalet enheter för programbegäran per sekund för att etab
 * Mer information om hur du [globalt skala dataflöde](scaling-throughput.md).
 * Lär dig hur du [etablera dataflöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 * Lär dig hur du [etablera dataflöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+* Lär dig hur du [hitta kostnaden för begäran om enheten för en åtgärd](find-request-unit-charge.md).
 * Lär dig hur du [kostnadsoptimering etablerat dataflöde i Azure Cosmos DB](optimize-cost-throughput.md).
 * Lär dig hur du [optimera läsningar och skrivningar kostnaden i Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Lär dig hur du [kostnadsoptimering fråga i Azure Cosmos DB](optimize-cost-queries.md).

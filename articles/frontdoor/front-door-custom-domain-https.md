@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050985"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -40,6 +40,9 @@ I den här guiden får du lära dig att:
 > - Använda ditt eget certifikat, det vill säga ett anpassat SSL-certifikat
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på en anpassad domän
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -86,11 +89,11 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 
 Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din Azure Active Directory via PowerShell.
 
-1. Om det behövs installerar du [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) i PowerShell på den lokala datorn.
+1. Om det behövs installerar du [Azure PowerShell](/powershell/azure/install-az-ps) i PowerShell på den lokala datorn.
 
 2. Kör följande kommando i PowerShell:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Bevilja Azure Front Door Service åtkomst till ditt nyckelvalv
  
@@ -242,7 +245,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
     Ett dedikerat/enskilt certifikat som tillhandahålls av Digicert används för din anpassade domän. 
 
-2. *Använder du IP- eller SNI-baserad TLS/SSL?*
+2. *Använder du IP-baserad eller SNI-baserad TLS/SSL?*
 
     Azure Front Door Service använder SNI TLS/SSL.
 
@@ -250,11 +253,11 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
     Om du har en CNAME-post för din anpassade domän som pekar direkt på slutpunktens värdnamn (och du inte använder afdverify-underdomännamnet) får du inget domänverifieringsmeddelande. Verifieringen sker i så fall automatiskt. Om du inte har en CNAME-post och inte har fått något e-postmeddelande inom 24 timmar kontaktar du Microsoft-supporten.
 
-4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
+4. *Använder ett SAN-certifikat som är mindre säkert än ett dedikerat certifikat?*
     
     Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
-5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
+5. *Behöver jag en Caa-post med min DNS-provider?*
 
     Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
 

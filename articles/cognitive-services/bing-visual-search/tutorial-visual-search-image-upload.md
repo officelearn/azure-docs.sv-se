@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 188acaea134a00ca8e2412aafd8515ee26596590
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858578"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050000"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Självstudier: Ladda upp bilder till API för visuell sökning i Bing
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Självstudier: Ladda upp bilder till Bing Visual Search API
 
-Med API för visuell sökning i Bing kan du söka på webben efter bilder som liknar dem som du laddar upp. Använd den här självstudien för att skapa en webbapp som kan skicka sökfrågor till API:et och visa den information som den returnerar på webbplatsen. Observera att det här programmet inte följer alla [användnings- och visningskrav för Bing](./use-and-display-requirements.md) för användning av API:et.
+Med API för visuell sökning i Bing kan du söka på webben efter bilder som liknar dem som du laddar upp. Använd den här självstudien för att skapa en webbapp som kan skicka sökfrågor till API:et och visa den information som den returnerar på webbplatsen. Observera att det här programmet inte följer alla [användnings- och visningskrav för Bing](../bing-web-search/use-display-requirements.md) för användning av API:et.
 
-Den fullständiga källkoden för det här exemplet finns med ytterligare felhantering och kommentarer på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
+Du hittar den fullständiga källkoden för det här exemplet med ytterligare felhantering och kommentarer på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
 
 I den här självstudieappen visas hur du:
 
@@ -30,13 +30,13 @@ I den här självstudieappen visas hur du:
 > * Visa sökresultat för bilder i en webbapp
 > * Utforska olika typer av information som tillhandahålls av API:et
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-structure-the-webpage"></a>Skapa och strukturera webbplatsen
 
-Skapa en HTML-sida som skickar en bild till Bing, får tillbaka information och visar den. Använd det redigeringsprogram eller den IDE du föredrar och skapa en fil med namnet `uploaddemo.html`. Lägg till nedanstående grundläggande HTML-struktur i filen.
+Skapa en HTML-sida som skickar en bild till Bing Visual Search API, får insikter och visar dem. Skapa en fil med namnet ”uploaddemo.html” i din favoritredigerare eller IDE. Lägg till följande grundläggande HTML-strukturen i filen:
 
 ```html
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ Skapa en HTML-sida som skickar en bild till Bing, får tillbaka information och 
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-Dela upp sidan i en begärandeåtgärd, där användaren anger all information som behövs för att utföra begäran, och ett svarsavsnitt där informationen visas. Lägg till följande `<div>`-taggar i `<body>`. Taggen `<hr>` skiljer begärandeavsnittet visuellt från svarsavsnittet.
+Dela upp sidan i en begäran, där användaren tillhandahåller den information som krävs för begäran, och ett svar avsnitt där insikterna som visas. Lägg till följande `<div>`-taggar i `<body>`. Den `<hr>` taggen skiljer visuellt avsnittet begäran från svarsavsnittet:
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-Lägg till en `<script>`-tagg i `<head>`-taggen som ska som innehålla JavaScript för programmet.
+Lägg till en `<script>` tagg i `<head>` tagg som innehåller JavaScript för programmet:
 
 ```html
 <script>
@@ -67,12 +67,11 @@ Lägg till en `<script>`-tagg i `<head>`-taggen som ska som innehålla JavaScrip
 
 ## <a name="get-the-upload-file"></a>Hämta uppladdningsfilen
 
-För att användaren ska kunna välja en bild som ska laddas upp använder programmet taggen `<input>` med typattributet angett till `file`. Användargränssnittet måste visa tydligt att programmet använder Bing till att hämta sökresultaten. 
+För att användaren ska kunna välja en bild som ska laddas upp använder programmet taggen `<input>` med typattributet angett till `file`. Användargränssnittet måste visa tydligt att programmet använder Bing till att hämta sökresultaten.
 
-Lägg till följande `<div>` i requestSection div. Filens indata godkänner en enskild fil av valfri bildtyp (till exempel .jpg, .gif, .png). `onchange`-händelsen anger vilken hanterare som anropas när en användare väljer en fil.
+Lägg till följande `<div>` till den `requestSection` `<div>`. Filens indata godkänner en enskild fil av valfri bildtyp (till exempel .jpg, .gif, .png). `onchange`-händelsen anger vilken hanterare som anropas när en användare väljer en fil.
 
-Taggen `<output>` används för att visa en miniatyr av den valda bilden.
-
+Den `<output>` indatatagg används för att visa en miniatyrbild för den valda avbildningen:
 
 ```html
 <div>
@@ -84,9 +83,9 @@ Taggen `<output>` används för att visa en miniatyr av den valda bilden.
 </div>
 ```
 
-## <a name="create-a-file-handler"></a>Skapa en filhanterare 
+## <a name="create-a-file-handler"></a>Skapa en filhanterare
 
-Skapa en hanterarfunktion som kan läsa in den bild som du vill ladda upp. När du går igenom filerna i objektet `FileList` bör hanteraren kontrollera att den valda filen är en bildfil och att dess storlek är 1 MB eller mindre. Om bilden är större måste du minska dess storlek innan du laddar upp den. Slutligen visar hanteraren en miniatyr av bilden.
+Skapa en hanterarfunktion som kan läsa in den bild som du vill ladda upp. När du går igenom filerna i objektet `FileList` bör hanteraren kontrollera att den valda filen är en bildfil och att dess storlek är 1 MB eller mindre. Om bilden är större, måste du minska storleken innan du skickar den. Till sist visas hanteraren en miniatyr för avbildningen:
 
 ```javascript
 function handleFileSelect(selector) {
@@ -136,7 +135,7 @@ function handleFileSelect(selector) {
 
 ## <a name="add-and-store-a-subscription-key"></a>Lägga till och lagra en prenumerationsnyckel
 
-Programmet behöver en prenumerationsnyckel för att göra anrop till API för visuell sökning i Bing. För den här självstudien tillhandahåller du den i användargränssnittet. Lägg till följande `<input>`-tagg (med typattributet angivet som text) i `<body>` strax nedanför filens `<output>`-tagg.
+Programmet kräver en prenumeration för att göra anrop till Bing Visual Search API. För den här självstudien tillhandahåller du den i användargränssnittet. Lägg till följande `<input>` tagga (med attributet type inställd text) till den `<body>` nedanför filens `<output>` tagg:
 
 ```html
     <div>
@@ -146,9 +145,9 @@ Programmet behöver en prenumerationsnyckel för att göra anrop till API för v
     </div>
 ```
 
-Nu när du har bilden och prenumerationsnyckeln kan du anropa Visuell sökning i Bing för att få information om bilden. I den här självstudien använder anropet standardmarknaden (`en-us`) och värdet för säker sökning (`moderate`).
+Nu när du har bilden och prenumerationsnyckeln kan du anropa Visuell sökning i Bing för att få information om bilden. I de här självstudierna använder anropet standard marknaden (`en-us`) och värdet för säker sökning (`moderate`).
 
-Det här programmet har ett alternativ för att ändra dessa värden. Lägg till följande `<div>` nedanför prenumerationsnyckelns div. Programmet använder en `<select>`-tagg för att visa en listruta med marknaden och värden för säker sökning. Båda listorna visar standardvärdet.
+Det här programmet har ett alternativ för att ändra dessa värden. Lägg till följande `<div>` nedan prenumerationsnyckeln `<div>`. Programmet använder en `<select>`-tagg för att visa en listruta med marknaden och värden för säker sökning. Båda listorna visar standardvärdet.
 
 ```html
 <div>
@@ -210,9 +209,9 @@ Det här programmet har ett alternativ för att ändra dessa värden. Lägg till
 </div>
 ```
 
-## <a name="add-search-options-to-the-webpage"></a>Lägga till sökalternativ till webbplatsen 
+## <a name="add-search-options-to-the-webpage"></a>Lägga till sökalternativ till webbplatsen
 
-Programmet döljer listorna i en komprimerbar div som styrs av länken för frågealternativ. När du klickar på länken Frågealternativ expanderas div så att du kan se och ändra frågealternativen. Om du klickar på Frågealternativ igen, minimeras div och är därefter dold. Nedan visas onclick-hanteraren för länken Frågealternativ. Hanteraren styr om div ska expanderas eller minimeras. Lägg till den här hanteraren i avsnittet `<script>`. Hanteraren används av alla komprimerbara div-taggar i demon.
+Programmet döljer listor i ett komprimerbart `<div>` som styrs av länken fråga. När du klickar på länken fråga den `<div>` expanderar så att du kan se och ändra frågealternativ. Om du klickar på länken frågan igen, den `<div>` döljer och är dold. Följande utdrag visar frågan alternativ länkens `onclick` hanterare. Hanteraren kontroller om den `<div>` visas eller döljs. Lägg till den här hanteraren i avsnittet `<script>`. Hanteraren används av alla komprimerbart `<div>` avsnitt i demon.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -234,26 +233,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## <a name="call-the-onclick-handler"></a>Anropa onclick-hanteraren
+## <a name="call-the-onclick-handler"></a>Anropa den `onclick` hanterare
 
-Lägg till följande `"Get insights"`-knapp under alternativens div i brödtexten. Med den här knappen kan du initiera anropet. När en användare klickar på knappen ändras markören till en snurrande väntemarkör och onclick-hanteraren anropas.
+Lägg till följande `"Get insights"` knappen under alternativen `<div>` i brödtexten. Med den här knappen kan du initiera anropet. När du klickar på knappen markören ändras till att vänta markören, och `onclick` hanteraren anropas.
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Lägg till knappens onclick-hanterare, `handleQuery()`, i `<script>`-taggen. 
+Lägg till knappens `onclick` hanteraren, `handleQuery()` till den `<script>` tagg.
 
 ## <a name="handle-the-query"></a>Hantera frågan
 
-Hanteraren `handleQuery()` kontrollerar att ett det finns en prenumerationsnyckel som är 32 tecken lång och att en bild har valts. Den rensar också bort eventuella insikter från tidigare frågor. Därefter anropar den funktionen `sendRequest()` för att göra anropet.
+Hanteraren `handleQuery()` garanteras prenumerationsnyckeln finns och är 32 tecken långt och att du har markerat en bild. Den rensar också bort eventuella insikter från tidigare frågor. Därefter anropar den funktionen `sendRequest()` för att göra anropet.
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -285,7 +284,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>Skicka sökbegäran
 
-Funktionen `sendRequest()` formaterar slutpunktens URL, anger Ocp-Apim-Subscription-Key-rubriken till prenumerationsnyckeln, lägger till den binära filen för den bild som ska laddas upp, anger svarshanteraren och gör anropet. 
+Den `sendRequest()` funktionen formaterar slutpunkts-URL, anger den `Ocp-Apim-Subscription-Key` rubrik för prenumerationsnyckeln, lägger till den binära filen för avbildningen som ska ladda upp, anger svarshanteraren och gör anropet:
 
 ```javascript
 function sendRequest(file, key) {
@@ -307,7 +306,7 @@ function sendRequest(file, key) {
 
 ## <a name="get-and-handle-the-api-response"></a>Hämta och hantera API-svaret
 
-Funktionen `handleResponse()` hanterar svaret från anropet till Visuell sökning i Bing. Om anropet lyckas parsas JSON-svaret till separata taggar som innehåller insikterna. Sedan lägger den till sökresultaten till sidan. Programmet skapar sedan en komprimerbar div för varje tagg för att hantera hur mycket data som visas. Lägg till hanteraren i avsnittet `<script>`.
+Funktionen `handleResponse()` hanterar svaret från anropet till Visuell sökning i Bing. Om anropet lyckas parsas JSON-svaret till separata taggar som innehåller insikterna. Sedan lägger den till sökresultaten till sidan. Programmet skapar sedan ett komprimerbart `<div>` för varje tagg att hantera hur mycket data som visas. Lägg till hanteraren i avsnittet `<script>`.
 
 ```javascript
 function handleResponse() {
@@ -323,7 +322,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -337,7 +336,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -352,7 +351,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>Skapa ett taggavsnitt
 
-Funktionen `buildTagSections()` itererar via de parsade JSON-taggarna och anropar funktionen `buildDiv()` för att skapa en div för varje tagg. Varje tagg visas som en länk. När en användare klickar på länken expanderas taggen och visar de insikter som är associerade med den. Om användaren klickar på länken igen komprimeras avsnittet.
+Den `buildTagSections()` funktionen upprepas Analyserad JSON-taggar och anropar den `buildDiv()` funktionen för att skapa en `<div>` för varje tagg. Varje tagg visas som en länk. När en användare klickar på länken expanderas taggen och visar de insikter som är associerade med den. Avsnittet att komprimera leder till att klicka på länken igen.
 
 ```javascript
 function buildTagSections(tags) {
@@ -391,11 +390,11 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>Visa sökresultatet på webbplatsen
 
-Funktionen `buildDiv()` anropar funktionen addDivContent för att skapa innehållet i varje taggs komprimerbara div.
+Den `buildDiv()` fungera anrop den `addDivContent` funktionen för att skapa innehållet i varje tagg är komprimerbart `<div>`.
 
-Ett tagginnehåll inkluderar JSON från taggsvaret. Till en början visas endast de första 100 tecknen i JSON, men om du klickar på JSON-strängen ser du hela JSON. Om du klickar på den igen minimeras JSON-strängen till 100 tecken.
+Ett tagginnehåll inkluderar JSON från taggsvaret. Första gången visas endast de första 100 tecknen i JSON, men du kan klicka på JSON-sträng för att visa alla JSON. Om du klickar på den igen minimeras JSON-strängen till 100 tecken.
 
-Lägg sedan till de åtgärdstyper som hittades i taggen. För varje åtgärdstyp anropar du lämpliga funktioner för att lägga till dess insikter.
+Lägg sedan till de åtgärdstyper som hittades i taggen. Anropa lämpliga funktioner för att lägga till dess insikter för varje åtgärdstyp:
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -472,21 +471,21 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Visar insikter för olika åtgärder
 
-Följande funktioner visar insikter för olika åtgärder. Funktionerna ger antingen en klickbar bild eller en klickbar länk som dirigerar dig till en webbplats med mer information om bilden. Den här sidan hanteras antingen av Bing.com eller av bildens ursprungliga webbplats. Inte alla av insikternas data visas i det här programmet. Du hittar alla fält som är tillgängliga för en insikt i [referensen för Visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc).
+Följande funktioner visar insikter för olika åtgärder. Funktionerna ger antingen en klickbar bild eller en klickbar länk som dirigerar dig till en webbplats med mer information om bilden. Den här sidan hanteras antingen av Bing.com eller av bildens ursprungliga webbplats. Inte alla av insikternas data visas i det här programmet. Du hittar alla fält som är tillgängliga för en insikt i de [avbildningar - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) referens.
 
 > [!NOTE]
-> Det finns en minsta mängd insiktsinformation som du måste visa på sidan. Mer information finns i [användnings- och visningskraven för Bing](./use-and-display-requirements.md).
+> Det finns en minsta mängd insiktsinformation som du måste visa på sidan. Se den [i Bing använder och visa kraven](../bing-web-search/use-display-requirements.md) mer.
 
 ### <a name="relatedimages-insights"></a>RelatedImages-insikter
 
-Funktionen `addRelatedImages()` skapar en rubrik för var och en av de webbplatser som är värd för den relaterade bilden genom att iterera genom listan över `RelatedImages`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addRelatedImages()` funktionen skapar en rubrik för var och en av de webbplatser som är värd för den relaterade avbildningen genom att gå igenom listan över `RelatedImages` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -510,7 +509,7 @@ Funktionen `addRelatedImages()` skapar en rubrik för var och en av de webbplats
 
 ### <a name="pagesincluding-insights"></a>PagesIncluding-insikter
 
-Funktionen `addPagesIncluding()` skapar en länk för var och en av de webbplatser som är värd för den uppladdade bilden genom att iterera genom listan över `PagesIncluding`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addPagesIncluding()` funktionen skapar en länk för var och en av de webbplatser som är värd för den uppladdade bilden genom att gå igenom listan över `PagesIncluding` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
 
@@ -534,7 +533,7 @@ Funktionen `addPagesIncluding()` skapar en länk för var och en av de webbplats
 
 ### <a name="relatedsearches-insights"></a>RelatedSearches-insikter
 
-Funktionen `addRelatedSearches()` skapar en länk för den webbplats som är värd för bilden genom att iterera genom listan över `RelatedSearches`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addRelatedSearches()` funktionen skapar en länk till webbplatsen som är värd för avbildningen, genom att gå igenom listan över `RelatedSearches` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
 
@@ -567,11 +566,11 @@ Funktionen `addRelatedSearches()` skapar en länk för den webbplats som är vä
 
 ### <a name="recipes-insights"></a>Recipes-insikter
 
-Funktionen `addRecipes()` skapar en länk för vart och ett av de recept som returneras genom att iterera genom listan över `Recipes`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addRecipes()` funktionen skapar en länk för var och en av recept returneras genom att gå igenom listan över `Recipes` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -599,7 +598,7 @@ Funktionen `addRecipes()` skapar en länk för vart och ett av de recept som ret
 
 ### <a name="shopping-insights"></a>Shopping-insikter
 
-Funktionen `addShopping()` skapar en länk för alla returnerade shoppingresultat genom att iterera genom listan över `RelatedImages`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addShopping()` funktionen skapar en länk för någon returnerade perioder resultat genom att gå igenom listan över `RelatedImages` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -628,11 +627,11 @@ Funktionen `addShopping()` skapar en länk för alla returnerade shoppingresulta
 
 ### <a name="products-insights"></a>Products-insikter
 
-Funktionen `addProducts()` skapar en länk för alla returnerade produktresultat genom att iterera genom listan över `Products`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Den `addProducts()` funktionen skapar en länk för någon returnerade produkter resultat genom att gå igenom listan över `Products` åtgärder och lägga till en `<img>` tagg utsidan `<div>` för var och en:
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -692,7 +691,7 @@ Funktionen `addProducts()` skapar en länk för alla returnerade produktresultat
 
 ### <a name="textresult-insights"></a>TextResult-insikter
 
-Funktionen `addTextResult()` visar all eventuell text som identifierades i bilden.
+Den `addTextResult()` funktionen visar valfri text som identifierades i bilden:
 
 ```javascript
 
@@ -703,7 +702,7 @@ Funktionen `addTextResult()` visar all eventuell text som identifierades i bilde
     }
 ```
 
-Funktionen `addEntity()` visar en länk som leder användaren till Bing.com, där användaren kan få information om entitetstypen i bilden om någon sådan identifierades.
+Den `addEntity()` funktionen visas en länk som leder användaren till Bing.com där de kan få information om entitetstypen i bilden, om någon har identifierats:
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -719,7 +718,7 @@ Funktionen `addEntity()` visar en länk som leder användaren till Bing.com, dä
     }
 ```
 
-Funktionen `addImageWithWebSearchUrl()` visar en klickbar bild till div som tar användaren till sökresultatet på Bing.com. 
+Den `addImageWithWebSearchUrl()` funktion visar en klickbar bild till den `<div>` som tar användaren till sökresultat på Bing.com:
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -738,11 +737,11 @@ Funktionen `addImageWithWebSearchUrl()` visar en klickbar bild till div som tar 
 
 ## <a name="add-a-css-style"></a>Lägga till ett CSS-format
 
-Lägg till följande `<style>`-avsnitt i `<head>`-taggen för att organisera layouten för webbsidan.
+Lägg till följande `<style>` avsnitt i den `<head>` taggen för att organisera layouten för webbsidan:
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;

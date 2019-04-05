@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370524"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046589"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -150,7 +150,7 @@ Adaptiv sampling är aktiverat som standard för alla ASP.NET Core-program. Du k
 
 ### <a name="turning-off-adaptive-sampling"></a>Om du inaktiverar Adaptiv Sampling
 
-Standard sampling-funktionen kan inaktiveras när du lägger till Application Insights-tjänsten i metoden ```ConfigureServices```med hjälp av ```ApplicationInsightsServiceOptions```:
+Standard sampling-funktionen kan inaktiveras när du lägger till Application Insights-tjänsten i metoden ```ConfigureServices```med hjälp av ```ApplicationInsightsServiceOptions``` inom den `Startup.cs` fil:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

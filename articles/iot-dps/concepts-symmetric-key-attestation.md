@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning-tjänsten – symmetriska nyckelatteste
 description: Den här artikeln innehåller en översikt över symmetriska nyckelattestering med hjälp av IoT Device Provisioning-tjänsten.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971798"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050952"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 
@@ -48,10 +48,10 @@ Här följer komponenterna i varje token:
 
 | Värde | Beskrivning |
 | --- | --- |
-| {signatur} |En HMAC-SHA256 signatur-sträng. För enskilda registreringar skapas signaturen med hjälp av den symmetriska nyckeln (primära eller sekundära) för att utföra hash-värdet. För registreringsgrupper för en nyckel som härleds från gruppnyckel registrering att utföra hash-värdet. Hash-värdet utförs på ett meddelande i formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktiga**: nyckeln måste avkodas från base64 innan som används för att utföra HMAC-SHA256-beräkningen. Signaturen resultatet måste dessutom vara URL-kodade. |
-| {resourceURI} |URI för profilslutpunkt som kan användas med denna token från och med scope-ID för Device Provisioning Service-instans. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
+| {signature} |En HMAC-SHA256 signatur-sträng. För enskilda registreringar skapas signaturen med hjälp av den symmetriska nyckeln (primära eller sekundära) för att utföra hash-värdet. För registreringsgrupper för en nyckel som härleds från gruppnyckel registrering att utföra hash-värdet. Hash-värdet utförs på ett meddelande i formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktiga**: Nyckeln måste avkodas från base64 innan som används för att utföra HMAC-SHA256-beräkningen. Signaturen resultatet måste dessutom vara URL-kodade. |
+| {resourceURI} |URI för profilslutpunkt som kan användas med denna token från och med scope-ID för Device Provisioning Service-instans. Exempel: `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |UTF8-strängar för antal sekunder sedan epoch 00:00:00 UTC på 1 januari 1970. |
-| {URL-kodade resurs} |Lägre fall URL-kodning av gemen resurs-URI |
+| {URL-encoded-resourceURI} |Lägre fall URL-kodning av gemen resurs-URI |
 | {policyName} |Namnet på den princip för delad åtkomst som denna token refererar. Namnet på principen som används vid etableringen av med symmetriska nyckelattestering är **registrering**. |
 
 När en enhet bestyrkande med en enskild registrering, använder enheten den symmetriska nyckel som definierats i posten för enskild registrering för att skapa hashade signaturen för SAS-token.

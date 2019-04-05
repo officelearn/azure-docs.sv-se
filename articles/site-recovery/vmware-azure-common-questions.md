@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418802"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051928"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
 Den här artikeln innehåller svar på vanliga frågor som vi kan se när du distribuerar haveriberedskap för lokala virtuella VMware-datorer till Azure. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="general"></a>Allmänt
 ### <a name="how-is-site-recovery-priced"></a>Hur prissätts Site Recovery?
@@ -323,7 +322,7 @@ Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via e
 Azure är utformat med flexibilitet i fokus. Site Recovery är utformat för redundansväxling till en sekundär Azure-datacenter, i enlighet med serviceavtalet för Azure. Vid redundans vi Kontrollera att dina metadata och valv finns kvar i samma geografiska region som du har valt för ditt valv.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
-[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [PowerShell](/powershell/module/azurerm.siterecovery) att utlösa redundans.
+[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [PowerShell](/powershell/module/az.recoveryservices) att utlösa redundans.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan jag återställa till en annan plats?
 Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats om den ursprungliga som inte är tillgänglig. [Läs mer](concepts-types-of-failback.md#alternate-location-recovery-alr).

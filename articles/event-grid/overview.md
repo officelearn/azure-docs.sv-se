@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770484"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045413"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -114,13 +114,13 @@ Azure Event Grid använder en prismodell med betalning per händelse, så du bet
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Dirigera Storage Blob-händelser](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+* [Dirigera Blob Storage-händelser](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Svara på Storage Blob-händelser med hjälp av Event Grid.
 * [Skapa och prenumerera på anpassade händelser](custom-event-quickstart.md)  
   Kom igång direkt och börja skicka dina egna anpassade händelser till valfri slutpunkt med hjälp av snabbstarten för Azure Event Grid.
-* [Använda Logic Apps som händelsehanterare](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Med Logic Apps som en händelsehanterare](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   En självstudie om hur du skapar en app med hjälp av Logic Apps, för att kunna reagera på händelser som skickas av Event Grid.
 * [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)  
   En självstudie som använder Azure Functions till att strömma data från Event Hubs till SQL Data Warehouse.
-* [REST API-referens för Event Grid](/rest/api/eventgrid)  
+* [Event Grid REST API-referens](/rest/api/eventgrid)  
   Innehåller referensinnehåll för hantering av händelseprenumerationer, routning och filtrering.

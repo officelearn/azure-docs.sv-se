@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660949"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051673"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Öppna portar för Service Fabric-kluster
 
 Belastningsutjämnaren som distribueras med Azure Service Fabric-klustret dirigerar trafik till din app som körs på en nod. Om du ändrar din app om du vill använda en annan port måste du exponera den porten (eller vidarebefordra en annan port) i Azure Load Balancer.
 
 När du har distribuerat din Service Fabric-kluster till Azure skapades automatiskt en belastningsutjämnare för dig. Om du inte har en belastningsutjämnare, se [konfigurera en internetuppkopplad belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>Konfigurera service fabric
 
@@ -82,14 +85,14 @@ PowerShell är lite mer komplicerat än Azure CLI. Så här konceptuella för at
 >[!NOTE]
 >Om du vill fastställa namnet på belastningsutjämnaren kan du använda det här kommandot för att snabbt få en lista över alla belastningsutjämnare och associerade resursgrupper.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-Om den `New-AzureRmLoadBalancerRuleConfig` kommandot, den `-FrontendPort` representerar porten belastningsutjämnaren exponerar för externa anslutningar och `-BackendPort` representerar den port som service fabric-app lyssnar på.
+Om den `New-AzLoadBalancerRuleConfig` kommandot, den `-FrontendPort` representerar porten belastningsutjämnaren exponerar för externa anslutningar och `-BackendPort` representerar den port som service fabric-app lyssnar på.
 
 >[!NOTE]
 >Mer information om hur du skapar en belastningsutjämnare med PowerShell finns i [skapar en belastningsutjämnare med PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [nätverksfunktionerna i Service Fabric](service-fabric-patterns-networking.md).
+Läs mer om [nätverksfunktionerna i Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-mönster – networking.md).

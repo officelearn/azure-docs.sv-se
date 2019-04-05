@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578585"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045465"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -177,7 +177,7 @@ Se listan nedan för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Tyskland |  `https://vault.microsoftazure.de` | Tillgängligt |
 | Azure Kina 21Vianet | `https://vault.azure.cn` | Tillgängligt |
 
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake 
 
 | Molnet | Resurs-ID | Status |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Se listan nedan för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL 
 
 | Molnet | Resurs-ID | Status |
 |--------|------------|--------|
@@ -195,7 +195,7 @@ Se listan nedan för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Tyskland | `https://database.cloudapi.de/` | Tillgängligt |
 | Azure Kina 21Vianet | `https://database.chinacloudapi.cn/` | Tillgängligt |
 
-## <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Molnet | Resurs-ID | Status |
 |--------|------------|--------|
@@ -204,7 +204,7 @@ Se listan nedan för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Molnet | Resurs-ID | Status |
 |--------|------------|--------|
@@ -213,7 +213,7 @@ Se listan nedan för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
-## <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure Storage
 
 | Molnet | Resurs-ID | Status |
 |--------|------------|--------|

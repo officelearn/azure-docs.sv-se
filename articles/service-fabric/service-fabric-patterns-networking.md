@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670259"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049905"
 ---
 # <a name="service-fabric-networking-patterns"></a>Nätverksmönster för Service Fabric
 Du kan integrera Azure Service Fabric-klustret med andra funktioner för Azure. I den här artikeln visar vi dig hur du skapar kluster som använder följande funktioner:
@@ -34,6 +34,9 @@ Service Fabric kan köras i en standard VM-skalningsuppsättning. Funktioner som
 Service Fabric är unik jämfört med andra funktioner i en aspekt. Den [Azure-portalen](https://portal.azure.com) internt använder Service Fabric-resursprovidern för att anropa till ett kluster för att få information om noder och program. Service Fabric-resursprovidern kräver offentligt tillgänglig ingående åtkomst till HTTP-gateway-porten (port 19080, som standard) på hanteringsslutpunkten. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) använder hanteringsslutpunkten för att hantera klustret. Service Fabric-resursprovidern använder också den här porten för att fråga efter information om ditt kluster ska visas i Azure-portalen. 
 
 Om port 19080 inte kan nås från Service Fabric-resursprovidern, ett meddelande som *gick inte att hitta noder* visas i portalen och listan noden och programmet visas tom. Om du vill se ditt kluster i Azure-portalen belastningsutjämnaren måste exponera en offentlig IP-adress och nätverkssäkerhetsgruppen måste tillåta inkommande trafik på port 19080. Om din konfiguration inte uppfyller dessa krav visas inte status för ditt kluster i Azure-portalen.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Mallar
 
@@ -51,7 +54,7 @@ I följande exempel börjar vi med ett befintligt virtuellt nätverk med namnet 
 En statisk offentlig IP-adress är vanligtvis en dedikerade resurser som hanteras separat från den virtuella datorn eller virtuella datorer som den är tilldelad till. Den har etablerats i en dedikerad Nätverksresursgruppen (i motsats för att gruppera själva i Service Fabric-klusterresursen). Skapa en statisk offentlig IP-adress med namnet staticIP1 i samma ExistingRG resursgrupp, antingen i Azure portal eller med hjälp av PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ I exemplen i den här artikeln använder vi Service Fabric-template.json. Du kan
 6. Distribuera mallen:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Efter distributionen kan det virtuella nätverket ska innehålla den nya virtuella datorerna med skalningsuppsättningarna. VM scale set-nodtyp ska visa befintliga virtuellt nätverk och undernät. Du kan också använda Remote Desktop Protocol (RDP) att komma åt den virtuella dator som redan finns i det virtuella nätverket och för att pinga den nya skalan VM-skaluppsättning:
@@ -276,13 +279,13 @@ Ett annat exempel finns i [som inte är specifika för Service Fabric](https://g
 8. Distribuera mallen:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Du kan se att belastningsutjämnaren är bunden till offentliga statiska IP-adress från andra resursgruppen efter distributionen. Service Fabric-klientanslutningsslutpunkt och [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint-plats till DNS-FQDN för den statiska IP-adressen.
@@ -378,9 +381,9 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
 7. Distribuera mallen:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Efter distributionen använder belastningsutjämnaren privata statiska 10.0.0.250 IP-adress. Om du har en annan dator i samma virtuella nätverk, går du till det interna [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) slutpunkt. Observera att den ansluter till en av noderna bakom belastningsutjämnaren.
@@ -595,9 +598,15 @@ En nodtyp finns på den externa belastningsutjämnaren i ett kluster med två no
 7. Distribuera mallen:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Efter distributionen kan se du två belastningsutjämnare i resursgruppen. Du kan se de offentliga IP-adress och hantering av slutpunkterna (portar 19000 och 19080) tilldelas den offentliga IP-adressen om du bläddrar belastningsutjämnarna. Du kan också se den statiska interna IP-adress och programmet slutpunkten (port 80) tilldelade till den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma VM scale set backend-pool.
+
+## <a name="next-steps"></a>Nästa steg
+[Skapa ett kluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Efter distributionen kan se du två belastningsutjämnare i resursgruppen. Du kan se de offentliga IP-adress och hantering av slutpunkterna (portar 19000 och 19080) tilldelas den offentliga IP-adressen om du bläddrar belastningsutjämnarna. Du kan också se den statiska interna IP-adress och programmet slutpunkten (port 80) tilldelade till den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma VM scale set backend-pool.

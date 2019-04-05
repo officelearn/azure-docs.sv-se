@@ -1,20 +1,18 @@
 ---
 title: 'Snabbstart: Mata in Azure-blobar i Azure Data Explorer'
 description: I den här snabbstarten har du lära dig hur du skickar data för storage-konto till Azure Data Explorer med hjälp av en Event Grid-prenumeration.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756426"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051860"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Snabbstart: Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
 
@@ -44,8 +42,8 @@ I den här snabbstarten får du lära dig hur du ställer in en [Azure Event Gri
     | Händelseschema | *Event Grid-schema* | Schemat som ska användas för event grid. |
     | Typ av ämne | *Lagringskonto* | Typ av Event Grid-ämne. |
     | Ämnesresurs | *gridteststorage* | Namnet på ditt lagringskonto. |
-    | Prenumerera på alla händelsetyper | *clear* | Få inte meddelanden vid alla händelser. |
-    | Definierade händelsetyper | *BLOB skapas* | Vilka specifika händelser du ska meddelas om. |
+    | Prenumerera på alla händelsetyper | *rensa* | Få inte meddelanden vid alla händelser. |
+    | Definierade händelsetyper | *Blob skapas* | Vilka specifika händelser du ska meddelas om. |
     | Typ av slutpunkt | *Händelsehubbar* | Typ av slutpunkt som du skickar händelserna till. |
     | Slutpunkt | *test-hub* | Händelsehubben som du skapade. |
     | | |

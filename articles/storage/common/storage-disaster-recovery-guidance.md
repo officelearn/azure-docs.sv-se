@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486078"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051197"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -22,6 +22,9 @@ Microsoft strävar efter att säkerställa att Azure-tjänster som alltid är ti
 Azure Storage stöder konto redundans (förhandsversion) för ra-GRS-konton. Med kontot redundans kan du initiera redundansprocessen för ditt lagringskonto om den primära slutpunkten blir otillgänglig. Redundansen uppdaterar den sekundära slutpunkten om du vill bli den primära slutpunkten för ditt lagringskonto. När redundansväxlingen är klar, kan klienter börja skriva till den nya primära slutpunkten.
 
 Den här artikeln beskrivs koncepten och med redundans för ett konto som ingår i processen och beskriver hur du förbereder ditt storage-konto med minsta möjliga påverkan för kunden. Läs hur du startar en konto-redundans i Azure portal eller PowerShell i [påbörja en växling (förhandsversion) för kontot](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Välja rätt redundans
 
@@ -122,14 +125,14 @@ Förhandsversionen är endast avsedd för icke-produktion användning. Produktio
 Registrera dig för förhandsversionen, kör du följande kommandon i PowerShell. Se till att ersätta platshållarna inom hakparentes med ditt eget prenumerations-ID:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Det kan ta 1 – 2 dagar som fått godkännande för förhandsversionen. Verifiera att registreringen har godkänts genom att köra följande kommando:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på 
@@ -177,5 +180,5 @@ Microsoft kan initiera en regional redundans i extrema fall där en region går 
 ## <a name="see-also"></a>Se också
 
 * [Påbörja en växling för kontot (förhandsversion)](storage-initiate-account-failover.md)
-* [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Självstudier: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
+* [Utforma högtillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+* [Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring](../blobs/storage-create-geo-redundant-storage.md) 

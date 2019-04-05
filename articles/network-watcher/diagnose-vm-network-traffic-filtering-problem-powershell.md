@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0aa9c42a25b9bb0e740145ffd9b842814574176b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bf4c49bc988500d0f8b226dd6d735f966080ae09
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878053"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047202"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer – Azure PowerShell
 
@@ -30,22 +30,26 @@ I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontroller
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här snabbstarten version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt, i den här snabbstarten kräver Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+
+
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
+Skapa den virtuella datorn med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -59,18 +63,18 @@ För att testa nätverkskommunikation med Network Watcher måste du först aktiv
 
 ### <a name="enable-network-watcher"></a>Aktivera nätverksbevakare
 
-Om du redan har en aktiverad nätverksbevakare i regionen Östra USA använder du [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) för att hämta nätverksbevakaren. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
+Om du redan har en network watcher som aktiverats i regionen USA, östra, använda [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) att hämta network watcher. I följande exempel hämtas en befintlig nätverksbevakare med namnet *NetworkWatcher_eastus* som finns i resursgruppen *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Om du inte redan har en aktiverad nätverksbevakare i östra USA använder du [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) för att skapa en nätverksbevakare i regionen Östra USA:
+Om du inte redan har en network watcher som aktiverats i regionen östra USA kan du använda [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) att skapa en network watcher i regionen östra USA:
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
@@ -78,12 +82,12 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>Använda Kontrollera IP-flöde
 
-När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik. Testa om trafik tillåts eller nekas på olika mål och från en käll-IP-adress använder du kommandot [Test-AzureRmNetworkWatcherIPFlow](/powershell/module/azurerm.network/test-azurermnetworkwatcheripflow).
+När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik. Du kan testa om trafik tillåts eller nekas till olika mål och från en käll-IP-adress, använder den [Test AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) kommando.
 
 Testa utgående kommunikation från den virtuella datorn till någon av IP-adresserna för www.bing.com:
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -99,7 +103,7 @@ Resultatet visas efter flera sekunder och anger att åtkomsten tillåts av en s�
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -115,7 +119,7 @@ Resultatet som returneras anger att åtkomsten nekas av en säkerhetsregel med n
 Testa inkommande kommunikation till den virtuella datorn från 172.31.0.100:
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Inbound `
@@ -130,10 +134,10 @@ Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsr
 
 ## <a name="view-details-of-a-security-rule"></a>Visa information om en säkerhetsregel
 
-Om du vill fastställa varför reglerna i [Testa nätverkskommunikation](#test-network-communication) tillåter eller förhindrar kommunikation granskar du de gällande säkerhetsreglerna för nätverksgränssnittet med [Get-AzureRmEffectiveNetworkSecurityGroup ](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup):
+Att ta reda på varför reglerna i [testa nätverkskommunikation](#test-network-communication) tillåter eller förhindrar kommunikation, granska de effektiva säkerhetsreglerna för nätverksgränssnittet med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
+Get-AzEffectiveNetworkSecurityGroup `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup
 ```
@@ -173,9 +177,9 @@ Returnerade utdata innehåller följande text för regeln **AllowInternetOutboun
   },
 ```
 
-Du kan se i utdata att **DestinationAddressPrefix** är **Internet**. Det är dock oklart hur 13.107.21.200, adressen som du testade i [Använda Kontrollera IP-flöde](#use-ip-flow-verify), relaterar till **Internet**. Du ser flera adressprefix listade under **ExpandedDestinationAddressPrefix**. Ett av prefixen i listan är **12.0.0.0/6**, vilken omfattar IP-adressintervallet 12.0.0.1–15.255.255.254. Eftersom 13.107.21.200 ligger inom det adressintervallet tillåter regeln **AllowInternetOutBound** den utgående trafiken. Dessutom finns det ingen högre regler för **prioritet** (lägre nummer) listade i utdata som returneras av `Get-AzureRmEffectiveNetworkSecurityGroup`, som åsidosätter den här regeln. Om du vill neka utgående kommunikation till 13.107.21.200 kan du lägga till en säkerhetsregel med högre prioritet, som nekar utgående trafik på port 80 till IP-adressen.
+Du kan se i utdata att **DestinationAddressPrefix** är **Internet**. Det är dock oklart hur 13.107.21.200, adressen som du testade i [Använda Kontrollera IP-flöde](#use-ip-flow-verify), relaterar till **Internet**. Du ser flera adressprefix listade under **ExpandedDestinationAddressPrefix**. Ett av prefixen i listan är **12.0.0.0/6**, vilken omfattar IP-adressintervallet 12.0.0.1–15.255.255.254. Eftersom 13.107.21.200 ligger inom det adressintervallet tillåter regeln **AllowInternetOutBound** den utgående trafiken. Dessutom finns det ingen högre regler för **prioritet** (lägre nummer) listade i utdata som returneras av `Get-AzEffectiveNetworkSecurityGroup`, som åsidosätter den här regeln. Om du vill neka utgående kommunikation till 13.107.21.200 kan du lägga till en säkerhetsregel med högre prioritet, som nekar utgående trafik på port 80 till IP-adressen.
 
-När du körde kommandot `Test-AzureRmNetworkWatcherIPFlow` för att testa utgående kommunikation till 172.131.0.100 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) angavs i utdata att regeln **DefaultOutboundDenyAll** nekad kommunikationen. Regeln **DefaultOutboundDenyAll** är lika med regeln **DenyAllOutBound** som visas i följande utdata från kommandot `Get-AzureRmEffectiveNetworkSecurityGroup`:
+När du körde kommandot `Test-AzNetworkWatcherIPFlow` för att testa utgående kommunikation till 172.131.0.100 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) angavs i utdata att regeln **DefaultOutboundDenyAll** nekad kommunikationen. Regeln **DefaultOutboundDenyAll** är lika med regeln **DenyAllOutBound** som visas i följande utdata från kommandot `Get-AzEffectiveNetworkSecurityGroup`:
 
 ```powershell
 {
@@ -201,9 +205,9 @@ När du körde kommandot `Test-AzureRmNetworkWatcherIPFlow` för att testa utgå
 }
 ```
 
-Regeln listar **0.0.0.0/0** som **DestinationAddressPrefix**. Regeln nekar utgående kommunikation till 172.131.0.100, eftersom adressen inte är inom **DestinationAddressPrefix** för någon av de andra reglerna för utgående trafik i utdata från kommandot `Get-AzureRmEffectiveNetworkSecurityGroup`. Om du vill tillåta den utgående kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter utgående trafik på port 80 på 172.131.0.100.
+Regeln listar **0.0.0.0/0** som **DestinationAddressPrefix**. Regeln nekar utgående kommunikation till 172.131.0.100, eftersom adressen inte är inom **DestinationAddressPrefix** för någon av de andra reglerna för utgående trafik i utdata från kommandot `Get-AzEffectiveNetworkSecurityGroup`. Om du vill tillåta den utgående kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter utgående trafik på port 80 på 172.131.0.100.
 
-När du körde kommandot `Test-AzureRmNetworkWatcherIPFlow` för att testa inkommande kommunikation från 172.131.0.100 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) angavs i utdata att regeln **DefaultOutboundDenyAll** nekad kommunikationen. Regeln **DefaultInboundDenyAll** är lika med regeln **DenyAllInBound** som visas i följande utdata från kommandot `Get-AzureRmEffectiveNetworkSecurityGroup`:
+När du körde kommandot `Test-AzNetworkWatcherIPFlow` för att testa inkommande kommunikation från 172.131.0.100 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) angavs i utdata att regeln **DefaultOutboundDenyAll** nekad kommunikationen. Regeln **DefaultInboundDenyAll** är lika med regeln **DenyAllInBound** som visas i följande utdata från kommandot `Get-AzEffectiveNetworkSecurityGroup`:
 
 ```powershell
 {
@@ -229,16 +233,16 @@ När du körde kommandot `Test-AzureRmNetworkWatcherIPFlow` för att testa inkom
 },
 ```
 
-Regeln **DenyAllInBound** används eftersom, som du ser i utdata, det inte finns någon regeln med högre prioritet i utdata från kommandot `Get-AzureRmEffectiveNetworkSecurityGroup` som tillåter port 80-inkommande till den virtuella datorn från 172.131.0.100. Om du vill tillåta den inkommande kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter inkommande trafik på port 80 från 172.131.0.100.
+Regeln **DenyAllInBound** används eftersom, som du ser i utdata, det inte finns någon regeln med högre prioritet i utdata från kommandot `Get-AzEffectiveNetworkSecurityGroup` som tillåter port 80-inkommande till den virtuella datorn från 172.131.0.100. Om du vill tillåta den inkommande kommunikationen kan du lägga till en säkerhetsregel med högre prioritet, som tillåter inkommande trafik på port 80 från 172.131.0.100.
 
 Kontrollerna i den här snabbstarten testade Azure-konfigurationen. Om kontrollerna returnerar förväntat resultat och du fortfarande har problem med nätverket kontrollerar du att det inte finns en brandvägg mellan den virtuella datorn och den slutpunkt som du kommunicerar med, samt att operativsystemet på den virtuella datorn inte har en brandvägg som tillåter eller nekar kommunikationen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
+När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

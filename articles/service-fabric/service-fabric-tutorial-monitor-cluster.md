@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662456"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045653"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudier: Övervaka Service Fabric-kluster i Azure
 
@@ -38,16 +38,19 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * Övervaka ett kluster
-> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [Skala in eller ut ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * Installationsprogrammet [diagnostik samling](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) för klustret
 * Aktivera den [EventStore service](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) i klustret

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670939"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051962"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -466,7 +466,7 @@ Läs mer om Azure AD-lösenordsskydd [eliminera felaktiga lösenord i din organi
 
 När du skapar dina användningsvillkor (ToU) skapas också en ny mall för princip för villkorlig åtkomst för ”alla gäster” och ”alla appar”. Den här nya principmallen gäller den nyligen skapade ToU effektivisera skapandet och tvingande processen för gäster.
 
-Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -478,7 +478,7 @@ Mer information finns i [Azure Active Directory-villkoren i Använd funktion](ht
 
 När du skapar dina användningsvillkor (ToU) skapas också en ny ”anpassad” Principmall för villkorlig åtkomst. Den här nya principmallen kan du skapa användningsvillkoren och sedan omedelbart gå till principbladet skapa villkorlig åtkomst utan att behöva gå manuellt via portalen.
 
-Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -590,7 +590,7 @@ Azure AD kan du automatisera den genereringen, underhållet och borttagningen av
 
 - [BlueJeans](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
 
-- [Hörnstenen OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+- [Cornerstone OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
 
 - [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
@@ -727,7 +727,7 @@ När du konfigurerar SAML-baserad enkel inloggning program, kan du testa integra
 Mer information finns i:
 
 - [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
-- [Så här felsöker du SAML-baserad enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+- [Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 ---
  
@@ -739,7 +739,7 @@ Mer information finns i:
  
 Administratörer kan nu välja ett visst användningsvillkor och se alla användare som har samtyckt till att användningsvillkoren och datum/tid då det skedde.
 
-Mer information finns i den [funktionen Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i den [funktionen Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
  
@@ -782,7 +782,7 @@ Mer information finns i [Konfigurera enkel inloggning till program som inte ing�
 
 Azure AD användningsvillkor har gått från förhandsversion till allmänt tillgänglig.
 
-Mer information finns i den [funktionen Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i den [funktionen Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -1414,7 +1414,7 @@ Följ de här stegen:
 
 4. Nu kan du granska användningsvillkoren accepteras. 
 
-Mer information finns i den [Azure AD användningsvillkor Använd funktion (förhandsversion)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i den [Azure AD användningsvillkor Använd funktion (förhandsversion)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1454,7 +1454,7 @@ Ett alternativ för administratörer kräver deras användarna expanderar använ
 
 Välj antingen **på** eller **av** vill kräva att användarna expanderar användningsvillkoren. Den **på** inställningen kräver att användare läsa villkoren innan de accepterar dem.
 
-Mer information finns i den [Azure AD användningsvillkor Använd funktion (förhandsversion)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i den [Azure AD användningsvillkor Använd funktion (förhandsversion)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1665,7 +1665,7 @@ Du nu inkludera (eller exkludera) macOS som ett villkor för plattformen av enhe
 
 Mer information finns i:
 
-- [Skapa en princip för enhetsefterlevnad för macOS-enheter med Intune](https://aka.ms/macoscompliancepolicy)
+- [Skapa en enhetsefterlevnadsprincip för macOS-enheter med Intune](https://aka.ms/macoscompliancepolicy)
 - [Villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
@@ -1807,7 +1807,7 @@ Du kan använda Azure AD-användningsvillkor i följande scenarier:
 - Specifika användningsvillkor baserat på en användares attribut (till exempel läkare jämfört med sjuksköterskor) eller inhemska jämfört med internationella medarbetare, som görs av dynamiska grupper
 - Specifika användningsvillkor för att komma åt hög inverkan företagsappar som Salesforce
 
-Mer information finns i [Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Mer information finns i [Azure AD-användningsvillkor](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 

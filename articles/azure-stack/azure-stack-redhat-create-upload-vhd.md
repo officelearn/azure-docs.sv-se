@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883132"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006676"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Förbered en Red Hat-baserad virtuell dator för Azure Stack
 
@@ -264,7 +264,6 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas:
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,7 +276,7 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. När du skapar en anpassad virtuell hårddisk för Azure Stack, Kom ihåg att WALinuxAgent version mellan 2.2.20 och 2.2.35.1 (båda exklusiva) inte fungerar på Azure Stack-miljöer som kör en version före 1903. Lös detta genom att installera snabbkorrigeringen 1901/1902 eller följer andra hälften av den här delen av instruktioner. 
 
-Om du kör ett Azure Stack-build 1903 (eller senare) eller att snabbkorrigeringen 1901/1902, hämtningspaketet WALinuxAgent från lagringsplatsen för Red Hat-tillägg som detta:
+    Om du kör ett Azure Stack-build 1903 (eller senare) eller att snabbkorrigeringen 1901/1902, hämtningspaketet WALinuxAgent från lagringsplatsen för Red Hat-tillägg som detta:
     
    Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
@@ -298,7 +297,7 @@ Om du kör ett Azure Stack-build 1903 (eller senare) eller att snabbkorrigeringe
     ```
     
     
-Om du kör en version av Azure Stack innan 1903 och inte har installerat snabbkorrigeringen 1901/1902 följer du dessa instruktioner för att ladda ned WALinuxAgent:
+    Om du kör en version av Azure Stack innan 1903 och inte har installerat snabbkorrigeringen 1901/1902 följer du dessa instruktioner för att ladda ned WALinuxAgent:
     
    a.   Ladda ned installationsverktyg
     ```bash
@@ -312,15 +311,15 @@ Om du kör en version av Azure Stack innan 1903 och inte har installerat snabbko
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    c. Installera setup.py
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. Starta om waagent
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. Testa om agentversionen matchar den som din hämtade. Det bör vara 2.2.36 i det här exemplet.
     
     ```bash
     waagent -version

@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045755"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
 Azure Resource Manager är det önskade hanteringsgränssnittet för tjänster i Azure. Azure Traffic Manager-profiler kan hanteras med hjälp av Azure Resource Manager-baserade API: er och verktyg.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-model"></a>Resursmodell
 
@@ -253,10 +255,10 @@ Dessa ändringar kan göras genom att hämta/uppdatera/inställningen slutpunkt 
 
 ### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exempel 1: Aktivera och inaktivera en Traffic Manager-profil
 
-Om du vill aktivera en Traffic Manager-profil, använda `Enable-AzureRmTrafficManagerProfile`. Profilen kan anges med en profilobjektet. Profilobjektet kan skickas via pipelinen eller genom att använda den '-TrafficManagerProfile-parametern. I det här exemplet anger vi profil med namnet på profilen och resursen.
+Om du vill aktivera en Traffic Manager-profil, använda `Enable-AzTrafficManagerProfile`. Profilen kan anges med en profilobjektet. Profilobjektet kan skickas via pipelinen eller genom att använda den '-TrafficManagerProfile-parametern. I det här exemplet anger vi profil med namnet på profilen och resursen.
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 Så här inaktiverar en Traffic Manager-profil:
@@ -269,13 +271,13 @@ Cmdleten Disable-AzTrafficManagerProfile uppmanas att bekräfta. Varningen kan f
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exempel 2: Aktivera och inaktivera en Traffic Manager-slutpunkt
 
-Om du vill aktivera en Traffic Manager-slutpunkt, använda `Enable-AzureRmTrafficManagerEndpoint`. Det finns två sätt att ange slutpunkten
+Om du vill aktivera en Traffic Manager-slutpunkt, använda `Enable-AzTrafficManagerEndpoint`. Det finns två sätt att ange slutpunkten
 
 1. Med hjälp av ett TrafficManagerEndpoint-objekt som skickas via pipelinen eller den ”-TrafficManagerEndpoint” parametern
 2. Med hjälp av namnet på slutpunkten, typ av slutpunkt, namn och resursgruppens namn:
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 På samma sätt kan du inaktivera Traffic Manager-slutpunkten:

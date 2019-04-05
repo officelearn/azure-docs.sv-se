@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
-ms.openlocfilehash: f201ac1f0ea5a4bc07e8c052e7653194140e8759
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669375"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049189"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skala in eller ut ett kluster
 
@@ -27,6 +27,9 @@ ms.locfileid: "58669375"
 > Läs det här avsnittet innan du skalar
 
 Skala beräkningsresurser till källan arbetsbelastning för ditt program kräver avsiktlig planering, nästan alltid tar längre tid än en timme att slutföra för en produktionsmiljö och kräver att du kan läsa mer arbetsbelastning affärskontexten; i själva verket om du aldrig har gjort den här aktiviteten innan, bör du börja med att läsa och förstå [Service Fabric-kluster kapacitetsplanering](service-fabric-cluster-capacity.md), innan du fortsätter med resten av det här dokumentet. Den här rekommendationen är att undvika oväntade LiveSite problem och vi rekommenderar också att du har testa de åtgärder som du vill utföra mot en icke-produktionsmiljö. Du kan när som helst [rapportera produktionsproblem eller begära betald support för Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). För tekniker som allokerats för att utföra dessa åtgärder som har rätt kontext, i den här artikeln beskriver skalningsåtgärder, men du måste bestämma och förstå vilka åtgärder som är lämpliga för ditt användningsområde; till exempel vilka resurser för att skala (processor, lagring, minne), vilken riktning skala (vågrätt eller lodrätt) och vilka åtgärder att utföra (resursmall distribution, Portal, PowerShell/CLI).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Skala ett Service Fabric-kluster in eller ut med hjälp av regler för automatisk skalning eller manuellt
 Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-kluster har ställts in som en separat VM-skalningsuppsättning. Varje nodtyp skalas sedan in eller ut oberoende av varandra, ha olika portar öppna och ha olika kapacitet. Läs mer om den i den [Service Fabric-nodtyper](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom Service Fabric-nodtyper i klustret består av VM-skalningsuppsättningar i serverdelen, behöver du konfigurera regler för automatisk skalning för varje nod typ/virtual machine scale Sets.
@@ -42,9 +45,9 @@ Du är för närvarande inte kan ange regler för automatisk skalning för VM sc
 Om du vill hämta listan över virtuella datorns skaluppsättning som utgör ditt kluster, kör du följande cmdlets:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
+Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
 
-Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
+Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Ange regler för automatisk skalning för noden typ/virtual machine scale Sets
@@ -79,10 +82,10 @@ I anvisningarna sample/i den [Snabbstart mallgalleriet](https://github.com/Azure
 Följande kod hämtar en skalningsuppsättning efter namn och ökar **kapaciteten** för skalningsuppsättningen med 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Den här koden anger värdet 6 för kapaciteten.
@@ -192,7 +195,7 @@ else
 }
 ```
 
-I **sfctl**-koden nedan används följande kommando för att hämta **node-name**-värdet för den nod som skapats senast: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+I den **sfctl** code nedan, används följande kommando för att hämta den **nodnamnet** värdet för den senaste skapade noden: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -220,10 +223,10 @@ sfctl node remove-state --node-name _nt1vm_5
 Nu när Service Fabric-noden har tagits bort från klustret kan VM-skalningsuppsättningen skalas in. I exemplet nedan minskas skalningsuppsättningskapaciteten med 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity -= 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
 Den här koden anger värdet 5 för kapaciteten.

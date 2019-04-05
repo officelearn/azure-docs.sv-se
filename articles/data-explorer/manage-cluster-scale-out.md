@@ -1,19 +1,18 @@
 ---
-title: Skala Azure Data Explorer kluster ändrade behov
+title: Skala ut en Azure Data Explorer kluster ändrade behov
 description: Den här artikeln beskriver steg för att skala ut och skala i ett Azure Data Explorer-kluster utifrån ändrade begäran.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755072"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044242"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
 
@@ -56,7 +55,7 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     | Inställning | Beskrivning och värde |
     | --- | --- |
     | **Åtgärd** | Välj rätt alternativ för att skala in eller skala ut. |
-    | **Instansantal** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
+    | **Antal instanser** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
     | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
     |  |  |
 
@@ -67,7 +66,7 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     | Inställning | Beskrivning och värde |
     | --- | --- |
     | **Minimum** | Antalet instanser som klustret inte skalas nedan, oavsett användning. |
-    | **Maximalt** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
+    | **Maximal** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
     | **Standard** | Standardantalet instanser. Den här inställningen används om det är problem med att läsa. |
     |  |  |
 

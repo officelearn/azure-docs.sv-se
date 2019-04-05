@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485407"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051537"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med hjälp av REST API
 
@@ -29,6 +29,9 @@ ms.locfileid: "58485407"
 > - [REST-API](network-watcher-security-group-view-rest.md)
 
 Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämta effektiva och tillämpade säkerhetsregler till en virtuell dator med hjälp av REST API
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -50,7 +53,7 @@ armclient login
 
 Kör följande skript för att returnera en virtuell machineThe följande kod som behöver variabler:
 
-- **subscriptionId** -prenumerations-id kan också hämtas med den **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** -prenumerations-id kan också hämtas med den **Get-AzSubscription** cmdlet.
 - **resourceGroupName** -namnet på en resursgrupp som innehåller virtuella datorer.
 
 ```powershell

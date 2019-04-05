@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200198"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045312"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-mått och aviseringar
 
@@ -58,7 +58,7 @@ Det här måttet kan antingen anges som ett samlat värde som representerar stat
 
 *Bild 4: Dela upp överblick över mått för slutpunkt-status*
 
-Du kan använda de här måtten via [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), eller via avsnittet mått i Traffic Manager-portalen.
+Du kan använda de här måtten via [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), eller via avsnittet mått i Traffic Manager-portalen.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Aviseringar i mått för Traffic Manager
 Förutom bearbetning och visa mått från Traffic Manager, Azure Monitor ger kunder möjlighet att konfigurera och mottagning av aviseringar som är associerade med de här måtten. Du kan välja vilka villkor som måste uppfyllas i de här måtten för en avisering ska ske, hur ofta dessa villkor måste övervakas och hur aviseringar ska skickas till dig. Mer information finns i [dokumentation aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

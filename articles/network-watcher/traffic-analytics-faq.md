@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803236"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046998"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
 Den här artikeln samlar in på samma ställe många av de vanligaste frågorna om trafikanalys i Azure Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Vilka är kraven för att använda trafikanalys?
 
@@ -51,11 +54,11 @@ Ditt konto måste uppfylla ett av följande för att aktivera trafikanalys:
         
 Så här kontrollerar roller som är tilldelade till en användare för en prenumeration:
 
-1. Logga in på Azure med hjälp av **Login-AzureRmAccount**. 
+1. Logga in på Azure med hjälp av **inloggning AzAccount**. 
 
-2. Välj prenumerationen som krävs med hjälp av **Select-AzureRmSubscription**. 
+2. Välj prenumerationen som krävs med hjälp av **Välj AzSubscription**. 
 
-3. Om du vill visa alla roller som har tilldelats en angiven användare använda **Get-AzureRmRoleAssignment - SignInName [användarens e-postadress] - IncludeClassicAdministrators**. 
+3. Om du vill visa alla roller som har tilldelats en angiven användare använda **Get-AzRoleAssignment - SignInName [användarens e-postadress] - IncludeClassicAdministrators**. 
 
 Om du inte ser några utdata, kontakta administratören för respektive prenumeration för att få åtkomst till kommandon. Mer information finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Kontakta supporten om problemet kvarstår.
 Microsoft.Insights-providern måste vara registrerad för flow loggning för att fungera korrekt. Om du inte är säker på om Microsoft.Insights-providern är registrerad för din prenumeration ersätter *xxxxx-xxxxx-xxxxxx-xxxx* i följande kommando och kör följande kommandon från PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Jag har konfigurerat lösningen. Varför ser jag inte något på instrumentpanelen?
@@ -170,7 +173,7 @@ Du ser informationen om resurser på instrumentpanelen; men det finns ingen flow
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kan jag konfigurera trafikanalys med hjälp av PowerShell eller Azure Resource Manager-mall eller klient?
 
-Du kan konfigurera trafikanalys med hjälp av Windows PowerShell från version 6.2.1 och senare. För att konfigurera flödesloggar och trafikanalys för en specifik NSG med hjälp av cmdleten Set, se [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Om du vill hämta flödesloggar och status för trafikanalys för en specifik NSG, se [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+Du kan konfigurera trafikanalys med hjälp av Windows PowerShell från version 6.2.1 och senare. För att konfigurera flödesloggar och trafikanalys för en specifik NSG med hjälp av cmdleten Set, se [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Om du vill hämta flödesloggar och status för trafikanalys för en specifik NSG, se [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 För närvarande kan använda du inte en Azure Resource Manager-mall för att konfigurera trafikanalys.
 

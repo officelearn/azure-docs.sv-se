@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010998"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049980"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT Hub-enhetsidentiteter i grupp
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub-enhetsidentiteter i grupp
 
 Varje IoT-hubb har ett identitetsregister som du kan använda för att skapa resurser för varje enhet i tjänsten. ID-registret kan du styra åtkomsten till enheten-slutpunkter. Den här artikeln beskriver hur du importera och exportera enhetsidentiteter gruppvis till och från ett identitetsregister.
 
@@ -255,13 +255,13 @@ Använd det valfria **ImportMode %** -egenskapen i serialiseringsdata importera 
 
 | ImportMode % | Beskrivning |
 | --- | --- |
-| **createOrUpdate** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **skapa** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **update** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
-| **updateIfMatchETag** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
-| **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **ta bort** |Om det finns redan en enhet med det angivna **id**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
-| **deleteIfMatchETag** |Om det finns redan en enhet med det angivna **id**, raderas bara om det finns en **ETag** matchar. Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns ett ETag-Typfel, skrivs ett fel till loggfilen. |
+| **createOrUpdate** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
+| **skapa** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
+| **update** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **updateIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
+| **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
+| **delete** |Om det finns redan en enhet med det angivna **ID**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **deleteIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, raderas bara om det finns en **ETag** matchar. Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns ett ETag-Typfel, skrivs ett fel till loggfilen. |
 
 > [!NOTE]
 > Om serialiseringsdata inte explicit definiera en **ImportMode %** flaggan för en enhet, den standard **createOrUpdate** under importen.
@@ -419,7 +419,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 I den här artikeln lärde du dig att utföra massåtgärder mot identitetsregistret i IoT-hubb. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
 
-* [IoT Hub-mått](iot-hub-metrics.md)
+* [IoT Hub metrics](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:

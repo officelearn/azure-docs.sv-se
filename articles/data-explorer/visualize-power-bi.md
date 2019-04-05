@@ -1,19 +1,18 @@
 ---
 title: 'Självstudier: Visualisera data från Azure Data Explorer i Power BI'
 description: I den här självstudien får du lära dig hur du ansluter till Azure Data Explorer med Power BI och visualiserar dina data.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757742"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049888"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudier: Visualisera data från Azure Data Explorer i Power BI
 
@@ -34,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Förutom Azure- och Power BI-prenumerationer så behöver du följande för att slutföra den här självstudien:
 
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [En testkluster och databas](create-cluster-database-portal.md)
 
 * [StormEvents exempeldata](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -229,4 +228,4 @@ Om du inte vill behålla den rapport som du skapade, tar du helt enkelt bort fil
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+> [Skriva frågor](write-queries.md)

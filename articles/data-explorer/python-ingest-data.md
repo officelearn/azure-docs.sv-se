@@ -1,19 +1,18 @@
 ---
 title: 'Snabbstart: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur mata in (läsa in) data i Azure Data Explorer med hjälp av Python.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757710"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046469"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer
 
@@ -25,7 +24,7 @@ Den här snabbstarten är också tillgänglig som en [Azure Notebook](https://no
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* [Ett kluster och en databas](create-cluster-database-portal.md)
+* [Ett kluster och databas](create-cluster-database-portal.md)
 
 * [Python](https://www.python.org/downloads/) installerat på utvecklingsdatorn
 
@@ -180,4 +179,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Köra frågor med hjälp av Python](python-query-data.md)
+> [Fråga efter data med hjälp av Python](python-query-data.md)

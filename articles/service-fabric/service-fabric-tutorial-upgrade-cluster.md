@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a3c75d98bda89a4330f064ce944f8b08bbf4734d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659566"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046248"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudier: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
@@ -41,16 +41,19 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
-> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [Skala in eller ut ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * uppgradera körningen för ett kluster
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 * Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](https://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
@@ -59,9 +62,9 @@ Innan du börjar den här självstudien:
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ## <a name="get-the-runtime-version"></a>Hämta körningsversion
@@ -69,14 +72,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 När du har anslutit till Azure, och valt prenumerationen som innehåller Service Fabric-klustret, kan du hämta körningsversionen av klustret.
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
 Du kan också bara skaffa en lista över alla kluster i prenumerationen så här:
 
 ```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
+Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
 Notera värdet för **ClusterCodeVersion**. Det här värdet används i nästa avsnitt.
@@ -92,7 +95,7 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 Med en versionslista kan du instruera Azure Service Fabric-klustret att uppgradera till en nyare körning. Om till exempel version `6.0.219.9494` är tillgänglig använder du följande kommando för att uppgradera klustret.
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
                                     -Name aztestcluster `
                                     -UpgradeMode Manual `
                                     -Version "6.0.219.9494"
@@ -200,6 +203,11 @@ sfctl cluster upgrade-status
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
+> * Hämta versionen av klusterkörningen
+> * Uppgradera körningstiden för kluster
+> * Övervaka uppgraderingen
+
+[!div class="checklist"]
 > * Hämta versionen av klusterkörningen
 > * Uppgradera körningstiden för kluster
 > * Övervaka uppgraderingen

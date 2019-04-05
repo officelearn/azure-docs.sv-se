@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539028"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049435"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Vanliga frågor (och svar FAQ) om sökning i Bing
 
@@ -25,11 +25,11 @@ Hitta svar på vanliga frågor om koncept, kod och scenarier som rör den bilds�
 
 Följande huvuden kan uppstå i svar från den bildsökning i Bing.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|Unikt ID som Bing har tilldelat till användaren|
-|`BingAPIs-Market`|På marknaden som användes för att uppfylla begäran|
-|`BingAPIs-TraceId`|Loggposten på Bing API-servern för den här förfrågan (för stöd)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |Unikt ID som Bing har tilldelat till användaren |
+| `BingAPIs-Market`   |På marknaden som användes för att uppfylla begäran |
+| `BingAPIs-TraceId`  |Loggposten på Bing API-servern för den här förfrågan (för stöd) |
 
 Det är särskilt viktigt att bevara klient-ID och lämna tillbaka med efterföljande förfrågningar. När du gör detta sökningen använder de senaste kontexten i rangordning sökresultat och också ge en konsekvent användarupplevelse.
 

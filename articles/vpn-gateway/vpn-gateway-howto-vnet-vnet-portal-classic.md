@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112270"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046130"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
 
@@ -32,13 +32,15 @@ Den här artikeln hjälper dig att skapa en VPN-gatewayanslutning mellan virtuel
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Ansluta olika distributionsmodeller – Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Azure-portalen (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Ansluta olika distributionsmodeller – Azure-portalen](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Ansluta olika distributionsmodeller – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
 ![VNet-till-VNet-anslutning Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>Om VNet-till-VNet-anslutningar
 
@@ -219,19 +221,19 @@ I följande steg ska du ansluta till ditt Azure-konto och ladda ned och visa nä
 2. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    Kontrollera prenumerationerna för kontot.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    Om du har mer än en prenumeration väljer du den du vill använda.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.

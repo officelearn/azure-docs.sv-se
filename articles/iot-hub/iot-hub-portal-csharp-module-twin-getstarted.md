@@ -3,18 +3,18 @@ title: Kom igång med Azure IoT Hub-modulidentitet och -modultvilling (portal oc
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med portalen och .NET.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5ac2291f9be6fc8f8d702ec390acf02d5ad9d0f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545828"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051656"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 

@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695905"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045585"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
 
 Den här artikeln får du svar på några vanliga frågor (FAQ) om [Azure Relay](https://azure.microsoft.com/services/service-bus/). Allmänna Azure prissättning och information finns i den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-relay"></a>Vad är Azure Relay?
@@ -77,13 +80,13 @@ Skicka ett meddelande till ett Service Bus-relä behandlas som en ”fullständi
 Reläer som öppnas med hjälp av den **netTCPRelay** WCF-bindning behandlar meddelanden inte som enskilda meddelanden, men som en dataström med data som flödar genom systemet. När du använder den här bindningen har endast avsändaren och lyssnare insyn i synkroniseringstecken enskilda meddelanden som skickas och tas emot. För vidarebefordrar som använder den **netTCPRelay** bindning, behandlas alla data som en dataström för att beräkna faktureringsbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskild relay på basis av 5 minuter. Sedan dividerar den den totala mängden data med 64 KB att fastställa antalet faktureringsbara meddelanden för relay under den tidsperioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvotnamn | Omfång |  Anteckningar | Värde |
+| Kvotnamn | Scope |  Anteckningar | Värde |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare på en relay |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
-| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnrymd |- |5 000 |
-| Relay slutpunkter per namnområde för tjänsten |Namnrymd |- |10 000 |
-| Meddelandestorlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) vidarebefordrar |Namnrymd |Inkommande meddelanden som överskrider kvoterna avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelandestorlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) vidarebefordrar |Namnrymd |Ingen gräns meddelandestorlek. |Obegränsat |
+| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnområde |- |5 000 |
+| Relay slutpunkter per namnområde för tjänsten |Namnområde |- |10 000 |
+| Meddelandestorlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) vidarebefordrar |Namnområde |Inkommande meddelanden som överskrider kvoterna avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelandestorlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) vidarebefordrar |Namnområde |Ingen gräns meddelandestorlek. |Obegränsat |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Finns det några användningskvoter Relay?
 Som standard för valfri molntjänst anger Microsoft en sammanställd månatliga kvot för användning som beräknas för alla prenumerationer för en kund. Vi förstår att dina behov ibland kanske överskrider gränserna. Du kan kontakta kundtjänst när som helst, så att vi får veta vad du behöver och kan justera gränserna på rätt sätt. För Service Bus är de sammanlagda användningskvoter följande:
@@ -111,13 +114,13 @@ Om du vill använda PowerShell för att flytta ett namnområde från en Azure-pr
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -127,7 +130,7 @@ En beskrivning av vanliga undantag och föreslagna åtgärder som du kan vidta f
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att generera en signatur?
 Signaturer för delad åtkomst (SAS) är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node, PHP, Java, C och C# finns i [Service Bus-autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att placera reläslutpunkter i listan över tillåtna?
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relay slutpunkter?
 Ja. Relay-klienten skickar anslutningar till Azure Relay-tjänsten med hjälp av fullständigt kvalificerade domännamn. Kunder kan lägga till en post för `*.servicebus.windows.net` för brandväggar som har stöd för DNS-listan över tillåtna program.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,19 +1,18 @@
 ---
 title: Kontrollera hälsotillståndet för ett kluster i Azure Data Explorer
-description: Den här artikeln beskriver steg för att fastställa om din Azure Data Explorer-klustret är felfritt.
+description: Den här artikeln beskriver steg för att övervaka hälsotillståndet för din Azure Data Explorer-klustret.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8930c2a7538ca33622de68c9a888349b3301cd98
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755860"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046554"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Kontrollera hälsotillståndet för ett kluster i Azure Data Explorer
 

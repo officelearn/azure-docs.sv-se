@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122377"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046163"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -38,7 +38,7 @@ I den här artikeln får du lära dig hur du använder olika beräkningsmål fö
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 
-|Beräkningsmål för träning| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad</br> maskininlärning | Azure Machine Learning Pipelines |
+|Beräkningsmål för träning| GPU-acceleration | Automatisk<br/> finjustering av hyperparametrar | Automatisk</br> maskininlärning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -118,7 +118,10 @@ Du kan skapa en Azure Machine Learning compute-miljö på begäran när du schem
 
 #### <a name="run-based-creation"></a>Kör-baserade skapas
 
-Du kan skapa beräkning av Azure Machine Learning som beräkningsmål för vid körning. Beräkningen som skapas automatiskt för din körning. Klustret skalas upp till antalet **max_nodes** som du anger i kör config. Beräkningarna tas bort automatiskt när körningen har slutförts.
+Du kan skapa beräkning av Azure Machine Learning som beräkningsmål för vid körning. Beräkningen som skapas automatiskt för din körning. Beräkningarna tas bort automatiskt när körningen har slutförts. 
+
+> [!NOTE]
+> Om du vill ange det maximala antalet noder som ska använda, skulle du vanligtvis ange `node_count` för hur många noder. Det finns för närvarande (04/04/2019) en bugg som gör att det inte fungerar. Som en tillfällig lösning kan du använda den `amlcompute._cluster_max_node_count` egenskapen för körningskonfigurationen. Till exempel `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Kör-baserade skapandet av Azure Machine Learning beräkning förhandsvisas just nu. Använd inte kör-baserade skapas om du använder automatisk finjustering av hyperparametrar eller automatiserade maskininlärning. Om du vill använda finjustering av hyperparametrar eller automatiserade maskininlärning, skapa en [beständiga beräkning](#persistent) rikta istället.
@@ -415,8 +418,8 @@ Eller så kan du:
 ## <a name="notebook-examples"></a>Notebook-exempel
 
 Se dessa anteckningsböcker för exempel på utbildning med olika beräkningsmål:
-* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

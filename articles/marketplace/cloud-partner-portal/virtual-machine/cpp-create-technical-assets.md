@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639951"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050109"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska resurser till en virtuell dator
 
@@ -37,6 +37,7 @@ Du måste konfigurera VM-OS, VM-storlek, portar som ska öppnas, och upp till 15
 > [!IMPORTANT]
 > *Ändra inte Diskantalet i en ny Avbildningsversion.* Om du måste konfigurera om datadiskar i bilden, definierar du en ny SKU. Publicera en ny Avbildningsversion med annan disk antal har risken med att bryta ny distribution som baseras på den nya avbildningsversionen i fall av automatisk skalning, automatiska distributioner av lösningar via Azure Resource Manager-mallar och andra scenarier.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
 
@@ -56,11 +57,11 @@ Välj en eller båda av följande skript miljöer för att hantera virtuella hå
 
 Vi rekommenderar dessutom att lägga till följande verktyg i utvecklingsmiljön: 
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Tillägg: [verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Tillägg: [tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Tillägg: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-   [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Visual Studio-koden](https://code.visualstudio.com/)
+    *   Anknytning: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Anknytning: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Anknytning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Vi rekommenderar också granska de tillgängliga verktyg i den [Azure-utvecklarverktyg](https://azure.microsoft.com/tools/) sidan och, om du använder Visual Studio i [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 

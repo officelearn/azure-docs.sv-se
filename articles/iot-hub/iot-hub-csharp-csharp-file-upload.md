@@ -8,13 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
-ms.openlocfilehash: d661f8834aec77957e0fd2713cde5da9a48903fd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010587"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046777"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Ladda upp filer från din enhet till molnet med IoT Hub med .NET
 
@@ -173,7 +173,7 @@ Du är nu redo att köra programmen.
 
 I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
 
-* [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
+* [Skapa en IoT Hub programmässigt](iot-hub-rm-template-powershell.md)
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 

@@ -14,16 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: b9ad592ecbeb68784b19269e3ff06931989e59af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663595"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045396"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets unika namn i stället för tumavtryck
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Ett kluster med vanliga namn för certifikatet gör det mycket enklare att certifikathantering. Den här artikeln beskriver hur du distribuerar Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="get-a-certificate"></a>Få ett certifikat
 Först hämtar ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority).  Namnet på certifikatet ska vara för den anpassade domänen du egna och köpta från en domänregistrator. Till exempel ”azureservicefabricbestpractices.com”; de personer som inte är Microsoft-anställda kan inte etablera certifikat för MS domäner, så att du inte kan använda din LB eller Traffic Manager DNS-namn som vanliga namn för ditt certifikat och du måste etablera en [Azure DNS-zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om dina anpassade domän som ska matchas i Azure. Du bör även att deklarera den anpassade domänen som du äger som din klustrets ”managementEndpoint” om du vill att portalen att visa den anpassade domänen alias för klustret.
 
@@ -41,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -51,10 +54,10 @@ $certname = "myclustercert"
 $Password  = "P@ssw0rd!123"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
@@ -199,12 +202,12 @@ $clusterloc="southcentralus"
 $id="<subscription ID"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $id 
+Login-AzAccount -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -212,5 +215,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Lär dig hur du [förnya ett klustercertifikat](service-fabric-cluster-rollover-cert-cn.md)
 * [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
 * Förenkla certifikathantering av [ändra kluster från tumavtrycket för certifikatet till unika namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
+
+[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
+ic-cluster-change-cert-thumbprint-to-cn.md))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

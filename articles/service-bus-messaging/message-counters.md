@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 43689ec92fe20e61fdfd7a145d3028a3b1ee956d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848113"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050755"
 ---
 # <a name="message-counters"></a>Meddelanderäknare
 
 Du kan hämta antal meddelanden som ligger i köer och prenumerationer med hjälp av Azure Resource Manager och Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er i .NET Framework SDK.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Med PowerShell kan hämta du antalet på följande sätt:
 
 ```powershell
-(Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
+(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
 ## <a name="message-count-details"></a>Information om antal
@@ -46,6 +48,6 @@ Om ett program vill skala resurser baserat på längden på kön, det bör göra
 
 Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
-* [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
+* [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-* [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

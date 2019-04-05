@@ -14,22 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b25ebeadff46ea04c2adf5add6aeb86b751681ad
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889496"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047219"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka virtuella nätverkets Gateway och anslutningar som använder Azure Network Watcher PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portal](diagnose-communication-problem-between-networks.md)
+> - [Portalen](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST-API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher innehåller många funktioner som den relaterar till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portal, PowerShell, CLI eller REST API. När den anropas, Network Watcher kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -43,11 +46,11 @@ Felsökning av resurs gör möjligheten felsöka problem som kan uppstå med Vir
 
 ## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Network Watcher-instans. Den `$networkWatcher` variabeln skickas till den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
+Det första steget är att hämta Network Watcher-instans. Den `$networkWatcher` variabeln skickas till den `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Hämta en Gateway för virtuell nätverksanslutning
@@ -55,7 +58,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 I det här exemplet som felsökning av resurs kördes på en anslutning. Du kan även skicka det en virtuell nätverksgateway.
 
 ```powershell
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -63,20 +66,20 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 Felsökning av resurs returnerar data om hälsotillståndet för resursen, sparas även loggar till ett lagringskonto som ska granskas. I det här steget ska vi skapa ett lagringskonto, om det finns ett befintligt lagringskonto kan du använda den.
 
 ```powershell
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzureStorageContainer -Name logs
+$sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
+$sc = New-AzStorageContainer -Name logs
 ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Kör felsökning av Network Watcher-resurs
 
-Felsökning av resurser med den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Vi skickar cmdlet: en Network Watcher-objektet, Id för anslutningen eller det virtuella nätverkets Gateway, storage-konto-id och sökvägen för att lagra resultatet.
+Felsökning av resurser med den `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Vi skickar cmdlet: en Network Watcher-objektet, Id för anslutningen eller det virtuella nätverkets Gateway, storage-konto-id och sökvägen för att lagra resultatet.
 
 > [!NOTE]
-> Den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet körs länge och kan ta några minuter att slutföra.
+> Den `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet körs länge och kan ta några minuter att slutföra.
 
 ```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
+Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
 När du kör cmdleten, granskar Network Watcher resurs för att kontrollera hälsotillståndet. Den returnerar resultaten till gränssnittet och lagrar loggar resultat i det angivna lagringskontot.

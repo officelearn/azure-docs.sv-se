@@ -8,29 +8,29 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 68dd71687e18243a112df0c2568af5b2b6d0d687
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340991"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048027"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Snabbstart: Hämta information om bilder med hjälp av Bing Visual Search REST API och Go
 
-Den här snabbstarten använder Go-programmeringsspråket för att anropa API i Bing Visual Search och visa resultat. En Post-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
+Den här snabbstarten använder Go-programmeringsspråket för att anropa API i Bing Visual Search och visa resultat. En POST-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 * Installera den [gå binärfiler](https://golang.org/dl/).
-* Go-spew Djupgående fin skrivaren är användbart för visning av resultaten.
-    * Installera den här libarary: `$ go get -u https://github.com/davecgh/go-spew`.
+* Go-spew Djupgående fin skrivaren används för att visa resultat. Du kan installera go-spew med den `$ go get -u https://github.com/davecgh/go-spew` kommando.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="project-and-libraries"></a>Projekt och bibliotek
 
-Skapa ett nytt Go-projekt i din IDE eller redigerare. Importera `net/http` för förfrågningar om `ioutil` att läsa svaret, och `encoding/json` att hantera JSON-texten i resultaten. Den `go-spew` biblioteket används för att parsa JSON-resultaten. 
+Skapa en Go-projekt i din IDE eller redigerare. Importera `net/http` för förfrågningar om `ioutil` att läsa svaret, och `encoding/json` att hantera JSON-texten i resultaten. Den `go-spew` biblioteket används för att parsa JSON-resultaten.
 
 ```
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>Struct för att formatera resultat
 
-Den `BingAnswer` struct formaterar data som returneras i JSON-svar som är flera nivåer och ganska komplext.  Följande implementering beskriver några av de viktigaste stegen.
+Den `BingAnswer` struktur formaterar data som returneras i JSON-svar som är flera nivåer och komplexa. Följande implementering beskriver några av de viktigaste stegen:
 
 ```
 type BingAnswer struct {
@@ -109,7 +109,7 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Huvudfunktion och variabler  
 
-Följande kod deklarerar huvudfunktionen och tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto.  Den `batchNumber` är ett GUID som krävs för inledande och avslutande gränserna för att skicka data.  Den `fileName` variabeln identifierar avbildningsfilen för inlägget.  Följande avsnitt beskrivs information om koden.
+Följande kod deklarerar huvudfunktionen och tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. Den `batchNumber` är ett GUID som krävs för inledande och avslutande gränserna för att skicka data. Den `fileName` variabeln identifierar avbildningsfilen för INLÄGGET. I följande avsnitt beskrivs information om koden:
 
 ```
 func main() {
@@ -157,9 +157,9 @@ func main() {
 
 ```
 
-## <a name="boundaries-of-post-body"></a>Gränserna för Post brödtext
+## <a name="boundaries-of-post-body"></a>Gränserna för POST brödtext
 
-En Post-begäran till slutpunkten Visual Search kräver inledande och avslutande gränser omslutande Post-data.  Ledande gränsen inkluderar ett batchnummer, den innehållstyp identifieraren `Content-Disposition: form-data; name="image"; filename=`, plus filename bildens inlägget.  Den avslutande gränsen är helt enkelt batchnummer.  Dessa funktioner ingår inte i den `main` block.
+En POST-begäran till slutpunkten Visual Search kräver inledande och avslutande gränser omslutande POST-data. Ledande gränsen inkluderar ett batchnummer, den innehållstyp identifieraren `Content-Disposition: form-data; name="image"; filename=`, plus filename bildens inlägget. Den avslutande gränsen är helt enkelt batchnummer. Dessa funktioner ingår inte i den `main` block:
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -176,9 +176,9 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## <a name="add-image-bytes-to-post-body"></a>Lägg till bild byte i inlägget brödtext
+## <a name="add-image-bytes-to-post-body"></a>Lägg till bild byte i INLÄGGET brödtext
 
-Den här kodsegmentet skapar Post-begäran som innehåller bilddata. 
+Den här kodsegmentet skapar POST-begäran som innehåller avbildningsdata som:
 
 ```
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -207,7 +207,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Följande kod skickar en begäran och läser resultaten.
+Följande kod skickar en begäran och läser resultaten:
 
 ```
 resp, err := client.Do(req)
@@ -226,7 +226,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-Den `Unmarshall` funktionen hämtar information från JSON-texten som returneras av API: T för Visual Search.  Den `go-spew` Fin skrivare visar resultat.
+Den `Unmarshall` funktionen hämtar information från JSON-texten som returneras av API: T för Visual Search. Den `go-spew` Fin skrivare visar resultat:
 
 ```
     // Create a new answer.  
@@ -249,7 +249,7 @@ Den `Unmarshall` funktionen hämtar information från JSON-texten som returneras
 
 ## <a name="results"></a>Resultat
 
-Resultaten identifiera avbildningar som liknar bilden i inlägget brödtext.  Användbara fälten är `WebSearchUrl` och `Name`.
+Resultaten identifiera avbildningar som liknar bilden i INLÄGGET brödtext. Användbara fälten är `WebSearchUrl` och `Name`:
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
@@ -287,5 +287,5 @@ Resultaten identifiera avbildningar som liknar bilden i inlägget brödtext.  An
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Vad är Bing Visual Search](../overview.md)
-> [webbsökning i Bing Snabbstart i Go](../../Bing-Web-Search/quickstarts/go.md)
+> [Vad är Bing Visual Search API? ](../overview.md) 
+>  [Webbsökning i Bing Snabbstart i Go](../../Bing-Web-Search/quickstarts/go.md)

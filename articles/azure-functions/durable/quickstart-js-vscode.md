@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359467"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049689"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -125,7 +125,29 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 5. Med ett verktyg som [Postman](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/) skickar du en HTTP POST-begäran till URL-slutpunkten.
 
-6. Stoppa felsökningen genom att trycka på SKIFT+F1 i VS Code.
+    Svaret är det första resultatet från HTTP-funktionen, som anger att den beständiga orkestreringen har startats korrekt.  Det är inte ännu slutresultatet av orkestreringen.  Svaret innehåller några användbara URL:er.  För tillfället kör vi en fråga om orkestreringens status.
+
+6. Kopiera URL-värdet för `statusQueryGetUri`, klistra in den i webbläsarens adressfält och kör din begäran.
+
+    Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör så småningom få ett svar som liknar följande.  Detta visar att instansen har slutförts och innehåller utdata eller resultat för den beständiga funktionen.
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Om du vill stoppa felsökningen trycker du på **SKIFT + F5** i VS Code.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 
@@ -146,4 +168,4 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 Du har använt Visual Studio Code för att skapa och publicera en beständig JavaScript-funktionsapp.
 
 > [!div class="nextstepaction"]
-> [Läs mer om vanliga mönster för beständiga funktioner](durable-functions-concepts.md)
+> [Lär dig mer om vanliga mönster för varaktiga funktion](durable-functions-concepts.md)

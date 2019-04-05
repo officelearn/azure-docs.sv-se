@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099404"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051588"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
 Azure VPN-Gateway kan du skapa hybridlösning som behovet av en säker anslutning mellan ditt lokala nätverk och Azure-nätverk. När dina behov är unika, så är valet av den lokala VPN-enhet. Azure stöder för närvarande [flera VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) som verifieras ständigt i samarbete med leverantörer för enheter. Granska de specifika inställningarna innan du konfigurerar den lokala VPN-enheten. På samma sätt kan Azure VPN Gateway har konfigurerats med en uppsättning [stöd för IPsec-parametrar](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) som används för att upprätta anslutningar. Det finns för närvarande inget sätt att ange eller välja en specifik kombination av IPsec-parametrar från Azure VPN Gateway. Inställningar för den lokala VPN-enheter måste vara i enlighet med IPsec-parametrar som föreskrivs av Azure VPN Gateway för att upprätta en anslutning mellan lokala och Azure. Om inställningarna är korrekta, där är en förlust av anslutning och fram till nu felsöka problemen var inte trivial och vanligtvis tog timmar att identifiera och åtgärda problemet.
 
 Felsöka funktionen med Azure Network Watcher, kan du diagnostisera problem med din Gateway och dina anslutningar och inom några minuter har tillräckligt med information för att fatta ett välgrundat beslut att rätta till problemet.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -42,7 +45,7 @@ En av de viktiga konfigurationsstegen konfigurera parametrar för IPsec-kommunik
 
 ### <a name="ike-phase-1-setup"></a>IKE fas 1-konfiguration
 
-| **Egenskap** | **Principbaserad** | **Routningsbaserad och Standard eller högpresterande VPN gateway** |
+| **Egenskap ** | **Principbaserad** | **Routningsbaserad och Standard eller högpresterande VPN gateway** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
 | Diffie-Hellman Group |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
@@ -57,7 +60,7 @@ Dessa problem är svåra att felsöka och rotorsaker är ofta tveksamma. I det h
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Felsöka med Azure Network Watcher
 
-Ansluta till Azure PowerShell för att diagnostisera din anslutning och initiera den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Du hittar information om hur du använder denna cmdlet på [felsöka virtuella nätverks-Gateway och anslutningar – PowerShell](network-watcher-troubleshoot-manage-powershell.md). Denna cmdlet kan ta upp till några minuter att slutföra.
+Ansluta till Azure PowerShell för att diagnostisera din anslutning och initiera den `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Du hittar information om hur du använder denna cmdlet på [felsöka virtuella nätverks-Gateway och anslutningar – PowerShell](network-watcher-troubleshoot-manage-powershell.md). Denna cmdlet kan ta upp till några minuter att slutföra.
 
 När cmdleten har slutförts kan du navigera till lagringsplatsen som angetts i cmdlet för att få detaljerad information om om problemet och loggar. Azure Network Watcher skapar en komprimerad mapp som innehåller följande loggfiler:
 
@@ -104,10 +107,10 @@ Azure Network Watcher Felsöka funktionen gör det möjligt för dig att diagnos
 | ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad”. |Nej|
 | ConnectionNotConfiguredOnGateway | Den underliggande tjänsten har inte den anslutningen har konfigurerats. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten har markerats som vänteläge.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte. | Ja|
+| Authentication | I förväg delad nyckel matchar inte. | Ja|
 | PeerReachability | Peer-gatewayen kan inte nås. | Ja|
 | IkePolicyMismatch | Peer-gateway har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse fel | Ett fel uppstod parsning WFP-loggen. |Ja|
+| WfpParse Error | Ett fel uppstod parsning WFP-loggen. |Ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

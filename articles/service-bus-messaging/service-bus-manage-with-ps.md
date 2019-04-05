@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 28bed5503c5c798f244a4ba3a070894aa4538b00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9810baf433ddf67997aeda10856060edc0d1ebec
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873034"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051161"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
 
-Microsoft Azure PowerShell är en skriptmiljö som du kan använda för att styra och automatisera distributionen och hanteringen av Azure-tjänster. Den här artikeln beskriver hur du använder den [Service Bus Resource Managers PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera och hantera Service Bus-entiteter (namnområden, köer, ämnen och prenumerationer) med hjälp av en lokal Azure PowerShell-konsolen eller ett skript.
+Microsoft Azure PowerShell är en skriptmiljö som du kan använda för att styra och automatisera distributionen och hanteringen av Azure-tjänster. Den här artikeln beskriver hur du använder den [Service Bus Resource Managers PowerShell-modulen](/powershell/module/az.servicebus) att etablera och hantera Service Bus-entiteter (namnområden, köer, ämnen och prenumerationer) med hjälp av en lokal Azure PowerShell-konsolen eller ett skript.
 
 Du kan också hantera Service Bus-entiteter med hjälp av Azure Resource Manager-mallar. Mer information finns i artikeln [skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar](service-bus-resource-manager-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -41,7 +43,7 @@ Det första steget är att använda PowerShell för att logga in på Azure-konto
 
 ## <a name="provision-a-service-bus-namespace"></a>Etablera en Service Bus-namnområde
 
-När du arbetar med Service Bus-namnområden, du kan använda den [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), och [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdletar.
+När du arbetar med Service Bus-namnområden, du kan använda den [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace), och [ Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdletar.
 
 Det här exemplet skapar några lokala variabler i skriptet; `$Namespace` och `$Location`.
 
@@ -59,21 +61,21 @@ Den här delen av skriptet gör följande:
    
     ``` powershell
     # Query to see if the namespace currently exists
-    $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+    $CurrentNamespace = Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
    
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
         Write-Host "The namespace $Namespace already exists in the $Location region:"
         # Report what was found
-        Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+        Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {
         Write-Host "The $Namespace namespace does not exist."
         Write-Host "Creating the $Namespace namespace in the $Location region..."
-        New-AzureRmServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace -Location $Location
-        $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+        New-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace -Location $Location
+        $CurrentNamespace = Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
         Write-Host "The $Namespace namespace in Resource Group $ResGrpName in the $Location region has been successfully created."
                 
     }
@@ -81,11 +83,11 @@ Den här delen av skriptet gör följande:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Skapa en auktoriseringsregel för namnområde
 
-I följande exempel visar hur du hanterar auktoriseringsregler för namnområdet med hjälp av den [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), och [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdletar](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+I följande exempel visar hur du hanterar auktoriseringsregler för namnområdet med hjälp av den [New-AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusnamespaceauthorizationrule), [Get-AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusnamespaceauthorizationrule), [Set-AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusnamespaceauthorizationrule), och [Remove-AzServiceBusNamespaceAuthorizationRule cmdletar](/powershell/module/az.servicebus/remove-azservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
-$CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+$CurrentRule = Get-AzServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
 # Check if the rule already exists or needs to be created
 if ($CurrentRule)
@@ -96,28 +98,28 @@ else
 {
     Write-Host "The $AuthRule rule does not exist."
     Write-Host "Creating the $AuthRule rule for the $Namespace namespace..."
-    New-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
-    $CurrentRule = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    New-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
+    $CurrentRule = Get-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
     Write-Host "The $AuthRule rule for the $Namespace namespace has been successfully created."
 
     Write-Host "Setting rights on the namespace"
-    $authRuleObj = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $authRuleObj = Get-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
     Write-Host "Remove Send rights"
     $authRuleObj.Rights.Remove("Send")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Add Send and Manage rights to the namespace"
     $authRuleObj.Rights.Add("Send")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
     $authRuleObj.Rights.Add("Manage")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Show value of primary key"
-    $CurrentKey = Get-AzureRmServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
+    $CurrentKey = Get-AzServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
         
     Write-Host "Remove this authorization rule"
-    Remove-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
+    Remove-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
 }
 ```
 
@@ -127,7 +129,7 @@ Om du vill skapa en kö eller ämne, kontrollera namnområdet med hjälp av skri
 
 ```powershell
 # Check if queue already exists
-$CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+$CurrentQ = Get-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
 
 if($CurrentQ)
 {
@@ -137,15 +139,15 @@ else
 {
     Write-Host "The $QueueName queue does not exist."
     Write-Host "Creating the $QueueName queue in the $Location region..."
-    New-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
-    $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+    New-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
+    $CurrentQ = Get-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
     Write-Host "The $QueueName queue in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
 ### <a name="modify-queue-properties"></a>Ändra egenskaper för kö
 
-När du kör skriptet i föregående avsnitt, kan du använda den [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet för att uppdatera egenskaperna för en kö, som i följande exempel:
+När du kör skriptet i föregående avsnitt, kan du använda den [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) cmdlet för att uppdatera egenskaperna för en kö, som i följande exempel:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -153,16 +155,16 @@ $CurrentQ.MaxDeliveryCount = 7
 $CurrentQ.MaxSizeInMegabytes = 2048
 $CurrentQ.EnableExpress = $True
 
-Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
+Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Etablera andra Service Bus-entiteter
 
-Du kan använda den [Service Bus PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera andra entiteter, till exempel ämnen och prenumerationer. Dessa cmdletar är syntaktiskt liknande i kön skapas-cmdletar som visas i föregående avsnitt.
+Du kan använda den [Service Bus PowerShell-modulen](/powershell/module/az.servicebus) att etablera andra entiteter, till exempel ämnen och prenumerationer. Dessa cmdletar är syntaktiskt liknande i kön skapas-cmdletar som visas i föregående avsnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den fullständiga dokumentationen för Service Bus Resource Managers PowerShell-modulen [här](/powershell/module/azurerm.servicebus). Den här sidan visas alla tillgängliga cmdlet: ar.
+- Se den fullständiga dokumentationen för Service Bus Resource Managers PowerShell-modulen [här](/powershell/module/az.servicebus). Den här sidan visas alla tillgängliga cmdlet: ar.
 - Information om hur du använder Azure Resource Manager-mallar finns i artikeln [skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar](service-bus-resource-manager-overview.md).
 - Information om [Service Bus .NET-hanteringsbibliotek](service-bus-management-libraries.md).
 

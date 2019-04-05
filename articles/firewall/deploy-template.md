@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038967"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046282"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuera Azure-brandväggen med hjälp av en mall
 
@@ -24,6 +24,9 @@ Brandväggen finns i den *AzureFirewallSubnet* undernät, och har en regelsamlin
 En användardefinierad väg pekar nätverkstrafik från den *ServersSubnet* undernätet via brandväggen, där brandväggsreglerna tillämpas.
 
 Mer information om Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](tutorial-firewall-deploy-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>Använda mallen för att distribuera Azure-brandvägg
 
@@ -56,10 +59,10 @@ Mer information om JSON-syntax och egenskaper för en brandvägg i en mall, se [
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver dem. Du kan ta bort den resursgrupp, brandvägg och alla relaterade resurser genom att köra den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell-kommando. Ta bort en resursgrupp med namnet *MyResourceGroup*, kör: 
+När du inte längre behöver dem. Du kan ta bort den resursgrupp, brandvägg och alla relaterade resurser genom att köra den [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell-kommando. Ta bort en resursgrupp med namnet *MyResourceGroup*, kör: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Ta inte bort resursgruppen och brandväggen ännu, om du planerar att fortsätta till brandväggen övervakning av självstudien. 
 
@@ -68,4 +71,4 @@ Ta inte bort resursgruppen och brandväggen ännu, om du planerar att fortsätta
 Därefter kan du övervaka Azure brandväggsloggar:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudier: Övervaka Azure brandväggsloggar](./tutorial-diagnostics.md)

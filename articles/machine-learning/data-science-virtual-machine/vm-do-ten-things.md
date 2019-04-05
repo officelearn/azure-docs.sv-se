@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878439"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046199"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -50,6 +50,9 @@ I den här artikeln får du lära dig hur du använder din DSVM att utföra olik
 
 * Du behöver en Azure-prenumeration. Du kan registrera dig för en kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/free/).
 * Instruktioner för att etablera en virtuell dator för datavetenskap på Azure portal finns på [skapar en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Utforska data och utveckla modeller med hjälp av Microsoft ML Server eller Python
 Du kan använda språk som R och Python för att göra din Dataanalys på DSVM.
@@ -223,22 +226,22 @@ Du kan använda Azure Powershell för att skapa en filresurs i Azure File Servic
 
 ```powershell
 # Authenticate to Azure.
-Connect-AzureRmAccount
+Connect-AzAccount
 # Select your subscription
-Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionName "<your subscription name>" | Select-AzSubscription
 # Create a new resource group.
-New-AzureRmResourceGroup -Name <dsvmdatarg>
+New-AzResourceGroup -Name <dsvmdatarg>
 # Create a new storage account. You can reuse existing storage account if you wish.
-New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+New-AzStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
 # Set your current working storage account
-Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+Set-AzCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
 # Create an Azure File Service Share
-$s = New-AzureStorageShare <<teamsharename>>
+$s = New-AzStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
-New-AzureStorageDirectory -Share $s -Path <directory name>
+New-AzStorageDirectory -Share $s -Path <directory name>
 # List the share to confirm that everything worked
-Get-AzureStorageFile -Share $s
+Get-AzStorageFile -Share $s
 ```
 
 Nu när du har skapat en Azure-filresurs kan montera du den i valfri virtuell dator i Azure. Vi rekommenderar starkt att Virtuellt datorn i samma Azure-datacenter som lagringskontot för att undvika kostnader för överföring av latens och data. Här är kommandon för att montera enheten på DSVM som du kan köra på Azure Powershell.
@@ -308,7 +311,7 @@ När du kör AzCopy-kommandot för att kopiera till en Azure-blob, visas din fil
 
 ![Skärmbild av Storage-konto, visar den uppladdade CSV-filen](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Flytta data från virtuell dator till Azure Blob: Azure Storage Explorer**
+**Flytta data från virtuell dator till Azure Blob: Azure Lagringsutforskaren**
 
 Du kan också ladda upp data från den lokala filen i den virtuella datorn med Azure Storage Explorer:
 

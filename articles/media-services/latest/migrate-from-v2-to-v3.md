@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621744"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045689"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -29,10 +29,10 @@ Den här artikeln redogörs för ändringar som introducerades i Azure Media Ser
 Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Services v2 API: er](../previous/media-services-overview.md), bör du granska följande riktlinjer och att tänka på innan du migrerar till v3-API: er. Det finns många fördelar och nya funktioner i v3-API som förbättrar utvecklarupplevelse och funktionerna i Media Services. Dock som kallas ut i den [kända problem](#known-issues) avsnitt av den här artikeln, det finns även vissa begränsningar på grund av ändringar mellan API-versioner. Den här sidan bevaras som Media Services-teamet gör fortsatt förbättringar till v3-API: er och bemöta luckor mellan versionerna. 
 
 > [!NOTE]
-> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Fördelarna med Media Services v3
-
+  
 ### <a name="api-is-more-approachable"></a>API: et är mer programmera
 
 *  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, Live-händelser med mera.
@@ -105,7 +105,7 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
 
 ## <a name="known-issues"></a>Kända problem
 
-* För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
+* För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 * Du måste etablera Mediereserverade enheter (MRUs) i ditt konto om du vill styra samtidighet och prestanda för dina jobb, särskilt de som som involverar Video eller ljudanalys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2.0 för Media Services v3](media-reserved-units-cli-how-to.md)med hjälp av den [Azure-portalen](../previous/media-services-portal-scale-media-processing.md), eller med hjälp av den [v2 API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3 API: er.
 * Media Services-entiteter som skapats med v3 API inte kan hanteras av v2 API: et.  
 * Det rekommenderas inte att hantera enheter som har skapats med v2 API: er v3-API: er. Följande är exempel på skillnaderna gör entiteterna i två versioner inkompatibla:   

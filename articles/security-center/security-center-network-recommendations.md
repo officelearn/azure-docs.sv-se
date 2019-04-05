@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863159"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046215"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda dina nätverksresurser i Azure Security Center
 Azure Security Center analyserar kontinuerligt säkerhetsläget hos dina Azure-resurser för Metodtips för nätverkssäkerhet. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera de kontrollfunktioner som behövs för att förstärka och skydda dina resurser.
@@ -30,9 +30,10 @@ Den här artikeln belyser rekommendationer som gäller för dina Azure-resurser 
 > Den **nätverk** sidan kan du djupdykning i dina Azure resource health från ett nätverksperspektiv. Nätverkskarta och anpassningsbar nätverkskontroller är tillgängliga för Azure Security Center standard-nivån endast. [Om du använder den kostnadsfria nivån kan du klicka på knappen för att **visa äldre nätverk** och ta emot resource nätverksrekommendationer](#legacy-networking).
 >
 
-Den **nätverk** bladet innehåller en översikt över de avsnitt som du har djupgående fördjupa dig i, för att få mer information om hälsotillståndet för nätverksresurserna:
+Den **nätverk** sidan innehåller en översikt över de avsnitt som du har djupgående fördjupa dig i, för att få mer information om hälsotillståndet för nätverksresurserna:
 
 - Nätverkskarta (endast Azure Security Center Standard-nivån)
+- Anpassningsbar nätverkshärdning
 - Säkerhetsrekommendationer för nätverk.
 - Äldre **nätverk** bladet (tidigare nätverk bladet) 
  

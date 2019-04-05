@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534011"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051826"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure brandväggen log analytics-exempel
 
@@ -40,7 +40,7 @@ Och för loggdata för nätverk regeln:
 
 ![Loggdata för nätverk regeln]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure-brandväggen loggar data AzureDiagnostics kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallApplicationRule**. Data som innehåller information lagras i fältet msg_s. Med hjälp av den [parsa](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator som vi kan extrahera olika intressanta egenskaper från fältet msg_s. Frågorna nedan extrahera information för båda kategorier.
+Azure-brandväggen loggar data AzureDiagnostics kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallNetworkRule**. Data som innehåller information lagras i fältet msg_s. Med hjälp av den [parsa](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator som vi kan extrahera olika intressanta egenskaper från fältet msg_s. Frågorna nedan extrahera information för båda kategorier.
 
 ## <a name="application-rules-log-data-query"></a>Regler för program logga datafrågor
 

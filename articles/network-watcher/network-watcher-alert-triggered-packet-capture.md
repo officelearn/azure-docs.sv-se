@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876654"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048766"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda infångade paket för proaktiv nätverksövervakning med varningar och Azure Functions
 
@@ -33,9 +33,12 @@ Genom att använda Network Watcher, aviseringar och funktioner från inom Azure-
 
 ![Scenario][scenario]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Den senaste versionen av [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* Den senaste versionen av [Azure PowerShell](/powershell/azure/install-Az-ps).
 * En befintlig instans av Network Watcher. Om du inte redan har en, [skapa en instans av Network Watcher](network-watcher-create.md).
 * En befintlig virtuell dator i samma region som Network Watcher med den [Windows tillägget](../virtual-machines/windows/extensions-nwa.md) eller [Linux VM-tillägget](../virtual-machines/linux/extensions-nwa.md).
 
@@ -72,9 +75,9 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 2. På den **Funktionsapp** bladet anger du följande värden och välj sedan **OK** att skapa appen:
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
-    |**Appens namn**|PacketCaptureExample|Namnet på funktionsappen.|
+    |**Appnamn**|PacketCaptureExample|Namnet på funktionsappen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa funktionsappen.||
     |**Resursgrupp**|PacketCaptureRG|Resursgruppen som innehåller funktionsappen.|
     |**Värdplan**|Förbrukningsplan| Vilken typ av planera din app använder för funktionen. Alternativen är förbrukning eller Azure App Service-plan. |
@@ -85,7 +88,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 4. Välj **HttpTrigger-Powershell**, och ange sedan återstående information. Välj slutligen, om du vill skapa funktionen **skapa**.
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
     |**Scenario**|Experimentell|Typen av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
@@ -105,16 +108,16 @@ Om du vill använda Network Watcher PowerShell-cmdlet, överför du den senaste 
 1. Kör följande PowerShell-kommando på den lokala datorn med Azure PowerShell-moduler som är installerad:
 
     ```powershell
-    (Get-Module AzureRM.Network).Path
+    (Get-Module Az.Network).Path
     ```
 
     Det här exemplet får du den lokala sökvägen för Azure PowerShell-moduler. Dessa mappar som används i ett senare steg. Moduler som används i det här scenariot är:
 
-   * AzureRM.Network
+   * Az.Network
 
-   * AzureRM.Profile
+   * Az.Accounts
 
-   * AzureRM.Resources
+   * Az.Resources
 
      ![PowerShell-mappar][functions5]
 
@@ -128,17 +131,17 @@ Om du vill använda Network Watcher PowerShell-cmdlet, överför du den senaste 
 
     ![Mappen och undermappar][functions3]
 
-    * AzureRM.Network
+    * Az.Network
 
-    * AzureRM.Profile
+    * Az.Accounts
 
-    * AzureRM.Resources
+    * Az.Resources
 
-1. Högerklicka på den **AzureRM.Network** undermapp och välj sedan **Överför filer**. 
+1. Högerklicka på den **Az.Network** undermapp och välj sedan **Överför filer**. 
 
-6. Gå till din Azure-moduler. I lokalt **AzureRM.Network** mapp, markera alla filer i mappen. Välj sedan **OK**. 
+6. Gå till din Azure-moduler. I lokalt **Az.Network** mapp, markera alla filer i mappen. Välj sedan **OK**. 
 
-7. Upprepa dessa steg för **AzureRM.Profile** och **AzureRM.Resources**.
+7. Upprepa dessa steg för **Az.Accounts** och **Az.Resources**.
 
     ![Överföra filer][functions6]
 
@@ -196,10 +199,10 @@ Klient-ID är program-ID för ett program i Azure Active Directory.
 1. Om du inte redan har ett program att använda, kör du följande exempel för att skapa ett program.
 
     ```powershell
-    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
-    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzADServicePrincipal -ApplicationId $app.ApplicationId
     Start-Sleep 15
-    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
    > [!NOTE]
@@ -218,7 +221,7 @@ Klient-ID är program-ID för ett program i Azure Active Directory.
 Hämta klient-ID genom att köra följande PowerShell-exempel:
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+(Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
 ```
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
@@ -266,9 +269,9 @@ I följande exempel är PowerShell-kod som kan användas i funktionen. Det finns
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
             #Process alert request body
             $requestBody = Get-Content $req -Raw | ConvertFrom-Json
@@ -290,7 +293,7 @@ I följande exempel är PowerShell-kod som kan användas i funktionen. Det finns
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -302,22 +305,22 @@ I följande exempel är PowerShell-kod som kan användas i funktionen. Det finns
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
                 #Get existing packetCaptures
-                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
                 #Remove existing packet capture created by the function (if it exists)
                 $packetCaptures | %{if($_.Name -eq $packetCaptureName)
                 { 
-                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
                 }}
 
                 #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
                     echo "Initiating Packet Capture"
-                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
                     Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
                 }
             } 
@@ -341,12 +344,12 @@ Aviseringar kan konfigureras för att meddela personer när en viss mått övers
 
 Gå till en befintlig virtuell dator och sedan lägga till en varningsregel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns på [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure-portalen](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden i den **varningsregel** bladet och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Detaljer** |
+  |**Inställning** | **Värde** | **Information** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Namnet på regeln.|
   |**Beskrivning**|TCP-segment skickas överskridit tröskelvärdet|Beskrivning för regeln.|
   |**Mått**|TCP-segment som skickas| Mått som ska använda för att utlösa aviseringen. |
-  |**villkor**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
+  |**Tillstånd**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
   |**Tröskelvärde**|100| Värdet för det mått som utlöser aviseringen. Det här värdet sättas till ett giltigt värde för din miljö.|
   |**Period**|Under de senaste fem minuterna| Anger den period som du söker efter tröskelvärdet för måttet.|
   |**Webhook**|[webhook-URL från funktionsapp]| Webhook-URL från funktionsappen som skapades i föregående steg.|

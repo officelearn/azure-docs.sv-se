@@ -1,19 +1,18 @@
 ---
-title: 'Snabbstart: Visualisera data med hjälp av en SQL-fråga i Power BI'
+title: 'Snabbstart: Visualisera data från Azure Data Explorer med hjälp av en SQL-fråga i Power BI'
 description: 'I den här snabbstarten lär du dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: en SQL-fråga mot ett Azure Data Explorer-kluster.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756343"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045515"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Snabbstart: Visualisera data med Azure Data Explorer-kopplingen för Power BI
 

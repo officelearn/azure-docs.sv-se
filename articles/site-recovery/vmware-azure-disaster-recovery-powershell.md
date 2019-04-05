@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d70f2b2f0afb99263eaefe1122dba565231d978c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226343"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046936"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
@@ -28,32 +28,35 @@ Lär dig att:
 > - Skapa lagringskonton för att lagra data för replikering och replikera de virtuella datorerna.
 > - Utför en redundans. Konfigurera inställningar för växling vid fel, utföra en inställning för replikering av virtuella datorer.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](vmware-azure-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
-- Du har version 5.0.1 eller senare av AzureRm PowerShell-modulen. Om du behöver installera eller uppgradera Azure PowerShell kan du följa den här [guide om hur du installerar och konfigurerar Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- Du har Azure PowerShell `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell kan du följa den här [guide om hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med hjälp av cmdleten Connect-AzureRmAccount:
+Logga in på din Azure-prenumeration med hjälp av cmdleten Connect-AzAccount:
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
-Ange den prenumeration du vill replikera dina VMware-datorer till. Använd cmdleten Get-AzureRmSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Ange prenumerationen du arbetar med hjälp av cmdleten Select-AzureRmSubscription.
+Ange den prenumeration du vill replikera dina VMware-datorer till. Använd cmdleten Get-AzSubscription för att hämta listan över Azure-prenumerationer som du har åtkomst till. Ange prenumerationen du arbetar med hjälp av cmdleten Select-AzSubscription.
 
 ```azurepowershell
-Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
+Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 1. Skapa en resursgrupp som du skapar Recovery Services-valvet. I exemplet nedan heter VMwareDRtoAzurePS resursgruppen och de har skapats i regionen östra Asien.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
+   New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
    ```
    ```
    ResourceGroupName : VMwareDRtoAzurePS
@@ -66,7 +69,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 2. Skapa ett Recovery services-valv. I exemplet nedan Recovery services-valv heter VMwareDRToAzurePs och har skapats i regionen östra Asien, och i resursgruppen som skapades i föregående steg.
 
    ```azurepowershell
-   New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
+   New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
    ```
    ```
    Name              : VMwareDRToAzurePs
@@ -82,10 +85,10 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
-   $vault = Get-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
+   $vault = Get-AzRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
 
    #Download vault registration key to the path C:\Work
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    ```
    ```
    FilePath
@@ -102,7 +105,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 Anger du valvkontexten med hjälp av cmdleten Set-ASRVaultContext. När utförs efterföljande Azure Site Recovery-åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
 
 > [!TIP]
-> Azure Site Recovery PowerShell-modulen (AzureRm.RecoveryServices.SiteRecovery modul) levereras med lättanvända alias för de flesta cmdletarna. Cmdlets i modulen vara i formatet  *\<åtgärden >-**AzureRmRecoveryServicesAsr**\<objekt >* och har motsvarande alias som vara i formatet  *\<Åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för enklare läsning.
+> Azure Site Recovery PowerShell-modulen (Az.RecoveryServices modul) levereras med lättanvända alias för de flesta cmdletarna. Cmdlets i modulen vara i formatet  *\<åtgärden >-**AzRecoveryServicesAsr**\<objekt >* och har motsvarande alias som vara i formatet  *\< Åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för enklare läsning.
 
 I exemplet nedan, valvinformationen från $vault används variabeln för att ange valvets sammanhang för PowerShell-session.
 
@@ -115,11 +118,11 @@ I exemplet nedan, valvinformationen från $vault används variabeln för att ang
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Som ett alternativ till cmdlet Set-ASRVaultContext använda en också cmdleten Import-AzureRmRecoveryServicesAsrVaultSettingsFile att ställa in valvets sammanhang. Ange sökvägen där nyckelfilen för valvregistrering finns som parametern - path till Import-AzureRmRecoveryServicesAsrVaultSettingsFile-cmdlet. Exempel:
+Som ett alternativ till cmdlet Set-ASRVaultContext använda en också cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile att ställa in valvets sammanhang. Ange sökvägen där nyckelfilen för valvregistrering finns som parametern - path till Import-AzRecoveryServicesAsrVaultSettingsFile-cmdlet. Exempel:
 
    ```azurepowershell
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
-   Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
 Följande avsnitt i den här artikeln förutsätter att valvets sammanhang för Azure Site Recovery-åtgärder har ställts in.
 
@@ -321,11 +324,11 @@ I det här steget skapas storage-konton som ska användas för replikering. Dess
 
 ```azurepowershell
 
-$PremiumStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
+$PremiumStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
 
-$LogStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$LogStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 
-$ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 ```
 
 ## <a name="replicate-vmware-vms"></a>Replikera virtuella VMware-datorer
@@ -355,10 +358,10 @@ Nu replikera följande virtuella datorer med hjälp av inställningarna i den h�
 ```azurepowershell
 
 #Get the target resource group to be used
-$ResourceGroup = Get-AzureRmResourceGroup -Name "VMwareToAzureDrPs"
+$ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzureRmVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -444,7 +447,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -487,4 +490,4 @@ I det här steget ska vi inte över den virtuella datorn Win2K12VM1 till en spec
 2. När redundansväxlats, du kan commit igen och konfigurera omvänd replikering från Azure tillbaka till den lokala VMware-webbplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du automatiserar flera uppgifter med hjälp av den [referens för Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Lär dig hur du automatiserar flera uppgifter med hjälp av den [referens för Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 491c9f83767867daeef78138f52d815203b4290a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855847"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048010"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Skapa en Service Bus-auktoriseringsregel för namnområde och kö med en Azure Resource Manager-mall
 
@@ -32,14 +32,14 @@ Läs den fullständiga mallen, den [regelmall för Service Bus-auktorisering] [ 
 > [!NOTE]
 > Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
+> * [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
 > * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
 > * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
 > * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och söka efter **Service Bus**.
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 
@@ -49,7 +49,7 @@ Den här mallen använder [signatur för delad åtkomst (SAS)](service-bus-sas.m
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
-[![Distribuera till Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Deploy till Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametrar
 
@@ -156,7 +156,7 @@ JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.ser
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI

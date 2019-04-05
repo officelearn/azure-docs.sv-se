@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949630"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047947"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric-kluster programmässigt 
 
 Service Fabric-kluster som körs i Azure är byggt på VM-skalningsuppsättningar.  [Skalning av klustret](./service-fabric-cluster-scale-up-down.md) beskriver hur Service Fabric-kluster kan skalas antingen manuellt eller med regler för automatisk skalning. Den här artikeln beskriver hur du hanterar autentiseringsuppgifter och skala ett kluster i eller ut med fluent Azure SDK, som är ett mer avancerat scenario för beräkning. En översikt, läsa [programmeringsmetoder att samordna Azure skalningsåtgärder](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Hantera autentiseringsuppgifter
 En utmaning att skriva en tjänst kan hantera skalning är att tjänsten måste kunna komma åt skalningsuppsättningsresurser för virtuell dator utan en interaktiv inloggning. Det är enkelt att komma åt Service Fabric-klustret om tjänsten skalning ändrar sin egen Service Fabric-program, men autentiseringsuppgifter krävs för att få åtkomst till skalningsuppsättningen. Du kan använda för att logga in en [tjänstens huvudnamn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) skapats med den [Azure CLI](https://github.com/azure/azure-cli).
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Du kan också kan VM scale set-storlek också hanteras med PowerShell-cmdletar. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) Hämta skalningsuppsättningsobjekt för virtuell dator. Den aktuella kapaciteten är tillgänglig via den `.sku.capacity` egenskapen. När du har ändrat kapaciteten till önskat värde skalningsuppsättning för virtuell dator i Azure kan uppdateras med den [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) kommando.
+Du kan också kan VM scale set-storlek också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) Hämta skalningsuppsättningsobjekt för virtuell dator. Den aktuella kapaciteten är tillgänglig via den `.sku.capacity` egenskapen. När du har ändrat kapaciteten till önskat värde skalningsuppsättning för virtuell dator i Azure kan uppdateras med den [ `Update-AzVmss` ](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) kommando.
 
 När du lägger till en nod manuellt lägger till en skaluppsättningsinstans bör vara innehåller allt som behövs för att starta en ny Service Fabric-noden eftersom den skaluppsättningsmall tillägg att automatiskt ansluta nya instanser till Service Fabric-klustret. 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4223f9ec3bfaeacf7843508b13b5b5d81474311f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197329"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045704"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
 
@@ -32,11 +32,14 @@ Den här artikeln beskrivs hur du etablerar de självsignerade certifikat som kr
 Du kan använda en ny eller en befintlig Azure-resursgrupp för arbetet.  Den tidigare metoden används i följande förklaring.
 
 
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+
 ## <a name="create-the-certificate"></a>Skapa certifikatet
 
 Redigera och kör följande Azure Powershell-skript för att skapa certifikatfilen (.pfx) i en lokal mapp.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **Parameter**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Lokal mapp för att spara den .pfx-fil till  |
 | `$location`    | En av Azure standard geografiska platser  |
@@ -82,7 +85,7 @@ Redigera och kör följande Azure Powershell-skript för att skapa certifikatfil
 
 Kopiera innehållet i den [nyckelvalv Distributionsmall](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exemplet skriptet nedan för den här resursen är `C:\certLocation\keyvault.json`.)  Redigera och kör följande Azure Powershell-skript för att skapa en Azure Key Vault-instans och den associerade resursgruppen.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **Parameter**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Valfri numerisk sträng som läggs till distribution identifierare                     |
 | `$rgName`             | Azure-resurs (RG) gruppnamn för att skapa                                        |
@@ -130,7 +133,7 @@ Kopiera innehållet i den [nyckelvalv Distributionsmall](./cpp-key-vault-deploy-
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -181,9 +184,9 @@ Kopiera innehållet i den [nyckelvalv Distributionsmall](./cpp-key-vault-deploy-
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 

@@ -15,18 +15,21 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 84c7a39e121c3c41a0e57609efa076ce329aa331
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669239"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046401"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
 
 Att distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API Management är användbart när du vill publicera API: er med en omfattande uppsättning dirigeringsregler för dina Service Fabric-serverdelstjänster. Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara valfri tillståndslös tjänst för ingångstrafik, till exempel ett ASP.NET Core-program, Event Hubs, IoT Hub eller Azure API Management.
 
 Den här artikeln visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric för att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API Management till ett virtuellt nätverk och konfigurerat en API-åtgärd som dirigerar trafik till tillståndslösa servicedelstjänster. Mer information om Azure API Management-scenarier med Service Fabric finns i [översiktsartikeln](service-fabric-api-management-overview.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="availability"></a>Tillgänglighet
 
@@ -38,7 +41,7 @@ Den här artikeln visar hur du ställer in [Azure API Management](../api-managem
 Innan du börjar:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i en nätverkssäkerhetsgrupp.
 * Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](https://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
@@ -53,9 +56,9 @@ Nu när du har en säker [Windows-kluster](service-fabric-tutorial-create-vnet-a
 Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ```azurecli
@@ -244,9 +247,9 @@ $groupname = "sfclustertutorialgroup"
 $clusterloc="southcentralus"
 $templatepath="C:\clustertemplates"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
@@ -285,11 +288,11 @@ Nu kan du testa att skicka en begäran till din serverdelstjänst i Service Fabr
 
 Ett kluster består av andra Azure-resurser förutom själva klusterresursen. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
 
-Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret för.  Du hittar ditt prenumerations-ID genom att logga in på [Azure Portal](https://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med cmdleten [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret för.  Du hittar ditt prenumerations-ID genom att logga in på [Azure Portal](https://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med den [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ```azurecli
@@ -308,6 +311,10 @@ Läs mer om hur du använder [API Management](/azure/api-management/import-and-p
 
 [network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
 [network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
+vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

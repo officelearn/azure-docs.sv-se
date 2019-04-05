@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103833"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045721"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Skapa och ändra peering för en ExpressRoute-krets (klassisk)
 > [!div class="op_single_selector"]
@@ -32,9 +32,12 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänstleverantör
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Om distributionsmodeller för Azure**
+**Om Azures distributionsmodeller**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
@@ -59,17 +62,17 @@ Använd följande exempel för att logga in på Azure-kontot:
 1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Kontrollera prenumerationerna för kontot.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Om du har mer än en prenumeration väljer du den du vill använda.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.
@@ -332,7 +335,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
    * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Du kan skicka en kommaavgränsad lista om du planerar att skicka en uppsättning prefix. Dessa prefix måste vara registrerade åt dig i ett RIR/IR.
    * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade. **Valfritt**.
    * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
-   * En MD5-hash om du väljer att använda en. **Valfritt.**
+   * En MD5-hash om du väljer att använda en. **Valfri.**
      
    Kör följande cmdlet för att konfigurera Microsoft-peering för din krets:
  

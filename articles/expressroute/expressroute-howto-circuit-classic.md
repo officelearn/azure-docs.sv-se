@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5bf6f5662e20b003bd387a6826ab87117be3f113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075790"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047920"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
@@ -29,9 +29,12 @@ Den här artikeln vägleder dig igenom stegen för att kontrollera status, uppda
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Om distributionsmodeller för Azure**
+**Om Azures distributionsmodeller**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -49,17 +52,17 @@ Om du vill logga in på ditt Azure-konto, använder du följande exempel:
 1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Kontrollera prenumerationerna för kontot.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Om du har mer än en prenumeration väljer du den du vill använda.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.

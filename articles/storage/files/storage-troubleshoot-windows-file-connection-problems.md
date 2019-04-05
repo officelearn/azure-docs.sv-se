@@ -9,18 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1cadf61d7ce6ed48ea2d42b299dede860a505f0d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877439"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049735"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
 Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Windows-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) så att Windows klientmiljö har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
 
 <a id="error5"></a>
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fel 5 när du monterar en Azure-filresurs
 
 När du försöker montera en filresurs kan du få följande fel:
@@ -61,13 +64,13 @@ Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till
 
 För att kontrollera om din brandvägg eller Internetleverantören blockerar port 445, använda den [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) verktyget eller `Test-NetConnection` cmdlet. 
 
-Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
+Du använder den `Test-NetConnection` cmdlet, Azure PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
    
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 

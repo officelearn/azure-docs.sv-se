@@ -1,19 +1,18 @@
 ---
-title: 'Snabbstart: Visualisera data med hjälp av en fråga som importerats till Power BI'
+title: 'Snabbstart: Visualisera data från Azure Data Explorer med ett importerade fråga i Power BI '
 description: 'I den här snabbstarten lär du dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: importera fråga från Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756116"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050604"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Snabbstart: Visualisera data med hjälp av en fråga som importerats till Power BI
 
@@ -29,7 +28,7 @@ Du behöver följande för att slutföra den här snabbstarten:
 
 * En organisations e-postkonto som är medlem i Azure Active directory, så att du kan ansluta till [Azure Data Explorer-hjälpklustret](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
 
 * [Azure Data Explorer-skrivbordsapp](/azure/kusto/tools/kusto-explorer)
 

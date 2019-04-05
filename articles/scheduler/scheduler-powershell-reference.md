@@ -9,39 +9,41 @@ ms.reviewer: klam
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: a06439150ac255e7b436082ecc88702bf0c1dec1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c80e86699d671994a0989b99c0f97ebe2680592
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991104"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045005"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referens för PowerShell-cmdlets för Azure Scheduler
 
 > [!IMPORTANT]
-> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Du kan använda PowerShell-cmdletar för att skapa skript för att skapa och hantera Scheduler-jobb och jobbsamlingar. Den här artikeln innehåller högre [PowerShell-cmdletar för Azure Scheduler](/powershell/module/azurerm.scheduler) med länkar till deras referensartiklar. Om du vill installera Azure PowerShell för Azure-prenumerationen, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Mer information om [Azure Resource Manager-cmdletar](/powershell/azure/overview), se [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 | Cmdlet | Beskrivning |
 |--------|-------------|
-| [Inaktivera AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Inaktiverar en jobbsamling. |
-| [Aktivera AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Aktiverar en jobbsamling. |
-| [Get-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Hämtar Scheduler-jobb. |
-| [Get-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Hämtar jobbsamlingar. |
-| [Get-AzureRmSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |Hämtar jobbhistorik. |
-| [Ny AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azurermschedulerhttpjob) |Skapar en HTTP-jobb. |
-| [Ny AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azurermschedulerjobcollection) |Skapar en jobbsamling. |
-| [Ny AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebusqueuejob) | Skapar ett jobb för Service Bus-kö. |
-| [Ny AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebustopicjob) |Skapar ett jobb för Service Bus-ämne. |
-| [Ny AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerstoragequeuejob) |Skapar ett jobb för Storage-kö. |
-| [Ta bort AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/remove-azurermschedulerjob) |Tar bort ett Scheduler-jobb. |
-| [Ta bort AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azurermschedulerjobcollection) |Tar bort en jobbsamling. |
-| [Set-AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azurermschedulerhttpjob) |Ändrar ett Scheduler-HTTP-jobb. |
-| [Set-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azurermschedulerjobcollection) |Ändrar en jobbsamling. |
-| [Set-AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebusqueuejob) |Ändrar ett jobb för Service Bus-kö. |
-| [Set-AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Ändrar ett jobb för Service Bus-ämne. |
-| [Set-AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Ändrar ett jobb för Storage-kö. |
+| [Disable-AzSchedulerJobCollection](/powershell/module/az.scheduler/disable-azschedulerjobcollection) |Inaktiverar en jobbsamling. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/az.scheduler/enable-azschedulerjobcollection) |Aktiverar en jobbsamling. |
+| [Get-AzSchedulerJob](/powershell/module/az.scheduler/get-azschedulerjob) |Hämtar Scheduler-jobb. |
+| [Get-AzSchedulerJobCollection](/powershell/module/az.scheduler/get-azschedulerjobcollection) |Hämtar jobbsamlingar. |
+| [Get-AzSchedulerJobHistory](/powershell/module/az.scheduler/get-azschedulerjobhistory) |Hämtar jobbhistorik. |
+| [New-AzSchedulerHttpJob](/powershell/module/az.scheduler/new-azschedulerhttpjob) |Skapar en HTTP-jobb. |
+| [New-AzSchedulerJobCollection](/powershell/module/az.scheduler/new-azschedulerjobcollection) |Skapar en jobbsamling. |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/new-azschedulerservicebusqueuejob) | Skapar ett jobb för Service Bus-kö. |
+| [New-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/new-azschedulerservicebustopicjob) |Skapar ett jobb för Service Bus-ämne. |
+| [New-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/new-azschedulerstoragequeuejob) |Skapar ett jobb för Storage-kö. |
+| [Remove-AzSchedulerJob](/powershell/module/az.scheduler/remove-azschedulerjob) |Tar bort ett Scheduler-jobb. |
+| [Remove-AzSchedulerJobCollection](/powershell/module/az.scheduler/remove-azschedulerjobcollection) |Tar bort en jobbsamling. |
+| [Set-AzSchedulerHttpJob](/powershell/module/az.scheduler/set-azschedulerhttpjob) |Ändrar ett Scheduler-HTTP-jobb. |
+| [Set-AzSchedulerJobCollection](/powershell/module/az.scheduler/set-azschedulerjobcollection) |Ändrar en jobbsamling. |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/set-azschedulerservicebusqueuejob) |Ändrar ett jobb för Service Bus-kö. |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/set-azschedulerservicebustopicjob) |Ändrar ett jobb för Service Bus-ämne. |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/set-azschedulerstoragequeuejob) |Ändrar ett jobb för Storage-kö. |
 ||| 
 
 Mer information kan du köra dessa cmdlet: ar: 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336770"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049499"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -31,6 +31,9 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
 > [!NOTE]
 > Den här artikeln gäller för en Windows-utvecklingsmiljö.  Körningstiden för Service Fabric-kluster och Docker-körning måste köras på samma OS.  Du kan inte köra Windows-behållare på en Linux-kluster.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -293,9 +296,9 @@ $clustername = "mycluster"
 
 $subscriptionId = "subscription ID"
 
-Login-AzureRmAccount
+Login-AzAccount
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
@@ -304,10 +307,10 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 # Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
 # Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Kryptera lösenordet med cmdleten [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
 
@@ -723,6 +726,15 @@ Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du kör [containrar i Service Fabric](service-fabric-containers-overview.md).
 * Läs kursen [Distribuera ett .NET-program i en container](service-fabric-host-app-in-a-container.md).
+* Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
+* Se [kodexempel för Service Fabric-container](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
+
+[1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
+[2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
+självstudiekurs om c-Host-App-in-a-container.MD).
 * Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
 * Se [kodexempel för Service Fabric-container](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
 

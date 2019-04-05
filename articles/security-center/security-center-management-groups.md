@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871070"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045772"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Hanteringsgrupper
 Azure-hanteringsgrupper ger möjlighet att effektivt hantera åtkomst, principer och rapportering på grupper av prenumerationer samt hantera effektivt hela Azure-innehåll genom att utföra åtgärder på rot-hanteringsgruppen. Varje Azure AD-klient får en enskild översta hanteringsgrupp som kallas rot-hanteringsgruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Den här gruppen kan globala principer och RBAC-uppgifter som ska tillämpas på nivån för katalogen. 

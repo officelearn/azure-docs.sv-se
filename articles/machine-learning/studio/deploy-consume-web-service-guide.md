@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116715"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046027"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio-webbtjänster: Distribution och användning
 
@@ -36,7 +36,7 @@ Följande länkar ger allmän Information om hur du distribuerar en ny webbtjän
 * Börja med en fullständig genomgång om hur du skapar och distribuerar en webbtjänst [självstudie 1: Förutsäga kreditrisken](tutorial-part1-credit-risk.md).
 * Specifika exempel som distribuerar en webbtjänst finns:
 
-  * [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
+  * [Självstudie 3: Distribuera en kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
   * [Hur du distribuerar en webbtjänst till flera regioner](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Med web services-resursprovidern API: er (Azure Resource Manager API: er)
@@ -49,7 +49,7 @@ Azure Machine Learning Studio resource provider för webbtjänster möjliggör d
 
 Azure Machine Learning Studio resource provider för webbtjänster möjliggör distribution och hantering av webbtjänster med PowerShell-cmdletar.
 
-Om du vill använda cmdletarna som du måste först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. Om du inte känner till hur du anropar PowerShell-kommandon som är baserade på resurshanteraren, se [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Om du vill använda cmdletarna som du måste först logga in på ditt Azure-konto från PowerShell-miljö med hjälp av den [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Om du inte känner till hur du anropar PowerShell-kommandon som är baserade på resurshanteraren, se [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Om du vill exportera dina förutsägelseexperiment använder [den här exempelkoden](https://github.com/ritwik20/AzureML-WebServices). När du har skapat .exe-fil från kod som kan du skriva:
 
@@ -78,7 +78,7 @@ Här är ett exempel:
 
 Se följande artiklar och exempelkod för ytterligare information:
 
-* [Azure Machine Learning Studio-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) reference på MSDN
+* [Azure Machine Learning Studio-cmdletar](https://docs.microsoft.com/powershell/module/az.machinelearning) reference på MSDN
 * Exemplet [genomgången](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) på GitHub
 
 ## <a name="consume-the-web-services"></a>Använda webbtjänsterna
@@ -89,7 +89,7 @@ Du kan testa din webbtjänst från Azure Machine Learning Web Services-portalen.
 
 * [Distribuera en ny webbtjänst](publish-a-machine-learning-web-service.md)
 * [Distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
-* [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
+* [Självstudie 3: Distribuera en kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Från Excel
 

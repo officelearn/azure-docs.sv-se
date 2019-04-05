@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759646"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047270"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-Twin till ett befintligt projekt
 
@@ -30,10 +30,7 @@ Kärnan i modulen är den överordnade identitet. Övervakaren hanterar endpoint
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-> [!NOTE]
-> Obs! På grund av beroendet av AzureRM-modulen stöds distributionen för närvarande endast på Windows.
-
-Kontrollera att du har PowerShell och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) installerade tillägg.   Om du inte har gjort det ännu, klona GitHub-lagringsplatsen.  Öppna en kommandotolk eller terminal och kör:
+Kontrollera att du har PowerShell och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installerade tillägg.   Om du inte har gjort det ännu, klona GitHub-lagringsplatsen.  Öppna en kommandotolk eller terminal och kör:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 

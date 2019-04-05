@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665329"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045806"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
 Det finns många vanliga frågor om vad Service Fabric kan göra och hur den ska användas. Det här dokumentet beskriver många av dessa vanliga frågor och deras svar.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>Konfigurera och hantera kluster
 
@@ -133,7 +136,7 @@ Nej. Lågprioriterade virtuella datorer stöds inte.
 Här följer innebär för ditt program att hämta autentiseringsuppgifter för att autentisera till KeyVault:
 
 A. Under dina program build/förpackning jobb, kan du hämta ett certifikat till din SF-app-paket för data och används för att autentisera till KeyVault.
-B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>Programmets Design
 
@@ -189,4 +192,4 @@ Följ den [Service Fabric-bloggen](https://blogs.msdn.microsoft.com/azureservice
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [viktiga begrepp för Service Fabric](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md)
+Lär dig mer om [viktiga begrepp för Service Fabric](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md) is Fabric concepts](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md)

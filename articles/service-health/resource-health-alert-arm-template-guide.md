@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663442"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047525"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
 
@@ -22,30 +22,32 @@ Azure Resource Health håller dig informerad om aktuell och historisk hälsotill
 > [!NOTE]
 > Resource Health-aviseringar är för närvarande i förhandsversion.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa anvisningarna på den här sidan måste du konfigurera några saker i förväg:
 
-1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
 
 ## <a name="instructions"></a>Instruktioner
 1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > Du kan använda `Get-AzureRmSubscription` för att lista prenumerationerna som du har åtkomst till.
+    > Du kan använda `Get-AzSubscription` för att lista prenumerationerna som du har åtkomst till.
 
 2. Hitta och spara den fullständiga Azure Resource Manager-ID för din åtgärdsgrupp
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Skapa och spara en Resource Manager-mall för Resource Health-aviseringar som `resourcehealthalert.json` ([se information nedan](#resource-manager-template-for-resource-health-alerts))
 
 4. Skapa en ny Azure Resource Manager-distribution med hjälp av den här mallen
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Du uppmanas att ange Aviseringsnamn och åtgärden grupp resurs-ID som du kopierade tidigare:
 

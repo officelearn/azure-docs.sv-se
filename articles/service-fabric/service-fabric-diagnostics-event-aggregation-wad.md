@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662796"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046303"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -31,6 +31,9 @@ ms.locfileid: "58662796"
 När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i ditt kluster eller problem i program och tjänster som körs i klustret.
 
 Ett sätt att överföra och samla in loggar är att använda tillägg för Windows Azure Diagnostics SÄKERHETSSPECIFIKA som överför loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en plattform produkten analys som [Azure Monitor loggar](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande verktyg används i den här artikeln:
@@ -71,7 +74,7 @@ Du måste lägga till diagnostikkonfigurationen JSON till den fullständiga Reso
 
 Om du vill visa inställningen för diagnostik i Resource Manager-mallen, öppna filen azuredeploy.JSON och Sök efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen, Välj den **distribuera till Azure** knappen som är tillgängliga på den föregående länken.
 
-Du kan också du kan hämta exemplet för Resource Manager, göra ändringar i den och skapa ett kluster med den ändrade mallen med hjälp av den `New-AzureRmResourceGroupDeployment` i en Azure PowerShell-fönster. Se följande kod för parametrar som du anger i kommandot. Detaljerad information om hur du distribuerar en resursgrupp med hjälp av PowerShell finns i artikeln [distribuera en resursgrupp med Azure Resource Manager-mallen](../azure-resource-manager/resource-group-template-deploy.md).
+Du kan också du kan hämta exemplet för Resource Manager, göra ändringar i den och skapa ett kluster med den ändrade mallen med hjälp av den `New-AzResourceGroupDeployment` i en Azure PowerShell-fönster. Se följande kod för parametrar som du anger i kommandot. Detaljerad information om hur du distribuerar en resursgrupp med hjälp av PowerShell finns i artikeln [distribuera en resursgrupp med Azure Resource Manager-mallen](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Lägg till diagnostiktillägget i ett befintligt kluster
 Om du har ett befintligt kluster som inte har distribuerats diagnostik kan du lägga till eller uppdatera det. via mallen kluster. Ändra Resource Manager-mallen som används för att skapa det befintliga klustret eller ladda ned mallen från portalen enligt beskrivningen ovan. Ändra filen template.json genom att utföra följande uppgifter:
@@ -269,7 +272,7 @@ Att aktivera den **Base drift kanal** våra rekommendationer för omfattande log
 
 Om du vill uppdatera diagnostik för att samla in loggar från nya EventSource kanaler som representerar ett nytt program som att du är om att distribuera, utför samma kluster steg som tidigare angivits för installation av diagnostik för ett befintligt.
 
-Uppdatera den `EtwEventSourceProviderConfiguration` avsnitt i filen template.json lägga till poster för de nya EventSource kanalerna innan du tillämpar konfigurationen uppdatera med hjälp av den `New-AzureRmResourceGroupDeployment` PowerShell-kommando. Namnet på händelsekällan definieras som en del av din kod i Visual Studio-genererade ServiceEventSource.cs-filen.
+Uppdatera den `EtwEventSourceProviderConfiguration` avsnitt i filen template.json lägga till poster för de nya EventSource kanalerna innan du tillämpar konfigurationen uppdatera med hjälp av den `New-AzResourceGroupDeployment` PowerShell-kommando. Namnet på händelsekällan definieras som en del av din kod i Visual Studio-genererade ServiceEventSource.cs-filen.
 
 Exempel: om din händelsekälla heter Min Eventsource, lägger du till följande kod för att placera händelser från min Eventsource i en tabell med namnet MyDestinationTableName.
 
@@ -346,5 +349,7 @@ När du har korrekt konfigurerat Azure-diagnostik, visas data i ditt Storage-tab
 >Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabellen. Om du inte implementerar en process för att ta bort händelser från tabellen, i tabellen kommer att fortsätta att växa. För närvarande finns ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
 
 * [Lär dig att samla in prestandaräknare eller loggar med hjälp av Diagnostics-tillägg](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Händelseanalys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Händelseanalys och visualisering med Azure Monitor-loggar](service-fabric-diagnostics-event-analysis-oms.md)
 * [Händelseanalys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Händelseanalys och visualisering med Azure Monitor-loggar](service-fabric-diagnostics-event-analysis-oms.md)

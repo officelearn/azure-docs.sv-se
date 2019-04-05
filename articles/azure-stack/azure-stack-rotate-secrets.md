@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917568"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050262"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -63,13 +63,13 @@ Azure Stack stöder hemliga rotation med externa certifikat från en ny certifik
 
 |Installerade certifikat CA: N|Certifikatutfärdaren för att rotera till|Stöds|Azure Stack-versioner som stöds|
 |-----|-----|-----|-----|
-|Från självsignerat|To Enterprise|Stöds inte||
+|Från självsignerat|To Enterprise|Stöds|1903 och senare|
 |Från självsignerat|Att självsignerat|Stöds inte||
 |Från självsignerat|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
-|Från Enterprise|To Enterprise|Så länge som kunder använder samma företagets Certifikatutfärdare som används vid distribution som stöds|1803 och senare|
+|Från Enterprise|To Enterprise|Stöds. Från 1803 1903: stöds så länge som kunder använder samma företagets Certifikatutfärdare som används vid distribution|1803 och senare|
 |Från Enterprise|Att självsignerat|Stöds inte||
 |Från Enterprise|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
-|Från offentlig<sup>*</sup>|To Enterprise|Stöds inte|1803 och senare|
+|Från offentlig<sup>*</sup>|To Enterprise|Stöds|1903 och senare|
 |Från offentlig<sup>*</sup>|Att självsignerat|Stöds inte||
 |Från offentlig<sup>*</sup>|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
 

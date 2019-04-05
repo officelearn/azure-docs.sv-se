@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6e1a9b2fd34d915716225c6a1bda6e0371a510a9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438843"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049242"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i replikering från Azure till Azure
 
@@ -21,6 +21,9 @@ Azure Site Recovery använder en månatlig frisläppningstakt för att åtgärda
 
 Som vi nämnde i [Azure till Azure disaster recovery-arkitekturen](azure-to-azure-architecture.md), mobilitetstjänsten installeras på alla Azure-datorer (VM) som replikering har aktiverats, att replikera virtuella datorer från en Azure-region till en annan. När du använder Automatiska uppdateringar, uppdaterar mobilitetstjänsttillägget i varje ny version.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="how-automatic-updates-work"></a>Hur den automatiska uppdateringar arbete
 
 När du använder Site Recovery för att hantera uppdateringar, distribuerar en global runbook (används av Azure-tjänster) via ett automation-konto som skapats i samma prenumeration som valvet. Varje valv använder ett automation-konto. Runbook kontrollerar för varje virtuell dator i ett valv för aktiva automatiska uppdateringar och uppgraderingar mobilitetstjänsttillägget om det finns en nyare version.
@@ -342,7 +345,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 

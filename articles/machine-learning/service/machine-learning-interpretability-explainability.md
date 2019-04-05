@@ -1,5 +1,5 @@
 ---
-title: Modellen interpretability
+title: Modelltolkning
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder Azure Machine Learning Interpretability SDK för att förklara varför din modell förutsägelser. Den kan användas under utbildnings- och inferensjobb för att förstå hur din modell förutsägelser.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919732"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051809"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
-Lär dig hur du förklara varför din modell kommer förutsägelserna blir. Azure Machine Learning Interpretability SDK kan du förklara din modell, vilket är viktigt av följande skäl:
+I den här artikeln får du lära dig att förklara varför din modell gjort förutsägelserna det gjorde med hjälp av Azure Machine Learning Interpretability SDK. Att kunna förklarar din modell är viktigt av följande skäl:
 
 * Kunder och intressenter vill veta **om de kan känna sig trygga förutsägelserna din modell gör**.
 * Som en dataexpert du vill förstå **hur du frågar modellen om du vill söka efter insikter**. Du måste också verktyg för att fatta välgrundade beslut om **hur vi kan förbättra din modell**.
@@ -27,16 +27,10 @@ Lär dig hur du förklara varför din modell kommer förutsägelserna blir. Azur
 
 Machine learning interpretability är viktigt i två faser av machine learning-utvecklingscykeln: **utbildning** tid och **inferensjobb** tid:
 
-* Under **utbildning**: Modellen designers och bedömare kräver interpretability verktyg för att förklara utdata från en modell för intressenter att skapa förtroendet. Interpretability verktyg kan du felsöka modellen:
-
-    * Matchar sitt beteende mål?
-    * Är den prioriterar?
-
+* Under **utbildning**: Modellen designers och bedömare kräver interpretability verktyg för att förklara utdata från en modell för intressenter att skapa förtroendet. De måste också insikter om modellen så att de kan felsöka modellen och fatta beslut rörande om beteendet matchar sina mål. Slutligen måste se till att modellen inte prioriterar.
 * Under **inferensjobb**: Förutsägelser måste vara explainable till personer som använder din modell. Till exempel varför modellen neka en lånet eller förutsäga att en investeringsportfölj innebär en högre risk?
 
-Azure Machine Learning Interpretability SDK innehåller tekniker som utvecklats av Microsoft och beprövade bibliotek från tredje part (till exempel FORMDATA och grön). Det ger ett gemensamt API för integrerad bibliotek och integreras med Azure Machine Learning-tjänster. 
-
-Med detta SDK kan du förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
+Azure Machine Learning Interpretability SDK innehåller tekniker som utvecklats av Microsoft och beprövade bibliotek från tredje part (till exempel FORMDATA och grön). SDK: N skapar ett gemensamt API över bibliotek som är integrerade och integrerar Azure Machine Learning-tjänster. Med detta SDK kan du förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
@@ -48,11 +42,7 @@ Azure Machine Learning Interpretability returnerar en uppsättning information p
 
 * Global/lokal relativa funktionen prioritet
 * Global/lokal funktion och förutsägelser relation
-* Interaktiva visualiseringar för:
-
-    * Förutsägelser
-    * Funktionen och förutsägelser relationer
-    * Relativa funktionen vikten värden globalt och lokalt
+* Interaktiva visualiseringar som visar förutsägelser, funktionen funktion och förutsägelse relationen och relativt vikten värden globalt och lokalt
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -114,11 +104,7 @@ Förklaring-funktioner innehålla både modeller och pipelines som indata. Om en
 
 ### <a name="local-and-remote-compute-target"></a>Lokal och fjärransluten beräkningsmål
 
-Machine Learning Interpretability SDK är utformat för att arbeta med både lokala och fjärranslutna beräkningsmål. 
-
-* Om du kör **lokalt**, SDK: N inte kontakta Azure-tjänster.
-
-* Om du kör **via fjärranslutning**, information om körningen som loggas i Azure Machine Learning kör historik Services. Rapporter och visualiseringar från en förklaring finns tillgängliga på Azure Machine Learning-arbetsyta Portal för Användaranalys när den här informationen loggas.
+Machine Learning Interpretability SDK är utformat för att arbeta med både lokala och fjärranslutna beräkningsmål. Om du kör lokalt SDK-funktioner inte att kontakta Azure-tjänster. Du kan köra förklaring via fjärranslutning på beräkning av Azure Machine Learning och logga in informationen som förklaring på Azure Machine Learning kör historik Services. Rapporter och visualiseringar från en förklaring finns tillgängliga på Azure Machine Learning-arbetsyta Portal för Användaranalys när den här informationen loggas.
 
 ## <a name="train-and-explain-locally"></a>Träna och förklarar lokalt
 
@@ -138,9 +124,7 @@ Machine Learning Interpretability SDK är utformat för att arbeta med både lok
     model = clf.fit(x_train, y_train)
     ```
 
-2. Anropa förklaring. När instanser skapades av ett förklaring-objekt, skicka modellen och träningsdata. Du kan välja att skicka funktioner av intresse. Om du använder klassificering, skicka utdata klassnamn.
-
-    I följande exempel visar hur du skapar en förklaring objekt med hjälp av [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), och `LimeExplainer` lokalt. `TabularExplainer` anropar någon av tre explainers under (`TreeExplainer`, `DeepExplainer`, eller `KernelExplainer`), och automatiskt välja det passar bäst för ditt användningsområde. Men du kan anropa var och en av dess tre underliggande explainers direkt.
+2. Anropa förklaring: Om du vill initiera en förklaring-objekt, måste du skicka modell, träningsdata, funktionerna i intresse (valfritt) och klassnamn för utdata (om klassificering) till förklaring. Här är att skapa en instans av en förklaring objekt med hjälp av [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), och `LimeExplainer` lokalt. `TabularExplainer` anropar någon av tre explainers under (`TreeExplainer`, `DeepExplainer`, eller `KernelExplainer`), och automatiskt välja det passar bäst för ditt användningsområde. Men du kan anropa var och en av dess tre underliggande explainers direkt.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Om du vill skicka ett utbildnings kör, följer du stegen i den [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md#amlcompute) artikeln. Använd steg för att skapa ett mål för beräkning av Azure Machine Learning och skickar en utbildning-körning.
+2. Följ anvisningarna på [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md#amlcompute) mer information om hur du konfigurerar en Azure Machine Learning Compute som din beräkningsmål och skicka in din utbildning-körning.
 
 3. Hämta förklaring i din lokal Jupyter-anteckningsbok. 
 

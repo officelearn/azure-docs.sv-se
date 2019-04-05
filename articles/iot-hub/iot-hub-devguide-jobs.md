@@ -3,17 +3,17 @@ title: Förstå Azure IoT Hub-jobb | Microsoft Docs
 description: Utvecklarguide – schemaläggning av jobb som ska köras på flera enheter är anslutna till din IoT-hubb. Jobb kan uppdatera taggar och önskade egenskaper och anropa direktmetoder på flera enheter.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011372"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044380"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -154,4 +154,4 @@ Andra referensavsnitten i IoT Hub developer guide inkluderar:
 
 Se följande självstudie för IoT Hub för att prova några av de koncept som beskrivs i den här artikeln:
 
-* [Schemalägg och Sänd jobb](iot-hub-node-node-schedule-jobs.md)
+* [Schemalägga och sända jobb](iot-hub-node-node-schedule-jobs.md)

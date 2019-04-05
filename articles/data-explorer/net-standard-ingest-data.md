@@ -1,19 +1,18 @@
 ---
 title: 'Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)'
 description: I den här snabbstarten lär du dig att mata in (läsa in) data i Azure-datautforskaren med hjälp av .NET Standard SDK.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: 327ab46b01e15b77e675e052dbfe8b3453b566a6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757109"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044678"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
 
@@ -23,7 +22,7 @@ Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjäns
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* [Ett testkluster och en databas](create-cluster-database-portal.md)
+* [En testkluster och databas](create-cluster-database-portal.md)
 
 ## <a name="install-the-ingest-library"></a>Installera biblioteket för inmatning
 
@@ -236,4 +235,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+> [Skriva frågor](write-queries.md)

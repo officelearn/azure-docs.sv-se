@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668572"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044971"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Påbörja en växling för storage-konto (förhandsversion)
 
@@ -23,6 +23,8 @@ Den här artikeln visar hur du startar en konto-redundans för ditt lagringskont
 
 > [!WARNING]
 > En konto-redundans uppstår vanligen data gå förlorade. Förstå konsekvenserna av en konto-redundans och förbereda för förlust av data, granska [konto redundans konfigureringen](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +37,7 @@ Innan du kan utföra en konto-redundans på ditt lagringskonto måste du kontrol
 
 När du har initierat en konto-redundans för ditt lagringskonto kan uppdateras DNS-posterna för den sekundära slutpunkten så att den sekundära slutpunkten blir den primära slutpunkten. Se till att du förstår den potentiella effekten till ditt lagringskonto innan du startar en redundansväxling.
 
-Om du vill beräkna omfattningen av sannolikt dataförlust innan du startar en redundansväxling måste du kontrollera den **senaste synkroniseringstid** egenskapen med hjälp av den `Get-AzureRmStorageAccount` PowerShell-cmdleten och inkludera den `-IncludeGeoReplicationStats` parametern. Kontrollera sedan den `GeoReplicationStats` egenskapen för ditt konto. 
+Om du vill beräkna omfattningen av sannolikt dataförlust innan du startar en redundansväxling måste du kontrollera den **senaste synkroniseringstid** egenskapen med hjälp av den `Get-AzStorageAccount` PowerShell-cmdleten och inkludera den `-IncludeGeoReplicationStats` parametern. Kontrollera sedan den `GeoReplicationStats` egenskapen för ditt konto. 
 
 Efter redundansen kan konverteras din typ av lagringskonto automatiskt till lokalt redundant lagring (LRS) i den nya primära regionen. Du kan återaktivera geo-redundant lagring (GRS) eller read-access geo-redundant lagring (RA-GRS) för kontot. Observera att konvertering från LRS till GRS eller RA-GRS tillkommer en extra kostnad. Mer information finns i [prisinformation för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -105,5 +107,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>Nästa steg
 
 - [Disaster recovery och konto redundans (förhandsversion) i Azure Storage](storage-disaster-recovery-guidance.md)
-- [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Självstudier: Skapa ett program med hög tillgänglighet med Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
+- [Utforma högtillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring](../blobs/storage-create-geo-redundant-storage.md) 

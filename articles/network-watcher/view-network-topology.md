@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112746"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044336"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologi för Azure-nätverk
 
 I den här artikeln lär du dig visa resurser i ett virtuellt Microsoft Azure-nätverk och relationerna mellan resurserna. Till exempel innehåller ett virtuellt nätverk undernät. Undernät innehålla resurser, till exempel Azure-datorer (VM). Virtuella datorer har en eller flera nätverksgränssnitt. Varje undernät kan ha en nätverkssäkerhetsgrupp och en routningstabell som är associerade med den. Topologi-funktionen i Azure Network Watcher kan du visa alla resurser i ett virtuellt nätverk, de resurser som är kopplade till resurser i ett virtuellt nätverk och relationerna mellan resurserna.
 
 Du kan använda den [Azure-portalen](#azure-portal), [Azure CLI](#azure-cli), eller [PowerShell](#powershell) att visa en topologi.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>Visa topologi - Azure-portalen
 
@@ -85,38 +87,38 @@ Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-
 
 Du kan köra kommandon i stegen nedan:
 - I Azure Cloud Shell, genom att välja **prova** längst upp höger på alla kommandon. Azure Cloud Shell är ett interaktivt gränssnitt som har vanliga Azure-verktyg förinstallerat och har konfigurerats för att använda med ditt konto.
-- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn i den här artikeln kräver version 5.7.0-installationsprogram eller senare av AzureRm-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn i den här artikeln kräver Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-permissions.md).
 
-1. Om du redan har en nätverksbevakare i samma region som det virtuella nätverket som du vill skapa en topologi för vidare till steg 3. Skapa en resursgrupp som innehåller en nätverksbevakare med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp i den *eastus* region:
+1. Om du redan har en nätverksbevakare i samma region som det virtuella nätverket som du vill skapa en topologi för vidare till steg 3. Skapa en resursgrupp som innehåller en nätverksbevakare med [New AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp i den *eastus* region:
 
     ```azurepowershell-interactive
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
+    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Skapa en network watcher med [New AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). I följande exempel skapas en network watcher i regionen eastus:
+2. Skapa en network watcher med [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). I följande exempel skapas en network watcher i regionen eastus:
 
     ```azurepowershell-interactive
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_eastus `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Hämta en Network Watcher-instans med [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). I följande exempel hämtas en network watcher i regionen östra USA:
+3. Hämta en Network Watcher-instans med [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). I följande exempel hämtas en network watcher i regionen östra USA:
 
     ```azurepowershell-interactive
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Hämta en topologi med [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). I följande exempel hämtas en topologi för ett virtuellt nätverk i resursgruppen med namnet *MyResourceGroup*:
+4. Hämta en topologi med [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). I följande exempel hämtas en topologi för ett virtuellt nätverk i resursgruppen med namnet *MyResourceGroup*:
 
     ```azurepowershell-interactive
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

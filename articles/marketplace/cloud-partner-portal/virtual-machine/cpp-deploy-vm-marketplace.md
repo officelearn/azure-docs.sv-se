@@ -14,23 +14,24 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d800d2a9c4eced2fa347658ecbb5b7a97031d997
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838705"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049321"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Distribuera en virtuell dator från Azure Marketplace
 
 Den här artikeln förklarar hur du distribuerar en förkonfigurerad virtuell-dator (VM) från Azure Marketplace, med det medföljande Azure PowerShell-skriptet.  Det här skriptet visar också WinRM HTTP och HTTPS-slutpunkter på den virtuella datorn.  Skriptet kräver att du redan har ett certifikat som överförs till Azure Key Vault, enligt beskrivningen i [skapa certifikat för Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="vm-deployment-template"></a>Mall för distribution av virtuell dator
 
 Distributionsmall för Snabbstart för Azure VM är tillgänglig som filen online [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Det innehåller följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                 |
+|  **Parameter**        |   **Beskrivning**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | Namnet på lagringskontot                       |
 | dnsNameForPublicIP    | DNS-namnet för den offentliga IP-Adressen. Måste vara gemener.    |
@@ -53,7 +54,7 @@ Redigera följande Azure PowerShell-skript och köra den för att distribuera de
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
+New-AzResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
 
 ```
 

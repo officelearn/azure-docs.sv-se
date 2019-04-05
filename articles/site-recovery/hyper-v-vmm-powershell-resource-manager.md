@@ -8,16 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462564"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045636"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera haveriberedskap för Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
 Den här artikeln visar hur du automatiserar stegen för replikering av Hyper-V-datorer i System Center Virtual Machine Manager-moln till ett moln för Virtual Machine Manager i en sekundär lokal plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -59,31 +61,31 @@ Kontrollera att du har Azure PowerShell som är redo att sätta igång:
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Connect-AzureRmAccount #-Credential $Cred
+        Connect-AzAccount #-Credential $Cred
 2. Hämta en lista över dina prenumerationer, med prenumerations-ID. Observera ID för prenumerationen som du vill skapa Recovery Services-valvet. 
 
-        Get-AzureRmSubscription
+        Get-AzSubscription
 3. Ställ in prenumerationen för valvet.
 
-        Set-AzureRmContext –SubscriptionID <subscriptionId>
+        Set-AzContext –SubscriptionID <subscriptionId>
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 1. Skapa en resursgrupp i Azure Resource Manager om du inte har något.
 
-        New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
+        New-AzResourceGroup -Name #ResourceGroupName -Location #location
 2. Skapa ett nytt Recovery Services-valv. Spara valvobjekt i en variabel som ska användas senare. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Du kan hämta objektet valv när du har skapat med hjälp av cmdleten Get-AzureRMRecoveryServicesVault.
+    Du kan hämta objektet valv när du har skapat med hjälp av cmdleten Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Ange valvets sammanhang
 1. Hämta ett befintligt valv.
 
-       $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
+       $vault = Get-AzRecoveryServicesVault -Name #vaultname
 2. Ange valvets sammanhang.
 
-       Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+       Set-AzSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="install-the-site-recovery-provider"></a>Installera Site Recovery-providern
 1. Skapa en katalog på Virtual Machine Manager-datorn genom att köra följande kommando:
@@ -124,7 +126,7 @@ Kontrollera att du har Azure PowerShell som är redo att sätta igång:
         $AuthPort = "8083"  #specify the port number that will be used for replication traffic on Hyper-V hosts
         $InitialRepMethod = "Online" #options are "Online" or "Offline"
 
-        $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
+        $policyresult = New-AzSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
     > Virtual Machine Manager-molnet kan innehålla Hyper-V-värdar som kör olika versioner av Windows Server, men replikeringsprincipen är för en specifik version av ett operativsystem. Om du har olika värdar som körs på olika operativsystem kan du skapa separata replikeringsprinciper för varje system. Om du har fem värdar som kör Windows Server 2012 och tre värdar som körs på Windows Server 2012 R2 kan du till exempel skapa två replikeringsprinciper. Du skapar en för varje typ av operativsystem.
@@ -132,19 +134,19 @@ Kontrollera att du har Azure PowerShell som är redo att sätta igång:
 2. Hämta primära skyddsbehållaren (primära Virtual Machine Manager-moln) och återställning skyddsbehållaren (återställning Virtual Machine Manager-moln).
 
        $PrimaryCloud = "testprimarycloud"
-       $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
+       $primaryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 
        $RecoveryCloud = "testrecoverycloud"
-       $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
+       $recoveryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
 3. Hämta den replikeringsprincip som du skapade med hjälp av det egna namnet.
 
-       $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
+       $policy = Get-AzSiteRecoveryPolicy -FriendlyName $policyname
 4. Börja associationen mellan skyddsbehållaren (Virtual Machine Manager-moln) med replikeringsprincipen.
 
-       $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
+       $associationJob  = Start-AzSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
 5. Vänta tills principen association jobbet är slutfört. Om du vill kontrollera om jobbet har slutförts, använder du följande PowerShell-kodavsnitt:
 
-       $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
+       $job = Get-AzSiteRecoveryJob -Job $associationJob
 
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
@@ -164,12 +166,12 @@ Om du vill kontrollera åtgärden slutfördes, följer du stegen i [övervaka](#
 ##  <a name="configure-network-mapping"></a>Konfigurera nätverksmappning
 1. Använd det här kommandot för att hämta servrar för det aktuella valvet. Kommandot lagrar Site Recovery-servrar i $Servers matrisvariabel.
 
-        $Servers = Get-AzureRmSiteRecoveryServer
+        $Servers = Get-AzSiteRecoveryServer
 2. Kör detta kommando för att hämta nätverk för Virtual Machine Manager-källservern och målservern för Virtual Machine Manager.
 
-        $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
+        $PrimaryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[0]        
 
-        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+        $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
     > [!NOTE]
     > Virtual Machine Manager källservern kan vara det första eller andra i server-matris. Kontrollera Virtual Machine Manager-servernamn och hämta nätverk på rätt sätt.
@@ -177,7 +179,7 @@ Om du vill kontrollera åtgärden slutfördes, följer du stegen i [övervaka](#
 
 3. Denna cmdlet skapar en mappning mellan det primära nätverket och det recovery-nätverket. Den anger det primära nätverket som det första elementet i $PrimaryNetworks. Den anger recovery-nätverket som det första elementet i $RecoveryNetworks.
 
-        New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
+        New-AzSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
 
 ## <a name="enable-protection-for-vms"></a>Aktivera skydd för virtuella datorer
@@ -185,13 +187,13 @@ När servrar, moln och nätverk har konfigurerats korrekt och att aktivera skydd
 
 1. Om du vill aktivera skydd, kör du följande kommando för att hämta skyddsbehållaren:
 
-          $PrimaryProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
+          $PrimaryProtectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
 2. Hämta skyddad entitet (VM), enligt följande:
 
-           $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
+           $protectionEntity = Get-AzSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
 3. Aktivera replikering för den virtuella datorn.
 
-          $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+          $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 
@@ -199,24 +201,24 @@ Kör ett redundanstest för en enskild virtuell dator för att testa distributio
 
 1. Hämta den virtuella datorn där virtuella datorer att redundansväxla.
 
-       $Servers = Get-AzureRmSiteRecoveryServer
-       $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+       $Servers = Get-AzSiteRecoveryServer
+       $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
 2. Utför ett redundanstest.
 
    För en enskild virtuell dator:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
     
    För en återställningsplan:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
 
 Om du vill kontrollera åtgärden slutfördes, följer du stegen i [övervaka](#monitor-activity).
 
@@ -226,33 +228,33 @@ Om du vill kontrollera åtgärden slutfördes, följer du stegen i [övervaka](#
 
    För en enskild virtuell dator:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    För en återställningsplan:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
 2. Utför en oplanerad redundans.
 
    För en enskild virtuell dator:
         
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    För en återställningsplan:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## <a name="monitor-activity"></a>Övervakaraktivitet
 Använd följande kommandon för att övervaka redundans. Vänta tills bearbetningen till Slutför mellan jobb.
@@ -276,4 +278,4 @@ Använd följande kommandon för att övervaka redundans. Vänta tills bearbetni
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](/powershell/module/azurerm.recoveryservices.backup/) om Site Recovery med PowerShell och Resource Manager-cmdletar.
+[Läs mer](/powershell/module/az.recoveryservices) om Site Recovery med PowerShell och Resource Manager-cmdletar.

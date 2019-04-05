@@ -1,19 +1,18 @@
 ---
 title: 'Snabbstart: Fråga efter data i Azure Data Explorer'
 description: I den här snabbstarten får du lära dig hur du frågar efter och delar data i Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1774ae943dc96e07837a3cd155b5980ff732ceb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756140"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050568"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Fråga efter data i Azure Data Explorer
 
@@ -193,4 +192,4 @@ Du inte har skapat några resurser i den här snabbstarten, men om du vill ta bo
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor för Azure Data Explorer](write-queries.md)
+> [Skriv frågor för Azure Data Explorer](write-queries.md)

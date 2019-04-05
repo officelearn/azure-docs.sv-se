@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045492"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD-identitetsstyrning?
 
@@ -56,7 +56,7 @@ Vanligtvis IT delegerar åtkomst till godkännande beslut och beslutsfattare.  D
 
 Organisationer kan automatisera processen för åtkomst-livscykeln via tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), kopplade med användaretablering för [SaaS-appar](../saas-apps/tutorial-list.md) eller [appar som är integrerad med SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra som [gästanvändare har åtkomst till lokala program](../b2b/hybrid-cloud-to-on-premises.md).  Dessa komma åt rättigheter kan sedan granskas regelbundet med återkommande [Azure AD-åtkomstgranskningar](access-reviews-overview.md).
 
-När en användare försöker få åtkomst till program, Azure AD tillämpar [villkorlig åtkomst](/azure/active-directory/conditional-access/) principer. Principer för villkorlig åtkomst kan exempelvis innehålla visar en [användningsvillkoren](active-directory-tou.md) och [att se till att användaren har samtyckt till att dessa villkor](../conditional-access/require-tou.md) innan den kan komma åt ett program.
+När en användare försöker få åtkomst till program, Azure AD tillämpar [villkorlig åtkomst](/azure/active-directory/conditional-access/) principer. Principer för villkorlig åtkomst kan exempelvis innehålla visar en [användningsvillkoren](../conditional-access/terms-of-use.md) och [att se till att användaren har samtyckt till att dessa villkor](../conditional-access/require-tou.md) innan den kan komma åt ett program.
 
 ## <a name="privileged-access-lifecycle"></a>Livscykel för privilegierad åtkomst
 
@@ -69,19 +69,19 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 Även om det finns ingen perfekt lösning eller en rekommendation för varje kund, tillhandahåller följande konfigurationer en guide till vilka baslinjen principer som Microsoft rekommenderar för att säkerställa en säkrare och mer produktiva personal.
 
 - [Konfigurationer för identitets- och Enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
+- [Skydda privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Åtkomstgranskningar
 
 - [Vad är en åtkomstgranskning?](access-reviews-overview.md)
-- [Hantera användaråtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
+- [Hantera användarnas åtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
 - [Starta en åtkomstgranskning i Azure AD-roller](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 
-- [Vad kan jag göra med användningsvillkoren?](active-directory-tou.md)
+- [Vad kan jag göra med användningsvillkoren?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

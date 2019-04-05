@@ -1,19 +1,18 @@
 ---
-title: Skala Azure Data Explorer kluster ändrade behov
+title: Skala upp ett Azure Data Explorer-kluster för att tillgodose ändrade behov
 description: Den här artikeln beskriver steg för att skala upp och ned ett Datautforskaren i Azure-kluster utifrån ändrade begäran.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 565953c8e0c6f9765d5eeb16a9fa18c3e79b8370
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756331"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044943"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Hantera klustret skala upp för att hantera ändrade behov
 

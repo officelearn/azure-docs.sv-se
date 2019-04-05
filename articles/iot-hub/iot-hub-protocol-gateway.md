@@ -3,17 +3,17 @@ title: Azure IoT-protokollgatewayen | Microsoft Docs
 description: Hur du använder en Azure-IoT-protokollgatewayen för att utöka IoT Hub funktioner och Protokollstöd för att aktivera enheter att ansluta till hubben med hjälp av protokoll som inte stöds av IoT Hub automatiskt.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009859"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046435"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Stöd för ytterligare protokoll för IoT Hub
 Azure IoT Hub har har inbyggt stöd för kommunikation över MQTT-, AMQP- och HTTPS-protokoll. I vissa fall kan kanske enheter eller fält-gateways inte kan använda någon av följande standardprotokoll och kräver protokollet anpassning. I sådana fall kan använda du en anpassad gateway. En anpassad gateway aktiverar protokoll anpassning om IoT Hub-slutpunkter genom bryggning trafik till och från IoT Hub. Du kan använda den [Azure IoT-protokollgatewayen](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) som en anpassad gateway för att aktivera protokollet anpassning för IoT Hub.

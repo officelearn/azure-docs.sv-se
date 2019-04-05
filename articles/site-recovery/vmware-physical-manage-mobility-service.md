@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 441b58e60bf8dfd5f164ac24d746b9791158ade2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420124"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043816"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Hantera mobilitetsagenten på skyddade datorer
 
 Du konfigurerar mobilitetsagenten på servern när du använder Azure Site Recovery för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. Mobilitetsagenten samordnar kommunikationen mellan den skyddade datorn configuration server-/ skalbar processerver och hanterar datareplikering. Den här artikeln sammanfattas vanliga uppgifter för att hantera mobilitetsagenten när den har distribuerats.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="update-mobility-service-from-azure-portal"></a>Uppdateringen av mobilitetstjänsten från Azure-portalen
 
@@ -37,7 +40,7 @@ Du konfigurerar mobilitetsagenten på servern när du använder Azure Site Recov
 Använd följande skript för att uppgradera mobilitetstjänsten på en server via power shell-cmdlet
 
 ```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Uppdatera kontot som används för push-installation av mobilitetstjänsten

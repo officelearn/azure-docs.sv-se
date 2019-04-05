@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917693"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048817"
 ---
 # <a name="azure-stack-1903-update"></a>Uppdatering av Azure Stack 1903
 
@@ -64,6 +64,12 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 - Förbättringar för att upptäcka och reparation av ont om ledigt utrymme villkor.
 
+### <a name="secret-management"></a>Hemlighetshantering
+
+- Azure Stack har nu stöd för rotation av rotcertifikatet som används av certifikat för externa hemliga rotation. Mer information [finns i den här artikeln](azure-stack-rotate-secrets.md).
+
+- 1903 innehåller prestandaförbättringar för hemliga rotation som minskar tiden det tar för att köra interna hemliga rotation.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
@@ -91,7 +97,7 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 - När du kör [Test-AzureStack](azure-stack-diagnostic-test.md), visas ett varningsmeddelande från den Hanteringsstyrenheten för baskort (BMC). Du kan ignorera den här varningen.
 
-- <!-- 2468613 - IS --> Under installationen av den här uppdateringen kan du se aviseringar med rubriken `Error – Template for FaultType UserAccounts.New is missing.` du kan ignorera dessa aviseringar. Aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
+- <!-- 2468613 - IS --> Under installationen av den här uppdateringen kan du se aviseringar med rubriken **fel – mall för FaultType UserAccounts.New saknas.** Du kan ignorera dessa aviseringar. Aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
 
 ## <a name="post-update-steps"></a>Steg efter uppdateringen
 
@@ -151,9 +157,9 @@ Här följer efter installation kända problem för den här build-versionen.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för inloggning. Som en lösning kan använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
 
-- Om du inte har en maskinvara livscykel värden (HLH): Innan du build 1902, var du tvungen att ställa in Grupprincip *Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Lokala Principer\säkerhetsalternativ* till **Skicka LM & NTLM – använd NTLMv2-sessionssäkerhet om förhandlas**. Sedan build 1902, måste du lämna den som **inte har definierats** eller anger **endast skicka NTLMv2-svar** (vilket är ett standardvärde). I annat fall du kommer inte kunna upprätta en PowerShell-fjärrsession och du får en *åtkomst nekas* fel:
+- Om du inte har en maskinvara livscykel värden (HLH): före build 1902, var du tvungen att ställa in Grupprincip **Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Lokala Principer\säkerhetsalternativ** till **Skicka LM & NTLM – Använd NTLMv2-sessionssäkerhet om förhandlas**. Sedan build 1902, måste du lämna den som **inte har definierats** eller anger **endast skicka NTLMv2-svar** (vilket är standardvärdet). Annars kan du inte längre att upprätta en PowerShell-fjärrsession så ser du en **åtkomst nekas** fel:
 
-   ```PowerShell
+   ```shell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
@@ -169,7 +175,7 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- 3239127 - IS, ASDK -->
 - I Azure Stack-portalen när du ändrar en statisk IP-adress för en IP-konfiguration som är bunden till ett nätverkskort som är anslutet till en VM-instans visas ett varningsmeddelande som säger 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     Du kan ignorera det här meddelandet. IP-adressen ändras även om den Virtuella datorinstansen inte startar.
 
@@ -193,7 +199,6 @@ Här följer efter installation kända problem för den här build-versionen.
 
 <!-- 2352906 - IS ASDK --> 
 - Du måste registrera lagringsresursprovidern innan du skapar din första Azure-funktion i prenumerationen.
-
 
 <!-- ### Usage -->
 

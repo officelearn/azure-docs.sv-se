@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009926"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046316"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -309,7 +309,7 @@ Azure Resource Manager kräver att alla resursgrupper att ange en plats, vilket 
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Hur tar jag reda på det aktuella hälsotillståndet för varje slutpunkt?
 
-Den aktuella övervakning statusen för varje slutpunkt, förutom den övergripande profilen visas i Azure-portalen. Den här informationen är också tillgängligt via trafik övervakaren [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), och [plattformsoberoende Azure CLI](../cli-install-nodejs.md).
+Den aktuella övervakning statusen för varje slutpunkt, förutom den övergripande profilen visas i Azure-portalen. Den här informationen är också tillgängligt via trafik övervakaren [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.trafficmanager), och [plattformsoberoende Azure CLI](../cli-install-nodejs.md).
 
 Du kan också använda Azure Monitor för att spåra hälsotillståndet för dina slutpunkter och se en visuell representation av dem. Mer information om hur du använder Azure Monitor finns i den [Azure Monitoring dokumentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 

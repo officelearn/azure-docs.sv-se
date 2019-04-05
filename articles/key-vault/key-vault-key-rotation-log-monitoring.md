@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749722"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045993"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -
 
 ## <a name="introduction"></a>Introduktion
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 När du har ett nyckelvalv kan börja du använda det för att lagra nycklar och hemligheter. Dina program behöver inte längre att bevara dina nycklar eller hemligheter, men kan begära dem från valvet efter behov. Key vault kan du uppdatera nycklar och hemligheter utan att påverka beteendet för ditt program, vilket öppnar en bred möjligheterna för din nyckel och hemlighetshantering.
 
@@ -39,6 +37,8 @@ Den här artikeln beskriver:
 
 > [!NOTE]
 > Den här artikeln beskriver inte i detalj installationen av ditt nyckelvalv. Den här information finns i [vad är Azure Key Vault?](key-vault-overview.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [hantera Nyckelvalv med hjälp av Azure CLI](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Konfigurera Key Vault
 
@@ -166,6 +166,9 @@ När du kör ditt program bör du nu att autentisera till Azure Active Directory
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotation av med Azure Automation
 
+> [!IMPORTANT]
+> Azure Automation-runbooks fortfarande kräver användning av den `AzureRM` modulen.
+
 Du är nu redo att konfigurera en strategi för rotation för de värden som du lagrar som Key Vault-hemligheter. Hemligheter kan roteras på flera olika sätt:
 
 - Som en del av en manuell process
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 I redigerarfönstret väljer **Testfönster** att testa ditt skript. När skriptet har körts utan problem, du kan välja **publicera**, och du kan koppla ett schema för runbooken i fönstret konfiguration för runbook.

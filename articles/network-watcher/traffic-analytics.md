@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805065"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051894"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -28,6 +28,9 @@ Trafikanalys är en molnbaserad lösning som ger insyn i användar- och aktivite
 - Identifiera säkerhetshot till och skydda ditt nätverk, med information, till exempel öppna portar, program som försöker Internetåtkomst och virtuella datorer (VM) som ansluter till obehöriga nätverk.
 - Förstå trafikflödesmönster mellan Azure-regioner och internet för att optimera din nätverksdistribution för prestanda och kapacitet.
 - Identifiera nätverket felkonfigurationer som leder till misslyckade anslutningar i nätverket.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>Varför traffic analytics?
 
@@ -133,7 +136,7 @@ Om du vill analysera trafik, måste du ha en befintlig nätverksbevakaren eller 
 Innan du kan använda trafikanalys, måste du omregistrera din provider för nätverksresurser. Klicka på **prova** i kodrutan följande för att öppna Azure Cloud Shell. Cloud Shell loggar du in på din Azure-prenumeration. När Cloud Shell är öppet, anger du följande kommando för att registrera nätverksresursprovidern:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>Välj en grupp
@@ -153,13 +156,13 @@ Innan du aktiverar logginställningar för flödet, måste du utföra följande 
 Registrera Azure Insights-providern, om den inte redan är registrerad för din prenumeration:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 Om du inte redan har ett Azure Storage-konto för att lagra NSG flödet loggar in, måste du skapa ett lagringskonto. Du kan skapa ett lagringskonto med kommandot nedan. Ersätt innan du kör kommandot `<replace-with-your-unique-storage-account-name>` med ett namn som är unikt i alla Azure-platser, mellan 3 och 24 tecken långt, med hjälp av endast siffror och gemener. Du kan också ändra resursgruppens namn, om det behövs.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ Välj följande alternativ som visas på bild:
 
 Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafikanalys för. Data från flödesloggar skickas till arbetsytan, så se till att lokala lagar och bestämmelser i ditt land tillåter lagring av data i den region där arbetsytan finns.
 
-Du kan också konfigurera traffic analytics med hjälp av den [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell-cmdlet i AzureRm PowerShell-Modulversion 6.2.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Du kan också konfigurera traffic analytics med hjälp av den [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdlet i Azure PowerShell. Kör `Get-Module -ListAvailable Az` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="view-traffic-analytics"></a>Visa trafikanalys
 

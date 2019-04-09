@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990993"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056732"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -130,6 +130,17 @@ När du skapar klustret kan välja du om du ska skapa en offentlig IP-adress på
 
 * Om du skapar ett nytt virtuellt nätverk eller ett nytt undernät, tilldelas kontrollanten klustret en offentlig IP-adress.
 * Om du väljer ett befintligt virtuellt nätverk och undernät, har kontrollanten kluster endast privata IP-adresser. 
+
+## <a name="vm-access-roles"></a>VM access-roller 
+
+Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att auktorisera virtuella datorer att utföra vissa uppgifter i klustret. Kluster-styrenheten måste till exempel behörighet att skapa och konfigurera virtuella datorer i klusternoden. Klusternoderna måste kunna tilldela eller omtilldelar IP-adresser till andra noder i klustret.
+
+Två inbyggda roller för Azure används för Avere vFXT virtuella datorer: 
+
+* Kontrollanten klustret använder den inbyggda rollen [Avere deltagare](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Klusternoder använda den inbyggda rollen [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Om du vill anpassa åtkomst roller för Avere vFXT komponenter måste du definiera en egen roll och tilldela den till de virtuella datorerna när de skapas. Du kan inte använda mallen för distribution i Azure Marketplace. Kontakta Microsofts kundservice och Support genom att öppna en biljett i Azure-portalen, enligt beskrivningen i [få hjälp med ditt system](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Nästa steg: Förstå distributionsprocessen
 

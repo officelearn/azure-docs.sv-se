@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202018"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005545"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container Instances
 
@@ -41,7 +41,9 @@ Det här exemplet behållargruppen:
 
 ## <a name="deployment"></a>Distribution
 
-Här är två vanliga sätt att distribuera en grupp med flera behållare: använda en [Resource Manager-mall] [ resource-manager template] eller en [YAML-fil][yaml-file]. Använd en Resource Manager-mall när du behöver distribuera ytterligare Azure-tjänstresurser (till exempel en [Azure Files dela][azure-files]) när du distribuerar behållarinstanserna. På grund av YAML-format kortare natur rekommenderas en YAML-fil när distributionen omfattar endast behållarinstanser.
+Här är två vanliga sätt att distribuera en grupp med flera behållare: använda en [Resource Manager-mall] [ resource-manager template] eller en [YAML-fil][yaml-file]. Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure-tjänstresurser (till exempel en [Azure Files dela][azure-files]) när du distribuerar behållarinstanserna. På grund av YAML-format kortare natur rekommenderas en YAML-fil när distributionen omfattar endast behållarinstanser.
+
+För att bevara en behållargrupp konfiguration, kan du exportera konfigurationen till en YAML-fil med hjälp av Azure CLI-kommando [az container export][az-container-export]. Exportera kan du lagra dina behållare konfigurationer i versionskontroll för ”konfiguration som kod”. Eller Använd den exporterade filen som en startpunkt när du utvecklar en ny konfiguration i YAML.
 
 ## <a name="resource-allocation"></a>Resursallokering
 
@@ -110,3 +112,4 @@ Lär dig hur du distribuerar en behållargrupp med flera behållare med en Azure
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

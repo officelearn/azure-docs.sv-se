@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 17f7e7acc70047119b882a5bb6e60bfdf06f79c0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775466"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271526"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Åtkomst till molndata på en bärbar dator
 
@@ -80,9 +80,9 @@ När du arbetar med Cosmos DB kan du använda den [azure-cosmos DB-table](https:
 
 Azure tillhandahåller ett antal andra typer av databaser som du kan använda. Artiklarna nedan innehåller riktlinjer för att komma åt dessa databaser från Python:
 
-- [Azure Database för PostgreSQL: Använd Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Azure Database for PostgreSQL: Använda Python för att ansluta och fråga mot data](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Snabbstart: Använda Azure Redis Cache med Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database för MySQL: Använd Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for MySQL: Använda Python för att ansluta och fråga mot data](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Kopieringsguiden för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

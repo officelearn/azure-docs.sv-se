@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444641"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010149"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure table storage och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -537,7 +537,7 @@ Som vi redan nämnt i avsnittet [lägga till en entitet i en tabell](#add-an-ent
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Skapa en instans av en **TableQuery** objekt som anger frågan i den **där** satsen. Med hjälp av den **CustomerEntity** klass- och visas i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodfragment frågar tabellen för alla entiteter där den  **PartitionKey** (kundens efternamn) har värdet ”Smith”:
+1. Skapa en instans av en **TableQuery** objekt som anger frågan i den **där** satsen. Med hjälp av den **CustomerEntity** klass- och visas i avsnittet [lägga till en batch med entiteter i en tabell](#add-a-batch-of-entities-to-a-table), följande kodfragment frågar tabell efter alla entiteter där den **PartitionKey**  (kundens efternamn) har värdet ”Smith”:
 
     ```csharp
     TableQuery<CustomerEntity> query = 

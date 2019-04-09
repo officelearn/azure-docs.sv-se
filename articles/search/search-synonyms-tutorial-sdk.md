@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202375"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008983"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exempel: Lägga till synonymer för Azure Search i C#
 
@@ -36,9 +36,9 @@ Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstniv
 I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Search-tjänsten](search-create-service-portal.md)
+* [Azure Search-tjänst](search-create-service-portal.md)
 * [.NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) (Så använder du Azure Search från .NET-program)
+* [Hur du använder Azure Search från .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Översikt
 
@@ -175,4 +175,4 @@ Det snabbaste sättet att rensa upp efter ett exempel är genom att ta bort resu
 Det här exemplet visas den [synonymer REST API](https://aka.ms/rgm6rq) i C# kod för att skapa och publicera regler för mappning av och sedan anropa synonymmappningen på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Använda synonymer i Azure Search](search-synonyms.md)
+> [Hur du använder synonymer i Azure Search](search-synonyms.md)

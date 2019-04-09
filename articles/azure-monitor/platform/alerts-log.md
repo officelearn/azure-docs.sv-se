@@ -1,5 +1,5 @@
 ---
-title: Skapa, visa och hantera log aviseringar med Azure Monitor
+title: Skapa, visa och hantera log aviseringar med Azure Monitor | Microsoft Docs
 description: Använda Azure Monitor för att skapa, visa och hantera loggvarningsregler i Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873799"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006945"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -23,10 +23,10 @@ Den här artikeln visar hur du ställer in aviseringar med hjälp av gränssnitt
 - Villkor: Specifika villkor eller logik som när synts signalen ska utlösa åtgärd
 - Åtgärd: Specifika anrop som skickats till en mottagare av ett meddelande - e-post, SMS, webhook osv.
 
-Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad fråga baserat på [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](../../azure-monitor/platform/alerts-unified-log.md).
+Termen **Loggaviseringar** att beskriva aviseringar där signalen är loggfråga i en [Log Analytics-arbetsyta](../learn/tutorial-viewdata.md) eller [Application Insights](../app/analytics.md). Mer information om funktioner, terminologi och typer från [Loggaviseringar - översikt](alerts-unified-log.md).
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
+> Populära loggdata från [Log Analytics-arbetsytan](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Hantera aviseringar från Azure portal
 
@@ -58,7 +58,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
    > [!NOTE]
    > 
-   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../../azure-monitor/log-query/log-query-overview.md) eller [delade fråga i application insights Analytics](../../azure-monitor/log-query/log-query-overview.md).
+   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med loggfråga i Azure Monitor](../log-query/log-query-overview.md) eller [delade fråga i application insights analytics ](../log-query/log-query-overview.md).
 
 1. *Loggaviseringar*: När du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
@@ -126,12 +126,12 @@ Användarna kan också underkänts analytics-fråga i [logganalys](../log-query/
 Loggaviseringar i Azure Monitor är associerade med resurstyp `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Loggaviseringar för Application Insights eller Log Analytics, kan skapas med [schemalagda regler fråge-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
+> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Exempel på Log skapande av varning med Azure Resource-mall
 
-Följer strukturen för [skapa en schemalagd Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) baserat resursmall med standardloggen sökfråga [antal resultat typ log avisering](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), med exempeldatauppsättning som variabler.
+Följer strukturen för [skapa en schemalagd Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) baserat resursmall med standardloggen sökfråga [antal resultat typ log avisering](alerts-unified-log.md#number-of-results-alert-rules), med exempeldatauppsättning som variabler.
 
 ```json
 {
@@ -316,7 +316,7 @@ Azure Monitor - schemalagda Frågeregler API] (https://docs.microsoft.com/rest/a
 
 
 > [!NOTE]
-> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
+> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
 Aviseringar har för närvarande inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

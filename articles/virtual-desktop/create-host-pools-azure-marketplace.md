@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399873"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257458"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värd-pool med Azure Marketplace
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
 Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
 
@@ -116,6 +116,9 @@ Här följer de aktuella klienterna som stöds:
 
 - [Fjärrskrivbordsklient för Windows 7 och Windows 10](connect-windows-7-and-10.md)
 - [Virtuella Windows-skrivbordet webbklienten](connect-web.md)
+
+>[!IMPORTANT]
+>Om du vill att skydda din miljö för virtuella Windows-skrivbordet i Azure, rekommenderar vi du inte öppna inkommande port 3389 på dina virtuella datorer. Virtuella Windows-skrivbordet kräver inte en öppen inkommande port 3389 för användare att komma åt värden poolens virtuella datorer. Om du måste öppna port 3389 för felsökningsändamål kan vi rekommenderar att du använder [åtkomst till Virtuella just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Nästa steg
 

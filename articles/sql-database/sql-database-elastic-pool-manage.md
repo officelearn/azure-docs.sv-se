@@ -1,10 +1,10 @@
 ---
-title: Skapa och hantera elastiska pooler – Azure SQL-databas | Microsoft Docs
+title: Hantera elastiska pooler – Azure SQL-databas | Microsoft Docs
 description: Skapa och hantera elastiska Azure SQL-pooler.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
@@ -12,14 +12,14 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892406"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267590"
 ---
-# <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Hantera elastiska pooler i Azure SQL Database
 
 Du avgör mängden resurser som den elastiska poolen som krävs för att hantera arbetsbelastningen av dess databaser och mängden resurser för varje databas i pool med en elastisk pool.
 

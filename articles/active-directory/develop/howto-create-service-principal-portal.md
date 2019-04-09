@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: tomfitz
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: ee12cb2a0fdd4547ffae8dfce4fddee03167e539
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238070"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257424"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
-När du har kod som behöver åtkomst till eller ändra resurser kan skapa du en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela behörighet till tjänstens huvudnamn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvudnamn. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
+Den här artikeln visar hur du skapar en ny Azure Active Directory-program och tjänstens huvudnamn som kan användas med rollbaserad åtkomstkontroll. När du har kod som behöver åtkomst till eller ändra resurser kan skapa du en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela behörighet till tjänstens huvudnamn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvudnamn. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
 
 > [!IMPORTANT]
 > Överväg att använda hanterade identiteter för Azure-resurser för din Programidentitet istället för att skapa ett huvudnamn för tjänsten. Om din kod körs på en tjänst som stöder hanterade identiteter och åtkomst till resurser som stöder Azure Active Directory (Azure AD)-autentisering, är hanterade identiteter ett bättre alternativ för dig. Läs mer om hanterade identiteter för Azure-resurser, inklusive vilka tjänster för närvarande stöd för den i [vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
@@ -65,7 +66,7 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
    Om du inte ser den prenumeration som du letar efter, väljer **globala prenumerationer filter**. Kontrollera att den prenumeration du vill har valts för portalen. 
 
-1. Välj **åtkomstkontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)**.
 1. Välj **Lägg till rolltilldelning**.
 
    ![Välj Lägg till rolltilldelning](./media/howto-create-service-principal-portal/select-add.png)

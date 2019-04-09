@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3b728984b2bda836d3d4924b93f1b11a5d05d8bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ce2d39f3941030059cef329aa60e804a44d73a98
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342470"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263102"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Snabbstart: Få svar från knowledge base med cURL
 
@@ -28,13 +28,13 @@ Snabbstarten cURL-baserade beskriver hur du hämtar ett svar från din kunskapsb
 
 ## <a name="publish-to-get-endpoint"></a>Publicera för att få en slutpunkt
 
-När du är redo att generera ett svar på en fråga från din kunskapsbas kan du [publicera](../How-to/publish-knowledge-base.md) kunskapsbasen.
+När du är redo att generera ett svar på en fråga från din kunskapsbas kan du [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) kunskapsbasen.
 
 ## <a name="use-production-endpoint-with-curl"></a>Produktion slutpunkten med cURL
 
 När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. Den **CURL** fliken visas de inställningar som krävs för att generera ett svar på kommandoraden [CURL](https://www.getpostman.com).
 
-[![Publicera resultat](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
+[![Ppublicera resultaten](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
 Utför följande steg för att generera ett svar med CURL:
 

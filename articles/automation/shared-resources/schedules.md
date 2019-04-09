@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623175"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008654"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 
@@ -156,6 +156,9 @@ När du inaktiverar ett schema körs valfri runbook som inte längre länkad til
 1. I Azure-portalen från ditt Automation-konto väljer **scheman** under avsnittet **delade resurser** till vänster.
 2. Klicka på namnet på ett schema för att öppna informationsfönstret.
 3. Ändra **aktiverat** till **nr**.
+
+> [!NOTE]
+> Om du vill inaktivera ett schema som har en starttid tidigare, måste du ändra startdatum till en tidpunkt i framtiden innan du sparar den.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Inaktivera ett schema med PowerShell
 

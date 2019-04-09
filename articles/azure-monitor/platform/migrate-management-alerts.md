@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307198"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006792"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 
@@ -104,7 +104,7 @@ Om du vill skapa en ny aktivitet Log avisering, kan du antingen:
 * Följ [vår guide om hur du skapar en avisering i Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
 * Lär dig hur du [skapar en avisering med en Resource Manager-mall](../../azure-monitor/platform/alerts-activity-log.md)
  
-Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte automatiskt till Aktivitetsloggaviseringar. Du behöver använda föregående PowerShell-skriptet för att visa aviseringar för av hanteringshändelser att du har konfigurerat och manuellt återskapa dem som Aktivitetsloggaviseringar. Detta måste göras före 1 oktober efter aviseringar för av hanteringshändelser kommer inte längre att visas i din Azure-prenumeration. Andra typer av Azure-aviseringar, inklusive Azure Monitor måttaviseringar, Application Insights-aviseringar och Log Analytics-aviseringar påverkas inte av den här ändringen. Om du har några frågor kan du publicera i kommentarerna nedan.
+Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte automatiskt till Aktivitetsloggaviseringar. Du behöver använda föregående PowerShell-skriptet för att visa aviseringar för av hanteringshändelser att du har konfigurerat och manuellt återskapa dem som Aktivitetsloggaviseringar. Detta måste göras före 1 oktober efter aviseringar för av hanteringshändelser kommer inte längre att visas i din Azure-prenumeration. Andra typer av Azure-aviseringar, inklusive Azure Monitor måttaviseringar, Application Insights-aviseringar och Log Search aviseringar påverkas inte av den här ändringen. Om du har några frågor kan du publicera i kommentarerna nedan.
 
 
 ## <a name="next-steps"></a>Nästa steg

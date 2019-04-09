@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801274"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057446"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -41,7 +41,7 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 1. Fyll i hantering av grupp-ID-fältet.
 
-   - Den **Hanteringsgruppens ID** är den unika identifieraren för katalogen som används för att skicka kommandon på den här hanteringsgruppen. Den här identifieraren kan inte redigeras när du har skapat eftersom den används i hela Azure-systemet för att identifiera den här gruppen.
+   - Den **Hanteringsgruppens ID** är den unika identifieraren för katalogen som används för att skicka kommandon på den här hanteringsgruppen. Den här identifieraren är inte redigerbara när du har skapat eftersom den används i hela Azure-systemet för att identifiera den här gruppen. Den [rot-hanteringsgruppen](index.md#root-management-group-for-each-directory) skapas automatiskt med ett ID som är Azure Active Directory-ID. För alla andra hanteringsgrupper, tilldela ett unikt ID.
    - Visningsnamnet är det namn som visas i Azure-portalen. Ett separat visningsnamn är ett valfritt fält när du skapar hanteringen gruppen och kan ändras när som helst.  
 
    ![Alternativfönster för att skapa en ny hanteringsgrupp](./media/create_context_menu.png)  
@@ -79,7 +79,7 @@ az account management-group create --name 'Contoso'
 Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
-- [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
-- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
-- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)
+- [Ändra, ta bort eller hantera dina hanteringsgrupper](manage.md)
+- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](/powershell/module/az.resources#resources)
+- [Granska hanteringsgrupper i REST-API](/rest/api/resources/managementgroups)
+- [Granska av hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)

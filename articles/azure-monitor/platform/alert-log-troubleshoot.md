@@ -1,5 +1,5 @@
 ---
-title: Felsökning av aviseringar i Azure Monitor
+title: Felsökning av aviseringar i Azure Monitor | Microsoft Docs
 description: Vanliga problem, fel och lösningar för logg aviseringsregler i Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429454"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005302"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar aviseringar i Azure monitor. Det ger också lösningar på vanliga frågor om funktioner eller konfigurationen av aviseringar. 
+Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar aviseringar i Azure Monitor. Det ger också lösningar på vanliga frågor om funktioner eller konfigurationen av aviseringar. 
 
-Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassad fråga i [Log Analytics](../learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](../platform/alerts-unified-log.md).
+Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en loggfråga i en [Log Analytics-arbetsyta](../learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn fall när Azure-portalen visar och varningen aktiverades av regeln och ett meddelande som utförs av en tillhörande åtgärd-grupperna. Sådana fall finns information i artikeln på [åtgärdsgrupper](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Här följer några vanliga orsaker till varför en konfigurerade [loggvarningsr
 
 ### <a name="data-ingestion-time-for-logs"></a>Tid för inmatning av data för loggar
 
-Log avisering körs regelbundet frågan baserat på [Log Analytics](../learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Eftersom Log Analytics bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tid för datainmatning i Log Analytics).
+Log avisering körs regelbundet frågan baserat på [Log Analytics](../learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Eftersom Azure Monitor bearbetar många terabyte med data från tusentals kunder från olika källor i hela världen, är tjänsten sårbara för en varierande tidsfördröjning. Mer information finns i [tid för inmatning av Data i Azure Monitor-loggar](../platform/data-ingestion-time.md).
 
 För att minimera fördröjning för inmatning av data, systemet väntar och försöker aviseringsfrågan flera gånger om den hittar nödvändiga data inte matas ännu. Systemet har ett ökar exponentiellt väntetid som angetts. Vilka log aviseringar endast utlösare när data är tillgängliga så att de fördröjning kan bero på långsam logg för datainmatning. 
 
@@ -84,7 +84,7 @@ Detaljerad nästa är några vanliga orsaker till varför en konfigurerade [logg
 
 ### <a name="alert-triggered-by-partial-data"></a>Varningen aktiverades av partiella data
 
-Är Log Analytics och Application Insights Analytics är föremål för inmatning fördröjningar och bearbetning. på grund av som, kan vid tidpunkten när angivna loggvarningsfråga körs – det finnas fall ingen information är tillgänglig eller bara vissa data som är tillgängliga. Mer information finns i [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tid för datainmatning i Log Analytics).
+Är Log Analytics och Application Insights Analytics är föremål för inmatning fördröjningar och bearbetning. på grund av som, kan vid tidpunkten när angivna loggvarningsfråga körs – det finnas fall ingen information är tillgänglig eller bara vissa data som är tillgängliga. Mer information finns i [logga tid för inmatning av data i Azure Monitor](../platform/data-ingestion-time.md).
 
 Beroende på hur regeln har konfigurerats, det kan vara felaktigt firing om det finns inga eller partiella data i loggar vid tidpunkten för avisering körning. I sådana fall rekommenderar vi att du kan ändra aviseringsfråga eller konfiguration. 
 
@@ -100,4 +100,4 @@ Vad som visas i den **fråga som ska köras** rutan är varning Loggtjänsten k�
 
 - Lär dig mer om [Loggaviseringar i Azure-aviseringar](../platform/alerts-unified-log.md)
 - Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
-- Läs mer om [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Läs mer om [logga frågor](../log-query/log-query-overview.md)

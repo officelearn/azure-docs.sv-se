@@ -3,18 +3,18 @@ title: Optimera prestanda – Azure HDInsight Spark-jobb
 description: Visar vanliga strategier för den bästa prestandan av Spark-kluster.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117868"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058636"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
 
@@ -26,14 +26,14 @@ I följande avsnitt beskrivs vanliga optimeringar för Spark-jobb och rekommenda
 
 Tidigare versioner av Spark använder rdd-datauppsättningar till abstrakta data, Spark 1.3 och 1.6 introducerades dataramar och datauppsättningar, respektive. Överväg följande eller nackdelar:
 
-* **Dataramar**
+* **DataFrames**
     * Bästa val i de flesta situationer.
     * Innehåller Frågeoptimeringen via Catalyst.
     * Hela steg kodgenerering.
     * Direkt minnesåtkomst.
     * Liten skräpinsamling (GC) overhead.
     * Inte så utvecklarvänliga som datauppsättningar, eftersom det finns inga kompileringstid kontroller eller domän objektet programmering.
-* **Datauppsättningar**
+* **DataSets**
     * Bra i komplexa ETL-pipelines som där prestandapåverkan som är godtagbart.
     * Inte bra i aggregeringar där prestandapåverkan kan vara betydande.
     * Innehåller Frågeoptimeringen via Catalyst.
@@ -41,7 +41,7 @@ Tidigare versioner av Spark använder rdd-datauppsättningar till abstrakta data
     * Lägger till serialisering/deserialisering kostnader.
     * Hög GC-kostnader.
     * Delar upp hela steg kodgenerering.
-* **Rdd-datauppsättningar**
+* **RDDs**
     * Du behöver inte använda rdd-datauppsättningar, såvida du inte behöver skapa en ny anpassad RDD.
     * Inga Frågeoptimeringen via Catalyst.
     * Inga hela steg kodgenerering.
@@ -60,9 +60,10 @@ När du skapar ett nytt Spark-kluster har möjlighet att välja Azure Blob Stora
 
 | Store-typ | Filsystem | Hastighet | Tillfälligt | Användningsfall |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Tillfälliga kluster |
-| Azure Data Lake Storage | **ADL:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
-| Lokala HDFS | **hdfs:**//url/ | **Snabbaste** | Nej | Interaktiv 24/7-kluster |
+| Azure Blob Storage | **wasb [s]:**//url/ | **Standard** | Ja | Tillfälliga kluster |
+| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
+| Azure Data Lake Storage Gen1| **ADL:**//url/ | **Snabbare** | Ja | Tillfälliga kluster |
+| Local HDFS | **hdfs:**//url/ | **Snabbaste** | Nej | Interaktiv 24/7-kluster |
 
 ## <a name="use-the-cache"></a>Använda cache
 

@@ -1,27 +1,27 @@
 ---
-title: Egenskaperna för en B2B-samarbete användare – Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B-samarbete användaregenskaper kan konfigureras
+title: Egenskaperna för en B2B gästen användare – Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B-gäst användaregenskaper och tillstånd före och efter inlösning av inbjudan
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294662"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257611"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en användare för Azure Active Directory B2B-samarbete
 
-En Azure Active Directory (Azure AD) business-to-business (B2B) samarbete användare är en användare med UserType = gäst. Den här gästanvändare vanligtvis från en partnerorganisation och har begränsad behörighet i katalogen bjuder in som standard.
+Den här artikeln beskriver egenskaper och tillstånd för användarobjektet i Azure Active Directory (Azure AD) B2B gäst före och efter inlösning av inbjudan. Azure AD business-to-business (B2B) samarbete-användare är en användare med UserType = gäst. Den här gästanvändare vanligtvis från en partnerorganisation och har begränsad behörighet i katalogen bjuder in som standard.
 
 Beroende på behov i organisationen som bjuder in kan en Azure AD B2B-användare vara i något av följande konto tillstånd:
 

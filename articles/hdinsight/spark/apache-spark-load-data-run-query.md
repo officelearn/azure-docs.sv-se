@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448994"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058228"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -24,8 +24,6 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en dataram från en csv-fil
 > * Köra frågor i dataramen
-
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,7 +36,11 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
 ![Ögonblicksbild av data för en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Ögonblicksbild av data för en interaktiv Spark SQL-fråga")
 
 
-1. Öppna Jupyter-anteckningsboken som du skapade i avsnittet med förutsättningar.
+1. Öppna Jupyter-anteckningsboken som du skapade i kravavsnittet och skapa en ny anteckningsbok med PySpark.
+
+    > [!NOTE]  
+    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
+
 2. Klistra in följande kod i en tom cell i anteckningsboken och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
     ```python
@@ -58,10 +60,6 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Köra frågor i dataramen
 
 När tabellen har skapats kan du köra en interaktiv fråga på datan.
@@ -77,13 +75,13 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
      ![Tabellutdata från interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabellutdata från interaktivt Spark-frågeresultat")
 
-3. Du kan också visa resultaten i andra visualiseringar. Om du vill se ett ytdiagram för samma utdata väljer du **Yta** och anger sedan de andra värden som visas.
+2. Du kan också visa resultaten i andra visualiseringar. Om du vill se ett ytdiagram för samma utdata väljer du **Yta** och anger sedan de andra värden som visas.
 
     ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 
-10. I menyn **Arkiv** i anteckningsboken väljer du **Spara och kontrollpunkt**. 
+3. Från menyraden notebook navigerar du till **filen** > **spara och kontrollpunkt**.
 
-11. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Om den inte stänga ned anteckningsboken för att frigöra klusterresurserna: från den **filen** menyn i anteckningsboken och väljer **Stäng och stoppa**.
+4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Om den inte stänga ned anteckningsboken för att frigöra klusterresurserna: från menyraden notebook navigerar du till **filen** >  **Stäng och stoppa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -98,11 +96,10 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
-
-* Skapa en Apache Spark-dataram.
-* Kör Spark SQL mot dataramen.
+> [!div class="checklist"]
+> * Skapa en Apache Spark-dataram.
+> * Kör Spark SQL mot dataramen.
 
 Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI. 
 > [!div class="nextstepaction"]
 > [Analysera data med BI-verktyg](apache-spark-use-bi-tools.md)
-

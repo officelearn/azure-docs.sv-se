@@ -13,75 +13,70 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092709"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056987"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Atlassians moln för automatisk användaretablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Atlassians molnet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Atlassians moln. 
+Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Atlassians molnet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Atlassians moln.
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
-> 
+>
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-*   En Azure AD-klient
-*   [En Atlassians molnklient](https://www.atlassian.com/licensing/cloud)
-*   Ett användarkonto i Atlassians molnet med administratörsbehörighet.
+* En Azure AD-klient
+* [En Atlassians molnklient](https://www.atlassian.com/licensing/cloud)
+* Ett användarkonto i Atlassians molnet med administratörsbehörighet.
 
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den **Atlassians Cloud SCIM API**, som är tillgängliga för Atlassians molnet team.
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>Lägga till Atlassian Cloud från galleriet
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Lägg till Atlassians molnet från galleriet
+
 Du måste lägga till Atlassians molnet från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Atlassians molnet för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till Atlassians molnet från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen väljer **Azure Active Directory**.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **företagsprogram**, och välj sedan **alla program**.
 
-    ![Företagsprogram avsnittet][2]
-    
-3. Lägg till Atlassians molnet, klicka på den **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
-4. I sökrutan skriver **Atlassians molnet**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/app-search.png)
+4. I sökrutan anger **Atlassians molnet**väljer **Atlassians molnet** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
 
-5. I resultatpanelen väljer **Atlassians molnet**, och klicka sedan på den **Lägg till** vill lägga till Atlassians molnet i din lista över SaaS-program.
-
-    ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/app-create.png)
-
-    ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/app-instance.png)
+    ![Atlassian Cloud i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-atlassian-cloud"></a>Tilldela användare till Atlassians molnet
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som är ”kopplade” till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Atlassians molnet. När du valt, kan du tilldela dessa användare och/eller grupper till Atlassians moln genom att följa instruktionerna här:
 
-*   [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Viktiga tips för att tilldela användare till Atlassians molnet
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats Atlassians molnet för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats Atlassians molnet för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till Atlassians moln, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till Atlassians moln, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
 ## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Konfigurera automatisk användaretablering till Atlassians moln 
 
@@ -92,14 +87,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Konfigurera automatisk användaretablering för Atlassians molnet i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Atlassians molnet**.
 
-2. Välj Atlassians moln från listan med SaaS-program.
- 
-    ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/application-instance-search.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **Atlassians molnet**.
+
+    ![Atlassian Cloud-länken i programlistan](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
-    
+
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
 4. Ange den **Etableringsläge** till **automatisk**.
@@ -108,20 +105,20 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **klient-URL** och **hemlighet Token** av din Atlassians molnkonto. Exempel på dessa värden är:
 
-   * I den **klient-URL** fältet, Fyll specifik klient-slutpunkten som du får från Atlassians, enligt beskrivningen i steg 6. Till exempel: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * I den **klient-URL** fältet, Fyll specifik klient-slutpunkten som du får från Atlassians, enligt beskrivningen i steg 6. Till exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
 
 6. Gå till [Atlassians organisation Manager](https://admin.atlassian.com) **> Användaretablering** och klicka på **skapa en Token**. Kopiera den **Directory bas-URL** och **ägar-Token** till den **klient-URL** och **hemlighet Token** respektive fält.
 
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-    
+
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Atlassians moln. Om anslutningen misslyckas se till att ditt Atlassians Cloud-konto har administratörsbehörighet och försök igen.
 
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
-    
+
 8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/notification.png)
@@ -157,7 +154,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 17. När du är redo att etablera, klickar du på **spara**.
 
     ![Atlassians molnet etablering](./media/atlassian-cloud-provisioning-tutorial/save.png)
-
 
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Atlassians moln.
 

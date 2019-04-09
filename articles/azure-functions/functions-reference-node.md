@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437585"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010124"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -273,10 +273,10 @@ Gör att du kan skriva till direktuppspelningsloggarna funktion på standardniv�
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Skriver till Felnivån loggningen eller lägre.   |
-| **warn(_message_)**    | Skriver till varningsnivå loggningen eller lägre. |
+| **fel (_meddelande_)**   | Skriver till Felnivån loggningen eller lägre.   |
+| **Varna (_meddelande_)**    | Skriver till varningsnivå loggningen eller lägre. |
 | **info(_message_)**    | Skriver till info-nivån loggningen eller lägre.    |
-| **verbose(_message_)** | Skriver till utförlig loggning för nivån.           |
+| **utförlig (_meddelande_)** | Skriver till utförlig loggning för nivån.           |
 
 I följande exempel skriver en logg vid spårningsnivån varning:
 
@@ -350,12 +350,12 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 
 | Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Ett objekt som innehåller brödtext för begäran.               |
+| _brödtext_        | Ett objekt som innehåller brödtext för begäran.               |
 | _Rubriker_     | Ett objekt som innehåller de begärda rubrikerna.                   |
-| _Metoden_      | HTTP-metod för begäran.                                |
+| _metod_      | HTTP-metod för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
 | _parametrar_      | Ett objekt som innehåller parametrarna routning av begäran. |
-| _Fråga_       | Ett objekt som innehåller frågeparametrarna.                  |
+| _DocumentDB_       | Ett objekt som innehåller frågeparametrarna.                  |
 | _rawBody_     | Brödtexten i meddelandet som en sträng.                           |
 
 
@@ -365,7 +365,7 @@ Den `context.res` ()-svarsobjekt har följande egenskaper:
 
 | Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Ett objekt som innehåller brödtexten i svaret.         |
+| _brödtext_    | Ett objekt som innehåller brödtexten i svaret.         |
 | _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formatering hoppas för svaret.    |
 | _status_  | HTTP-statuskod i svaret.                     |

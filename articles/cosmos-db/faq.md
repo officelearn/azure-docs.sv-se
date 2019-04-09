@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881049"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010625"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -95,8 +95,9 @@ Följande villkor gäller för testa Azure Cosmos DB-prenumerationer:
 * Upp till tre samlingarna per prenumeration för MongoDB-konton.
 * 10 GB lagringskapacitet.
 * Global replikering finns tillgängligt i följande [Azure-regioner](https://azure.microsoft.com/regions/): Centrala USA, Norra Europa och Asien, sydöstra
-* Maximalt dataflöde på 5 K RU/s.
-* Prenumerationer upphör att gälla efter 24 timmar och kan utökas till högst 48 timmar totalt.
+* Maximalt dataflöde på 5 K RU/s när etablerats på behållarenivån.
+* Högsta dataflöde på 20 K RU/s när etablerats på databasnivå.
+* Prenumerationer upphör att gälla efter 30 dagar och kan utökas till upp till 31 dagar totalt.
 * Azure supportärenden kan skapas för testa Azure Cosmos DB-konton dock tillhandahåller support till prenumeranter med befintliga supportavtal.
 
 ## <a name="set-up-azure-cosmos-db"></a>Ställ in Azure Cosmos DB

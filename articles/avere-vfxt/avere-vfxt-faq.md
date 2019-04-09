@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404645"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057157"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -200,6 +200,14 @@ För latenskänsliga miljöer, bör du använda en fiber-lösning med en lägsta
 
 Nej, Avere vFXT är avsedd att köras i en nätverksmiljö skyddas genom bästa praxis.  
 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Kan jag begränsa åtkomst till internet från virtuellt nätverk för mitt kluster? 
+
+I allmänhet kan du konfigurera ytterligare säkerhet för dina virtuella nätverk efter behov, men vissa begränsningar kan störa driften av klustret.
+
+Till exempel orsakar att begränsa utgående Internetåtkomst från ditt vnet problem för klustret såvida inte du också lägga till regler som uttryckligen tillåter åtkomst till AzureConnectors och AzureCloud. Den här situationen beskrivs i [kompletterande dokumentation på GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Kontakta supporten för hjälp med anpassade säkerhet, enligt beskrivningen i [få hjälp med ditt system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## <a name="technical-back-end-storage-core-filers"></a>Teknisk: Backend-lagring (core-filter)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Hur många kärnor filter har stöd för en enda Avere vFXT miljö?
@@ -278,9 +286,9 @@ Nej, Avere vFXT kluster kräver ”alltid på” service. Klustren kan stängas 
 
 Kom igång med Avere vFXT för Azure genom dessa artiklar innehåller information om hur du planerar och distribuerar ditt system:
 
-* [Planera din Avere vFXT system](avere-vfxt-deploy-plan.md)
+* [Planera för ditt Avere vFXT-system](avere-vfxt-deploy-plan.md)
 * [Distributionsöversikt](avere-vfxt-deploy-overview.md)
 * [Förbereda för att skapa ett Avere vFXT-kluster](avere-vfxt-prereqs.md)
-* [Distribuera Avere vFXT-klustret](avere-vfxt-deploy.md)
+* [Distribuera Avere vFXT kluster](avere-vfxt-deploy.md)
 
 Mer information om funktioner och användningsfall för Avere vFXT genom att gå till [Avere vFXT för Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

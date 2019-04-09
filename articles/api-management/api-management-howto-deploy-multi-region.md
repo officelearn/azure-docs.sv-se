@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957767"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058047"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner
 
 Azure API Management har stöd för distribution i flera regioner, vilket gör det möjligt för API-utgivare att distribuera en enda Azure API management-tjänsten över valfritt antal önskade Azure-regioner. Detta bidrar till att minska begäran fördröjning uppfattas av geografiskt distribuerade API-kunderna och förbättrar även tillgänglighet om en region går offline.
 
-En ny Azure API Management-tjänst från början bara innehåller en [enhet] [ unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan enkelt läggas till via Azure-portalen. En API Management gateway-servern har distribuerats till varje region och anrop trafik dirigeras till närmaste gatewayen. Om en region går offline dirigeras trafiken automatiskt till nästa närmaste gatewayen.
+En ny Azure API Management-tjänst från början bara innehåller en [enhet] [ unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan enkelt läggas till via Azure-portalen. En API Management gateway-servern har distribuerats till varje region och anrop trafik dirigeras till den närmaste gatewayen när det gäller svarstider. Om en region går offline dirigeras trafiken automatiskt till nästa närmaste gatewayen.
 
 > [!NOTE]
 > Azure API Management replikerar endast API gateway-komponenten i olika regioner. Komponenten service management finns bara i den primära regionen. Vid ett strömavbrott i den primära regionen är tillämpa konfigurationsändringar på en Azure API Management-tjänstinstans inte möjligt - inklusive inställningar eller principer för uppdateringar.
@@ -105,6 +105,20 @@ Om du vill utnyttjar fullt ut geografisk fördelning av systemet, bör du ha bac
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> Du kan också klientdelens backend-tjänster med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)direkta API-anrop till Traffic Manager och låta det lösa routning automatiskt.
+
+## <a name="custom-routing"> </a>Använd anpassad routning till regionala API Management-gateways
+
+API Management dirigerar begärandena till en regional *gateway* utifrån [kortast svarstid](../traffic-manager/traffic-manager-routing-methods.md#performance). Det inte går att åsidosätta den här inställningen i API Management, men du kan använda din egen Traffic Manager med anpassade regler för routning.
+
+1. Skapa en egen [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Om du använder en anpassad domän, [använder den med Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) i stället för API Management-tjänsten.
+1. [Konfigurera API Management regionala slutpunkter i Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Regionala slutpunkterna följer mönstret för URL: en för `https://<service-name>-<region>-01.regional.azure-api.net`, till exempel `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Konfigurera API Management regionala status slutpunkter i Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Regionala status slutpunkter följer mönstret för URL: en för `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, till exempel `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Ange [routningmetod](../traffic-manager/traffic-manager-routing-methods.md) av Traffic Manager.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

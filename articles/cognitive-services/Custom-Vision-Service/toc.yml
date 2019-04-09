@@ -51,16 +51,20 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: Använd förutsägelse-API:t
     href: use-prediction-api.md
-  - name: Exportera din modell till mobil
-    href: export-your-model.md
-  - name: Använda ONNX-modellen med Windows ML
-    href: custom-vision-onnx-windows-ml.md
-  - name: Köra TensorFlow-modellen i Python
-    href: export-model-python.md
+  - name: Exportera modeller
+    items:
+    - name: Exportera din modell till mobil
+      href: export-your-model.md
+    - name: Använda ONNX-modellen med Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Köra TensorFlow-modellen i Python
+      href: export-model-python.md
   - name: Exportera eller ta bort kontodata
     href: ./export-delete-data.md
   - name: Flytta projektet med den begränsade utvärderingsversionen till Azure
     href: ./move-your-project-to-azure.md
+  - name: Uppdatera din app till API-version 3.0
+    href: ./update-application-to-3.0-sdk.md
 - name: Referens
   items:
   - name: API för Custom Vision Training
@@ -97,9 +101,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Viktig information
     href: release-notes.md
-ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893559"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044767"

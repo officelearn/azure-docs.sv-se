@@ -1,19 +1,18 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805133"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259464"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Översikt över tjänsten Azure Policy
 
@@ -146,7 +145,7 @@ Följande översikt över Azure Policy är från Build 2018. För nedladdning av
 Nu när du har en översikt över Azure Policy och några av de centrala begreppen föreslår vi följande som nästa steg:
 
 - [Tilldela en principdefinition med hjälp av portalen](assign-policy-portal.md)
-- [Tilldela en principdefinition med hjälp av Azure CLI](assign-policy-azurecli.md)
+- [Tilldela en principdefinition med Azure CLI](assign-policy-azurecli.md)
 - [Tilldela en principdefinition med hjälp av PowerShell](assign-policy-powershell.md)
 - Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](..//management-groups/overview.md)
 - Visa sidan om att [styra Azure-miljön via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) på Channel 9

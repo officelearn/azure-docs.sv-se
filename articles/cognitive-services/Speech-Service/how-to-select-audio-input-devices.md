@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550696"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010387"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
 
-Version 1.3.0 av Speech SDK innehåller ett API för att välja ljudindata. Den här artikeln beskriver hur du skaffar ID:n för ljudenheterna som är anslutna till ett system.
+Version 1.3.0 av tal SDK innehåller en API för att välja ljudindata.
+Den här artikeln beskriver hur du skaffar ID: N för ljudenheter som är ansluten till ett system.
 Dessa kan sedan användas i Speech SDK genom att du konfigurerar ljudenheten med `AudioConfig`-objektet:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Den här funktionen är ännu inte tillgänglig från JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Mikrofon användning är inte tillgänglig för JavaScript körs i Node.js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Ljudenhets-ID:n i Windows för datorprogram
 
@@ -367,6 +371,10 @@ Till exempel instruktionen
 ```
 
 innebär att ett Bluetooth-headset kan användas för en talaktiverad app.
+
+## <a name="audio-device-ids-in-javascript"></a>Ljudenhet ID: N i JavaScript
+
+I JavaScript i [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) metoden kan användas för att räkna upp mediaenheter och hitta en enhets-ID för att skicka till `fromMicrophone(...)`.
 
 ## <a name="next-steps"></a>Nästa steg
 

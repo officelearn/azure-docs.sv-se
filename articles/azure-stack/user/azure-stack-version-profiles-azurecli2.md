@@ -14,16 +14,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487591"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057786"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan följa stegen i den här artikeln för att ställa in Azure kommandoradsgränssnitt (CLI) att hantera resurser i Azure Stack Development Kit (ASDK) från Linux, Mac och Windows-klientplattformar.
 
@@ -99,7 +99,7 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
     python -m pip install --upgrade pip
     ```
 
-3. Installera den **certifi** modulen. [Certifi](https://pypi.org/project/certifi/) en modul och en samling av rotcertifikat för att verifiera trovärdigheten för SSL-certifikat vid verifiering av identiteten för TLS-värdar. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
+3. Installera den **certifi** modulen. [Certifi](https://pypi.org/project/certifi/) är en modul och en samling av rotcertifikat för att verifiera trovärdigheten för SSL-certifikat vid verifiering av identiteten för TLS-värdar. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Installera den **certifi** modulen. [Certifi](https://pypi.org/project/certifi/) en modul och en samling av rotcertifikat för att verifiera trovärdigheten för SSL-certifikat vid verifiering av identiteten för TLS-värdar. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
+3. Installera den **certifi** modulen. [Certifi](https://pypi.org/project/certifi/) är en modul och en samling av rotcertifikat för att verifiera trovärdigheten för SSL-certifikat vid verifiering av identiteten för TLS-värdar. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
     ```bash
     pip3 install certifi

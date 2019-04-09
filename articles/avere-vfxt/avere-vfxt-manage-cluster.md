@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745562"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058058"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
@@ -98,7 +98,7 @@ Ange följande värden:
 * Resursgruppens namn för klustret, samt för nätverk och lagringsresurser om de inte är samma som klustret
 * Klusterplats
 * Klusternätverk och undernät 
-* Klusterrollen noden åtkomst 
+* Klusterrollen noden åtkomst (Använd den inbyggda rollen [Avere operatorn](../role-based-access-control/built-in-roles.md#avere-operator))
 * Klustrets IP-adress för hantering och administrativa lösenord 
 * Antalet noder för att lägga till (1, 2 eller 3)
 * Noden instans typ och cache storlek värden 
@@ -113,7 +113,7 @@ Om du inte använder prototypen, måste du skapa ett kommando som i följande, i
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ Du kan ta bort noden instanser permanent genom att ta bort dem i Azure-portalen.
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Ta bort ytterligare klusterresurser från Azure portal
 
-Om du har skapat ytterligare resurser specifikt för klustret vFXT kanske du vill ta bort dem som en del av man bryta ner klustret. Du bör inte ta bort element som innehåller data som du behöver eller alla objekt som delas med andra projekt.
+Om du har skapat ytterligare resurser specifikt för klustret vFXT kanske du vill ta bort dem som en del av man bryta ner klustret. Förstör inte element som innehåller data som du behöver eller alla objekt som delas med andra projekt.
 
 Överväg att ta bort dessa komponenter utöver tar bort noder i klustret: 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399683"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006585"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -36,21 +36,19 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 
 ## <a name="global-prerequisites"></a>Globala krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Aktiva Azure-prenumeration om du inte har någon, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 - Log Analytics-arbetsyta. Lär dig hur du [skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Deltagarbehörighet till din klient för att aktivera Sentinel-Azure
-
-- Klient som är global eller administratörsbehörigheter för säkerhet
- 
+    - Deltagarbehörighet till den resursgrupp som är kopplad till Sentinel-Azure
+    - Deltagarbehörighet till en resursgrupp att aktivera Sentinel-Azure 
 
 ## Aktivera Azure Sentinel <a name="enable"></a>
 
 1. Gå till Azure-portalen.
 2. Kontrollera att den prenumeration som Azure Sentinel skapas, har valts. 
 3. Sök efter Azure Sentinel. 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![sök](./media/quickstart-onboard/search-product.png)
 
 1. Klicka på **+ Lägg till**.
 1. Välj den arbetsyta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbetsyta, men data är isolerade i en enda arbetsyta.

@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878034"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59010581"
 ---
-# <a name="saas-fulfillment-api"></a>SaaS betjäna API
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends API: er för Version 2 
 
 Den här artikeln beskriver API som gör det möjligt för oberoende programvaruleverantörer (ISV) för att integrera sina SaaS-program med Azure Marketplace. Detta API kan ISV-program att delta i alla commerce aktiverat kanaler: direct partnerledd (återförsäljare) ledde till fältet.  Detta API är ett krav för lista transactable SaaS-erbjudanden på Azure Marketplace.
 
@@ -73,14 +73,34 @@ Det här tillståndet anger att en kund betalning inte har tagits emot. I princi
 
 Prenumerationer nå det här tillståndet som svar på en explicit kundfråga eller som svar på utebliven betalning av avgifter. Förväntar sig från ISV: er är att kundens data bevaras för återställning på begäran för en period av minst X dagar och tas sedan bort. 
 
+
 ## <a name="api-reference"></a>API-referens
 
-Det här avsnittet beskrivs SaaS *prenumeration API* och *Operations API*.
+Det här avsnittet beskrivs SaaS *prenumeration API* och *Operations API*.  Värdet för den `api-version` parametern för version 2 API: er är `2018-08-31`.  
+
+
+### <a name="parameter-and-entity-definitions"></a>Parametern-och entiteten
+
+Tabellen nedan innehåller definitioner för gemensamma parametrar och entiteter som används av Techtrends API: er.
+
+|     Entity/Parameter     |     Definition                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | GUID-identifierare för en SaaS-resurs  |
+| `name`                   | Eget namn för den här resursen från kunden |
+| `publisherId`            | Unik sträng-identifierare som genererats automatiskt för varje utgivare, till exempel ”conotosocorporation” |
+| `offerId`                | Unik sträng-identifierare som genererats automatiskt för varje erbjudande, till exempel ”contosooffer1”  |
+| `planId`                 | Unik sträng-identifierare som genererats automatiskt för varje plan/sku, till exempel ”contosobasicplan” |
+| `operationId`            | GUID-identifierare för en viss åtgärd  |
+|  `action`                | Den åtgärd som utförs på en resurs, antingen `subscribe`, `unsubscribe`, `suspend`, `reinstate`, eller `changePlan`  |
+|   |   |
+
+Globalt unika identifierare ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) är 128-bitars (32 hexadecimala) värden som genereras vanligtvis automatiskt. 
 
 
 ### <a name="subscription-api"></a>Prenumeration API
 
 Prenumeration API stöder HTTPS följande åtgärder: **Hämta**, **Post**, **Patch**, och **ta bort**.
+
 
 #### <a name="list-subscriptions"></a>Lista prenumerationer
 
@@ -106,34 +126,37 @@ Visar alla SaaS-prenumerationer för en utgivare.
 *Svarskoder:*
 
 Kod: 200<br>
-Baserat på auth token get utgivare och motsvarande prenumerationer för erbjudanden som alla utgivare.<br> Svarsnyttolasten:<br>
+Baserat på authN-token kan hämta utgivare och motsvarande prenumerationer för erbjudanden som alla utgivare.<br> Svarsnyttolasten:<br>
 
 ```json
 {
-  "subscriptions": [
+  [
       {
-          "id": "",
-          "name": "CloudEndure for Production use",
-          "publisherId": "cloudendure",
-          "offerId": "ce-dr-tier2",
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "cont-cld-tier2",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "status": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+
+Fortsättningstoken är endast tillgänglig om det finns ytterligare ”sidor” i planer för att hämta. 
+
 
 Kod: 403 <br>
 Ej auktoriserad. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella användaren. 
@@ -174,22 +197,22 @@ Hämtar den angivna SaaS-prenumerationen. Använd det här anropet att hämta li
 *Svarskoder:*
 
 Kod: 200<br>
-Hämtar saas-prenumeration från identifierare<br> Svarsnyttolasten:<br>
+Hämtar SaaS-prenumeration från identifierare<br> Svarsnyttolasten:<br>
 
 ```json
 Response Body:
 { 
         "id":"",
-        "name":"CloudEndure for Production use",
-        "publisherId": "cloudendure",
-        "offerId": "ce-dr-tier2",
+        "name":"Contoso Cloud Solution",
+        "publisherId": "contoso",
+        "offerId": "cont-cld-tier2",
         "planId": "silver",
         "quantity": "10"",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
@@ -240,25 +263,23 @@ Använd det här anropet för att ta reda på om det finns några privata/offent
 Kod: 200<br>
 Hämta en lista över tillgängliga planer för en kund.<br>
 
+Svarstext:
+
 ```json
-Response Body:
-[{
-    "planId": "silver",
-    "displayName": "Silver",
-    "isPrivate": false
-},
 {
-    "planId": "silver-private",
-    "displayName": "Silver-private",
-    "isPrivate": true
-}]
+    "plans": [{
+        "planId": "Platinum001",
+        "displayName": "Private platinum plan for Contoso",
+        "isPrivate": true
+    }]
+}
 ```
 
 Kod: 404<br>
 Kunde inte hittas<br> 
 
 Kod: 403<br>
-Ej auktoriserad. Auth-token har inte angetts är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella användaren. <br> 
+Ej auktoriserad. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella användaren. <br> 
 
 Kod: 500<br>
 Internt serverfel<br>
@@ -301,12 +322,12 @@ Löser täckande token till en SaaS-prenumeration.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",  
-    "subscriptionName": "My Saas application",
-    "offerId": "ce-dr-tier2",
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "cont-cld-tier2",
     "planId": "silver",
     "quantity": "20",
-    "operationId": " be750acb-00aa-4a02-86bc-476cbe66d7fa"  
+    "operationId": "<guid>"  
 }
 ```
 
@@ -348,7 +369,7 @@ Internt serverfel
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
-|  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Detta kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
+|  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här strängen kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     |  JSON web token (JWT) ägartoken |
 
 *Begäran:*
@@ -511,7 +532,7 @@ Operations-API: et stöder följande korrigerings- och Get-åtgärder.
 
 Uppdatera en prenumeration med angivna värden.
 
-**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Frågeparametrar:*
 
@@ -534,15 +555,15 @@ Uppdatera en prenumeration med angivna värden.
 
 ```json
 {
-    "planId": "",
-    "quantity": "",
+    "planId": "cont-cld-tier2",
+    "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
 ```
 
 *Svarskoder:*
 
-Kod: 200<br> Anropa för att informera av slutförandet av en åtgärd på ISV-sida. Det kan till exempel ändring av platser/planer.
+Kod: 200<br> Anropa för att informera av slutförandet av en åtgärd på ISV-sida. Svaret kan till exempel skulle kunna signalera ändringar av platser/planer.
 
 Kod: 404<br>
 Kunde inte hittas
@@ -551,7 +572,7 @@ Kod: 400<br>
 Felaktig begäran-verifieringsfel
 
 Kod: 403<br>
-Ej auktoriserad. Auth-token har inte angetts är ogiltig eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella användaren.
+Ej auktoriserad. Auth-token har inte angetts är ogiltig, eller begäran försöker komma åt ett företagsförvärv som inte tillhör den aktuella användaren.
 
 Kod: 409<br>
 En konflikt uppstod. Till exempel har en nyare transaktion redan uppfyllts
@@ -597,11 +618,11 @@ Svarsnyttolasten:
 
 ```json
 [{
-    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",  
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
@@ -634,7 +655,7 @@ Internt serverfel
 
 #### <a name="get-operation-status"></a>Hämta Åtgärdsstatus
 
-Gör att användaren kan spåra statusen för en utlösta async-åtgärd (prenumerera/Unsubscribe/ändra plan).
+Gör att användaren kan spåra statusen för den angivna utlösta asynkron åtgärden (prenumerera/Unsubscribe/ändra plan).
 
 **Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -653,23 +674,23 @@ Gör att användaren kan spåra statusen för en utlösta async-åtgärd (prenum
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     | JSON web token (JWT) ägartoken.  |
 
-*Svarskoder:* Kod: 200<br> Hämtar listan över alla väntande SaaS-åtgärder<br>
+*Svarskoder:* Kod: 200<br> Hämtar den angivna väntande åtgärd för SaaS<br>
 Svarsnyttolasten:
 
 ```json
 Response body:
-[{
-    "id  ": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
     "timeStamp": "2018-12-01T00:00:00",
     "status": "NotStarted"
-}]
+}
 
 ```
 
@@ -700,11 +721,11 @@ Utgivare måste implementera en webhook i den här SaaS tjänsten för att proak
 
 ```json
 {
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
     "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
@@ -713,14 +734,12 @@ Utgivare måste implementera en webhook i den här SaaS tjänsten för att proak
 
 ```
 
-<!-- Review following, might not be needed when this publishes -->
-
 
 ## <a name="mock-api"></a>Fingera API
 
 Du kan använda våra fingerad API: er för att komma igång med utveckling, särskilt prototyper och testa projekt. 
 
-Värd-slutpunkt: https://marketplaceapi.microsoft.com/api API-Version: 2018-09-15 ingen autentisering krävs exempel Uri: https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15
+Värd-slutpunkt: `https://marketplaceapi.microsoft.com/api` API-Version: `2018-09-15` Ingen autentisering krävs exempel Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
 
 API-anrop i den här artikeln kan göras till fingerad värd-slutpunkten. Du kan förvänta dig att få fingerade data tillbaka som svar.
 

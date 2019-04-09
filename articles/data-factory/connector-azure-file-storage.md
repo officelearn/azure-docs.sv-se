@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405002"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267726"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -50,6 +50,9 @@ Följande egenskaper har stöd för Azure File Storage-länkade tjänsten:
 >[!IMPORTANT]
 > - Kopiera data till Azure File Storage med Azure Integration Runtime uttryckligen [skapa en Azure IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för din fillagring och associera i den länkade tjänsten som i följande exempel.
 > - Kom ihåg att öppna utgående TCP-port 445 i det lokala nätverket för att kopiera data från/till Azure File Storage med hjälp av lokal Integration Runtime utanför Azure.
+
+>[!TIP]
+>När du använder ADF UI för redigering, du kan hitta den specifika posten för ”Azure File Storage” för att skapa en länkad tjänst, vilka nedanför genererar typ `FileServer` objekt.
 
 **Exempel:**
 

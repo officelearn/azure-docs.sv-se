@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 42a7eee37d993e5f9245374adbfd133344797eff
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540473"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058177"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 
@@ -138,8 +138,8 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
 5. I funktionen `GetMap`, när du har initierat kartan, lägger du till följande JavaScript-kod.
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -161,7 +161,7 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
     });
     ```
 
-   I den här kodsegmentet själva händelsen har lagts till i kartan, som utlöses när mappningsresurser har lästs in helt. I händelsehanteraren för kartinläsning skapas en datakälla för att lagra resultatdata. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultatdata i datakällan ska renderas, i det här fallet ned en mörkblå rund nålikon som är centrerad över resultatkoordinaten och som tillåter andra ikoner att överlappa. Resultatlagret har lagts till i kartskikt.
+   I den här kodsegmentet en `ready` händelse läggs till kartan, som utlöses när kartan resurser har lästs in och kartan är redo att användas. I kartan `ready` händelsehanterare, skapas en datakälla för att lagra Resultatdata. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultatdata i datakällan ska renderas, i det här fallet ned en mörkblå rund nålikon som är centrerad över resultatkoordinaten och som tillåter andra ikoner att överlappa. Resultatlagret har lagts till i kartskikt.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ Det här avsnittet visar hur du använder kartorna [API: et Search](https://docs
 
 ### <a name="service-module"></a>Tjänstmodul
 
-1. Läsa in händelsehanteraren på kartan, konstruera search-tjänst-URL genom att lägga till följande Javascript-kod.
+1. I kartan `ready` händelsehanterare, konstruera search-tjänst-URL genom att lägga till följande Javascript-kod.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -229,7 +229,7 @@ I det här läget kan MapSearch-sidan visa orienteringspunkterna som returneras 
 
 Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökresultaten. Om du tittar på den oformaterade JSON som Maps-söktjänsten returnerar ser du att den innehåller ytterligare information om varje bensinstation, inklusive namn och adress. Du kan införliva dessa data i kartan med interaktiva popup-rutor.
 
-1. Lägg till följande kodrader i händelsehanteraren för kartinläsning efter koden för att fråga Fuzzy Search-tjänsten. Det skapar en instans av en popup-fönster och lägger till en muspekarhändelse i symbollagret.
+1. Lägg till följande rader med kod på kartan `ready` händelsehanteraren efter koden för att skicka frågor till fuzzy-sökning-tjänsten. Det skapar en instans av en popup-fönster och lägger till en muspekarhändelse i symbollagret.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -282,11 +282,11 @@ I den här självstudiekursen lärde du dig att:
 
 Du kan komma åt kodexemplet för den här självstudien här:
 
-> [Sök efter plats med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+> [Sökplats med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-[Se exemplet live här](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+[Se exemplet finnas här](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Nästa självstudie demonstrerar hur du visar en väg mellan två platser.
 
 > [!div class="nextstepaction"]
-> [Dirigera mot ett mål](./tutorial-route-location.md)
+> [Dirigera till ett mål](./tutorial-route-location.md)

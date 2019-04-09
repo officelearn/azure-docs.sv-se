@@ -16,12 +16,20 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: 1 – Skapa containeravbildning
-    href: container-instances-tutorial-prepare-app.md
-  - name: 2 – Skapa containerregister
-    href: container-instances-tutorial-prepare-acr.md
-  - name: 3 – Distribuera program
-    href: container-instances-tutorial-deploy-app.md
+  - name: Skapa och distribuera en containeravbildning
+    items:
+    - name: 1 – Skapa containeravbildning
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 – Skapa containerregister
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 – Distribuera program
+      href: container-instances-tutorial-deploy-app.md
+  - name: Distribuera en grupp med flera containrar
+    items:
+    - name: Distribuera en containergrupp – YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Distribuera en containergrupp – Resource Manager
+      href: container-instances-multi-container-group.md
 - name: Exempel
   items:
   - name: Kodexempel
@@ -42,10 +50,6 @@ items:
   items:
   - name: Distribuera
     items:
-    - name: Grupper med flera behållare – YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Grupper med flera behållare – Resource Manager
-      href: container-instances-multi-container-group.md
     - name: Distribuera i ett virtuellt nätverk (förhandsversion)
       href: container-instances-vnet.md
     - name: Distribuera från Azure Container Registry
@@ -126,9 +130,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 94d16ad208cbe5c5cffbcab9e09cf62a05a399ce
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851217"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006047"

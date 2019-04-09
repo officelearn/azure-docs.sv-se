@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856098"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010166"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019 April versionen
+
+**Nya funktioner** 
+
+* SDK: N stöder nu tjänsten text till tal som en beta-versionen. Den stöds på Windows och Linux-Desktop från C++, C#, och Java. Mer information finns i [text till tal översikt](text-to-speech.md#get-started-with-text-to-speech).
+* SDK stöder nu MP3- och Opus/Ogg ljudfiler som stream indatafiler. Den här funktionen är bara tillgängliga på Linux från C++ och C# och håller på att beta (Mer information om [här](how-to-use-compressed-audio-input-streams.md)).
+* Tal-SDK för Java, .NET core, C++ och Objective-C fått macOS support. Objective-C-stöd för macOS är för närvarande i beta.
+* iOS: Tal-SDK för iOS (Objective-C) är nu också att publiceras som en CocoaPod.
+* JavaScript: Stöd för icke-standard mikrofon som en enhet.
+* JavaScript: Stöd för proxy för Node.js.
+
+**Exempel**
+
+* Exempel för att använda tal-SDK med C++ och med Objective-C på macOS har lagts till.
+* Exempel som visar användningen av text till tal-tjänsten har lagts till.
+
+**Förbättringar av / ändras**
+
+* Python: Ytterligare egenskaper för resultat visas nu den `properties` egenskapen.
+* För ytterligare support för utveckling och felsökning kan du omdirigera SDK loggning och diagnostik information till en loggfil (Mer information om [här](how-to-use-logging.md)).
+* JavaScript: Förbättra bearbetningsprestanda för ljud.
+
+**Felkorrigeringar**
+
+* Mac/iOS: En bugg som ledde till långa väntetider när inte gick att upprätta en anslutning till tal-tjänst har åtgärdats.
+* Python: förbättra felhantering för argument i Python-återanrop.
+* JavaScript: Fast fel status rapportering för tal upphörde RequestSession.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: 2019 februari uppdatering
 
@@ -177,7 +205,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för Objective-C på iOS. Kolla in våra [Objective-C-Snabbstart för iOS](quickstart-objectivec-ios.md).
 * Stöd för JavaScript i webbläsaren. Kolla in våra [JavaScript Snabbstart](quickstart-js-browser.md).
 
-**Större ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 * Den här versionen erbjuder införs ett antal icke-bakåtkompatibla ändringar.
   Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) mer information.
@@ -196,7 +224,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 * Exponera ytterligare detaljerad information om hur anslutningsfel.
 
-**Större ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 * Java (Android), den `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` funktionen kräver inte längre en sökvägsparameter. Sökvägen identifieras nu automatiskt på alla plattformar som stöds.
 * Läsaccessor för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -225,7 +253,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Att igenkänningsresultatet innehåller fler fält. De är förskjutning från ljud början och varaktigheten (både i ticken) för den tolkade texten och ytterligare värden som representerar igenkänning av status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout`.
 * Stöd AuthorizationToken för att skapa factory-instanser.
 
-**Större ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 * Igenkänning av händelser: NoMatch händelsetyp skulle samman i felhändelsen.
 * SpeechOutputFormat i C# har bytt namn till OutputFormat vara justerade med C++.

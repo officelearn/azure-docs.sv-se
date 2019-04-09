@@ -1,7 +1,7 @@
 ---
 title: QnA-roboten – Azure Bot Service – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Den här självstudien vägleder dig genom att skapa en QnA-roboten med Azure Bot service v3 på Azure portal.
+description: Skapa en chattrobot för frågor och svar från sidan Publicera för en befintlig kunskapsbasen. Den här bot använder Bot Framework SDK-v4. Du inte behöver skriva någon kod för att skapa roboten tillhandahålls all kod åt dig.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879619"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263884"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v3
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v4
 
-Den här självstudien vägleder dig genom att skapa en QnA-roboten med Azure Bot service v3 i den [Azure-portalen](https://portal.azure.com) utan att behöva skriva någon kod. Ansluta en publicerade knowledge base (KB) till en robot som är lika enkelt som att ändra inställningar för bot-program. 
-
-> [!Note] 
-> Det här avsnittet avser version 3 av Bot-SDK. Du kan hitta version 4 [här](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+Skapa en chattrobot för frågor och svar från den **publicera** för en befintlig kunskapsbas. Den här bot använder Bot Framework SDK-v4. Du inte behöver skriva någon kod för att skapa roboten tillhandahålls all kod åt dig.
 
 **I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Skapa en Azure Bot Service med QnA Maker-mall
+> * Skapa en Azure Bot Service från en befintlig kunskapsbas
 > * Chatta med roboten att kontrollera koden fungerar 
-> * Ansluta din publicerade KB till roboten
-> * Testa bot med en fråga
-
-I den här artikeln kan du använda kostnadsfria QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en publicerad kunskapsbas för den här självstudiekursen. Om du inte har någon, följer du stegen i [skapa en kunskapsbas](../How-To/create-knowledge-base.md) att skapa en QnA Maker-tjänsten med frågor och svar.
+Du måste ha en publicerad kunskapsbas för den här självstudiekursen. Om du inte har någon, följer du stegen i [skapa och svaret från KB](create-publish-query-in-portal.md) självstudie om du vill skapa en QnA Maker kunskapsbas med frågor och svar.
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>Skapa en QnA-roboten
 
-1. I Azure-portalen väljer du **Skapa en resurs**.
+Skapa en robot som ett klientprogram för kunskapsbasen. 
 
-    ![Skapa för bot-tjänster](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. I QnA Maker-portalen går du till den **publicera** sidan och publicera din kunskapsbas. Välj **skapa robot**. 
 
-2. I sökrutan söker du efter **Web App-robot**.
+    ![Gå till sidan Publicera i QnA Maker-portalen och publicera din kunskapsbas. Välj Skapa Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![val för bot-tjänst](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    Azure-portalen öppnas med bot skapa konfigurationen.
 
-3. Ange nödvändig information i **Robottjänst**:
+1.  Ange inställningar för att skapa roboten:
 
-    - Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net).
-    - Välj prenumeration, resursgrupp, App service-plan och plats.
+    |Inställning|Värde|Syfte|
+    |--|--|--|
+    |Robotnamn|`my-tutorial-kb-bot`|Det här är Azure-resursnamn för roboten.|
+    |Prenumeration|Se syfte.|Välj samma prenumeration som du använde för att skapa QnA Maker-resurser.|
+    |Resursgrupp|`my-tutorial-rg`|Den resursgrupp som används för alla bot-relaterade Azure-resurser.|
+    |Plats|`west us`|Plats för robotens Azure-resurs.|
+    |Prisnivå|`F0`|Den kostnadsfria nivån för Azure bot service.|
+    |Appnamn|`my-tutorial-kb-bot-app`|Det här är en webbapp med stöd för din robot endast. Det får inte vara samma appnamn eftersom QnA Maker-tjänsten redan använder. Dela QnA Maker-webbapp med någon annan resurs stöds inte.|
+    |SDK-språk|C#|Det här är det underliggande programmeringsspråket som används av bot framework SDK. Du kan välja mellan C# eller Node.js.|
+    |Frågor och svar om Auth-nyckel|**Ändra inte**|Det här värdet är ifyllt åt dig.|
+    |App Service-plan/plats|**Ändra inte**|Platsen är inte viktigt för den här självstudien.|
+    |Azure Storage|**Ändra inte**|Konversationen data lagras i Azure Storage-tabeller.|
+    |Application Insights|**Ändra inte**|Loggning skickas till Application Insights.|
+    |Microsoft App-ID|**Ändra inte**|Active directory-användare och lösenord krävs.|
 
-4. Välj för att använda v3-mallar, SDK-version i **SDK v3** och språk du SDK **C#** eller **Node.js**.
+    ![Skapa kunskapsbas bot med de här inställningarna.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![inställningar för bot-sdk](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    Vänta några minuter tills bot skapa processen meddelandet rapporterar att processen lyckades.
 
-5. Välj den **frågor och svar** mall för fältet Bot mall och sedan spara ändringarna genom att välja mallen **Välj**.
-
-    ![Spara bot service Mallval](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. Granska dina inställningar och välj sedan **skapa**. Detta skapar och distribuerar bot-tjänst med till Azure.
-
-    ![Skapa robot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. Bekräfta att bot-tjänsten har distribuerats.
-
-    - Välj **meddelanden** (klockikonen finns längs överkanten av Azure portal). Meddelandet kommer att ändras från **distributionen har påbörjats** till **distributionen lyckades**.
-    - När ändras meddelandet och **distributionen lyckades**väljer **gå till resurs** på som meddelanden.
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>Chatta med roboten
 
-Att välja **gå till resurs** tar dig till robotens resurs.
+1. Öppna den nya bot-resursen från meddelandet i Azure-portalen. 
 
-Välj **Test i Web Chat** att öppna fönstret Web Chat. Skriv ”Hej” Web Chat.
+    ![Öppna den nya bot-resursen från meddelandet i Azure-portalen.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![Frågor och svar om bot webbchatt](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. Från **Bot management**väljer **Test i Web Chat** och ange: `How large can my KB be?`. Roboten svarar med: 
 
-Roboten svarar med ”ange QnAKnowledgebaseId och QnASubscriptionKey i Appinställningar. Det här svaret bekräftar att din QnA-roboten har tagit emot meddelandet, men det finns inga QnA Maker-kunskapsbas som är associerade med den ännu. 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>Ansluta kunskapsbasen QnA Maker till roboten
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. Öppna **programinställningar** och redigera den **QnAKnowledgebaseId**, **QnAAuthKey**, och **QnAEndpointHostName** fält som ska innehålla värden för QnA Maker kunskapsbasen.
 
-    ![Appinställningar](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![Testa den nya kunskapsbas-roboten.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. Få din kunskapsbas-ID och värd-url för slutpunktsnyckeln från inställningsfliken i kunskapsbasen i QnA Maker-portalen.
-
-   - Logga in på [QnA Maker](https://qnamaker.ai)
-   - Gå till din kunskapsbas
-   - Välj den **inställningar** fliken
-   - **Publicera** kunskapsbasen, om inte redan gjort det.
-
-     ![QnA Maker-värden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>Testa roboten
-
-I Azure-portalen väljer du **testa i Web Chat** att testa roboten. 
-
-![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-QnA-roboten svar från knowledge base.
+    Läs mer om Azure robotar [Använd QnA Maker att besvara frågor](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker robotar som rör
 
@@ -113,7 +92,11 @@ QnA-roboten svar från knowledge base.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här självstudien bot kan du ta bort roboten i Azure-portalen. Bot-tjänsterna omfattar:
+När du är klar med den här självstudien bot kan du ta bort roboten i Azure-portalen. 
+
+Om du har skapat en ny resursgrupp för robotens resurser tar du bort resursgruppen. 
+
+Om du inte har skapat en ny resursgrupp måste att hitta de resurser som är associerade med roboten. Det enklaste sättet är att söka efter namnet på bot och robotapp. Bot-resurserna innehåller:
 
 * App Service-planen
 * Söktjänsten

@@ -13,18 +13,39 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b186aa2692033a774d1d8f294315fcc0f5e874d5
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763257"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009376"
 ---
-# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure HANA stora instanser kontrollen med Azure-portalen
+# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Kontroll av Azure HANA – stora instanser med Azure Portal
 Det här dokumentet beskriver hur sätt [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) presenteras i [Azure-portalen](https://portal.azure.com) och vilka aktiviteter kan utföras via Azure-portalen med enheter för stora HANA-instansen som är distribuerade åt dig. Synlighet för stora HANA-instanser i Azure-portalen är tillgängligt via en Azure resource provider för HANA stora instanser, som för närvarande är i offentlig förhandsversion
+
+## <a name="register-hana-large-instance-resource-provider"></a>Registrera Resursprovidern för HANA stora instanser
+Vanligtvis är din Azure-prenumeration du använde för distributioner av stora HANA-instansen registrerad för Resursprovidern HANA stor instans. Om du inte ser du distribuerat stora HANA-instansen enheter, bör du registrera Resursprovidern i Azure-prenumerationen. Det finns två sätt i när du registrerar resursprovidern HANA stora instans
+
+### <a name="register-through-cli-interface"></a>Registrera dig via CLI-gränssnittet
+Du måste vara inloggad i din Azure-prenumeration som används för stora HANA-instansen distributionen via Azure CLI-gränssnittet. (Re) registrera HANA stora instansprovidern med det här kommandot kan du:
+    
+    az provider register --namespace Microsoft.HanaOnAzure
+
+Mer information finns i artikeln [Azure resursproviders och resurstyper](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+
+
+### <a name="register-through-azure-portal"></a>Registrera dig via Azure-portalen
+Du kan (re) registrera HANA-Resursprovidern för stor instans via Azure-portalen. Du måste lista din prenumeration på Azure-portalen och dubbelklicka på den prenumeration som användes för att distribuera din enhet(er) stora HANA-instansen. Något du är i översiktssidan för din prenumeration, Välj ”resursprovidrar” enligt nedan och ange ”HANA” i sökfönstret. 
+
+![Registrera HLI RP via Azure-portalen](./media/hana-li-portal/portal-register-hli-rp.png)
+
+Resursprovidern har redan registrerats i skärmbilden som visas. Om resursprovidern inte har registrerats, trycker du på ”registrera” eller ”registrera”.
+
+Mer information finns i artikeln [Azure resursproviders och resurstyper](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+
 
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Visning av enheter för stora HANA-instansen i Azure portal
 När du skickar en begäran om distribution av stora HANA-instansen uppmanas du att ange den prenumeration som du ansluter till HANA stora instanser samt. Det rekommenderas att använda samma prenumeration som du använder för att distribuera SAP-programnivån som fungerar mot stora HANA-instansen-enheter.
@@ -46,6 +67,8 @@ När du har hittat resursgruppens namn, en lista över information om den. I lis
 
 Alla enheter som visas är som representerar en enda HANA stora instanser-enhet som har distribuerats i din prenumeration. I det här fallet titta på åtta olika stora HANA-instansen enheter, som har distribuerats i din prenumeration.
 
+Om du har distribuerat flera stora HANA-instansen klienter under samma Azure-prenumeration hittar du flera Azure-resursgrupper 
+
 
 ## <a name="look-at-attributes-of-single-hli-unit"></a>Titta på attribut för HLI enhet
 I listan med enheter för stora HANA-instansen du klicka på en enhet och få till information om den enda stora HANA-instansen-enheten. 
@@ -54,7 +77,7 @@ På skärmen får du en presentation av den enhet som ser ut som:
 
 ![Översikt över en HLI-enhet](./media/hana-li-portal/portal-show-overview.png)
 
-Titta på olika attribut visas, dessa attribut knappt ser annorlunda ut än Azure VM-attribut. På rubriken vänstra sida visar resursgruppen, Azure-region, prenumerationsnamn och ID: T samt vissa taggar som du har lagt till. Som standard har ingen tagg som tilldelats i stora HANA-instansen-enheter. På höger sida av rubriken visas namnet på enheten som har tilldelats när distributionen har utförts. Operativsystemet visas samt IP-adressen. Som med virtuella datorer skriver du stora HANA-instans-enheten med antalet visas trådar och minne också. Mer information om de olika enheterna i stora HANA-instansen visas här:
+Titta på olika attribut visas, dessa attribut knappt ser annorlunda ut än Azure VM-attribut. Den visar resursgruppen, Azure-region, prenumerationsnamn och ID: T samt vissa taggar som du har lagt till på rubriken till vänster. Som standard har ingen tagg som tilldelats i stora HANA-instansen-enheter. Till höger i rubriken visas namnet på enheten som har tilldelats när distributionen har utförts. Operativsystemet visas samt IP-adressen. Som med virtuella datorer skriver du stora HANA-instans-enheten med antalet visas trådar och minne också. Mer information om de olika enheterna i stora HANA-instansen visas här:
 
 - [Tillgängliga SKU:er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [Storage-arkitektur för SAP HANA (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
@@ -86,7 +109,7 @@ Avsnittet **egenskaper** innehåller viktig information som du får när instans
 
 ![övre delen av HLI egenskaper i Azure-portalen](./media/hana-li-portal/portal-properties-top.png)
 
-De första några dataobjekt du såg i översiktsskärmen redan. Men en viktig del av data är ExpressRoute Circuit ID som du får när du har fått de första distribuerade enheterna överlämnas. I vissa fall stöd kan hämta du tillfrågad om dessa data. En post för viktiga data visas längst ned på skärmbilden. Informationen som visas är den IP-adressen för huvudet för NFS-lagring som isolerar lagringen din **klient** i stacken stora HANA-instansen. Den här IP-adress krävs även när du redigerar den [konfigurationsfilen för lagring ögonblicksbild säkerhetskopior](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+De första några dataobjekt du såg i översiktsskärmen redan. Men en viktig del av data är ExpressRoute Circuit ID som du fick när de första distribuerade enheterna har överlämnas. I vissa fall stöd kan hämta du tillfrågad om dessa data. En post för viktiga data visas längst ned på skärmbilden. Informationen som visas är den IP-adressen för huvudet för NFS-lagring som isolerar lagringen din **klient** i stacken stora HANA-instansen. Den här IP-adress krävs även när du redigerar den [konfigurationsfilen för lagring ögonblicksbild säkerhetskopior](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
 
 När du rullar ned i egenskapsrutan, hämta ytterligare data som en unik resurs-ID för din enhet för stora HANA-instansen eller prenumerations-ID som har tilldelats till distributionen.
 
@@ -99,6 +122,9 @@ När du att trycka på knappen Starta om, tillfrågas du om du verkligen vill st
 
 > [!NOTE]
 > Omstarten får en liten tid där ändras tillståndet för enheten till **startar** att flytta till tillståndet för **startad**. Är i tillståndet för **startad** innebär att Operativsystemet startas eller att Operativsystemet har startats helt. Därför efter en omstart av enheten som inte förväntas omedelbart logga in på enheten när tillståndet växlar till **startad**.
+
+> [!IMPORTANT]
+> Beroende på mängden minne i stora HANA-instansen-enhet, en omstart och omstart av maskinvaran och operativsystemet kan ta upp till en timme
 
 
 ## <a name="open-a-support-request-for-hana-large-instances"></a>Öppna en supportbegäran för HANA stora instanser
@@ -115,7 +141,7 @@ I listan över tjänster, hittar du tjänsten **stora SAP HANA-instansen**. När
 
 ![Välj problem klass i Azure-portalen](./media/hana-li-portal/portal-select-problem-class.png)
 
-Under var och en av typerna av olika problem erbjuds ett urval av problemet undertyper som du måste välja för att beskriva problemet ytterligare. När du har valt undertypen namnge du nu ämne. När du är klar med urvalsprocessen kan flytta du till nästa steg i att skapa. I den **lösningar** avsnittet, som pekar till dokumentation runt HANA stora instanser, som kan ge en pekare till en lösning till problemet. Om du inte hittar en lösning för ditt problem i dokumentationen som föreslås, gå till nästa steg. I nästa steg ska kommer du att bli ombedd om problemet är med virtuella datorer eller med enheter för stora HANA-instansen. Detta hjälper till att dirigera supportbegäran till rätt specialister. 
+Under var och en av typerna av olika problem erbjuds ett urval av problemet undertyper som du måste välja för att beskriva problemet ytterligare. När du har valt undertypen namnge du nu ämne. När du är klar med urvalsprocessen kan flytta du till nästa steg i att skapa. I den **lösningar** avsnittet, som pekar till dokumentation runt HANA stora instanser, som kan ge en pekare till en lösning till problemet. Om du inte hittar en lösning för ditt problem i dokumentationen som föreslås, gå till nästa steg. I nästa steg ska kommer du att bli ombedd om problemet är med virtuella datorer eller med enheter för stora HANA-instansen. Den här informationen hjälper till att dirigera supportbegäran till rätt specialister. 
 
 ![Information om supportärende i Azure-portalen](./media/hana-li-portal/portal-support-request-details.png)
 

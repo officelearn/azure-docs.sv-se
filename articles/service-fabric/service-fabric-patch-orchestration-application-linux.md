@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668202"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057650"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Uppdatera operativsystemet Linux i Service Fabric-klustret
 
@@ -121,13 +121,13 @@ För Ubuntu [obevakad uppgraderingar](https://help.ubuntu.com/community/Automati
 
 Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA_v2.0.2.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
+Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA_v2.0.3.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
 Patch orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att skicka in parametern program under programmet skapas eller uppdatera. Programparametrar kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdletar.
 
-|**Parametern**        |**Typ**                          | **Detaljer**|
+|**Parameter**        |**Type**                          | **Information**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal resultat för uppdatering, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Uppdateringarna är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Uppdateringarna är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för uppdatering.)
@@ -173,7 +173,8 @@ Powershell (Undeploy.ps1) och bash (Undeploy.sh)-skript har angetts tillsammans 
 
 ## <a name="view-the-update-results"></a>Visa resultat för uppdatering
 
-Appen patch orchestration exponerar REST-API: er för att visa historiska resultat för användaren. Nedan följer ett exempel-resultat: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+Appen patch orchestration exponerar REST-API: er för att visa historiska resultat för användaren. Nedan följer ett exempel-resultat:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -373,5 +374,10 @@ Patch orchestration appen samlar in telemetri för att spåra användning och pr
 ### <a name="version-201"></a>Version 2.0.1
 - Kompileras appen med senaste Service Fabric SDK
 
-### <a name="version-202-latest"></a>Version punkt 2.0.2 (senaste)
+### <a name="version-202"></a>Version 2.0.2 
 - Ett problem har åtgärdats med hälsotillstånd varning komma kvar under omstarten.
+
+### <a name="version-203-latest"></a>Version 2.0.3 (senaste)
+- Åtgärda problem där nått CPU-användningen för Nodagentens daemontjänst upp till 99% på Standard_D1_v2 VM: ar.
+- Åtgärda de problem som berörs uppdatering liv-cyle på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar.
+- Ett fel på grund av som håller Nodagentens daemon kraschar när skadad inställningar skickas till tjänsten har åtgärdats.

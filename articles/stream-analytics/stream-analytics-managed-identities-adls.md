@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895874"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257985"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter
 
@@ -71,7 +71,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
 
    ![Stream Analytics-jobbkonfigurationen hanterade identiteter](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. I egenskapsfönstret utdata av ADLS Gen1 utdatamottagaren, klickar du på autentiseringsläge listrutan och välj **hanterad tjänstidentitet (förhandsversion)**.
+2. I egenskapsfönstret utdata av ADLS Gen1 utdatamottagaren, klickar du på autentiseringsläge listrutan och välj ** hanterade identiteter **.
 
    ![ADLS utdata hanterade identiteter](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

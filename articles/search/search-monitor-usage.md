@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652305"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010421"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -60,9 +60,9 @@ I följande tabell jämförs alternativen för att lagra loggar och lägger till
 
 | Resurs | Används för |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och fråga mått baserade på något scheman nedan, med användarhändelser i din app. Det här är den enda lösningen som tar användaråtgärder eller signaler i beräkningen, mappning av händelser från användarinitierad sökning, till skillnad från filtrera begäranden som skickas av programkoden. Om du vill använda den här metoden, kopiera och klistra in instrumentation kod till källfilerna vägen begära information till Application Insights. Mer information finns i [Söktrafikanalys](search-traffic-analytics.md). |
-| [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas en Log Analytics-arbetsyta. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan, ihop med användarhändelser i din app. Det här är den enda lösningen som tar användaråtgärder eller signaler i beräkningen, mappning av händelser från användarinitierad sökning, till skillnad från filtrera begäranden som skickas av programkoden. Om du vill använda den här metoden, kopiera och klistra in instrumentation kod till källfilerna vägen begära information till Application Insights. Mer information finns i [Söktrafikanalys](search-traffic-analytics.md). |
+| [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan. Händelser loggas en Log Analytics-arbetsyta. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och mätvärden för fråga, baserat på scheman som nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och mått i frågan, baserat på de scheman som beskrivs i den här artikeln. Välj det som ett alternativt samling tjänst för mycket stora loggar. |
 
 Både Azure Monitor-loggar och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) information).
@@ -96,7 +96,7 @@ Loggning är aktiverad när du sparar profilen. Behållare skapas endast när de
 * Insights-logs-operationlogs: för search trafikloggar
 * Insights-mått-pt1m: för mått
 
-Det tar en timme innan behållarna som visas i Blob storage. Det finns en blob, per timme per behållare. 
+**Det tar en timme innan behållarna som visas i Blob storage. Det finns en blob, per timme per behållare.**
 
 Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) eller en annan JSON-redigerare för att visa filerna. 
 

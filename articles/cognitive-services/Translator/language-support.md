@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918050"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267914"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -33,7 +33,10 @@ Translator Text API stöder följande språk för översättning till text. Neur
 * Neural standard: Neural är standard translation system. Använd parametern `category=smt` till statistiska systemet för användning med Microsoft Translator Hub.
 * Neural endast: Endast neural översättning är tillgänglig.
 
-**V3 Translator API** V3 Translator API är neural som standard och statistiska system är bara tillgängliga när det finns inga neural system. Anpassade Translator kan bara användas med neural språk. [Visa språk som är tillgängliga i anpassade Translator](#customization).
+**V3 Translator API** V3 Translator API är neural som standard och statistiska system är bara tillgängliga när det finns inga neural system. 
+
+> [!NOTE]
+> För närvarande en delmängd av språk som neural är tillgängliga i anpassade Translator och vi lägger till gradvis fler håller på att. [Visa språk som är tillgängliga i anpassade Translator](#customization).
 
 |Språk|  Språkkod|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|

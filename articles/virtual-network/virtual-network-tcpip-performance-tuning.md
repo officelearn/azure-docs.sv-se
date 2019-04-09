@@ -19,7 +19,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author:
 - rimayber
 - dgoddard
@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d53b8fe46997f6b4f915bfb14a64d69b22cc5d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905111"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057837"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -141,7 +141,7 @@ Den här tabellen visas linjär avståndet mellan två platser, i nätverk, avst
 
 Ett standardvärde på 200 kan användas för hastigheten på spridning - värdet är avståndet i mätare ljus färdas 1 millisekund.
 
-I exemplet New York till San Francisco är det 4,148 km linjär avstånd. Minimum RTT = 2 * (4,148 / 20). Resultatet av formeln kommer att visas i millisekunder.
+I exemplet New York till San Francisco är det 4,148 km linjär avstånd. Minimum RTT = 2 * (4,148 / 200). Resultatet av formeln kommer att visas i millisekunder.
 
 Som det fysiska avståndet mellan två platser är en fast verklighet om högsta möjliga nätverksprestanda krävs, är det mest logiska alternativet att välja mål med minsta avståndet mellan dem. Sekundärt, kan du göra designbeslut i det virtuella nätverket för att optimera sökvägen till trafik och minska svarstiden. Dessa överväganden för virtuellt nätverk finns i avsnittet nätverksdesign nedan.
 
@@ -350,3 +350,7 @@ Mer information finns nedan:
 Azure-kunder kan se TCP-paket med TCP-flaggor (SÄCK, Duplicering ACK, SÄNDNINGSFÖRSÖK och snabb SNABBÅTERSTÄLLNINGEN) i infångade paket som kan tyda på problem med nätverksprestanda. Dessa paket uttryckligen har angett nätverk ineffektivitet till följd av paketförlust. Paketförlust är dock inte nödvändigtvis på grund av problem med Azure prestanda. Problem med prestanda kan vara resultatet av program, operativsystem eller andra problem som inte kan vara direkt relaterade till Azure-plattformen. Det är också viktigt att Observera att vissa återöverföring eller dubbla Ack i ett nätverk är normalt – TCP-protokoll har skapats för att vara tillförlitliga. Och bevis på dessa TCP-paket i ett infångat innebär inte nödvändigtvis ett systemfel nätverksproblem om de inte är hög.
 
 Men bör det anges tydligt att dessa typer av paket är indikationer att TCP-dataflöde inte uppnår sin maximala prestanda – för orsaker som beskrevs i andra avsnitt.
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu när vi har diskuterat TCP/IP prestandajustering för virtuella Azure-datorer, är nästa steg [planera andra virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) överväganden eller [Läs mer om att ansluta och konfigurera virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/).

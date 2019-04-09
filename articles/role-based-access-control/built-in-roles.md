@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 86bf408f521e11e1bed4e26ca99299abdc710227
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805643"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010676"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -44,94 +44,94 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [AcrPush](#acrpush) | ACR-push |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-karantändataläsare |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-karantändataskrivare |
-| [API Management-Tjänstdeltagare](#api-management-service-contributor) | Kan hantera tjänsten och samtliga API:er |
+| [API Management-tjänstdeltagare](#api-management-service-contributor) | Kan hantera tjänsten och samtliga API:er |
 | [Operatörsroll för API Management](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
-| [Läsarroll för API Management-tjänsten](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
-| [Application Insights-Komponentdeltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
+| [Läsarroll för API Management-tjänst](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
+| [Application Insights-komponentdeltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
 | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet att visa och hämta ögonblicksbilder för felsökning som samlas in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i den [ägare](#owner) eller [deltagare](#contributor) roller. |
-| [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
+| [Automation-jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
-| [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
+| [Automation Runbook-operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
 | [Avere deltagare](#avere-contributor) | Kan skapa och hantera ett Avere vFXT-kluster. |
 | [Avere Operator](#avere-operator) | Används av Avere vFXT klustret för att hantera klustret |
-| [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
-| [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
-| [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
+| [Rollen klusteradministratör för Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
+| [Rollen klusteranvändare för Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
+| [Ägare för Azure Stack-registrering](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
-| [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
-| [Backup Reader](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
+| [Säkerhetskopieringsoperatör](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
+| [Säkerhetskopieringsläsare](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
 | [Faktureringsläsare](#billing-reader) | Tillåter läsåtkomst till faktureringsdata |
-| [BizTalk Contributor](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
-| [CDN-Slutpunktsdeltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
-| [CDN-Slutpunktsläsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
-| [CDN-Profildeltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slutpunkter, men kan inte bevilja åtkomst till andra användare. |
-| [CDN-Profilläsare](#cdn-profile-reader) | Kan visa CDN-profiler och deras slutpunkter, men kan inte göra ändringar. |
+| [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
+| [CDN-slutpunktsdeltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
+| [CDN-slutpunktsläsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
+| [CDN-profildeltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slutpunkter, men kan inte bevilja åtkomst till andra användare. |
+| [CDN-profilläsare](#cdn-profile-reader) | Kan visa CDN-profiler och deras slutpunkter, men kan inte göra ändringar. |
 | [Klassisk nätverksdeltagare](#classic-network-contributor) | Låter dig hantera klassiska nätverk, men ger dig inte tillgång till dem. |
-| [Klassisk Lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
-| [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
-| [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
+| [Klassisk lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
+| [Tjänstroll som operatör av klassisk lagringskontonyckel](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
+| [Klassisk virtuell datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 | [Cognitive Services-deltagare](#cognitive-services-contributor) | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
-| [Cognitive Services Data-läsare (förhandsgranskning)](#cognitive-services-data-reader-preview) | Låter dig läsa Cognitive Services-data. |
+| [Cognitive Services-dataläsare (förhandsversion)](#cognitive-services-data-reader-preview) | Låter dig läsa Cognitive Services-data. |
 | [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
-| [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
+| [Läsarroll för Cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
-| [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
-| [Kostnadshantering läsare](#cost-management-reader) | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
+| [Cost Management-deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
+| [Cost Management-läsare](#cost-management-reader) | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
 | [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapa sortering eller redigera sortingsinformation och ge åtkomst till andra. |
-| [Data Factory Contributor](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
+| [Data Factory-deltagare](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
-| [Data Purger](#data-purger) | Det går att rensa analysdata |
+| [Datarensaren](#data-purger) | Det går att rensa analysdata |
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
-| [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
-| [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
-| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
-| [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
-| [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
+| [DNS-zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
+| [DocumentDB-kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
+| [EventGrid EventSubscription-deltagare](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
+| [EventGrid EventSubscription-läsare](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
+| [HDInsight-domäntjänstdeltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
+| [Intelligent Systems-kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
 | [Labbskaparen](#lab-creator) | Låter dig skapa, hantera och ta bort dina hanterade labbar under dina Azure Lab-konton. |
 | [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägget för virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure-lagring. Skapa och konfigurera automationskonton; lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser. |
 | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, bl.a. konfigurationen av Azure Diagnostics på alla Azure-resurser. |
 | [Logic App-deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men du kan inte komma åt dem. |
 | [Logic App-operatör](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera logikapp. |
-| [Operatörsroll för hanterat program](#managed-application-operator-role) | Låter dig läsa och utföra åtgärder för hanterade programresurser |
-| [Läsare för hanterade program](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. |
-| [Hanterad Identitetsdeltagare](#managed-identity-contributor) | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
-| [Hanterade Identitetsoperatör](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
+| [Rollen hanterat program-operatör](#managed-application-operator-role) | Låter dig läsa och utföra åtgärder för hanterade programresurser |
+| [Hanterat program-läsare](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. |
+| [Hanterad identitetsdeltagare](#managed-identity-contributor) | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
+| [Operatör för hanterad identitet](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
 | [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
-| [Hanteringsgruppen läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
-| [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
-| [Övervaka mått utgivare](#monitoring-metrics-publisher) | Tillåter publicering av mått mot Azure-resurser |
-| [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+| [Hanteringsgrupp-läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
+| [Övervakningsdeltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
+| [Övervakningsmåttutgivare](#monitoring-metrics-publisher) | Tillåter publicering av mått mot Azure-resurser |
+| [Övervakningsläsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
-| [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
-| [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
+| [New Relic APM-kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
+| [Läs- och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
 | [Redis Cache-deltagare](#redis-cache-contributor) | Låter dig hantera Redis-cacheminnen, men ger dig inte tillgång till dem. |
-| [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
-| [Scheduler-Jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
+| [Deltagare för resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
+| [Scheduler-jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Söktjänstdeltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
 | [Säkerhetsadministratör](#security-admin) | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 | [Säkerhetshanteraren (bakåtkompatibel)](#security-manager-legacy) | Det här är en äldre roll. Använd säkerhetsadministratör istället |
-| [Security Reader](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
+| [Säkerhetsläsare](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
-| [Site Recovery Operator](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
-| [Site Recovery Reader](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
-| [Spatial ankare-Kontodeltagare](#spatial-anchors-account-contributor) | Låter dig hantera rumsliga fästpunkter i ditt konto, men inte att bort dem |
-| [Kontoägaren för rumsliga ankare](#spatial-anchors-account-owner) | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
-| [Spatial ankare konto läsare](#spatial-anchors-account-reader) | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
+| [Site Recovery-operatör](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
+| [Site Recovery-läsare](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
+| [Spatial Anchors-kontodeltagare](#spatial-anchors-account-contributor) | Låter dig hantera rumsliga fästpunkter i ditt konto, men inte att bort dem |
+| [Spatial Anchors-kontoinnehavare](#spatial-anchors-account-owner) | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
+| [Spatial Anchors-kontoläsare](#spatial-anchors-account-reader) | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
 | [SQL-hanterad instans-deltagare](#sql-managed-instance-contributor) | Låter dig hantera SQL-hanterade instanser, men det går inte att ge åtkomst till andra. |
-| [SQL Security Manager](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
+| [SQL-säkerhetshanteraren](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
-| [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
+| [Tjänstroll som operatör av lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
 | [Storage Blob Data-deltagare](#storage-blob-data-contributor) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
 | [Storage Blob Data-ägare](#storage-blob-data-owner) | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
 | [Storage Blob Data-läsare](#storage-blob-data-reader) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 | [Lagringsködata-deltagare](#storage-queue-data-contributor) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
-| [Storage-kö registerförare meddelande](#storage-queue-data-message-processor) | Tillåter översikts-, mottagnings- och borttagningssåtkomst till Azure Storage-kömeddelanden |
-| [Storage-kö Data meddelandets avsändare](#storage-queue-data-message-sender) | Tillåter sändning av Azure Storage-kömeddelanden |
+| [Lagringsködata-meddelandeprocessor](#storage-queue-data-message-processor) | Tillåter översikts-, mottagnings- och borttagningssåtkomst till Azure Storage-kömeddelanden |
+| [Meddelandeavsändare för lagringsködata](#storage-queue-data-message-sender) | Tillåter sändning av Azure Storage-kömeddelanden |
 | [Lagringsködata-läsare](#storage-queue-data-reader) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
 | [Supportförfrågningsdeltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
@@ -152,11 +152,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | * | Skapa och hantera resurser för alla typer av |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="contributor"></a>Deltagare
 > [!div class="mx-tableFixed"]
@@ -173,9 +173,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="reader"></a>Läsare
 > [!div class="mx-tableFixed"]
@@ -186,11 +186,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrdelete"></a>AcrDelete
 > [!div class="mx-tableFixed"]
@@ -201,11 +201,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Ta bort artefakt i ett behållarregister. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -216,11 +216,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Flyttningar innehåll förtroende metadata för ett behållarregister. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -231,11 +231,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Hämta eller hämta avbildningar från ett behållarregister. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -247,11 +247,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ContainerRegistry/registries/pull/read | Hämta eller hämta avbildningar från ett behållarregister. |
 > | Microsoft.ContainerRegistry/registries/push/write | Push- eller skriva avbildningar till ett behållarregister. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -262,11 +262,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Hämta eller hämta har satts i karantän bilder från container registry |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -278,11 +278,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Hämta eller hämta har satts i karantän bilder från container registry |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Skriva/ändra karantän tillstånd har satts i karantän avbildningar |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
 > [!div class="mx-tableFixed"]
@@ -299,11 +299,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="api-management-service-operator-role"></a>Operatörsroll för API Management
 > [!div class="mx-tableFixed"]
@@ -330,9 +330,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Hämta lista över användarnycklar |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="api-management-service-reader-role"></a>Läsarroll för API Management-tjänst
 > [!div class="mx-tableFixed"]
@@ -352,9 +352,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Hämta lista över användarnycklar |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="application-insights-component-contributor"></a>Application Insights-komponentdeltagare
 > [!div class="mx-tableFixed"]
@@ -372,11 +372,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Application Insights Snapshot Debugger
 > [!div class="mx-tableFixed"]
@@ -392,11 +392,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="automation-job-operator"></a>Automation-jobboperator
 > [!div class="mx-tableFixed"]
@@ -419,11 +419,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="automation-operator"></a>Automation-operatör
 > [!div class="mx-tableFixed"]
@@ -454,11 +454,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="automation-runbook-operator"></a>Automation Runbook-operator
 > [!div class="mx-tableFixed"]
@@ -474,11 +474,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="avere-contributor"></a>Avere deltagare
 > [!div class="mx-tableFixed"]
@@ -507,13 +507,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Hämtar resurserna för resursgruppen. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="avere-operator"></a>Avere Operator
 > [!div class="mx-tableFixed"]
@@ -534,13 +534,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att put blob-behållare |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rollen klusteradministratör för Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -551,11 +551,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin-autentiseringsuppgifter för ett hanterat kluster |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Rollen klusteranvändare för Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -566,11 +566,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser-autentiseringsuppgifter för ett hanterat kluster |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Ägare för Azure Stack-registrering
 > [!div class="mx-tableFixed"]
@@ -583,11 +583,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.AzureStack/registrations/products/read | Hämtar egenskaperna för en produkt i Azure Stack Marketplace |
 > | Microsoft.AzureStack/registrations/read | Hämtar egenskaperna för en Azure Stack-registrering |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="backup-contributor"></a>Säkerhetskopieringsmedarbetare
 > [!div class="mx-tableFixed"]
@@ -640,11 +640,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista över alla backup Protection avsikter |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="backup-operator"></a>Säkerhetskopieringsoperatör
 > [!div class="mx-tableFixed"]
@@ -712,11 +712,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista över alla backup Protection avsikter |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="backup-reader"></a>Säkerhetskopieringsläsare
 > [!div class="mx-tableFixed"]
@@ -765,11 +765,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista över alla backup Protection avsikter |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="billing-reader"></a>Faktureringsläsare
 > [!div class="mx-tableFixed"]
@@ -786,11 +786,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="biztalk-contributor"></a>BizTalk-deltagare
 > [!div class="mx-tableFixed"]
@@ -807,11 +807,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>CDN-slutpunktsdeltagare
 > [!div class="mx-tableFixed"]
@@ -829,11 +829,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cdn-endpoint-reader"></a>CDN-slutpunktsläsare
 > [!div class="mx-tableFixed"]
@@ -851,11 +851,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cdn-profile-contributor"></a>CDN-profildeltagare
 > [!div class="mx-tableFixed"]
@@ -873,11 +873,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cdn-profile-reader"></a>CDN-profilläsare
 > [!div class="mx-tableFixed"]
@@ -895,11 +895,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="classic-network-contributor"></a>Klassisk nätverksdeltagare
 > [!div class="mx-tableFixed"]
@@ -916,11 +916,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Klassisk lagringskontodeltagare
 > [!div class="mx-tableFixed"]
@@ -937,11 +937,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Tjänstroll som operatör av klassisk lagringskontonyckel
 > [!div class="mx-tableFixed"]
@@ -953,11 +953,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Listar lagringskontots åtkomstnycklar. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Återskapar befintliga åtkomstnycklar för lagringskontot. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Klassisk virtuell datordeltagare
 > [!div class="mx-tableFixed"]
@@ -984,11 +984,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cognitive-services-contributor"></a>Cognitive Services-deltagare
 > [!div class="mx-tableFixed"]
@@ -1015,11 +1015,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services-dataläsare (förhandsversion)
 > [!div class="mx-tableFixed"]
@@ -1028,13 +1028,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Låter dig läsa Cognitive Services-data. |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cognitive-services-user"></a>Cognitive Services-användare
 > [!div class="mx-tableFixed"]
@@ -1057,11 +1057,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Läsarroll för Cosmos DB-konto
 > [!div class="mx-tableFixed"]
@@ -1078,11 +1078,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -1094,11 +1094,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Skicka en begäran om att konfigurera säkerhetskopiering |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Skicka en begäran om återställning |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cost-management-contributor"></a>Cost Management-deltagare
 > [!div class="mx-tableFixed"]
@@ -1114,11 +1114,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="cost-management-reader"></a>Cost Management-läsare
 > [!div class="mx-tableFixed"]
@@ -1134,11 +1134,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="data-box-contributor"></a>Data Box-deltagare
 > [!div class="mx-tableFixed"]
@@ -1154,11 +1154,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="data-box-reader"></a>Data Box-läsare
 > [!div class="mx-tableFixed"]
@@ -1175,11 +1175,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="data-factory-contributor"></a>Data Factory-deltagare
 > [!div class="mx-tableFixed"]
@@ -1197,11 +1197,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics-utvecklare
 > [!div class="mx-tableFixed"]
@@ -1234,9 +1234,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Skapa eller uppdatera en princip för beräkning. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Ta bort en princip för beräkning. |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="data-purger"></a>Datarensaren
 > [!div class="mx-tableFixed"]
@@ -1250,11 +1250,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Ta bort angivna data från arbetsytan |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="devtest-labs-user"></a>DevTest Labs-användare
 > [!div class="mx-tableFixed"]
@@ -1297,9 +1297,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Visar en lista över tillgängliga storlekar som de virtuella datorerna kan uppdateras till |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="dns-zone-contributor"></a>DNS-zondeltagare
 > [!div class="mx-tableFixed"]
@@ -1316,11 +1316,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="documentdb-account-contributor"></a>DocumentDB-kontodeltagare
 > [!div class="mx-tableFixed"]
@@ -1337,11 +1337,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription-deltagare
 > [!div class="mx-tableFixed"]
@@ -1360,11 +1360,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription-läsare
 > [!div class="mx-tableFixed"]
@@ -1380,11 +1380,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lista över regionala händelseprenumerationer av topictype |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight-domäntjänstdeltagare
 > [!div class="mx-tableFixed"]
@@ -1397,11 +1397,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Intelligent Systems-kontodeltagare
 > [!div class="mx-tableFixed"]
@@ -1418,11 +1418,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="key-vault-contributor"></a>Nyckelvalvsdeltagare
 > [!div class="mx-tableFixed"]
@@ -1441,9 +1441,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Rensa ett ej permanent borttaget nyckelvalv |
 > | Microsoft.KeyVault/hsmPools/* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="lab-creator"></a>Labbskaparen
 > [!div class="mx-tableFixed"]
@@ -1460,11 +1460,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="log-analytics-contributor"></a>Log Analytics Contributor
 > [!div class="mx-tableFixed"]
@@ -1487,11 +1487,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="log-analytics-reader"></a>Log Analytics Reader
 > [!div class="mx-tableFixed"]
@@ -1507,9 +1507,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Hämtar de delade nycklarna för arbetsytan. De här nycklarna används för att ansluta Microsoft Operational Insights-agenter till arbetsytan. |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="logic-app-contributor"></a>Logic App-deltagare
 > [!div class="mx-tableFixed"]
@@ -1539,11 +1539,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/serverFarms/read | Visa egenskaperna för en App Service Plan |
 > | Microsoft.Web/sites/functions/listSecrets/action | Lista hemligheter Web Apps-funktioner. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="logic-app-operator"></a>Logic App-operatör
 > [!div class="mx-tableFixed"]
@@ -1569,11 +1569,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/customApis/*/read | Läsa anpassat API. |
 > | Microsoft.Web/serverFarms/read | Visa egenskaperna för en App Service Plan |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="managed-application-operator-role"></a>Rollen hanterat program-operatör
 > [!div class="mx-tableFixed"]
@@ -1586,11 +1586,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="managed-applications-reader"></a>Hanterat program-läsare
 > [!div class="mx-tableFixed"]
@@ -1603,11 +1603,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="managed-identity-contributor"></a>Hanterad identitetsdeltagare
 > [!div class="mx-tableFixed"]
@@ -1625,11 +1625,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="managed-identity-operator"></a>Operatör för hanterad identitet
 > [!div class="mx-tableFixed"]
@@ -1646,11 +1646,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="management-group-contributor"></a>Hanteringsgrupp-deltagare
 > [!div class="mx-tableFixed"]
@@ -1665,11 +1665,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Management/managementGroups/subscriptions/write | Associates befintliga prenumeration med hanteringsgruppen. |
 > | Microsoft.Management/managementGroups/write | Skapa eller uppdatera en hanteringsgrupp. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="management-group-reader"></a>Hanteringsgrupp-läsare
 > [!div class="mx-tableFixed"]
@@ -1680,11 +1680,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="monitoring-contributor"></a>Övervakningsdeltagare
 > [!div class="mx-tableFixed"]
@@ -1718,11 +1718,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Övervakningsmåttutgivare
 > [!div class="mx-tableFixed"]
@@ -1735,11 +1735,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Skrivning av mått |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="monitoring-reader"></a>Övervakningsläsare
 > [!div class="mx-tableFixed"]
@@ -1752,11 +1752,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="network-contributor"></a>Nätverksdeltagare
 > [!div class="mx-tableFixed"]
@@ -1773,11 +1773,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>New Relic APM-kontodeltagare
 > [!div class="mx-tableFixed"]
@@ -1794,11 +1794,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="reader-and-data-access"></a>Läs- och dataåtkomst
 > [!div class="mx-tableFixed"]
@@ -1810,11 +1810,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="redis-cache-contributor"></a>Redis Cache-deltagare
 > [!div class="mx-tableFixed"]
@@ -1831,11 +1831,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Deltagare för resursprincip (förhandsversion)
 > [!div class="mx-tableFixed"]
@@ -1851,11 +1851,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Scheduler-jobbsamlingsdeltagare
 > [!div class="mx-tableFixed"]
@@ -1872,11 +1872,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Scheduler/jobcollections/* | Skapa och hantera jobbsamlingar |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="search-service-contributor"></a>Söktjänstdeltagare
 > [!div class="mx-tableFixed"]
@@ -1893,11 +1893,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Search/searchServices/* | Skapa och hantera söktjänster |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="security-admin"></a>Säkerhetsadministratör
 > [!div class="mx-tableFixed"]
@@ -1918,11 +1918,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="security-manager-legacy"></a>Säkerhetshanteraren (bakåtkompatibel)
 > [!div class="mx-tableFixed"]
@@ -1942,11 +1942,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Security/* | Skapa och hantera säkerhetskomponenter och principer |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="security-reader"></a>Säkerhetsläsare
 > [!div class="mx-tableFixed"]
@@ -1964,11 +1964,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery-bidragsgivare
 > [!div class="mx-tableFixed"]
@@ -2005,11 +2005,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="site-recovery-operator"></a>Site Recovery-operatör
 > [!div class="mx-tableFixed"]
@@ -2076,11 +2076,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="site-recovery-reader"></a>Site Recovery-läsare
 > [!div class="mx-tableFixed"]
@@ -2121,11 +2121,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Valvtokenåtgärden kan användas för att hämta Valvtoken för serverdelsåtgärder på valvnivå. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="spatial-anchors-account-contributor"></a>Spatial Anchors-kontodeltagare
 > [!div class="mx-tableFixed"]
@@ -2134,9 +2134,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Låter dig hantera rumsliga fästpunkter i ditt konto, men inte att bort dem |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Skapa spatial fästpunkter |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Upptäcka Närliggande spatial ankare |
@@ -2145,7 +2145,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uppdatera egenskaper för spatial ankare |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="spatial-anchors-account-owner"></a>Spatial Anchors-kontoinnehavare
 > [!div class="mx-tableFixed"]
@@ -2154,9 +2154,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Skapa spatial fästpunkter |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Ta bort spatial ankare |
@@ -2166,7 +2166,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uppdatera egenskaper för spatial ankare |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="spatial-anchors-account-reader"></a>Spatial Anchors-kontoläsare
 > [!div class="mx-tableFixed"]
@@ -2175,16 +2175,16 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Upptäcka Närliggande spatial ankare |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hämta egenskaper för spatial ankare |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Leta upp spatial ankare |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="sql-db-contributor"></a>SQL DB-deltagare
 > [!div class="mx-tableFixed"]
@@ -2230,9 +2230,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="sql-managed-instance-contributor"></a>SQL-hanterad instans-deltagare
 > [!div class="mx-tableFixed"]
@@ -2253,11 +2253,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="sql-security-manager"></a>SQL-säkerhetshanteraren
 > [!div class="mx-tableFixed"]
@@ -2308,11 +2308,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="sql-server-contributor"></a>SQL Server-deltagare
 > [!div class="mx-tableFixed"]
@@ -2361,9 +2361,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Redigera avisering principer för SQL server-säkerhet |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-account-contributor"></a>Lagringskontodeltagare
 > [!div class="mx-tableFixed"]
@@ -2382,11 +2382,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/* | Skapa och hantera lagringskonton |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>Tjänstroll som operatör av lagringskontonyckel
 > [!div class="mx-tableFixed"]
@@ -2398,11 +2398,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returnera åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapa åtkomstnycklarna för det angivna lagringskontot. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-blob-data-contributor"></a>Storage Blob Data-deltagare
 > [!div class="mx-tableFixed"]
@@ -2415,13 +2415,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnera en behållare eller behållarlista. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Ändra metadata eller egenskaper för en behållare. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Ta bort en blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnera en blob eller bloblista. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Skriva till en blob. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-blob-data-owner"></a>Storage Blob Data-ägare
 > [!div class="mx-tableFixed"]
@@ -2432,11 +2432,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Fullständig behörighet i behållare.  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Fullständig behörighet för blobbar. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-blob-data-reader"></a>Storage Blob Data-läsare
 > [!div class="mx-tableFixed"]
@@ -2447,11 +2447,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnera en behållare eller behållarlista. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnera en blob eller bloblista. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-queue-data-contributor"></a>Lagringsködata-deltagare
 > [!div class="mx-tableFixed"]
@@ -2464,13 +2464,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnera en kö eller kölista. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Ändra egenskaper för eller köa metadata. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Ta bort ett eller flera meddelanden från en kö. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska eller hämta ett eller flera meddelanden från en kö. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Lägg till ett meddelande till en kö. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-queue-data-message-processor"></a>Lagringsködata-meddelandeprocessor
 > [!div class="mx-tableFixed"]
@@ -2479,14 +2479,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Granska, hämta och ta bort en meddelanden från en Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska ett meddelande. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Hämta och ta bort ett meddelande. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-queue-data-message-sender"></a>Meddelandeavsändare för lagringsködata
 > [!div class="mx-tableFixed"]
@@ -2495,13 +2495,13 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Beskrivning** | Lägga till meddelanden i en Azure Storage-kö. Läs vilka åtgärder som krävs för en viss dataåtgärd i [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Åtgärder** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Lägg till ett meddelande till en kö. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="storage-queue-data-reader"></a>Lagringsködata-läsare
 > [!div class="mx-tableFixed"]
@@ -2512,11 +2512,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returnerar en kö eller kölista. |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Granska eller hämta ett eller flera meddelanden från en kö. |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="support-request-contributor"></a>Supportförfrågningsdeltagare
 > [!div class="mx-tableFixed"]
@@ -2529,11 +2529,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="traffic-manager-contributor"></a>Traffic Manager-deltagare
 > [!div class="mx-tableFixed"]
@@ -2550,11 +2550,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="user-access-administrator"></a>Administratör för användaråtkomst
 > [!div class="mx-tableFixed"]
@@ -2567,11 +2567,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Authorization/* | Hantera auktorisering |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Administratörsinloggning för virtuell dator
 > [!div class="mx-tableFixed"]
@@ -2586,12 +2586,12 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Network/networkInterfaces/read | Hämtar en definition för nätverk-gränssnittet.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Logga in på en virtuell dator som vanlig användare |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Logga in på en virtuell dator med behörighet som Windows-administratör eller Linux-rotanvändare |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="virtual-machine-contributor"></a>Virtuell datordeltagare
 > [!div class="mx-tableFixed"]
@@ -2639,11 +2639,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="virtual-machine-user-login"></a>Användarinloggning för virtuell dator
 > [!div class="mx-tableFixed"]
@@ -2658,11 +2658,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Network/networkInterfaces/read | Hämtar en definition för nätverk-gränssnittet.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Logga in på en virtuell dator som vanlig användare |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="web-plan-contributor"></a>Webbplan-deltagare
 > [!div class="mx-tableFixed"]
@@ -2680,11 +2680,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/serverFarms/* | Skapa och hantera servergrupper |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Ansluter till en App Service Environment |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="website-contributor"></a>Webbplatsdeltagare
 > [!div class="mx-tableFixed"]
@@ -2706,14 +2706,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/serverFarms/read | Visa egenskaperna för en App Service Plan |
 > | Microsoft.Web/sites/* | Skapa och hantera webbplatser (för att skapa webbplatser även kräver skrivbehörighet till den associerade Apptjänstplan) |
 > | **NotActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 > | **NotDataActions** |  |
-> | *Ingen* |  |
+> | *inga* |  |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Anpassade roller för Azure-resurser](custom-roles.md)
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
+- [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](role-assignments-portal.md)
 - [Behörigheter i Azure Security Center](../security-center/security-center-permissions.md)

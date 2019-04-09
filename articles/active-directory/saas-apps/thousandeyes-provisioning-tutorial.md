@@ -13,18 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/28/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: bb9ac9974be94195f6ed0315aece7dfea749ce33
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436812"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057514"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ThousandEyes för automatisk användaretablering
-
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i ThousandEyes och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ThousandEyes. 
 
@@ -32,15 +31,12 @@ Målet med den här självstudien är att visa dig de steg du måste utföra i T
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active directory-klient
-*   En aktiv [ThousandEyes konto](https://www.thousandeyes.com/pricing)
-*   Ett ThousandEyes-användarkonto som har tilldelats en roll som innehåller följande 3 behörigheter:
-    * Visa alla användare
-    * Redigera användare
-    * Behörigheter för API-åtkomst
+* En Azure Active directory-klient
+* En ThousandEyes klient med den [standardprenumerationen](https://www.thousandeyes.com/pricing) eller bättre har aktiverats 
+* Ett användarkonto i ThousandEyes med administratörsbehörighet 
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
+> Azure AD etablering integration förlitar sig på den [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), som är tillgängliga för ThousandEyes team på Standard-avtalet eller bättre.
 
 ## <a name="assigning-users-to-thousandeyes"></a>Tilldela användare till ThousandEyes
 
@@ -52,33 +48,18 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Viktiga tips för att tilldela användare till ThousandEyes
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats ThousandEyes att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats ThousandEyes att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till ThousandEyes, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
-
-## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Konfigurera automatisk etablering användarroller i ThousandEyes
-
-Du är Automatisk etablering för varje kontogrupp användare till du kan konfigurera en uppsättning roller som ska användas när det nya användarkontot har skapats. Automatisk etablering användare tilldelas som standard den _vanlig användare_ för alla konton som grupperar såvida inte konfigurerad på annat sätt.
-
-1. Att ange en ny uppsättning roller för automatisk etablering användare logga in ThousandEyes och gå till avsnittet SCIM **> din användarikonen i övre högra hörnet > kontoinställningar > organisation > säkerhet och autentisering.** 
-
-   ![Gå till SCIM API-inställningar](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
-
-2. Lägga till en post för varje kontogrupp, tilldela en uppsättning roller sedan *spara* dina ändringar.
-
-   ![Ange standardroller och kontogrupper för användare som skapas via SCIM-API](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
-
+* När du tilldelar en användare till ThousandEyes, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Konfigurera användaretablering för ThousandEyes 
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till Thousandeyess användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i ThousandEyes baserat på användar- och grupptilldelningar i Azure AD .
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning (SSO) för ThousandEyes, efter den [instruktionerna i Azure kunskapsbas](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) att slutföra SSO. Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna kompletterar varandra.
-
+> Du kan också välja att aktiveras SAML-baserad enkel inloggning för ThousandEyes, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till ThousandEyes i Azure AD
-
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
 
@@ -98,7 +79,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Thousandeyess anv�
 
 7. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan ”Skicka ett e-postmeddelande när ett fel uppstår”.
 
-8. Klicka på **Spara**. 
+8. Klicka på **Spara**.
 
 9. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till ThousandEyes**.
 
@@ -106,12 +87,11 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Thousandeyess anv�
 
 11. Om du vill aktivera den Azure AD-etableringstjänsten för ThousandEyes, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
 
-12. Klicka på **Spara**. 
+12. Klicka på **Spara**.
 
 Den här åtgärden startar den första synkroniseringen av användare och/eller grupper som tilldelats till ThousandEyes i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
-
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517937"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268440"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure container registry med Azure-nätverk eller brandväggsregler
 
@@ -29,6 +29,8 @@ Den här artikeln visar två scenarier för att skapa regler för nätverksåtko
 * Endast en **Premium** behållarregister kan konfigureras med regler för nätverksåtkomst. Information om tjänstnivåer för registret finns i [Azure Container Registry SKU: er](container-registry-skus.md). 
 
 * Endast en [Azure Kubernetes Service](../aks/intro-kubernetes.md) kluster eller Azure [VM](../virtual-machines/linux/overview.md) kan användas som värd för åtkomst till ett behållarregister i ett virtuellt nätverk. *Andra Azure-tjänster, inklusive Azure Container Instances stöds inte för närvarande.*
+
+* [ACR uppgifter](container-registry-tasks-overview.md) åtgärder stöds inte för närvarande i ett behållarregister som distribueras till ett virtuellt nätverk.
 
 * Varje register stöder högst 100 virtuella Nätverksregler.
 
@@ -373,7 +375,7 @@ Flera virtuella nätverksresurser och funktioner beskrivs i den här artikeln, �
 
 * [Virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Serviceslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+* [Tjänstslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->
 

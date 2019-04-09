@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896133"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268372"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: Teknisk djupdykning
 
@@ -44,7 +44,7 @@ Sömlös enkel inloggning har aktiverats med Azure AD Connect enligt [här](how-
 - Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar, har alla datorkonton en egen unik dekrypteringsnyckel för Kerberos.
 
 >[!IMPORTANT]
-> Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar. Kerberos-krypteringsnyckel på datorkontot ska också behandlas som känsliga. Vi rekommenderar starkt att som du [förnyar Kerberos-krypteringsnyckel](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) av den `AZUREADSSOACC` datorkontot minst var 30: e dag.
+> Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar och där endast domänadministratörer har åtkomst. Kerberos-krypteringsnyckel på datorkontot ska också behandlas som känsliga. Vi rekommenderar starkt att som du [förnyar Kerberos-krypteringsnyckel](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) av den `AZUREADSSOACC` datorkontot minst var 30: e dag.
 
 När inställningarna har slutförts, fungerar sömlös SSO på samma sätt som alla andra logga in som använder integrerad Windows autentisering (IWA).
 

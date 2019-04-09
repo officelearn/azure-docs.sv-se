@@ -53,6 +53,8 @@ items:
       href: devtest-lab-concepts.md
     - name: Scenarier
       items:
+      - name: Populära scenarier för användning av DevTest Labs
+        href: devtest-lab-guidance-get-started.md
       - name: Använda labb för utvecklare
         href: devtest-lab-developer-lab.md
       - name: Använda labb för testmiljöer
@@ -109,8 +111,6 @@ items:
     - name: Konfigurera DevTest Labs-infrastruktur i ditt företag
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Börja använda DevTest Labs
-        href: devtest-lab-guidance-get-started.md
       - name: Skala upp din DevTest Labs-distribution
         href: devtest-lab-guidance-scale.md
       - name: Dirigera implementeringen av DevTest Labs
@@ -279,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Vanliga frågor och svar
       href: devtest-lab-faq.md
-ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a5312fc1c99072c10337bd00569a608825df3bc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894448"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262881"

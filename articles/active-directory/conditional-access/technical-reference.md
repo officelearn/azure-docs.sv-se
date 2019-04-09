@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051130"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273047"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -232,6 +232,23 @@ Den här inställningen gäller för klientappar som följande:
 - Godkända klientappar stöder funktionen Intune mobile application management.
 - Den **Kräv godkänd klientapp** krav:
    - Stöder endast iOS och Android för [enheten plattform villkor](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Kravet för App protection 
+
+Du kan kräva en appskyddsprincip finnas i klientappen innan har du tillgång till de valda molnapparna i din princip för villkorlig åtkomst. 
+
+![Kontrollera åtkomst med appskyddsprinciper](./media/technical-reference/22.png)
+
+Den här inställningen gäller för klientappar som följande:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Kommentarer**
+
+- Appar för appskyddsprinciper stöder funktionen Intune mobilprogram management med princip för skydd.
+- Den **kräver appskyddsprincip** krav:
+    - Stöder endast iOS och Android för [enheten plattform villkor](#device-platform-condition).
 
 ## <a name="next-steps"></a>Nästa steg
 

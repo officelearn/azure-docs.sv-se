@@ -9,13 +9,13 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 02/09/2019
-ms.openlocfilehash: ed3029f2e336c03de616bc00733f1b9c104ddb86
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917897"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275614"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -33,7 +33,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
 | Östra Australien |Tillgängligt |Den 1 juni 2019 |
-| Sydöstra Australien |2 april 2019 |Den 1 maj 2019 |
+| Sydöstra Australien |Den 15 april 2019 |Den 1 maj 2019 |
 | Södra Brasilien |Den 15 maj 2019 |\* |
 | Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
 | Östra Kanada |\* |\* |
@@ -49,20 +49,20 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
 | Centrala Indien |Tillgängligt |Den 1 juni 2019 |
-| Södra Indien |2 april 2019 |Den 1 juni 2019 |
+| Södra Indien |Den 15 april 2019 |Den 1 juni 2019 |
 | Östra Japan |Tillgängligt |Den 1 juni 2019 |
 | Västra Japan |Tillgängligt |Den 1 maj 2019 |
-| Sydkorea, centrala |2 april 2019 |Den 1 juni 2019 |
-| Sydkorea, södra |2 april 2019 |Den 1 maj 2019 |
-| Norra centrala USA |2 april 2019 |Den 1 maj 2019 |
+| Sydkorea, centrala |Den 15 april 2019 |Den 1 juni 2019 |
+| Sydkorea, södra |Den 15 april 2019 |Den 1 maj 2019 |
+| Norra centrala USA |Den 15 april 2019 |Den 1 maj 2019 |
 | Norra Europa |Tillgängligt |Den 1 juni 2019 |
 | Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
 | Sydostasien |Tillgängligt |Den 1 juni 2019 |
-| Storbritannien, södra |2 april 2019 |Den 1 juni 2019 |
+| Storbritannien, södra |Den 15 april 2019 |Den 1 juni 2019 |
 | Storbritannien, västra |\*|\* |
 | Västra centrala USA |2 september 2019 |Den 2 januari 2020|
 | Västra Europa |Tillgängligt |Den 1 juni 2019 |
-| Västra USA |2 april 2019 |Den 1 juni 2019 |
+| Västra USA |Den 15 april 2019 |Den 1 juni 2019 |
 | Västra USA 2 |Tillgängligt |Den 1 juni 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen

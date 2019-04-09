@@ -3,24 +3,22 @@ title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips fö
 description: Lär dig Metodtips för infrastruktur för att migrera lokala Hadoop-kluster till Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
-ms.reviewer: ashishth
+ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360205"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274697"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
 Den här artikeln ger rekommendationer för hantering av infrastrukturen i Azure HDInsight-kluster. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>Planera för kapacitet för HDInsight-kluster
 
@@ -45,9 +43,9 @@ Du kan också använda Apache Ambari-Gränssnittet eller Ambari REST API för at
 
 Program eller komponenter som var tillgängliga i lokala kluster men inte ingår i HDInsight-kluster kan läggas på en kantnod eller på en virtuell dator i samma virtuella nätverk som HDInsight-kluster. Ett tredje parts Hadoop-program som inte är tillgänglig på Azure HDInsight kan installeras med alternativet ”program” i HDInsight-kluster. Anpassade Hadoop-program kan installeras på HDInsight-kluster med ”skriptåtgärder”. I följande tabell visas några av de vanliga program och deras alternativ för integrering av HDInsight:
 
-|**Programmet**|**Integrering**
+|**Program**|**Integrering**
 |---|---|
-|Luftflödet|IaaS-eller kantnoden för HDInsight
+|Luftflödet|IaaS eller HDInsight kantnoden
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Ingen (endast HDP)
@@ -60,7 +58,7 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB ett alternativ i Azure)
 |NiFi|IaaS 
-|Presto|IaaS-eller kantnoden för HDInsight
+|Presto|IaaS eller HDInsight kantnoden
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
@@ -68,7 +66,7 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 |Vertica|IaaS (SQLDW ett alternativ i Azure)
 |Tableau|IaaS 
 |Vattenlinjen|Kantnoden för HDInsight
-|StreamSets|HDInsight Edge 
+|StreamSets|HDInsight edge 
 |Palantir|IaaS 
 |SailPoint|Iaas 
 
@@ -105,7 +103,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Anpassa HDInsight-konfigurationer med Bootstrap
 
-Ändras till konfigurationer i konfigurationsfilerna som `core-site.xml`, `hive-site.xml` och `oozie-env.xml` kan göras med Bootstrap. Följande skript är ett exempel med hjälp av Powershell:
+Ändras till konfigurationer i konfigurationsfilerna som `core-site.xml`, `hive-site.xml` och `oozie-env.xml` kan göras med Bootstrap. Följande skript är ett exempel som använder Powershell [AZ modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -130,7 +128,7 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-Mer information finns i artikeln [anpassa HDInsight-kluster med Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).
+Mer information finns i artikeln [anpassa HDInsight-kluster med Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).  Se även [hantera HDInsight-kluster med hjälp av Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Åtkomst-klientverktyg från HDInsight Hadoop-kluster kantnoder
 
@@ -148,37 +146,10 @@ Mer information finns i artikeln [använda tomma kantnoder på Apache Hadoop-klu
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Använd upp- och Nedskalning funktion i kluster
 
-HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. Den här funktionen kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag.
+HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. Den här funktionen kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag. Mer information finns i:
 
-Skalning av klustret kan automatiseras med hjälp av följande metoder:
-
-### <a name="powershell-cmdlet"></a>PowerShell-cmdlet
-
-```powershell
-Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```powershell
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
-
-### <a name="azure-portal"></a>Azure Portal
-
-När du lägger till noder i ditt HDInsight-kluster som körs påverkas inte några väntande eller pågående jobb. Nya jobb kan skickas på ett säkert sätt när skalning processen körs. Om skalning åtgärder utföras av någon anledning, är felet ett smidigt sätt hanterade, lämnar klustret fungerar på.
-
-Men om du skalar ned ditt kluster genom att ta bort noder, att alla jobb som körs eller väntar på misslyckas när skalning åtgärden har slutförts. Det här felet beror på de tjänster som startas om under processen. För det här problemet, kan du vänta jobb slutförts innan du skalar ned ditt kluster, Avsluta jobb manuellt eller skicka jobb när åtgärden skalning har avslutat.
-
-Om du minska ditt kluster till minst en underordnad nod fastna HDFS i felsäkert läge när arbetsnoder startas om för uppdatering eller omedelbart efter skalning igen. Du kan köra följande kommando för att aktivera HDFS från felsäkert läge:
-
-```bash
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
-```
-
-Efter att ha lämnat felsäkert läge, kan du manuellt bort temporära filer eller vänta tills Hive att så småningom Rensa dem automatiskt.
-
-Mer information finns i artikeln [skala HDInsight-kluster](../hdinsight-scaling-best-practices.md).
+* [Skala HDInsight-kluster](../hdinsight-scaling-best-practices.md).
+* [Skala kluster](../hdinsight-administer-use-portal-linux.md#scale-clusters).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Använda HDInsight med Azure-nätverk
 
@@ -190,7 +161,7 @@ Med Azure Virtual Network med HDInsight kan följande scenarier:
 - Ansluta HDInsight till data som lagras i ett virtuellt Azure-nätverk.
 - Direkt åtkomst till Hadoop-tjänster som inte är tillgänglig offentligt över internet. Till exempel Kafka-API: er eller HBase Java-API.
 
-HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDInsight läggs till ett befintligt virtuellt nätverk, den befintliga nätverkssäkerhetsgrupper och användardefinierade vägar måste uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) i Azure-datacentret. Se dessutom till att du inte blockerar trafik till den [portar](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) som används av HDInsight-tjänster.
+HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDInsight läggs till ett befintligt virtuellt nätverk, den befintliga nätverkssäkerhetsgrupper och användardefinierade vägar måste uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) i Azure-datacentret. Se dessutom till att du inte blockerar trafik till den [portar](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), som används av HDInsight-tjänster.
 
 > [!Note]  
 > HDInsight stöder för närvarande inte Tvingad tunneltrafik. Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. Ta bort Tvingad tunneltrafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight. HDInsight stöder inte heller att begränsa utgående nätverksanslutning.
@@ -198,11 +169,11 @@ HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDI
 Mer information finns i följande artiklar:
 
 - [Azure-nätverk – översikt över virtuell](../../virtual-network/virtual-networks-overview.md)
-- [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-extend-hadoop-virtual-network.md)
+- [Utöka Azure HDInsight med hjälp av Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Anslut säkert till Azure-tjänster med Azure Virtual Network-tjänstslutpunkter
 
-HDInsight stöder [virtuella nätverksslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md) som gör att du kan ansluta säkert till Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB och SQL-databaser. Trafiken flödar via en säker väg från inom Azure-datacentret genom att aktivera en tjänstslutpunkt för Azure HDInsight. Du kan låsa stordata storage-konton till de angivna virtuella nätverken (Vnet) och fortfarande använda HDInsight-kluster sömlöst för att komma åt och bearbeta data med den här högre säkerhet på nätverksnivån.
+HDInsight stöder [virtuella nätverksslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md), vilket gör att du kan ansluta säkert till Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB och SQL-databaser. Trafiken flödar via en säker väg från inom Azure-datacentret genom att aktivera en tjänstslutpunkt för Azure HDInsight. Du kan låsa stordata storage-konton till de angivna virtuella nätverken (Vnet) och fortfarande använda HDInsight-kluster sömlöst för att komma åt och bearbeta data med den här högre säkerhet på nätverksnivån.
 
 Mer information finns i följande artiklar:
 

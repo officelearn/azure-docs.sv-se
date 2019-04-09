@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903393"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272214"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -282,7 +282,7 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja. |
-| WriteBatchSize |Den här egenskapen infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal för hur många rader. |Nej (standard: 10,000). |
+| WriteBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är heltal för hur många rader. |Nej (standard: 10,000). |
 | writeBatchTimeout |Denna egenskap anger väntetiden batch Infoga åtgärd ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är för tidsintervallet. Ett exempel är ”00: 30:00”, som är 30 minuter. |Nej. |
 | preCopyScript |Den här egenskapen anger en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till den hantera instansen. Den anropas bara en gång per kopia som kör. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej. |
 | sqlWriterStoredProcedureName |Det här namnet är för den lagrade proceduren som definierar hur du använder källdata i måltabellen. Exempel på procedurer är att göra upsertar eller transformeringar med egen affärslogik. <br/><br/>Den här lagrade proceduren är *anropas per batch*. För att göra en åtgärd som körs bara en gång och har inget att göra med källdata, till exempel ta bort eller trunkera använder den `preCopyScript` egenskapen. |Nej. |
@@ -438,9 +438,9 @@ När data har kopierats till Azure SQL Database Managed Instance, kan en lagrad 
 
 Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar. Den används vanligtvis när en upsert (uppdatering + insert) eller extra bearbetning måste göras innan sista inmatningen av källdata i tabellen. Extra bearbetningen kan innehålla uppgifter såsom sammanfoga kolumner, leta upp ytterligare värden och infogning i flera tabeller.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i den hanterade instansen. Exemplet förutsätter att indata och tabellen mottagare ”marknadsföring” har tre kolumner: Profil-ID, tillstånd och kategori. Utför upsert baserat på kolumnen profil-ID och ansöka om endast en specifik kategori.
+I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i SQL Server-databasen. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 
-**Datauppsättningen för utdata**
+**Datauppsättningen för utdata:** ”tableName” ska vara samma typ parametern tabellnamnet i den lagrade proceduren (se lagrad procedur-skriptet nedan).
 
 ```json
 {
@@ -459,7 +459,7 @@ I följande exempel visas hur du använder en lagrad procedur för att göra en 
 }
 ```
 
-Definiera avsnittet SqlSink i en Kopieringsaktivitet enligt följande:
+Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande sätt.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Definiera avsnittet SqlSink i en Kopieringsaktivitet enligt följande:
 }
 ```
 
-Definiera den lagrade proceduren med samma namn som SqlWriterStoredProcedureName i din databas. Den hanterar indata från angivna källan och sammanfogar den i utdata i tabellen. Parameternamnet av tabelltypen i den lagrade proceduren är samma som ”tableName” som har definierats i datauppsättningen.
+I databasen, definierar du den lagrade proceduren med samma namn som den **SqlWriterStoredProcedureName**. Den hanterar indata från angivna källan och sammanfogar i utdatatabellen. Parameternamnet av tabelltypen i den lagrade proceduren bör vara samma som den **tableName** definierats i datauppsättningen.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

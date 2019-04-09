@@ -1,7 +1,6 @@
 ---
 title: Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 description: Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer för Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768612"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276498"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -253,4 +252,4 @@ Granska följande artiklar för mer information om kommandon och frågor i den h
 - [Azure PowerShell-moduler](/powershell/module/az.resources/#policies)
 - [Azure CLI-kommandon för principen](/cli/azure/policy?view=azure-cli-latest)
 - [Princip för resursprovidern för Insights REST API-referens](/rest/api/policy-insights)
-- [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- [Ordna resurser med hanteringsgrupper i Azure](../../management-groups/overview.md)

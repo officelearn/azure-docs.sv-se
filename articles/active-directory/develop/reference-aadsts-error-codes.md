@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295461"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271806"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -58,7 +58,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS50007 | PartnerEncryptionCertificateMissing - krypteringscertifikat partner hittades inte för den här appen. [Öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med Microsoft för att få det åtgärdat. |
 | AADSTS50008 | InvalidSamlToken - SAML-kontrollen saknas eller är felkonfigurerad i token. Kontakta den federerade providern. |
 | AADSTS50010 | AudienceUriValidationFailed - målgruppen URI-verifiering för appen kunde inte utföras eftersom inga tokenmålgrupper konfigurerades. |
-| AADSTS50011 | InvalidReplyTo - svarsadressen saknas, felaktigt konfigurerat, eller matchar inte svarsadresserna som har konfigurerats för appen. Prova att använda lösningen som listas vid [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Om du fortfarande ser ett problem, kontaktar du appägare eller app-administratör. |
+| AADSTS50011 | InvalidReplyTo - svarsadressen saknas, felaktigt konfigurerat, eller matchar inte svarsadresserna som har konfigurerats för appen.  Se till att lägga till den här saknas svarsadressen i Azure Active Directory-programmet eller har någon med behörighet att hantera ditt program i Active Directory göra det åt dig som en lösning.|
 | AADSTS50012 | AuthenticationFailed - autentiseringen misslyckades för en av följande orsaker:<ul><li>Ämnesnamnet för signeringscertifikatet har inte behörighet</li><li>Gick inte att hitta en matchande princip för betrodd utfärdare för behöriga ämnesnamnet</li><li>Certifikatkedjan är inte giltig</li><li>Signeringscertifikatet är inte giltig</li><li>Principen har inte konfigurerats på klienten</li><li>Tumavtryck för signeringscertifikatet har inte behörighet</li><li>Klientförsäkran innehåller en ogiltig signatur</li></ul> |
 | AADSTS50013 | InvalidAssertion - kontrollen är ogiltigt på grund av olika anledningar - tokenutfärdaren matchar inte api version inom dess giltig tid intervall - har upphört att gälla - fel format - uppdateringstoken i kontrollen är inte en primär uppdateringstoken. |
 | AADSTS50014 | GuestUserInPendingState - användarens inlösen är i ett väntande tillstånd. Gästanvändarkontot skapas fullständigt inte ännu. |
@@ -153,7 +153,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS70007 | UnsupportedResponseMode - appen returnerade ett värde som inte stöds av `response_mode` när du begär en token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - uppdateringstoken har upphört att gälla på grund av inaktivitet. Token har utfärdats på XXX och har varit inaktiv under en viss tidsperiod. |
 | AADSTS70011 | InvalidScope - med appen begärda omfång är ogiltig. |
-| AADSTS70012 | MsaServerError - ett serverfel uppstod när en MSA (konsument)-användare. Försök igen. Om det fortsättningsvis misslyckas, [öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - ett serverfel uppstod när en MSA (konsument)-användare. Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - flöde för OAuth 2.0 enhetsfel. Auktorisering är väntande. Enheten försöker avsökning begäran. |
 | AADSTS70018 | BadVerificationCode - ogiltig Verifieringskod på grund av användare att skriva in fel användarkod för kodflöde för enheten. Auktorisering godkänns inte. |
 | AADSTS70019 | CodeExpired - Verifieringskod har upphört att gälla. Låt användaren försök logga in. |

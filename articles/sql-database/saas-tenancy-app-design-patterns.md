@@ -4,7 +4,7 @@ description: Läs om krav och vanliga data med flera innehavare programvara som 
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217877"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260552"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
 
-När du utformar en SaaS-program, måste du noggrant välja modellen innehavare som bäst passar programmets behov.  En modell för innehavare avgör hur varje klient data mappas till lagring.  Ditt val av innehavare modellen påverkar programmets design och hantering.  Växla till en annan modell senare är ibland kostsamma.
+Den här artikeln beskrivs olika innehavare modeller för ett SaaS-program.
 
-Den här artikeln beskriver alternativ innehavare modeller.
+När du utformar en SaaS-program, måste du noggrant välja modellen innehavare som bäst passar programmets behov.  En modell för innehavare avgör hur varje klient data mappas till lagring.  Ditt val av innehavare modellen påverkar programmets design och hantering.  Växla till en annan modell senare är ibland kostsamma.
 
 ## <a name="a-saas-concepts-and-terminology"></a>A. SaaS-koncept och terminologi
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877708"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272028"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -23,6 +23,7 @@ Har du precis börjat utforska funktionerna i Speech Services? Implementerar du 
 
 > [!div class="checklist"]
 > * Håll dig informerad om förändringar inom *Azure Cognitive Services*, eller hitta de senaste nyheterna som rör *taltjänst*.
+> * Viktig information innehåller information för alla versioner.
 > * Sök för att se om problemet har beskrivs av communityn, eller om befintliga dokumentationen för funktionen som du vill implementera redan finns.
 > * Om du inte hittar ett tillfredsställande svar, Ställ en fråga på *Stack Overflow*.
 > * Om du upptäcker ett problem med något av exemplen på GitHub, generera en *GitHub* problemet.
@@ -31,6 +32,10 @@ Har du precis börjat utforska funktionerna i Speech Services? Implementerar du 
 ## <a name="stay-informed"></a>Håll dig informerad
 
 Nyheter om Cognitive Services som samlas in i den [Cognitive Services-blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Den senaste informationen om Speech Services spåra den [Taltjänster blogg](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Viktig information
+
+[Viktig]] (https://aka.ms/csspeech/whatsnew) uppdateras när en ny version är tillgänglig. De innehåller information om nya funktioner, förbättringar och felkorrigeringar.
 
 ## <a name="search"></a>Search
 
@@ -77,7 +82,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 Exempel är ofta publiceras med öppen källkod. För frågor och problem, skapar du en *problemet* i respektive GitHub-lagringsplatsen. Du kan skicka en pull-begäran för. Följande lista innehåller länkar till exempel databaser.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK för enheter](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Du kan skapa en felrapport, funktionsförfrågan, eller be en allmän fråga och dela bästa praxis. Följ den angivna mallen för buggrapporter:
 
@@ -108,7 +113,7 @@ Vilken version av SDK: N använder du.
 **Ytterligare kontext**
 
  - Felmeddelanden, logginformation, stackspårning...
- - Om du rapporterar ett fel för en specifik tjänst interaktion rapportera sessions-ID och tid (inklusive tidszon) för de rapporterade incidenterna. Sessions-ID rapporteras i alla anrop-baksidor/händelser felmeddelandet.
+ - Om du rapporterar ett fel för en specifik tjänst interaktion rapportera sessions-ID och tidpunkten (inklusive tidszon) för de rapporterade incidenterna. Sessions-ID rapporteras i alla anrop-baksidor/händelser felmeddelandet.
  - Ytterligare information
 
 

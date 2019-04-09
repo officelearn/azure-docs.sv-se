@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884085"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260314"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
@@ -415,7 +415,7 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 
 ### <a name="custom-signing-key"></a>Anpassad nyckel för signeringscertifikatet
 
-En anpassad signeringsnyckel måste tilldelas det tjänstens huvudnamnsobjekt för en Anspråksmappning princip ska börja gälla. Alla token som utfärdas och som har påverkats av principen som har signerats med anpassade signeringsnyckeln och program som måste konfigureras för att acceptera token signerats med signeringsnyckeln. Detta säkerställer bekräftelse att token har ändrats av skaparen av Anspråksmappning princip och skyddar program från Anspråksmappning principer som skapats av skadliga aktörer.
+En anpassad signeringsnyckel måste tilldelas det tjänstens huvudnamnsobjekt för en Anspråksmappning princip ska börja gälla. Detta säkerställer bekräftelse att token har ändrats av skaparen av Anspråksmappning princip och skyddar program från Anspråksmappning principer som skapats av skadliga aktörer.  Appar som har anspråk mappning aktiverat måste markera en särskild URI för sin token Signeringsnycklar genom att lägga till `appid={client_id}` till sina [OpenID Connect metadataförfrågningar](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scenarier för flera klienter
 

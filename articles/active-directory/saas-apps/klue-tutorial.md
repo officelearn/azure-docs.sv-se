@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be794c6d24218eccdc960219dd61a2075b5ab7ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858868"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Självstudier: Azure Active Directory-integrering med Klue
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Klue:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `urn:klue:<Customer ID>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -230,9 +230,9 @@ När du klickar på panelen Klue i åtkomstpanelen, bör det vara loggas in auto
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

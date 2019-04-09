@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620657"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273404"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
 Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**,  **Standard**, eller **Lagringsoptimerade** prisnivåer.
@@ -114,7 +114,7 @@ Resurskrävande åtgärder, till exempel bildanalys i Azure blob-indexering elle
 | BLOB-indexeraren: storlek för maximal blob, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
 | BLOB-indexeraren: maximala antalet tecken innehåll extraheras från en blob |32,000 |64,000 |4 miljoner |4 miljoner |4 miljoner |Gäller inte |4 miljoner |4 miljoner |
 
-<sup>1</sup> kostnadsfria tjänster har indexeraren maximal körningstid för 3 minuter för blob-källor och 1 minut för alla andra datakällor.
+<sup>1</sup> kostnadsfria tjänster har indexeraren maximal körningstid för 3 minuter för blob-källor och 1 minut för alla andra datakällor. För AI indexering att anrop till Cognitive Services, är kostnadsfria tjänster begränsad till 20 kostnadsfria transaktioner per dag, där en transaktion har definierats som ett dokument som har skickas via pipelinen berikande.
 
 <sup>2</sup> bastjänster som skapats efter sent 2017 har en ökad gräns på 15 index, datakällor och indexerare. Tjänster som skapades tidigare har 5.
 

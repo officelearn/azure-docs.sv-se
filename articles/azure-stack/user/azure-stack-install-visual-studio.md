@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248120"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258002"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installera Visual Studio och Anslut till Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan använda Visual Studio för att skriva och distribuera Azure Resource Manager [mallar](azure-stack-arm-templates.md) till Azure Stack. Stegen i den här artikeln vägleder dig genom att installera Visual Studio på [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller på en extern dator om du planerar att använda Azure Stack via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Du kan använda Visual Studio för att skriva och distribuera Azure Resource Manager [mallar](azure-stack-arm-templates.md) till Azure Stack. Stegen i den här artikeln beskriver hur du installerar Visual Studio på [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller på en extern dator om du planerar att använda Azure Stack via [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Installera Visual Studio
 
@@ -39,7 +39,7 @@ Du kan använda Visual Studio för att skriva och distribuera Azure Resource Man
 
 4. Avinstallera den **Microsoft Azure PowerShell** som installeras som en del av Azure SDK.
 
-    ![Skärmbild av WebPI-installation steg](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Skärmbild av WebPI-installation steg](./media/azure-stack-install-visual-studio/image1.png)
 
 5. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)
 
@@ -65,9 +65,7 @@ När du loggat in kan du [distribuera mallar](azure-stack-deploy-template-visual
 
 3. Expandera **miljö** i den **navigeringsfönstret** och välj **konton**.
 
-4. Välj **Lägg till**, och ange användaren Azure Resource Manager-slutpunkt.  
-  För Azure Stack Development Kit URL: en är: `https://management.local.azurestack/external`.  
-  Integrerade Azure Stack-system använder URL: en är: `https://management.[Region}.[External FQDN]`.
+4. Välj **Lägg till**, och ange användaren Azure Resource Manager-slutpunkt. För Azure Stack Development Kit URL: en är: `https://management.local.azurestack/external`.  Integrerade Azure Stack-system använder URL: en är: `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,7 +77,7 @@ När du loggat in kan du [distribuera mallar](azure-stack-deploy-template-visual
 
 6. Välj **Cloud Explorer** från den **visa** menyn.
 
-1. Välj **Lägg till konto** och logga in med dina autentiseringsuppgifter för AD FS.  
+7. Välj **Lägg till konto** och logga in med dina autentiseringsuppgifter för AD FS.  
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
@@ -87,9 +85,9 @@ När du loggat in kan du [distribuera mallar](azure-stack-deploy-template-visual
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Bläddra dina befintliga resurser, resursgrupper och distribuera mallar.
+8. Bläddra bland dina befintliga resurser, resursgrupper och distribuera mallar.
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Läs mer om Visual Studio [sida vid sida](https://msdn.microsoft.com/library/ms246609.aspx) med andra versioner av Visual Studio.
- - [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md).
+- Läs mer om Visual Studio [sida vid sida](/visualstudio/install/install-visual-studio-versions-side-by-side) med andra versioner av Visual Studio.
+- [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md).

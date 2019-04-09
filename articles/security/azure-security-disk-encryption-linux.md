@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057684"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276957"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Aktivera Azure Disk Encryption för virtuella Linux IaaS-datorer 
 
@@ -226,8 +226,7 @@ Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 Om du vill kryptera eller dekryptera Linux VM-skalningsuppsättning genom att använda Azure Resource Manager-mallar och anvisningarna nedan:
 
 - [Aktivera kryptering på en Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Distribuera en VM-skalningsuppsättning med virtuella Linux-datorer med en jumpbox och aktivera kryptering på Linux VM scale Sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Inaktivera kryptering på en Linux VM scale Sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Inaktivera kryptering på en Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Klicka på **Distribuera till Azure**.
      2. Fyll i de obligatoriska fälten och samtycker till villkoren.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447227"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269273"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto, klickar du på [här](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) att skapa en.
+* Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto [skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS-konto med en S3-bucket som innehåller data: Den här artikeln visar hur du kopierar data från Amazon S3. Du kan använda andra datalager genom att följa liknande steg.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
@@ -104,7 +104,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    
    ![Ange konto för Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. I den **Välj utdatafil eller mapp** anger **copyfroms3** som utdata mappnamn och välj **nästa**: 
+9. I den **Välj utdatafil eller mapp** anger **copyfroms3** som utdata mappnamn och välj **nästa**. ADF skapar motsvarande ADLS Gen2 filsystemet och undermappar vid kopiering om det inte finns.
 
     ![Ange Utdatamappen](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 

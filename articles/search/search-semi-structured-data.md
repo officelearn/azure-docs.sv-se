@@ -1,22 +1,22 @@
 ---
-title: Självstudie för att söka efter JSON i Azure Blob Storage – Azure Search
-description: I den här självstudien får du lära dig att söka i halvstrukturerade Azure-blobdata med Azure Search.
+title: 'Självstudier: Indexering halvstrukturerade strutured data i JSON-blobar – Azure Search'
+description: Lär dig mer om att indexera och söka efter halvstrukturerade Azure JSON-blobar med hjälp av Azure Search och Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201355"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270480"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Självstudie: Söka efter halvstrukturerade data i Azure-molnlagring
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Självstudier: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
 
 Azure Search kan indexera JSON-dokument och matriser i Azure blob storage med en [indexeraren](search-indexer-overview.md) som vet hur du läser halvstrukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Skillnaden mellan Ostrukturerade data, som måste indexeras fullständigt och formellt strukturerade data som följer en datamodell, till exempel en relationsdatabas-schema, som kan indexeras på basis av per fält delas.
 
@@ -33,37 +33,47 @@ I den här självstudien använder den [Azure Search REST API: er](https://docs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
+Följande tjänster, verktyg och data som används i den här snabbstarten. 
 
-[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) som innehåller exempeldata.
+[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen. 
 
-[Använda Postman](https://www.getpostman.com/) eller någon annan REST-klient för att skicka dina önskemål. Anvisningar för hur du konfigurerar en HTTP-begäran i Postman finns i nästa avsnitt.
+[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), och sedan [har en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Eftersom du kommer att använda en nyckel och storage-kontonamnet för anslutningen, kontrollera att behållarens offentlig åtkomstnivå är inställt på ”behållare (anonym läsåtkomst för behållare)”.
 
-## <a name="set-up-postman"></a>Konfigurera Postman
+[Skrivbordsappen postman](https://www.getpostman.com/) används för att skicka begäranden till Azure Search.
 
-Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med Postman](search-fiddler.md).
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Hämta och packa upp filen till sin egen mapp. Data samlas in från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konvertera till JSON för den här självstudiekursen.
 
-Metoden för begäran för varje anrop i den här kursen är ”POST”. Huvudnycklarna är ”Content-type” och ”api-key”. Värdena för huvudnycklarna är "application/json" och din "admin key" (administratörsnyckeln är platshållare för din sökprimärnyckel). Meddelandetexten är där du placerar det faktiska innehållet i anropet. Hur du konstruerar frågan kan variera beroende på vilken klient du använder, men det här är grunderna.
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
-  ![Halvstrukturerad sökning](media/search-semi-structured-data/postmanoverview.png)
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-För REST-anropen som används i den här kursen krävs din sök-api-nyckel. Du hittar din api-nyckel under **Nycklar** i din söktjänst. Api-nyckeln måste anges i huvudet i varje API-anrop (ersätt ”admin key” i föregående skärmbild med den) som du gör i den här kursen. Behåll nyckeln eftersom du behöver den för varje anrop.
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-  ![Halvstrukturerad sökning](media/search-semi-structured-data/keys.png)
+1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+
+Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
-1. **Ladda ned [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** och extrahera den i dess mapp. Data samlas in från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konvertera till JSON för den här självstudiekursen.
+1. Leta upp exempeldata som du hämtade i systemet.
 
-2. Logga in på den [Azure-portalen](https://portal.azure.com), gå till Azure storage-kontot, öppna den **data** behållare och klickar på **överför**.
+1. [Logga in på Azure-portalen](https://portal.azure.com), navigera till ditt Azure storage-konto och Blob-behållare och på **överför**.
 
-3. Klicka på **Avancerat**, ange ”clinical-trials-json” och ladda sedan upp alla JSON-filer som du hämtade.
+1. Klicka på **Avancerat**, ange ”clinical-trials-json” och ladda sedan upp alla JSON-filer som du hämtade.
 
   ![Halvstrukturerad sökning](media/search-semi-structured-data/clinicalupload.png)
 
 När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
-## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till containern
+## <a name="set-up-postman"></a>Konfigurera Postman
+
+Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med Postman](search-fiddler.md).
+
+Metoden för begäran för varje anrop i den här självstudien är **POST**. Huvudnycklarna är ”Content-type” och ”api-key”. Värdena för huvudnycklarna är "application/json" och din "admin key" (administratörsnyckeln är platshållare för din sökprimärnyckel). Meddelandetexten är där du placerar det faktiska innehållet i anropet. Hur du konstruerar frågan kan variera beroende på vilken klient du använder, men det här är grunderna.
+
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/postmanoverview.png)
 
 Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 

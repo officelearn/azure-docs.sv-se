@@ -3,7 +3,7 @@ title: Kopiera data från SQL Server till Blob Storage med hjälp av Azure Data 
 description: Lär dig hur du kopierar data från ett lokalt datalager till Azure-molnet med hjälp av en lokal Integration Runtime i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: abnarain
+ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451645"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272520"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudier: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
@@ -365,7 +365,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
     > [!IMPORTANT]
     > Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.
 
-    **Anslut med SQL-autentisering (sa):**
+    **Med SQL-autentisering (sa):**
 
     ```json
     {
@@ -386,7 +386,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
     }
    ```    
 
-    **Använd Windows-autentisering:**
+    **Med Windows-autentisering:**
 
     ```json
     {
@@ -679,4 +679,4 @@ Se [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-fo
 Fortsätt till följande självstudie för att lära dig att masskopiera data från en källa till ett mål:
 
 > [!div class="nextstepaction"]
->[Masskopiera data i molnet](tutorial-bulk-copy.md)
+>[Masskopiera data](tutorial-bulk-copy.md)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878048"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Självstudier: Azure Active Directory-integrering med Help Scout
 
@@ -52,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Help Scout i Azure AD måste du lägga till Help Scout från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Help Scout från galleriet:**
+**Utför följande steg för att lägga till att Scout från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -106,18 +106,18 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
     ![Help Scout-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. **Identifierare** är **Audience URI (Service Provider Entity ID)** (URI för målgrupp (Entitets-ID för serviceprovider)) från Help Scout. Den börjar med `urn:`
+    a. **Identifieraren** är den **Målgrupps-URI (Service Provider entitets-ID)** från att Scout börjar med `urn:`
 
-    b. **Svars-URL** är den **Post-back URL (Assertion Consumer Service URL)** (Återskickande-URL (URL för Assertion Consumer Service)) från Help Scout. Den börjar med `https://` 
+    b. **Svars-URL** är den **efter tillbaka URL (försäkran URL för Konsumenttjänst)** från att Scout börjar med `https://` 
 
     > [!NOTE]
-    > Värdena i dessa URL:er är bara exempel. Du behöver uppdatera dessa värden från faktisk svars-URL och identifierare. Du får dessa värden från fliken **Enkel inloggning** under avsnittet Autentisering, som beskrivs senare i självstudien.
+    > Värdena i dessa URL:er är bara exempel. Du måste uppdatera dessa värden från faktiska svars-URL och identifierare. Du får dessa värden från fliken **Enkel inloggning** under avsnittet Autentisering, som beskrivs senare i självstudien.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Help Scout-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL: `https://secure.helpscout.net/members/login/`
+    I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://secure.helpscout.net/members/login/`
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -157,7 +157,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
     ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings4.png)
 
-    a. I textrutan **URL för enkel inloggning** klistrar du in det värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    a. I **URL för enkel inloggning** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
     b. Klicka på **Ladda upp certifikat** för att ladda upp det **certifikat (Base64)** som laddats ned från Azure-portalen.
 
@@ -230,7 +230,7 @@ När du klickar på Help Scout-panelen i åtkomstpanelen bör du automatiskt log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

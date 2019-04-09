@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051690"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271840"
 ---
 # <a name="azure-stack-1902-update"></a>Uppdatering av Azure Stack 1902
 
@@ -80,7 +80,7 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 - 1902-build introducerar ett nytt användargränssnitt på Azure Stack-administratörsportalen för att skapa planer, erbjudanden, kvoter och tilläggsplaner. Mer information, inklusive skärmdumpar, se [skapa planer, erbjudanden och kvoter](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Förbättringar i tillförlitlighet för kapacitetsexpansion under Lägg till nod när du växlar skala enhet tillstånd från ”Expanding storage” i körningstillstånd.
+- Förbättringar i tillförlitlighet på kapacitetsexpansion under en Lägg till nod när du växlar skala enhet läget från ”Expanding storage” till ”körs”.
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -104,9 +104,6 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
     - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella
     - Kontrollera tillståndet för XRP service fabric-noder och åtgärda eventuella
     - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella
-
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Förbättringar i tillförlitlighet för kapacitetsexpansion under Lägg till nod när du växlar skala enhet tillstånd från ”Expanding storage” i körningstillstånd.    
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -259,6 +256,10 @@ Här följer efter installation kända problem för den här build-versionen.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- Systemloggkonfigurationen behålls inte via en uppdateringscykeln, vilket resulterar i syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809).
+Lösningen är att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118603"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262558"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -81,6 +81,31 @@ Det finns två vanliga typer av interna länkar i dina lokala program:
 
 - **Relativa interna länkar** som pekar på en delad resurs i en lokal fil-struktur som `/claims/claims.html`. Länkarna fungerar automatiskt i appar som publicerats via programproxy och fortsätta att arbeta med eller utan länköversättning. 
 - **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerat filer som `http://expenses/logo.jpg`. Översättningsfunktionen länken fungerar på hårdkodad interna länkar och ändrar dem så att den pekar till de externa URL: er som fjärranslutna användare måste du gå igenom.
+
+Den fullständiga listan med HTML-kod taggar som Application Proxy stöder länköversättning för inkludera:
+* a
+* Ljud
+* Base
+* Knappen
+* div
+* Bädda in
+* formuläret
+* ramens
+* HEAD
+* html
+* IFRAME
+* bild
+* indata
+* länk
+* MenuItem
+* meta
+* objekt
+* skript
+* källa
+* Spåra
+* video
+
+Dessutom översättas URL-attributet i CSS också.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Hur länkar appar till varandra?
 

@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255945"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Komma åt Kubernetes-instrumentpanelen i Azure Stack 
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit* 
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit* 
 > [!Note]   
 > Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen. 
 
@@ -47,7 +47,7 @@ Kubernetes innehåller en webbinstrumentpanel som du kan använda för grundläg
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Översikt över stegen för att aktivera instrumentpanel
 
 1.  Exportera Kubernetes-certifikat från den överordnade noden i klustret. 
-2.  Importera certifikat till Azure Stack din hantering av datorn.
+2.  Importera certifikat till din dator för hantering av Azure Stack.
 2.  Öppna Kubernetes web-instrumentpanelen. 
 
 ## <a name="export-certificate-from-the-master"></a>Exportera certifikatet från huvuddatabasen 
@@ -70,7 +70,7 @@ Du kan hämta URL: en för instrumentpanelen från den överordnade noden i klus
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Hitta URL: en för instrumentpanelen. Exempel: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Hitta URL: en för instrumentpanelen. Exempel:  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Extrahera det självsignerade certifikatet och konvertera den till PFX-format. Kör följande kommando:
 

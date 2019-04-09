@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/31/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c91bf389f5c63b95e5b68784b6657e92b109a46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852935"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265873"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -36,7 +36,7 @@ Du kan använda två metoder för att installera och konfigurera en Windows Hybr
 
 |Operativsystem  |Distributionstyper  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuell](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuellt](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -97,11 +97,11 @@ Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker frå
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker-roll
 
-För att Hybrid Runbook Worker att ansluta till och registrera med Azure Monitor-loggar, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Åtkomst är längst upp för att den [portar och URL: er som krävs för Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) att ansluta till Azure Monitor-loggar.
+För att Hybrid Runbook Worker att ansluta till och registrera med Azure Automation måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Åtkomst är längst upp för att den [portar och URL: er som krävs för Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) att ansluta till Azure Monitor-loggar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Azure Monitor-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder Log Analytics-gateway som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurerar Log Analytics-gateway för Automation Hybrid Worker](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och tjänsten Azure Automation. Timeout för begäranden från Hybrid Runbook Worker och Automation-tjänster är 30 sekunder. Efter 3 försök misslyckas begäran. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder Log Analytics-gateway som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurerar Log Analytics-gateway för Automation Hybrid Worker](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Följande port och URL: er krävs för att Hybrid Runbook Worker-rollen ska kommunicera med Automation:
 

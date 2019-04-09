@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101558"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269358"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
 
@@ -52,20 +52,17 @@ Konfigurationsprocessen beskrivs i följande avsnitt.
 
 Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller application gateway.
 
-
 1. Logga in på ditt Azure-konto.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Välj prenumerationen som ska användas för det här scenariot.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Skapa en resursgrupp. (Hoppa över det här steget om du använder en befintlig resursgrupp.)
 
@@ -77,7 +74,6 @@ Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller applic
 
 I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undernät används för application gateway. Andra undernätet används för de servrar som är värdar för webbprogrammet.
 
-
 1. Tilldela ett adressintervall för undernätet som ska användas för application gateway.
 
    ```powershell
@@ -86,8 +82,7 @@ I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undern
 
    > [!NOTE]
    > Undernät som konfigurerats för en Programgateway bör ändras korrekt. En application gateway kan konfigureras för upp till 10 instanser. Varje instans använder en IP-adress från undernätet. För liten för ett undernät som kan påverkas negativt och skala ut en Programgateway.
-   > 
-   > 
+   >
 
 2. Tilldela ett adressintervall som ska användas för backend-adresspoolen.
 
@@ -130,7 +125,6 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Skapa en frontend-IP-konfigurationen. Den här inställningen motsvarar klientdelen för application gateway en privat eller offentlig IP-adress. Följande steg associerar offentliga IP-adress i föregående steg med IP-konfigurationen.
 
    ```powershell
@@ -145,7 +139,6 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
 
    > [!NOTE]
    > Ett fullständigt kvalificerat domännamn (FQDN) är också ett giltigt värde ska användas i stället för en IP-adress för backend servrarna. Du aktiverar det genom att använda den **- BackendFqdns** växla. 
-
 
 4. Konfigurera frontend IP-porten för den offentliga IP-slutpunkten. Den här porten är den port som användarna ansluta till.
 
@@ -177,7 +170,7 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
    > Om du använder värdhuvuden och (Servernamnindikator) på serverdelen, kanske inte platsen till vilken trafikflöden i den offentliga nyckeln hämtades. Om du är osäker, besök https://127.0.0.1/ på backend-servrarna och bekräfta vilket certifikat som används för den *standard* SSL-bindning. Använd den offentliga nyckeln från denna förfrågan i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får ett svar och certifikat från en manuell webbläsarbegäran till https://127.0.0.1/ på backend-servrar, måste du ställa in en standard-SSL-bindning med aktiviteterna. Om du inte gör det, avsökningar misslyckas och backend-servern är inte vitlistat.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
     I följande exempel anger den minsta Protokollversionen till **TLSv1_2** och möjliggör **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** endast.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen

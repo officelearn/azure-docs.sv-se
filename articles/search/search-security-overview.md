@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269562"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och sekretess i Azure Search
 
@@ -31,7 +31,7 @@ Azure Search är certifierad för följande standarder som [tillkännagav i juni
 + [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS nivå 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [Australien IRAP oklassificerade DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Överensstämmelse med standarder gäller för allmänt tillgängliga funktioner. Förhandsversionsfunktioner är certifierade när de övergång till allmän tillgänglighet och får inte användas i lösningar med strikta standarder för krav. Efterlevnadscertifiering dokumenteras i [översikt över Microsoft Azure-efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter). 
@@ -58,6 +58,8 @@ Flera säkerhetsmekanismer finns tillgängliga på hela Azure och därmed automa
 
 Alla Azure-tjänster stöder rollbaserad åtkomstkontroll (RBAC) för att ställa in åtkomstnivåer konsekvent för alla tjänster. Till exempel är visa känsliga data, till exempel admin-nyckel begränsad till ägare och deltagare roller, visa Tjänststatus för är tillgänglig för medlemmar i en roll. RBAC ger ägare, deltagare och läsare. Som standard är alla administratörer medlemmar i rollen ägare.
 
+<a name="service-access-and-authentication"></a>
+
 ## <a name="service-access-and-authentication"></a>Tjänståtkomst och autentisering
 
 Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Typen av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses vara bevis begäran kommer från en betrodd enhet. 
@@ -65,11 +67,11 @@ Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också e
 Det finns två nivåer av åtkomst till din söktjänst, aktiveras med två typer av nycklar:
 
 * Administratörsåtkomst (gäller för alla skrivskyddade åtgärder mot tjänsten)
-* Frågebehörighet (gäller för skrivskyddade åtgärder, till exempel frågor mot ett index)
+* Frågebehörighet (gäller för skrivskyddade åtgärder, till exempel frågor mot dokument insamling av ett index)
 
-*Administratörsnycklar* skapas när tjänsten har etablerats. Det finns två administratörsnycklar utsetts *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två administratörsnycklar så att du kan växla en utan att förlora åtkomst till din tjänst. Du kan återskapa antingen admin-nyckel, men du kan inte lägga till antalet totala administratör. Det finns två administratörsnycklar per söktjänst maximalt.
+*Administratörsnycklar* skapas när tjänsten har etablerats. Det finns två administratörsnycklar utsetts *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två administratörsnycklar så att du kan växla en utan att förlora åtkomst till din tjänst. Du kan [återskapa administratörsnyckel](search-security-api-keys.md#regenerate-admin-keys) regelbundet per Azure-säkerhet metodtips, men du kan inte lägga till antalet totala administratör. Det finns två administratörsnycklar per söktjänst maximalt.
 
-*Frågenycklar* skapas när det behövs och är utformade för klientprogram som anropar Search direkt. Du kan skapa upp till 50 frågenycklar. I programkoden anger du URL: en för sökning och en api-Frågenyckeln för att tillåta skrivskyddad åtkomst till tjänsten. Programkoden anger också det index som används av ditt program. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett målindex omfång och åtkomst anslutningen från klientprogrammet.
+*Frågenycklar* skapas när det behövs och är utformade för klientprogram som skickar frågor. Du kan skapa upp till 50 frågenycklar. I programkoden anger du URL: en för sökning och en api-Frågenyckeln för att tillåta läsåtkomst till samlingen dokument för ett visst index. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett målindex omfång och åtkomst anslutningen från klientprogrammet.
 
 Autentisering krävs för varje begäran, där varje begäran består av en obligatorisk nyckel och en åtgärd som ett objekt. De två behörighetsnivåerna (fullständig eller skrivskyddad) plus kontext (till exempel en frågeåtgärden för ett index) är tillräckliga för att tillhandahålla fullständigt spektrum säkerhet på tjänståtgärder när kopplats samman. Mer information om nycklar finns i [skapa och hantera api-nycklar](search-security-api-keys.md).
 
@@ -83,17 +85,11 @@ Administratörers och utvecklares åtkomst till index är odifferentierade: båd
 
 För multitenancy-lösningar kräver säkerhetsgränser på nivån indexet innehåller sådana lösningar vanligtvis en mellannivå vilka Använd för att hantera index isolering. Läs mer om multitenant användningsfallet [designmönster för SaaS-program för flera innehavare och Azure Search](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access-from-client-apps"></a>Administratörsåtkomst från klientappar
+## <a name="admin-access"></a>Administratörsåtkomst
 
-Azure Search Management REST API är ett tillägg för Azure Resource Manager och delar dess beroenden. Därför måste krävs Active Directory för att tjänstadministration av Azure Search. Alla administrativa förfrågningar från klientkod måste autentiseras med Azure Active Directory innan begäran når Resource Manager.
+[Rollbaserad åtkomst (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) avgör om du har åtkomst till kontroller över tjänsten och dess innehåll. Om du är ägare eller deltagare i en Azure Search-tjänst kan du använda portalen eller PowerShell **Az.Search** modul för att skapa, uppdatera eller ta bort objekt i tjänsten. Du kan också använda den [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-Begäranden mot Azure Search-tjänstens slutpunkt, till exempel skapa Index (Azure Search Service REST API) eller söka efter dokument (Azure Search Service REST API), Använd en api-nyckeln i rubriken.
-
-Om din programkod hanterar tjänsten administrationsåtgärder, samt åtgärder på search-index eller dokument, implementera två autentiseringsmetoder i din kod: åtkomstnyckel som är inbyggt i Azure Search och Active Directory-autentisering metoder som krävs av Resource Manager. 
-
-Information om att strukturera en begäran i Azure Search finns i [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/). Mer information om autentiseringskrav för Resource Manager finns i [autentisering använda Resource Manager API att få åtkomst till prenumerationer](../azure-resource-manager/resource-manager-api-authentication.md).
-
-## <a name="user-access-to-index-content"></a>Användaråtkomst till indexera innehåll
+## <a name="user-access"></a>Användaråtkomst
 
 Som standard bestäms åtkomst till ett index genom att snabbtangent på query-fråga. De flesta utvecklare skapar och tilldelar [ *frågenycklar* ](search-security-api-keys.md) för klientsidan sökfrågor. En frågenyckel ger läsbehörighet till allt innehåll i indexet.
 

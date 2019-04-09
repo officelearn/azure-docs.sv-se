@@ -4,7 +4,6 @@ description: Den här artikeln beskriver T-SQL-skillnader mellan en hanterad ins
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010608"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260501"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
-Alternativ för distribution av Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta av SQL Server database engine-funktioner stöds i en hanterad instans.
-
-![Migrering](./media/sql-database-managed-instance/migration.png)
-
-Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna. <a name="Differences"></a>
+Den här artikeln sammanfattar och förklarar skillnader i syntaxen och beteende mellan Azure SQL Database Managed Instance och en lokal SQL Server Database Engine. <a name="Differences"></a>
 
 - [Tillgänglighet](#availability) inklusive skillnaderna i [alltid på](#always-on-availability) och [säkerhetskopior](#backup),
 - [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den h�
 - [Lär dig om funktionerna](#functionalities) inklusive [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [ Utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [Filestream- och Filetable](#filestream-and-filetable), [semantiska fulltextsökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [Polybase](#polybase), [replikering](#replication), [ÅTERSTÄLLA](#restore-statement), [Service Broker](#service-broker), [ Lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-triggers),
 - [Funktioner som har olika beteenden i hanterade instanser](#Changes)
 - [Temporära begränsningar och kända problem](#Issues)
+
+Alternativ för distribution av Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta av SQL Server database engine-funktioner stöds i en hanterad instans.
+
+![Migrering](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Tillgänglighet
 
@@ -473,7 +473,7 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 
 ### <a name="tempdb-size"></a>TEMPDB-storlek
 
-Största filstorlek för `tempdb` får inte vara greather än 24 GB/core på nivån generell användning. Max `tempdb` storleken på nivån affärskritisk är begränsad med lagringsstorlek instans. `tempdb` är alltid att dela upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer som kan läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24GB / kärna i `tempdb`.
+Största filstorlek för `tempdb` får inte överskrida 24 GB/core på nivån generell användning. Max `tempdb` storleken på nivån affärskritisk är begränsad med lagringsstorlek instans. `tempdb` är alltid att dela upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer som kan läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24GB / kärna i `tempdb`.
 
 ### <a name="cannot-restore-contained-database"></a>Det går inte att återställa innesluten databas
 
@@ -494,7 +494,7 @@ Detta visar som under vissa omständigheter på grund av en specifik distributio
 
 I det här exemplet befintliga databaser fortsätter att fungera och kan växa utan problem, förutsatt att nya filer inte har lagts till. Men nya databaser kunde inte skapas eller återställas eftersom det inte finns tillräckligt med utrymme för nya diskenheter, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Felet som returneras är i så fall oklart.
 
-Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med systemvyer. Om du ansluter till den här gränsen försöker [tom och ta bort några av de mindre filer med hjälp av DBCC SHRINKFILE instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller shitch till [affärskritisk nivå som inte har den här gränsen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med systemvyer. Om du ansluter till den här gränsen försöker [tom och ta bort några av de mindre filer med hjälp av DBCC SHRINKFILE instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [affärskritisk nivå som inte har den här gränsen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 

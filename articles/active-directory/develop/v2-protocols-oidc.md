@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1527a326ca0107df33857284774252b327b7d8bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112712"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273268"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 
@@ -57,26 +57,28 @@ Den `{tenant}` kan ha något av fyra värden:
 | `common` |Användare med både ett personligt microsoftkonto och ett arbets- eller skolkonto konto från Azure Active Directory (Azure AD) kan logga in till programmet. |
 | `organizations` |Endast användare med arbets- eller skolkonton från Azure AD kan logga in till programmet. |
 | `consumers` |Endast användare med ett personligt microsoftkonto kan logga in till programmet. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` |Endast användare med ett arbets- eller skolkonto konto från en viss Azure AD klient kan logga in till programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens GUID-identifierare. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Endast användare med ett arbets- eller skolkonto konto från en viss Azure AD klient kan logga in till programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens GUID-identifierare. Du kan också använda konsument-klient `9188040d-6c67-4c5b-b112-36a304b66dad`, i stället för den `consumers` klient.  |
 
 Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följande kodavsnitt för ett exempel. Innehållet i kodfragment beskrivs ingående i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
 
   ...
 
 }
 ```
+Om din app har anpassade Signeringsnycklar användningen av den [mappning av anspråk](active-directory-claims-mapping.md) funktion, som du måste lägga till en `appid` frågeparameter som innehåller app-ID för att få en `jwks_uri` som pekar på din app signeringsnyckel information. Till exempel: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Normalt använder du Metadatadokumentet för att konfigurera en OpenID Connect-biblioteket eller SDK; biblioteket använder metadata för att utföra sitt arbete. Om du inte använder ett före build OpenID Connect-bibliotek, kan du följa stegen i resten av den här artikeln om du vill utföra logga in i en webbapp med hjälp av v2.0-slutpunkten.
+
+Normalt använder du Metadatadokumentet för att konfigurera en OpenID Connect-biblioteket eller SDK; biblioteket använder metadata för att utföra sitt arbete. Om du inte använder ett färdiga OpenID Connect-bibliotek, kan du följa stegen i resten av den här artikeln om du vill utföra logga in i en webbapp med hjälp av v2.0-slutpunkten.
 
 ## <a name="send-the-sign-in-request"></a>Skicka begäran inloggning
 
@@ -87,7 +89,7 @@ När webbappen behöver autentisera användaren, den kan dirigera användare til
 * Begäran måste innehålla den `nonce` parametern.
 
 > [!IMPORTANT]
-> För att begära appregistreringen i en ID-token har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **[Implicit beviljande](v2-oauth2-implicit-grant-flow.md)** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` fel returneras: ”Det angivna värdet för Indataparametern 'response_type” tillåts inte för den här klienten. Förväntat värde är ”code” ”
+> Om du vill begära har ett ID-token från slutpunkten /authorization, appregistreringen i den [registreringsportalen](https://portal.azure.com) måste ha implicit beviljande av id_tokens aktiverad på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow`flagga i den [programmanifestet](reference-app-manifest.md) till `true`). Om den inte är aktiverad, en `unsupported_response` fel returneras: ”Det angivna värdet för Indataparametern 'response_type” tillåts inte för den här klienten. Förväntat värde är ”code” ”
 
 Exempel:
 
@@ -113,14 +115,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | klient |Krävs |Du kan använda den `{tenant}` värdet i sökvägen för begäran om att kontrollera vem som kan logga in till programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
 | client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
 | response_type |Krävs |Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_type` värden, till exempel `code`. |
-| redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodas. |
+| redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodas. Om inte finns, slutpunkten ska välja en registrerad redirect_uri slumpmässigt för att skicka användaren tillbaka till. |
 | omfång |Krävs |En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Du kan även innehålla andra scope i den här begäran för att begära godkännande. |
 | nonce |Krävs |Ett värde som ingår i den begäran som skapats av appen, som ska tas med i det resulterande id_token-värdet som ett anspråk. Appen kan kontrollera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `form_post` eller `fragment`. För webbprogram, bör du använda `response_mode=form_post`, för att kontrollera den säkraste överföringen av token för ditt program. |
 | state |Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Ett slumpmässigt genererat unikt värde används normalt till [förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som användaren har på. |
 | fråga |Valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är `login`, `none`, och `consent`. Den `prompt=login` anspråk Tvingar användaren att ange sina autentiseringsuppgifter i begäran, vilket eliminerar enkel inloggning. Den `prompt=none` anspråk är motsatsen. Det här kravet garanterar att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returneras ett fel i v2.0-slutpunkten. Den `prompt=consent` anspråk utlöser OAuth godkännande i dialogrutan när användaren loggar in. Dialogrutan ombeds användaren att bevilja behörigheter till appen. |
 | login_hint |Valfri |Du kan använda den här parametern förifylld i fälten användarnamn och e-post adressfältet i inloggningssidan för användaren, om du känner till användarnamnet förbereds i förväg. Ofta appar att använda den här parametern under omautentisering när du har redan extraherar användarnamnet från en tidigare logga in med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Valfri |Det här värdet kan vara `consumers` eller `organizations`. Om inkluderat, hoppar den över e-postbaserad identifieringsprocessen som användaren som passerar på v2.0 logga in sidan för en något mer effektiv användarupplevelse. Ofta appar att använda den här parametern under omautentisering genom att extrahera den `tid` anspråk från ID-token. Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad` (Account konsument klienten), Använd `domain_hint=consumers`. Annars kan du använda `domain_hint=organizations`. |
+| domain_hint |Valfri | Området för användaren i en federerad katalog.  Det här hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på v2.0 logga in sidan för en något mer effektiv användarupplevelse. För klienter som är externa via en lokal katalog som AD FS kan resulterar det ofta i en sömlös inloggning på grund av befintliga inloggningssession. |
 
 Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen. V2.0-slutpunkten kontrollerar att användaren har samtyckt till behörigheterna som anges i den `scope` frågeparameter. Om användaren inte har godkänt att någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs i v2.0-slutpunkten. Du kan läsa mer om [behörigheter och samtycke fleranvändarappar](v2-permissions-and-consent.md).
 
@@ -179,7 +181,6 @@ I följande tabell beskrivs felkoder som kan returneras i de `error` -parametern
 Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste verifiera den id_token signatur och verifiera anspråken i token enligt krav för din app. V2.0-slutpunkten använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för id_token, finns det några anspråk uppmanas du att verifiera. Se den [ `id_token` referens](id-tokens.md) mer information inklusive [verifierar token](id-tokens.md#validating-an-id_token) och [viktig Information om signering nyckel förnya](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
-<!--TODO: Improve the information on this-->
 
 Du kan också välja att validera ytterligare anspråk beroende på ditt scenario. Vissa vanliga verifieringar är:
 

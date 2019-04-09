@@ -8,28 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42061479"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261281"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 Azure Maps använder sfärisk Mercator-projektion koordinatsystem (EPSG: 3857).
 
-Världen är uppdelad i kvadratisk paneler. Rendering (Raster) har 21 zoomningsnivåer numrerade 0 och 20. Rendering (vektor) har 23 zoomningsnivåer numrerade 0 till och med 22. På zoomning nivå 0 i hela världen som får plats på en panel:
+Världen är uppdelad i kvadratisk paneler. Azure maps ger raster eller vektor paneler för 23 zoomningsnivåer numrerade 0 till och med 22. På zoomning nivå 0 i hela världen som får plats på en panel:
 
 ![World panel](./media/zoom-levels-and-tile-grid/world0.png)
 
 Zoomnivå 1 använder fyra paneler för att återge världen: en 2 × 2 kvadratisk
 
-![Världen ikonen längst upp till vänster](./media/zoom-levels-and-tile-grid/world1a.png)     ![Världen ikonen längst upp till höger](./media/zoom-levels-and-tile-grid/world1c.png) 
+![Världen ikonen längst upp till vänster](media/zoom-levels-and-tile-grid/world1a.png)     ![Världen ikonen längst upp till höger](media/zoom-levels-and-tile-grid/world1c.png) 
 
-![World panel i nederkanten till vänster](./media/zoom-levels-and-tile-grid/world1b.png)     ![World panel nederkanten till höger](./media/zoom-levels-and-tile-grid/world1d.png) 
+![World panel i nederkanten till vänster](media/zoom-levels-and-tile-grid/world1b.png)     ![World panel nederkanten till höger](media/zoom-levels-and-tile-grid/world1d.png) 
 
+Varje ytterligare zoomningsnivån quad-dividerar startmenyn för det tidigare, skapar ett rutnät med 2<sup>Zooma</sup> x 2<sup>Zooma</sup>. Zoomningsnivån 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>, eller 4,194,304 x 4,194,304 paneler (17,592,186,044,416 panelerna totalt).
 
-Varje efterföljande zoomningsnivån quad-dividerar startmenyn för det tidigare, skapar ett rutnät med 2<sup>Zooma</sup> x 2<sup>Zooma</sup>. Zoomningsnivån 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>, eller 4,194,304 x 4,194,304 paneler (17,592,186,044,416 panelerna totalt).
+Azure Maps interaktiv karta kontrollerna för webb- och Android-stöd Zooma nivåer 25 zoomningsnivåer, numrerade 0 och 24. Även om vägen data kommer endast att vara tillgängligt zoomningsnivåer i när det finns paneler.
 
 Följande tabell innehåller listan innehåller värden för zoomningsnivåer:
 
@@ -56,17 +57,19 @@ Följande tabell innehåller listan innehåller värden för zoomningsnivåer:
 |18|0.6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
-|21|0,075|19.1|
+|21|0.075|19.1|
 |22|0.0375|9.55|
+|23|0.01875|4.775|
+|24|0.009375|2.3875|
 
 Paneler anropas av zoomning-nivå och x och y-koordinater som motsvarar på panelen position i rutnätet för den zoomnivån.
 
-När du bestämmer vilka zoomnivå för att använda, Kom ihåg att varje plats är i en fast position på dess panel. Det innebär att antalet paneler som behövs för att visa en viss expanse av territorium är beroende av specifika placeringen av zoomning rutnätet i hela världen. Till exempel om det finns två pekar 900 meter, den *kan* bara tar tre brickor att visa en väg mellan dem i zoomningsnivån 17. Om western redan är till höger om dess panel och östra peka till vänster på dess panel, kan det ta fyra paneler:
+När du bestämmer vilka zoomnivå för att använda, Kom ihåg att varje plats har en fast position på dess panel. Det innebär att antalet paneler som behövs för att visa en viss expanse av territorium är beroende av specifika placeringen av zoomning rutnätet i hela världen. Till exempel om det finns två pekar 900 meter, den *kan* bara tar tre brickor att visa en väg mellan dem i zoomningsnivån 17. Om western redan är till höger om dess panel och östra peka till vänster på dess panel, kan det ta fyra paneler:
 
-![Zoomningsnivån demo](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
+![Zoomningsnivån demo](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-När zoomningsnivån bestäms x och y värden kan beräknas. Den övre vänstra panelen i varje rutnät för zoomning är x = 0, y = 0. den nedre högra panelen är på x = 2<sup>Zooma -1</sup>, y = 2<sup>Zooma-1</sup>.
+När zoomningsnivån bestäms x och y värden kan beräknas. Den vänstra panelen i varje rutnät för zoomning är x = 0, y = 0. den nedre högra panelen är på x = 2<sup>Zooma -1</sup>, y = 2<sup>Zooma-1</sup>.
 
 Här är zoomning rutnätet för zoomnivå 1:
 
-![Rutnätet för zoomning för zoomnivå 1](./media/zoom-levels-and-tile-grid/api_x_y.png)
+![Rutnätet för zoomning för zoomnivå 1](media/zoom-levels-and-tile-grid/api_x_y.png)

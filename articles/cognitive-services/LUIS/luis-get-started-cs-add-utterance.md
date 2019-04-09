@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852287"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273472"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
@@ -37,19 +37,19 @@ ms.locfileid: "57852287"
 
 ## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
-I Visual Studio skapar du en ny **Windows Classic Desktop-konsolen** app med hjälp av .NET Framework. 
+I Visual Studio skapar du en ny **Windows Classic Desktop-konsolen** app med hjälp av .NET Framework. Ge projektet namnet `ConsoleApp1`.
 
 ![Visual Studio-projekttyp](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Lägga till System.Web-beroendet
 
-Visual Studio-projektet behöver **System.Web**. I Solution Explorer högerklickar du på **Referenser** och väljer **Lägg till referens**.
+Visual Studio-projektet behöver **System.Web**. I Solution Explorer högerklickar du på **referenser** och välj **Lägg till referens** från avsnittet sammansättningar.
 
 ![Lägga till System.web-referens](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Lägg till andra beroenden
 
-Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**. I Solution Explorer högerklickar du på **Referenser** i väljer **Manage NuGet Packages...** (Hantera NuGet-paket...). Sök efter och lägg till vart och ett av de två paketen. 
+Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**. I Solution Explorer högerklickar du på **Referenser** i väljer **Manage NuGet Packages...** (Hantera NuGet-paket...). Söka efter och lägga till var och en av de två paket. 
 
 ![Lägga till beroenden från tredje part](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Lägg till beroendena.
+Uppdatera beroenden så som är:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ För att hantera kommandoradsargumenten lägger du till huvudkoden. Lägg till m
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopiera utterances.json till utdatakatalogen
 
-I Solution Explorer högerklickar du på `utterances.json` och väljer **Egenskaper**. I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
+I Solution Explorer lägger du till den `utterances.json` genom att högerklicka på projektnamnet i Solution Explorer, sedan välja **Lägg till**, sedan välja **befintliga objekt**. Välj den `utterances.json` filen. Detta lägger till filen i projektet. Sedan måste den läggas till i utdata-riktning. Högerklicka på den `utterances.json` och välj **egenskaper**. I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
 
 ![Märk JSON-filen som innehåll](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Kompilera koden i Visual Studio.
 I projektets katalog /bin/Debug kör du programmet från en kommandorad. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Den här kommandoraden visar resultatet av anrop av API för att lägga till yttranden. 
@@ -140,4 +140,4 @@ När du är klar med snabbstarten tar du bort alla filer som skapas i den här s
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md) 
+> [Skapa en LUIS-app via programmering](luis-tutorial-node-import-utterances-csv.md) 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 13049018042183a4960c81af65b35fcfa6d4c50d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bd535aeb034a17f1844c1d19379c1811b43d27e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447037"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260246"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -41,11 +41,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ditt konto.
 
-1. Klicka på **Skapa en resurs** i Azure Portal. 
+1. I Azure-portalen väljer du **Skapa en resurs**. 
 
-1. Skriv **SQL Server 2017 Developer på Windows Server 2016** i sökfältet och tryck på RETUR.
+1. I sökfältet skriver `SQL Server 2017 Developer on Windows Server 2016`, och tryck på RETUR.
 
 1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer i Windows Server 2016**.
 
@@ -54,77 +54,64 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
    > [!TIP]
    > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-1. Klicka på **Skapa**.
+1. Välj **Skapa**.
 
 ## <a id="configure"></a> Ange grundläggande information
 
-Ange följande i fönstret **Grundläggande inställningar**:
+På den **grunderna** och ange följande information:
 
-1. Ange ett unikt namn för den virtuella datorn i fältet **Namn**. 
+1. I den **projektinformation** markerar du din Azure-prenumeration och välj sedan **Skapa nytt** att skapa en ny resursgrupp. Typ _SQLVM-RG_ för namnet.
 
-1. Ange ett användarnamn för det lokala administratörskontot på den virtuella datorn i fältet **Användarnamn**.
+   ![Prenumeration](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
-1. Ange ett starkt **lösenord**.
+1. Under **instans information**:
+    1. Typ _SQLVM_ för den **virtuellt datornamn**. 
+    1. Välj en plats för din **Region**. 
+    1. I den här snabbstarten lämna **tillgänglighetsalternativ** inställd _ingen redundans för infrastruktur som krävs för_. Du hittar mer information om alternativ för tillgänglighet [Azure-regioner och tillgänglighet](../../windows/regions-and-availability.md). 
+    1. I den **bild** väljer _kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server 2016_. 
+    1. Välja att **ändra storleken på** för den **storlek** av den virtuella datorn och välj den **A2 grundläggande** erbjuder. Glöm inte att rensa dina resurser när du är klar med att förebygga eventuella oväntade avgifter. 
 
-1. Ange ett nytt namn på **resursgruppen**. Med den här gruppen kan du hantera alla resurser som är kopplade till den virtuella datorn.
+   ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
-1. Kontrollera de andra standardinställningarna och klicka på **OK** att fortsätta.
+1. Under **administratörskontot**, ange ett användarnamn som _azureuser_ och ett lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-   ![Fönstret Grundläggande SQL-inställningar](./media/quickstart-sql-vm-create-portal/azure-sql-basic.png)
+   ![Administratörskonto](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-## <a name="choose-virtual-machine-size"></a>Välj den virtuella datorns storlek
+1. Under **regler för inkommande portar**, Välj **valda portar** och välj sedan **RDP (port 3389)** från listrutan. 
 
-1. I steget **Storlek** väljer du en storlek för den virtuella datorn i fönstret **Välj en storlek**.
-
-   För den här snabbstarten väljer du **D2S_V3**. Portalen visar den beräknade månadskostnaden för kontinuerlig användning av datorerna (licensieringskostnader för SQL Server omfattas inte). Observera att Developer Edition inte omfattas av några extra licensieringskostnader för SQL Server. Mer specifik prisinformation finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
-
-   > [!TIP]
-   > Med datorstorleken **D2S_V3** sparar du pengar under testning. Men för produktionsarbetsbelastningar hittar du rekommendationer om datorstorlek och konfiguration i [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Prestandametodtips för SQL Server i Azure Virtual Machines).
-
-1. Klicka på **Välj** för att fortsätta.
-
-## <a name="configure-optional-features"></a>Konfigurera valfria funktioner
-
-1. I fönstret **Inställningar** väljer du **RDP (3389)**-porten i listan **Välj offentlig ingående portar** om du vill fjärrstyra skrivbordet till den virtuella datorn.
-
-   ![Ingående portar](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
-
-   > [!NOTE]
-   > Du kan välja porten **MS SQL (1433)** för att komma åt SQL Servern via fjärranslutning. Detta är dock inte nödvändigt, eftersom steget för **SQL Server-inställningar** även ger det här alternativet. Om du väljer port 1433 i det här steget, öppnas den oberoende av dina val i steget för **SQL Server-inställningar**.
-
-1. Spara ändringarna genom att klicka på **OK** och fortsätt.
+   ![Regler för inkommande portar](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 ## <a name="sql-server-settings"></a>SQL Server-inställningar
 
-Konfigurera följande alternativ i fönstret **SQL Server-inställningar**.
+På den **SQL Server-inställningar** konfigurerar följande alternativ:
 
-1. Välj **Offentlig (Internet)** i listrutan **SQL-anslutning**. Detta möjliggör SQL Server-anslutningar via Internet.
+1. Under **säkerhet och nätverk**väljer _offentlig (Internet_) för **SQL-anslutning** och ändra porten som ska `1401` att undvika att använda ett välkänt portnummer i det offentliga scenariot. 
+1. Under **SQL-autentisering**väljer **aktivera**. SQL-inloggningen konfigureras till samma användarnamn och lösenord som du konfigurerade för den virtuella datorn. Använd standardinställningarna för **Azure Key Vault-integrering** och **lagringskonfiguration**.  
 
-1. Ändra den **Port** till **1401** att undvika att använda ett välkänt portnamn i offentliga scenario.
+   ![Säkerhetsinställningar för SQL server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
 
-1. Klicka på **Aktivera** under **SQL-autentisering**. SQL-inloggningen konfigureras till samma användarnamn och lösenord som du konfigurerade för den virtuella datorn.
+1. Ändra andra inställningar om det behövs och välj sedan **granska + skapa**. 
 
-1. Ändra andra inställningar om det behövs och klicka på **OK** för att slutföra konfigurationen av den virtuella SQL Server-datorn.
+   ![Granska + skapa](media/quickstart-sql-vm-create-portal/review-create.png)
 
-   ![SQL Server-inställningar](./media/quickstart-sql-vm-create-portal/sql-settings.png)
 
 ## <a name="create-the-sql-server-vm"></a>Skapa den virtuella SQL Server-datorn
 
-I fönstret **Sammanfattning** granskar du sammanfattningen och klickar på **Köp** för att skapa SQL Server, resursgrupp och resurser för den här virtuella datorn.
+På den **granska + skapa** , granskar du sammanfattningen och sedan **skapa** att skapa SQL Server, resursgrupp och resurser som angetts för den här virtuella datorn.
 
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
 
 > [!TIP]
 > Det kan ta flera minuter att distribuera en virtuell Windows SQL Server-dator.
 
-## <a name="connect-to-sql-server"></a>Anslut till SQL Server
+## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
 
-1. Sök efter den **offentliga IP-adressen** för den virtuella datorn i avsnittet **Översikt** i den virtuella datorns egenskaper i portalen.
+1. I portalen, hitta den **offentliga IP-adressen** av SQL Server-VM i den **översikt** delen av den virtuella datorns egenskaper.
 
 1. Öppna SQL Server Management Studio (SSMS) från en annan dator som är ansluten till Internet.
 
    > [!TIP]
-   > Om du inte har SQL Server Management Studio kan du ladda ned den [här](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+   > Om du inte har SQL Server Management Studio kan du hämta det från [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange den virtuella datorns offentliga IP-adress. Sedan lägger du till ett kommatecken och den anpassade porten **1401** som angavs när du konfigurerade den nya virtuella datorn. Till exempel `11.22.33.444,1401`.
 
@@ -134,7 +121,7 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 
 1. I rutan **Lösenord**, skriver du lösenordet för inloggningen.
 
-1. Klicka på **Anslut**.
+1. Välj **Anslut**.
 
     ![ssms anslut](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
@@ -152,9 +139,10 @@ När du har anslutit till datorn kan du direkt ändra inställningarna för dato
 
 Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn genom att ta bort deras kopplade resursgrupper i portalen. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet. Mer information finns i [Manage Azure resources through portal](../../../azure-resource-manager/manage-resource-groups-portal.md) (Hantera Azure-resurser genom portalen).
 
+
 ## <a name="next-steps"></a>Nästa steg
 
-Med den här snabbstarten skapade du en virtuell SQL Server 2017-dator i Azure Portal. Mer information om hur du migrerar data till den nya SQL-servern finns i följande artikel.
+I den här snabbstarten har skapat du en virtuell dator i SQL Server 2017 i Azure-portalen. Mer information om hur du migrerar data till den nya SQL-servern finns i följande artikel.
 
 > [!div class="nextstepaction"]
-> [Migrera en databas till en virtuell SQL-dator](virtual-machines-windows-migrate-sql.md)
+> [Migrera en databas till en SQL-VM](virtual-machines-windows-migrate-sql.md)

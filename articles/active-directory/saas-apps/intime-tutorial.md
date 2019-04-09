@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226495"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Självstudier: Azure Active Directory-integrering med InTime
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med InTime:
 
     ![InTime domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. I den **inloggnings-URL** text skriver en URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://auth.intimesoft.com/auth/realms/master`
 
@@ -194,8 +194,8 @@ När du klickar på panelen InTime i åtkomstpanelen, du bör vara loggas in aut
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

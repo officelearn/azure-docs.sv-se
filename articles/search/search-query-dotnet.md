@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287017"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264955"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Snabbstart: 3 – fråga ett Azure Search-index iC#
 
@@ -157,4 +157,4 @@ Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan gjort det, kan du granska exempelkoden i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) på GitHub, tillsammans med [hur du använder Azure Search från .NET-program ](search-howto-dotnet-sdk.md) mer detaljerade beskrivningar av exempelkoden. 
+Om du inte redan gjort det, kan du granska exempelkoden i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) på GitHub, tillsammans med [hur du använder Azure Search från .NET-program](search-howto-dotnet-sdk.md) mer detaljerade beskrivningar av exempelkoden. 

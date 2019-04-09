@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050262"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271738"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -300,11 +300,11 @@ Den **Start SecretRotation** cmdlet roterar infrastruktur hemligheterna i ett Az
 
 | Parameter | Type | Krävs | Position | Standard | Beskrivning |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | med namnet  | Ingen  | Sökvägen till filresursen i **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter. End-katalogen måste vara **\Certificates**. |
-| CertificatePassword | SecureString | False  | med namnet  | Ingen  | Lösenordet för alla certifikat som anges i - PfXFilesPath. Obligatoriskt värde om PfxFilesPath anges när externa hemligheter roteras. |
-| Intern | String | False | med namnet | Ingen | Intern flaggan måste användas när som helst Azure Stack-operatör önskar att rotera interna infrastrukturfel hemligheter. |
-| PathAccessCredential | PSCredential | False  | med namnet  | Ingen  | PowerShell-autentiseringsuppgift för filresursen i den **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter.  |
-| Kör | SwitchParameter | False  | med namnet  | Ingen  | Kör måste användas när som helst hemliga rotation återförsöks efter ett misslyckat försök. |
+| `PfxFilesPath` | String  | False  | med namnet  | Ingen  | Sökvägen till filresursen i **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter. End-katalogen måste vara **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | med namnet  | Ingen  | Lösenordet för alla certifikat som anges i - PfXFilesPath. Obligatoriskt värde om PfxFilesPath anges när externa hemligheter roteras. |
+| `Internal` | String | False | med namnet | Ingen | Intern flaggan måste användas när som helst Azure Stack-operatör önskar att rotera interna infrastrukturfel hemligheter. |
+| `PathAccessCredential` | PSCredential | False  | med namnet  | Ingen  | PowerShell-autentiseringsuppgift för filresursen i den **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter.  |
+| `ReRun` | SwitchParameter | False  | med namnet  | Ingen  | Kör måste användas när som helst hemliga rotation återförsöks efter ett misslyckat försök. |
 
 ### <a name="examples"></a>Exempel
 

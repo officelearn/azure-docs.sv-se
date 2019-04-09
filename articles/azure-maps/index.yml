@@ -1,56 +1,57 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270138"
 documentType: LandingData
 title: Dokumentation för Azure Maps
 metadata:
-  document_id: 
+  document_id: null
   title: Dokumentation för Azure Maps | Microsoft Docs
   meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
   author: philmea
-  manager: 
+  manager: null
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för Maps, Search, routning, trafik, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.
+  description: 'Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för Maps, Search, routning, trafik, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Starta en kartsökningsapp med Azure Maps.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: /azure/sql-database/media/index/portal.svg
-      text: Starta demonstration av en kartapp
-      href: /azure/azure-maps/quick-demo-map-app
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Skapa ett geospatialt webbprogram för att söka efter orienteringspunkter, dirigera till platser och spåra enheter genom att skapa ett geofence med hjälp av Azure Maps.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Lär dig hur du skapar geospatiala program med Azure Maps.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
+            text: Skapa en webbapp
+            href: /azure/azure-maps/quick-demo-map-app
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/azure-maps/tutorial-search-location">Sök efter orienteringspunkter</a>
-    - html: <a href="/azure/azure-maps/tutorial-route-location">Dirigera till en orienteringspunkt</a>
-    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Vägar efter färdsätt</a>
-    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Skapa en butikslokaliserare</a>
-    - html: <a href="/azure/azure-maps/tutorial-geofence">Konfigurera geofence</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - html: <b>Självstudier om webb-SDK</b>
+      - type: paragraph
+        text: 'Skapa geospatiala webbprogram med webb-SDK:er för Azure Maps.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-search-location">Söka efter platser av intresse</a>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">Dirigera till en plats av intresse</a>
+          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Vägar efter färdsätt</a>
+          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Skapa en butikslokaliserare</a>
+      - html: <b>Självstudier om REST-API</b>
+      - type: paragraph
+        text: Skapa geospatiala program som anropar Azure Maps REST-tjänsterna.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-geofence">Konfigurera geofence</a>
+  - title: Referens
     items:
-    - title: JavaScript
-      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - title: JavaScript
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartkontroll</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datatjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geoplatstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routningstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Söktjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Rumslig tjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Tidszonstjänst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Trafiktjänst</a></p>'

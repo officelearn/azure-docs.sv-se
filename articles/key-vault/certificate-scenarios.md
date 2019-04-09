@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075637"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275903"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -101,6 +101,17 @@ Obs! – den här processen via steg 3.1 är en onetime åtgärd.
 -   Om det finns inga ytterligare åtgärder, är det första Key Vault så skicka ett meddelande om utgångsdatum. 
 
 -   Du kan också redigera principen som fungerar vid tidpunkten för import, men innehåller standardinställningar där ingen information angavs vid import. t.ex. Ingen utfärdare-information  
+
+### <a name="formats-of-import-we-support"></a>Format för vi stöder Import
+Vi stöder följande typ av Import för PEM-filformatet. Ett enda PEM-kodat certifikat tillsammans med en PKCS #8-kodat, okrypterade nyckeln som har följande
+
+---BEGIN CERTIFICATE------END CERTIFICATE---
+
+---BEGIN PRIVATE KEY------END PRIVAT NYCKEL---
+
+Om certifikatet koppla stöder vi 2 baserat PEM-format. Du kan antingen koppla ett enda kodad PKCS #8-certifikat eller en base64-kodad P7B-fil. ---BEGIN CERTIFICATE------END CERTIFICATE---
+
+Vi stöder för närvarande inte EG nycklar i PEM-format.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Skapa ett certifikat med en Certifikatutfärdare som inte har gått samman med Key Vault  
  Den här metoden kan arbeta med andra certifikatutfärdare än Key Vault samarbetade providers, vilket innebär att din organisation kan utgå från en Certifikatutfärdare för eget val.  

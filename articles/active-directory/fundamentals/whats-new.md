@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046707"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271823"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -39,7 +39,39 @@ Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. O
 
 ---
 
+## <a name="april-2019"></a>April 2019
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Ökad säkerhet med hjälp av principen för app-protection-baserad villkorlig åtkomst i Azure AD (förhandsversion)
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Villkorlig åtkomst  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+
+App protection-baserad villkorlig åtkomst är nu tillgänglig med hjälp av den **kräver appskydd** princip. Den här nya principen som hjälper dig för att öka säkerheten för din organisation genom att hjälpa att förhindra att:
+
+- Användare får åtkomst till appar utan en licens för Microsoft Intune.
+
+- Användare som att det inte går att hämta en appskyddsprincip för Microsoft Intune.
+
+- Användare får åtkomst till appar utan ett konfigurerat Microsoft Intune-appskyddsprincip.
+
+Mer information finns i [kräva appens skyddsprincip för åtkomst till molnet appen med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## <a name="march-2019"></a>Mars 2019
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Nya stödet för Azure AD enkel inloggning och villkorlig åtkomst i Microsoft Edge (förhandsversion)
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Villkorlig åtkomst  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+
+Vi har utökat vår Azure AD-stöd för Microsoft Edge, inklusive att tillhandahålla nya stödet för Azure AD enkel inloggning och villkorlig åtkomst. Om du tidigare har använt Microsoft Intune Managed Browser, kan du nu använda Microsoft Edge i stället.
+
+Mer information om att konfigurera och hantera dina enheter och appar med hjälp av villkorlig åtkomst finns i [kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) och [kräver godkända klientprogram för molnet åtkomst till appen med villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). Mer information om hur du hanterar åtkomst med hjälp av Microsoft Edge med Microsoft Intune-principer finns i [hantera Internetåtkomst med en Microsoft Intune-princip-skyddade webbläsare](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Identitetsramverk och anpassad princip för stöd i Azure Active Directory B2C är nu tillgänglig (GA)
 

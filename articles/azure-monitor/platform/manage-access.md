@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577254"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276420"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -83,7 +83,7 @@ De data som en användare har tillgång till bestäms av flera faktorer som list
 | Faktor | Beskrivning |
 |:---|:---|
 | [Åtkomstläge](#access-modes) | Metoden som användaren använder för att får åtkomst till arbetsytan.  Definierar vilka data som är tillgängliga och kontroll åtkomstläge som används. |
-| [Åtkomstläge för kontroll](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
+| [Åtkomstkontrolläge](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
 | [Behörigheter](#manage-accounts-and-users) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbetsytan eller resurs. Definierar vilka data som användaren har åtkomst till. |
 | [Tabellen nivå RBAC](#table-level-rbac) | Valfritt detaljerade behörigheter som gäller för alla användare oavsett deras åtkomst eller åtkomstkontroll läge. Definierar vilka datatyper som en användare kan komma åt. |
 
@@ -102,7 +102,6 @@ Den _åtkomstläge_ avser hur en användare ansluter till en Log Analytics-arbet
 > - Service Fabric
 > - Application Insights
 > - Containrar
-> - Anpassade loggar som skapats av HTTP-API för datainsamling
 >
 > Du kan testa om loggarna är korrekt kopplade till resursen genom att köra en fråga och kontrollera posterna är du intresserad av. Om rätt resurs-ID finns i den [_ResourceId](log-standard-properties.md#_resourceid) egenskap och sedan data är tillgängliga för resurs-centric frågor.
 

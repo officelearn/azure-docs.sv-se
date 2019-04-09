@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892219"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269035"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planera en molnbaserad Azure Multi-Factor Authentication
 
@@ -60,8 +60,14 @@ Azure Multi-Factor Authentication distribueras genom tvingande principer med vil
 * Kompatibel enhet
 * Hybrid Azure AD-domänansluten enhet
 * Godkända klientprogram
+ 
+
+Använd anpassningsbara affischer och e-postmallar i [multifaktorautentisering distributionen material] lansera multifaktorautentisering för din organisation. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Aktivera Multi-Factor Authentication med villkorlig åtkomst
 
 Principer för villkorlig åtkomst framtvinga registrering, kräver oregistrerade användare att slutföra registreringen vid första inloggningen, en viktig säkerhetsaspekt.
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) bidrar både en registreringsprincip för för och automatiserade risk av och relevanta reparationsåtgärder principer i Azure Multi-Factor Authentication-artikel. Principer kan skapas för att tvinga lösenordsändringar när det finns risk för komprometterade identitet eller kräva MFA när en inloggning som anses vara riskfyllda med följande [händelser](../reports-monitoring/concept-risk-events.md):
 

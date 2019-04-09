@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006585"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276651"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006585"
 
 I den här snabbstarten lär du dig hur du integrera Azure Sentinel. 
 
-Att integrera Azure Sentinel måste du först ansluta till dina datakällor. Azure Sentinel levereras med ett antal anslutningsappar för Microsoft-lösningar, tillgängliga utanför rutan och ge i realtid integration, inklusive Microsoft Threat Protection lösningar, Microsoft 365 källor, till exempel Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security, och mycket mer. Det finns dessutom inbyggda anslutningar till bredare säkerhetsekosystemet för icke-Microsoft-lösningar. Du kan också använda common event format, Syslog eller REST-API för att ansluta dina datakällor med Sentinel-Azure.  
+Att integrera Azure Sentinel måste du först aktivera Sentinel-Azure och Anslut dina datakällor. Azure Sentinel levereras med ett antal anslutningsappar för Microsoft-lösningar, tillgängliga utanför rutan och ge i realtid integration, inklusive Microsoft Threat Protection lösningar, Microsoft 365 källor, till exempel Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security, och mycket mer. Det finns dessutom inbyggda anslutningar till bredare säkerhetsekosystemet för icke-Microsoft-lösningar. Du kan också använda common event format, Syslog eller REST-API för att ansluta dina datakällor med Sentinel-Azure.  
 
 När du ansluter dina datakällor kan du välja från ett galleri med flytta skapade instrumentpaneler som lyfter fram insikter utifrån dina data. Dessa instrumentpaneler kan lätt anpassas efter dina behov.
 
@@ -40,9 +40,10 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 
 - Log Analytics-arbetsyta. Lär dig hur du [skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - Deltagarbehörighet till den resursgrupp som är kopplad till Sentinel-Azure
-    - Deltagarbehörighet till en resursgrupp att aktivera Sentinel-Azure 
-
+-  Om du vill aktivera Azure Sentinel måste deltagarbehörighet för prenumerationen som arbetsytan Azure Sentinel finns. 
+- Om du vill använda Azure Sentinel, behöver du deltagare eller viewer behörigheter på den resursgrupp som arbetsytan hör till
+- Ytterligare behörighet kan behövas för att ansluta specifika datakällor
+ 
 ## Aktivera Azure Sentinel <a name="enable"></a>
 
 1. Gå till Azure-portalen.

@@ -1,18 +1,18 @@
 ---
 title: Konsekvensnivåer och API:er för Azure Cosmos DB
 description: 'För att förstå konsekvensnivåerna i API: er i Azure Cosmos DB.'
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620673"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274781"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Till skillnad från AzureCosmos DB ger Apache Cassandra internt inte exakt defin
 
 I följande tabell visar hur de inbyggda Cassandra-konsekvensnivåerna mappas till Azure Cosmos DB-konsekvensnivåer när du använder Cassandra API:  
 
-[ ![Cassandra konsekvens Modellmappning](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra konsekvens mappningen](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Mappning mellan MongoDB och Azure Cosmos DB-konsekvensnivåer
 
@@ -51,7 +51,7 @@ När du använder Azure Cosmos DB API för MongoDB:
 
 Följande tabell visar hur interna MongoDB skrivning/läsning frågor mappas till Azure Cosmos-konsekvensnivåer när du använder Azure Cosmos DB API för MongoDB:
 
-[ ![MongoDB konsekvens Modellmappning](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB konsekvens mappningen](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

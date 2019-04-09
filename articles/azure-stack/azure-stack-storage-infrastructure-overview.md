@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760281"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271296"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Hantera lagringsinfrastrukturen för Azure Stack
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Den här artikeln beskriver hälsotillstånd och driftstatus för Azure Stack-infrastruktur lagringsresurser. Dessa resurser inkluderar lagringsenheter och volymer. Informationen i det här avsnittet kan vara ovärderliga vid felsökning av olika problem som en enhet inte kan läggas till i en pool.
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hälsotillstånd och driftstatus för Azure Stack-in
 
 ### <a name="drives"></a>Enheter
 
-Azure Stack som drivs av Windows Server-programvara definierats funktioner för lagring, med en kombination av Lagringsdirigering (S2D) och Windows Server Failover Clustering, att tillhandahålla en högpresterande, skalbara och robusta lagringstjänst.
+Azure Stack definierar bygger på Windows Server-programvara och funktioner för lagring med en kombination av Lagringsdirigering (S2D) och Windows Server Failover Clustering att tillhandahålla en högpresterande, skalbar och flexibel lagring-tjänsten.
 
 Azure Stack-integrerat system-partner erbjuder flera variationer i lösningen, inklusive en mängd olika Lagringsflexibilitet. Du kan för närvarande välja en kombination av tre olika typer: NVMe (beständigt minne uttryckliga), SATA/SAS SSD (Solid-State Drive) HDD (hårddisk).
 

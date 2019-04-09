@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805082"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267352"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -137,7 +137,7 @@ Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen 
 
 #### <a name="issue"></a>Problem
 
-Du får följande felmeddelande vid en childrunbook med den `-Wait` växel och utdataströmmen innehåller och objekt:
+Du får följande felmeddelande vid en underordnad runbook med den `-Wait` växel och utdataströmmen innehåller och objekt:
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Det finns två sätt att lösa det här felet:
 
 * Redigera runbook och minska antalet jobbströmmar som det genererar.
 * Minska antalet dataströmmar som ska hämtas när du kör cmdleten. Om du vill följa det här beteendet kan du ange den `-Stream Output` parametern till den `Get-AzureRmAutomationJobOutput` cmdlet för att hämta endast utdataströmmar. 
+
+### <a name="cannot-invoke-method"></a>Scenario: PowerShell-jobb misslyckas med fel: Det går inte att anropa metod
+
+#### <a name="issue"></a>Problem
+
+Du får följande felmeddelande när du startar ett PowerShell-jobb i en runbook som körs i Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet kan uppstå när du startar ett PowerShell-jobb i en runbook som kördes i Azure. Detta kan inträffa eftersom runbooks körde i en Azure sandbox körs inte den [fullständig språkläge](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>Lösning
+
+Det finns två sätt att lösa det här felet:
+
+* Istället för att använda `Start-Job`, använda `Start-AzureRmAutomationRunbook` att starta en runbook
+* Om din runbook har det här felmeddelandet kan du köra den på en Hybrid Runbook Worker
+
+Läs mer om det här beteendet och andra funktioner i Azure Automation-Runbookar i [Runbook beteende](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Beroendespårning i Azure Application Insights | Microsoft Docs
-description: Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights.
+description: Analysera användningen, tillgängligheten och prestanda i din lokala eller Microsoft Azure-webbprogram med Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888091"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273115"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -50,7 +50,7 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 
 ## <a name="where-to-find-dependency-data"></a>Var du hittar data för programberoende
 * [Programavbildning](#application-map) hjälper dig att visualisera beroenden mellan din app och Närliggande komponenter.
-* [Prestanda, webbläsare och fel bladen](#performance-and-failure-blades) visa beroende serverdata.
+* [Prestanda, webbläsare och fel bladen](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) visa beroende serverdata.
 * [Bladet webbläsare](#ajax-calls) visar AJAX-anrop från användarnas webbläsare.
 * Klicka dig igenom från långsamma eller misslyckade begäranden om att kontrollera deras beroendeanrop.
 * [Analytics](#analytics) kan användas för att köra frågor mot beroendedata.
@@ -58,7 +58,7 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 ## <a name="application-map"></a>Programkarta
 Programavbildning fungerar som visuella hjälpmedel att identifiera beroenden mellan komponenterna i ditt program. Det genereras automatiskt från telemetrin från din app. Det här exemplet visar AJAX-anrop av skript för webbläsare och REST-anrop från appen server med två externa tjänster.
 
-![Programkarta](./media/asp-net-dependencies/08.png)
+![Programkarta](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **Navigera från rutorna** till relevanta beroenden och andra diagram.
 * **Fästa kartan** till den [instrumentpanelen](../../azure-monitor/app/app-insights-dashboards.md), där det är helt funktionella.
@@ -66,13 +66,7 @@ Programavbildning fungerar som visuella hjälpmedel att identifiera beroenden me
 [Läs mer](../../azure-monitor/app/app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Blad för prestanda och fel
-Prestandabladet visar varaktigheten för beroendeanrop från server-app. Det finns en sammanfattning av diagram och en tabell som uppdelat efter anrop.
-
-![Prestandadiagram bladet beroende](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Klicka dig igenom sammanfattningen diagram eller tabell-objekt att söka raw förekomster av dessa anrop.
-
-![Beroende anrop instanser](./media/asp-net-dependencies/dependency-call-instance.png)
+Prestandabladet visar varaktigheten för beroendeanrop från server-app.
 
 **Felantal** visas på den **fel** bladet. Ett fel är alla returkoder som inte är i intervallet 200 – 399 eller okänd.
 
@@ -87,50 +81,9 @@ Bladet webbläsare visar varaktighet och misslyckandegrad för AJAX-anrop från 
 ## <a name="diagnosis"></a> Diagnostisera långsamma begäranden
 Varje begäran händelse är associerad med beroendeanrop, undantag och andra händelser som spåras medan appen är bearbetar begäran. Så om vissa begäranden utför felaktigt, kan du ta reda om det är på grund av långsam svar från ett beroende.
 
-Låt oss gå igenom ett exempel på det.
-
-### <a name="tracing-from-requests-to-dependencies"></a>Spåra från begäranden till beroenden
-Öppna bladet prestanda och titta på rutnät med begäranden:
-
-![Lista över begäranden med medelvärden och antal](./media/asp-net-dependencies/02-reqs.png)
-
-Den främsta som tar mycket lång tid. Låt oss se om vi kan ta reda på var tid det tar.
-
-Klicka på den rad för att visa enskilda förfrågningar om händelser:
-
-![Lista med förekomsterna av begäran](./media/asp-net-dependencies/03-instances.png)
-
-Klicka på alla tidskrävande instanser för att granska den ytterligare och rulla ned till de fjärranslutna beroendeanrop som rör denna begäran:
-
-![Hitta anrop till Fjärrberoenden, identifiera onormal varaktighet](./media/asp-net-dependencies/04-dependencies.png)
-
-Det ser ut som de flesta av tid behandlingen denna begäran spenderades i ett anrop till en lokal tjänst.
-
-Välj den raden vill ha mer information:
-
-![Klicka dig igenom remote sambandet att identifiera orsaken](./media/asp-net-dependencies/05-detail.png)
-
-Det verkar som det här är var problemet finns. Vi har är utmärkt problemet, så nu vi nyss måste du ta reda på varför anropet tar så lång tid.
-
-### <a name="request-timeline"></a>Tidslinje för begäran
-I annat fall finns ingen beroendeanropet som är särskilt lång. Men genom att växla till tidslinjevyn kan vi se var fördröjningen uppstod i våra interna bearbetningen:
-
-![Hitta anrop till Fjärrberoenden, identifiera onormal varaktighet](./media/asp-net-dependencies/04-1.png)
-
-Det verkar vara ett stort mellanrum efter det första beroendet anropar, så vi ska titta på vår kod för att avgöra varför det är.
-
 ### <a name="profile-your-live-site"></a>Profilera live-webbplatsen
 
 Ingen aning där tiden går? Den [Application Insights-profileraren](../../azure-monitor/app/profiler.md) spårningar HTTP-anrop till din live-webbplatsen och visar vilka funktioner i din kod tog den längsta tid.
-
-## <a name="failed-requests"></a>Misslyckade förfrågningar
-Misslyckade förfrågningar kan också vara kopplad till misslyckade anrop till beroenden. Vi kan igen, klicka vidare för att hitta orsaken till problemet.
-
-![Klicka på diagram över misslyckade begäranden](./media/asp-net-dependencies/06-fail.png)
-
-Klicka här för att en förekomst av en misslyckad begäran och titta på dess associerade händelserna.
-
-![Klicka på en typ av begäran, instansen som ska komma till en annan vy av samma instans, klickar du på den för att få information om undantag.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
 Du kan spåra beroenden i den [Kusto-frågespråket](/azure/kusto/query/). Här följer några exempel.
@@ -212,11 +165,7 @@ Se tabellen nedan och se till att du har valt rätt konfiguration för att aktiv
 | Azure-webbapp |I din Kontrollpanelen för webbappar, [öppnar du bladet Application Insights i din Kontrollpanelen för webbappar](../../azure-monitor/app/azure-web-apps.md) och välj Installera om du tillfrågas. |
 | Azure Cloud Service |[Använd startåtgärd](../../azure-monitor/app/cloudservices.md) eller [installera .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 ## <a name="next-steps"></a>Nästa steg
 * [Undantag](../../azure-monitor/app/asp-net-exceptions.md)
-* [Användar-och siddata](../../azure-monitor/app/javascript.md)
+* [Användar- och siddata](../../azure-monitor/app/javascript.md)
 * [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)

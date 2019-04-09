@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188141"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264173"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure vFTX för Azure whitepapers och andra resurser 
 
@@ -25,7 +25,7 @@ Den här guiden innehåller stegvisa anvisningar för att installera Agisoft Pho
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>Datablad: Avere vFXT för Azure
 
-**Länk:** [Avere vFXT för Azure databladet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
+**Länk:** [Avere vFXT för Azure databladet](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 Denna rapport med två sidor har grundläggande information och diagram som förklarar hur du använder Avere vFXT för Azure i flera användningsfall.
 

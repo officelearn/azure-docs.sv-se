@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261997"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 
@@ -47,12 +47,12 @@ OpenID Connect beskriver ett metadatadokument som innehåller de flesta av infor
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följande kodavsnitt för ett exempel. Innehållet i kodfragment beskrivs ingående i den [OpenID Connect-specifikationen](https://openid.net). Observera att klienten snarare än `common` på plats {klient} ovan kommer att leda klientspecifik URI: er i JSON-objektet som returnerades.
+Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följande kodavsnitt för ett exempel. Innehållet i kodfragment beskrivs ingående i den [OpenID Connect-specifikationen](https://openid.net). Observera att den ger en klient-ID istället `common` på plats {klient} ovan kommer att leda klientspecifik URI: er i JSON-objektet som returnerades.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ Metadata är ett vanligt JavaScript Object Notation (JSON)-dokument. Se följand
     ...
 }
 ```
+
+Om din app har anpassade Signeringsnycklar användningen av den [mappning av anspråk](active-directory-claims-mapping.md) funktion, som du måste lägga till en `appid` frågeparameter som innehåller app-ID för att få en `jwks_uri` som pekar på din app signeringsnyckel information. Till exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Skicka begäran inloggning
 
@@ -91,7 +93,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | klient |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |obligatorisk |Program-Id som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory**, klickar du på **Appregistreringar**, Välj programmet och leta upp det program-Id på programsidan. |
+| client_id |obligatorisk |Program-ID som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure-portalen. Klicka på **Azure Active Directory**, klickar du på **Appregistreringar**, Välj programmet och leta upp det program-ID på programsidan. |
 | response_type |obligatorisk |Måste innehålla `id_token` för OpenID Connect-inloggning. De kan också innehålla andra response_types som `code` eller `token`. |
 | omfång | Rekommenderas | OpenID Connect-specifikationen kräver omfånget `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Detta och andra OIDC-scope ignoreras på v1.0-slutpunkt, men är fortfarande bästa praxis för standardkompatibel klienter. |
 | nonce |obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande `id_token` som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng eller ett GUID som kan användas för att fastställa ursprunget för begäran. |
@@ -185,7 +187,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 När du omdirigerar användaren till den `end_session_endpoint`, Azure AD tar bort användarens session i webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Azure AD för autentisering. Om du vill aktivera programmen utloggningen användaren samtidigt, Azure AD skickar en HTTP GET-begäran till det registrerade `LogoutUrl` över alla program som användaren för närvarande är inloggad på. Program måste svara på den här begäran genom att avmarkera alla sessioner som identifierar användaren och returnera en `200` svar. Om du vill stödja enkel inloggning ut i ditt program måste du implementera, till exempel en `LogoutUrl` i programkoden. Du kan ange den `LogoutUrl` från Azure portal:
 
-1. Navigera till den [Azure-portalen](https://portal.azure.com).
+1. Navigera till [Azure-portalen](https://portal.azure.com).
 2. Välj din Active Directory genom att klicka på ditt konto i det övre högra hörnet på sidan.
 3. Välj den vänstra navigeringspanelen **Azure Active Directory**, välj sedan **appregistreringar** och välj ditt program.
 4. Klicka på **inställningar**, sedan **egenskaper** och hitta den **URL för utloggning** textrutan. 
@@ -200,7 +202,7 @@ För att hämta åtkomsttoken som du behöver ändra inloggningsbegäran ovan:
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'

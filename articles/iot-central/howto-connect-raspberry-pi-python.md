@@ -3,17 +3,17 @@ title: Ansluta en Raspberry Pi till Azure IoT Central programmet (Python) | Micr
 description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med Python.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/23/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6ac16651e2d49dd903ff994b18a8f571bd92fbf6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051993"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272367"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -26,36 +26,33 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberr
 För att slutföra stegen i den här artikeln, måste följande komponenter:
 
 * Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* En Raspberry Pi-enhet som kör operativsystemet Raspbian. Du behöver en bildskärm, tangentbord och mus som är anslutna till Raspberry Pi till GUI-miljö. Raspberry Pi måste kunna [ansluta till internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
-* Du kan också en [mening Hat](https://www.raspberrypi.org/products/sense-hat/) tillägg tavla för Raspberry Pi. Den här tavla samlar in telemetridata från olika sensorer för att skicka till din Azure IoT Central-App. Om du inte har en **mening Hat** tavla, du kan använda en emulator i stället (tillgänglig som en del av Raspberry Pi-avbildning).
+* En Raspberry Pi-enhet som kör operativsystemet Raspbian. Raspberry Pi måste kunna ansluta till internet. Mer information finns i [konfigurerar Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper: 
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper:
 
 - Telemetri, vilket inkluderar följande mått som samlar in enheten:
-    - Fuktighet
-    - Temperatur
-    - Tryck
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroskop (X, Y, Z)
+  - Fuktighet
+  - Temperatur
+  - Tryck
+  - Magnetometer (X, Y, Z)
+  - Accelerometer (X, Y, Z)
+  - Gyroskop (X, Y, Z)
 - Inställningar
-    - Spänning
-    - Aktuell
-    - Fläkthastighet
-    - IR växlingsknappen.
+  - Spänning
+  - Aktuell
+  - Fläkthastighet
+  - IR växlingsknappen.
 - Egenskaper
-    - Dör nummer enhetsegenskap
-    - Platsegenskapen för molnet
+  - Dör nummer enhetsegenskap
+  - Platsegenskapen för molnet
 
-Fullständig information om konfigurationen av enheten mallen finns i [Raspberry PI enhetsinformation mall](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
-    
+Fullständig information om konfigurationen av enheten mallen finns i [Raspberry Pi enhetsinformation mallen](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mallen och Håll koll på information om enheten anslutning (**Scope-ID, enhets-ID, primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
-
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mall. Anteckna enheten anslutningsinformation (**Scopeid**, **enhets-ID**, och **primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
 
 ### <a name="configure-the-raspberry-pi"></a>Konfigurera Raspberry Pi
 
@@ -64,22 +61,15 @@ Följande steg beskriver hur du hämtar och konfigurerar du exempelprogrammet Py
 * Skickar telemetri och egenskapsvärden till Azure IoT Central.
 * Svarar på inställningen ändringar som gjorts i Azure IoT Central.
 
-Konfigurera enheten, [följa de stegvisa anvisningarna på GitHub.](https://aka.ms/iotcentral-docs-Raspi-releases)
+Konfigurera enheten, [följa de stegvisa anvisningarna på GitHub](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md).
 
+1. När enheten har konfigurerats startar enheten skickar telemetri mätning av faktisk användning till Azure IoT Central.
+1. Du kan se hur koden körs på Raspberry Pi interagerar med programmet i Azure IoT Central programmet:
 
-> [!NOTE]
-> Mer information om de Raspberry Pi Python-exempel finns i den [README](https://aka.ms/iotcentral-docs-Raspi-releases) fil på GitHub.
+    * På den **mätningar** sidan för din riktig enhet visas telemetri som skickas från Raspberry Pi.
+    * På den **inställningar** kan du kan ändra inställningarna på Raspberry Pi, till exempel spänning och fläkt hastighet. När Raspberry Pi om ändringen, inställningen visas som **synkroniserats**.
 
-
-1. När enheten har konfigurerats kan ska enheten börja skicka data till Azure IoT Central under ett ögonblick.
-1. I Azure IoT Central programmet se du hur koden körs på Raspberry Pi interagerar med programmet:
-
-    * På den **mätningar** sidan för din riktig enhet visas telemetri som skickas från Raspberry Pi. Om du använder den **mening HAT emulatorn**, du kan ändra telemetrivärden i det grafiska Användargränssnittet på Raspberry Pi.
-    * På den **egenskaper** sidan ser du värdet för det rapporterade **dör nummer** egenskapen.
-    * På den **inställningar** kan du kan ändra olika inställningar på Raspberry Pi, till exempel spänning och fläkt hastighet. När Raspberry Pi om ändringen, inställningen visas som **synkroniserats** i Azure IoT Central.
-
-
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI mall enhetsinformation
+## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi mall enhetsinformation
 
 Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper:
 
@@ -88,11 +78,11 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -118,7 +108,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| Type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |

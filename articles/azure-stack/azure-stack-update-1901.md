@@ -16,16 +16,16 @@ ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649415"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257409"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
-*Gäller för: Integrerade Azure Stack-system*
+*Gäller för Azure Stack-integrerade system*
 
 Den här artikeln beskriver innehållet i 1901 uppdateringspaketet. Uppdateringen innehåller nya funktioner för den här versionen av Azure Stack, korrigeringar och förbättringar. Den här artikeln kan du också beskrivs kända problem i den här versionen, och innehåller en länk för att hämta uppdateringen. Kända problem är indelade i problem direkt relaterade till uppdateringsprocessen och problem med build (efter installationen).
 
@@ -96,13 +96,13 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
          Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.1.5 den **api-versionen 2018-01-01** för mått, definitioner av mätvärden för resurstyper.
 
 - **AzureStack 1.7.1** detta en viktig ändring versionen. Mer information om de senaste ändringarna finns i https://aka.ms/azspshmigration171
-   * **Azs.Backup.Admin modul**  
+   * **Azs.Backup.Admin Module**  
          Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserat krypteringsläge. Stöd för symmetriska nycklar fasas ut.  
    * **Azs.Fabric.Admin modul**  
          `Get-AzsInfrastructureVolume` är inaktuell. Använd den nya cmdleten `Get-AzsVolume`.  
          `Get-AzsStorageSystem` är inaktuell.  Använd den nya cmdleten `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` är inaktuell. Den `StorageSubSystem` objektet innehåller egenskapen kapacitet.  
-   * **Azs.Compute.Admin Module**  
+   * **Administratörsmodul för Azs.Compute**  
          Felkorrigering – `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Anropa `ConvertTo-PlatformImageObject` endast i rätt väg.  
          BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Anropa ConvertTo-VmExtensionObject endast i rätt väg.  
    * **Azs.Storage.Admin Module**  
@@ -315,6 +315,10 @@ Här följer efter installation kända problem för den här build-versionen.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- Systemloggkonfigurationen behålls inte via en uppdateringscykeln, vilket resulterar i syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809).
+Lösningen är att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
 

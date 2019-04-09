@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800445"
 documentType: LandingData
 title: Dokumentation om Azure Blueprints-tjänsten
 metadata:
-  title: Dokumentation om Azure Blueprint – Självstudier, API-referens
-  description: Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.
-  services: blueprints
+  title: 'Dokumentation om Azure Blueprint – Självstudier, API-referens'
+  description: 'Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.'
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -18,34 +11,34 @@ metadata:
   ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
-  description: Med Azure Blueprints kan du distribuera och uppdatera molnmiljöer med en upprepningsbar process med sammansättningsbara artefakter som Azure Resource Manager-mallar för att tillhandahålla resurser, rollbaserade åtkomstkontroller och principer.
+  description: 'Med Azure Blueprints kan du distribuera och uppdatera molnmiljöer med en upprepningsbar process med sammansättningsbara artefakter som Azure Resource Manager-mallar för att tillhandahålla resurser, rollbaserade åtkomstkontroller och principer.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar, tilldelar och hanterar skissdefinitioner i Azure.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        alt: Azure Portal
-        src: ./media/portal.svg
-      text: Azure Portal
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Lär dig hur du skapar, tilldelar och hanterar skissdefinitioner i Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: ./media/portal.svg
+            text: Azure Portal
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST
+              src: ./media/rest.svg
+            text: REST
+            href: create-blueprint-rest-api.md
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK för .NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">API-referens</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Språk
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK för .NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/blueprints/">API-referens</a></p>

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba469081bf1f1aa265a55ffbd683ba19bc41b6e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522017"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263340"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -104,7 +104,7 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
     - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
->Listan mappar från kontonivå, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med behörighet att ”kör”** eller behörighet för IAM. Detta gäller när du använder den:
+>Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med ”kör” behörighet i IAM**. Detta gäller när du använder den:
 >- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
 >Om du har problem för att bevilja behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
@@ -158,7 +158,7 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser a
     - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
 
 >[!NOTE]
->Listan mappar från kontonivå, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med behörighet att ”kör”** eller behörighet för IAM. Detta gäller när du använder den:
+>Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med ”kör” behörighet i IAM**. Detta gäller när du använder den:
 >- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
 >- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
 >Om du har problem för att bevilja behörighet på kontonivå, du kan hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.

@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577330"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269137"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
 Den här artikeln beskrivs arkitekturen och begrepp för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram:
 
-[![Azure Machine Learning-service-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Aarkitektur för zure Machine Learning-tjänsten och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 Arbetsflödet följer vanligtvis den här sekvensen:
 
@@ -66,7 +66,7 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 En taxonomi för arbetsytan illustreras i följande diagram:
 
-[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experiment
 
@@ -80,7 +80,7 @@ I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa 
 
 En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en arbetsyta för Azure Machine Learning-tjänsten.
 
-Azure Machine Learning-tjänsten är framework oberoende. När du skapar en modell kan använda du alla populära machine learning-ramverk, som lär du dig Scikit, XGBoost, PyTorch, TensorFlow, Chainer och Microsoft Cognitive Toolkit (kallades tidigare CNTK).
+Azure Machine Learning-tjänsten är framework oberoende. När du skapar en modell kan använda du alla populära machine learning-ramverk, som lär du dig Scikit, XGBoost, PyTorch, TensorFlow och Chainer.
 
 Ett exempel för att träna en modell finns i [självstudien: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
@@ -186,6 +186,10 @@ Azure Machine Learning kan skapa två typer av bilder:
 * **FPGA bild**: Används när du distribuerar till en fält-programmable gate array i Azure.
 * **Docker-avbildning**: Används när du distribuerar till beräkningsmål än FPGA. Exempel är Azure Container Instances och Azure Kubernetes Service.
 
+Azure Machine Learning-tjänsten tillhandahåller en basavbildning som används som standard. Du kan också ange dina egna anpassade avbildningar.
+
+Mer information finns i Konfigurera och registrera bilddelen av [distribuera modeller](how-to-deploy-and-where.md#configureimage).
+
 Ett exempel för att skapa en avbildning finns i [distribuera en modell för klassificering av avbildning i Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### <a name="image-registry"></a>Avbildningsregister
@@ -228,7 +232,7 @@ När du utvecklar din lösning kan du använda Azure Machine Learning Python SDK
 
 Kom igång med Azure Machine Learning-tjänsten, se:
 
-* [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
+* [Vad är tjänsten Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md)
 * [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)
 * [Skapa en arbetsyta med en Resource Manager-mall](how-to-create-workspace-template.md)

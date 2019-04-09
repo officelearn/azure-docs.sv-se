@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f93ca9c35843a130ebdea586a2a1ef469de460
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9130717f7846c81bee2bf4892a13fcf6042257c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850827"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Självstudier: Azure Active Directory-integrering med Ivanti Service Manager (ISM)
 
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Ivanti 
     | `https://<customer>.saasiteu.com/` |
     | `https://<customer>.saasitau.com/` |
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -209,9 +209,9 @@ När du klickar på panelen Ivanti Service Manager (ISM) i åtkomstpanelen bör 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

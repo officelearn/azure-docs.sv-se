@@ -1,22 +1,22 @@
 ---
 title: Ta bort data i Azure Cosmos DB med Time to Live
 description: Med TTL tillhandahåller Microsoft Azure Cosmos DB möjligheten att låta dokument automatiskt bort från systemet efter en viss tidsperiod.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549195"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271279"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>TTL-värde i Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) i Azure Cosmos DB 
 
-Med ”Time to Live” eller TTL kan Azure Cosmos DB du ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Du kan ange tiden för live på behållarenivån och åsidosättningsvärde på basis av per objekt som standard. När du ställer in TTL-Perioden på en behållare eller på en nivå, tar Azure Cosmos DB automatiskt bort dessa objekt efter hur lång tid sedan du de senast ändrades. Tid TTL-värde konfigureras på några sekunder. När du konfigurerar TTL systemet automatiskt att ta bort inaktuella objekt baserat på TTL-värdet, till skillnad från en borttagningsåtgärd som uttryckligen har utfärdats av klientprogrammet.
+Med **Time to Live** eller TTL, Azure Cosmos DB ger dig möjlighet att ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Du kan ange tiden för live på behållarenivån och åsidosättningsvärde på basis av per objekt som standard. När du ställer in TTL-Perioden på en behållare eller på en nivå, tar Azure Cosmos DB automatiskt bort dessa objekt efter hur lång tid sedan du de senast ändrades. Tid TTL-värde konfigureras på några sekunder. När du konfigurerar TTL systemet automatiskt att ta bort inaktuella objekt baserat på TTL-värdet utan att behöva en borttagningsåtgärd som uttryckligen har utfärdats av klientprogrammet.
 
 ## <a name="time-to-live-for-containers-and-items"></a>TTL-värde för behållare och objekt
 
@@ -26,9 +26,9 @@ Tiden TTL-värde har angetts i sekunder och tolkas det som en lista från den ti
 
    - Om det saknas (eller inställt på null) objekt inte har förfallit automatiskt.
 
-   - Om närvarande och värdet är inställt på ”-1”, är det lika oändlig – objekt upphör att gälla inte som standard.
+   - Om närvarande och värdet är inställt på ”-1”, är det lika infinity och objekt som inte upphör att gälla som standard.
 
-   - Om närvarande och värdet anges till något nummer (”n”) – objekt upphör att gälla ”n” sekunder efter deras senast ändrades.
+   - Om närvarande och värdet anges till något nummer *”n”* – objekt förfaller *”n”* sekunder efter att deras senast ändrades.
 
 2. **Time to Live-värde på ett objekt** (anges med `ttl`):
 
@@ -38,7 +38,7 @@ Tiden TTL-värde har angetts i sekunder och tolkas det som en lista från den ti
 
 ## <a name="time-to-live-configurations"></a>Tid för Live-konfigurationer
 
-* Om TTL-värdet är inställt på ”n” i en behållare, upphör objekten i den behållaren efter n sekunder.  Om det finns objekt i samma behållare som har sina egna tid att live genom att ange -1 (som anger att de inte går ut) eller om några objekt har åsidosatts time to live inställning med ett annat nummer gäller de här objekten går ut baserat på det konfigurerade TTL-värdet. 
+* Om TTL-värde har angetts till *”n”* på en behållare, sedan objekten i den behållaren upphör att gälla efter *n* sekunder.  Om det finns objekt i samma behållare som har sina egna tid att live genom att ange -1 (som anger att de inte går ut) eller om några objekt har åsidosatts time to live inställning med ett annat nummer gäller de här objekten går ut baserat på sina egna konfigurerade TTL-värdet. 
 
 * Om TTL inte har angetts för en behållare har ingen effekt med time to live på ett objekt i den här behållaren. 
 

@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767217"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264717"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based Access Control
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Azure Stack stöd för rollbaserad åtkomstkontroll (RBAC), samma [säkerhetsmodell för åtkomsthantering](https://docs.microsoft.com/azure/role-based-access-control/overview) som använder Microsoft Azure. Du kan använda RBAC för att hantera användare, grupp eller programåtkomst för prenumerationer, resurser och tjänster.
 
@@ -40,28 +40,6 @@ Azure Stack har tre grundläggande roller som du kan använda för alla typer av
 * **Ägare** kan hantera allt, inklusive åtkomst till resurser.
 * **Deltagare** kan hantera allt förutom åtkomst till resurser.
 * **Läsare** kan visa allt, men inte göra några ändringar.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
-
-Azure Stack har följande resurs hierarki:
-
-* Varje prenumeration hör till en katalog.
-* Varje resursgrupp tillhör en prenumeration.
-* Varje resurs tillhör en resursgrupp.
-
-Åtkomst som du beviljar på en överordnad omfattning ärvs på underordnade omfång. Exempel:
-
-* Du tilldelar rollen läsare till en Azure AD-grupp prenumerationsområde. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
-* Du kan tilldela rollen som deltagare till ett program i resursgruppomfånget. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
-
-### <a name="assigning-roles"></a>Tilldela roller
-
-Du kan tilldela mer än en roll till en användare och varje roll kan associeras med ett annat omfång. Exempel:
-
-* Du kan tilldela TestUser-A läsarrollen till prenumeration 1.
-* Du tilldelar TestUser-A ägarrollen TestVM-1.
-
-Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om att visa, tilldela och ta bort roller.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
 

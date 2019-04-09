@@ -1,19 +1,19 @@
 ---
 title: Anslut en Raspberry Pi till din Azure IoT Central program (C#) | Microsoft Docs
-description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med C#.
+description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till Azure IoT Central appen med C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108366"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275971"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -25,37 +25,34 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberr
 
 För att slutföra stegen i den här artikeln, måste följande komponenter:
 
-* [.NET core 2](https://www.microsoft.com/net) installerat på utvecklingsdatorn. Du bör även ha en lämplig Kodredigerare som [Visual Studio Code](https://code.visualstudio.com/).
 * Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* En Raspberry Pi-enhet som kör operativsystemet Raspbian.
-
+* En Raspberry Pi-enhet som kör operativsystemet Raspbian. Raspberry Pi måste kunna ansluta till internet. Mer information finns i [konfigurerar Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper: 
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper:
 
 - Telemetri, vilket inkluderar följande mått som samlar in enheten:
-    - Fuktighet
-    - Temperatur
-    - Tryck
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroskop (X, Y, Z)
+  - Fuktighet
+  - Temperatur
+  - Tryck
+  - Magnetometer (X, Y, Z)
+  - Accelerometer (X, Y, Z)
+  - Gyroskop (X, Y, Z)
 - Inställningar
-    - Spänning
-    - Aktuell
-    - Fläkthastighet
-    - IR växlingsknappen.
+  - Spänning
+  - Aktuell
+  - Fläkthastighet
+  - IR växlingsknappen.
 - Egenskaper
-    - Dör nummer enhetsegenskap
-    - Platsegenskapen för molnet
+  - Dör nummer enhetsegenskap
+  - Platsegenskapen för molnet
 
-Fullständig information om konfigurationen av enheten mallen finns i [Raspberry PI enhetsinformation mall](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
-
+Fullständig information om konfigurationen av enheten mallen finns i [Raspberry Pi enhetsinformation mallen](#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mall. Anteckna enheten anslutningsinformation (**Scopeid**, **enhets-ID**, och **primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>Skapa .NET-program
 
@@ -86,7 +83,7 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
         <RuntimeIdentifiers>win-arm;linux-arm</RuntimeIdentifiers>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.5.2" />
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.19.0" />
       </ItemGroup>
     </Project>
     ```
@@ -272,12 +269,9 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
 
 ## <a name="run-your-net-application"></a>Kör .NET-program
 
-Lägga till specifika anslutningssträngen i koden för enheten för att autentisera med Azure IoT Central. Du antecknade den här anslutningssträngen när du har lagt till din verklig enhet till Azure IoT Central programmet.
+Lägga till specifika anslutningssträngen i koden för enheten för att autentisera med Azure IoT Central. Följ de här anvisningarna [generera enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) med hjälp av den **Scope-ID**, **enhets-ID**, och **primärnyckel** du gjort en Observera av tidigare.
 
-  > [!NOTE]
-   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen.
-
-1. Ersätt `{your device connection string}` i den **Program.cs** filen med den anslutningssträng som du antecknade tidigare.
+1. Ersätt `{your device connection string}` i den **Program.cs** filen med den anslutningssträng som du skapade.
 
 1. Kör följande kommando i miljön kommandoraden:
 
@@ -286,7 +280,7 @@ Lägga till specifika anslutningssträngen i koden för enheten för att autenti
    dotnet publish -r linux-arm
    ```
 
-1. Kopiera den `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` mappen till din Raspberry Pi-enhet. Du kan använda den **scp** kommando för att kopiera filer, till exempel:
+1. Kopiera den `pisample\bin\Debug\netcoreapp2.1\linux-arm\publish` mappen till din Raspberry Pi-enhet. Du kan använda den **scp** kommando för att kopiera filer, till exempel:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
@@ -321,8 +315,7 @@ Lägga till specifika anslutningssträngen i koden för enheten för att autenti
 
      ![Raspberry Pi tar emot Inställningsändringen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI mall enhetsinformation
+## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi mall enhetsinformation
 
 Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper:
 

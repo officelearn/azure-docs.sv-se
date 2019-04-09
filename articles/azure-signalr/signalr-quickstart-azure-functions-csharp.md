@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265006"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR Service med hjälp av C\#
 
@@ -36,7 +36,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
-1. Starta Visual Studio (eller en annan Kodredigerare) och öppna lösningen i den *chat\src\csharp* mapp i den klonade lagringsplatsen.
+1. Starta Visual Studio (eller en annan Kodredigerare) och öppna lösningen i den *src/chatt/csharp* mapp i den klonade lagringsplatsen.
 
 1. I den webbläsare där Azure-portalen är öppnad bekräftar du att den SignalR Service-instans som du distribuerade tidigare skapades korrekt genom att söka efter dess namn i sökrutan längst upp i portalen. Välj instansen för att öppna den.
 
@@ -76,4 +76,4 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 I den här snabbstarten har du skapat och kört ett serverlöst program i realtid i Visual Studio. Härnäst får du lära dig mer om att utveckla och distribuera Azure Functions med Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Utveckla Azure Functions med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Utveckla Azure-funktioner med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)

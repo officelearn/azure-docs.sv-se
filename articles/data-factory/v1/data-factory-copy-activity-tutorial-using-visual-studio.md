@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71e1f7d85d823add804e8ef5dcb6126cffc21902
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009908"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258070"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -374,7 +374,7 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 3. Du skapade **datauppsättningar** som beskriver indata och utdata för pipelines.
 4. Du skapade en **pipeline** med en **kopieringsaktivitet** med **BlobSource** som källa och **SqlSink** som mottagare. 
 
-Om du vill se en självstudie som visar hur du omvandlar data med en HDInsight Hive-aktivitet i Azure HDInsight-klustret går du till [Självstudie: Bygg din första pipeline för att omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
+Hur du använder en HDInsight Hive-aktivitet för att omvandla data med Azure HDInsight-kluster finns i [självstudien: Bygg din första pipeline för att omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
 
 Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 

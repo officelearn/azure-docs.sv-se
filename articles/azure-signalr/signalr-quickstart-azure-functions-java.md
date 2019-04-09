@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554907"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261181"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Snabbstart: Skapa en chattrum med Azure Functions och SignalR Service med hjälp av Java
 
@@ -58,18 +58,18 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Öppna i ditt kodredigeringsprogram den *chatt/src/java* mapp i den klonade lagringsplatsen.
+1. Öppna i ditt kodredigeringsprogram den *src/chatt/java* mapp i den klonade lagringsplatsen.
 
 1. Byt namn på *local.settings.sample.json* till *local.settings.json*.
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Huvudfilen som innehåller funktionerna som finns i *src/main/java/com/function/Functions.java*:
+1. Huvudfilen som innehåller funktionerna som finns i *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **sendMessage** – tar emot ett meddelande i begärandetexten och använder den *SignalR* utgående bindning för Skicka meddelande till alla anslutna klientprogram.
 
-1. I terminalen kontrollerar du att du är i den *chatt/src/java* mapp. Skapa funktionsappen.
+1. I terminalen kontrollerar du att du är i den *src/chatt/java* mapp. Skapa funktionsappen.
 
     ```bash
     mvn clean package

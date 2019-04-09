@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905893"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261045"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 3. Hämta autentiseringsnyckeln och registrera den lokala integreringskörningen med nyckeln. Här är ett PowerShell-exempel:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Konfigurera en lokal IR på en Azure virtuell dator med hjälp av en Azure Resource Manager-mall (automatiskt)
@@ -110,7 +112,7 @@ Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-i
 
 
 ## <a name="high-availability-and-scalability"></a>Hög tillgänglighet och skalbarhet
-En lokal integration runtime kan associeras med flera lokala datorer. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en lokal integration runtime. Fördelarna med att ha flera noder (lokala datorer med en installerad gateway) för en logisk gateway är:
+En lokal integration runtime kan associeras med flera lokala datorer eller virtuella datorer i Azure. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en lokal integration runtime. Fördelarna med att ha flera noder (lokala datorer med en installerad gateway) för en logisk gateway är:
 * Högre tillgänglighet för lokal integration runtime så att den är inte längre felpunkt i dina stordata lösning eller molnet dataintegrering med Azure Data Factory, att säkerställa affärskontinuitet med upp till fyra noder.
 * Förbättrad prestanda och genomflöde under dataförflyttning mellan lokala och molnbaserade datalager. Få mer information om [prestandajämförelser](copy-activity-performance.md).
 

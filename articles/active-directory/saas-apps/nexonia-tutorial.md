@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9040c5028b3046ed60f9e30de76a9b13d2b5425b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Självstudier: Azure Active Directory-integrering med Nexonia
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Nexonia
 
     ![Nexonia domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du in en URL: `Nexonia`
+    a. I textrutan **Identifierare** skriver du en URL: `Nexonia`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
@@ -192,9 +192,9 @@ När du klickar på panelen Nexonia i åtkomstpanelen, bör det vara loggas in a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

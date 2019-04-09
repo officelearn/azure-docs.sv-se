@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 OAuth Authorization Code flödet | Microsoft Docs
-description: Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth 2.0-autentiseringsprotokollet.
+title: Microsoft identity-plattformen och OAuth Authorization Code Flow | Azure
+description: Skapa webbprogram med hjälp av Microsofts identitetsplattform implementeringen av OAuth 2.0-autentiseringsprotokollet.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,20 +12,20 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2019
+ms.topic: conceptual
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880273"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058755"
 ---
-# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-auktoriseringskodflöde
+# <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-plattformen och OAuth 2.0-auktoriseringskodflöde
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -34,7 +34,7 @@ OAuth 2.0-auktoriseringskod kan användas i appar som är installerade på en en
 > [!NOTE]
 > Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Används för att utföra autentisering och auktorisering i flesta apptyper, däribland [webbappar](v2-app-types.md#web-apps) och [internt installerade appar](v2-app-types.md#mobile-and-native-apps). Flödet gör det möjligt för appar på ett säkert sätt hämta access_tokens som kan användas för att få åtkomst till resurser som skyddas av v2.0-slutpunkten. 
+OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Används för att utföra autentisering och auktorisering i flesta apptyper, däribland [webbappar](v2-app-types.md#web-apps) och [internt installerade appar](v2-app-types.md#mobile-and-native-apps). Flödet gör det möjligt för appar på ett säkert sätt hämta access_tokens som kan användas för att få åtkomst till resurser som skyddas av v2.0-slutpunkten.
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
 

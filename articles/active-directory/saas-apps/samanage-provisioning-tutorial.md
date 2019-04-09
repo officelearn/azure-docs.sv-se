@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092386"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058024"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Samanage för automatisk användaretablering
 
@@ -33,39 +34,34 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
 
-*   En Azure AD-klient
-*   En [Samanage klient](https://www.samanage.com/pricing/) med professionella paketet
-*   Ett användarkonto i Samanage med administratörsbehörighet
+* En Azure AD-klient
+* En [Samanage klient](https://www.samanage.com/pricing/) med professionella paketet
+* Ett användarkonto i Samanage med administratörsbehörighet
 
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Samanage Rest API](https://www.samanage.com/api/), som är tillgängliga för Samanage utvecklare för konton med professionella paketet.
 
 ## <a name="adding-samanage-from-the-gallery"></a>Lägga till Samanage från galleriet
+
 Du måste lägga till Samanage från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Samanage för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till Samanage från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Företagsprogram avsnittet][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till Samanage, klicka på den **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Samanage**.
+4. I sökrutan skriver du **Samanage**, väljer **Samanage** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. I resultatpanelen väljer **Samanage**, och klicka sedan på den **Lägg till** vill lägga till Samanage i din lista över SaaS-program.
-
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![Samanage i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>Tilldela användare till Samanage
 
@@ -92,11 +88,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Konfigurera automatisk användaretablering för Samanage i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Samanage**.
 
-2. Välj Samanage från din lista över SaaS-program.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. I programlistan väljer du **Samanage**.
+
+    ![Samanage-länken i programlistan](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
 

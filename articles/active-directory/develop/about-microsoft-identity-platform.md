@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3fcbda160d84e41fd2244a4d58766ae3991e52
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197665"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258699"
 ---
 # <a name="about-microsoft-identity-platform"></a>Om Microsoft Identity-plattformen
 
@@ -38,7 +38,7 @@ Program som använder det senaste ADAL och MSAL kommer att SSO-anslutas till var
 
 I diagrammet nedan visas Microsoft Identity-gränssnittet på hög nivå, bland annat appregistreringsfunktioner, SDK:er, slutpunkter och identiteter som stöds.
 
-![Microsoft Identity-plattformen i dag](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![Microsoft Identity-plattformen i dag](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 Microsoft Identity-plattformen har två slutpunkter (v1.0 och v2.0) och två uppsättningar klientbibliotek för att hantera dessa slutpunkter. När du utvecklar ett nytt program bör du tänka över fördelarna och det aktuella tillståndet för slutpunkterna och autentiseringsbiblioteken. Tänk också på följande:
 

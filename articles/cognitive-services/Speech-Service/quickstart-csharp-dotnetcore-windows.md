@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Taligenkänning, C# (.NET Core Windows) – Taltjänster'
+title: 'Snabbstart: Känna igen tal, C# (.NET Core) – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att känna igen tal i C# under .NET Core i Windows med hjälp av Speech SDK
+description: Lär dig att känna igen tal i C# under .NET Core för Windows- eller macOS med hjälp av tal-SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895629"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009435"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln skapar du ett C#-konsolprogram för .NET Core på Windows med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med [NuGet-paketets tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
+I den här artikeln skapar du en C# konsolapp för .NET Core för Windows- eller macOS med hjälp av Cognitive Services [tal SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med [NuGet-paketets tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
 > [!NOTE]
 > .NET Core är en plattformsoberoende plattform med öppen källkod som implementerar [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specifikationen.
@@ -71,7 +71,7 @@ För den här snabbstarten krävs:
 Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
-> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska C# exemplen på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 

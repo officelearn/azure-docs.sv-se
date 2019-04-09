@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: e5e84c22285d1cdec9678c8bf33dab1568d333cd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621591"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259957"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -27,13 +27,13 @@ Du kan felsöka fel vid användning av Azure Backup med informationen som visas 
 | Backup kan inte utföra åtgärden eftersom den Virtuella Datoragenten inte svarar. |Felet kan inträffa om det uppstår ett problem med VM-agenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. Kontrollera status för VM-Agent-tjänsten i tjänster och om agenten visas i program på Kontrollpanelen för Windows-datorer. <br><br>Försök ta bort programmet från Kontrollpanelen och installera agenten enligt beskrivningen i [VM-agenten](#vm-agent). Utlös en ad hoc-säkerhetskopiering för att kontrollera att den när du installera om agenten. |
 | Recovery services-tilläggsåtgärden misslyckades: <br>Kontrollera att den senaste VM-agenten finns på den virtuella datorn och VM-agenttjänsten körs. Försök att utföra säkerhetskopieringsåtgärden igen. Om säkerhetskopieringen misslyckas, kontaktar du Microsoft Support. |Det här felet inträffar när VM-agenten är inaktuell. Avse felsöka Azure säkerhetskopiering av virtuella datorer att uppdatera VM-agenten. |
 | Den virtuella datorn finns inte: <br>Kontrollera att den virtuella datorn finns eller välj en annan virtuell dator. |Det här felet uppstår när den primära virtuella datorn tas bort, men fortfarande verkar principen för säkerhetskopiering för en virtuell dator att säkerhetskopiera. Om du vill åtgärda det här felet, gör du följande: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn **molntjänstnamnet**,<br>**eller**<br></li><li>Sluta skydda den virtuella datorn utan att ta bort säkerhetskopierade data. Mer information finns i [sluta skydda virtuella datorer](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| Kommandot körningen misslyckades: <br>En annan åtgärd pågår på det här objektet. Vänta tills den föregående åtgärden har slutförts. Försök sedan igen. |Ett befintligt säkerhetskopieringsjobb körs och ett nytt jobb kan inte startas förrän det aktuella jobbet har slutförts. |
+| Det gick inte att kommandot: <br>En annan åtgärd pågår på det här objektet. Vänta tills den föregående åtgärden har slutförts. Försök sedan igen. |Ett befintligt säkerhetskopieringsjobb körs och ett nytt jobb kan inte startas förrän det aktuella jobbet har slutförts. |
 | Kopiera virtuella hårddiskar från Recovery Services-valvet timeout: <br>Försök igen om några minuter. Kontakta Microsoft-supporten om problemet kvarstår. | Det här felet uppstår om det finns ett tillfälligt fel på lagringssidan, eller om Backup-tjänsten inte har fått tillräckligt med storage-konto IOPS för att överföra data till valvet, inom den angivna tiden. Se till att följa den [bästa praxis när du konfigurerar dina virtuella datorer](backup-azure-vms-introduction.md#best-practices). Flytta den virtuella datorn till ett annat lagringskonto som inte lästs in och försök säkerhetskopieringen igen.|
-| Säkerhetskopieringen misslyckades med ett internt fel: <br>Försök igen om några minuter. Kontakta Microsoft-supporten om problemet kvarstår. |Du får det här felet av två skäl: <ul><li> Det finns ett övergående problem vid VM-lagring. Kontrollera den [status för Azure site](https://azure.microsoft.com/status/) att se om det finns beräkning, lagring eller nätverksproblem i regionen. När problemet är löst, försöka att säkerhetskopiera igen. <li> Den ursprungliga virtuella datorn har tagits bort och återställningspunkten kan inte utföras. Om du vill behålla säkerhetskopierade data för en borttagen virtuell dator men ta bort backup felen, ta bort skyddet från den virtuella datorn och välja alternativet för att behålla data. Den här åtgärden stoppar schemalagda säkerhetskopieringsjobbet och återkommande felmeddelanden. |
-| Säkerhetskopieringen misslyckades att installera Azure Recovery Services-tillägget på det markerade objektet: <br>VM-agenten är en förutsättning för Azure Recovery Services-tillägget. Installera Azure VM-agenten och starta om registreringsåtgärden. |<ol> <li>Kontrollera om VM-agenten har installerats korrekt. <li>Se till att flaggan på VM-konfigurationen är korrekt.</ol> Läs mer om hur du installerar VM-agenten och hur du validerar VM-agentinstallation. |
+| Säkerhetskopiera misslyckades med ett internt fel: <br>Försök igen om några minuter. Kontakta Microsoft-supporten om problemet kvarstår. |Du får det här felet av två skäl: <ul><li> Det finns ett övergående problem vid VM-lagring. Kontrollera den [status för Azure site](https://azure.microsoft.com/status/) att se om det finns beräkning, lagring eller nätverksproblem i regionen. När problemet är löst, försöka att säkerhetskopiera igen. <li> Den ursprungliga virtuella datorn har tagits bort och återställningspunkten kan inte utföras. Om du vill behålla säkerhetskopierade data för en borttagen virtuell dator men ta bort backup felen, ta bort skyddet från den virtuella datorn och välja alternativet för att behålla data. Den här åtgärden stoppar schemalagda säkerhetskopieringsjobbet och återkommande felmeddelanden. |
+| Säkerhetskopiera kunde inte installera Azure Recovery Services-tillägget på det valda objektet: <br>VM-agenten är en förutsättning för Azure Recovery Services-tillägget. Installera Azure VM-agenten och starta om registreringsåtgärden. |<ol> <li>Kontrollera om VM-agenten har installerats korrekt. <li>Se till att flaggan på VM-konfigurationen är korrekt.</ol> Läs mer om hur du installerar VM-agenten och hur du validerar VM-agentinstallation. |
 | Tilläggsinstallationen misslyckades med fel **COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator**. |Detta fel innebär vanligtvis att tjänsten COM + inte är igång. Kontakta Microsoft Support om du behöver hjälp med att åtgärda problemet. |
 | Ögonblicksbildsåtgärden misslyckades med Volume Shadow Copy Service (VSS)-åtgärdsfel **den här enheten är låst av BitLocker-kryptering. Du måste låsa upp den här enheten från Kontrollpanelen.** |Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrollera om VSS-problemet har lösts. |
-| Den virtuella datorn inte är i ett tillstånd som tillåter säkerhetskopieringar. |<ul><li>Om den virtuella datorn är i ett tillfälligt tillstånd mellan **kör** och **stänga**, vänta på att ändra tillståndet. Sedan Utlös säkerhetskopieringsjobbet. <li> Om den virtuella datorn är en Linux-VM och använder Security-Enhanced Linux-kernel-modul, utesluta Azure Linux Agent sökvägen **/var/lib/waagent** från säkerhetsprincip och se till att säkerhetskopieringstillägget installeras.  |
+| Den virtuella datorn inte är i ett tillstånd som tillåter säkerhetskopieringar. |<ul><li>Om den virtuella datorn är i ett tillfälligt tillstånd mellan **kör** och **stänga**, vänta på att ändra tillståndet. Sedan Utlös säkerhetskopieringsjobbet. <li> Om den virtuella datorn är en Linux-VM och använder Security-Enhanced Linux-kernel-modul, utesluta Azure Linux Agent sökvägen **/var/lib/waagent** från säkerhetsprincip och kontrollera att Azure Backup-tillägget har installerats.  |
 | Det gick inte att hitta en Azure virtuell dator. |Det här felet uppstår när den primära virtuella datorn tas bort, men säkerhetskopieringspolicyn söker fortfarande efter den borttagna virtuella datorn. Åtgärda det här felet enligt följande: <ol><li>Återskapa den virtuella datorn med samma namn och samma resursgruppnamn **molntjänstnamnet**, <br>**eller** <li> Inaktivera skyddet för den här virtuella datorn, så inte kommer att skapa säkerhetskopieringsjobben. </ol> |
 | VM-agenten inte finns på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [VM-agentinstallation och hur du validerar VM-agentinstallation](#vm-agent). |
 | Ögonblicksbildsåtgärden misslyckades eftersom VSS-skrivare som fanns i ett felaktigt tillstånd. |Starta om VSS-skrivare som är i ett felaktigt tillstånd. Från en upphöjd kommandotolk kör ```vssadmin list writers```. Utdata innehåller alla VSS-skrivare och deras tillstånd. För varje VSS-skrivaren med ett tillstånd som inte är **[1] stabil**, för att starta om VSS-skrivaren genom att köra följande kommandon från en upphöjd kommandotolk: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
@@ -124,8 +124,30 @@ Säkerhetskopiering av virtuella datorer är beroende av utfärda kommandon för
 - **Om fler än fyra virtuella datorer dela samma molntjänst, sprida de virtuella datorerna över flera principer för säkerhetskopiering**. Skicka säkerhetskopieringstider, så inga fler än fyra VM-säkerhetskopior börjar på samma gång. Försök att avgränsa starttider i principerna med minst en timme.
 - **Den virtuella datorn körs vid hög CPU eller minne**. Om den virtuella datorn körs vid hög minne eller CPU-användning, mer än 90 procent, är din uppgift för ögonblicksbild i kö och fördröjd. Så småningom tidsgränsen uppnås. Om det här problemet inträffar kan försöka en säkerhetskopiering på begäran.
 
+## <a name="troubleshoot-backup-of-encrypted-vms"></a>Felsöka säkerhetskopiering av krypterade virtuella datorer
+
+### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Azure Backup har inte behörighet för åtkomst till Key Vault
+- **Felkod**: UserErrorKeyVaultPermissionsNotConfigured
+- **Felmeddelande**: Azure Backup-tjänsten har inte tillräcklig behörighet till Key Vault för säkerhetskopiering krypterade virtuella datorer.
+- **Upplösning**: Tilldela Azure Backup-behörigheter för Key Vault i den [portal](backup-azure-vms-encryption.md#provide-permissions), eller med [PowerShell](backup-azure-vms-automation.md#enable-protection)
+
+### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>Den virtuella datorn kan inte återställas eftersom det tillhörande Nyckelvalvet saknas
+- **Upplösning**: Se till att du har [skapat ett Nyckelvalv](../key-vault/quick-create-portal.md#create-a-vault).
+- **Upplösning**: Följ [instruktionerna](backup-azure-restore-key-secret.md) att återställa en nyckel och hemlighet även om de inte finns i Key Vault.
+
+### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>Den virtuella datorn kan inte återställas eftersom den associerade nyckeln inte finns
+- **Felkod**: UserErrorKeyVaultKeyDoesNotExist
+- **Felmeddelande**: Du kan inte återställa den här krypterade virtuella datorn eftersom nyckeln som är associerade med den här virtuella datorn inte finns.
+- **Upplösning**: Följ [instruktionerna](backup-azure-restore-key-secret.md) att återställa en nyckel och hemlighet även om de inte finns i Key Vault.
+
+### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>Den virtuella datorn kan inte återställas eftersom Azure Backup inte har auktorisering
+- **Felkod**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
+- **Felmeddelande**: Säkerhetskopieringstjänsten har inte åtkomstbehörighet till resurser i din prenumeration.
+- **Upplösning**: Återställ diskar vilket rekommenderas. [Läs mer](backup-azure-vms-encryption.md#restore-an-encrypted-vm). 
+
+
 ## <a name="networking"></a>Nätverk
-Som alla tillägg behöver tillägg för säkerhetskopiering åtkomst till det offentliga internet ska fungera. Inte ha åtkomst till internet kan visa sig på olika sätt:
+Azure Backup-tillägget måste ha åtkomst till det offentliga internet ska fungera som alla tillägg. Inte ha åtkomst till internet kan visa sig på olika sätt:
 
 * Installera tillägget kan misslyckas.
 * Säkerhetskopieringsåtgärder som ögonblicksbild kan misslyckas.

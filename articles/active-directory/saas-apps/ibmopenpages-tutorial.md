@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5403dee386db2fbdabc124b80fb559a59e637a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 699e4830b6399fbce07dfc125e69513b58f58dd1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834922"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Självstudier: Azure Active Directory-katalogintegrering med IBM OpenPages
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IBM O
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `http://<subdomain>.ibm.com:<ID>/openpages`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.ibm.com:<ID>/samlsps/op`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.ibm.com:<ID>/samlsps/op`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [supportteamet för IBM OpenPages](https://www.ibm.com/support/home/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -193,8 +193,8 @@ När du klickar på IBM OpenPages-panelen på åtkomstpanelen bör du automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294833"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257339"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294833"
 | Engångskod för e-post är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Funktionen för e-post engångskod autentiserar B2B-gästanvändare när de inte kan autentiseras via annat sätt som Azure AD, en Microsoft-konto (MSA) eller Google-federation. Med engångskod autentisering finns behöver du inte skapa ett Microsoft-konto. När gästanvändaren redeems inbjudan eller har åtkomst till en delad resurs, kan de begära en tillfällig kod, som skickas till sin e-postadress. De ange koden för att fortsätta att logga in.
+Den här artikeln beskriver hur du aktiverar e-engångskod autentisering för B2B-gästanvändare. Funktionen för e-post engångskod autentiserar B2B-gästanvändare när de inte kan autentiseras via annat sätt som Azure AD, en Microsoft-konto (MSA) eller Google-federation. Med engångskod autentisering finns behöver du inte skapa ett Microsoft-konto. När gästanvändaren redeems inbjudan eller har åtkomst till en delad resurs, kan de begära en tillfällig kod, som skickas till sin e-postadress. De ange koden för att fortsätta att logga in.
 
 Den här funktionen är tillgänglig för förhandsversion (se [valde förhandsversionen](#opting-in-to-the-preview) nedan). Efter förhandsversionen kan aktiveras den här funktionen som standard för alla klienter.
 

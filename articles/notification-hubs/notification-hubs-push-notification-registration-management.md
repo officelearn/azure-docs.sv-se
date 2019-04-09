@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166777"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260467"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
@@ -45,12 +45,12 @@ En Installation är en förbättrad registrering som innehåller en mängd push 
 Här följer några viktiga fördelar med att använda installationer:
 
 - Skapar eller uppdaterar en installation är helt idempotenta. Så du kan försöka igen utan frågor om duplicerade registreringar.
-- Installationsmodell gör det enkelt att göra enskilda push-meddelanden - riktar in sig på specifik enhet. En system-tagg **”$InstallationId: [installationId]”** läggs till automatiskt med varje installation baserad registrering. Så kan du anropa att skicka till den här taggen att fokusera på en specifik enhet utan att behöva göra ytterligare kodning.
+- Modellen installation har stöd för en särskild tagg-format (`$InstallationId:{INSTALLATION_ID}`) som gör att skicka ett meddelande direkt till enheten. Exempel: om appens koden anger ett installations-ID för `joe93developer` för just den här enheten, en utvecklare kan riktas mot den här enheten när du skickar ett meddelande till den `$InstallationId:{joe93developer}` tagg. På så sätt kan du rikta en specifik enhet utan att behöva göra ytterligare kodning.
 - Med hjälp av installationer kan du också göra partiella registreringsuppdateringar. Deluppdatering av en installation begärs med en PATCH-metoden med den [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). Detta är användbart när du vill uppdatera taggar på registreringen. Du behöver hämta hela registreringen och skicka sedan om alla tidigare taggar.
 
 En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaper Se [skapa eller skriva över en Installation med REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Varje mallnamn mappas till en mall-text och en valfri uppsättning taggar. Varje
 
 För Windows Store-klientprogram, skicka meddelanden till sekundär paneler är samma som skickas till den primära. Detta stöds även för installationer. Sekundär paneler har en annan ChannelUri då SDK i din klientapp hanterar transparent.
 
-SecondaryTiles ordlista använder samma TileId som används för att skapa objektet SecondaryTiles i din Windows Store-app.
-Precis som med primära ChannelUri kan ChannelUris av sekundära paneler ändra när som helst. För att skydda installationerna i meddelandehubben uppdateras måste enheten uppdatera dem med den aktuella ChannelUris av de sekundära panelerna.
+SecondaryTiles ordlista använder samma TileId som används för att skapa objektet SecondaryTiles i din Windows Store-app. Precis som med primära ChannelUri kan ChannelUris av sekundära paneler ändra när som helst. För att skydda installationerna i meddelandehubben uppdateras måste enheten uppdatera dem med den aktuella ChannelUris av de sekundära panelerna.
 
 ## <a name="registration-management-from-the-device"></a>Registreringshantering från enheten
 

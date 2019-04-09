@@ -17,12 +17,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fb463b1ac8664838404a7dfcd0380da8f3358d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889502"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260943"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
@@ -120,5 +120,5 @@ Rapporten innehåller följande information:
 ## <a name="related-links"></a>Relaterade länkar
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Riskfyllda IP-adresser ](how-to-connect-health-adfs-risky-ip.md)
+* [Riskfyllda IP-adresser](how-to-connect-health-adfs-risky-ip.md)
 

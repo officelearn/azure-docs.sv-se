@@ -1,6 +1,6 @@
 ---
 title: Skicka händelser med hjälp av Python – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en genomgång för att skapa ett Node.js-program som skickar händelser till Azure Event Hubs.
+description: Den här artikeln innehåller en genomgång för att skapa ett Python-program som skickar händelser till Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2168fc89134615ffb4e0e718cc0cc27b8c1a7839
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102987"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262779"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Skicka händelser till Event Hubs med hjälp av Python
 
@@ -34,9 +34,9 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
-Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md).
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
 
-Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [hämta anslutningssträngen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
 
 Nu kan fortsätta med följande steg i den här självstudien.
 

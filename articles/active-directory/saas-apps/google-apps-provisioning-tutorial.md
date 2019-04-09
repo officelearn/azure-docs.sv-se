@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224156"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058483"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera G Suite för automatisk användaretablering
 
@@ -69,78 +69,77 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 > En annan genomförbart alternativ för att automatisera användaretablering för G Suite är att använda [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS etablerar din lokala Active Directory-identiteter på G Suite. Lösningen i den här självstudien etablerar däremot din Azure Active Directory (moln)-användare och e-postaktiverade grupper till G Suite. 
 
 1. Logga in på den [Google Apps-administratörskonsolen](https://admin.google.com/) med ditt administratörskonto och välj sedan **Security**. Om du inte ser länken, kan den vara dold den **fler kontroller** menyn längst ned på skärmen.
-   
+
     ![Välj säkerhet.][10]
 
 1. På den **Security** väljer **API-referens**.
-   
+
     ![Välj API-referens.][15]
 
 1. Välj **aktivera API-åtkomst**.
-   
+
     ![Välj API-referens.][16]
 
    > [!IMPORTANT]
    > För varje användare som du vill etablera till G Suite sina användarnamn i Azure Active Directory *måste* vara bundna till en anpassad domän. Exempelvis användarens namn som bob@contoso.onmicrosoft.com tillåts inte av G Suite. Å andra sidan bob@contoso.com accepteras. Du kan ändra en befintlig användares domän genom att redigera deras egenskaper i Azure AD. Innehåller instruktioner för hur du ställer in en anpassad domän för både Azure Active Directory och G Suite i följande steg.
-      
+
 1. Om du inte har lagt till ett anpassat domännamn till Azure Active Directory ännu, gör du följande:
   
-    a. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfönstret väljer **Active Directory**. I kataloglistan väljer du din katalog. 
+    a. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfönstret väljer **Active Directory**. I kataloglistan väljer du din katalog.
 
     b. Välj **domännamn** på den vänstra navigeringsfönstret och välj sedan **Lägg till**.
-     
-     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
-     ![Lägg till domän](./media/google-apps-provisioning-tutorial/domain_2.png)
+    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
+
+    ![Lägg till domän](./media/google-apps-provisioning-tutorial/domain_2.png)
 
     c. Skriv ditt domännamn till den **domännamn** fält. Det här domännamnet måste vara samma domännamn som du planerar att använda för G Suite. Välj sedan den **Lägg till domän** knappen.
-     
-     ![Domännamn](./media/google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Välj **nästa** att gå till sidan för verifiering. Kontrollera att du äger den här domänen genom att redigera domänens DNS-poster enligt de värden som finns på den här sidan. Du kan välja att verifiera genom att använda antingen **MX-poster** eller **TXT-poster**, beroende på vad du väljer för den **posttypen** alternativet. 
-    
+    ![Domännamn](./media/google-apps-provisioning-tutorial/domain_3.png)
+
+    d. Välj **nästa** att gå till sidan för verifiering. Kontrollera att du äger den här domänen genom att redigera domänens DNS-poster enligt de värden som finns på den här sidan. Du kan välja att verifiera genom att använda antingen **MX-poster** eller **TXT-poster**, beroende på vad du väljer för den **posttypen** alternativet.
+
     Mer omfattande information om hur du verifierar domännamn med Azure AD finns [lägga till ditt eget domännamn i Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-     
-     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
+
+    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Upprepa föregående steg för alla domäner som du vill lägga till i din katalog.
 
-   > [!NOTE]
-   >  Den anpassade domänen måste matcha domännamnet för Azure AD-källan för etableringen av användare. Om de inte matchar kanske du kan lösa problemet genom att implementera attributet mappning anpassning.
-
+    > [!NOTE]
+    > Den anpassade domänen måste matcha domännamnet för Azure AD-källan för etableringen av användare. Om de inte matchar kanske du kan lösa problemet genom att implementera attributet mappning anpassning.
 
 1. Nu när du har verifierat dina domäner med Azure AD, måste du kontrollera dem igen med Google Apps. För varje domän som inte redan har registrerats med Google, gör du följande:
-   
+
     a. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **domäner**.
-     
-     ![Välj domäner][20]
+
+    ![Välj domäner][20]
 
     b. Välj **lägga till en domän eller en domän alias**.
-     
-     ![Lägg till en ny domän][21]
+
+    ![Lägg till en ny domän][21]
 
     c. Välj **lägga till en annan domän**, och skriv sedan namnet på den domän som du vill lägga till.
-     
-     ![Skriv ditt domännamn][22]
+
+    ![Skriv ditt domännamn][22]
 
     d. Välj **Fortsätt och verifiera domänägarskap**. Följ stegen för att verifiera att du äger domännamnet. Omfattande anvisningar för hur du verifierar din domän med Google, se [verifiera ditt platsägarskap med Google Apps](https://support.google.com/webmasters/answer/35179).
 
     e. Upprepa föregående steg för eventuella ytterligare domäner som du vill lägga till i Google Apps.
-     
-     > [!WARNING]
-     > Om du ändrar den primära domänen för din G Suite-klient, och om du redan har konfigurerat enkel inloggning med Azure AD, måste du upprepa steg #3 under steg 2: Aktivera enkel inloggning.
-       
+
+    > [!WARNING]
+    > Om du ändrar den primära domänen för din G Suite-klient, och om du redan har konfigurerat enkel inloggning med Azure AD, måste du upprepa steg #3 under steg 2: Aktivera enkel inloggning.
+
 1. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **Administratörsrollerna**.
-   
-     ![Select Google Apps][26]
+
+    ![Select Google Apps][26]
 
 1. Avgör vilket administratörskonto som du vill använda för att hantera etableringen av användare. För den **administratörsroll** för kontot, redigera den **privilegier** för rollen. Se till att aktivera alla **API administratörsprivilegier** så att det här kontot kan användas för etablering.
-   
-     ![Select Google Apps][27]
-   
+
+    ![Select Google Apps][27]
+
     > [!NOTE]
     > Om du konfigurerar en produktionsmiljö är det bästa sättet att skapa ett administratörskonto i G Suite specifikt för det här steget. Dessa konton måste ha en administratörsroll som är associerade med dem som har de nödvändiga privilegierna för API: et.
-     
+
 1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory** > **Företagsappar** > **alla program** avsnittet.
 
 1. Om du redan har konfigurerat G Suite för enkel inloggning kan du söka efter din G Suite-instans med hjälp av sökfältet. Annars väljer **Lägg till**, och söker sedan efter **G Suite** eller **Google Apps** i programgalleriet. Välj din app från sökresultaten och sedan lägga till den i listan med program.
@@ -149,13 +148,13 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
 1. Ange den **Etableringsläge** till **automatisk**. 
 
-       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![Etablering](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Under den **administratörsautentiseringsuppgifter** väljer **auktorisera**. Det öppnar en dialogruta för Google-auktorisering i ett nytt webbläsarfönster.
 
 1. Bekräfta att du vill ge Azure Active Directory-behörighet att göra ändringar i din G Suite-klient. Välj **Acceptera**.
-    
-       ![Confirm permissions.][28]
+
+    ![Bekräfta behörigheter.][28]
 
 1. I Azure-portalen väljer du **Testanslutningen** så att Azure AD kan ansluta till din app. Om anslutningen misslyckas, kan du kontrollera att ditt G Suite-konto har administratörsbehörigheter för teamet. Försök sedan den **auktorisera** steg igen.
 
@@ -180,8 +179,6 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 * [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](google-apps-tutorial.md)
-
-
 
 <!--Image references-->
 

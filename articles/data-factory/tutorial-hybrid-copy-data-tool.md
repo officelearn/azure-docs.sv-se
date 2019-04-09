@@ -3,20 +3,20 @@ title: Kopiera lokala data med Azure-verktyget Kopiera data | Microsoft Docs
 description: Skapa en Azure-datafabrik och kopiera sedan data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 3569d39b8e4668894e44507dfdd0e20297028290
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 04/09/2018
+ms.author: abnarain
+ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226512"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261535"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -205,21 +205,19 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. Välj **Nästa**.
 
-       ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
+   ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
 1. På sidan **Välj tabellen som data ska kopieras från eller använd en anpassad fråga**, välj tabellen **[dbo].[emp]** i listan och välj **Nästa**. Du kan välja andra tabeller baserade på din databas.
 
-       ![The Product table selection](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
+   ![Markering i produkttabellen](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
 1. På sidan **Måldatalager** väljer du **Skapa ny anslutning**
 
-       //image create-new-sink-connection.png
-
-       ![Create Destination linked service](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
+   ![Skapa länkad tjänst för mål](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
 1. I **New Linked Service** (Ny länkad tjänst) letar du upp och väljer **Azure-blobb**. Välj sedan **Fortsätt**. 
 
-       ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Val av Blob Storage](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. Utför följande steg i dialogrutan **New Linked Service (Azure Blob Storage)** (Ny länkad tjänst): 
 
@@ -231,47 +229,47 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
        d. Select **Next**.
 
-       ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   ![Ange lagringskontot](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
 1. I **Måldatalager** väljer du **Nästa**. I **Anslutningsegenskaper** väljer du **Azure Storage-tjänst** som **Azure Blob Storage**. Välj **Nästa**. 
 
-       ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+   ![anslutningsegenskaper](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
 1. I dialogrutan **Välj utdatafil eller mapp** under **Mappsökväg** anger du **adftutorial/fromonprem**. Du skapade containern **adftutorial** som en del av förutsättningarna. Om utdatamappen inte finns (i det här fallet **fromonprem**) skapas den automatiskt av Data Factory. Du kan också använda knappen **Bläddra** för att bläddra i bloblagringen och dess containrar/mappar. Om du inte anger något värde under **Filnamn** används som standard namnet från källan (i det här fallet **dbo.emp**).
            
-       ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   ![Välj utdatafil eller mapp](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
 1. I dialogrutan **Filformatsinställningar** väljer du **Nästa**. 
 
-       ![File format settings page](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+   ![Sida för filformatinställningar](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
 1. I dialogrutan **Inställningar** väljer du **Nästa**. 
 
-       ![Settings page](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+   ![Sidan Inställningar](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
 1. Granska värdena för alla inställningar i dialogrutan **Sammanfattning** och välj **Nästa**. 
 
-       ![Summary page](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+   ![Sammanfattningssida](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
 1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen eller aktiviteten du skapade.
 
-       ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+   ![Distributionssida](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
 1. På fliken **Övervaka** kan du visa status för den pipeline som du skapade. Med länkarna i kolumnen **Åtgärd** kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
 
-       ![Monitor pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+   ![Övervaka pipelinekörningar](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
 1. Välj länken **Visa aktivitetskörningar** i kolumnen **Åtgärder** om du vill se aktivitetskörningar som är associerade med pipelinekörningen. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Välj **Pipelines** högst upp för att gå tillbaka till vyn **Pipelinekörning**.
 
-       ![Monitor activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+   ![Övervaka aktivitetskörningar](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
 1. Bekräfta att utdatafilen visas i mappen **fromonprem** för containern **adftutorial**. 
 
-       ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+   ![Utdatablob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
 1. Klicka på fliken **Redigera** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Klicka på **Kod** för att visa JSON-koden som är associerad med den entitet som har öppnats i redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
 
-       ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+   ![Fliken Redigera](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -287,4 +285,4 @@ Se [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-fo
 Fortsätt till följande självstudie för att lära dig att masskopiera data från en källa till ett mål:
 
 > [!div class="nextstepaction"]
->[Masskopiera data i molnet](tutorial-bulk-copy-portal.md)
+>[Masskopiera data](tutorial-bulk-copy-portal.md)

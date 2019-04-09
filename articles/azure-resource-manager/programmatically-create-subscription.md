@@ -2,23 +2,21 @@
 title: Skapa Azure Enterprise-prenumerationer programmässigt | Microsoft Docs
 description: Lär dig hur du skapar ytterligare Azure Enterprise- eller Enterprise Dev/Test-prenumerationer programmässigt.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 04/05/2019
+ms.author: tomfitz
+ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486987"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256931"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -30,9 +28,9 @@ När du skapar en Azure-prenumeration från detta API kan regleras den prenumera
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en rollen som Prenumerationsägare eller deltagare för registrering-kontot som du vill skapa prenumerationer under. Det finns två sätt att få dessa roller:
+Du måste ha en ägarrollen på konto för Enhetsregistreringshanterare som du vill skapa prenumerationer under. Det finns två sätt att få dessa roller:
 
-* Din administratör för registreringen kan [se du Kontoägare](https://ea.azure.com/helpdocs/addNewAccount) (inloggning krävs) som gör dig till ägare till Registreringskontot. Följ instruktionerna i e-postinbjudan felmeddelandet för att manuellt skapa en första prenumeration. Bekräfta konton och manuellt skapa en inledande EA-prenumeration innan du fortsätter till nästa steg. Bara att lägga till kontot till registreringen räcker inte.
+* Din administratör för registreringen kan [se du Kontoägare](https://ea.azure.com/helpdocs/addNewAccount) (inloggning krävs) vilket gör att du äger Registreringskontot. Följ instruktionerna i e-postinbjudan felmeddelandet för att manuellt skapa en första prenumeration. Bekräfta konton och manuellt skapa en inledande EA-prenumeration innan du fortsätter till nästa steg. Bara att lägga till kontot till registreringen räcker inte.
 
 * Befintliga ägare till Registreringskontot kan [bevilja dig åtkomst](grant-access-to-create-subscription.md). På samma sätt, om du vill använda ett huvudnamn för tjänsten för att skapa EA-prenumerationen måste du [ge tjänstobjektet möjlighet att skapa prenumerationer](grant-access-to-create-subscription.md).
 
@@ -42,7 +40,7 @@ När du har lagt till en Azure EA-registrering kontots ägare kan använder Azur
 
 För att köra följande kommandon, måste du vara inloggad på den Kontoägare *hemkatalog*, vilket är den katalog som prenumerationer skapas som standard.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Begäran att lista alla registreringskonton:
 
@@ -75,7 +73,7 @@ Azure svarar med en lista över alla registreringskonton som du har åtkomst til
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet för att lista alla registreringskonton som du har åtkomst till.
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 Använd den [az fakturering konto för enhetsregistreringshanterare lista](https://aka.ms/EASubCreationPublicPreviewCLI) kommando för att lista alla registreringskonton som du har åtkomst till.
 
@@ -132,7 +130,7 @@ Använd den `principalName` egenskapen att identifiera det konto som du vill pre
 
 I följande exempel skapas en begäran om att skapa prenumeration med namnet *Dev-teamet prenumeration* och erbjudandet är *MS-AZR - 0017P* (regelbundna EA). Konto för enhetsregistreringshanterare är `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (platshållarvärdet, det här värdet är ett GUID), vilket är registreringskontot för SignUpEngineering@contoso.com. Det även lägger till två användare som ägare av RBAC för prenumerationen.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Använd den `id` av den `enrollmentAccount` i sökvägen för begäran om att skapa prenumerationen.
 
@@ -161,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När prenumerationen datafabriken har skapats i `subscriptionOperation` objektet kommer att returnera en `subscriptionLink` objekt som har prenumerations-ID.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 För att använda den här förhandsversionsmodulen måste du installera det genom att köra `Install-Module Az.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
 
@@ -182,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 En fullständig lista över alla parametrar finns i [New AzSubscription](/powershell/module/az.subscription.preview).
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 För att använda det här preview-tillägget måste du installera det genom att köra `az extension add --name subscription` första.
 

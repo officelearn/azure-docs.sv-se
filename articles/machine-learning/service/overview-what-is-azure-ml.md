@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361905"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257118"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -52,10 +52,9 @@ Och med avancerade [maskininlärningspipelines](concept-ml-pipelines.md) kan du 
 Genom att använda <a href="https://aka.ms/aml-sdk" target="_blank">den huvudsakliga Python-SDK:n</a> och <a href="https://aka.ms/data-prep-sdk" target="_blank">SDK för dataförberedelser</a> för Azure Machine Learning samt Python-paket med öppen källkod kan du skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på Azure Machine Learning-tjänstens arbetsyta.
 Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, såsom följande exempel:
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">scikit-Läs</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning-tjänsten kan även träna och justera en modell automatiskt.
@@ -91,7 +90,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Följ de fullständiga självstudierna: 
   + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 
-  + [Förbereda data och använda automatiserad maskininlärning för att automatiskt träna en regressionsmodell](tutorial-data-prep.md)
+  + [Förbereda data och använda automatisk machine learning för att automatiskt – träna en regressionsmodell](tutorial-data-prep.md)
 
 - Förbered dina data med hjälp av [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 

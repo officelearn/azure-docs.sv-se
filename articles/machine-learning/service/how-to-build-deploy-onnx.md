@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362033"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259192"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: Skapa och distribuera samverkande AI-modeller
 
@@ -28,15 +28,16 @@ Den [öppna Neural Network Exchange](https://onnx.ai) (ONNX)-formatet är en öp
 Microsoft stöder ONNX över dess produkter, inklusive Azure och Windows för att hjälpa dig att uppnå dessa mål.  
 
 ## <a name="why-choose-onnx"></a>Varför ska jag välja ONNX?
+
 Du får med ONNX samverkan gör det möjligt att få bra idéer till produktionen snabbare. Dataexperter kan ONNX välja sin önskade ramverk för jobbet. På samma sätt kan utvecklare tid och förbereder modeller för produktion och distribuera i molnet och gränsen.  
 
-Du kan skapa ONNX-modeller från många ramverk, inklusive PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, lär du dig SciKit med mera.
+Du kan skapa ONNX-modeller från många ramverk, inklusive PyTorch, Chainer, MXNet, ML.Net, TensorFlow, Keras, lär du dig SciKit, Microsoft Cognitive Toolkit, med mera.
 
 Det finns också ett ekosystem av verktyg för att visualisera och påskynda ONNX-modeller. Det finns också ett antal förtränade ONNX-modeller för vanliga scenarier.
 
 [ONNX-modeller kan distribueras](#deploy) till molnet med Azure Machine Learning och ONNX-Runtime. De kan också distribueras till Windows 10-enheter med hjälp av [Windows ML](https://docs.microsoft.com/windows/ai/). De kan även distribueras till andra plattformar med hjälp av konverterare som är tillgängliga från ONNX-communityn. 
 
-[![ONNX flow diagram som visar utbildning, konverterare och distribution](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![OFlödesdiagram för NNX, som visar utbildning, konverterare och distribuera](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
@@ -52,12 +53,12 @@ Du kan konvertera befintliga modeller till ONNX eller spara dem som ONNX i slute
 
 |Ramverk för modellen|Exempel på konvertering eller verktyg|
 |-----|-------|
-|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|PyTorch|[Jupyter-notebook-fil](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
 |TensorFlow|[tensorflow-onnx-konverterare](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Chainer|[Jupyter-notebook-fil](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter-notebook-fil](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Läs CoreML<br/>XGBoost och libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter-notebook-fil](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 Du hittar den senaste listan över ramverk som stöds och konverterare på den [ONNX självstudier plats](https://github.com/onnx/tutorials).
 
@@ -143,6 +144,9 @@ Här är ett exempel för att distribuera en ONNX-modell:
 
    image.wait_for_creation(show_output = True)
    ```
+
+   > [!TIP]
+   > Det föregående exemplet används standardavbildning från Azure Machine Learning-tjänsten. Du kan också använda en anpassad avbildning. Mer information finns i Konfigurera och registrera bilddelen av [distribuera modeller](how-to-deploy-and-where.md#configureimage).
 
    Filen `score.py` innehåller bedömnings logik och måste tas med i avbildningen. Den här filen används för att köra modellen i avbildningen. Se den här [självstudien](tutorial-deploy-models-with-aml.md#create-scoring-script) för instruktioner om hur du skapar en bedömning skript. En exempelfil för en modell för ONNX visas nedan:
 

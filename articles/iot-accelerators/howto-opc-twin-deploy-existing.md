@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047270"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255894"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuera OPC-Twin till ett befintligt projekt
 
@@ -140,4 +140,4 @@ AAD-klient att använda.
 Nu när du har lärt dig hur du distribuerar OPC-Twin till ett befintligt projekt, är här nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Säker kommunikation för OPC-klienten och OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Säker kommunikation för OPC-klienten och OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

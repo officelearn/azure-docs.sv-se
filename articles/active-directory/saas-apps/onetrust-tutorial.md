@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f65bb7506b112828a49f9410f4790932f0abbfbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177542"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Självstudier: Azure Active Directory-integrering med hanteringsprogramvara för OneTrust sekretess
 
@@ -107,9 +107,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med hanteri
 
     ![OneTrust sekretess Hanteringsdomän programvara och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du in en URL: `https://www.onetrust.com/saml2`
+    a. I textrutan **Identifierare** skriver du en URL: `https://www.onetrust.com/saml2`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -204,9 +204,9 @@ När du klickar på panelen hanteringsprogramvara för OneTrust sekretess i åtk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -19,6 +19,10 @@ items:
     href: advisor-performance-recommendations.md
   - name: Minska tjänstkostnader
     href: advisor-cost-recommendations.md
+  - name: Visa rekommendationer
+    href: view-recommendations.md
+  - name: Behörigheter och blockerade åtgärder
+    href: permissions.md
 - name: Referens
   items:
   - name: Security Center
@@ -51,9 +55,9 @@ items:
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=advisor
-ms.openlocfilehash: 1f6f848d9e69d0e478c2027b4e3f09089b4714bb
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 4ff0cd5a723c6678d1476203830420cb1c141a98
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509914"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047151"

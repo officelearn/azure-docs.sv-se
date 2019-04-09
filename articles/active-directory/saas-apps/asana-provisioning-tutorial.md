@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35de1865f2e02331b8455bbdce92e8fe2f9a1b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210483"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057854"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Asana för automatisk användaretablering
 
@@ -32,16 +32,16 @@ Målet med den här självstudien är att visa dig de steg som du behöver utfö
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure AD-klient
-*   En Asana-klient med en [Enterprise](https://www.asana.com/pricing) planera eller bättre aktiverat 
-*   Ett användarkonto i Asana med administratörsbehörighet 
+* En Azure AD-klient
+* En Asana-klient med en [Enterprise](https://www.asana.com/pricing) planera eller bättre aktiverat
+* Ett användarkonto i Asana med administratörsbehörighet
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Asana API](https://asana.com/developers/api-reference/users), som är tillgänglig för Asana.
 
 ## <a name="assign-users-to-asana"></a>Tilldela användare till Asana
 
-Azure AD använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare som tilldelats till ett program i Azure AD. 
+Azure AD använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare som tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare i Azure AD behöver åtkomst till din app i Asana. Du kan sedan tilldela dessa användare till din Asana-app genom att följa instruktionerna här:
 
@@ -51,7 +51,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 Vi rekommenderar att du tilldelar en enda Azure AD-användare till Asana att testa etablering konfigurationen. Ytterligare användare kan tilldelas senare.
 
-## <a name="configure-user-provisioning-to-asana"></a>Konfigurera användaretablering till Asana 
+## <a name="configure-user-provisioning-to-asana"></a>Konfigurera användaretablering till Asana
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot i Asana etablering API. Du kan också konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Asana baserat på användare i Azure AD.
 
@@ -86,7 +86,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot i 
 
 1. Ange e-postadress för en person eller grupp som du vill ta emot meddelanden om etablering fel i **e-postmeddelande**. Markera kryssrutan under.
 
-1. Välj **Spara**. 
+1. Välj **Spara**.
 
 1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Asana**.
 
@@ -94,7 +94,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot i 
 
 1. Så här aktiverar du den Azure AD-etableringstjänsten för Asana, i den **inställningar** ändrar **Etableringsstatus** till **på**.
 
-1. Välj **Spara**. 
+1. Välj **Spara**.
 
 Nu den första synkroniseringen startar för alla användare som tilldelats Asana i den **användare** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Granskningsloggarna beskrivs alla åtgärder som utförs av etableringstjänsten i Asana-app.
 

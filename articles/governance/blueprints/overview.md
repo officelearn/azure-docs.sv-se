@@ -1,20 +1,18 @@
 ---
 title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure skisser kan du skapa, definiera och distribuera artefakter i Azure-miljön.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802583"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259430"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure skisser
 
@@ -88,7 +86,7 @@ Varje **publicerad** **version** av en skiss kan tilldelas till en befintlig pre
 Om du vill använda skisser måste du ha beviljade behörigheter via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC). Om du vill skapa skisser måste ditt konto ha följande behörigheter:
 
 - `Microsoft.Blueprint/blueprints/write` – Skapa en skissdefinition
-- `Microsoft.Blueprint/blueprints/artifacts/write` – Skapa artefakter på en skissdefinition
+- `Microsoft.Blueprint/blueprints/artifacts/write` -Skapa artefakter på en skissdefinition
 - `Microsoft.Blueprint/blueprints/versions/write` – Publicera en skiss
 
 Om du vill ta bort skisser måste ditt konto ha följande behörigheter:
@@ -103,7 +101,7 @@ Om du vill ta bort skisser måste ditt konto ha följande behörigheter:
 Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha följande behörigheter:
 
 - `Microsoft.Blueprint/blueprintAssignments/write` – Tilldela en skiss
-- `Microsoft.Blueprint/blueprintAssignments/delete` – Ta bort tilldelning av en skiss
+- `Microsoft.Blueprint/blueprintAssignments/delete` -Ta bort tilldelning av en skiss
 
 > [!NOTE]
 > Tilldelningar för skissen skapas på en prenumeration. Behörigheterna för tilldelning och för att ta bort tilldelning av behörigheter måste beviljas för eller ärvas till en prenumerationsomfattning.

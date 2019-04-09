@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862895"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264479"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -31,7 +31,8 @@ Azure AD-lösenordsskydd har utformats med dessa principer i åtanke:
 * Det krävs inga ändringar för Active Directory-schemat. Programvaran använder befintliga Active Directory **behållare** och **serviceConnectionPoint** schemaobjekt.
 * Inga minsta Active Directory domänens eller skogens funktionsnivå (DFL/FFL) krävs.
 * Programvaran inte skapa eller kräver konton i Active Directory-domäner som den skyddar.
-* Lösenord i klartext lämna inte domänkontrollanten under verifieringen lösenordsåtgärder eller vid en annan tidpunkt.
+* Lösenord i klartext lämnar aldrig domänkontrollanten under verifieringen lösenordsåtgärder eller vid en annan tidpunkt.
+* Programvaran är inte beroende av andra Azure AD-funktioner; till exempel Azure AD-lösenordshashsynkronisering är inte relaterad och krävs inte för Azure AD-lösenordsskydd ska fungera.
 * Stegvis distribution stöds, men lösenordsprincipen som gäller endast där Domain Controller agenten (DC-Agent) är installerad. Se nästa avsnitt för mer information.
 
 ## <a name="incremental-deployment"></a>Stegvis distribution
@@ -62,7 +63,7 @@ DC-agenttjänsten ansvarar för att påbörja hämtningen av en ny princip från
 
 När tjänsten DC-Agent har hämtat en ny lösenordsprincip för från Azure AD kommer tjänsten lagrar principen till en mapp i roten för sin domän *sysvol* mappen resursen. DC-Agent-tjänsten övervakar även den här mappen om nyare principer replikera i från andra DC Agent-tjänster i domänen.
 
-DC-agenttjänsten begär alltid en ny princip när tjänsten startar. När tjänsten DC-Agent har startat kontrollerar ålder på den aktuella lokalt tillgängliga principen per timme. Om principen är äldre än en timme, begär DC-agenten en ny princip från Azure AD som tidigare beskrivits. Om den aktuella principen inte är äldre än en timme, fortsätter DC-agenten att använda principen.
+DC-agenttjänsten begär alltid en ny princip när tjänsten startar. När tjänsten DC-Agent har startat kontrollerar ålder på den aktuella lokalt tillgängliga principen per timme. Om principen är äldre än en timme, begär DC-agenten en ny princip från Azure AD via proxy-tjänst och som tidigare beskrivits. Om den aktuella principen inte är äldre än en timme, fortsätter DC-agenten att använda principen.
 
 När en lösenordsprincip för Azure AD lösenord protection laddas ned är principen specifik för en klient. Med andra ord är lösenordsprinciper alltid en kombination av listan Microsoft global förbjudna lösenord och listan per klient anpassade förbjudna lösenord.
 
@@ -77,6 +78,8 @@ Proxytjänsten är tillståndslösa. Den cachelagrar aldrig principer eller någ
 DC-Agent-tjänsten använder alltid den senaste tillgängliga lokalt lösenordsprincipen för att utvärdera en användares lösenord. Lösenordet godkänns automatiskt om det finns ingen princip för lösenord på den lokala domänkontrollanten. När det sker så loggas ett händelsemeddelande för att varna administratören.
 
 Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. Det kan finnas en fördröjning mellan när en konfigurationsändring för lösenord princip skapas i Azure AD och när som ändrar når och tillämpas på alla domänkontrollanter.
+
+Azure AD-lösenordsskydd fungerar som ett tillägg till lösenordsprinciper för befintliga Active Directory, inte en ersättning. Detta inkluderar alla andra 3 part lösenord filter DLL-filer som kan installeras. Active Directory kräver alltid att alla komponenter för verifiering av lösenord godkänner innan du godkänner ett lösenord.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Skog/klient bindning lösenordsskydd
 

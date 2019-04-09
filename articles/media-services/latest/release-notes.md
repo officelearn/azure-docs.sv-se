@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351571"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058092"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -30,13 +30,15 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 ## <a name="known-issues"></a>Kända problem
 
 > [!NOTE]
-> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="march-2019"></a>Mars 2019
 
 Dynamisk paketering nu stöder Dolby Atmos. Mer information finns i [ljud-codec som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
+Du kan nu ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Mer information finns i [associera filter med Strömningspositionerare](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Februari 2019
 

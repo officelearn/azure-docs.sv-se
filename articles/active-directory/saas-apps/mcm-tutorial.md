@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e663503650a3a6554d2754a8abb2ee0273032c69
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9214f438df57ca9cd95fd1f5827db8ab82f5a136
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudier: Azure Active Directory-integrering med MCM
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med MCM:
 
     ![Information om enkel inloggning med MCM-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://myaba.co.uk/client-access/<companyname>/saml.php`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://myaba.co.uk/client-access/<companyname>/saml.php`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://myaba.co.uk/<companyname>`
 
@@ -195,9 +195,9 @@ När du klickar på MCM-panelen i åtkomstpanelen bör du automatiskt loggas in 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558013"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257288"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner
 Det är enkelt att konfigurera ett Stream Analytics-jobb och köra exempeldata genom den. Vad gör vi när vi behöver köra samma jobb med högre datavolym? Det krävs oss att förstå hur du konfigurerar Stream Analytics-jobbet så att den växer. I det här dokumentet har fokusera vi på särskilda aspekter av en Stream Analytics-jobb med Machine Learning-funktioner. Information om hur du skalar Stream Analytics-jobb i allmänhet finns i artikeln [skalning jobb](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Vad är en Azure Machine Learning-funktionen i Stream Analytics?
-En Machine Learning-funktionen i Stream Analytics kan användas som ett reguljärt funktionsanrop i Stream Analytics-frågespråket. Bakom scenen är dock funktionsanropen faktiskt Azure Machine Learning-webbtjänsten begäranden. Machine Learning-webbtjänster stöd ”batchbearbetning” flera rader kallas Mini batch i samma API webbtjänstanropet, att förbättra hela dataflödet. Mer information finns i [Azure Machine Learning-funktioner i Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) och [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).
+En Machine Learning-funktionen i Stream Analytics kan användas som ett reguljärt funktionsanrop i Stream Analytics-frågespråket. Bakom scenen är dock funktionsanropen faktiskt Azure Machine Learning-webbtjänsten begäranden. Machine Learning-webbtjänster stöd ”batchbearbetning” flera rader kallas Mini batch i samma API webbtjänstanropet, att förbättra hela dataflödet. Mer information finns i [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Konfigurera ett Stream Analytics-jobb med Machine Learning-funktioner
 När du konfigurerar en Machine Learning-funktion för Stream Analytics-jobbet, finns det två parametrar att tänka på, batchstorlek för Machine Learning-funktionsanrop och strömningsenheter (su) som tillhandahållits för Stream Analytics-jobb. För att avgöra lämpliga värden för SUs måste först ett beslut göras mellan svarstid och dataflöde, det vill säga svarstiden för Stream Analytics-jobb, och genomströmning på varje SU. SUs kan alltid lägga till ett jobb för att öka genomflödet av en bra partitionerade Stream Analytics-fråga, men ytterligare SUs ökar kostnaden för att köra jobbet.
@@ -72,7 +72,7 @@ Anta att svarstiden för attitydanalys Machine Learning-webbtjänsten är 200 ms
 
 Nedan visas en tabell för dataflödet för Stream Analytics-jobb för olika su: er och batch-storlekar (i antal händelser per sekund).
 
-| batchstorlek (ML svarstiden) | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
+| batchstorlek (ML svarstiden) | 500 (200 ms) | 1 000 (200 ms) | 5,000 (250 ms) | 10 000 (300 ms) | 25,000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
@@ -115,4 +115,4 @@ Mer information om Stream Analytics finns:
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)

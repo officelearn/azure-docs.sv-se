@@ -1,19 +1,18 @@
 ---
 title: Exempel - ISO 27001 delade tjänster skissen - kontroll mappning
 description: Kontrollen mappning av ISO 27001 delade tjänster skissen provet Azure Policy och RBAC.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 3ce755b62ce2ba0328852b551225ffa828a6c1bf
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 93a26311216ca5682c02a319f989b3d342a33ce1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804691"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256489"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappning av kontroll av ISO 27001 delade tjänster skissen exemplet
 
@@ -124,10 +123,10 @@ Förstå där dina Azure-resurser kan ha icke-optimala kryptografiska konfigurat
 
 Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela sju [Azure Policy](../../../policy/overview.md) definitioner som gransknings-och inställningar på Azure-resurser. En tilldelad princip granskar även om virtuella datorer inte skickar loggar till en angiven log analytics-arbetsyta.
 
-- [Förhandsversion]: Granska beroende Agentdistribution - VM Image (OS) inte finns i listan
-- [Förhandsversion]: Granska beroende Agentdistribution i VMSS - VM Image (OS) inte finns i listan
-- [Förhandsversion]: Granska Agentdistribution för Log Analytics - VM Image (OS) inte finns i listan
-- [Förhandsversion]: Granska Log Analytics-Agentdistribution i VMSS - VM Image (OS) inte finns i listan
+- [Förhandsversion av]: Granska beroende Agentdistribution - VM Image (OS) inte finns i listan
+- [Förhandsversion av]: Granska beroende Agentdistribution i VMSS - VM Image (OS) inte finns i listan
+- [Förhandsversion av]: Granska Agentdistribution för Log Analytics - VM Image (OS) inte finns i listan
+- [Förhandsversion av]: Granska Log Analytics-Agentdistribution i VMSS - VM Image (OS) inte finns i listan
 - [Förhandsversion]: Monitor unaudited SQL database in Azure Security Center
 - Granska diagnostikinställning
 - Granska granskningsinställningar på SQL-servernivå

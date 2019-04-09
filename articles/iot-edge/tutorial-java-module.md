@@ -1,20 +1,20 @@
 ---
-title: Självstudie om att skapa anpassad Java-modul – Azure IoT Edge | Microsoft Docs
+title: Anpassad Java-modulen-självstudie – Azure IoT Edge | Microsoft Docs
 description: Den här självstudien beskriver hur du skapar en IoT Edge-modul med Java-kod och distribuerar den till en gränsenhet.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3e24894e088f443ca705163c353920e8dd3ff4ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224081"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266689"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en IoT Edge-modul i Java och distribuera till den simulerade enheten
 
@@ -36,7 +36,7 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 En Azure IoT Edge-enhet:
 
-* Du kan konfigurera en IoT Edge-enhet genom att följa stegen i snabbstarterna för [Linux](quickstart-linux.md) eller [Windows](quickstart.md).
+* Du kan använda en Azure virtuell dator som en IoT Edge-enhet genom att följa stegen i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
 * För IoT Edge på Windows-enheter har version 1.0.5 inte stöd för Java-moduler. Mer information finns i [viktig information om 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Stegvisa instruktioner för hur du installerar en specifik version finns i avsnittet om att [uppdatera IoT Edge-säkerhetsdaemon och -körning](how-to-update-iot-edge.md).
 
 Molnresurser:
@@ -49,9 +49,9 @@ Utvecklingsresurser:
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) för Visual Studio Code.
 * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
-* [Maven 3.](https://maven.apache.org/)
+* [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Om du utvecklar på en Windows-enhet ser du till att Docker har [konfigurerats för att använda Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
+   * Om du utvecklar på en Windows-enhet, se till att Docker är [konfigurerad för att använda Linux eller Windows-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers), beroende på din IoT Edge-enhetens operativsystem. 
 
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
@@ -146,8 +146,9 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 7. Ersätt körningsmetoden **MessageCallbackMqtt** med följande kod. Den här metoden anropas när modulen tar emot ett MQTT-meddelande från IoT Edge-hubben. Den filtrerar ut meddelanden som rapporterar temperaturer under temperaturtröskelvärdet som angetts via modultvillingen.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Lägg till följande två statiska inre klasser i klassen **App**. De här klasserna uppdatera variabeln tempThreshold när modultvillingens önskade egenskap ändras. Alla moduler har en egen modultvilling, vilket innebär att du kan konfigurera den kod som körs i en modul direkt från molnet.
@@ -218,7 +220,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 11. Spara App.java-filen.
 
-12. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i detta fall **tempSensor** och **JavaModule**, och talar om för IoT Edge-hubben hur meddelanden ska dirigeras mellan dem. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
+12. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Filen uppmanar IoT Edge-agenten vilka moduler för att distribuera, och talar om hur du dirigerar meddelanden mellan dem för IoT Edge hub. I det här fallet två moduler är **tempSensor** och **JavaModule**. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
 
    1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **JavaModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. 
 
@@ -264,7 +266,7 @@ Den fullständiga adressen med tagg för containeravbildningen finns i den integ
 >[!TIP]
 >Om du får ett fel när du försöker skapa och överföra modulen gör du följande kontroller:
 >* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter är inte samma som uppgifterna du använder för att logga in i Azure Portal.
->* Stämmer containerlagringsplatsen? Öppna **moduler** > **cmodule** > **module.json** och leta upp fältet **lagringsplats**. Avbildningslagringsplatsen ska se ut så här: **\<registername\>.azurecr.io/javamodule**. 
+>* Stämmer containerlagringsplatsen? Öppna **moduler** > **JavaModule** > **module.json** och hitta den **databasen** fält. Avbildningslagringsplatsen ska se ut så här: **\<registername\>.azurecr.io/javamodule**. 
 >* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder som standard Linux amd64-containrar. Om din utvecklingsdator kör Windows-containrar eller Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen

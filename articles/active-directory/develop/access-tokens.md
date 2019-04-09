@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259872"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -148,7 +148,7 @@ Microsoft identiteter kan autentiseras i en mängd olika sätt, vilket kan vara 
 
 ## <a name="validating-tokens"></a>Verifiera token
 
-För att verifiera en id_token eller en access_token kan bör din app verifiera både signaturen för den token och anspråk. För att kunna verifiera åtkomsttoken, bör din app också verifiera utfärdaren, målgruppen och signering token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel den oberoende klient-versionen av dokumentet finns på [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+För att verifiera en id_token eller en access_token kan bör din app verifiera både signaturen för den token och anspråk. För att kunna verifiera åtkomsttoken, bör din app också verifiera utfärdaren, målgruppen och signering token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel klient oberoende-versionen av dokumentet finns på [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
 
 Azure AD-mellanprogram har inbyggda funktioner för att verifiera åtkomsttoken och du kan bläddra igenom vår [exempel](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) i valfritt språk. Mer information om hur du uttryckligen validerar en JWT-token finns i den [manuell JWT-Verifieringsexempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
@@ -173,14 +173,14 @@ Den `alg` anspråk anger algoritmen som används för att signera token, medan d
 
 Vid en given tidpunkt i tid, kan Azure AD logga en id_token som använder någon av en viss uppsättning offentligt / privat nyckelpar. Azure AD roterar möjliga uppsättning nycklar regelbundet, så att din app ska skrivas till hanterar dessa viktiga ändringar automatiskt. En rimlig frekvens för att söka efter uppdateringar till de offentliga nycklar som används av Azure AD är 24 timmar.
 
-Du kan hämta signering viktiga data som behövs för att verifiera signaturen med hjälp av webbplatsen för OpenID Connect metadata som finns på:
+Du kan hämta signering viktiga data som behövs för att verifiera signaturen med hjälp av den [OpenID Connect metadatadokument](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) finns på:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Prova följande [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) i en webbläsare!
+> Prova följande [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) i en webbläsare!
 
 Det här Metadatadokumentet:
 
@@ -190,7 +190,9 @@ Det här Metadatadokumentet:
 > [!NOTE]
 > V1.0 slutpunkten returnerar både den `x5t` och `kid` anspråk, medan v2.0-slutpunkten svarar med endast de `kid` anspråk. Framöver kommer vi rekommenderar att du använder den `kid` anspråk som ska verifiera din token.
 
-Utför signaturverifiering ligger utanför omfånget för det här dokumentet – det finns många bibliotek med öppen källkod för att hjälpa dig göra det om det behövs.
+Utför signaturverifiering ligger utanför omfånget för det här dokumentet – det finns många bibliotek med öppen källkod för att hjälpa dig göra det om det behövs.  Microsoft Identity-plattformen har dock en förlängning av standarder - anpassade Signeringsnycklar för tokensignering.  
+
+Om din app har anpassade Signeringsnycklar användningen av den [mappning av anspråk](active-directory-claims-mapping.md) funktion, som du måste lägga till en `appid` frågeparameter som innehåller app-ID för att få en `jwks_uri` som pekar på din app signeringsnyckel information som ska användas för verifiering. Till exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Anspråksbaserad auktorisering
 

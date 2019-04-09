@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 895f6ce728ce608184bf6f68be3b73d5dc384d79
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892516"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057004"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Lägg till ett bubbeldiagram lager till en karta
 
 Den här artikeln visar hur du kan rendera punkt data från en datakälla som ett bubbeldiagram lager på en karta. Bubbeldiagram lager renderas punkter som cirklar på kartan med fast pixel radius. 
 
 > [!TIP]
-> Bubbeldiagram lager som standard renderas koordinaterna för alla geometrier i en datakälla. Funktioner för att begränsa lagret så att den återger endast punkt geometri set den `filter` tillhör skiktet till `['==', '$type', 'Point']`
+> Bubbeldiagram lager som standard renderas koordinaterna för alla geometrier i en datakälla. Funktioner för att begränsa lagret så att den återger endast punkt geometri set den `filter` tillhör skiktet till `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du vill inkludera MultiPoint funktioner också.
 
-## <a name="add-a-bubble-layer"></a>Lägg till ett bubbeldiagram lager
+## <a name="add-a-bubble-layer"></a>Lägga till ett bubbelskikt
 
 <iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -73,4 +73,4 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 Se följande artiklar om fler kodexempel att lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Lägg till en symbol-lager](./map-add-pin.md)
+> [Lägga till ett symbolskikt](./map-add-pin.md)

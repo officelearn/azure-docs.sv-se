@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258121"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub operations monitoring (inaktuell)
 
 IoT Hub med åtgärdsövervakning kan du övervaka statusen för åtgärder på IoT hub i realtid. IoT Hub spårar händelser över flera åtgärdskategorier. Du kan välja skicka händelser från en eller flera kategorier till en slutpunkt för IoT-hubben för bearbetning. Du kan övervaka data för fel eller skapa mer komplexa bearbetning baserad på datamönster.
 
 >[!NOTE]
->IoT Hub **åtgärdsövervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. För att övervaka åtgärder och hälsotillstånd för IoT Hub, se [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt][lnk-monitor]. Läs mer om utfasning tidslinjen [övervaka dina Azure-IoT-lösningar med Azure Monitor och Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **åtgärdsövervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. För att övervaka åtgärder och hälsotillstånd för IoT Hub, se [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md). Läs mer om utfasning tidslinjen [övervaka dina Azure-IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub övervakar sex typer av händelser:
 
@@ -36,15 +36,15 @@ IoT Hub övervakar sex typer av händelser:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Så här aktiverar du åtgärdsövervakning
 
-1. Skapa en IoT-hubb. Du hittar anvisningar om hur du skapar en IoT hub i den [börjar] [ lnk-get-started] guide.
+1. Skapa en IoT-hubb. Du hittar anvisningar om hur du skapar en IoT hub i den [börjar](quickstart-send-telemetry-dotnet.md) guide.
 
-1. Öppna bladet för din IoT hub. Därifrån klickar du på **Åtgärdsövervakning**.
+2. Öppna bladet för din IoT hub. Därifrån klickar du på **Åtgärdsövervakning**.
 
-    ![Åtgärder för dataåtkomst övervakning konfigurationen på portalen][1]
+    ![Åtgärder för dataåtkomst övervakning konfigurationen på portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. Välj de övervakning kategorier som du vill övervaka och klicka sedan på **spara**. Händelser är tillgängliga för läsning från den Event Hub-kompatibla slutpunkten som anges i **övervakningsinställningarna**. IoT Hub-slutpunkten kallas `messages/operationsmonitoringevents`.
+3. Välj de övervakning kategorier som du vill övervaka och klicka sedan på **spara**. Händelser är tillgängliga för läsning från den Event Hub-kompatibla slutpunkten som anges i **övervakningsinställningarna**. IoT Hub-slutpunkten kallas `messages/operationsmonitoringevents`.
 
-    ![Konfigurera åtgärdsövervakning på IoT hub][2]
+    ![Konfigurera åtgärdsövervakning på IoT hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > Att välja **utförlig** övervakning för den **anslutningar** kategorin gör IoT Hub för att generera ytterligare meddelanden. För alla kategorier, den **utförlig** inställningsändringar mängden information IoT Hub innehåller i varje felmeddelande.
@@ -145,7 +145,9 @@ Anslutningar kategorin spårar fel som uppstår när enheter ansluta eller koppl
 Filen uppladdning kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till filuppladdning. Den här kategorin omfattar:
 
 * Fel som inträffar med SAS-URI, t.ex när den upphör att gälla innan en enhet meddelar hubb för en överförda.
+
 * Det gick inte överföringar som rapporteras av enheten.
+
 * Fel som uppstår när en fil inte hittas i storage när IoT Hub-meddelande meddelande skapas.
 
 Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp en fil till lagring.
@@ -188,31 +190,31 @@ Meddelandet routning kategorin spårar fel som inträffar när meddelandet väge
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Ansluta till slutpunkten för övervakning
 
-Övervakningsslutpunkt på IoT hub är en Event Hub-kompatibla slutpunkt. Du kan använda valfri metod som fungerar med Event Hubs kan läsa meddelanden från övervakning från den här slutpunkten. Följande exempel skapar en grundläggande läsare som inte passar för distributioner med hög genomströmning. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial].
+Övervakningsslutpunkt på IoT hub är en Event Hub-kompatibla slutpunkt. Du kan använda valfri metod som fungerar med Event Hubs kan läsa meddelanden från övervakning från den här slutpunkten. Följande exempel skapar en grundläggande läsare som inte passar för distributioner med hög genomströmning. Mer information om hur du bearbetar meddelanden från Event Hubs finns i den [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) självstudien.
 
 För att ansluta till slutpunkten för övervakning, behöver du en anslutningssträng och namnet på slutpunkten. Följande steg visar hur du hittar de nödvändiga värdena i portalen:
 
 1. Gå till din IoT Hub-resursbladet i portalen.
 
-1. Välj **Åtgärdsövervakning**, och anteckna den **Event Hub-kompatibla namnet** och **Event Hub-kompatibla slutpunkten** värden:
+2. Välj **Åtgärdsövervakning**, och anteckna den **Event Hub-kompatibla namnet** och **Event Hub-kompatibla slutpunkten** värden:
 
-    ![Event Hubs-kompatibla slutpunktsvärdena][img-endpoints]
+    ![Event Hubs-kompatibla slutpunktsvärdena](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Välj **principer för delad åtkomst**, välj sedan **service**. Anteckna den **primärnyckel** värde:
+3. Välj **principer för delad åtkomst**, välj sedan **service**. Anteckna den **primärnyckel** värde:
 
-    ![Delade princip primär åtkomstnyckel][img-service-key]
+    ![Delade princip primär åtkomstnyckel](./media/iot-hub-operations-monitoring/service-key.png)
 
 I följande C#-kodexempel hämtas från en Visual Studio **Windows Classic Desktop** C#-konsolapp. Projektet har den **WindowsAzure.ServiceBus** NuGet-paketet installeras.
 
 * Ersätt platshållaren för anslutningssträngen med en anslutningssträng som använder den **Event Hub-kompatibla slutpunkten** och tjänsten **primärnyckel** värden du antecknade tidigare som visas i följande exempel:
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * Byt ut platshållaren namn övervakning slutpunkten för mot den **Event Hub-kompatibla namnet** värde som du antecknade tidigare.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -263,24 +265,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 
-* [Utvecklarhandboken för IoT Hub][lnk-devguide]
-* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
+* [Utvecklarhandboken för IoT Hub](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

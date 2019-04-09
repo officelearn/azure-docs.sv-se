@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886396"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudier: Azure Active Directory-katalogintegrering med Agiloft
 
@@ -167,13 +167,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
     ![Agiloft-konfiguration](./media/agiloft-tutorial/setup4.png)
 
-    a. I textrutan  **IdP Entity Id / Issuer**  (Entitets-ID för IdP / Utfärdare) klistrar du in värdet för  **Azure Ad-identifieraren** som du har kopierat från Azure-portalen.
+    a. I **IdP entitets-Id / utfärdare** textrutan klistra in värdet för **Azure Ad-identifierare**, som du har kopierat från Azure-portalen.
 
-    b. I textrutan för **inloggnings-URL för IDP**  klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
+    b. I **inloggnings-URL för IDP: N** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
-    c. I textrutan för **utloggnings-URL för IDP**  klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
+    c. I **utloggnings-URL för IDP: N** textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
 
-    d. Öppna ditt **base-64-kodade certifikat** som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in den i textrutan  **IdP Provided X.509 certificate contents**  (X.509-certifikatinnehåll som tillhandahålls av IdP).
+    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **IdP tillhandahålls X.509-certifikat innehållet** textrutan.
 
     e. Klicka på **Slutför**.
 
@@ -240,7 +240,7 @@ När du klickar på Agiloft-panelen i åtkomstpanelen bör du automatiskt loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

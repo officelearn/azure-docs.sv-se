@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579469"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009742"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>SaaS Techtrends API: er Version 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Techtrends API: er Version 1 (inaktuell)
 
-Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna är nödvändiga för att tillåta prenumerationer till SaaS-erbjudande om du har sälj via Azure som valts.  
+Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna, består av REST-metoder och slutpunkter är nödvändiga för att tillåta prenumerationer till SaaS-erbjudande om du har säljer via Azure som valts.  
 
 > [!WARNING]
-> Det här den första versionen av API: et för SaaS betjäna är föråldrad; Använd i stället [SaaS Techtrends API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Den här artikeln är uppdelad i två delar:
-
--   Tjänst-till-tjänst-autentisering mellan en SaaS-tjänsten och Azure Marketplace
--   API-metoder och slutpunkter
+> Det här den första versionen av API: et för SaaS betjäna är föråldrad; Använd i stället [SaaS Techtrends API V2](./cpp-saas-fulfillment-api-v2.md).  Detta API underhålls för närvarande endast för att hantera befintliga utgivare. 
 
 Följande API: er tillhandahålls för att hjälpa dig integrera SaaS-tjänsten med Azure:
 
@@ -41,112 +36,11 @@ Följande API: er tillhandahålls för att hjälpa dig integrera SaaS-tjänsten 
 -   Konvertera
 -   Avbryt prenumerationen
 
-Följande diagram visar prenumeration flödet för en ny kund och när dessa API: er används:
 
-![SaaS erbjuder API-flöde](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Tjänst till tjänst-autentisering mellan SaaS-tjänsten och Azure marketplace
-
-Azure medför inte några begränsningar på vilken autentisering som SaaS-tjänsten exponerar till sina slutanvändare. När det gäller SaaS tjänsten kommunicerar med Azure Marketplace-API: er, görs autentisering i kontexten för ett Azure Active Directory (Azure AD)-program.
-
-I följande avsnitt beskrivs hur du skapar ett Azure AD-program.
-
-
-### <a name="register-an-azure-ad-application"></a>Registrera ett Azure AD-program
-
-Alla program som vill använda funktionerna i Azure AD måste först registreras i en Azure AD-klientorganisation. Registreringsprocessen innebär att du ger Azure AD-information om ditt program, till exempel URL: en där den finns, URL: en att skicka svar när en användare autentiseras den URI som identifierar appen och så vidare.
-
-Utför följande steg för att registrera ett nytt program med Azure portal:
-
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, och klicka på **ny programregistrering**.
-
-   ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1.png)
-
-4. Ange ditt program på sidan Skapa\'s registreringsinformation:
-   - **Namn**: Ange ett beskrivande programnamn
-   - **Programtyp**: 
-     - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-     - Välj **webbapp / API** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar-agent-baserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-     Samma program kan även visa både en klient och resurs/API.
-   - **Inloggnings-URL**: För Web app/API-program, anger du den grundläggande Webbadressen för din app. Till exempel **http:\//localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
-   - **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http:\//MyFirstAADApp**.
-
-     ![SaaS AD App-registreringar](./media/saas-offer-app-registration-v1-2.png)
-
-     För specifika exempel på webbprogram eller interna program, Kolla in snabbstarten guidad inställningar som är tillgängliga i avsnittet komma igång i den [Utvecklarguiden för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Klicka på **Skapa** när du är klar. Azure AD tilldelas ett unikt ID till ditt program, och du\'på nytt kommer du till ditt program\'s huvudsakliga registreringssidan. Beroende på om ditt program är ett webbprogram eller ett internt program ges olika alternativ för att lägga till ytterligare funktioner i programmet.
-
->[!Note]
->Som standard konfigureras det nyligen registrerade programmet så att endast användare från samma klient att logga in på ditt program.
-
-<a name="api-methods-and-endpoints"></a>API-metoder och slutpunkter
--------------------------
+## <a name="api-methods-and-endpoints"></a>API-metoder och slutpunkter
 
 I följande avsnitt beskrivs de API-metoder och slutpunkter som är tillgängliga för att aktivera prenumerationer för ett SaaS-erbjudande.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Hämta en token baserat på Azure AD-app
-
-HTTP-metod
-
-`GET`
-
-*Request URL*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*URI-parameter*
-
-|  **Parameternamn**  | **Krävs**  | **Beskrivning**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Klient-ID för det registrerade AAD-programmet   |
-|  |  |  |
-
-
-*Begärandehuvud*
-
-|  **Rubriknamn**  | **Krävs** |  **Beskrivning**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Innehållstyp som är associerade med begäran. Standardvärdet är `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Brödtext i begäran*
-
-| **Egenskapsnamn**   | **Krävs** |  **Beskrivning**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  _Typ av beviljande         | True         | Beviljandetyp. Standardvärdet är `client_credentials`.                    |
-|  Client_id          | True         |  Client/app-ID som är associerade med Azure AD-app.                  |
-|  client_secret      | True         |  Lösenordet som associeras med Azure AD-app.                               |
-|  Resurs           | True         |  Målresurs som token begärs. Standardvärdet är `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Svar*
-
-|  **Namn**  | **Typ**       |  **Beskrivning**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Förfrågan lyckades   |
-|  |  |  |
-
-*TokenResponse*
-
-Exemplet svarstoken:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Marketplace API-slutpunkt och API-version
 
@@ -173,7 +67,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 |  |  |
 
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -200,7 +94,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 |--------------------|---------------|---------------------------------------|
 | id                 | String        | ID för SaaS-prenumerationen.          |
 | subscriptionName| String| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
-| offerId            | String        | Erbjudande-ID som du prenumererar. |
+| OfferId            | String        | Erbjudande-ID som du prenumererar. |
 | planId             | String        | Plan-ID som du prenumererar.  |
 |  |  |  |
 
@@ -223,7 +117,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Ja          | Fråge-ID som mottogs från klienten.                                                                   |
 | x-ms-correlationid | Ja          | Korrelations-ID är om skickades av klienten, annars det här värdet server Korrelations-ID.                   |
-| x-ms-activityid    | Ja          | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning. |
+| x-ms-activityid    | Ja          | En unik sträng som värde för spårning av förfrågan från tjänsten. Detta ID används för alla avstämning. |
 | Retry-After        | Nej           | Det här värdet anges bara för en 429-svaret.                                                                   |
 |  |  |  |
 
@@ -238,11 +132,11 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Unikt Id för saas-prenumeration som erhålls när du har löst token via lösa API: et.                              |
+| subscriptionId      | Unikt ID för SaaS-prenumeration som hämtas när du har löst token via lösa API: et.                              |
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 |  **Huvud-nyckel**        | **Krävs** |  **Beskrivning**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -254,7 +148,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 | x-ms-marketplace-session-mode| Nej | Flagga för att aktivera kontrolläge när du prenumererar på ett SaaS-erbjudande. Om har angetts prenumerationen inte debiteras. Detta är användbart för ISV testscenarier. Ange det **'blobbar i kontrolläge har ”**|
 |  |  |  |
 
-*Brödtext*
+*Innehåll*
 
 ``` json
 {
@@ -307,7 +201,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**          | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -318,7 +212,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | Auktorisering           | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
-*Brödtext*
+*Innehåll*
 
 ```json
 {
@@ -371,7 +265,7 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -411,9 +305,9 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 *Förfrågan*
 
-**GET**
+**HÄMTA**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Åtgärds-ID}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -421,7 +315,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -479,7 +373,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 *Förfrågan*
 
-**GET**
+**HÄMTA**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
@@ -489,7 +383,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -552,7 +446,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 *Förfrågan*
 
-**GET**
+**HÄMTA**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
@@ -561,7 +455,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Headers*
+*Rubriker*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -621,7 +515,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. Det här INLÄGGET API förväntas vara icke-autentiserade och kommer att anropas av tjänsten Microsoft. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan åtgärd vidtas på webhook-meddelandet. 
 
-*Brödtext*
+*Innehåll*
 
 ``` json
   {

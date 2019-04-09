@@ -4,22 +4,20 @@ description: Utvecklarens guide till autentisering med Azure Resource Manager AP
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805524"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264343"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 
@@ -31,8 +29,6 @@ Din app har åtkomst till Resource Manager-API: er i par olika sätt:
 2. **Endast appen**: för appar som kör daemon-tjänster och schemalagda jobb. Appens identitet beviljas direkt åtkomst till resurserna. Den här metoden fungerar för appar som behöver långsiktig fjärradministrering (obevakad) åtkomst till Azure.
 
 Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du gör varje steg med REST API eller C#. Hela ASP.NET MVC-appen är tillgänglig på [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>Vad appen gör
 
@@ -72,27 +68,9 @@ Hantera dina anslutna prenumerationer:
 ## <a name="register-application"></a>Registrera program
 Innan du börjar skriva kod kan du registrera din webbapp med Azure Active Directory (AD). Appregistreringen skapar en central identitet för din app i Azure AD. Den innehåller grundläggande information om ditt program som OAuth klient-ID, svars-URL och autentiseringsuppgifter som används för att autentisera och få åtkomst till Azure Resource Manager API: er i ditt program. Appregistreringen innehåller också information om olika delegerade behörigheter som programmet behöver vid åtkomst till Microsoft APIs för användaren.
 
-Eftersom din app har åtkomst till andra prenumeration, måste du konfigurera det som ett program med flera innehavare. Ange en domän som är associerade med Azure Active Directory om du vill skicka verifieringen. Logga in på portalen om du vill se de domäner som är associerade med Azure Active Directory.
+Om du vill registrera din app Se [snabbstarten: Registrera ett program med Microsoft identity-plattformen](../active-directory/develop/quickstart-register-app.md). Namnge din app och välj **konton i alla organisationskatalog** för stöds kontotyper. Ange en domän som är associerade med Azure Active Directory för omdirigerings-URL.
 
-I följande exempel visar hur du registrerar appen med hjälp av Azure PowerShell. Du måste ha den senaste versionen (augusti 2016) av Azure PowerShell för att kommandot ska fungera.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-Om du vill logga in som AD-programmet, behöver du program-ID och lösenord. Om du vill se det program-ID som returnerades från föregående kommando använder du:
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-I följande exempel visar hur du registrerar appen med hjälp av Azure CLI.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-Det inkluderar AppId som du behöver vid autentisering som programmet i resultaten.
+Om du vill logga in som AD-programmet, behöver du det program-ID och en hemlighet. Program-ID visas i översikten för programmet. Om du vill skapa en hemlighet och API-behörigheter för begäran, se [snabbstarten: Konfigurera ett klientprogram för att få åtkomst till webb-API: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Ange en ny klienthemlighet. API-behörigheter, Välj **Azure Service Management**. Välj **delegerade behörigheter** och **user_impersonation**.
 
 ### <a name="optional-configuration---certificate-credential"></a>Valfri konfiguration - autentiseringsuppgifter för certifikat
 Azure AD stöder också autentiseringsuppgifter för certifikat för program: du skapar ett självsignerat certifikat, hålla den privata nyckeln och Lägg till den offentliga nyckeln i din registrering för Azure AD-program. Programmet skickar en liten nyttolast till Azure AD som signerats med din privata nyckel för autentisering och Azure AD verifierar signaturen med hjälp av den offentliga nyckeln som du registrerat.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892338"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258784"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -54,7 +54,7 @@ A. Om du får fem diskar om vardera 8 TB (7 TB användbar kapacitet) är den max
 A.  Om du vill se där Data Box-diskar är för närvarande tillgängliga går du till den [regiontillgänglighet](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
-A. Data Box Disk stöds i alla regioner i USA, Kanada och Australien, samt i Europa,västra och Europa, norra. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
+A. Data Box-disken har stöd för alla regioner i USA, Kanada, Australien, västra Europa och Norra Europa, Sydkorea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box Disk-enheter [kontaktar du Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hä
 - [Hämta Data Box-Disk-verktygen för Windows](https://aka.ms/databoxdisktoolswin) 
 - [Hämta Data Box-Disk-verktygen för Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
-  A. Azure Files stöds med Data Box-Disk, men kommer inte att fungera bra med Azure File Sync. Metadata sparas inte om fildata som används med Azure File Sync.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
+A. Azure Files stöds med Data Box-Disk, men kommer inte att fungera bra med Azure File Sync. Metadata sparas inte om fildata som används med Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
@@ -166,7 +166,7 @@ A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som t
 A. Ja. Dina data har överförts till Azure, men om du inte ser några hanterade diskar med de angivna resursgrupperna, är det troligt eftersom data inte var giltig. Om sidblobar, blockblobbar, Azure Files och hanterade diskar är inte giltiga, skulle dessa går du till följande mappar:
  - Sidblobar övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-pb -*.
  - Azure Files övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-af -*.
- - Hanterade diskar skulle gå till en block blob-behållare som börjar med *databoxdisk-invliad-md -*.
+ - Hanterade diskar skulle gå till en block blob-behållare som börjar med *databoxdisk-ogiltig-md -*.
 
 ## <a name="next-steps"></a>Nästa steg
 

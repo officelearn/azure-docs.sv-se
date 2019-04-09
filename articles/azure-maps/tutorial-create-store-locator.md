@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: fd3228194ac232cf8fc0efae46454075c5c02314
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540864"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058738"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -454,7 +454,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
     window.onload = initialize;
     ```
 
-1. På kartans `load`-händelselyssnare lägger du till en zoomkontroll, och en HTML-markör ska visas i mitten av sökområdet.
+1. På kartans `ready`-händelselyssnare lägger du till en zoomkontroll, och en HTML-markör ska visas i mitten av sökområdet.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
     map.markers.add(centerMarker);
     ```
 
-1. På kartans `load`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Detta ger en mer flytande användarupplevelse och ger bättre prestanda.
+1. På kartans `ready`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Detta ger en mer flytande användarupplevelse och ger bättre prestanda.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
     loadStoreData();
     ```
 
-1. När du läser in datauppsättningen i kartans `load`-händelselyssnare definierar du en uppsättning lager för att återge data. Ett bubbellager används för att återge klustrade datapunkter. Ett symbollager används för att återge antalet punkter i varje kluster över bubbellagret. Ett andra symbollager visas med en anpassad ikon för enskilda platser på kartan.
+1. När du läser in datauppsättningen i kartans `ready`-händelselyssnare definierar du en uppsättning lager för att återge data. Ett bubbellager används för att återge klustrade datapunkter. Ett symbollager används för att återge antalet punkter i varje kluster över bubbellagret. Ett andra symbollager visas med en anpassad ikon för enskilda platser på kartan.
 
    Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den här `click`-händelsen zoomar kartan i två nivåer och centrerar kartan över ett kluster när du väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
 
@@ -959,14 +959,14 @@ Du kan komma åt kodexemplet för den här självstudien här:
 
 > [Skapa en butikslokaliserare med hjälp av Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-[Se exemplet live här](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+[Se exemplet finnas här](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Mer information om täckning och funktionerna i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Zoomningsnivåer och vanliga rutnät](zoom-levels-and-tile-grid.md)
+> [Zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md)
 
 Fler kodexempel och en interaktiv kodupplevelse:
 
 > [!div class="nextstepaction"]
-> [Så här använder du Kartkontroll](how-to-use-map-control.md)
+> [Så här använder du kartkontroll](how-to-use-map-control.md)

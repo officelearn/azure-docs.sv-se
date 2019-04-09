@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie för att anropa Cognitive Services API: er i en pipeline för fulltextindexering – Azure Search'
-description: I den här självstudien går vi igenom ett exempel på dataextrahering, naturliga språk och AI-bearbetning av bilder via Azure Search-indexering för dataextrahering och transformering.
+title: 'Självstudier: Anropa API: er med Cognitive Services i en pipeline för fulltextindexering – Azure Search'
+description: Gå igenom ett exempel på extrahering av data, naturligt språk och bilder AI bearbetning i Azure Search indexering för extrahering av data och transformering över JSON-blobar.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 13361bb73043e83a0162e86604f048b98eb1c3a0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009639"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261929"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Självstudier: Anropa API: er med Cognitive Services i ett Azure Search indexering pipeline (förhandsversion)
 
@@ -32,60 +32,44 @@ I den här självstudien gör du REST API-anrop för att utföra följande uppgi
 
 Utdata är ett fulltextsökbart index i Azure Search. Du kan förbättra indexet med andra standardfunktioner som [synonymer](search-synonyms.md), [bedömningsprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analysverktyg](search-analyzers.md) och [filter](search-filters.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Den här självstudien körs på den kostnadsfria tjänsten, men antalet kostnadsfria transaktioner är begränsat till 20 dokument per dag. Om du vill köra den här självstudien mer än en gång i samma dag, kan du använda en mindre fil så att du kan rymmas i fler körningar.
 
 > [!NOTE]
-> Från och med 21 december 2018 kan du koppla en Cognitive Services-resurs med en färdighet i Azure Search. Detta gör det möjligt för oss att börja debitera för körning av färdigheter. Samma datum börjar vi också debitera bildextrahering som en del av dokumentknäckningsfasen. Textextrahering från dokument kommer fortfarande att kunna användas utan kostnad.
+> När du expanderar omfång genom att öka frekvensen för bearbetning, lägga till fler dokument eller att lägga till fler AI-algoritmer, behöver du bifoga en fakturerbar resurs för Cognitive Services. Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av inbyggda funktioner faktureras till det befintliga [betala per användning-priset för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättningen för bildextrahering följer prissättningen för förhandsversionen. Mer information finns på [prissättningssidan för Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
+> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser som ingår debiteras enligt pris för förhandsversion, enligt beskrivningen på den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Är kognitiv sökning nytt för dig? Läs [”Vad är kognitiv sökning”?](cognitive-search-concept-intro.md) för att bekanta dig eller testa [portalsnabbstarten](cognitive-search-quickstart-blob.md) för en praktisk introduktion till viktiga begrepp.
+[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
 
-Använd PowerShell eller ett verktyg för test av webbprogram som Telerik Fiddler eller Postman för att formulera HTTP-begäran om du vill göra REST-anrop till Azure Search. Om verktygen är nya för dig kan du läsa [Utforska REST-API:er för Azure Search med hjälp av Fiddler eller Postman](search-fiddler.md).
+[Skrivbordsappen postman](https://www.getpostman.com/) används för att göra REST-anrop till Azure Search.
 
-Använd [Azure-portalen](https://portal.azure.com/) för att skapa tjänster som används i ett arbetsflöde för slutpunkt till slutpunkt. 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>Hitta en Azure Search api-nyckel och slutpunkt
 
-### <a name="set-up-azure-search"></a>Konfigurera Azure Search
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-Börja med att registrera dig för Azure Search-tjänsten. 
+1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
 
-1. Gå till [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto.
+2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-1. Klicka på **Skapa en resurs**, sök efter Azure Search och klicka på **Skapa**. Läs [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md) om det är första gången du konfigurerar en söktjänst.
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
-   ![Instrumentpanel](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Skapa en Azure Search-tjänst på portalen")
+Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. För Resursgrupp skapar du en resursgrupp som ska innehålla alla resurser som du skapar i den här självstudien. På så sätt blir det enklare att rensa resurserna när du är klar med självstudien.
-
-1. För plats, väljer du en region som ligger nära dina data och andra molnappar.
-
-1. För Prisnivå kan du skapa en **kostnadsfri** tjänst för användning med självstudier och snabbstarter. För djupare analys med egna data väljer du en [betaltjänst](https://azure.microsoft.com/pricing/details/search/) som **Basic** eller **Standard**. 
-
-   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
-
-   ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service1.png "Tjänstdefinitionssidan i portalen")
-   ![Tjänstdefinitionssidan i portalen](./media/cognitive-search-tutorial-blob/create-search-service2.png "Tjänstdefinitionssidan i portalen")
-
- 
-1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
-
-   ![Tjänstdefinitionssida på portalen](./media/cognitive-search-tutorial-blob/create-search-service3.png "Tjänstdefinitionssida på portalen")
-
-1. När tjänsten har skapats kan du samla in följande information: **URL** från sidan Översikt och **api-key** (primär eller sekundär) från sidan Nycklar.
-
-   ![Information om slutpunkt och nyckel i portalen](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Information om slutpunkt och nyckel i portalen")
-
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob-tjänsten och läsa in exempeldata
+### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob Service och läsa in exempeldata
 
 Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). Observera att Azure Table Storage inte stöds för kognitiv sökning. I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
 
-1. [Hämta exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Exempeldata består av en liten filuppsättning av olika typer. 
+1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
 
-1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en container med namnet `basicdemo`. Anvisningar för alla steg finns i [snabbstarten för Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. [Registrera dig för Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), skapa ett lagringskonto, öppna Blob tjänster sidor och skapa en behållare. Skapa lagringskontot i samma region som Azure Search.
 
-1. Använd Azure Storage Explorer och klicka på **Ladda upp** i containern `basicdemo` som du skapade för att ladda upp exempeldata.
+1. I den container du skapade klickar du på **Ladda upp** för att ladda upp de exempelfiler som du laddade ned i ett tidigare steg.
+
+   ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. När exempelfilerna har lästs in hämtar du containerns namn och en anslutningssträng för Blob Storage. Det kan du göra genom att gå till lagringskontot i Azure Portal. Gå till **Åtkomstnycklar** och kopiera fältet **Anslutningssträng**.
 

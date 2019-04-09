@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63fbab5fffbcc30d0242d223fd8a6b5796c2aeae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d2d41af8fa04b03ab8d18277d377f3700575cd1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901907"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Självstudier: Azure Active Directory-integrering med Image Relay
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Image Relay i Azure AD behöver du lägga till Image Relay från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Image Relay från galleriet:**
+**Utför följande steg för att lägga till Relay-avbildning från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Image
 
     ![Information om enkel inloggning med Image Relay-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.imagerelay.com/`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<companyname>.imagerelay.com/`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.imagerelay.com/sso/metadata`
 
@@ -235,7 +235,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 Målet med det här avsnittet är att skapa en användare med namnet Britta Simon i Image Relay.
 
-**Utför följande steg för att skapa en användare som heter Britta Simon i Image Relay:**
+**Om du vill skapa en användare som kallas Britta Simon i avbildningen Relay, utför du följande steg:**
 
 1. Logga in på din Image Relay-företagswebbplats som administratör.
 
@@ -257,8 +257,8 @@ När du klickar på Image Relay-panelen i åtkomstpanelen bör du automatiskt lo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

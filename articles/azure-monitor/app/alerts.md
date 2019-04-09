@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244374"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257169"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -143,7 +143,7 @@ I det här avsnittet lär du dig hur du ställer en fråga baserad undantagsavis
 
 10. Slutligen lägger du till din aviseringsinformation (Avisera namn, beskrivning, allvarlighetsgrad). När du är klar klickar du på **skapa varningsregel** längst ned på sidan.
 
-    ![Under aviseringsinformation ange varningsregelns namn, Skriv en beskrivning och välj en allvarlighetsgrad ](./media/alerts/9alertdetails.png)
+    ![Under aviseringsinformation ange varningsregelns namn, Skriv en beskrivning och välj en allvarlighetsgrad](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
 

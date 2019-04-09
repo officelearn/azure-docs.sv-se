@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203751"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058388"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Pingboard för automatisk användaretablering
 
@@ -32,11 +32,11 @@ Syftet med den här självstudien är att visa dig de steg du måste följa för
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure AD-klient
-*   En Pingboard klient [Pro-konto](https://pingboard.com/pricing) 
-*   Ett användarkonto i Pingboard med administratörsbehörighet 
+* En Azure AD-klient
+* En Pingboard klient [Pro-konto](https://pingboard.com/pricing)
+* Ett användarkonto i Pingboard med administratörsbehörighet
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Pingboard API](https://pingboard.docs.apiary.io/#), som är tillgängliga för ditt konto.
 
 ## <a name="assign-users-to-pingboard"></a>Tilldela användare till Pingboard
@@ -69,7 +69,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot Pi
 1. Ange **Etableringsläge** till **automatisk**.
 
     ![Pingboard etablering](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Under den **administratörsautentiseringsuppgifter** använder du följande steg:
 
     a. I **klient-URL**, ange `https://your_domain.pingboard.com/scim/v2`, och Ersätt ”domän” med din verkliga domän.
@@ -86,7 +86,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot Pi
 
 1. Ange e-postadress för en person eller grupp som du vill ta emot meddelanden om etablering fel i **e-postmeddelande**. Markera kryssrutan under.
 
-1. Välj **Spara**. 
+1. Välj **Spara**.
 
 1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Pingboard**.
 

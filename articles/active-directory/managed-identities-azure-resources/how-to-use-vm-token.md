@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449383"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258920"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken 
 
@@ -79,10 +79,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | En HTTP-begäran med huvud anger krävs av hanterade identiteter för Azure-resurser som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener. |
 | `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
 | `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
+| `mi_res_id` | (Valfritt) En frågesträngsparameter som anger mi_res_id (Azure-resurs-ID) för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter. |
 
 Exempel på begäran med hjälp av hanterade identiteter för Azure-resurser VM-tillägget Endpoint *(planerad för utfasning i januari 2019)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -96,10 +97,9 @@ Metadata: true
 | `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
 | `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
 
-
 Exempelsvaret:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {

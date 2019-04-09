@@ -1,35 +1,38 @@
 ---
 title: SQL-frågor för Azure Cosmos DB
-description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos DB.
+description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. Använd SQL som ett Azure Cosmos DB JSON-frågespråket.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885340"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263051"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
-Azure Cosmos DB stöder frågekörning mot objekt med hjälp av SQL (Structured Query Language) som JSON-frågespråk på SQL API-konton. Vid utformningen av frågespråket för Azure Cosmos DB beaktas följande två mål:
+Azure Cosmos DB SQL API-konton stöder förfrågningar till objekt som använder SQL Structured Query Language () som ett frågespråk för JSON. Designmålen för Azure Cosmos DB-frågespråket är att:
 
-* I stället för att uppfinna ett nytt frågespråk skapade vi Azure Cosmos DB för att stödja SQL, ett av de mest använda och populära frågespråken. Azure Cosmos DB SQL erbjuder en formell programmeringsmodell för komplexa frågor via JSON-objekt.  
+* Stöd för SQL, ett av de mest välkända och populära fråga språk, i stället för inventing ett nytt frågespråk. SQL är en formell programmeringsmodell för komplexa frågor via JSON-objekt.  
 
-* Azure Cosmos DB använder JavaScript-programmeringsmodellen som grund för frågespråket. SQL API grundas på typsystemet, uttrycksutvärderingen och funktionsanropen i JavaScript. Den här ger i sin tur en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering mellan JSON-objekt, självkopplingar, spatiella förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland andra funktioner.
+* Använda JavaScript-programmeringsmodell som grund för frågespråket. JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop är roten i SQL-API. Dessa rötter tillhandahåller en naturlig programmeringsmodell för funktioner som relationella projektioner hierarkisk navigering i JSON-objekt, Självkopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript.
 
-Den här artikeln vägleder dig igenom några SQL-exempelfrågor med hjälp av enkla JSON-objekt. Mer information om syntaxen för Azure Cosmos DB SQL-språket finns i artikeln [SQL-syntaxreferens](sql-api-query-reference.md).
+Den här artikeln vägleder dig igenom några exempel på SQL-frågor med enkla JSON-objekt. Läs mer om Azure Cosmos DB SQL syntaxen i [referens för SQL-syntax](sql-api-query-reference.md).
 
-## <a id="GettingStarted"></a>Kom igång med SQL-kommandon
+## <a id="GettingStarted"></a>Kom igång med SQL-frågor
 
-Vi skapar två enkla JSON-objekt och kör frågor mot dessa data. Överväg två JSON-objekt om familjer, infoga dessa JSON-objekt i en container och kör sedan frågor mot dessa data. Här har vi ett enkelt JSON objekt för familjerna Andersen och Wakefield, föräldrarna, barnen (och deras husdjur), adress och registreringsinformation. Objektet har strängar, tal, booleska värden, matriser och kapslade egenskaper.
+I ditt SQL API Cosmos DB-konto skapar du en behållare som kallas `Families`. Skapa två enkla JSON-objekt i behållaren och köra några enkla frågor mot dem.
 
-**Objekt1**
+### <a name="create-json-items"></a>Skapa JSON-objekt
 
-```JSON
+Följande kod skapar två enkla JSON-objekt om familjer. Enkla JSON-objekt för familjen Andersen och Wakefield-serier är föräldrar, barn och deras husdjur, adress och registreringsinformation. Det första objektet har strängar, tal, booleska värden, matriser och kapslade egenskaper.
+
+
+```json
 {
   "id": "AndersenFamily",
   "lastName": "Andersen",
@@ -45,15 +48,13 @@ Vi skapar två enkla JSON-objekt och kör frågor mot dessa data. Överväg två
          "pets": [{ "givenName": "Fluffy" }]
      }
   ],
-  "address": { "state": "WA", "county": "King", "city": "seattle" },
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
   "creationDate": 1431620472,
   "isRegistered": true
 }
 ```
 
-Här är ett andra objekt med en subtil skillnad – `givenName` och `familyName` används i stället för `firstName` och `lastName`.
-
-**Objekt 2**
+Objektet på andra använder `givenName` och `familyName` i stället för `firstName` och `lastName`.
 
 ```json
 {
@@ -66,7 +67,8 @@ Här är ett andra objekt med en subtil skillnad – `givenName` och `familyName
       {
         "familyName": "Merriam",
         "givenName": "Jesse",
-        "gender": "female", "grade": 1,
+        "gender": "female", 
+        "grade": 1,
         "pets": [
             { "givenName": "Goofy" },
             { "givenName": "Shadow" }
@@ -84,9 +86,11 @@ Här är ett andra objekt med en subtil skillnad – `givenName` och `familyName
 }
 ```
 
-Nu provar vi några frågor mot dessa data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB:s SQL-frågespråk.
+### <a name="query-the-json-items"></a>Frågan JSON-objekt
 
-**Fråga1**: Till exempel returnerar följande fråga de objekt där ID-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *` är utdata för frågan det fullständiga JSON-objektet. Mer information om syntaxen finns i [SELECT-instruktionen](sql-api-query-reference.md#select-query):
+Prova några frågor mot JSON-data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket.
+
+Följande fråga returnerar objekt där den `id` fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *` frågan, resultatet av frågan är fullständigt JSON-objekt. Mer information om hur du väljer syntax finns i [SELECT-instruktion](sql-api-query-reference.md#select-query). 
 
 ```sql
     SELECT *
@@ -94,7 +98,7 @@ Nu provar vi några frågor mot dessa data för att förstå några av de viktig
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet av frågan är: 
 
 ```json
     [{
@@ -110,13 +114,13 @@ Nu provar vi några frågor mot dessa data för att förstå några av de viktig
                "pets": [{ "givenName": "Fluffy" }]
            }
         ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "address": { "state": "WA", "county": "King", "city": "Seattle" },
         "creationDate": 1431620472,
         "isRegistered": true
     }]
 ```
 
-**Fråga2:** Nu tar vi fallet där vi behöver formatera om JSON-utdata i en annan form. Den här frågan genererar ett nytt JSON-objekt med två valda fält, Namn och Stad, där adressens stad har samma namn som delstaten. I det här fallet matchar ”NY, NY”.
+Följande fråga förbereder JSON-utdata till en annan form. Frågan genererar en ny JSON `Family` objekt med två valda fält, `Name` och `City`när adressen stad är samma som tillståndet. ”USA, USA” matchar det här fallet.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -124,7 +128,7 @@ Nu provar vi några frågor mot dessa data för att förstå några av de viktig
     WHERE f.address.city = f.address.state
 ```
 
-**Resultat**
+Resultatet av frågan är:
 
 ```json
     [{
@@ -135,17 +139,17 @@ Nu provar vi några frågor mot dessa data för att förstå några av de viktig
     }]
 ```
 
-**Fråga3**: Den här frågan returnerar alla förnamn på de barn i familjen vars ID matchar `WakefieldFamily`, sorterade efter deras hemort.
+Följande fråga returnerar alla angivna namn på barnen i familjen vars `id` matchar `WakefieldFamily`, ordnade genom att i företagsklass.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.address.city ASC
+    ORDER BY f.grade ASC
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -154,23 +158,21 @@ Nu provar vi några frågor mot dessa data för att förstå några av de viktig
     ]
 ```
 
-Här följer några aspekter av Cosmos DB-frågespråket via de exempel som du har sett hittills:  
+I föregående exempel visas flera aspekter av frågespråket Cosmos DB:  
 
-* Eftersom SQL API arbetar med JSON-värden hanterar det trädformade entiteter i stället för rader och kolumner. Därför gör språket att du kan referera till noder i trädet vid ett godtyckligt djup, som `Node1.Node2.Node3…..Nodem`, vilket liknar det sätt som relationell SQL refererar till referensen med två delar för `<table>.<column>`.
+* Eftersom SQL-API fungerar på JSON-värden, behandlar den trädet formad entiteter i stället för rader och kolumner. Du kan referera till trädnoder på varje godtyckliga djup som `Node1.Node2.Node3…..Nodem`, ungefär som i två delar referens `<table>.<column>` i ANSI SQL.
 
-* Det strukturerade frågespråket fungerar med schemalösa data. Därför måste typsystemet vara dynamiskt bundet. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde men är inte nödvändigtvis av ett fast schema.  
+* Frågespråket fungerar med schemalös data, att typsystemet måste bindas dynamiskt. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde, men är inte garanterad ska vara av ett fast schema.  
 
-* Azure Cosmos DB stöder endast strikta JSON-objekt. Det innebär att typsystemet och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i [JSON-specifikationen](https://www.json.org/).  
+* Azure Cosmos DB stöder endast strikta JSON-objekt. Den och uttryck är begränsade till bara handlar om JSON-typer. Mer information finns i den [JSON-specifikationen](https://www.json.org/).  
 
-* En Cosmos DB-container är en schemafri samling med JSON-objekt. Relationer i dataentiteter inom och mellan objekt i en container registreras implicit av inneslutning, inte av primärnyckel- och sekundärnyckelrelationer. Det här är en viktig aspekt med tanke på de intraobjektkopplingar som tas upp senare i den här artikeln.
+* En Cosmos DB-container är en schemafri samling med JSON-objekt. Relationer inom och mellan behållare objekt avbildas implicit av inneslutning, inte av primärnyckel och sekundärnyckel viktiga relationer. Den här funktionen är viktig för intra-item-kopplingar som beskrivs senare i den här artikeln.
 
-## <a id="SelectClause"></a>Select-sats
+## <a id="SelectClause"></a>SELECT-satsen
 
-Varje fråga består av en SELECT-sats och valfria FROM- och WHERE-satser enligt ANSI-SQL-standarderna. Vanligtvis räknas källan i FROM-satsen upp för varje fråga. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-objekt. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värdena i select-listan. Läs om syntaxen i [SELECT-syntax](sql-api-query-reference.md#bk_select_query).
+Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satserna per ANSI SQL-standarder. Normalt källan i FROM-satsen räknas och WHERE-satsen används ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen genererar sedan de begärda JSON-värden i select-listan. Mer information om syntaxen finns i [SELECT-instruktion](sql-api-query-reference.md#select-query).
 
-I följande exempel visas en typisk SELECT-fråga.
-
-**Söka i data**
+Välj följande fråga exempel returnerar `address` från `Families` vars `id` matchar `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -178,23 +180,30 @@ I följande exempel visas en typisk SELECT-fråga.
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
       "address": {
         "state": "WA",
         "county": "King",
-        "city": "seattle"
+        "city": "Seattle"
       }
     }]
 ```
 
-### <a name="nested-properties"></a>Kapslade egenskaper
+## <a id="EscapingReservedKeywords"></a>Accessor med citatomsluten egenskap
+Du kan komma åt egenskaper med hjälp av citerade egenskapen operatorn []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbart för att undvika en egenskap som innehåller blanksteg, specialtecken, eller har samma namn som en SQL-nyckelord eller reserverat ord.
 
-I följande exempel projicerar vi två kapslade egenskaper, `f.address.state` och `f.address.city`.
+```sql
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+```
 
-**Söka i data**
+## <a name="nested-properties"></a>Kapslade egenskaper
+
+I följande exempel projekt två kapslade egenskaper `f.address.state` och `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -202,18 +211,18 @@ I följande exempel projicerar vi två kapslade egenskaper, `f.address.state` oc
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
       "state": "WA",
-      "city": "seattle"
+      "city": "Seattle"
     }]
 ```
 
-Projektion stöder även JSON-uttryck, som det visas i följande exempel:
+## <a name="json-expressions"></a>JSON-uttryck
 
-**Söka i data**
+Projektion stöder också JSON-uttryck, som visas i följande exempel:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -221,21 +230,19 @@ Projektion stöder även JSON-uttryck, som det visas i följande exempel:
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
       "$1": {
         "state": "WA",
-        "city": "seattle",
+        "city": "Seattle",
         "name": "AndersenFamily"
       }
     }]
 ```
 
-Vi tittar på rollen för `$1` här. Satsen `SELECT` behövs för att skapa ett JSON-objekt, och eftersom ingen nyckel har angetts använder vi implicita argumentvariabelnamn som börjar med `$1`. Till exempel returnerar den här frågan två implicita argumentvariabler märkta `$1` och `$2`.
-
-**Söka i data**
+SELECT-satsen i föregående exempel, som behövs för att skapa en JSON-objekt och eftersom det innehåller ingen nyckel, i satsen använder implicit argumentet variabelnamnet `$1`. Följande fråga returnerar två argumentvariabler som implicit: `$1` och `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -244,13 +251,13 @@ Vi tittar på rollen för `$1` här. Satsen `SELECT` behövs för att skapa ett 
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
       "$1": {
         "state": "WA",
-        "city": "seattle"
+        "city": "Seattle"
       }, 
       "$2": {
         "name": "AndersenFamily"
@@ -258,29 +265,105 @@ Vi tittar på rollen för `$1` här. Satsen `SELECT` behövs för att skapa ett 
     }]
 ```
 
+## <a id="ValueKeyword"></a>Nyckelordet VALUE
+
+Nyckelordet värde är ett sätt att returnera värdet på JSON enbart. Exempelvis kan den fråga som visas nedan returnerar det skalära uttrycket `"Hello World"` i stället för `{$1: "Hello World"}`:
+
+```sql
+    SELECT VALUE "Hello World"
+```
+
+Följande fråga returnerar JSON-värden utan den `address` etikett:
+
+```sql
+    SELECT VALUE f.address
+    FROM Families f
+```
+
+Resultatet är:
+
+```json
+    [
+      {
+        "state": "WA",
+        "county": "King",
+        "city": "Seattle"
+      }, 
+      {
+        "state": "NY", 
+        "county": "Manhattan",
+        "city": "NY"
+      }
+    ]
+```
+
+I följande exempel visas hur du returnerar JSON primitiva värden (lövnivån av JSON-träd):
+
+
+```sql
+    SELECT VALUE f.address.state
+    FROM Families f
+```
+
+Resultatet är:
+
+```json
+    [
+      "WA",
+      "NY"
+    ]
+```
+
+## <a name="aliasing"></a>Alias
+
+Du kan uttryckligen alias värden i frågor. Om en fråga har två egenskaper med samma namn, kan du använda alias för att byta namn på en eller båda egenskaperna så att de är skiljas åt i det beräknade resultatet.
+
+As-nyckelord som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo`:
+
+```sql
+    SELECT 
+           { "state": f.address.state, "city": f.address.city } AS AddressInfo,
+           { "name": f.id } NameInfo
+    FROM Families f
+    WHERE f.id = "AndersenFamily"
+```
+
+Resultatet är:
+
+```json
+    [{
+      "AddressInfo": {
+        "state": "WA",
+        "city": "Seattle"
+      },
+      "NameInfo": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
 ## <a id="FromClause"></a>FROM-sats
 
-FROM-satsen <from_specification> är valfri såvida inte källan filtreras eller projiceras senare i frågan. Läs om syntaxen i [FROM-syntax](sql-api-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` anger att hela Families-containern är den källa över vilken det ska räknas upp. En särskild identifierar-ROOT kan användas för att representera containern i stället för containerns namn används.
-Följande lista innehåller de regler som tillämpas per fråga:
+FRÅN (`FROM <from_specification>`)-satsen är valfritt, om inte källan filtreras eller projected senare i frågan. Mer information om syntaxen finns i [från syntax](sql-api-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` räknar upp över hela `Families` behållare. Du kan också använda den särskilda identifieraren ROTEN för behållaren istället för att använda behållarens namn.
 
-* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här motsvarar `f` `Families`. `AS` är ett valfritt nyckelord för alias identifierare.  
+FROM-satsen tillämpar följande regler per fråga:
 
-* När alias har getts kan originalkällan inte bindas. Till exempel är `SELECT Families.id FROM Families f` syntaktiskt felaktigt eftersom identifieraren ”Families” inte kan lösas längre.  
+* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är alias för `Families`. SOM är ett valfritt nyckelord för alias identifierare.  
 
-* Alla egenskaper som behöver refereras måste vara fullständigt kvalificerade. Om det inte finns strikt schemaöverensstämmelse tillämpas detta så att tvetydiga bindningar undviks. Därför är `SELECT id FROM Families f` syntaktiskt felaktigt eftersom egenskapen `id` inte är bunden.
+* När ett alias, det ursprungliga namnet källa kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom identifieraren `Families` har varit ett alias och går inte att matcha längre.  
 
-### <a name="get-subitems-using-from-clause"></a>Hämta underobjekt med hjälp av FROM-satsen
+* Alla refererade egenskaper måste vara fullständigt kvalificerade att undvika eventuella tvetydig bindningar om efterlevnad av strikt schema. Till exempel `SELECT id FROM Families f` är syntaktiskt felaktig eftersom egenskapen `id` är inte bundet.
 
-Källan kan även reduceras till en mindre delmängd. Till exempel skulle underroten kunna bli källan för att endast räkna upp ett underträd i varje objekt, som följande exempel illustrerar:
+### <a name="get-subitems-by-using-the-from-clause"></a>Hämta underobjekt genom att använda FROM-satsen
 
-**Söka i data**
+FROM-satsen kan minska källan till en mindre deluppsättning. Om du vill räkna upp bara ett underträd i varje objekt blir i subroot källan, som visas i följande exempel:
 
 ```sql
     SELECT *
     FROM Families.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -313,16 +396,14 @@ Källan kan även reduceras till en mindre delmängd. Till exempel skulle underr
     ]
 ```
 
-I exemplet ovan används en matris som källa, men det går även att använda ett objekt som källa. Detta visas i följande exempel: Alla giltiga JSON-värden (ej odefinierade) som finns i källan övervägs för inkludering i frågans resultat. Om några familjer inte har ett `address.state`-värde ingår de inte i frågeresultatet.
-
-**Söka i data**
+Den föregående frågan används en matris som källan, men du kan också använda ett objekt som källa. Frågan tar hänsyn till något giltigt har definierats JSON-värde i källan ska ingå i resultatet. I följande exempel skulle undanta `Families` som inte har en `address.state` värde.
 
 ```sql
     SELECT *
     FROM Families.address.state
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -333,11 +414,9 @@ I exemplet ovan används en matris som källa, men det går även att använda e
 
 ## <a id="WhereClause"></a>WHERE-sats
 
-WHERE-satsen (**`WHERE <filter_condition>`**) är valfri. Den anger de villkor som de JSON-objekt som tillhandahålls av källan måste uppfylla för att inkluderas i resultatet. JSON-objekt måste utvärdera de angivna villkoren till ”true” (sant) för att kunna inkluderas i resultatet. WHERE-satsen används av indexlagret för att avgöra den absoluta minsta delmängden av källobjekt som kan ingå i resultatet. Läs om syntaxen i [WHERE-syntax](sql-api-query-reference.md#bk_where_clause).
+Valfria WHERE-satsen (`WHERE <filter_condition>`) anger villkor att käll-JSON-objekt måste uppfylla för frågan och lägga till dem i resultaten. Ett JSON-objekt måste utvärderas de angivna villkoren till `true` man ta hänsyn till resultatet. Index-lagret använder WHERE-satsen för att fastställa den minsta delmängden källobjekt som kan ingå i resultatet. Mer information om syntaxen finns i [var syntax](sql-api-query-reference.md#bk_where_clause).
 
-Följande fråga begär objekt som innehåller en namnegenskapen vars värde är `AndersenFamily`. Andra objekt som inte har en namnegenskap, eller där värdet inte motsvarar `AndersenFamily`, utesluts.
-
-**Söka i data**
+Följande fråga begäranden-objekt som innehåller en `id` egenskap vars värde är `AndersenFamily`. Den omfattar inte alla objekt som inte har en `id` egenskapen eller vars värde inte matchar `AndersenFamily`.
 
 ```sql
     SELECT f.address
@@ -345,21 +424,23 @@ Följande fråga begär objekt som innehåller en namnegenskapen vars värde är
     WHERE f.id = "AndersenFamily"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
       "address": {
         "state": "WA",
         "county": "King",
-        "city": "seattle"
+        "city": "Seattle"
       }
     }]
 ```
 
-I föregående exempel visades en enkel likhetsfråga. SQL API stöder även en mängd olika skalära uttryck. De mest använda är binära och unära uttryck. Egenskapsreferenser från JSON-källobjektet är också giltiga uttryck.
+### <a name="scalar-expressions-in-the-where-clause"></a>Skalära uttryck i WHERE-satsen
 
-De följande binära operatorerna stöds för närvarande och kan användas i frågor som visas i följande exempel:  
+I föregående exempel visades en enkel likhetsfråga. SQL-API: et stöder olika [skaläruttryck](#scalar-expressions). De mest använda är binära och unära uttryck. Egenskapsreferenser från JSON-källobjektet är också giltiga uttryck.
+
+Du kan använda följande operatorer som stöds binär:  
 
 |**Typ av frågeoperator**  | **Värden** |
 |---------|---------|
@@ -369,7 +450,7 @@ De följande binära operatorerna stöds för närvarande och kan användas i fr
 |Jämförelse | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\| (sammanfoga) |
 
-Vi tar en titt på några frågor som använder binära operatorer.
+Följande frågor använder de binära operatorerna som:
 
 ```sql
     SELECT *
@@ -382,10 +463,10 @@ Vi tar en titt på några frågor som använder binära operatorer.
 
     SELECT *
     FROM Families.children[0] c
-    WHERE c.grade >= 5     -- matching grades == 5
+    WHERE c.grade >= 5    -- matching grades == 5
 ```
 
-De unära operatorerna +,-, ~, och NOT stöds också och kan användas i frågor som i följande exempel:
+Du kan också använda unära operatorer +,-, ~, och inte i frågor som visas i följande exempel:
 
 ```sql
     SELECT *
@@ -397,7 +478,7 @@ De unära operatorerna +,-, ~, och NOT stöds också och kan användas i frågor
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Utöver binära och unära operatorer tillåts även egenskapsreferenser. Till exempel returnerar `SELECT * FROM Families f WHERE f.isRegistered` det JSON-objekt som innehåller egenskapen `isRegistered`, där egenskapens värde är lika med JSON `true`-värdet. Alla övriga värden (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` osv.) leder till att källobjektet exkluderas från resultatet. 
+Du kan också använda egenskapen referenser i frågor. Till exempel `SELECT * FROM Families f WHERE f.isRegistered` returnerar JSON-objektet som innehåller egenskapen `isRegistered` med värdet som är lika med `true`. Någon annan värde, till exempel `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, eller `<array>`, utesluter objektet från resultatet. 
 
 ### <a name="equality-and-comparison-operators"></a>Likhets- och jämförelseoperatorer
 
@@ -413,38 +494,13 @@ I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan tv�
 | **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) |
 | **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** |
 
-För andra jämförelseoperatorer såsom >, >=, !=, < och <= gäller följande regler:
+För jämförelseoperatorer som `>`, `>=`, `!=`, `<`, och `<=`, jämförelse över typer eller mellan två objekt eller matriser ger `Undefined`.  
 
-* Jämförelse mellan typer resulterar i Undefined (odefinierad).  
-* Jämförelse mellan två objekt eller två matriser resulterar i Undefined.
-
-Om resultatet av det skalära uttrycket i filtret är Undefined inkluderas inte motsvarande objekt i resultatet eftersom Undefined logiskt inte motsvarar ”true” (sant).
-
-## <a name="between-keyword"></a>Nyckelordet BETWEEN (mellan)
-Du kan även använda nyckelordet BETWEEN för att uttrycka frågor mot intervall med värden som i ANSI SQL. BETWEEN kan användas mot strängar eller siffror.
-
-Till exempel returnerar den här frågan alla familjeobjekt där det första barnets betyg är mellan 1–5 (båda inkluderande).
-
-```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade BETWEEN 1 AND 5
-```
-
-Till skillnad från i ANSI-SQL kan du även använda BETWEEN-satsen i FROM-satsen som i följande exempel.
-
-```sql
-    SELECT (c.grade BETWEEN 0 AND 10)
-    FROM Families.children[0] c
-```
-
-Den största skillnaden mellan att använda BETWEEN i SQL API och ANSI SQL är att du kan uttrycka intervallfrågor mot egenskaper av blandade typer – du kan till exempel låta ”grade” (betyg) vara ett tal (5) i vissa objekt och strängar i andra (”grade4”). Som i JavaScript resulterar en jämförelse mellan två olika typer i dessa fall i ”undefined” (odefinierad), och objektet hoppas över.
-
-> [!NOTE]
-> För att få snabbare frågekörningstider bör du skapa en indexeringsprincip som använder en intervallindextyp mot alla numeriska egenskaper/vägar som filtreras i BETWEEN-satsen.
+Om resultatet av det skalära uttrycket är `Undefined`, objektet inte ingår i resultatet, eftersom `Undefined` är inte lika med `true`.
 
 ### <a name="logical-and-or-and-not-operators"></a>Logiska operatorer (AND, OR och NOT) (och, eller samt inte)
-Logiska operatorer arbetar med booleska värden. Tabellerna med logisk sanning för de här operatorerna visas i följande tabeller.
+
+Logiska operatorer arbetar med booleska värden. Följande tabeller visar de logiska tabellerna sanningen för de här operatorerna:
 
 **ELLER har frågor**
 
@@ -470,9 +526,31 @@ Logiska operatorer arbetar med booleska värden. Tabellerna med logisk sanning f
 | False |True |
 | Undefined (Odefinierad) |Undefined (Odefinierad) |
 
+## <a name="between-keyword"></a>Nyckelordet BETWEEN (mellan)
+
+Du kan använda nyckelordet BETWEEN för att uttrycka frågor mot cellområden sträng eller numeriska värden som ANSI SQL. Till exempel returnerar följande fråga alla objekt som den första underordnade i företagsklass är 1-5, inklusive.
+
+```sql
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade BETWEEN 1 AND 5
+```
+
+Till skillnad från i ANSI SQL, kan du också använda BETWEEN-satsen i FROM-satsen, som i följande exempel.
+
+```sql
+    SELECT (c.grade BETWEEN 0 AND 10)
+    FROM Families.children[0] c
+```
+
+Du kan ange intervallfrågor mot egenskaper av olika typer i SQL-API, till skillnad från ANSI SQL. Till exempel `grade` kan vara ett nummer som `5` i vissa objekt och liknande `grade4` i andra. I dessa fall, som i JavaScript, en jämförelse mellan de två olika typerna resulterar i `Undefined`, så att objektet har hoppats över.
+
+> [!TIP]
+> Skapa en indexprincip som använder en intervallet Indextyp mot alla egenskaper för numeriska eller sökvägar BETWEEN-satsen filtrerar för snabbare fråga körningstider.
+
 ## <a name="in-keyword"></a>Nyckelordet IN (I)
 
-Nyckelordet IN kan användas för att kontrollera om ett angivet värde matchar något värde i en lista. Till exempel returnerar den här frågan alla familjeobjekt där ID är något av ”WakefieldFamily” eller ”AndersenFamily”.
+Använda nyckelordet IN för att kontrollera om ett angivet värde matchar något värde i en lista. Till exempel följande fråga returnerar alla family objekt där den `id` är `WakefieldFamily` eller `AndersenFamily`.
 
 ```sql
     SELECT *
@@ -480,7 +558,7 @@ Nyckelordet IN kan användas för att kontrollera om ett angivet värde matchar 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
-Det här exemplet returnerar alla objekt där tillståndet är något av de angivna värdena.
+I följande exempel returneras alla objekt där tillståndet är någon av de angivna värdena:
 
 ```sql
     SELECT *
@@ -488,263 +566,49 @@ Det här exemplet returnerar alla objekt där tillståndet är något av de angi
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-## <a name="ternary--and-coalesce--operators"></a>Operatorerna Ternary (?) and Coalesce (??)
+## <a name="-operator"></a>* operator
 
-Operatorerna Ternary och Coalesce kan användas för att skapa villkorsuttryck på ett sätt som liknar populära programmeringsspråk som C# och JavaScript. Operatorn Ternary (?) kan vara praktisk när du skapar nya JSON-egenskaper i farten. Till exempel kan du nu skriva frågor för att klassificera kursnivåerna i ett format som kan läsas av människor, såsom Beginner/Intermediate/Advanced (Nybörjare/Erfaren/Avancerad) nedan.
+Operatorn särskilda * projekt hela objektet skick. När den används måste den vara det enda projicerade fältet. En fråga som `SELECT * FROM Families f` är giltig, men `SELECT VALUE * FROM Families f` och `SELECT *, f.id FROM Families f` är inte giltiga. Den [först fråga i den här artikeln](#query-the-json-items) används den * operator. 
+
+## <a name="-and--operators"></a>? och rubrikrad? Operatörer
+
+Du kan använda Ternär (?) och slå samman operatorer (?) för att skapa villkorsuttryck som programmeringsspråk som C# och JavaScript. 
+
+Du kan använda den? operator för att skapa nya JSON-egenskaper i farten. Till exempel följande fråga klassificerar i företagsklass nivåer i `elementary` eller `other`:
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-Du kan även kapsla anropen till operator som i frågan nedan.
+Du kan även kapsla anrop till den? operatorn, som i följande fråga: 
 
 ```sql
-    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel
+    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-Som med andra frågeoperatorer gäller att om de refererade egenskaperna i villkorsuttrycket saknas i något objekt, eller om de typer som jämförs är olika, så exkluderas de objekten i frågeresultatet.
+Precis som med andra frågeoperatorer den? operatorn utesluter objekt om de refererade egenskaperna saknas eller de typer som jämförs är olika.
 
-Operatorn Coalesce (??) kan användas för att effektivt söka efter förekomsten av en egenskap i ett objekt. Den här operatorn är användbar när du kör frågor mot halvstrukturerade eller data av blandade typer. Till exempel returnerar den här frågan ”lastName” om det finns eller ”surname” om det inte finns.
+Använd den rubrikrad? operator för att effektivt söka efter en egenskap i ett objekt vid frågor mot halvstrukturerade eller olika typer av data. Till exempel följande fråga returnerar `lastName` om TPM finns, eller `surname` om `lastName` saknas.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 ```
 
-## <a id="EscapingReservedKeywords"></a>Accessor med citatomsluten egenskap
-Du kan även komma åt egenskaper med hjälp av operatorn med citatomsluten egenskap `[]`. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar när du behöver undvika en egenskap som innehåller blanksteg eller specialtecken eller som råkar dela samma namn som ett SQL-nyckelord eller ett reserverat ord.
-
-```sql
-    SELECT f["lastName"]
-    FROM Families f
-    WHERE f["id"] = "AndersenFamily"
-```
-
-## <a name="aliasing"></a>Alias
-
-Nu utöver vi exemplet ovan med explicita alias för värden. AS är det nyckelord som används för alias. Det är valfritt såsom visas vid projektion av det andra värdet som `NameInfo`.
-
-Om en fråga har två egenskaper med samma namn måste alias användas för att byta namn på en eller båda egenskaper så att de kan skiljas åt i det projicerade resultatet.
-
-**Söka i data**
-
-```sql
-    SELECT 
-           { "state": f.address.state, "city": f.address.city } AS AddressInfo,
-           { "name": f.id } NameInfo
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-**Resultat**
-
-```json
-    [{
-      "AddressInfo": {
-        "state": "WA",
-        "city": "seattle"
-      },
-      "NameInfo": {
-        "name": "AndersenFamily"
-      }
-    }]
-```
-
-## <a name="scalar-expressions"></a>Skalära uttryck
-
-Utöver egenskapsreferenser stöder SELECT-satsen även skalära uttryck såsom konstanter, aritmetiska uttryck, logiska uttryck osv. Till exempel är det är en enkel ”Hello World”-fråga.
-
-**Söka i data**
-
-```sql
-    SELECT "Hello World"
-```
-
-**Resultat**
-
-```json
-    [{
-      "$1": "Hello World"
-    }]
-```
-
-Här är ett mer avancerat exempel som använder ett skalärt uttryck.
-
-**Söka i data**
-
-```sql
-    SELECT ((2 + 11 % 7)-2)/3
-```
-
-**Resultat**
-
-```json
-    [{
-      "$1": 1.33333
-    }]
-```
-
-I följande exempel är resultatet av det skalära uttrycket ett booleskt värde.
-
-**Söka i data**
-
-```sql
-    SELECT f.address.city = f.address.state AS AreFromSameCityState
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [
-      {
-        "AreFromSameCityState": false
-      },
-      {
-        "AreFromSameCityState": true
-      }
-    ]
-```
-
-## <a name="object-and-array-creation"></a>Skapande av objekt och matris
-
-En annan viktig funktion i SQL API är skapande av matris/objekt. I det föregående exemplet skapade du ett nytt JSON-objekt. På samma sätt går det även att skapa matriser såsom det visas i följande exempel:
-
-**Söka i data**
-
-```sql
-    SELECT [f.address.city, f.address.state] AS CityState
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [
-      {
-        "CityState": [
-          "seattle",
-          "WA"
-        ]
-      },
-      {
-        "CityState": [
-          "NY", 
-          "NY"
-        ]
-      }
-    ]
-```
-
-## <a id="ValueKeyword"></a>Nyckelordet VALUE
-
-Nyckelordet **VALUE** (Värde) ger ett sätt att returnera JSON-värden. Till exempel returnerar den fråga som visas nedan skalären `"Hello World"` i stället för `{$1: "Hello World"}`.
-
-**Söka i data**
-
-```sql
-    SELECT VALUE "Hello World"
-```
-
-**Resultat**
-
-```json
-    [
-      "Hello World"
-    ]
-```
-
-Följande fråga returnerar JSON-värdet utan etiketten `"address"` i resultatet.
-
-**Söka i data**
-
-```sql
-    SELECT VALUE f.address
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [
-      {
-        "state": "WA",
-        "county": "King",
-        "city": "seattle"
-      }, 
-      {
-        "state": "NY", 
-        "county": "Manhattan",
-        "city": "NY"
-      }
-    ]
-```
-
-Följande exempel utökas för att visa hur du returnerar primitiva JSON-värden (lövnivån i JSON-trädet).
-
-**Söka i data**
-
-```sql
-    SELECT VALUE f.address.state
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [
-      "WA",
-      "NY"
-    ]
-```
-
-## <a name="-operator"></a>Operatorn *
-Specialoperatorn (*) stöds för projektion av objektet som det är. När den används måste den vara det enda projicerade fältet. En fråga som `SELECT * FROM Families f` är giltig, men `SELECT VALUE * FROM Families f` och `SELECT *, f.id FROM Families f` är ogiltiga.
-
-**Söka i data**
-
-```sql
-    SELECT * 
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-**Resultat**
-
-```json
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
-```
-
 ## <a id="TopKeyword"></a>Operatorn TOP
 
-Nyckelordet TOP kan användas för att begränsa antalet värden från en fråga. När TOP används tillsammans med ORDER BY-satsen begränsas resultatmängden till de fösta N sorterade värdena. Annars returnerar det de första N värdena av resultat i en odefinierad ordning. Som bästa praxis bör du alltid använda en ORDER BY-sats med TOP-satsen i en SELECT-instruktion. Att kombinera dessa två satser är det enda sättet att förutsägbart indikera vilka rader som påverkas av TOP. 
+Nyckelordet ÖVERSTA returnerar första `N` antal frågeresultaten i en odefinierad order. Ett bra tips är att använda TOP med ORDER BY-satsen för att begränsa resultaten till först `N` antal sorterad värden. Om du kombinerar dessa två satser är det enda sättet att förutsägbart indikerar vilka rader ÖVERSTA påverkar. 
 
-**Söka i data**
+Du kan använda upp med ett konstant värde, som i följande exempel, eller med ett variabelvärde använda parameteriserade frågor. Mer information finns i den [frågor som innehåller parametrar](#parameterized-queries) avsnittet.
 
 ```sql
     SELECT TOP 1 *
     FROM Families f
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -760,89 +624,17 @@ Nyckelordet TOP kan användas för att begränsa antalet värden från en fråga
                "pets": [{ "givenName": "Fluffy" }]
            }
         ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "address": { "state": "WA", "county": "King", "city": "Seattle" },
         "creationDate": 1431620472,
         "isRegistered": true
     }]
 ```
 
-TOP kan användas med ett konstant värde (som visas ovan) eller med ett variabelt värde använda med hjälp av parametriserade frågor. Mer information finns i de parametriserade frågorna nedan.
-
-## <a id="Aggregates"></a>Mängdfunktioner
-
-Du kan även utföra sammansättningar i satsen `SELECT`. Mängdfunktioner utför en beräkning på en uppsättning värden och returnerar ett enskilt värde. Till exempel returnerar följande fråga antalet familjeobjekt i containern.
-
-**Söka i data**
-
-```sql
-    SELECT COUNT(1)
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [{
-        "$1": 2
-    }]
-```
-
-Du kan även returnera skalärvärdet för samlingen med hjälp av nyckelordet `VALUE`. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
-
-**Söka i data**
-
-```sql
-    SELECT VALUE COUNT(1)
-    FROM Families f
-```
-
-**Resultat**
-
-```json
-    [ 2 ]
-```
-
-Du kan även utföra sammansättningar i kombination med filter. Till exempel returnerar följande fråga antalet objekt med adressen i delstaten Washington.
-
-**Söka i data**
-
-```sql
-    SELECT VALUE COUNT(1)
-    FROM Families f
-    WHERE f.address.state = "WA"
-```
-
-**Resultat**
-
-```json
-    [ 1 ]
-```
-
-I följande tabell visas listan över mängdfunktioner som stöds i SQL API. `SUM` och `AVG` utförs över numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via tal, strängar, booleska värden och null-värden.
-
-| Användning | Beskrivning |
-|-------|-------------|
-| COUNT | Returnerar antalet objekt i uttrycket. |
-| SUM   | Returnerar summan av alla värden i uttrycket. |
-| MIN   | Returnerar minimivärdet i uttrycket. |
-| MAX   | Returnerar maxvärdet i uttrycket. |
-| AVG   | Returnerar medelvärdet av värdena i uttrycket. |
-
-Samlingar kan även utföras över resultatet av en matrisiteration. Mer information finns i avsnittet om [matrisiteration i frågor](#Iteration).
-
-> [!NOTE]
-> När du använder Datautforskaren i Azure-portalen kan mängdfrågor returnera de delvis sammansatta resultaten över en frågesida. SDK:erna skapar ett enskilt ackumulerat värde över alla sidor.
->
-> För att kunna utföra mängdfrågor med hjälp av kod behöver du .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.
->
-
 ## <a id="OrderByClause"></a>ORDER BY-satsen
 
-Som i ANSI-SQL kan du inkludera en valfri Order By-sats vid frågekörning. Satsen kan inkludera ett valfritt ASC/DESC-argument för att ange ordningen i vilken resultat måste hämtas.
+Du kan inkludera ett valfritt ORDER BY-sats i frågor som i ANSI SQL. Det valfria argumentet ASC eller DESC anger om du vill hämta resultat i stigande eller fallande ordning. ASC är standardinställningen.
 
-Här är till exempel en fråga som hämtar familjer ordnat efter namnet på hemorten.
-
-**Söka i data**
+Här är till exempel en fråga som hämtar familjer i stigande ordning efter den fasta Ortnamn:
 
 ```sql
     SELECT f.id, f.address.city
@@ -850,7 +642,7 @@ Här är till exempel en fråga som hämtar familjer ordnat efter namnet på hem
     ORDER BY f.address.city
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -865,9 +657,7 @@ Här är till exempel en fråga som hämtar familjer ordnat efter namnet på hem
     ]
 ```
 
-Och här är en fråga som hämtar familjer efter skapandedatum, som lagras som ett tal som representerar epoktiden dvs. förfluten tid sedan den 1 januari 1970 i sekunder.
-
-**Söka i data**
+Följande fråga hämtar familj `id`s efter skapandedatum sina objekt. Objektet `creationDate` är ett tal som representerar den *epoktid*, eller förfluten tid sedan den 1 januari 1970 på några sekunder.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -875,7 +665,7 @@ Och här är en fråga som hämtar familjer efter skapandedatum, som lagras som 
     ORDER BY f.creationDate DESC
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -889,21 +679,84 @@ Och här är en fråga som hämtar familjer efter skapandedatum, som lagras som 
       }
     ]
 ```
+## <a name="scalar-expressions"></a>Skalära uttryck
 
-## <a id="Advanced"></a>Avancerade databasbegrepp och SQL-frågor
+SELECT-satsen stöder skalärt uttryck som konstanter, matematiska uttryck och logiska uttryck. Följande fråga använder ett skalärt uttryck:
 
-### <a id="Iteration"></a>Iteration
 
-En ny konstruktion lades till via nyckelordet **IN** i SQL API för att tillhandahålla stöd för att iterera över JSON-matriser. FROM-källan ger stöd för iteration. Vi börjar med följande exempel:
+```sql
+    SELECT ((2 + 11 % 7)-2)/3
+```
 
-**Söka i data**
+Resultatet är:
+
+```json
+    [{
+      "$1": 1.33333
+    }]
+```
+
+Resultatet av det skalära uttrycket är ett booleskt värde i följande fråga:
+
+
+```sql
+    SELECT f.address.city = f.address.state AS AreFromSameCityState
+    FROM Families f
+```
+
+Resultatet är:
+
+```json
+    [
+      {
+        "AreFromSameCityState": false
+      },
+      {
+        "AreFromSameCityState": true
+      }
+    ]
+```
+
+## <a name="object-and-array-creation"></a>Skapande av objekt och matris
+
+En viktig funktion i SQL-API: T är matris och objekt skapas. I föregående exempel skapas ett nytt JSON-objekt, `AreFromSameCityState`. Du kan också skapa matriser, som visas i följande exempel:
+
+
+```sql
+    SELECT [f.address.city, f.address.state] AS CityState
+    FROM Families f
+```
+
+Resultatet är:
+
+```json
+    [
+      {
+        "CityState": [
+          "Seattle",
+          "WA"
+        ]
+      },
+      {
+        "CityState": [
+          "NY", 
+          "NY"
+        ]
+      }
+    ]
+```
+
+
+## <a id="Iteration"></a>Iteration
+
+SQL-API har stöd för att iterera över JSON-matriser med en ny konstruktion som lagts till via IN-nyckelordet i FROM-källan. I följande exempel:
 
 ```sql
     SELECT *
     FROM Families.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -932,16 +785,14 @@ En ny konstruktion lades till via nyckelordet **IN** i SQL API för att tillhand
     ]
 ```
 
-Nu tittar vi på en annan fråga som utför iteration över barn i containern. Observera skillnaden i utdatamatrisen. Det här exemplet delar upp `children` och plattar ut resultatet till en enskild matris.  
-
-**Söka i data**
+Nästa fråga utför iteration `children` i den `Families` behållare. Utdata-matrisen skiljer sig från den föregående frågan. Det här exemplet delar upp `children`, och plattar ut resultatet till en enskild matris:  
 
 ```sql
     SELECT *
     FROM c IN Families.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -966,9 +817,7 @@ Nu tittar vi på en annan fråga som utför iteration över barn i containern. O
     ]
 ```
 
-Detta kan ytterligare användas för att filtrera på varje enskild post i matrisen såsom visas i följande exempel:
-
-**Söka i data**
+Du kan filtrera ytterligare på varje enskild post i matrisen som du ser i följande exempel:
 
 ```sql
     SELECT c.givenName
@@ -976,7 +825,7 @@ Detta kan ytterligare användas för att filtrera på varje enskild post i matri
     WHERE c.grade = 8
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -984,16 +833,14 @@ Detta kan ytterligare användas för att filtrera på varje enskild post i matri
     }]
 ```
 
-Du kan även utföra sammansättning över resultatet av matrisiteration. Till exempel räknar följande fråga antalet barn bland alla serier.
-
-**Söka i data**
+Du kan även aggregera över resultatet av en matris iteration. Till exempel räknar följande fråga antalet underordnade bland alla serier:
 
 ```sql
     SELECT COUNT(child)
     FROM child IN Families.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1003,15 +850,13 @@ Du kan även utföra sammansättning över resultatet av matrisiteration. Till e
     ]
 ```
 
-### <a id="Joins"></a>Kopplingar
+## <a id="Joins"></a>Kopplingar
 
-I en relationsdatabas är behovet av att koppla över tabeller viktigt. Det är den logiska följden av att utforma normaliserade scheman. Däremot hanterar SQL API den avnormaliserade datamodellen med schemafria objekt, vilket är den logiska motsvarigheten av en ”självkoppling”.
+Kopplingar mellan tabeller finns i en relationsdatabas, den logiska naturlig följd att utforma normaliserade scheman. Däremot SQL API använder Avnormaliserade datamodellen schemafria objekt som är den logiska motsvarar en *självkoppling*.
 
-Den syntax som språket stöder är `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Allmänt sett returnerar den här frågan en uppsättning med **N**-tupplar (tuppel med **N** värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. Med andra ord utför den här frågan en fullständig kryssprodukt av de uppsättningar som deltar i kopplingen.
+Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Den här frågan returnerar en uppsättning tupplar med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. Med andra ord utför den här frågan en fullständig kryssprodukt av de uppsättningar som deltar i kopplingen.
 
-I följande exempel visas hur JOIN-satsen fungerar. I följande exempel är resultatet tomt eftersom kryssprodukten för varje objekt från källan och en tom uppsättning är tom.
-
-**Söka i data**
+I följande exempel visas hur JOIN-satsen fungerar. Resultatet är tom, sedan kryssprodukten av varje objekt från källa och en tom uppsättning är tom i exemplet nedan:
 
 ```sql
     SELECT f.id
@@ -1019,16 +864,14 @@ I följande exempel visas hur JOIN-satsen fungerar. I följande exempel är resu
     JOIN f.NonExistent
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
     }]
 ```
 
-I följande exempel är kopplingen mellan objektroten och `children`-underroten. Det är en kryssprodukt mellan två JSON-objekt. Det faktum att underordnade element är en matris gäller inte i JOIN eftersom vi hanterar en enskild rot som är matrisen för underordnade element. Därför innehåller resultatet bara två resultat eftersom kryssprodukten för varje objekt med matrisen ger exakt och endast ett objekt.
-
-**Söka i data**
+I följande exempel i kopplingen är en kryssprodukten mellan två JSON-objekt, objekt-roten `id` och `children` subroot. Faktumet som `children` är en matris inte är effektivt i kopplingen, eftersom det handlar om en enda rot som är den `children` matris. Resultatet innehåller bara två resultat, eftersom kryssprodukten av varje objekt med matrisen ger exakt endast ett objekt.
 
 ```sql
     SELECT f.id
@@ -1036,7 +879,7 @@ I följande exempel är kopplingen mellan objektroten och `children`-underroten.
     JOIN f.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1051,15 +894,13 @@ I följande exempel är kopplingen mellan objektroten och `children`-underroten.
 
 I följande exempel visas en mer konventionell koppling:
 
-**Söka i data**
-
 ```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1075,17 +916,15 @@ I följande exempel visas en mer konventionell koppling:
     ]
 ```
 
-Det första du bör observera är att `from_source` för **JOIN**-satsen är en iterator. Därför är flödet i det här fallet följande:  
+JOIN-satsen FROM orsaken är ett Iteratorn. Därför är flödet i föregående exempel:  
 
-* Expandera varje underordnat element **c** i matrisen.
-* Tillämpa en kryssprodukt med roten för objektet **f** med varje underordnat element **c** som tillplattades i det första steget.
-* Slutligen projicerar du namnegenskapen för rotobjektet **f** enskilt.
+1. Expandera varje underordnat element `c` i matrisen.
+2. Tillämpa en kryssprodukten med rot objektets `f` med varje underordnat element `c` som det första steget tillplattad.
+3. Slutligen projektet rotobjektet `f` `id` egenskapen enbart.
 
-Det första objektet (`AndersenFamily`) innehåller endast ett underordnat element, så resultatuppsättningen innehåller bara ett enda objekt som motsvarar det här objektet. Det andra objektet (`WakefieldFamily`) innehåller två underordnade element. Därför skapar kryssprodukten ett separat objekt för varje underordnat element, vilket resulterar i två objekt, ett för varje underordnat element som motsvarar det här objektet. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
+Det första objektet `AndersenFamily`, innehåller endast en `children` element, så resultatet innehåller bara ett enda objekt. Det andra objektet `WakefieldFamily`, innehåller två `children`, så kryssprodukten skapar två objekt, en för varje `children` element. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
 
-Den främsta nyttan med JOIN är att bilda tupplar från kryssprodukten i en form som annars är svår att projicera. Dessutom kan du, som det visas i exemplet nedan, filtrera på kombinationen av en tuppel som gör att användaren kan välja ett villkor som uppfylls av tupplarna överlag.
-
-**Söka i data**
+Verkliga nyttan av JOIN-satsen är att formuläret tupplar från kryssprodukten i en form som annars är svåra att projektet. Exemplet nedan filter på en kombination av en tuppel som låter användaren välja ett villkor som är nöjd med den övergripande tupplar.
 
 ```sql
     SELECT 
@@ -1098,7 +937,7 @@ Den främsta nyttan med JOIN är att bilda tupplar från kryssprodukten i en for
     JOIN p IN c.pets
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1120,7 +959,7 @@ Den främsta nyttan med JOIN är att bilda tupplar från kryssprodukten i en for
     ]
 ```
 
-Det här exemplet är en naturlig förlängning av det föregående exemplet och skapar en dubbel koppling. Därför kan kryssprodukten ses som följande pseudokod:
+Följande tillägg i föregående exempel skapar en dubbla koppling. Du kan visa kryssprodukten som genererat följande kod:
 
 ```
     for-each(Family f in Families)
@@ -1138,11 +977,9 @@ Det här exemplet är en naturlig förlängning av det föregående exemplet och
     }
 ```
 
-`AndersenFamily` har en underordnad som har en husdjur. Därför ger kryssprodukten en rad (1\*1\*1) från den här familjen. WakefieldFamily har dock två barn, men bara ett barn, ”Jesse”, har husdjur. Jesse har dock två husdjur. Därför ger kryssprodukten 1\*1\*2 = 2 rader från den här familjen.
+`AndersenFamily` har en underordnad som har en husdjur så kryssprodukten ger en rad (1\*1\*1) från den här serien. `WakefieldFamily` har två barn, endast en av som har husdjur, men den underordnat har två husdjur. Kryssprodukten för den här serien ger 1\*1\*2 = 2 rader.
 
-I nästa exempel finns det ett ytterligare filter på `pet`, vilket utesluter alla tupplar där husdjursnamnet inte är ”Shadow”. Observera att vi kan skapa tupplar från matriser, filtrera på valfritt element i tuppeln och projicera valfri kombination av elementen.
-
-**Söka i data**
+I nästa exempel finns ett ytterligare filter på `pet`, vilket utesluter alla tupplar där husdjur namnet inte är `Shadow`. Du kan skapa tupplar från matriser, filter på någon av elementen i tuppeln och projicera olika kombinationer av elementen.
 
 ```sql
     SELECT 
@@ -1156,7 +993,7 @@ I nästa exempel finns det ett ytterligare filter på `pet`, vilket utesluter al
     WHERE p.givenName = "Shadow"
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1168,20 +1005,13 @@ I nästa exempel finns det ett ytterligare filter på `pet`, vilket utesluter al
     ]
 ```
 
-## <a id="JavaScriptIntegration"></a>JavaScript-integrering
+## <a id="UserDefinedFunctions"></a>Användardefinierade funktioner (UDF)
 
-Azure Cosmos DB är en programmeringsmodell för att köra JavaScript-baserad programlogik direkt på containrarna vad gäller lagrade procedurer och utlösare. Den här metoden stöder:
+SQL-API har stöd för användardefinierade funktioner (UDF). Du kan skicka in noll eller flera argument och returnera ett enda argument-resultat med skalära UDF: er. API: et kontrollerar varje argument för att du är juridiska JSON-värden.  
 
-* Möjligheten att utföra högpresterande transaktionella CRUD-åtgärder och frågor mot objekt i en container via den djupa integreringen av JavaScript-körning direkt i databasmotorn.
-* En naturlig modellering av kontrollflöde, variabelomfång och tilldelning och integrering av undantagshanteringsprimitiver med databastransaktioner. Mer information om Azure Cosmos DB-stöd för JavaScript-integrering finns i dokumentationen om programmerbarhet för JavaScript-serversidan.
+API: et utökar den SQL-syntaxen för att stöder anpassad programlogik med UDF: er. Du kan registrera UDF: er med SQL-API: T och referera till dem i SQL-frågor. Faktum är att UDF:er har utmärkt utformning för att anropas från frågor. Följd har UDF: er inte åtkomst till context-objektet som andra JavaScript-typer, till exempel lagrade procedurer och utlösare. Frågor är skrivskyddad och kan köras antingen på primära eller sekundära repliker. Användardefinierade funktioner, till skillnad från andra JavaScript-typer är avsedda att köras på sekundära repliker.
 
-### <a id="UserDefinedFunctions"></a>Användardefinierade funktioner (UDF:er)
-
-Utöver de typer som redan definierats i den här artikeln ger SQL API stöd för UDF:er (User Defined Functions, användardefinierade funktioner). I synnerhet stöds skalära UDF:er där utvecklarna kan skicka in noll eller flera argument och returnera tillbaka ett enda argumentresultat. Vart och ett av de här argumenten kontrolleras om huruvida de är giltiga JSON-värden.  
-
-SQL-syntaxen utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF:er kan registreras med SQL API och sedan refereras till som en del av en SQL-fråga. Faktum är att UDF:er har utmärkt utformning för att anropas från frågor. Som en följd av det här valet har UDF:er inte åtkomst till det kontextobjekt som andra JavaScript-typer (lagrade procedurer och utlösare) har. Eftersom frågor körs i skrivskyddat läge kan de köras antingen på primära eller sekundära repliker. Därför är UDF:er utformade för att köras på sekundära repliker till skillnad från andra JavaScript-typer.
-
-Nedan visas ett exempel på hur en UDF kan registreras vid Cosmos DB-databasen, specifikt under en objektcontainer.
+I följande exempel registreras en UDF under en objektbehållaren i Cosmos DB-databasen. I exemplet skapas en UDF vars namn är `REGEX_MATCH`. Godtas två JSON-strängvärden `input` och `pattern`, och kontrollerar om de första matchar mönstret som anges i andra med hjälp av JavaScript- `string.match()` funktion.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -1197,22 +1027,14 @@ Nedan visas ett exempel på hur en UDF kan registreras vid Cosmos DB-databasen, 
            regexMatchUdf).Result;  
 ```
 
-I föregående exempel skapas en UDF vars namn är `REGEX_MATCH`. Den accepterar två JSON-strängvärden, `input` och `pattern`, och kontrollerar om det första matchar det mönster som anges i det andra med hjälp av JavaScript-funktionen string.match().
-
-Vi kan nu använda den här UDF:en i en fråga i en projektion. UDF:er måste kvalificeras med det skiftlägeskänsliga prefixet ”udf.” när de anropas inifrån frågor.
-
-> [!NOTE]
-> Före 2015-03-17 hade Cosmos DB stöd för UDF-anrop utan prefixet ”udf.” såsom SELECT REGEX_MATCH(). Det här anropsmönstret är inaktuellt.  
->
-
-**Söka i data**
+Nu kan använda den här UDF i en fråga projektion. Du måste är berättigad UDF: er med skiftlägeskänsliga prefixet `udf.` när du anropar dem från inom frågor.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1225,9 +1047,7 @@ Vi kan nu använda den här UDF:en i en fråga i en projektion. UDF:er måste kv
     ]
 ```
 
-UDF:en kan även användas inuti ett filter såsom det visas i exemplet nedan, som även kvalificeras med ”udf.”- prefixet:
-
-**Söka i data**
+Du kan använda UDF kvalificerad med den `udf.` prefix i ett filter, som i följande exempel:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -1235,7 +1055,7 @@ UDF:en kan även användas inuti ett filter såsom det visas i exemplet nedan, s
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1244,9 +1064,9 @@ UDF:en kan även användas inuti ett filter såsom det visas i exemplet nedan, s
     }]
 ```
 
-I princip är UDF:er giltiga skalära uttryck och kan användas i både projektioner och filter.
+I princip är UDF: er giltig skalärt uttryck som du kan använda i både projektioner och filter.
 
-För att expandera på kraften hos UDF:er tittar vi på ett annat exempel med villkorslogik:
+Titta på ett annat exempel med villkorsstyrd logik för att expandera på kraften i UDF: er:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -1254,7 +1074,7 @@ För att expandera på kraften hos UDF:er tittar vi på ett annat exempel med vi
            Id = "SEALEVEL",
            Body = @"function(city) {
                    switch (city) {
-                       case 'seattle':
+                       case 'Seattle':
                            return 520;
                        case 'NY':
                            return 410;
@@ -1270,21 +1090,19 @@ För att expandera på kraften hos UDF:er tittar vi på ett annat exempel med vi
                 seaLevelUdf);
 ```
 
-Nedan visas ett exempel som utövar UDF:en.
-
-**Söka i data**
+I följande exempel utövar UDF-filen:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
      [
       {
-        "city": "seattle",
+        "city": "Seattle",
         "seaLevel": 520
       },
       {
@@ -1294,60 +1112,73 @@ Nedan visas ett exempel som utövar UDF:en.
     ]
 ```
 
-Som föregående exempel demonstrerar integrerar UDF:er kraften hos JavaScript-språket med SQL API för att tillhandahålla ett omfattande programmerbart gränssnitt för att utföra komplex procedurmässig, villkorsstyrd logik med hjälp av inbyggda JavaScript-körningsfunktioner.
+Om egenskaperna som anges av en användardefinierad funktion parametrar inte är tillgängliga i JSON-värde, parametern betraktas som en odefinierad och hoppas över UDF-anrop. På samma sätt, om resultatet av en användardefinierad funktion är odefinierad den ingår inte i resultatet.
 
-SQL API tillhandahåller argumenten till UDF:erna för varje objekt i källan vid det aktuella steget (WHERE-satsen eller SELECT-satsen) för bearbetning av UDF:en. Resultatet införlivas sömlöst i den övergripande körningspipelinen. Om de egenskaper som refereras till av UDF-parametrarna inte är tillgängliga i JSON-värdet anses parametern vara odefinierad, och därför hoppas UDF-anropet över helt. På samma sätt inkluderas inte resultatet av UDF i resultatet om det är odefinierat.
+Föregående exempel visas integrera UDF: er kraften i JavaScript-språket med SQL API. UDF: er ger ett omfattande programmerbart gränssnitt för att göra komplex procedurmässig, villkorsstyrd logik med hjälp av inbyggda funktioner för JavaScript-körning. SQL-API: et tillhandahåller argumenten till de UDF: er för varje källa-objekt på den aktuella var eller SELECT-satsen steg i processen. Resultatet är sömlöst integrerat i övergripande körning pipelinen. Sammanfattningsvis är UDF: er fantastiska verktyg för att göra komplicerad affärslogik som en del av frågor.
 
-Sammanfattningsvis är UDF:er utmärkta verktyg för att utföra komplicerad affärslogik som en del av frågan.
+## <a id="Aggregates"></a>Mängdfunktioner
 
-### <a name="operator-evaluation"></a>Operatorutvärdering
-
-Eftersom Cosmos DB är en JSON-databas finns det likheter med JavaScript-operatorer och deras utvärderingssemantik. Även om Cosmos DB försöker bevara JavaScript-semantik vad gäller JSON-stöd avviker operatorutvärderingen i vissa instanser.
-
-Till skillnad från traditionellt SQL är typerna av värden i SQL API ofta inte kända förrän värdena hämtas från en databas. För att effektivt köra frågor har de flesta av operatorerna strikta typkrav.
-
-SQL API utför inte implicit konvertering, till skillnad från JavaScript. Exempelvis matchar en fråga som `SELECT * FROM Person p WHERE p.Age = 21` objekt som innehåller en Age-egenskap (ålder) vars värde är 21. Andra objekt vars Age-egenskap matchar strängen ”21” eller andra eventuellt oändliga variationer som ”021”, ”21,0”, ”0021”, ”00021” osv. matchas inte. Detta skiljer sig från JavaScript, där strängvärdena implicit omvandlas till siffror (baserat på operatorn, t.ex.: ==). Det här valet är avgörande för effektiv indexmatchning i SQL API.
-
-## <a name="parameterized-sql-queries"></a>Parametriserade SQL-frågor
-
-Cosmos DB har stöd för frågor med parametrar som uttrycks med den bekanta \@-notationen. Parametriserat SQL ger robust hantering av och undantagstecken för användarindata, vilket förhindrar oavsiktlig exponering av data via SQL-inmatning.
-
-Du kan till exempel skriva en fråga som tar efternamn och adressdelstat som parametrar och sedan köra den för olika värden av efternamn och adressdelstat baserat på användarindata.
+Mängdfunktioner utföra beräkningar på en uppsättning värden i SELECT-satsen och returnera ett enstaka värde. Till exempel följande fråga returnerar antalet objekt i den `Families` behållare:
 
 ```sql
-    SELECT *
+    SELECT COUNT(1)
     FROM Families f
-    WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Den här begäran kan sedan skickas till Cosmos DB som en parametriserad JSON-fråga såsom det visas nedan.
+Resultatet är:
+
+```json
+    [{
+        "$1": 2
+    }]
+```
+
+Du kan också returnera endast skalära värdet för mängden med hjälp av nyckelordet värde. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
 
 ```sql
-    {
-        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",
-        "parameters": [
-            {"name": "@lastName", "value": "Wakefield"},
-            {"name": "@addressState", "value": "NY"},
-        ]
-    }
+    SELECT VALUE COUNT(1)
+    FROM Families f
 ```
 
-Argumentet till TOP kan konfigureras att använda parametriserade frågor såsom det visas nedan.
+Resultatet är:
+
+```json
+    [ 2 ]
+```
+
+Du kan också kombinera aggregeringar med filter. Till exempel följande fråga returnerar antalet objekt med adressen tillstånd `WA`.
 
 ```sql
-    {
-        "query": "SELECT TOP @n * FROM Families",
-        "parameters": [
-            {"name": "@n", "value": 10},
-        ]
-    }
+    SELECT VALUE COUNT(1)
+    FROM Families f
+    WHERE f.address.state = "WA"
 ```
 
-Parametervärden kan vara valfria giltiga JSON (strängar, tal, booleska värden, null och även matriser eller kapslad JSON). Och eftersom Cosmos DB är schemalöst verifieras parametrar inte mot någon typ.
+Resultatet är:
+
+```json
+    [ 1 ]
+```
+
+SQL-API: et stöder mängdfunktionerna. Summa och Genomsnittlig fungerar på numeriska värden och COUNT, MIN och MAX fungerar på tal, strängar, booleska värden och null-värden.
+
+| Funktion | Beskrivning |
+|-------|-------------|
+| COUNT | Returnerar antalet objekt i uttrycket. |
+| SUM   | Returnerar summan av alla värden i uttrycket. |
+| MIN   | Returnerar minimivärdet i uttrycket. |
+| MAX   | Returnerar maxvärdet i uttrycket. |
+| AVG   | Returnerar medelvärdet av värdena i uttrycket. |
+
+Du kan även aggregera över resultatet av en matris iteration. Mer information finns i den [Iteration](#Iteration) avsnittet.
+
+> [!NOTE]
+> I Datautforskaren i Azure portal, kan mängdfrågor aggregera ofullständiga resultat via sidan för enbart en fråga. SDK: N producerar en enda ackumulerade värdet på alla sidor. Om du vill utföra mängdfrågor med hjälp av kod du behöver .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.
+>
 
 ## <a id="BuiltinFunctions"></a>Inbyggda funktioner
 
-Cosmos DB stöder även ett antal inbyggda funktioner för vanliga åtgärder som kan användas inuti frågor som användardefinierade funktioner (UDF:er).
+Cosmos DB stöder också ett antal inbyggda funktioner för vanliga åtgärder som du kan använda i frågor som användardefinierade funktioner (UDF).
 
 | Funktionsgrupp | Åtgärder |
 |---------|----------|
@@ -1357,7 +1188,9 @@ Cosmos DB stöder även ett antal inbyggda funktioner för vanliga åtgärder so
 | Matrisfunktioner | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH och ARRAY_SLICE |
 | Spatiella funktioner | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-Om du för närvarande använder en användardefinierad funktion (UDF) som en inbyggd funktion nu är tillgänglig för bör du använda motsvarande inbyggda funktion, eftersom den körs snabbare och effektivare.
+Om du använder en användardefinierad funktion (UDF) som en inbyggd funktion är nu tillgänglig, blir motsvarande inbyggda funktionen går snabbare att köra och mer effektivt.
+
+Den största skillnaden mellan Cosmos DB och ANSI SQL-funktioner är att Cosmos DB-funktioner är avsedda att fungera bra med schemalös och blandat schema. Till exempel om en egenskap saknas eller har ett icke-numeriska värde som `unknown`, objektet har hoppats över i stället för att returnera ett fel.
 
 ### <a name="mathematical-functions"></a>Matematiska funktioner
 
@@ -1365,11 +1198,11 @@ De matematiska funktionerna utför en beräkning baserat på indatavärden som t
 
 | Användning | Beskrivning |
 |----------|--------|
-| [ABS (num_expr) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
+| ABS (num_expr) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
 | CEILING (num_expr) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
 | FLOOR (num_expr) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
 | EXP (num_expr) | Returnerar exponenten för det angivna numeriska uttrycket. |
-| LOGG (num_expr, grundläggande) | Returnerar den naturliga logaritmen för det angivna numeriska uttrycket eller den logaritm som använder den angivna basen |
+| LOGG (num_expr, grundläggande) | Returnerar den naturliga logaritmen för det angivna numeriska uttrycket eller med hjälp av den angivna basen för logaritmen. |
 | LOG10 (num_expr) | Returnerar det logaritmiska bas 10-värdet för det angivna numeriska uttrycket. |
 | ROUND (num_expr) | Returnerar ett numeriskt värde avrundat till närmaste heltal. |
 | TRUNC (num_expr) | Returnerar ett numeriskt värde trunkerat till närmaste heltal. |
@@ -1379,7 +1212,7 @@ De matematiska funktionerna utför en beräkning baserat på indatavärden som t
 | SIGN (num_expr) | Returnerar teckenvärdet (-1, 0, 1) för det angivna numeriska uttrycket. |
 | ACOS (num_expr) | Returnerar vinkeln i radianer vars cosinus är det angivna numeriska uttrycket. Kallas även arccosinus. |
 | ASIN (num_expr) | Returnerar vinkeln i radianer vars sinus är det angivna numeriska uttrycket. Den här funktionen kallas även arcsinus. |
-| ATAN (num_expr) | Returnerar vinkeln i radianer vars tangent är det angivna numeriska uttrycket. Detta kallas även arctangens. |
+| ATAN (num_expr) | Returnerar vinkeln i radianer vars tangent är det angivna numeriska uttrycket. Den här funktionen kallas även tangens. |
 | ATN2 (num_expr) | Returnerar vinkeln i radianer mellan den positiva x- axeln och strålen från origo till punkten (y, x) där x och y är värdena för de två angivna flyttalsuttrycken. |
 | COS (num_expr) | Returnerar trigonometrisk cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | COS (num_expr) | Returnerar trigonometrisk cotangens för den angivna vinkeln i radianer i det angivna numeriska uttrycket. |
@@ -1389,25 +1222,21 @@ De matematiska funktionerna utför en beräkning baserat på indatavärden som t
 | SIN (num_expr) | Returnerar trigonometrisk sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | TAN (num_expr) | Returnerar tangens för indatauttrycket i det angivna uttrycket. |
 
-Till exempel kan du nu köra frågor på det sätt som visas i följande exempel:
-
-**Söka i data**
+Du kan köra frågor som i följande exempel:
 
 ```sql
     SELECT VALUE ABS(-4)
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [4]
 ```
 
-Den största skillnaden mellan Cosmos DB-funktioner jämfört med ANSI SQL är att de är utformade för att fungera väl med schemalösa data och data med blandade scheman. Om du till exempel har ett objekt där egenskapen Size (Storlek) saknas, eller har ett icke-numeriskt värde såsom ”unknown” (okänt), hoppas objektet över i stället för att returnera ett fel.
-
 ### <a name="type-checking-functions"></a>Funktioner för typkontroll
 
-Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-frågor. Funktionerna för typkontroll kan användas för att bestämma typen av egenskaper i objekt i farten när de är variabler eller okända. Här är en tabell med inbyggda funktioner för typkontroll som stöds.
+Funktioner för typkontroll kan du kontrollera vilken typ av ett uttryck i en SQL-fråga. Du kan använda typkontroll funktioner för att avgöra vilka typer av egenskaper i objekt i farten, när de är variabel eller okänd. Här är en tabell med stöds inbyggda funktioner för typkontroll:
 
 | **Användning** | **Beskrivning** |
 |-----------|------------|
@@ -1418,17 +1247,15 @@ Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-
 | [IS_OBJECT (uttryck)](sql-api-query-reference.md#bk_is_object) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett JSON-objekt. |
 | [IS_STRING (uttryck)](sql-api-query-reference.md#bk_is_string) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng. |
 | [IS_DEFINED (uttryck)](sql-api-query-reference.md#bk_is_defined) | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
-| [IS_PRIMITIVE (uttryck)](sql-api-query-reference.md#bk_is_primitive) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng, ett tal, ett booleskt värde eller null. |
+| [IS_PRIMITIVE (uttryck)](sql-api-query-reference.md#bk_is_primitive) | Returnerar ett booleskt värde som anger om typ av värde är en sträng, nummer, booleskt värde, eller null. |
 
-Med hjälp av de här funktionerna kan du nu köra frågor på det sätt som visas i följande exempel:
-
-**Söka i data**
+Du kan använda dessa funktioner för att köra frågor som i följande exempel:
 
 ```sql
     SELECT VALUE IS_NUMBER(-4)
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [true]
@@ -1436,17 +1263,17 @@ Med hjälp av de här funktionerna kan du nu köra frågor på det sätt som vis
 
 ### <a name="string-functions"></a>Strängfunktioner
 
-Följande skalärfunktioner utför en åtgärd på ett strängindatavärde och returnerar en sträng, ett numeriskt värde eller ett booleskt värde. Här är en tabell med inbyggda strängfunktioner:
+Följande skalärfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt värde eller booleskt värde. Här är en tabell med inbyggda strängfunktioner:
 
 | Användning | Beskrivning |
 | --- | --- |
-| [LÄNGDEN (str_expr)](sql-api-query-reference.md#bk_length) | Returnerar antalet tecken i det angivna stränguttrycket |
+| [LÄNGDEN (str_expr)](sql-api-query-reference.md#bk_length) | Returnerar antalet tecken i angivet stränguttryck. |
 | [SAMMANFOGA (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
 | [DELSTRÄNGEN (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returnerar en del av ett stränguttryck. |
-| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket börjar med det andra |
-| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket slutar med det andra |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra. |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
 | [INNEHÅLLER (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
-| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returnerar startpositionen för den första förekomsten av andra stränguttryck i första angivet stränguttryck eller -1 om strängen inte hittas. |
 | [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returnerar den vänstra delen av en sträng med det angivna antalet tecken. |
 | [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returnerar den högra delen av en sträng med det angivna antalet tecken. |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returnerar ett stränguttryck efter att inledande blanksteg har tagits bort. |
@@ -1454,19 +1281,17 @@ Följande skalärfunktioner utför en åtgärd på ett strängindatavärde och r
 | [LÄGRE (str_expr)](sql-api-query-reference.md#bk_lower) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
 | [ÖVRE (str_expr)](sql-api-query-reference.md#bk_upper) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
 | [Ersätt (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde. |
-| [REPLIKERA (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Upprepar ett strängvärde ett angivet antal gånger. |
+| [REPLIKERA (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | Upprepar ett strängvärde ett angivet antal gånger. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returnerar den omvända ordningen av ett strängvärde. |
 
-Med hjälp av de här funktionerna kan du nu köra frågor på följande sätt. Till exempel kan du returnera efternamnet i versaler på följande sätt:
-
-**Söka i data**
+Med dessa funktioner kan du köra frågor som följande, vilket returnerar familjen `id` stora bokstäver:
 
 ```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [
@@ -1475,16 +1300,14 @@ Med hjälp av de här funktionerna kan du nu köra frågor på följande sätt. 
     ]
 ```
 
-Eller sammanfoga strängar som i det här exemplet:
-
-**Söka i data**
+Eller konkatenera strängar, som i det här exemplet:
 
 ```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1493,13 +1316,11 @@ Eller sammanfoga strängar som i det här exemplet:
     },
     {
       "id": "AndersenFamily",
-      "location": "seattle,WA"
+      "location": "Seattle,WA"
     }]
 ```
 
-Strängfunktioner kan även användas i WHERE-satsen för att filtrera resultat som i följande exempel:
-
-**Söka i data**
+Du kan också använda strängfunktioner i WHERE-satsen för att filtrera resultat, som i följande exempel:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -1507,7 +1328,7 @@ Strängfunktioner kan även användas i WHERE-satsen för att filtrera resultat 
     WHERE STARTSWITH(Families.id, "Wakefield")
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1518,7 +1339,7 @@ Strängfunktioner kan även användas i WHERE-satsen för att filtrera resultat 
 
 ### <a name="array-functions"></a>Matrisfunktioner
 
-Följande skalärfunktioner utför en åtgärd på ett matrisindatavärde och returnerar ett numeriskt värde, ett booleskt värde eller ett matrisvärde. Här är en tabell med inbyggda matrisfunktioner:
+Följande skalärfunktioner utföra en åtgärd på ett indatavärde för matrisen och returnerar ett numeriskt, booleskt värde eller matrisvärdet. Här är en tabell med inbyggda matrisfunktioner:
 
 | Användning | Beskrivning |
 | --- | --- |
@@ -1527,9 +1348,7 @@ Följande skalärfunktioner utför en åtgärd på ett matrisindatavärde och re
 | [ARRAY_CONTAINS (arr_expr, uttryck [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Kan ange om matchningen är fullständig eller partiell. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returnerar en del av ett matrisuttryck. |
 
-Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är till exempel en fråga som returnerar alla objekt där en av föräldrarna är ”Robin Wakefield”. 
-
-**Söka i data**
+Använda matrisfunktioner för att manipulera matriser i JSON. Här är till exempel en fråga som returnerar alla objekt `id`s där det är en av de `parents` är `Robin Wakefield`: 
 
 ```sql
     SELECT Families.id 
@@ -1537,7 +1356,7 @@ Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är til
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1545,9 +1364,7 @@ Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är til
     }]
 ```
 
-Du kan ange ett partiellt fragment för matchande element i matrisen. Följande fråga hittar alla överordnade element med `givenName` `Robin`.
-
-**Söka i data**
+Du kan ange ett partiellt fragment för matchande element i matrisen. Följande fråga söker efter alla objekt `id`er som har `parents` med den `givenName` av `Robin`:
 
 ```sql
     SELECT Families.id 
@@ -1555,7 +1372,7 @@ Du kan ange ett partiellt fragment för matchande element i matrisen. Följande 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1563,16 +1380,14 @@ Du kan ange ett partiellt fragment för matchande element i matrisen. Följande 
     }]
 ```
 
-Här är ett annat exempel där ARRAY_LENGTH används för att hämta antalet barn per familj.
-
-**Söka i data**
+Ett annat exempel där ARRAY_LENGTH används för att få en `children` per familj:
 
 ```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1587,19 +1402,17 @@ Här är ett annat exempel där ARRAY_LENGTH används för att hämta antalet ba
 
 ### <a name="spatial-functions"></a>Spatiella funktioner
 
-Cosmos DB stöder följande inbyggda OGC-funktioner (Open Geospatial Consortium) för geospatial frågekörning. 
+Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatiala frågor: 
 
 | Användning | Beskrivning |
 | --- | --- |
-| ST_DISTANCE (point_expr, point_expr) | Returnerar avståndet mellan de två GeoJSON Point-, Polygon- eller LineString-uttrycken. |
-| T_WITHIN (point_expr, polygon_expr) | Returnerar ett booleskt uttryck som anger huruvida det första GeoJSON-objektet (Point, Polygon eller LineString) finns i det andra GeoJSON-objektet (Point, Polygon eller LineString). |
-| ST_INTERSECTS (spatial_expr, spatial_expr) | Returnerar ett booleskt uttryck som anger huruvida de två angivna GeoJSON-objekten (Point, Polygon eller LineString) överlappar varandra. |
-| ST_ISVALID | Returnerar ett booleskt värde som anger huruvida det angivna GeoJSON Point-, Polygon- eller LineString-uttrycket är giltigt. |
-| ST_ISVALIDDETAILED | Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna GeoJSON Point-, Polygon- eller LineString-uttrycket är giltigt, och orsaken som ett strängvärde om det är ogiltigt. |
+| ST_DISTANCE (point_expr, point_expr) | Returnerar avståndet mellan två GeoJSON `Point`, `Polygon`, eller `LineString` uttryck. |
+| T_WITHIN (point_expr, polygon_expr) | Returnerar ett booleskt uttryck som anger om det första GeoJSON-objektet (`Point`, `Polygon`, eller `LineString`) ligger inom det andra GeoJSON-objektet (`Point`, `Polygon`, eller `LineString`). |
+| ST_INTERSECTS (spatial_expr, spatial_expr) | Returnerar ett booleskt uttryck som anger om två angivna GeoJSON-objekt (`Point`, `Polygon`, eller `LineString`) överlappar varandra. |
+| ST_ISVALID | Returnerar ett booleskt värde som anger om den angivna GeoJSON `Point`, `Polygon`, eller `LineString` uttrycket är giltigt. |
+| ST_ISVALIDDETAILED | Returnerar ett JSON-värde som innehåller ett booleskt värde om den angivna GeoJSON `Point`, `Polygon`, eller `LineString` uttrycket är giltigt, och om det är ogiltigt, orsak som ett strängvärde. |
 
-Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är till exempel en fråga som returnerar alla familjeobjekt som ligger inom 30 km från den angivna platsen med hjälp av den inbyggda funktionen ST_DISTANCE.
-
-**Söka i data**
+Du kan använda spatial funktioner för att utföra närhetsförfrågningar mot spatialdata. Här är till exempel en fråga som returnerar alla family objekt som ligger inom 30 km för en angiven plats med hjälp av den inbyggda funktionen ST_DISTANCE:
 
 ```sql
     SELECT f.id
@@ -1607,7 +1420,7 @@ Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga d
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 ```
 
-**Resultat**
+Resultatet är:
 
 ```json
     [{
@@ -1615,21 +1428,345 @@ Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga d
     }]
 ```
 
-Mer information om geospatialt stöd i Cosmos DB finns i avsnittet om att [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). Då är vi klara med spatiella funktioner och SQL-syntax för Cosmos DB. Nu tittar vi på hur LINQ-frågekörning fungerar och hur det interagerar med den syntax som vi har sett hittills.
+Mer information om geospatialt stöd i Cosmos DB finns i avsnittet om att [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). 
+
+## <a name="parameterized-queries"></a>Frågor med parametrar
+
+Cosmos DB stöder frågor med parametrar som är uttryckt med bekant @ notation. Parametriserad SQL ger stabil hantering och undantagstecken indata från användaren och förhindrar oavsiktlig exponering av data via SQL-inmatning.
+
+Du kan till exempel skriva en fråga som tar `lastName` och `address.state` som parametrar, och kör det för olika värden på `lastName` och `address.state` baserat på indata från användaren.
+
+```sql
+    SELECT *
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
+
+Du kan sedan skicka denna begäran till Cosmos DB som en fråga som innehåller JSON som liknar följande:
+
+```sql
+    {
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",
+        "parameters": [
+            {"name": "@lastName", "value": "Wakefield"},
+            {"name": "@addressState", "value": "NY"},
+        ]
+    }
+```
+
+I följande exempel anger argumentet ÖVERSTA med en fråga med parametrar: 
+
+```sql
+    {
+        "query": "SELECT TOP @n * FROM Families",
+        "parameters": [
+            {"name": "@n", "value": 10},
+        ]
+    }
+```
+
+Parametervärden kan vara valfri giltig JSON: strängar, tal, booleska värden, null, och med matriser eller kapslad JSON. Eftersom Cosmos DB är schemalös verifieras parametrar inte mot alla typer.
+
+## <a id="JavaScriptIntegration"></a>JavaScript-integrering
+
+Azure Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt i behållare, med hjälp av lagrade procedurer och utlösare. Den här modellen har stöd för:
+
+* Högpresterande transaktionella CRUD-åtgärder och frågor mot objekt i en behållare, tack vare den djupgående integrationen av JavaScript-körning inom databasmotorn.
+* En naturlig modellering av Kontrollflöde, variabel omfång och tilldelning och integrering av hantering primitiver med databastransaktioner. 
+
+Mer information om Azure Cosmos DB JavaScript-integrering finns i den [JavaScript API för serversidan](#JavaScriptServerSideApi) avsnittet.
+
+### <a name="operator-evaluation"></a>Operatorutvärdering
+
+Cosmos DB, som en JSON-databas ritar parallels med JavaScript-operatorer och utvärderingen semantik. Cosmos DB försöker bevara JavaScript-semantik i JSON-stöd, men åtgärden utvärderingen avviker i vissa fall.
+
+I SQL-API, är till skillnad från traditionella SQL typer av värden ofta inte kända tills API: et hämtar värdena från databasen. För att effektivt köra frågor har de flesta av operatorerna strikta typkrav.
+
+Till skillnad från JavaScript utföra inte SQL-API: T implicit konvertering. Exempelvis kan en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar objekt som innehåller en `Age` egenskap vars värde är `21`. Det matchar inte några andra objekt vars `Age` -egenskap stämmer eventuellt oändlig varianter som `twenty-one`, `021`, eller `21.0`. Detta kan jämföras med JavaScript, där strängvärden implicit konvertera till tal baserat på operator, till exempel: `==`. Det här beteendet för SQL-API är avgörande för matchning av effektiv index.
+
+## <a id="ExecutingSqlQueries"></a>SQL-frågekörning
+
+Alla språk som stöder HTTP/HTTPS-förfrågningar kan anropa REST-API i Cosmos DB. Cosmos DB erbjuder också programmeringsbibliotek för .NET, Node.js, JavaScript och Python programmeringsspråk. REST API och bibliotek alla stöd för frågor via SQL och .NET SDK stöder också [LINQ-frågor](#Linq).
+
+I följande exempel visas hur du skapar en fråga och skickar den mot ett Cosmos DB-databaskonto.
+
+### <a id="RestAPI"></a>REST API
+
+Cosmos DB erbjuder en öppen RESTful-programmeringsmodell via HTTP. Vilken resursmodell som består av en uppsättning resurser under ett databaskonto som etablerar en Azure-prenumeration. Kontot som består av en uppsättning *databaser*, som kan innehålla flera *behållare*, vilket i sin tur innehåller *objekt*, användardefinierade funktioner och andra typer av resurser. Varje Cosmos DB-resurs är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas en *feed*. 
+
+Grundläggande interaction modellen med dessa resurser är via HTTP-verb `GET`, `PUT`, `POST`, och `DELETE`, med sina standard tolkningar. Använd `POST` för att skapa en ny resurs, kör en lagrad procedur eller utfärda en Cosmos DB-fråga. Frågor är alltid skrivskyddade åtgärder utan bieffekter.
+
+Följande exempel visar en `POST` för en SQL API-frågor mot en exempelobjekt. Frågan har en enkel filter på JSON- `name` egenskapen. Den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker anger att åtgärden är en fråga. Ersätt `mysqlapicosmosdb.documents.azure.com:443` med URI: N för Cosmos DB-kontot.
+
+```json
+    POST https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
+    {
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",
+        "parameters": [
+            {"name": "@familyId", "value": "AndersenFamily"}
+        ]
+    }
+```
+
+Resultatet är:
+
+```json
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
+    x-ms-item-count: 1
+    x-ms-request-charge: 0.32
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "id":"AndersenFamily",
+             "lastName":"Andersen",
+             "parents":[  
+                {  
+                   "firstName":"Thomas"
+                },
+                {  
+                   "firstName":"Mary Kay"
+                }
+             ],
+             "children":[  
+                {  
+                   "firstName":"Henriette Thaulow",
+                   "gender":"female",
+                   "grade":5,
+                   "pets":[  
+                      {  
+                         "givenName":"Fluffy"
+                      }
+                   ]
+                }
+             ],
+             "address":{  
+                "state":"WA",
+                "county":"King",
+                "city":"Seattle"
+             },
+             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
+             "_ts":1407691744,
+             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
+             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
+             "_attachments":"_attachments\/"
+          }
+       ],
+       "count":1
+    }
+```
+
+Nästa och mer komplexa frågan returnerar flera resultat från en koppling:
+
+```json
+    POST https://https://mysqlapicosmosdb.documents.azure.com:443/docs HTTP/1.1
+    ...
+    x-ms-documentdb-isquery: True
+    Content-Type: application/query+json
+
+    {
+        "query": "SELECT
+                     f.id AS familyName,
+                     c.givenName AS childGivenName,
+                     c.firstName AS childFirstName,
+                     p.givenName AS petName
+                  FROM Families f
+                  JOIN c IN f.children
+                  JOIN p in c.pets",
+        "parameters": [] 
+    }
+```
+
+Resultatet är: 
+
+```json
+    HTTP/1.1 200 Ok
+    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
+    x-ms-item-count: 1
+    x-ms-request-charge: 7.84
+
+    {  
+       "_rid":"u1NXANcKogE=",
+       "Documents":[  
+          {  
+             "familyName":"AndersenFamily",
+             "childFirstName":"Henriette Thaulow",
+             "petName":"Fluffy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Goofy"
+          },
+          {  
+             "familyName":"WakefieldFamily",
+             "childGivenName":"Jesse",
+             "petName":"Shadow"
+          }
+       ],
+       "count":3
+    }
+```
+
+Om en frågas resultat inte får plats på en enda sida, REST-API: et returnerar ett fortsättningstoken via den `x-ms-continuation-token` svarshuvudet. Klienter kan sidbryta resultat genom att inkludera rubriken i efterföljande resultaten. Du kan också styra hur många resultat per sida via den `x-ms-max-item-count` nummer rubrik. 
+
+Om en fråga har en Aggregeringsfunktion som antal, kan sidan returnera en delvis aggregerat värde endast en resultatsida. Klienter måste utföra en andra nivån aggregering över dessa resultat för att skapa de slutliga resultaten. Till exempel summera över antal returneras i de enskilda sidorna att returnera det totala antalet.
+
+Hantera Datapolicy för konsekvens för frågor med den `x-ms-consistency-level` rubrik som i alla REST API-begäranden. Sessionskonsekvens kräver också eko senast `x-ms-session-token` cookiehuvud i query-fråga. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standardvärdet indexering principinställningar för behållare, indexet är alltid uppdaterad med objekt-innehållet och frågeresultat matcha konsekvens som valts för data. Mer information finns i [Azure Cosmos DB-konsekvensnivåer][consistency-levels].
+
+Om den konfigurera indexprincip för behållaren inte stöder den angivna frågan, returnerar 400 ”Felaktig begäran” i Azure Cosmos DB-servern. Det här felmeddelandet returnerar för frågor med sökvägar som uttryckligen är undantagen från indexering. Du kan ange den `x-ms-documentdb-query-enable-scan` rubrik så att frågan för att utföra en genomsökning när ett index är inte tillgänglig.
+
+Du kan få detaljerade mätvärden om frågekörning genom att ange den `x-ms-documentdb-populatequerymetrics` sidhuvud till `true`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
+
+### <a id="DotNetSdk"></a>C# (.NET SDK)
+
+.NET SDK stöder både LINQ- och SQL-frågor. I följande exempel visas hur du utför den föregående filtreringsfrågan med .NET:
+
+```csharp
+    foreach (var family in client.CreateDocumentQuery(containerLink,
+        "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
+
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(containerLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
+    foreach (var family in (
+        from f in client.CreateDocumentQuery(containerLink)
+        where f.Id == "AndersenFamily"
+        select f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in client.CreateDocumentQuery(containerLink)
+        .Where(f => f.Id == "AndersenFamily")
+        .Select(f => f))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
+```
+
+I följande exempel Jämför två egenskaper sinsemellan i varje objekt och använder anonym projektioner.
+
+```csharp
+    foreach (var family in client.CreateDocumentQuery(containerLink,
+        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family
+        FROM Families f
+        WHERE f.address.city = f.address.state"))
+    {
+        Console.WriteLine("\tRead {0} from SQL", family);
+    }
+
+    foreach (var family in (
+        from f in client.CreateDocumentQuery<Family>(containerLink)
+        where f.address.city == f.address.state
+        select new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ query", family);
+    }
+
+    foreach (var family in
+        client.CreateDocumentQuery<Family>(containerLink)
+        .Where(f => f.address.city == f.address.state)
+        .Select(f => new { Name = f.Id, City = f.address.city }))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", family);
+    }
+```
+
+I nästa exempel visas kopplingar, uttryckt genom LINQ `SelectMany`.
+
+```csharp
+    foreach (var pet in client.CreateDocumentQuery(containerLink,
+          @"SELECT p
+            FROM Families f
+                 JOIN c IN f.children
+                 JOIN p in c.pets
+            WHERE p.givenName = ""Shadow"""))
+    {
+        Console.WriteLine("\tRead {0} from SQL", pet);
+    }
+
+    // Equivalent in Lambda expressions:
+    foreach (var pet in
+        client.CreateDocumentQuery<Family>(containerLink)
+        .SelectMany(f => f.children)
+        .SelectMany(c => c.pets)
+        .Where(p => p.givenName == "Shadow"))
+    {
+        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
+    }
+```
+
+.NET-klienten automatiskt går igenom alla sidor i frågeresultaten i den `foreach` blockerar, som visas i föregående exempel. Frågealternativ introducerades i den [REST API](#RestAPI) avsnittet är också tillgängliga i .NET-SDK med hjälp av den `FeedOptions` och `FeedResponse` klasser i den `CreateDocumentQuery` metoden. Du kan styra hur många sidor med hjälp av den `MaxItemCount` inställningen.
+
+Du kan även explicit styra sidonumrering genom att skapa `IDocumentQueryable` med hjälp av objektet `IQueryable` och sedan läsa ` ResponseContinuationToken`-värdena och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. Du kan ange `EnableScanInQuery` aktivera sökningar när frågan inte stöds av den konfigurera indexprincip. Du kan använda för partitionerad behållare `PartitionKey` att köra frågan mot en enskild partition, även om Azure Cosmos DB automatiskt extrahera detta från frågetexten. Du kan använda `EnableCrossPartitionQuery` att köra frågor mot flera partitioner.
+
+Mer .NET-exempel med frågor finns i [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet) i GitHub.
+
+### <a id="JavaScriptServerSideApi"></a>JavaScript-API på serversidan
+
+Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt i behållare, med hjälp av lagrade procedurer och utlösare. JavaScript-logik som registrerats på behållarenivån kan sedan utfärda databasåtgärder i objekt av den angivna behållaren, och är inneslutna i omgivande ACID-transaktioner.
+
+I följande exempel visas hur du använder `queryDocuments` i JavaScript-server API att göra förfrågningar från insidan lagrade procedurer och utlösare:
+
+```javascript
+    function findName(givenName, familyName) {
+        var context = getContext();
+        var containerManager = context.getCollection();
+        var containerLink = containerManager.getSelfLink()
+
+        // create a new item.
+        containerManager.createDocument(containerLink,
+            { givenName: givenName, familyName: familyName },
+            function (err, documentCreated) {
+                if (err) throw new Error(err.message);
+
+                // filter items by familyName
+                var filterQuery = "SELECT * from root r WHERE r.familyName = 'Wakefield'";
+                containerManager.queryDocuments(containerLink,
+                    filterQuery,
+                    function (err, matchingDocuments) {
+                        if (err) throw new Error(err.message);
+    context.getResponse().setBody(matchingDocuments.length);
+
+                        // Replace the familyName for all items that satisfied the query.
+                        for (var i = 0; i < matchingDocuments.length; i++) {
+                            matchingDocuments[i].familyName = "Robin Wakefield";
+                            // we don't need to execute a callback because they are in parallel
+                            containerManager.replaceDocument(matchingDocuments[i]._self,
+                                matchingDocuments[i]);
+                        }
+                    })
+            });
+    }
+```
 
 ## <a id="Linq"></a>LINQ to SQL API
 
-LINQ är en .NET-programmeringsmodell som uttrycker beräkning som frågor på strömmar av objekt. Cosmos DB innehåller ett bibliotek på klientsidan för att samverka med LINQ genom att underlätta konvertering mellan JSON- och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos DB-frågor.
+LINQ är en .NET-programmeringsmodell som uttrycker beräkning som frågor för objekt-strömmar. Cosmos DB innehåller ett bibliotek på klientsidan för att samverka med LINQ genom att underlätta konvertering mellan JSON- och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos DB-frågor.
 
-Bilden nedan visar arkitekturen för att stödja LINQ-frågor med hjälp av Cosmos DB.  Med hjälp av Cosmos DB-klienten kan utvecklare skapa ett **IQueryable**-objekt som direkt kör frågor mot Cosmos DB-frågeprovidern, som sedan översätter LINQ-frågan till en Cosmos DB-fråga. Frågan skickas sedan till Cosmos DB-servern för att hämta en uppsättning resultat i JSON-format. Det returnerade resultatet deserialiseras till en ström av .NET-objekt på klientsidan.
+Följande diagram visar arkitekturen för stöd för LINQ-frågor med Cosmos DB. Med Cosmos DB-klienten kan du skapa en `IQueryable` objekt som direkt frågar Cosmos DB-frågeprovider och omvandlar LINQ-frågan till en Cosmos DB-fråga. Du kan sedan skicka frågan till Cosmos DB-server, som hämtar en uppsättning resultat i JSON-format. JSON-deserialiserare konverterar resultatet till en dataström med .NET-objekt på klientsidan.
 
 ![Arkitektur för att stödja LINQ-frågor med hjälp av SQL API – SQL-syntax, JSON-frågespråk, databasbegrepp och SQL-frågor][1]
 
 ### <a name="net-and-json-mapping"></a>.NET- och JSON-mappning
 
-Mappningen mellan .NET-objekt och JSON-objekt är naturlig – varje datamedlemsfält mappas till ett JSON-objekt, där fältnamnet mappas till ”nyckeldelen” i objektet och ”värdedelen” rekursivt mappas till värdedelen i objektet. Ta följande som exempel: Familjeobjektet mappas till JSON-objektet enligt bilden nedan. Och omvänt mappas JSON-objektet tillbaka till ett .NET-objekt.
-
-**C#-klass**
+Mappningen mellan .NET-objekt och JSON-objekt är naturlig. Varje medlemsfält som mappar till ett JSON-objekt, där fältnamnet mappar till den *nyckel* en del av objektet och värde rekursivt mappar till den *värdet* en del av objektet. I följande kod maps den `Family` undergrupp till en JSON-objektet och skapar sedan en `Family` objekt:
 
 ```csharp
     public class Family
@@ -1677,7 +1814,7 @@ Mappningen mellan .NET-objekt och JSON-objekt är naturlig – varje datamedlems
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
 ```
 
-**JSON**
+Exemplet ovan skapar följande JSON-objekt:
 
 ```json
     {
@@ -1709,562 +1846,331 @@ Mappningen mellan .NET-objekt och JSON-objekt är naturlig – varje datamedlems
     };
 ```
 
-
 ### <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
-Cosmos DB-frågeprovidern utför en mappning enligt bästa förmåga från en LINQ-fråga till en Cosmos DB SQL-fråga. I följande beskrivning förutsätter vi att läsaren har grundläggande kunskaper om LINQ.
+Cosmos DB-frågeprovidern utför en mappning enligt bästa förmåga från en LINQ-fråga till en Cosmos DB SQL-fråga. Följande beskrivning förutsätter en grundläggande kunskaper om LINQ.
 
-Till att börja med stöder vi för typsystemet alla primitive JSON-typer – numeriska typer, booleskt värde, sträng och null. Endast dessa JSON-typer stöds. Följande skalära uttryck stöds.
+Typsystemet fråga providern stöder endast JSON primitiva typer: numeriska och booleskt, sträng, och null. 
 
-* Konstanta värden – däribland konstanta värden för de primitiva datatyperna vid den tidpunkt då frågan utvärderas.
-* Egenskaps-/matrisindexuttryck – dessa uttryck syftar till egenskapen för ett objekt eller ett matriselement.
+Fråga providern har stöd för följande skalära uttryck:
+
+- Konstanta värden, inklusive konstanta värden för de primitiva datatyperna vid frågetiden för utvärdering.
   
-     family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n är en int-variabel
-* Aritmetiska uttryck – däribland vanliga aritmetiska uttryck på numeriska och booleska värden. En fullständig lista finns i SQL-specifikationen.
+- Egenskapen/matris indexuttryck som refererar till egenskapen för ett objekt eller ett matriselement. Exempel:
   
-     2 * family.children[0].grade;    x + y;
-* Strängjämförelseuttryck – däribland jämförelse av ett strängvärde med ett visst konstant strängvärde.  
+  ```
+    family.Id;
+    family.children[0].familyName;
+    family.children[0].grade;
+    family.children[n].grade; //n is an int variable
+  ```
   
-     mother.familyName == "Smith";    child.givenName == s; //s är en strängvariabel
-* Uttryck för skapande av objekt/matris – dessa uttryck returnerar ett objekt med sammansatt värdetyp eller anonym typ eller en matris med sådana objekt. Dessa värden kan kapslas.
+- Aritmetiska uttryck, inklusive vanliga matematiska uttryck på numeriska och booleska värden. Fullständig lista finns i den [Azure Cosmos DB SQL-specifikationen](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //en anonym typ med två fält              
-     new int[] { 3, child.grade, 5 };
+  ```
+    2 * family.children[0].grade;
+    x + y;
+  ```
+  
+- Sträng jämförelseuttryck bland annat jämför ett strängvärde till vissa konstant strängvärde.  
+  
+  ```
+    mother.familyName == "Wakefield";
+    child.givenName == s; //s is a string variable
+  ```
+  
+- Objektmatris/skapande uttryck som returnerar ett objekt av typ sammansatt värde eller anonym typ eller en matris med sådana objekt. Du kan kapsla dessa värden.
+  
+  ```
+    new Parent { familyName = "Wakefield", givenName = "Robin" };
+    new { first = 1, second = 2 }; //an anonymous type with two fields  
+    new int[] { 3, child.grade, 5 };
+  ```
 
-### <a id="SupportedLinqOperators"></a>Lista över LINQ-operatorer som stöds
+### <a id="SupportedLinqOperators"></a>LINQ-operatorer som stöds
 
-Här är en lista över LINQ-operatorer som stöds i den LINQ-provider som ingår i SQL .NET SDK.
+LINQ-provider som ingår i SQL .NET SDK stöder följande operatorer:
 
-* **Select**: Projektioner översätts till SQL SELECT inklusive objektkonstruktion
-* **Where**: Filter översätter till SQL WHERE och stöder översättning mellan && , || och ! till SQL-operatorerna
-* **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Kan användas för att kedja/kapsla uttryck för att filtrera på matriselement
-* **OrderBy och OrderByDescending**: Översätts till ORDER BY ascending/descending (stigande/fallande)
-* Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
-* **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar eftersom de inte är jämförbara i .NET
-* **Take**: Översätts till SQL TOP för att begränsa resultat av en fråga
-* **Math Functions** (Matematikfunktioner): Stöder översättning från .NET:s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan och Truncate till motsvarande inbyggda SQL-funktioner.
-* **String Functions** (Strängfunktioner): Stöder översättning från .NET:s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString och ToUpper till motsvarande inbyggda SQL-funktioner.
-* **Matrisfunktioner** (Matrisfunktioner): Stöder översättning från .NET:s Concat, Contains och Count till motsvarande inbyggda SQL-funktioner.
-* **Geospatial Extension Functions** (Geospatiala tilläggsfunktioner): Stöder översättning från stubbmetoderna Distance, Within, IsValid och IsValidDetailed till motsvarande inbyggda SQL-funktioner.
-* **User-Defined Function Extension Function** (Användardefinierad tilläggsfunktion): Stöder översättning från stubbmetoden UserDefinedFunctionProvider.Invoke till motsvarande inbyggda SQL-funktion.
-* **Miscellaneous** (Övrigt): Stöder översättning av Coalesce och de villkorliga operatorerna. Kan översätta Contains till String CONTAINS, ARRAY_CONTAINS eller SQL IN beroende på kontext.
+- **Select**: Projektioner översätts till SQL SELECT, inklusive objektkonstruktion.
+- **Where**: Filter översätter till SQL WHERE och stöd mellan `&&`, `||`, och `!` till SQL-operatorer
+- **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Använd för att länka eller kapsla uttryck för att filtrera på matriselement.
+- **OrderBy** och **OrderByDescending**: Omvandla till ORDER BY-med ASC eller DESC.
+- Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
+- **CompareTo**: Översätts till intervalljämförelser. Används vanligtvis för strängar, eftersom de inte är jämförbar i .NET.
+- **Take**: Översätts till SQL längst upp för att begränsa resultaten av en fråga.
+- **Matematikfunktioner**: Har stöd för översättning från .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, och `Truncate` till motsvarande SQL inbyggda funktioner.
+- **Sträng funktioner**: Har stöd för översättning från .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, och `TrimStart` till motsvarande SQL inbyggda funktioner.
+- **Matrisen funktioner**: Har stöd för översättning från .NET `Concat`, `Contains`, och `Count` till motsvarande SQL inbyggda funktioner.
+- **Tillägg för geospatiala funktioner**: Har stöd för översättning av stub-metoder `Distance`, `IsValid`, `IsValidDetailed`, och `Within` till motsvarande SQL inbyggda funktioner.
+- **En användardefinierad funktion tilläggsfunktion**: Har stöd för översättning från metoden stub- `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierade funktionen.
+- **Miscellaneous** (Övrigt): Har stöd för översättning av `Coalesce` och villkorlig operatörer. Kan översätta `Contains` strängen innehåller, ARRAY_CONTAINS eller IN-SQL, beroende på kontext.
 
 ### <a name="sql-query-operators"></a>SQL-frågeoperatorer
 
-Här följer några exempel som illustrerar hur några av LINQ-standardfrågeoperatorerna översätts ned till Cosmos DB-frågor.
+I följande exempel visas hur några av standard LINQ-frågeoperatorer översätta på Cosmos DB-frågor.
 
-#### <a name="select-operator"></a>Operatorn Select
+#### <a name="select-operator"></a>Välj operator
 
 Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
-**LINQ lambda-uttrycket**
+**Välj operator, exempel 1:**
 
-```csharp
-    input.Select(family => family.parents[0].familyName);
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Select(family => family.parents[0].familyName);
+  ```
+  
+- **SQL** 
+  
+  ```sql
+      SELECT VALUE f.parents[0].familyName
+      FROM Families f
+    ```
+  
+**Välj operator, exempel 2:** 
 
-**SQL** 
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Select(family => family.children[0].grade + c); // c is an int variable
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT VALUE f.children[0].grade + c
+      FROM Families f
+  ```
+  
+**Välj operator, exempel 3:**
 
-```sql
-    SELECT VALUE f.parents[0].familyName
-    FROM Families f
-```
-
-**LINQ lambda-uttrycket**
-
-```csharp
-    input.Select(family => family.children[0].grade + c); // c is an int variable
-```
-
-**SQL**
-
-```sql
-    SELECT VALUE f.children[0].grade + c
-    FROM Families f
-```
-
-**LINQ lambda-uttrycket**
-
-```csharp
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
     input.Select(family => new
     {
         name = family.children[0].familyName,
         grade = family.children[0].grade + 3
     });
-```
-
-**SQL** 
-
-```sql
-    SELECT VALUE {"name":f.children[0].familyName,
-                  "grade": f.children[0].grade + 3 }
-    FROM Families f
-```
-
+  ```
+  
+- **SQL** 
+  
+  ```sql
+      SELECT VALUE {"name":f.children[0].familyName,
+                    "grade": f.children[0].grade + 3 }
+      FROM Families f
+  ```
 
 #### <a name="selectmany-operator"></a>Operatorn SelectMany
 
 Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck som returnerar en containertyp.
 
-**LINQ lambda-uttrycket**
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.SelectMany(family => family.children);
+  ```
+  
+- **SQL**
 
-```csharp
-    input.SelectMany(family => family.children);
-```
-
-**SQL**
-
-```sql
-    SELECT VALUE child
-    FROM child IN Families.children
-```
+  ```sql
+      SELECT VALUE child
+      FROM child IN Families.children
+  ```
 
 #### <a name="where-operator"></a>Operatorn Where
 
 Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som returnerar ett booleskt värde.
 
-**LINQ lambda-uttrycket**
+**Där operatör, exempel 1:**
 
-```csharp
-    input.Where(family=> family.parents[0].familyName == "Smith");
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Where(family=> family.parents[0].familyName == "Wakefield");
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Wakefield"
+  ```
+  
+**Där operatör, exempel 2:**
 
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-```
-
-**LINQ lambda-uttrycket**
-
-```csharp
-    input.Where(
-        family => family.parents[0].familyName == "Smith" &&
-        family.children[0].grade < 3);
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-    AND f.children[0].grade < 3
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Where(
+          family => family.parents[0].familyName == "Wakefield" &&
+          family.children[0].grade < 3);
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Wakefield"
+      AND f.children[0].grade < 3
+  ```
 
 ### <a name="composite-sql-queries"></a>Sammansatta SQL-frågor
 
-Ovanstående operatorer kan sammansättas för att bilda kraftfullare frågor. Eftersom Cosmos DB stöder kapslade containrar kan sammansättningen antingen sammanfogas eller kapslas.
+Du kan skapa föregående operatorer för att skapa mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade behållare, kan du sammanfoga eller kapsla sammansättning.
 
 #### <a name="concatenation"></a>Sammanfogning
 
-Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany`-fråga följt av flera `Select`- eller `Where`- operatorer.
+Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` operatörer.
 
-**LINQ lambda-uttrycket**
+**Sammanfoga, exempel 1:**
 
-```csharp
-    input.Select(family=>family.parents[0])
-        .Where(familyName == "Smith");
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Select(family=>family.parents[0])
+          .Where(familyName == "Wakefield");
+  ```
 
-**SQL**
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE f.parents[0].familyName = "Wakefield"
+  ```
 
-```sql
-    SELECT *
-    FROM Families f
-    WHERE f.parents[0].familyName = "Smith"
-```
+**Sammanfoga exempel 2:**
 
-**LINQ lambda-uttrycket**
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Where(family => family.children[0].grade > 3)
+          .Select(family => family.parents[0].familyName);
+  ```
 
-```csharp
-    input.Where(family => family.children[0].grade > 3)
-        .Select(family => family.parents[0].familyName);
-```
+- **SQL**
+  
+  ```sql
+      SELECT VALUE f.parents[0].familyName
+      FROM Families f
+      WHERE f.children[0].grade > 3
+  ```
 
-**SQL**
+**Sammanfoga exempel 3:**
 
-```sql
-    SELECT VALUE f.parents[0].familyName
-    FROM Families f
-    WHERE f.children[0].grade > 3
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.Select(family => new { grade=family.children[0].grade}).
+          Where(anon=> anon.grade < 3);
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      WHERE ({grade: f.children[0].grade}.grade > 3)
+  ```
 
-**LINQ lambda-uttrycket**
+**Sammanfoga exempel 4:**
 
-```csharp
-    input.Select(family => new { grade=family.children[0].grade}).
-        Where(anon=> anon.grade < 3);
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    WHERE ({grade: f.children[0].grade}.grade > 3)
-```
-
-**LINQ lambda-uttrycket**
-
-```csharp
-    input.SelectMany(family => family.parents)
-        .Where(parent => parents.familyName == "Smith");
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM p IN Families.parents
-    WHERE p.familyName = "Smith"
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.SelectMany(family => family.parents)
+          .Where(parent => parents.familyName == "Wakefield");
+  ```
+  
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM p IN Families.parents
+      WHERE p.familyName = "Wakefield"
+  ```
 
 #### <a name="nesting"></a>Kapsling
 
-Syntaxen är `input.SelectMany(x=>x.Q())`, där Q är en `Select`-, `SelectMany`-, eller `Where`-operator.
+Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`, `SelectMany`, eller `Where` operator.
 
-I en kapslad fråga tillämpas den inre frågan på varje element i den yttre containern. En viktig funktion är att den inre frågan kan referera till fält i elementen i den yttre containern såsom självkopplingar.
+En kapslad fråga gäller den inre frågan för varje element i behållaren yttre. En viktig funktion är att den inre frågan kan referera till fält i element i behållaren yttre som en självkoppling.
 
-**LINQ lambda-uttrycket**
+**Kapsling, exempel 1:**
 
-```csharp
-    input.SelectMany(family=>
-        family.parents.Select(p => p.familyName));
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.SelectMany(family=>
+          family.parents.Select(p => p.familyName));
+  ```
 
-**SQL**
+- **SQL**
+  
+  ```sql
+      SELECT VALUE p.familyName
+      FROM Families f
+      JOIN p IN f.parents
+  ```
 
-```sql
-    SELECT VALUE p.familyName
-    FROM Families f
-    JOIN p IN f.parents
-```
+**Kapsling, exempel 2:**
 
-**LINQ lambda-uttrycket**
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.SelectMany(family =>
+          family.children.Where(child => child.familyName == "Jeff"));
+  ```
 
-```csharp
-    input.SelectMany(family =>
-        family.children.Where(child => child.familyName == "Jeff"));
-```
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      JOIN c IN f.children
+      WHERE c.familyName = "Jeff"
+  ```
 
-**SQL**
+**Kapsling, exempel 3:**
 
-```sql
-    SELECT *
-    FROM Families f
-    JOIN c IN f.children
-    WHERE c.familyName = "Jeff"
-```
+- **LINQ lambda-uttrycket**
+  
+  ```csharp
+      input.SelectMany(family => family.children.Where(
+          child => child.familyName == family.parents[0].familyName));
+  ```
 
-**LINQ lambda-uttrycket**
-
-```csharp
-    input.SelectMany(family => family.children.Where(
-        child => child.familyName == family.parents[0].familyName));
-```
-
-**SQL**
-
-```sql
-    SELECT *
-    FROM Families f
-    JOIN c IN f.children
-    WHERE c.familyName = f.parents[0].familyName
-```
-
-## <a id="ExecutingSqlQueries"></a>Köra SQL-frågor
-
-Cosmos DB visar resurser via ett REST-API som kan anropas av alla språk som kan göra HTTP/HTTPS-begäranden. Dessutom ger Cosmos DB programmeringsbibliotek för flera populära språk som .NET, Node.js, JavaScript och Python. REST API och de olika biblioteken har alla stöd för frågor via SQL. .NET SDK stöder LINQ-frågor utöver SQL.
-
-I följande exempel visas hur du skapar en fråga och skickar den mot ett Cosmos DB-databaskonto.
-
-### <a id="RestAPI"></a>REST API
-
-Cosmos DB erbjuder en öppen RESTful-programmeringsmodell via HTTP. Databaskonton kan etableras med hjälp av en Azure-prenumeration. Cosmos DB-resursmodellen består av en uppsättning resurser under ett databaskonto som var och en är adresserbar via en logisk och stabil URI. En uppsättning resurser kallas för ett flöde i det här objektet. Ett databaskonto består av en uppsättning databaser som var och en innehåller flera containrar, som i sin tur innehåller objekt, UDF:er och andra resurstyper.
-
-Den grundläggande interaktionsmodellen med dessa resurser är via HTTP-verben GET, PUT, POST och DELETE med deras standardtolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos DB-fråga. Frågor är alltid skrivskyddade åtgärder utan bieffekter.
-
-I följande exempel visas en POST för en SQL API-fråga som görs mot en container som innehåller de två exempelobjekt som vi har granskat hittills. Frågan har ett enkelt filter på JSON-namnegenskapen. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json`-huvuden för att ange att åtgärden är en fråga.
-
-**Förfrågan**
-```
-    POST https://<REST URI>/docs HTTP/1.1
-    ...
-    x-ms-documentdb-isquery: True
-    Content-Type: application/query+json
-
-    {
-        "query": "SELECT * FROM Families f WHERE f.id = @familyId",
-        "parameters": [
-            {"name": "@familyId", "value": "AndersenFamily"}
-        ]
-    }
-```
-
-**Resultat**
-
-```
-    HTTP/1.1 200 Ok
-    x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
-    x-ms-item-count: 1
-    x-ms-request-charge: 0.32
-
-    <indented for readability, results highlighted>
-
-    {  
-       "_rid":"u1NXANcKogE=",
-       "Documents":[  
-          {  
-             "id":"AndersenFamily",
-             "lastName":"Andersen",
-             "parents":[  
-                {  
-                   "firstName":"Thomas"
-                },
-                {  
-                   "firstName":"Mary Kay"
-                }
-             ],
-             "children":[  
-                {  
-                   "firstName":"Henriette Thaulow",
-                   "gender":"female",
-                   "grade":5,
-                   "pets":[  
-                      {  
-                         "givenName":"Fluffy"
-                      }
-                   ]
-                }
-             ],
-             "address":{  
-                "state":"WA",
-                "county":"King",
-                "city":"seattle"
-             },
-             "_rid":"u1NXANcKogEcAAAAAAAAAA==",
-             "_ts":1407691744,
-             "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
-             "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-             "_attachments":"_attachments\/"
-          }
-       ],
-       "count":1
-    }
-```
-
-Det andra exemplet visar en mer komplex fråga som returnerar flera resultat från kopplingen.
-
-**Förfrågan**
-```
-    POST https://<REST URI>/docs HTTP/1.1
-    ...
-    x-ms-documentdb-isquery: True
-    Content-Type: application/query+json
-
-    {
-        "query": "SELECT
-                     f.id AS familyName,
-                     c.givenName AS childGivenName,
-                     c.firstName AS childFirstName,
-                     p.givenName AS petName
-                  FROM Families f
-                  JOIN c IN f.children
-                  JOIN p in c.pets",
-        "parameters": [] 
-    }
-```
-
-**Resultat**
-
-```
-    HTTP/1.1 200 Ok
-    x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
-    x-ms-item-count: 1
-    x-ms-request-charge: 7.84
-
-    <indented for readability, results highlighted>
-
-    {  
-       "_rid":"u1NXANcKogE=",
-       "Documents":[  
-          {  
-             "familyName":"AndersenFamily",
-             "childFirstName":"Henriette Thaulow",
-             "petName":"Fluffy"
-          },
-          {  
-             "familyName":"WakefieldFamily",
-             "childGivenName":"Jesse",
-             "petName":"Goofy"
-          },
-          {  
-             "familyName":"WakefieldFamily",
-             "childGivenName":"Jesse",
-             "petName":"Shadow"
-          }
-       ],
-       "count":3
-    }
-```
-
-Om resultatet för en fråga inte ryms inom en enda resultatsida returnerar REST API en fortsättningstoken via `x-ms-continuation-token`-svarshuvudet. Klienter kan sidnumrera resultat genom att inkludera rubriken i efterföljande resultat. Antalet resultat per sida kan även styras via `x-ms-max-item-count`-nummerrubriken. Om den angivna frågan har en sammansättningsfunktion som `COUNT` kan frågan returnera ett delvis sammansatt värde över sidan med resultat. Klienterna måste utföra en sammansättning på andra nivån över dessa resultat för att bilda slutresultatet, till exempel summan över de mängder som returneras på de enskilda sidorna för att returnera totalmängden.
-
-För att hantera datakonsekvensprincipen för frågor använder du `x-ms-consistency-level`-huvudet som med alla REST API-begäranden. För sessionskonsekvens krävs det att det senaste `x-ms-session-token` Cookie-huvudet ekosänds i frågebegäran. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standardinställningarna för indexeringsprincip är index för containrar alltid aktuellt med de objektinnehåll och frågeresultat som matchar den konsekvens som valts för data. Mer information finns i [Konsekvensnivåer i Azure Cosmos DB][consistency-levels].
-
-Om den konfigurerade indexeringsprincipen i containern inte har stöd för den angivna frågan returnerar Azure Cosmos DB-servern 400 ”Bad Request” (Felaktig begäran). Det här felmeddelandet returneras för frågor med sökvägar som uttryckligen är undantagen från indexering. `x-ms-documentdb-query-enable-scan`-huvudet kan anges att tillåta att frågan utför en genomsökning när ett index inte är tillgängligt.
-
-Du kan få detaljerade mått om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics`-huvudet till `True`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
-
-### <a id="DotNetSdk"></a>C# (.NET) SDK
-
-.NET SDK stöder både LINQ- och SQL-frågor. I följande exempel visas hur du utför den filterfråga som introducerade tidigare i det här objektet.
-```csharp
-    foreach (var family in client.CreateDocumentQuery(containerLink,
-        "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
-
-    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
-    query.Parameters = new SqlParameterCollection();
-    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
-
-    foreach (var family in client.CreateDocumentQuery(containerLink, query))
-    {
-        Console.WriteLine("\tRead {0} from parameterized SQL", family);
-    }
-
-    foreach (var family in (
-        from f in client.CreateDocumentQuery(containerLink)
-        where f.Id == "AndersenFamily"
-        select f))
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
-
-    foreach (var family in client.CreateDocumentQuery(containerLink)
-        .Where(f => f.Id == "AndersenFamily")
-        .Select(f => f))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", family);
-    }
-```
-
-Det här exemplet jämför två egenskaper vad gäller kvalitet i varje objekt och använder anonyma projektioner.
-
-```csharp
-    foreach (var family in client.CreateDocumentQuery(containerLink,
-        @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family
-        FROM Families f
-        WHERE f.address.city = f.address.state"))
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
-
-    foreach (var family in (
-        from f in client.CreateDocumentQuery<Family>(containerLink)
-        where f.address.city == f.address.state
-        select new { Name = f.Id, City = f.address.city }))
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
-
-    foreach (var family in
-        client.CreateDocumentQuery<Family>(containerLink)
-        .Where(f => f.address.city == f.address.state)
-        .Select(f => new { Name = f.Id, City = f.address.city }))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", family);
-    }
-```
-
-I nästa exempel visas kopplingar, som uttryckts genom LINQ SelectMany.
-
-```csharp
-    foreach (var pet in client.CreateDocumentQuery(containerLink,
-          @"SELECT p
-            FROM Families f
-                 JOIN c IN f.children
-                 JOIN p in c.pets
-            WHERE p.givenName = ""Shadow"""))
-    {
-        Console.WriteLine("\tRead {0} from SQL", pet);
-    }
-
-    // Equivalent in Lambda expressions
-    foreach (var pet in
-        client.CreateDocumentQuery<Family>(containerLink)
-        .SelectMany(f => f.children)
-        .SelectMany(c => c.pets)
-        .Where(p => p.givenName == "Shadow"))
-    {
-        Console.WriteLine("\tRead {0} from LINQ lambda", pet);
-    }
-```
-
-.NET-klienten itererar automatiskt igenom alla sidor i frågeresultatet i foreach-blocken enligt vad som visas ovan. De frågealternativ som introducerades i REST API-avsnittet är även tillgängliga i .NET SDK med hjälp av klasserna `FeedOptions` och `FeedResponse` i metoden CreateDocumentQuery. Antalet sidor kan kontrolleras med inställningen `MaxItemCount`.
-
-Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den `ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurera indexprincip. För partitionerade containrar kan du använda `PartitionKey` för att köra frågan mot en enskild partition (Azure Cosmos DB kan dock automatiskt extrahera detta från frågetexten) och `EnableCrossPartitionQuery` för att köra frågor som kan behöva köras mot flera partitioner.
-
-Fler exempel som innehåller frågor finns i [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet).
-
-### <a id="JavaScriptServerSideApi"></a>JavaScript-API på serversidan
-
-Cosmos DB är en programmeringsmodell för att köra JavaScript-baserad programlogik direkt på containrarna med hjälp av lagrade procedurer och utlösare. Den JavaScript-logik som registreras på en containernivå kan sedan utfärda databasåtgärder i åtgärderna på objekten i den angivna containern. De här åtgärderna omsluts i omgivande ACID-transaktioner.
-
-I följande exempel visas hur du använder queryDocuments i JavaScript-server-API för att göra frågor inifrån lagrade procedurer och utlösare.
-
-```javascript
-    function businessLogic(name, author) {
-        var context = getContext();
-        var containerManager = context.getCollection();
-        var containerLink = containerManager.getSelfLink()
-
-        // create a new item.
-        containerManager.createDocument(containerLink,
-            { name: name, author: author },
-            function (err, documentCreated) {
-                if (err) throw new Error(err.message);
-
-                // filter items by author
-                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-                containerManager.queryDocuments(containerLink,
-                    filterQuery,
-                    function (err, matchingDocuments) {
-                        if (err) throw new Error(err.message);
-    context.getResponse().setBody(matchingDocuments.length);
-
-                        // Replace the author name for all items that satisfied the query.
-                        for (var i = 0; i < matchingDocuments.length; i++) {
-                            matchingDocuments[i].author = "George R. R. Martin";
-                            // we don't need to execute a callback because they are in parallel
-                            containerManager.replaceDocument(matchingDocuments[i]._self,
-                                matchingDocuments[i]);
-                        }
-                    })
-            });
-    }
-```
+- **SQL**
+  
+  ```sql
+      SELECT *
+      FROM Families f
+      JOIN c IN f.children
+      WHERE c.familyName = f.parents[0].familyName
+  ```
 
 ## <a id="References"></a>Referenser
 
-1. [Introduktion till Azure Cosmos DB][introduction]
-2. [Azure Cosmos DB SQL-specifikation](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-4. [Konsekvensnivåer i Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [https://json.org/](https://json.org/)
-7. JavaScript-specifikation [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
-9. Frågeutvärderingstekniker för stora databaser [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
-10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+- [Azure Cosmos DB SQL-specifikation](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+- [JSON](https://json.org/)
+- [JavaScript-specifikation](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
+- Graefe, Goetz. [Fråga efter utvärderingen tekniker för stora databaser](https://dl.acm.org/citation.cfm?id=152611). *ACM databehandling undersökningar* 25, inga. 2 (1993).
+- Graefe, G. ”Kaskadspridas ramverket för Frågeoptimeringen”. *IEEE Data Eng. Bull.* 18, inga. 3 (1995).
+- Lu, Ooi, Tan. ”Frågebearbetning i parallella relationsdatabassystem”. *IEEE datorn Society genom att trycka på* (1994).
+- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar och Andrew Tomkins. ”Pig Latin: En inte så främmande språk för databearbetning ”. *SIGMOD* (2008).
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Introduktion till Azure Cosmos DB][introduction]
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB-konsekvensnivåer][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md

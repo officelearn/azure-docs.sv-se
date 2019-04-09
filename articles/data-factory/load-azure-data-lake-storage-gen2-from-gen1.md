@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448918"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256795"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Data Lake Storage Gen1-konto med data i den.
-* Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto, klickar du på [här](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) att skapa en.
+* Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto [skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -104,7 +104,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    
    ![Ange konto för Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. I den **Välj utdatafil eller mapp** anger **copyfromadlsgen1** som utdata mappnamn och välj **nästa**: 
+9. I den **Välj utdatafil eller mapp** anger **copyfromadlsgen1** som utdata mappnamn och välj **nästa**. ADF skapar motsvarande ADLS Gen2 filsystemet och undermappar vid kopiering om det inte finns.
 
     ![Ange Utdatamappen](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 

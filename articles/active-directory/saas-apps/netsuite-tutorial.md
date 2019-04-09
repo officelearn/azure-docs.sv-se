@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887433"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Självstudier: Azure Active Directory-katalogintegrering med NetSuite
 
@@ -173,19 +173,19 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med NetSu
 
 1. Öppna en ny flik i din webbläsare och logga in på din NetSuite-företagswebbplats som administratör.
 
-2. I verktygsfältet högst upp på sidan, klickar du på **Konfigurera** och går sedan till **Företag** och klickar på **Aktivera funktioner**.
+2. I verktygsfältet högst upp på sidan, klickar du på **installationsprogrammet**, gå sedan till **företagets** och klicka på **aktivera funktioner**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. I verktygsfältet i mitten på sidan, klickar du på **SuiteCloud**.
+3. I verktygsfältet i mitten på sidan, klickar du på **SuiteCloud**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Under avsnittet **Hantera autentisering** väljer du **SAML enkel inloggning** för att aktivera alternativet SAML enkel inloggning i NetSuite.
+4. Under **hantera autentisering** väljer **SAML enkel inloggning** att aktivera alternativet SAML enkel inloggning i NetSuite.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. I verktygsfältet i mitten på sidan, klickar du på **Konfigurera**.
+5. I verktygsfältet högst upp på sidan, klickar du på **installationsprogrammet**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -324,11 +324,11 @@ När du klickar på NetSuite-panelen i åtkomstpanelen så borde du automatiskt 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](NetSuite-provisioning-tutorial.md)
+- [Konfigurera Användaretablering](NetSuite-provisioning-tutorial.md)
 

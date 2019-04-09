@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769290"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263850"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -25,7 +25,7 @@ Innan du skapar en export-jobbet för att överföra data från Azure Blob Stora
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
 - Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
-- Ha ett FedEx/DHL-konto.  
+- Ha ett FedEx/DHL-konto. Om du vill använda en operatör än FedEx/DHL kontakta Azure Data Box Operations-teamet på `adbops@microsoft.com`. 
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
     - Generera en spårningsnummer för export-jobbet.
     - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte. 
@@ -82,7 +82,7 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
 
 4. I **returnera leveransinformation**:
 
-    - Välj vilken operatör i listrutan.
+    - Välj vilken operatör i listrutan. Om du vill använda en operatör än FedEx/DHL väljer du ett befintligt alternativ i listrutan. Kontakta Azure Data Box Operations team på `adbops@microsoft.com` med information om vilken operatör du tänker använda.
     - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
 
@@ -146,7 +146,7 @@ Detta *valfritt* steg hjälper till att du bestämmer hur många enheter som kr�
     |**/sk:**|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
     |**/csas:**|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
     |**/ExportBlobListFile:**|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs) driften av REST-API för Import/Export-tjänsten.|  
-    |**/ DriveSize:**|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
+    |**/DriveSize:**|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
 
     Se en [exempel på kommandot PreviewExport](#example-of-previewexport-command).
  

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175120"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266978"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0 protokoll – OAuth 2.0 och OpenID Connect
 
@@ -41,10 +41,11 @@ I nästan alla flöden som OAuth 2.0 och OpenID Connect finns det fyra parter so
 * Den **Auktoriseringsservern** är v2.0-slutpunkten och ansvarar för att användarens identitet, bevilja och återkalla åtkomst till resurser och utfärda token. Auktoriseringsservern även känt som identitetsprovider - den på ett säkert sätt hanterar något att göra med information om användaren, deras åtkomst och förtroenderelationer mellan parterna i ett flöde.
 * Den **Resursägaren** är vanligtvis användaren. Det är den part som äger data och har rätt att tillåta tredje part att få åtkomst till den data- eller resursen.
 * Den **OAuth klienten** använder din app som identifieras av dess program-ID. OAuth-klienten är vanligtvis den part som användaren interagerar med och begär token från auktoriseringsservern. Klienten måste beviljas behörighet att komma åt resursen som ägare till resursen.
-* Den **resursservern** är där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten och använder ägar access_tokens så att du kan få åtkomst till en resurs.
+* Den **resursservern** är där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten och använder ägar åtkomst-token så att du kan få åtkomst till en resurs.
 
 ## <a name="app-registration"></a>Appregistrering
-Alla appar som använder v2.0-slutpunkten måste vara registrerade i [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) eller via den nya **appregistreringar (förhandsversion)** användarupplevelsen i den [Azure-portalen](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) innan den kan interagera med hjälp av OAuth eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
+
+Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste registreras via nya **appregistreringar (förhandsversion)** användarupplevelsen i den [Azure-portalen](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) innan den kan logga dessa användare med hjälp av OAuth 2.0 eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
 
 * En **program-ID** som unikt identifierar din app
 * En **omdirigerings-URI** eller **Paketidentifierare** som kan användas för att dirigera svar tillbaka till din app
@@ -71,6 +72,9 @@ Där den `{tenant}` kan ha något av fyra olika värden:
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Kan endast användare med arbets-/ skolkonton från en viss Azure AD-klient för att logga in i programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens GUID-identifierare. |
 
 Om du vill veta hur du interagerar med de här slutpunkterna, väljer du en viss app-typ i den [protokoll](#protocols) avsnittet och följ länkarna för mer information.
+
+> [!TIP]
+> Alla appar som är registrerade i Azure AD kan använda v2.0-slutpunkten, även om de inte loggar in personliga konton.  På så sätt kan du migrera befintliga program till v2.0 och [MSAL](reference-v2-libraries.md) utan att återskapa ditt program.  
 
 ## <a name="tokens"></a>Token
 

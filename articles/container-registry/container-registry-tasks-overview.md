@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915938"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256200"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisera framework uppdatering med ACR uppgifter av operativsystem och
 
@@ -97,10 +97,9 @@ Lär dig om uppgifter i flera steg i [köra flera steg skapa, testa och patch up
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du är redo att automatisera OS och framework uppdatering genom att skapa dina behållaravbildningar i molnet, ta en titt självstudieserien i tre delar ACR uppgifter.
+När du är redo att automatisera framework uppdatering genom att skapa dina behållaravbildningar i molnet av operativsystem och ta en titt i tre delar [ACR uppgifter självstudieserien](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Skapa behållaravbildningar i molnet med Azure Container Registry uppgifter](container-registry-tutorial-quick-task.md)
+Du kan också installera den [Docker-tillägg för Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) och [Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) tillägg att arbeta med din Azure-behållarregister. Hämta och push-överför avbildningar till ett Azure container registry eller köra ACR aktiviteter, allt inom Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

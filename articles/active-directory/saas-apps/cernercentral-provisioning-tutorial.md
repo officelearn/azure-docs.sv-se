@@ -13,27 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102575"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058075"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
-Målet med den här självstudien är att visa dig vad du behöver för att utföra i Cerner Central och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till en lista med användare i Cerner Central. 
-
+Målet med den här självstudien är att visa dig vad du behöver för att utföra i Cerner Central och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till en lista med användare i Cerner Central.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active Directory-klientorganisation
-*   En Cerner Central-klient 
+* En Azure Active Directory-klientorganisation
+* En Cerner Central-klient
 
 > [!NOTE]
 > Azure Active Directory kan integreras med Cerner Central med hjälp av den [SCIM](http://www.simplecloud.info/) protokoll.
@@ -48,12 +47,11 @@ Innan du konfigurerar och aktiverar etableringstjänsten, bör du bestämma vilk
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Viktiga tips för att tilldela användare till Cerner Central
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas till Cerner Central att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till Cerner Central att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
 * När den inledande testningen är klar för en enskild användare, rekommenderar Cerner centrala tilldela hela listan över användare som ska få åtkomst till någon Cerner-lösning (inte bara Cerner centrala) som ska tillhandahållas Cerners användaren lista.  Andra lösningar för Cerner utnyttja den här listan över användare i användarens lista.
 
-*   När du tilldelar en användare till Cerner Central, måste du välja den **användaren** roll i dialogrutan för tilldelning. Användare med rollen ”standard åtkomst” undantas från etablering.
-
+* När du tilldelar en användare till Cerner Central, måste du välja den **användaren** roll i dialogrutan för tilldelning. Användare med rollen ”standard åtkomst” undantas från etablering.
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>Konfigurera användaretablering till Cerner Central
 
@@ -62,9 +60,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Cerner centrala an
 > [!TIP]
 > Du kan också välja att aktiverat SAML-baserad enkel inloggning för Cerner Central, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna kompletterar varandra. Mer information finns i den [Cerner centrala enkel inloggning för självstudien](cernercentral-tutorial.md).
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till Cerner Central i Azure AD:
-
 
 För att kunna tillhandahålla användarkonton till Cerner Central behöver att begära ett Cerner centrala systemkonto från Cerner och generera en OAuth-ägartoken som Azure AD kan använda för att ansluta till Cerner's SCIM-slutpunkten. Vi rekommenderar också att integrationen ska utföras i en testmiljö för Cerner innan du distribuerar till produktion.
 
@@ -106,9 +102,9 @@ För att kunna tillhandahålla användarkonton till Cerner Central behöver att 
 
    * I den **klient-URL** anger en URL i formatet nedan, där du ersätter ”User-lista-sfär-ID” med ID: T för sfär som du har köpt i steg #4.
 
-> Sandbox-miljön: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> Produktion: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Sandbox-miljön: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > Produktion: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * I den **hemlighet Token** fältet anger OAuth-ägartoken som du genererade i steg #3 Klicka **Testanslutningen**.
 
@@ -116,13 +112,13 @@ För att kunna tillhandahålla användarkonton till Cerner Central behöver att 
 
 1. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan nedan.
 
-1. Klicka på **Spara**. 
+1. Klicka på **Spara**.
 
 1. I den **attributmappningar** går du igenom attribut för användare och grupper som ska synkroniseras från Azure AD till Cerner Central. Attribut som har markerats som **matchande** egenskaper som används för att matcha de användarkonton och grupper i Cerner Central för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
 
 1. Om du vill aktivera den Azure AD-etableringstjänsten för Cerner Central, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
 
-1. Klicka på **Spara**. 
+1. Klicka på **Spara**.
 
 Detta startar den första synkroniseringen av användare och/eller grupper som har tilldelats till Cerner Central i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din Cerner Central-app.
 
@@ -136,4 +132,5 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Lär dig att granska loggarna och få rapporter om etablering aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

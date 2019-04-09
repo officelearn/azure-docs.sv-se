@@ -9,22 +9,21 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: igorstan
-ms.openlocfilehash: 0f35e14686c2bd3f87faf51ed6a54728f2a54641
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466038"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256914"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
-Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse. 
 
-- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
-- En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
+Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse.
 
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
+
 Minska svarstiden genom att samplacera ditt lagringsskikt och datalager.
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
@@ -39,15 +38,17 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Överväg att skala upp ditt informationslager innan belastningen om du förväntar dig ett stort inläsningsjobb.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. När du kör en inläsning loggar du in som en av inläsningsanvändarna och kör sedan inläsningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. Om du vill köra en belastning, logga in som en av inläsningsanvändarna och kör sedan inläsningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
+
 I det här exemplet skapas en inläsningsanvändare för resursklassen staticrc20. Det första steget är att **ansluta till huvudservern** och skapa en inloggning.
 
 ```sql
    -- Connect to master
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
+
 Anslut till informationslagret och skapa en användare. Följande kod förutsätter att du är ansluten till databasen mySampleDataWarehouse. Det visar hur du skapar en användare med namnet LoaderRC20 och ger användare kontrollbehörighet på en databas. Det lägger sedan till användaren som en medlem i staticrc20-databasrollen.  
 
 ```sql
@@ -56,7 +57,8 @@ Anslut till informationslagret och skapa en användare. Följande kod förutsät
    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
-När du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du bara in som LoaderRC20 och kör inläsningen.
+
+Om du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du in som LoaderRC20 och kör inläsningen.
 
 Kör inläsningar under statiska i stället för dynamiska resursklasser. Använda statiska resursklasser ser samma resurser oavsett dina [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
@@ -73,7 +75,6 @@ Anta att du har följande databasscheman: schema_A för avdelning A och schema_B
 
 User_A och user_B är nu utelåsta från den andra avdelningens schema.
 
-
 ## <a name="loading-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 
 För att uppnå högsta inläsningshastighet vid flytt av data till en informationslagertabell, läs in data i en mellanlagringstabellen.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ. 
@@ -87,7 +88,6 @@ Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i hög
 - För att säkerställa att inläsningsanvändaren har tillräckligt med minne för att uppnå maximal komprimeringsgrad ska du använda inläsningsanvändare som är medlemmar i en mellanstor eller stor resursklass. 
 - Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Under en massinläsning komprimeras var 1 048 576:e rad direkt till columnstore som en fullständig radgrupp. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex. Om du läser in för få rader kan alla rader hamna i deltalagringen och inte bli komprimerade direkt i kolumnlagringsformatet.
 
-
 ## <a name="handling-loading-failures"></a>Hantera inläsningsfel
 
 Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär så här visas: *"Frågan avbröts. Det högsta tröskelvärdet för avslag nåddes vid inläsning från en extern källa"*. Detta meddelande anger att dina externa data innehåller ändrade poster. En datapost anses vara ändrade om datatyperna och antalet kolumner inte matchar kolumndefinitionen för den externa tabellen eller om data inte följer det angivna externa filformatet. 
@@ -95,6 +95,7 @@ Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär
 Du kan åtgärda de ändrade posterna genom att se till att definitionerna för den externa tabellen och det externa filformatet är korrekta och att dina externa data följer dessa definitioner. Om en delmängd av de externa dataposterna är felaktiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Infoga data i en produktionstabell
+
 En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Enskilda infogningar är emellertid inte lika effektiva som en massinläsning. 
 
 Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera dem så att du kan infoga dem med en massinläsning.  Utveckla dina processer så att enskilda infogningar bifogas i en fil och skapa sedan en annan process som regelbundet läser in filen.
@@ -112,6 +113,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>Rotera lagringsnycklar
+
 Det är en bra säkerhetsrutin att regelbundet ändra åtkomstnyckeln till din Blob Storage. Du har två lagringsnycklar för ditt blob storage-konto, som gör det möjligt att överföra nycklarna.
 
 Så här roterar du Azure Storage-kontonycklar:
@@ -134,9 +136,11 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Det behövs inga andra ändringar i underliggande externa datakällor.
 
-
 ## <a name="next-steps"></a>Nästa steg
-Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).
+
+- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
+- En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).
 
 
 

@@ -1,20 +1,20 @@
 ---
 title: ESP8266 till molnet – ansluta Feather HUZZAH ESP8266 till Azure IoT Hub | Microsoft Docs
 description: Lär dig hur du konfigurerar och ansluter Adafruit Feather HUZZAH ESP8266 på Azure IoT Hub för att skicka data till Azure-molnplattformen i den här självstudien.
-author: rangv
-manager: nasing
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847055"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259396"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Anslut Adafruit Feather HUZZAH ESP8266 till Azure IoT Hub i molnet
 

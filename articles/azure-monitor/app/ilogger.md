@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905281"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263771"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger loggar
 
@@ -208,10 +208,10 @@ Gamla providern kan fortfarande användas (det är nu föråldrad och kommer att
 1. Tidigare providern saknar stöd för [scope](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). I den nya providern läggs automatiskt egenskaper från omfång som anpassade egenskaper till telemetrin som samlas in.
 2. Loggar kan nu hämtas mycket tidigare i Start-pipelinen för programmet. i.e Loggar från Program och Start klasser kan nu hämtas.
 3. Med nya providern görs filtrering på nivån framework. Filtrering av loggar till Application Insights-providern kan göras i exakt samma sätt som för andra dataleverantörer, inklusive inbyggda providers som konsolen, felsökning och så vidare. Det är också möjligt att använda samma filter på flera leverantörer.
-4. Den [rekommenderas](https://github.com/aspnet/Announcements/issues/255) sättet i Asp.Net Core (2.0 och senare) att aktivera loggning providers är genom att använda tilläggsmetoder på ILoggingBuilder i `Program.cs` själva.
+4. Den [rekommenderas](https://github.com/aspnet/Announcements/issues/255) sättet i ASP.NET Core (2.0 och senare) att aktivera loggning providers är genom att använda tilläggsmetoder på ILoggingBuilder i `Program.cs` själva.
 
 > [!Note]
-Den nya providern är tillgänglig för program som riktar in sig på `NETSTANDARD2.0` eller högre. Om ditt program är inställd på äldre .NET Core-versioner som .NET Core 1.1 eller om inriktning på .NET Framework, kan du fortsätta att använda den gamla-providern.
+> Den nya providern är tillgänglig för program som riktar in sig på `NETSTANDARD2.0` eller högre. Om ditt program är inställd på äldre .NET Core-versioner som .NET Core 1.1 eller om inriktning på .NET Framework, kan du fortsätta att använda den gamla-providern.
 
 ## <a name="console-application"></a>Konsolprogram
 

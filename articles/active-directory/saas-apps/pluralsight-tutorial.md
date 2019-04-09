@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Självstudier: Azure Active Directory-integrering med Pluralsight
 
@@ -106,11 +106,11 @@ Utför följande steg om du vill konfigurera enkel inloggning med Azure AD med P
 
     ![Information om enkel inloggning med Pluralsight-domänen och URL:er](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
     b. I textrutan **Identifierare** skriver du in en URL: `www.pluralsight.com`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Kontakta [Pluralsight-supporten](mailto:support@pluralsight.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -218,7 +218,7 @@ När du klickar på Pluralsight-panelen i åtkomstpanelen bör du automatiskt lo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

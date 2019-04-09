@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894977"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058449"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -32,7 +32,7 @@ Med Azure Migrate får du hjälp med att:
 - Du kan endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0, 6.5 eller 6.7).
 - Stöd för Hyper-V är för närvarande i förhandsversion med produktionsstöd, om du vill försöka ut, måste du registrera dig [här.](https://aka.ms/migratefuture)
 - För bedömning av fysiska servrar, kan du utnyttja våra [partner verktyg](https://azure.microsoft.com/migration/partners/).
-- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
+- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och i ett enda projekt. Vi har en preview-versionen som gör att identifiering av upp till 10 000 virtuella VMware-datorer i ett enda projekt med hjälp av en enda enhet, om du är intresserad av att testar lösningen kan du registrera dig [här.](https://aka.ms/migratefuture)
 - Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 -  Du kan endast skapa ett Azure Migrate-projekt i nedanstående områden. Men det begränsar inte din möjlighet att skapa utvärderingar för andra Azure-målplatser.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2851383ed992b314af541b24e7753b1e6b12b28d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7380cf6727817d99edbedf5552c8bea42f177074
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898677"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Självstudier: Azure Active Directory-integrering med N2F - utgiftsrapporter
 
@@ -209,7 +209,7 @@ I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inlog
 
 Om du vill aktivera Azure AD-användare att logga in på N2F - utgiftsrapporter, måste de etableras i N2F - utgiftsrapporter. När det gäller N2F - utgiftsrapporter, är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din N2F - telekommunikation rapporter företagets plats som administratör.
 
@@ -250,9 +250,9 @@ När du klickar på N2F - utgiftsrapporter panelen i åtkomstpanelen, bör det v
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

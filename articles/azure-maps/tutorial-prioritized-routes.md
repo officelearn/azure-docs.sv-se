@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d78f46d2d62ca9db9400e0f436a8c0358734a54e
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 5dde20c485f7c2f528182c348aa6e78dc0c66034
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540524"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056579"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Hitta rutter för olika färdmedel med hjälp av Azure Maps
 
@@ -95,7 +95,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     });
     ```
 
-    **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta och är en komponent i API:et Azure Kartkontroll.
+    Den `atlas.Map` klassen ger kontroll en visuell och interaktiv webbkarta och är en komponent i Azure kartan kontroll-API: et.
 
 4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer.
 
@@ -103,10 +103,10 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
 ## <a name="visualize-traffic-flow"></a>Visualisera trafikflödet
 
-1. Lägga till displayen för trafikflöde i kartan. `map.events.add` ser till att alla kartfunktioner som lagts till på kartan läses in först när kartan har lästs in helt.
+1. Lägga till displayen för trafikflöde i kartan. Kartorna `ready` händelse väntar tills maps-resurser är inläst och klar att på ett säkert sätt interagera med den.
 
-    ```JavaScript
-    map.events.add("load", function() {
+    ```javascript
+    map.events.add("ready", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -114,9 +114,9 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     });
     ```
 
-    En inläsningshändelse har lagts till på kartan, som utlöses när kartresurserna har lästs in helt. I händelsehanteraren för kartinläsning anges tradikflödesinställningen på kartan till `relative`, vilket är hastigheten på fartleden i förhållande till fritt flöde. Du kan också ange den till `absolute` hastighet på vägen, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från fritt flöde.
+    I kartan `ready` händelsehanterare, inställningen traffic flow på kartan har angetts `relative`, vilket är hastigheten på vägen i förhållande till fritt flöde. Du kan också ange den till `absolute` hastighet på vägen, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från fritt flöde.
 
-2. Spara filen **MapTruckRoute.html** och uppdatera sidan i webbläsaren. Du bör se gator med aktuell trafikdata om du interagera med kartan och zooma in på Los Angeles.
+2. Spara filen **MapTruckRoute.html** och uppdatera sidan i webbläsaren. Om du interagera med kartan och zooma in på Los Angeles, bör du se gator med aktuella trafikdata.
 
    ![Visa trafikkarta](./media/tutorial-prioritized-routes/traffic-map.png)
 
@@ -126,39 +126,42 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
 I den här självstudien beräknas och renderas två vägar på kartan. En väg som använder fartleder som är tillgängliga för bilar och den andra som är tillgänglig för lastbilar. Vid rendering visar vi en symbolikon för början och slutet på vägen samt linjer med olika färger för varje vägfärd.
 
-1. Efter initiering av kartan, lägger du till följande JavaScript-kod i händelsen kartan.
+1. Efter initiering av kartan, lägger du till följande JavaScript-kod i mappningarna `ready` händelsehanterare.
 
     ```JavaScript
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+    //Wait until the map resources have fully loaded.
+    map.events.add('ready', function () {
 
-    //Add a layer for rendering the route lines and have it render under the map labels.
-    map.layers.add(new atlas.layer.LineLayer(datasource, null, {
-        strokeColor: ['get', 'strokeColor'],
-        strokeWidth: ['get', 'strokeWidth'],
-        lineJoin: 'round',
-        lineCap: 'round',
-        filter: ['==', '$type', 'LineString']
-    }), 'labels');
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
 
-    //Add a layer for rendering point data.
-    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-        iconOptions: {
-            image: ['get', 'icon'],
-            allowOverlap: true
-        },
-        textOptions: {
-            textField: ['get', 'title'],
-            offset: [0, 1.2]
-        },
-        filter: ['==', '$type', 'Point']
-    }));
+        //Add a layer for rendering the route lines and have it render under the map labels.
+        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+            strokeColor: ['get', 'strokeColor'],
+            strokeWidth: ['get', 'strokeWidth'],
+            lineJoin: 'round',
+            lineCap: 'round'
+        }), 'labels');
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: ['get', 'icon'],
+                allowOverlap: true
+            },
+            textOptions: {
+                textField: ['get', 'title'],
+                offset: [0, 1.2]
+            },
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
+        }));
+    });
     ```
-
-    En inläsningshändelse har lagts till på kartan, som utlöses när kartresurserna har lästs in helt. I händelsehanteraren för kartinläsningen skapas en datakälla för att lagra väglinjerna samt start- och slutpunkterna. En linjeskikt skapas och ansluts till datakällan för att definiera hur raden route återges. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. Ett filter läggs till för att säkerställa att det här lagret endast renderar GeoJSON LineString-data. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt.
-
-2. Ange startpunkten för den här självstudiekursen, som ett fiktivt företag i Seattle kallas Fabrikam och slutpunkten som en byggnad i Microsofts huvudkontor. I händelsehanteraren för kartinläsning lägger du till följande kod.
+    
+    I mappningarna `ready` händelsehanterare, skapas en datakälla för att lagra vägen rader samt start- och punkter. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
+    
+2. För den här självstudien ska du ange en startpunkt som ett fiktivt företag i Seattle som heter Fabrikam, och målplatsen som ett Microsoft-kontor. I mappningarna `ready` händelsehanterare, Lägg till följande kod.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -242,7 +245,7 @@ Det här avsnittet visar hur du använder Maps route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som ska extraheras med hjälp av den **geojson.getFeatures()** metod. Raden route läggs sedan till datakällan. Det ger också ett index på 0 så att den renderas före andra rader i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i lastbilens väglinje: en linjefärg med en fin blå nyans samt en linjebredd på 9 bildpunkter.
+    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den **geojson.getFeatures()** metod. Raden route läggs sedan till datakällan. Det ger också ett index på 0 så att den renderas före andra rader i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i raden lastbil route, en linjefärg som är en fin blå och en linjebredd på nio bildpunkter.
 
 3. Lägg till följande JavaScript-kod för att skapa en väg för en bil och visa resultaten.
 
@@ -262,7 +265,7 @@ Det här avsnittet visar hur du använder Maps route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som ska extraheras med hjälp av den **geojson.getFeatures()** metod. Raden route läggs sedan till datakällan. Två egenskaper läggs till i bilens väglinje: en linjefärg med lila nyans samt en linjebredd på 5 bildpunkter.  
+    Det här kodfragmentet ovan frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) metod. Raden route sedan extraheras från samlingen GeoJSON-funktionen från svaret som extraheras med hjälp av den **geojson.getFeatures()** metod. Raden route läggs sedan till datakällan. Två egenskaper läggs till i raden bil route, en linjefärg som är en färgton lila och en linjebredd på fem bildpunkter.  
 
 4. Spara filen **MapTruckRoute.html** och uppdatera webbläsaren så att den visar resultatet. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
 
@@ -282,11 +285,11 @@ I den här självstudiekursen lärde du dig att:
 
 Du kan komma åt kodexemplet för den här självstudien här:
 
-> [Flera vägar med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
+> [Multipla vägar med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-[Se exemplet live här](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+[Se exemplet finnas här](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 Nästa självstudiekurs visar processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Skapa en butikslokaliserare med hjälp av Azure Maps](./tutorial-create-store-locator.md)
+> [Skapa en store med Azure Maps](./tutorial-create-store-locator.md)

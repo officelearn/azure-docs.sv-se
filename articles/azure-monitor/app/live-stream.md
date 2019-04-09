@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814953"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009973"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -34,9 +34,9 @@ Med Live Metrics Stream kan du:
 * Övervaka alla Windows prestanda räknaren live.
 * Enkelt identifiera en server som har problem och filtrera alla de KPI/live-flöde till bara den servern.
 
-[![Live Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Livt Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Livemått stöds för närvarande för ASP.NET, ASP.NET Core, Azure Functions och Java-appar.
+Livemått stöds för närvarande för ASP.NET, ASP.NET Core, Azure Functions, Java och Node.js-appar.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -209,5 +209,5 @@ Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervakning med Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Med hjälp av Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
-* [Profiler](../../azure-monitor/app/profiler.md)
-* [Felsökning av ögonblicksbild](../../azure-monitor/app/snapshot-debugger.md)
+* [Profilerare](../../azure-monitor/app/profiler.md)
+* [Felsökningsprogram för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md)

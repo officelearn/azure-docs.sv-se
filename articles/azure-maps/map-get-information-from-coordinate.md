@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256064"
 ---
 # <a name="get-information-from-a-coordinate"></a>Hämta information från en koordinat
 
@@ -29,11 +29,11 @@ Det finns två sätt att göra en adress för omvänd sökning. Ett sätt är at
 
 I koden ovan första kodblocket konstruerar ett Kartobjekt och ställer in autentiseringsmekanismen ska kunna använda nyckeln prenumeration. Du kan se [skapa en karta](./map-create.md) anvisningar.
 
-Andra kodblocket skapar en **SubscriptionKeyCredentialPolicy** att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Sedan **atlas.service.MapsURL.newPipeline()** tar den **SubscriptionKeyCredential** princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den **searchURL** representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+Andra kodblocket skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Sedan `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den `searchURL` representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
 
 Det tredje kodblocket uppdaterar formatet för pekaren till en pekare och skapar en [popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objekt. Du kan se [lägga till ett popup-fönster på kartan](./map-add-popup.md) anvisningar.
 
-Fjärde blockeringen av kod lägger till en musklickning [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). När det utlöses, skapar en sökfråga med koordinaterna punktens klickade på. Använder sedan servicemodulen [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) metod för att fråga den [hämta adress omvänt API: et Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för koordinaterna-adress. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod.
+Fjärde blockeringen av kod lägger till en musklickning [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). När det utlöses, skapar en sökfråga med koordinaterna punktens klickade på. Använder sedan servicemodulen [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) metod för att fråga den [hämta adress omvänt API: et Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för koordinaterna-adress. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den `geojson.getFeatures()` metoden.
 
 Det femte kodblocket ställer in HTML-popup-fönstret innehåll att visa svarsadress för klickade på koordinaten positionen.
 
@@ -67,7 +67,7 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 Se följande artiklar för fullständig kodexempel:
 
 > [!div class="nextstepaction"]
-> [Visa riktningar från A till B](./map-route.md)
+> [Visa anvisningar från A till B](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Visa trafik](./map-show-traffic.md)

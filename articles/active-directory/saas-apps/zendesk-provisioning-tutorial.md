@@ -6,26 +6,26 @@ documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 01d5e4d5-d856-42c4-a504-96fa554baf66
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: cf747fb75ea663d2c64038d73f48adb19d9fb804
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499955"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056596"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zendesk för automatisk användaretablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Zendesk och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Zendesk. 
+Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Zendesk och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Zendesk.
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -34,57 +34,52 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-*   En Azure AD-klient
-*   Ett Zendesk-klient med den [Enterprise](https://www.zendesk.com/product/pricing/) planera eller bättre aktiverat 
-*   Ett användarkonto i Zendesk med administratörsbehörighet 
+* En Azure AD-klient
+* Ett Zendesk-klient med den [Enterprise](https://www.zendesk.com/product/pricing/) planera eller bättre aktiverat
+* Ett användarkonto i Zendesk med administratörsbehörighet
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources), som är tillgängliga för Zendesk-team på Enterprise-avtalet eller bättre.
+> Azure AD etablering integration förlitar sig på den [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), som är tillgängliga för Zendesk-team på Enterprise-avtalet eller bättre.
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Lägga till Zendesk från galleriet
+
 Du måste lägga till Zendesk från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Zendesk för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till Zendesk från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Företagsprogram avsnittet][2]
-    
-3. Lägg till Zendesk, klicka på den **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-4. I sökrutan skriver **Zendesk**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk6.png)
+4. I sökrutan skriver du **Zendesk**, väljer **Zendesk** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-5. I resultatpanelen väljer **Zendesk**, och klicka sedan på den **Lägg till** vill lägga till Zendesk i din lista över SaaS-program.
-
-    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk7.png)
-
-    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk20.png)
+    ![Zendesk i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zendesk"></a>Tilldela användare till Zendesk
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som är ”kopplade” till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som är ”kopplade” till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Zendesk. När du valt, kan du tilldela dessa användare och/eller grupper till Zendesk genom att följa instruktionerna här:
 
-*   [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Viktiga tips för att tilldela användare till Zendesk
 
-*    Zendesk roller fylls automatiskt och dynamiskt i Azure-portalens användargränssnitt idag. Se till att en initial synkronisering är slutfört mot Zendesk att hämta de senaste rollerna i din Zendesk-klient innan du tilldelar Zendesk-roller till användare.
+* Zendesk roller fylls automatiskt och dynamiskt i Azure-portalens användargränssnitt idag. Se till att en initial synkronisering är slutfört mot Zendesk att hämta de senaste rollerna i din Zendesk-klient innan du tilldelar Zendesk-roller till användare.
 
-*    Vi rekommenderar att en enda Azure AD-användare har tilldelats Zendesk för att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats Zendesk för att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
   
-*   Vi rekommenderar att en enda Azure AD-användare är tilldelad till Zendesk att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare är tilldelad till Zendesk att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till Zendesk, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till Zendesk, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
 ## <a name="configuring-automatic-user-provisioning-to-zendesk"></a>Konfigurera automatisk användaretablering till Zendesk 
 
@@ -95,14 +90,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Konfigurera automatisk användaretablering för Zendesk i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Zendesk**.
 
-2. Välj Zendesk från din lista över SaaS-program.
- 
-    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk3.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **Zendesk**.
+
+    ![Zendesk-länken i listan med program](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
-    
+
     ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk16.png)
 
 4. Ange den **Etableringsläge** till **automatisk**.
@@ -116,17 +113,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
    * I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
 
    * I den **domän** fältet, fylla i underdomänen för din Zendesk-klient.
-     Exempel: Ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
+     Exempel: Ett konto med ett klient-URL för `https://my-tenant.zendesk.com`, din underdomän skulle vara **min klient**.
 
 6. Den **hemlighet Token** för ditt Zendesk-konto är baserat i **Admin > API > Inställningar**.
    Se till att **Tokenåtkomst** är inställd på **aktiverad**.
 
-    ![Zendesk etablering](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Zendesk etablering](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
+    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
+
+    ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Zendesk. Om anslutningen misslyckas, kontrollera din Zendesk-kontot har administratörsbehörighet och försök igen.
 
     ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
-    
+
 8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
@@ -163,13 +162,14 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Zendesk-etablering](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
 
-
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Zendesk.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Begränsningar för anslutningen
+
 * Zendesk stöder användning av grupper för användare med Agent-roller. Mer information finns i [Zendesks dokumentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+
 * När en anpassad roll har tilldelats en användare och/eller grupp kan den automatiska Azure AD-användare etableringstjänsten också tilldelar standardroll **agenten**. Endast **agenter** kan du tilldela en anpassad roll. Mer information finns i det här [Zendesk API-dokumentation](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## <a name="additional-resources"></a>Ytterligare resurser

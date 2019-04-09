@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877834"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009775"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnader för etablerat dataflöde i Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Här följer några riktlinjer för att avgöra om en strategi för etablerat da
 
 1. Du har några dussin Azure Cosmos-behållare och vill dela dataflöde över vissa eller alla. 
 
-2. Du migrerar från en enda klient-databas som är avsedd att köras på IaaS-värd virtuella datorer eller på plats, till exempel NoSQL eller relationella databaser till Azure Cosmos DB. Och om du har många samlingar/tabeller/diagram och du inte vill göra ändringar i datamodellen. Observera att du kan behöva äventyra några av fördelarna som erbjuds av Azure Cosmos DB om du inte uppdaterar din datamodell när du migrerar från en lokal databas. Vi rekommenderar att du alltid komma datamodellen att få ut mest i termer av prestanda och optimera kostnaderna. 
+2. Du migrerar från en enda klient-databas som är avsedd att köras på IaaS-värd virtuella datorer eller på plats, till exempel NoSQL eller relationella databaser till Azure Cosmos DB. Och om du har många samlingar/tabeller/diagram och du vill inte göra ändringar i datamodellen. Observera att du kan behöva äventyra några av fördelarna som erbjuds av Azure Cosmos DB om du inte uppdaterar din datamodell när du migrerar från en lokal databas. Vi rekommenderar att du alltid komma datamodellen att få ut mest i termer av prestanda och optimera kostnaderna. 
 
 3. Vill du att absorbera oväntade toppar i arbetsbelastningar tack vare pool dataflöde på databasnivå som utsatts för oväntade toppar i arbetsbelastning. 
 

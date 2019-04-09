@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872466"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257237"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
 
@@ -66,13 +66,12 @@ QnA Maker-arkitekturen består av följande två komponenter:
 
 ## <a name="service-highlights"></a>Tjänstehöjdpunkter
 
-- Ett komplett upplevelse **utan kod** för att [skapa en robot för vanliga frågor och svar](https://aka.ms/qnamaker-docs-create-faqbot).
+- Ett komplett **Kodlösa** att [skapa en robot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) från en kunskapsbas.
 - **Inga nätverksbegränsningar för förutsägelser**. Betala för värd för tjänsten i stället för antalet transaktioner. Mer information finns på [prissättningssidan](https://aka.ms/qnamaker-docs-pricing).
 - **Skala efter behov**. Välj lämpliga SKU: er för de enskilda komponenter som passar ditt scenario. Se hur du [väljer kapacitet](https://aka.ms/qnamaker-docs-capacity) för din QnA Maker-tjänst.
-- **Fullständig dataefterlevnad**. Komponenterna för förutsägelsetjänsten distribueras i Azure-prenumerationen och inom efterlevnadsgränsen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en QnA Maker-tjänst](../how-to/set-up-qnamaker-service-azure.md)
+> [Skapa en QnA Maker-tjänsten](../how-to/set-up-qnamaker-service-azure.md)

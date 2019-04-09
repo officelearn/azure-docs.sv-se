@@ -4,16 +4,16 @@ description: Förstå hur du hämtar och styra stora uppsättningar data när du
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889043"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058399"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs datauppsättningar
 
@@ -63,7 +63,7 @@ I den [REST API](/rest/api/azureresourcegraph/resources/resources), kontrollen �
 
 ## <a name="paging-results"></a>Växla resultat
 
-När det är nödvändigt att avbryta en resultatmängd i mindre uppsättningar av poster för bearbetning eller på grund av en resultatmängd skulle överskrida det högsta tillåtna värdet för _5000_ returnerade poster, använda växling. Den [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** innehåller värden för att ange en uppsättning har delats upp resultat: **resultTruncated** och **$skipToken** .
+När det är nödvändigt att avbryta en resultatmängd i mindre uppsättningar av poster för bearbetning eller på grund av en resultatmängd skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använda växling. Den [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** innehåller värden för att ange en uppsättning har delats upp resultat: **resultTruncated** och **$skipToken** .
 **resultTruncated** är ett booleskt värde som informerar användaren om det finns ytterligare poster inte returneras i svaret. Det här tillståndet kan också vara identifieras när den **antal** egenskapen är mindre än värdet **totalRecords** egenskapen. **totalRecords** definierar hur många poster som matchar frågan.
 
 När **resultTruncated** är **SANT**, **$skipToken** egenskapen är inställda i svaret. Det här värdet används med värdena för samma fråga och -prenumeration för att hämta nästa uppsättning poster som matchar frågan.

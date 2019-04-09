@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339405"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005160"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 
@@ -63,7 +63,7 @@ Anpassade uttal är för närvarande stöd för engelska (en-US) och tyska (de-d
 Visningsformulär kan vara endast ett anpassat ord, en förkortning eller sammansatta ord som kombinerar befintliga ord.
 
 >[!NOTE]
->Vi rekommenderar inte att du använder den här funktionen att reformulate vanliga ord eller ändra talat formuläret. Är det bättre att köra avkodaren för att se om några ovanliga ord (till exempel förkortningar, teknisk ord eller främmande ord) felaktigt avkodas. Om de kan du lägga till dem till anpassade uttal av filen. I språkmodell, bör du alltid och endast använda Visningsformulär ett ord.
+>Vi rekommenderar inte att du använder den här funktionen att reformulate vanliga ord eller ändra talat formuläret. Det är bättre kontrollera om några ovanliga ord (till exempel förkortningar, teknisk ord eller främmande ord) är felaktigt transribed innan den här funktionen används. Om de kan du lägga till dem till anpassade uttal av filen. I språkmodell, bör du alltid och endast använda Visningsformulär ett ord.
 
 ## <a name="requirements-for-the-file-size"></a>Krav för filstorleken
 Storleken på txt-fil som innehåller uttal av poster är begränsad till 1 MB (1KB för den kostnadsfria nivån av nycklar). Vanligtvis behöver du inte ladda upp stora mängder data via den här filen. De flesta anpassade uttal filer är sannolikt bara några få kilobyte (KB-artiklar) i storlek. Kodning av txt-fil för alla språk bör vara UTF-8 BOM. ANSI är också tillåtet för på engelska.

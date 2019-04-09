@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759315"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256387"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Vad är industriella IoT (IIoT)
 
@@ -28,7 +28,7 @@ Minska tidskrävande process för att komma åt factory våning datorer med Azur
 ![Industriella IoT-översikt](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Mer information om Azure industriella IoT-tjänster finns i GitHub [databasen ](https://github.com/Azure/azure-iiot-services).
+> Mer information om Azure industriella IoT-tjänster finns i GitHub [databasen](https://github.com/Azure/azure-iiot-services).
 Om du är bekant med hur Azure IoT Edge-moduler fungerar kan du börja med följande artiklar:
 - [Om Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge-moduler](../iot-edge/iot-edge-modules.md)
@@ -50,4 +50,4 @@ Azure IoT OPC UA-certifikathantering eller OPC-valv är en implementering av OPC
 Nu när du har haft en introduktion till industriella IoT och dess komponenter, är här nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Vad är OPC-Twin](overview-opc-twin.md)
+> [Vad är OPC-tvilling](overview-opc-twin.md)

@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048817"
+ms.locfileid: "59057061"
 ---
 # <a name="azure-stack-1903-update"></a>Uppdatering av Azure Stack 1903
 
@@ -156,6 +156,9 @@ Här följer efter installation kända problem för den här build-versionen.
    - Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för inloggning. Som en lösning kan använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
+
+- Azure Stack har nu stöd för Windows Azure Linux-agenter som är högre än version 2.2.20. Det här stödet var en del av 1901 och 1902 snabbkorrigeringar och gör att kunderna att upprätthålla konsekvent linux-avbildningar mellan Azure och Azure Stack.
+
 
 - Om du inte har en maskinvara livscykel värden (HLH): före build 1902, var du tvungen att ställa in Grupprincip **Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Lokala Principer\säkerhetsalternativ** till **Skicka LM & NTLM – Använd NTLMv2-sessionssäkerhet om förhandlas**. Sedan build 1902, måste du lämna den som **inte har definierats** eller anger **endast skicka NTLMv2-svar** (vilket är standardvärdet). Annars kan du inte längre att upprätta en PowerShell-fjärrsession så ser du en **åtkomst nekas** fel:
 

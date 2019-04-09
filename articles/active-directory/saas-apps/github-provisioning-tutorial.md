@@ -13,28 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888023"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057531"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudier: Konfigurera GitHub för automatisk användaretablering
 
-
-Målet med den här självstudien är att visa dig de steg du måste utföra i GitHub och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till GitHub. 
+Målet med den här självstudien är att visa dig de steg du måste utföra i GitHub och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till GitHub.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active directory-klient
-*   En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-*   Ett användarkonto i GitHub med administratörsbehörighet i organisationen
+* En Azure Active directory-klient
+* En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+* Ett användarkonto i GitHub med administratörsbehörighet i organisationen
 
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [GitHub SCIM API](https://developer.github.com/v3/scim/), som är tillgänglig för [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) kunder på de [GitHub Enterprise faktureringsplan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
@@ -49,21 +48,18 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Viktiga tips för att tilldela användare till GitHub
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats GitHub för att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats GitHub för att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till GitHub, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
+* När du tilldelar en användare till GitHub, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
 
-
-## <a name="configuring-user-provisioning-to-github"></a>Konfigurera användaretablering till GitHub 
+## <a name="configuring-user-provisioning-to-github"></a>Konfigurera användaretablering till GitHub
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till GitHub-användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i GitHub baserat på användar- och grupptilldelningar i Azure AD.
 
 > [!TIP]
 > Du kan också välja att aktiveras SAML-baserad enkel inloggning för GitHub, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till GitHub i Azure AD
-
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
 
@@ -87,7 +83,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till GitHub-användarko
 
 8. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan ”Skicka ett e-postmeddelande när ett fel uppstår”.
 
-9. Klicka på **Spara**. 
+9. Klicka på **Spara**.
 
 10. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till GitHub**.
 
@@ -95,12 +91,11 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till GitHub-användarko
 
 12. Om du vill aktivera den Azure AD-etableringstjänsten för GitHub, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
 
-13. Klicka på **Spara**. 
+13. Klicka på **Spara**.
 
 Den här åtgärden startar den första synkroniseringen av användare och/eller grupper som har tilldelats till GitHub i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
-
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

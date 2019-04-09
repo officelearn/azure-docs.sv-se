@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804861"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009792"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsöka den Starta/stoppa virtuella datorer utanför timmar lösning
 
@@ -88,7 +88,7 @@ Granska följande lista innehåller tänkbara lösningar på ditt problem eller 
 
 * Kontrollera att ett schema för lösningen Starta/Stoppa virtuell dator har konfigurerats korrekt. Läs hur du konfigurerar ett schema i den [scheman](../automation-schedules.md) artikeln.
 
-* Kontrollera jobbströmmar för runbooks du söker efter eventuella fel. Gå till ditt Automation-konto i portalen och välj **jobb** under **Processautomatisering**. Från den **jobb** sidan Sök efter jobb från någon av de följande runbooks:
+* Kontrollera den [jobbet strömmar](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) att söka efter eventuella fel. Gå till ditt Automation-konto i portalen och välj **jobb** under **Processautomatisering**. Från den **jobb** sidan Sök efter jobb från någon av de följande runbooks:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ Granska följande lista innehåller tänkbara lösningar på ditt problem eller 
 
 * Om den virtuella datorn har ett problem startar eller frigörs, kan problemet orsakas av ett problem på Virtuellt datorn. Vissa exempel eller potentiella problem är kan en uppdatering som används vid försök att stänga av, en tjänst låser sig med mera). Navigera till din VM-resurs och markera den **aktivitetsloggar** att se om det finns några fel i loggarna. Du kan även försöka att logga in på den virtuella datorn för att se om det finns några fel i händelseloggarna. Mer information om hur du felsöker din virtuella dator finns [felsökning av Azure virtuella datorer](../../virtual-machines/troubleshooting/index.md)
 
+* Kontrollera den [jobbet strömmar](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) att söka efter eventuella fel. Gå till ditt Automation-konto i portalen och välj **jobb** under **Processautomatisering**.
+
 ## <a name="custom-runbook"></a>Scenario: Min anpassade runbook misslyckas att starta eller stoppa Mina virtuella datorer
 
 ### <a name="issue"></a>Problem
@@ -155,7 +157,7 @@ Orsaken till felet kan vara en av många saker. Gå till ditt Automation-konto i
 
 ### <a name="resolution"></a>Lösning
 
-Vi rekommenderar att du använder den [Starta/stoppa virtuella datorer utanför timmar lösning](../automation-solution-vm-management.md) att starta och stoppa virtuella datorer i Azure Automation. Den här lösningen är skapad av Microsoft. Anpassade runbooks stöds inte av Microsoft. Du kan hitta en lösning för din anpassade runbook genom att besöka den [runbook felsökning](runbooks.md) artikeln. Den här artikeln innehåller allmänna riktlinjer och felsökning av runbook-flöden av alla typer.
+Vi rekommenderar att du använder den [Starta/stoppa virtuella datorer utanför timmar lösning](../automation-solution-vm-management.md) att starta och stoppa virtuella datorer i Azure Automation. Den här lösningen är skapad av Microsoft. Anpassade runbooks stöds inte av Microsoft. Du kan hitta en lösning för din anpassade runbook genom att besöka den [runbook felsökning](runbooks.md) artikeln. Den här artikeln innehåller allmänna riktlinjer och felsökning av runbook-flöden av alla typer. Kontrollera den [jobbet strömmar](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) att söka efter eventuella fel. Gå till ditt Automation-konto i portalen och välj **jobb** under **Processautomatisering**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Scenario: Virtuella datorer inte starta eller stoppa i rätt ordning
 
@@ -209,7 +211,7 @@ Många gånger fel kan orsakas av använder en gammal och inaktuell version av l
 
 ### <a name="resolution"></a>Lösning
 
-För att lösa många fel, rekommenderar vi att ta bort och uppdatera lösningen. Läs hur du uppdaterar lösningen i [uppdatera Starta/stoppa virtuella datorer under av timmar lösning](../automation-solution-vm-management.md#update-the-solution).
+För att lösa många fel, rekommenderar vi att ta bort och uppdatera lösningen. Läs hur du uppdaterar lösningen i [uppdatera Starta/stoppa virtuella datorer under av timmar lösning](../automation-solution-vm-management.md#update-the-solution). Dessutom kan du kontrollera den [jobbet strömmar](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) att söka efter eventuella fel. Gå till ditt Automation-konto i portalen och välj **jobb** under **Processautomatisering**.
 
 ## <a name="next-steps"></a>Nästa steg
 

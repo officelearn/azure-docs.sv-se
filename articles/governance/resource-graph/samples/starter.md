@@ -4,17 +4,17 @@ description: Använd Azure Resource Graph för att köra vissa startfrågor sås
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bfeb1678a5271cf1e498cee0a12be12c2cbc2902
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338724"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058466"
 ---
 # <a name="starter-resource-graph-queries"></a>Startfrågor för Azure Resource Graph
 
@@ -24,15 +24,15 @@ Vi går igenom följande startfrågor:
 
 > [!div class="checklist"]
 > - [Antal Azure-resurser](#count-resources)
-> - [Lista över resurser sorterade efter namn](#list-resources)
-> - [Visning av alla virtuella datorer sorterade efter namn i fallande ordning](#show-vms)
-> - [Visning av de första fem virtuella datorerna efter namn och OS-typ](#show-sorted)
-> - [Antal virtuella datorer efter OS-typ](#count-os)
-> - [Visning av resurser med lagring](#show-storage)
+> - [Lista resurser sorterade efter namn](#list-resources)
+> - [Visa alla virtuella datorer ordnade efter namn i fallande ordning](#show-vms)
+> - [Visa den första fem virtuella datorer efter namn och sina OS-typ](#show-sorted)
+> - [Antal virtuella datorer enligt OS-typ](#count-os)
+> - [Visa resurser med storage](#show-storage)
 > - [Lista över alla offentliga IP-adresser](#list-publicip)
-> - [Antal resurser som har IP-adresser konfigurerade efter prenumeration](#count-resources-by-ip)
-> - [Lista över resurser med ett specifikt tagg-värde](#list-tag)
-> - [Lista över alla lagringskonton med ett specifikt taggvärde](#list-specific-tag)
+> - [Antal resurser som har IP-adresser som konfigurerats av prenumeration](#count-resources-by-ip)
+> - [Lista resurser med en specifik tagg-värde](#list-tag)
+> - [Lista alla lagringskonton med specifika Taggvärde](#list-specific-tag)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -95,7 +95,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Visning av de första fem virtuella datorerna efter namn och OS-typ
 
-Den här frågan använder `limit` för att bara hämta fem matchande poster som sorteras efter namn. Typen av Azure-resurs är `Microsoft.Compute/virtualMachines`. `project` talar om Azure Resource Graph vilka egenskaper som ska inkluderas.
+Den här frågan använder `limit` för att bara hämta fem matchande poster som sorteras efter namn. Typen av Azure-resurs är `Microsoft.Compute/virtualMachines`. `project` talar om Azure Resource Graph vilka egenskaper du vill inkludera.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +167,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>Lista över alla offentliga IP-adresser
 
 Hittar på ett liknande sätt som för den föregående frågan allt som är en typ med ordet **publicIPAddresses**.
-Den här frågan expanderar mönstret för att utesluta resultat där **properties.ipAddress** är null, för att endast returnera **properties.ipAddress** och för att `limit` resultaten till de 100 främsta. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
+Den här frågan kan utökas med mönstret som bara inkluderar resultat där **properties.ipAddress**
+`isnotempty`, för att endast returnera de **properties.ipAddress**, och `limit` resultaten efter upp
+100. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>Antal resurser som har IP-adresser konfigurerade efter prenumeration
@@ -188,16 +190,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 Om vi använder den föregående exempelfrågan och lägger till `summarize` och `count()`, kan vi få en lista efter prenumeration på resurser med konfigurerade IP-adresser.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>Lista över resurser med ett specifikt taggvärde

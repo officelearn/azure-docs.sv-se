@@ -13,18 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9e037e1be36a38631028e5e179e20720d3476a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: fc181625ead251480bb107fc59e3aae46afab1ee
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190865"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056393"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudier: Konfigurera LucidChart för automatisk användaretablering
-
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i LucidChart och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till LucidChart. 
 
@@ -32,13 +31,13 @@ Målet med den här självstudien är att visa dig de steg du måste utföra i L
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active directory-klient
-*   En LucidChart klient med den [företagsplanen](https://www.lucidchart.com/user/117598685#/subscriptionLevel) eller bättre har aktiverats 
-*   Ett användarkonto i LucidChart med administratörsbehörighet 
+* En Azure Active directory-klient
+* En LucidChart klient med den [företagsplanen](https://www.lucidchart.com/user/117598685#/subscriptionLevel) eller bättre har aktiverats
+* Ett användarkonto i LucidChart med administratörsbehörighet
 
 ## <a name="assigning-users-to-lucidchart"></a>Tilldela användare till LucidChart
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din LucidChart-app. När du valt, kan du tilldela dessa användare till LucidChart appen genom att följa instruktionerna här:
 
@@ -46,21 +45,18 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 ### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Viktiga tips för att tilldela användare till LucidChart
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats LucidChart att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats LucidChart att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till LucidChart, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
+* När du tilldelar en användare till LucidChart, måste du välja antingen den **användaren** roll eller en annan giltig programspecifika roll (om tillgängligt) i dialogrutan för tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering och dessa användare hoppas över.
 
-
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Konfigurera användaretablering för LucidChart 
+## <a name="configuring-user-provisioning-to-lucidchart"></a>Konfigurera användaretablering för LucidChart
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till Lucidcharts användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i LucidChart baserat på användar- och grupptilldelningar i Azure AD.
 
 > [!TIP]
 > Du kan också välja att aktiveras SAML-baserad enkel inloggning för LucidChart, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till LucidChart i Azure AD
-
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
 
@@ -72,7 +68,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Lucidcharts använ
 
     ![LucidChart etablering](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **hemlighet Token** genereras av din LucidChart konto (du hittar token under ditt konto: **Team** > **Appintegrering** > **SCIM**). 
+5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **hemlighet Token** genereras av din LucidChart konto (du hittar token under ditt konto: **Team** > **Appintegrering** > **SCIM**).
 
     ![LucidChart etablering](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
@@ -80,7 +76,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Lucidcharts använ
 
 7. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan ”Skicka ett e-postmeddelande när ett fel uppstår”.
 
-8. Klicka på **Spara**. 
+8. Klicka på **Spara**.
 
 9. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till LucidChart**.
 
@@ -88,12 +84,11 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Lucidcharts använ
 
 11. Om du vill aktivera den Azure AD-etableringstjänsten för LucidChart, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet
 
-12. Klicka på **Spara**. 
+12. Klicka på **Spara**.
 
 Den här åtgärden startar den första synkroniseringen av användare och/eller grupper som tilldelats till LucidChart i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
-
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

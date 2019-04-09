@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085583"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005442"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av Node.js-proxyprogram (förhandsversion)
 
@@ -27,17 +27,15 @@ Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förh
 
 Först beskrivs konfiguration för SSH (via port 22). Sedan beskrivs hur du ändrar konfigurationen för RDP (som använder port 3389). Eftersom enhetsströmmar är program- och protokolloberoende kan samma exempel ändras att passa andra typer av ”klient/server”-programtrafik (vanligtvis genom att kommunikationsportarna ändras).
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
 
-  - **USA, centrala**
+  - **Centrala USA**
   - **USA, centrala – EUAP**
 
 För att kunna köra det tjänstlokala programmet i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
@@ -50,8 +48,13 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 node --version
 ```
 
-Ladda ned Node.js-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Ladda ned Node.js-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -59,21 +62,19 @@ Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet ti
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
-
 ## <a name="register-a-device"></a>Registrera en enhet
 
 Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md). Du kan hoppa över det här steget.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhetens identitet.
 
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
    **MyDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -89,13 +90,11 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH till en enhet via enhetsströmmar
 
 ### <a name="run-the-device-local-proxy"></a>Köra den enhetslokala proxyn
 
 Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För det enhetslokala programmet använder du de associerade enhetsproxyprogrammen som är tillgängliga i [C-snabbstarten](./quickstart-device-streams-proxy-c.md) och [C#-snabbstarten](./quickstart-device-streams-proxy-csharp.md). Se till att den enhetslokala proxyn körs innan du fortsätter till nästa steg.
-
 
 ### <a name="run-the-service-local-proxy"></a>Köra den tjänstlokala proxyn
 
@@ -128,13 +127,12 @@ Förutsatt att den [enhetslokala proxyn](#run-the-device-local-proxy) körs föl
   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH till din enhet via enhetsströmmar
+
 I Linux kör du SSH med hjälp av `ssh $USER@localhost -p 2222` på en terminal. I Windows använder du valfri SSH-klient (till exempel PuTTY).
 
 Konsolens utdata på den tjänstlokala proxyn när SSH-sessionen har upprättats (den tjänstlokala proxyn lyssnar på port 2222): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "Utdata för SSH-terminal")
 
-
 Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Utdata för SSH-klient")
-
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>RDP till din enhet via enhetsströmmar
 
@@ -144,7 +142,6 @@ Använd RDP-klientprogrammet och anslut till tjänstproxyn på port 2222 (det h�
 > Kontrollera att din enhetsproxy är korrekt konfigurerad för RDP och konfigurerad med RDP-port 3389.
 
 ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG "RDP-klient ansluter till tjänstlokal proxy.")
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -157,4 +154,4 @@ I den här snabbstarten har du konfigurerat en IoT-hubb, registrerat en enhet oc
 Använd länkarna nedan om du vill läsa mer om enhetsströmmar:
 
 > [!div class="nextstepaction"]
-> [Översikt över enhetsströmmar](./iot-hub-device-streams-overview.md)
+> [Strömmar enhetsöversikt](./iot-hub-device-streams-overview.md)

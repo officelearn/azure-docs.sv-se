@@ -4,14 +4,14 @@ description: Steg för att distribuera Avere vFXT kluster i Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409694"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056613"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -31,18 +31,17 @@ Kontrollera att du har åtgärdat förutsättningarna innan du använder mallen 
 1. [Ny prenumeration](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Ägarbehörighet för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kvoten för vFXT klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Anpassad åtkomst roller](avere-vfxt-prereqs.md#create-access-roles) -du måste skapa en rollbaserad åtkomstkontroll roll att tilldela till klusternoderna. Har du möjlighet att också skapa en anpassad roll för kontrollanten kluster, men de flesta användare tar ägarrollen standard, vilket ger controller privilegier som motsvarar till en resursgruppägare. Läs [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md#owner) för mer information.
 1. [Slutpunkt för lagring av tjänsten (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distribuerar med hjälp av ett befintligt virtuellt nätverk och skapa blob-lagring
 
 Mer information om distributionssteg för klustret och planera [planera datorn Avere vFXT](avere-vfxt-deploy-plan.md) och [distributionsöversikt](avere-vfxt-deploy-overview.md).
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Skapa Avere vFXT för Azure
 
-Åt mallen som skapas i Azure portal genom att söka efter Avere och välja ”Avere vFXT ARM distribution”. 
+Komma åt mallen skapas i Azure portal genom att söka efter Avere och välja ”Avere vFXT för Azure ARM-mall”. 
 
-![Webbläsarfönster som visar Azure-portalen med bröd smulor ”Ny > Marketplace > allt”. I allt sidan, sökfältet har termen ”avere” och det andra resultatet ”Avere vFXT ARM distribution” markeras i rött att markera den.](media/avere-vfxt-template-choose.png)
+![Webbläsarfönster som visar Azure-portalen med bröd smulor ”Ny > Marketplace > allt”. Allt har sidan sökfältet markeras termen ”avere” och det andra resultatet ”Avere vFXT för Azure ARM-mall” i rött att markera den.](media/avere-vfxt-template-choose.png)
 
-När du har läst informationen på sidan Avere vFXT ARM-distributionen, klickar du på **skapa** att börja. 
+När du har läst om Avere vFXT för ARM-mall för Azure-sidan, klickar du på **skapa** att börja. 
 
 ![Azure marketplace med den första sidan i distributionen mall som visar](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Fyll i följande information:
 
 * **Lösenordet** eller **offentlig SSH-nyckel** -beroende på den autentiseringstyp som du har valt, måste du ange en offentlig RSA-nyckel eller ett lösenord i fälten nästa. Den här autentiseringsuppgiften används med det användarnamn som angavs tidigare.
 
-* **Roll-ID att skapa ett kluster för Avere** – Använd det här fältet för att ange rollen åtkomstkontroll för kluster-styrenheten. Standardvärdet är den inbyggda rollen [ägare](../role-based-access-control/built-in-roles.md#owner). Ägarprivilegier för kluster-styrenheten är begränsade till klustrets resursgrupp. 
-
-  Du måste använda globalt unik identifierare som motsvarar rollen. För standardvärdet (ägare) är GUID 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. Använd följande kommando för att hitta GUID för en anpassad roll: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Prenumeration** – Välj prenumerationen för Avere vFXT. 
 
 * **Resursgrupp** – Välj en befintlig tom resursgrupp för Avere vFXT klustret, eller klicka på ”Skapa ny” och ange ett nytt resursgruppnamn. 
@@ -97,10 +88,6 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
 * **Avere vFXT antalet klusternoder** – Välj antalet noder i klustret. Minimum är tre noder och högsta tolv. 
 
 * **Lösenord för administration av klustret** -lösenord för administration av klustret. Det här lösenordet används tillsammans med användarnamnet ```admin``` att logga in på Kontrollpanelen för klustret att övervaka klustret och konfigurera inställningarna.
-
-* **Avere klusterrollen operations** – ange namnet på rollen åtkomstkontroll för klusternoderna. Det här är en anpassad roll som har skapats som en innan du börjar. 
-
-  I exemplet som beskrivs i [skapa klusterrollen noden åtkomst](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) sparar filen som ```avere-operator.json``` och motsvarande rollnamnet är ```avere-operator```.
 
 * **Avere vFXT klusternamnet** -ge ett unikt namn för klustret. 
 
@@ -138,7 +125,7 @@ Den tredje sidan sammanfattas konfigurationen och kontroll av parametrarna. När
 
 ![Tredje sidan i Distributionsmall - verifiering](media/avere-vfxt-deploy-3.png)
 
-Klicka på sidan fyra den **skapa** knappen för att acceptera villkoren och skapa Avere vFXT för Azure-kluster. 
+På sidan fyra kan ange all nödvändig kontaktinformation och klicka på den **skapa** knappen för att acceptera villkoren och skapa Avere vFXT för Azure-kluster. 
 
 ![Fjärde sidan i Distributionsmall - villkor och bestämmelser, skapa knapp](media/avere-vfxt-deploy-4.png)
 

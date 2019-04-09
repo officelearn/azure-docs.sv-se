@@ -4,18 +4,21 @@ description: Beskriver hur du avgör stort antal lokala datorer med hjälp av Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116681"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057480"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
-Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln beskrivs hur du avgör stort antal lokala virtuella datorer (VM) med hjälp av [Azure Migrate](migrate-overview.md).   
+Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln beskrivs hur du avgör stort antal lokala virtuella datorer (VM) med hjälp av [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> Vi har en preview-versionen som gör att identifiering av upp till 10 000 virtuella VMware-datorer i ett enda projekt med hjälp av en enda enhet, om du är intresserad av att testar lösningen kan du registrera dig [här.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -163,7 +166,7 @@ Kontrollera att OVA-filen är säker innan du distribuerar den:
 
 För OVA-version 1.0.10.4
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
 SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
@@ -173,7 +176,7 @@ SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 För OVA-version 1.0.9.15 (släppt på 10/23/2018)
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
 SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
@@ -181,7 +184,7 @@ SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
 För OVA-version 1.0.9.14 (släppt på 8/24/2018)
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
 SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
@@ -189,7 +192,7 @@ SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
 För OVA-version 1.0.9.12
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | d0363e5d1b377a8eb08843cf034ac28a
 SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
@@ -197,7 +200,7 @@ SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
 För OVA-version 1.0.9.8
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | b5d9f0caf15ca357ac0563468c2e6251
 SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
@@ -205,7 +208,7 @@ SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
 För OVA-version 1.0.9.7
 
-**Algoritm** | **Hash-värde**
+**Algoritmen** | **Hash-värde**
 --- | ---
 MD5 | d5b6a03701203ff556fa78694d6d7c35
 SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
@@ -284,7 +287,7 @@ Insamlingsprogrammet identifieras följande konfigurationsdata om de valda virtu
 
 Insamlaren samlar in följande prestandaräknare för varje virtuell dator från ESXi-värd med ett intervall på 20 sekunder. Dessa räknare är vCenter räknare och även om termer som säger medelvärde, 20 sekunder exemplen finns räknare i realtid. Installationen sedan samlar upp 20 sekunder exemplen för att skapa en enskild datapunkt för varje kvart genom att välja det högsta värdet 20 sekunder exemplen och skickar det till Azure. Prestandadata för de virtuella datorerna börjar bli tillgänglig i portalen två timmar efter identifieringen har startats. Vi rekommenderar starkt att vänta minst en dag innan du skapar prestandabaserad utvärderingar för att få korrekt rätt storleksrekommendationer. Om du letar efter direkt, du kan skapa utvärderingar med storlekskriteriet som *som lokalt* som inte ska undersöka prestandadata för rätt storleksändring.
 
-**Räknaren** |  **Påverkan på utvärdering**
+**Räknare** |  **Påverkan på utvärdering**
 --- | ---
 cpu.usage.average | Rekommenderad storlek och kostnad  
 mem.usage.average | Rekommenderad storlek och kostnad  

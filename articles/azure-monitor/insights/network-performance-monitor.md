@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452138"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006761"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -59,7 +59,7 @@ Regioner som listan över stöds för ExpressRoute-övervakning är tillgänglig
 
 ### <a name="install-and-configure-agents"></a>Installera och konfigurera agenter 
 
-Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) och [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
+Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Monitor](../platform/agent-windows.md) och [ansluta Operations Manager till Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Var du vill installera agenter 
 
@@ -101,7 +101,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 ### <a name="configure-the-solution"></a>Konfigurera lösningen 
 
-1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md). 
+1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Azure Monitor-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md). 
 2. Öppna Log Analytics-arbetsytan och välj den **översikt** panelen. 
 3. Välj den **Övervakare av nätverksprestanda** panelen med meddelandet *ytterligare konfiguration krävs för lösningen*.
 
@@ -151,9 +151,9 @@ Alla noder som har en agent installerad visas på den **noder** fliken.
 
 Konfigurera de funktioner du vill:
 
-- [Övervakare av nätverksprestanda](network-performance-monitor-performance-monitor.md#configuration)
+- [Prestandaövervakning](network-performance-monitor-performance-monitor.md#configuration)
 - [Service Endpoint Monitor](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
+- [ExpressRoute-övervakning](network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -168,7 +168,7 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
  
 
  
-Lösningen använder syntetiska transaktioner för att utvärdera hälsotillståndet i nätverket. Log Analytics-agenter installerade vid olika tidpunkter i nätverkspaket exchange TCP eller ICMP Echo med varandra. Om agenterna använder TCP-paket eller ICMP Echo beror på det protokoll som du har valt för övervakning. I processen Läs agenter fram och åter tid och paket förlust, om sådana. Varje agent utför regelbundet, en spårningsrutt för att andra agenter att hitta alla olika vägar i nätverket som ska testas. Med dessa data kan härleda agenterna nätverksfördröjning och paket förlustsiffror. Testerna upprepas var femte sekund. Data sammanställs av agenter för cirka tre minuter innan det överförs till Log Analytics-tjänsten.
+Lösningen använder syntetiska transaktioner för att utvärdera hälsotillståndet i nätverket. Log Analytics-agenter installerade vid olika tidpunkter i nätverkspaket exchange TCP eller ICMP Echo med varandra. Om agenterna använder TCP-paket eller ICMP Echo beror på det protokoll som du har valt för övervakning. I processen Läs agenter fram och åter tid och paket förlust, om sådana. Varje agent utför regelbundet, en spårningsrutt för att andra agenter att hitta alla olika vägar i nätverket som ska testas. Med dessa data kan härleda agenterna nätverksfördröjning och paket förlustsiffror. Testerna upprepas var femte sekund. Data sammanställs av agenter för cirka tre minuter innan det överförs till Log Analytics-arbetsyta i Azure Monitor.
 
 
 
@@ -241,9 +241,9 @@ Topologin visas på kartan är layer 3-topologi och innehåller inte nivå 2-enh
 ![Topologisk karta](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Log Analytics-sökningen 
+## <a name="log-queries-in-azure-monitor"></a>Loggfrågor i Azure Monitor
 
-Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [Log Analytics Sök](../../azure-monitor/log-query/log-query-overview.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
+Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [logga frågor](../log-query/log-query-overview.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
 
 ## <a name="alerts"></a>Aviseringar
 
@@ -251,7 +251,7 @@ Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av
 
 Det innebär att alla meddelanden som hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Om du är en NPM-användare som skapar en avisering via Log Analytics: 
+Om du är en NPM-användare som skapar en avisering via LAzure Monitor: 
 1. Du ser en länk som kommer att omdirigera dig till Azure-portalen. Klicka på den för att få åtkomst till portalen.
 2. Klicka på panelen Övervakare av nätverksprestanda. 
 3. Gå till Konfigurera.  

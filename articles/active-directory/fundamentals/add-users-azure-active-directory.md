@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802129"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009605"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
 Lägga till nya användare eller ta bort befintliga användare från din organisation i Azure Active Directory (AD Azure).
@@ -47,7 +47,7 @@ Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
    - **Grupper.** Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
 
-   - **Katalogroll.** Du kan också du kan lägga till användaren till en Azure AD administratörsrollen. Du kan tilldela användaren vara en Global administratör eller en eller flera av de begränsade administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
+   - **Katalogroll.** Alternativt kan du lägga till användaren till en Azure AD-administratörsroll. Du kan tilldela användaren vara en Global administratör eller en eller flera av de begränsade administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
 
 4. Kopiera det automatiskt genererade lösenordet som angavs i den **lösenord** box. Du behöver ge det här lösenordet till användaren för första inloggningsprocess.
 
@@ -83,7 +83,7 @@ När du har lagt till användarna, kan du utföra följande basic-processer:
 
 - [Tilldela roller till användare](active-directory-users-assign-role-azure-portal.md)
 
-- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+- [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
 - [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
 

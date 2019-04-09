@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628987"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056103"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användarprofilresurs för en värdpool
 
-Windows Virtual Desktop förhandsversionen av tjänsten erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte lösningen användarens profil Disk (UPD) och upphör att gälla i framtida versioner av virtuella Windows-skrivbordet.
+Windows Virtual Desktop förhandsversionen av tjänsten erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte med hjälp av lösningen användarens profil Disk (UPD), som är föråldrade i framtida versioner av virtuella Windows-skrivbordet.
 
 Det här avsnittet kommer berättar hur du ställer in en resurs FSLogix profil behållare för en värd-pool. Allmän dokumentation om FSLogix finns i den [FSLogix plats](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ När du har skapat den virtuella datorn, ansluter du den till domänen genom att
 
 Här följer allmänna instruktioner om hur du förbereder en virtuell dator att fungera som en filresurs för användarprofiler:
 
-1. Ansluta session host-datorer till en [Active Directory-säkerhetsgrupp](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Denna säkerhetsgrupp används för att autentisera session värdar virtuella datorer till filresurs virtuella datorn som du nyss skapade.
+1. Lägga till Windows Virtual Desktop Active Directory-användare i en [Active Directory-säkerhetsgrupp](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Denna säkerhetsgrupp används för att autentisera virtuellt skrivbord i Windows-användare till filresurs virtuella datorn som du nyss skapade.
 2. [Ansluta till filen resurs virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Skapa en mapp på filen dela virtuell dator på den **C-enheten** som ska användas som resursen.
 4. Högerklicka på den nya mappen, Välj **egenskaper**väljer **delning**och välj sedan **Avancerad delning...** .
 5. Välj **dela den här mappen**väljer **behörigheter...** och välj sedan **Lägg till...** .
-6. Söker du efter gruppen som du har lagt till de session virtuella datorerna och kontrollera att gruppen har **fullständig kontroll**.
+6. Söker du efter gruppen som du har lagt till de virtuella Windows-skrivbordet och kontrollera att gruppen har **fullständig kontroll**.
 7. När du lägger till säkerhetsgruppen, högerklicka på mappen, Välj **egenskaper**väljer **delning**, kopiera sedan ned den **nätverkssökvägen** ska användas för senare.
 
 Mer information om behörigheter finns i den [FSLogix dokumentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ För att konfigurera de virtuella datorerna med FSLogix-programvara, gör du fö
 
 1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
 2. Starta en webbläsare och gå till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) att hämta FSLogix-agenten. Som en del av den offentliga förhandsversionen av virtuella Windows-skrivbordet får du en licensnyckel för att aktivera FSLogix programvaran. Nyckeln är LicenseKey.txt-filen som ingår i ZIP-filen FSLogix agent.
-3. Installera agenten FSLogix.
+3. Navigera till någon \\ \\Win32\\versionen eller \\ \\X64\\versionen i ZIP-filen och kör **FSLogixAppsSetup** att installera agenten FSLogix.
 4. Gå till **programfiler** > **FSLogix** > **appar** att bekräfta att agenten installerad.
-5. Kör från start-menyn **RegEdit** som administratör. Gå till **datorn\\HKEY_LOCAL_MACHINE\\programvara\\FSLogix\\profiler**
-6. Skapa följande värden:
+5. Kör från start-menyn **RegEdit** som administratör. Gå till **datorn\\HKEY_LOCAL_MACHINE\\programvara\\FSLogix**.
+6. Skapa en nyckel med namnet **profiler**.
+7. Skapa följande värden för nyckeln profiler:
 
 | Namn                | Type               | Data/värde                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
-| VHDLocations        | Multisträngvärde | ”Nätverkssökväg för filresursen” |
-| VolumeType          | String             | VHDX                              |
-| SizeInMBs           | DWORD              | ”heltal för storleken på profilen”     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Multisträngvärde | ”Nätverkssökväg för filresursen”     |

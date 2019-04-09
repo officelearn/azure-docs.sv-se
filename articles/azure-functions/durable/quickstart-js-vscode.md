@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049689"
+ms.locfileid: "59056307"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -110,7 +110,9 @@ Nu har vi lagt till alla komponenter som behövs för att påbörja en orkestrer
 
 Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.  
 
-1. På en Windows-dator startar du Azure Storage Emulator och se till att egenskapen **AzureWebJobsStorage** för local.settings.json har angetts till `UseDevelopmentStorage=true`. På en Mac- eller Linux-dator måste du ange egenskapen **AzureWebJobsStorage** till anslutningssträngen för ett befintligt Azure Storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
+1. På en Windows-dator startar du Azure Storage Emulator och se till att egenskapen **AzureWebJobsStorage** för local.settings.json har angetts till `UseDevelopmentStorage=true`. 
+
+    För Storage-emulatorn 5.8 se till att den **AzureWebJobsSecretStorageType** egenskapen för local.settings.json har angetts `files`. På en Mac- eller Linux-dator måste du ange den **AzureWebJobsStorage** egenskapen för anslutningssträngen för ett befintligt Azure storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
 
 2. Ange en brytpunkt i funktionskoden och tryck på F5 för att starta funktionsappsprojektet om du vill testa funktionen. Utdata från Core Tools visas på panelen **Terminal**. Om det här är första gången du Durable Functions installeras Durable Functions-tillägget, och bygget kan ta några sekunder.
 

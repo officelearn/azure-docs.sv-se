@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893069"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010608"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -288,10 +288,9 @@ Mer information finns i [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/st
     - Kön läsare stöds inte.  
     - Kommandogränssnitt (shell) stöds inte ännu.
   - Hanterade instanser kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
-  - PowerShell stöds inte ännu.
   - Analysis Services stöds inte.
 - Meddelanden stöds delvis.
-- E-postmeddelande stöds, kräver att du konfigurerar en Database Mail-profil. Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile` i offentlig förhandsversion (tillfällig begränsning).  
+- E-postmeddelande stöds, kräver att du konfigurerar en Database Mail-profil. SQL Agent kan använda endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`.  
   - Personsökare stöds inte.  
   - NetSend stöds inte.
   - Aviseringar stöds inte ännu.
@@ -432,10 +431,7 @@ Begränsningar:
 - `.BAK` filer som innehåller flera säkerhetskopior kan inte återställas.
 - `.BAK` filer som innehåller flera loggfiler kan inte återställas.
 - Återställningen misslyckas om .bak innehåller `FILESTREAM` data.
-- Säkerhetskopieringar som innehåller databaser som för närvarande har aktiva InMemory-objekt kan inte återställas.  
-- Säkerhetskopieringar som innehåller databaser där någon gång i minnesobjekt fanns för närvarande kan inte återställas.
-- Säkerhetskopieringar som innehåller databaser i skrivskyddat läge för närvarande kan inte återställas. Den här begränsningen tas bort snart.
-
+- Säkerhetskopieringar som innehåller databaser som har aktiva InMemory-objekt kan inte återställas på allmän-instansen.  
 Information om återställning instruktioner finns i [ÅTERSTÄLLA instruktioner](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
@@ -485,6 +481,8 @@ Hanterad instans kan inte återställa [inneslutna databaser](https://docs.micro
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, och `RESTORE DATABASE` instruktioner misslyckas, eftersom instansen kan uppnår sin gräns för Azure Storage.
+
 Varje allmänt syfte hanterad instans har till 35 TB lagring som är reserverade för diskutrymme för Azure Premium och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Outnyttjat utrymme på disken debiteras inte, men den totala summan av Azure Premium-diskstorlekar får inte överskrida 35 TB. I vissa fall kanske en hanterad instans som inte kräver 8 TB totalt överskrider 35 TB Azure begränsa lagringsstorleken, på grund av interna fragmentering.
 
 En allmän syfte hanterad instans kan till exempel ha en fil 1,2 TB i storlek som placeras på en disk med 4 TB och 248 filer (varje 1 GB i storlek) som är placerade på separata 128 GB-diskar. I det här exemplet:
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) och SQL Server Data Tools (SSDT) kan ha någ
 
 Visa GUID databasidentifierare i stället för faktiska databasnamn flera systemvyer, prestandaräknare, felmeddelanden, XEvents och poster i felloggen. Förlita dig inte på dessa GUID-identifierare eftersom de skulle ersättas med faktiska databasnamn i framtiden.
 
+### <a name="database-mail"></a>Database-mail
+
+`@query` parametern i [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) proceduren fungerar inte.
+
 ### <a name="database-mail-profile"></a>Database mail-profilen
 
-Database mail-profilen som används av SQL-agenten måste anropas `AzureManagedInstance_dbmail_profile`.
+Database mail-profilen som används av SQL-agenten måste anropas `AzureManagedInstance_dbmail_profile`. Det finns ingen begränsning avseende andra databasnamn e-profilen.
 
 ### <a name="error-logs-are-not-persisted"></a>Felloggar är inte beständiga
 

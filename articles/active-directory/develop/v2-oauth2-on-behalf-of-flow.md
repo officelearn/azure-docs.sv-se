@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 OAuth2.0 On-Behalf-Of-flöde | Microsoft Docs
+title: Microsoft identity-plattformen och OAuth2.0 On-Behalf-Of-flöde | Azure
 description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänst till tjänst-autentisering med hjälp av OAuth2.0 On-Behalf-Of-flöde.
 services: active-directory
 documentationcenter: ''
@@ -13,30 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576938"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058687"
 ---
-# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0-Behalf-flödet (OBO) fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, behöver så skydda en åtkomsttoken från Azure Active Directory (Azure AD), användarens räkning.
+OAuth 2.0-Behalf-flödet (OBO) fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, måste den säkra en åtkomsttoken från Microsoft identity-plattformen för användarens räkning.
 
 > [!NOTE]
-> V2.0-slutpunkten stöder inte alla Azure AD-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md). Mer specifikt stöds kända klientprogram inte för appar med Microsoft-konto (MSA) och Azure AD målgrupper. Därför fungerar inte ett vanligt mönster för medgivande för OBO för klienter som loggar in både personliga- och arbets-eller skolkonto. Mer information om hur du hanterar det här steget i flödet finns [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application).
-
-
-> [!IMPORTANT]
-> Från och med maj 2018 vissa implicit flöde härledda `id_token` kan inte användas för OBO-flöde. Ensidesappar (SPA) ska ha genomgått en **åtkomst** token i en mellannivå konfidentiell klient för att utföra OBO flödar i stället. Mer information om vilka klienter som kan utföra OBO-anrop, finns i [begränsningar](#client-limitations).
+>
+> - Microsoft identity-plattformen slutpunkt stöder inte alla scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md). Mer specifikt stöds kända klientprogram inte för appar med Microsoft-konto (MSA) och Azure AD målgrupper. Därför fungerar inte ett vanligt mönster för medgivande för OBO för klienter som loggar in både personliga- och arbets-eller skolkonto. Mer information om hur du hanterar det här steget i flödet finns [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application).
+> - Från och med maj 2018 vissa implicit flöde härledda `id_token` kan inte användas för OBO-flöde. Ensidesappar (SPA) ska ha genomgått en **åtkomst** token i en mellannivå konfidentiell klient för att utföra OBO flödar i stället. Mer information om vilka klienter som kan utföra OBO-anrop, finns i [begränsningar](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
 
@@ -44,16 +42,16 @@ Anta att användaren har autentiserats på ett program med hjälp av den [flöde
 
 De steg som följer utgör OBO-flödet och beskrivs med hjälp av följande diagram.
 
-![OAuth2.0 On-Behalf-Of-flöde](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of-flöde](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. Klientprogrammet skickar en begäran till API A med token A (med en `aud` anspråk av API-A).
-1. API-A autentiserar till Azure AD-slutpunkten för utfärdande och begär en token för att komma åt API B.
-1. Azure AD-slutpunkten för utfärdande verifierar API A autentiseringsuppgifter med token A och utfärdar en åtkomsttoken för API-B (token B).
+1. API-A autentiserar till Microsoft identity-plattformen utfärdande-slutpunkten och begär en token för att komma åt API B.
+1. Microsoft identity-plattformen utfärdande slutpunkt validerar API A autentiseringsuppgifter med token A och utfärdar en åtkomsttoken för API-B (token B).
 1. Token B har angetts i auktoriseringshuvudet för begäran till API B.
 1. Data från den skyddade resursen returneras av API B.
 
 > [!NOTE]
-> I det här scenariot har mellannivå-tjänsten inga användaråtgärder för att hämta användarens medgivande till att få åtkomst till underordnade API. Därför visas kan ge åtkomst till underordnade API gång som en del av samtycke steg under autentiseringen. Läs hur du ställer in detta för din app i [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application). 
+> I det här scenariot har mellannivå-tjänsten inga användaråtgärder för att hämta användarens medgivande till att få åtkomst till underordnade API. Därför visas kan ge åtkomst till underordnade API gång som en del av samtycke steg under autentiseringen. Läs hur du ställer in detta för din app i [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="service-to-service-access-token-request"></a>Tjänst-till-tjänst begäran om åtkomsttoken
 
@@ -139,7 +137,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `token_type` | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är `Bearer`. Mer information om ägartoken, finns det [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `token_type` | Anger typ tokenu värdet. Den enda skriver som Microsoft identity-plattformen stöder är `Bearer`. Mer information om ägartoken, finns det [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | `scope` | Omfattning åtkomst beviljas i token. |
 | `expires_in` | Hur lång tid i sekunder som den åtkomst-token är giltig. |
 | `access_token` | Den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att autentisera till den mottagande tjänsten. |
@@ -161,7 +159,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token f
 ```
 
 > [!NOTE]
-> Ovanstående åtkomsttoken är en v1.0-formaterad token. Det beror på att token har angetts baserat på resursen ifråga. Microsoft Graph begär v1.0 token, så att Azure AD ger v1.0 åtkomsttoken när en klient begär token för Microsoft Graph. De program som ska titta på åtkomsttoken. Klienterna behöver inte inspektera dem. 
+> Ovanstående åtkomsttoken är en v1.0-formaterad token. Det beror på att token har angetts baserat på resursen ifråga. Microsoft Graph begär v1.0 token, så Microsoft identity-plattformen ger v1.0 åtkomsttoken när en klient begär token för Microsoft Graph. De program som ska titta på åtkomsttoken. Klienterna behöver inte inspektera dem.
 
 ### <a name="error-response-example"></a>Fel svar, exempel
 
@@ -199,9 +197,9 @@ Beroende på målgruppen för ditt program, kan du olika strategier för att sä
 
 #### <a name="default-and-combined-consent"></a>/.default och kombinerade medgivande
 
-Den traditionella metoden ”kända klientprogram” räcker för program som behöver bara logga in arbets- eller skolkonton. Mellannivå-programmet lägger till klienten i listan över kända klienter program i manifestet och sedan klienten kan utlösa en kombinerad godkännandeflöde för både själva och mellannivå-programmet. Detta görs på v2.0-slutpunkten med hjälp av den [ `/.default` omfång](v2-permissions-and-consent.md#the-default-scope). När du utlöser en godkännandeskärmen med kända klientprogram och `/.default`, godkännandeskärmen visas behörigheter för både klienten mellannivå-API, och också begära behörigheterna som krävs av mellannivå-API. Användaren anger medgivande för båda programmen och sedan OBO flödet fungerar. 
+Den traditionella metoden ”kända klientprogram” räcker för program som behöver bara logga in arbets- eller skolkonton. Mellannivå-programmet lägger till klienten i listan över kända klienter program i manifestet och sedan klienten kan utlösa en kombinerad godkännandeflöde för både själva och mellannivå-programmet. Detta görs på v2.0-slutpunkten med hjälp av den [ `/.default` omfång](v2-permissions-and-consent.md#the-default-scope). När du utlöser en godkännandeskärmen med kända klientprogram och `/.default`, godkännandeskärmen visas behörigheter för både klienten mellannivå-API, och också begära behörigheterna som krävs av mellannivå-API. Användaren anger medgivande för båda programmen och sedan OBO flödet fungerar.
 
-För tillfället har inte stöd för personliga Microsoft-kontosystemet kombinerade medgivande och så den här metoden fungerar inte för appar som vill speciellt logga in personliga konton. Personliga Microsoft-konton som används som gästkonton i en klient hanteras med hjälp av Azure AD-system och kan gå igenom kombinerade medgivande. 
+För tillfället har inte stöd för personliga Microsoft-kontosystemet kombinerade medgivande och så den här metoden fungerar inte för appar som vill speciellt logga in personliga konton. Personliga Microsoft-konton som används som gästkonton i en klient hanteras med hjälp av Azure AD-system och kan gå igenom kombinerade medgivande.
 
 #### <a name="pre-authorized-applications"></a>Förauktoriserade program
 
@@ -209,24 +207,24 @@ En funktion i application-portalen är ”förauktoriserade program”. På så 
 
 #### <a name="admin-consent"></a>Administratörsmedgivande
 
-En klientadministratör kan garantera att program har behörighet att anropa sina nödvändiga API: er genom att tillhandahålla administratörens godkännande för mellannivå-programmet. Om du vill göra detta måste administratören hitta mellannivå-program i deras klienter, öppna sidan behörigheter som krävs för och väljer att ge behörighet för appen. Läs mer om administratörens godkännande i den [medgivande och behörigheter dokumentation](v2-permissions-and-consent.md). 
+En klientadministratör kan garantera att program har behörighet att anropa sina nödvändiga API: er genom att tillhandahålla administratörens godkännande för mellannivå-programmet. Om du vill göra detta måste administratören hitta mellannivå-program i deras klienter, öppna sidan behörigheter som krävs för och väljer att ge behörighet för appen. Läs mer om administratörens godkännande i den [medgivande och behörigheter dokumentation](v2-permissions-and-consent.md).
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Medgivande för Azure AD + program för Microsoft-konto
 
-På grund av begränsningar i behörighetsmodellen för personliga konton och bristen på en styrande klient skiljer medgivande kraven för personliga konton sig lite från Azure AD. Det finns ingen klient för att kunna tillhandahålla klienttäckande medgivande för eller är det möjligt att göra kombinerade medgivande. Därför Observera andra strategier för närvarande själva – att dessa fungerar för program som bara behöver stöd för Azure AD-konton. 
+På grund av begränsningar i behörighetsmodellen för personliga konton och bristen på en styrande klient skiljer medgivande kraven för personliga konton sig lite från Azure AD. Det finns ingen klient för att kunna tillhandahålla klienttäckande medgivande för eller är det möjligt att göra kombinerade medgivande. Därför Observera andra strategier för närvarande själva – att dessa fungerar för program som bara behöver stöd för Azure AD-konton.
 
 #### <a name="use-of-a-single-application"></a>Användning av ett program
 
-I vissa situationer kan du bara ha en enda parkoppling av mellannivå och frontend-klienten. I det här scenariot kan det vara lättare att göra detta med ett enda program, vilket eliminerar behovet av ett program på mellannivå helt och hållet. Du kan använda cookies, en id_token eller en åtkomsttoken begärs för programmet för att autentisera mellan klient- och webb-API. Begär godkännande från den här enda program till backend-resursen. 
+I vissa situationer kan du bara ha en enda parkoppling av mellannivå och frontend-klienten. I det här scenariot kan det vara lättare att göra detta med ett enda program, vilket eliminerar behovet av ett program på mellannivå helt och hållet. Du kan använda cookies, en id_token eller en åtkomsttoken begärs för programmet för att autentisera mellan klient- och webb-API. Begär godkännande från den här enda program till backend-resursen.
 
 ## <a name="client-limitations"></a>Klientbegränsningar
 
-Om en klient använder det implicita flödet för att hämta en id_token och klienten har också jokertecken i en svars-URL, kan id_token inte användas för en OBO-flöde.  Dock kan åtkomsttoken som köpts via implicit beviljande av flödet fortfarande lösas in av en konfidentiell klient även om den initierande klienten har ett jokertecken svars-URL som registrerats. 
+Om en klient använder det implicita flödet för att hämta en id_token och klienten har också jokertecken i en svars-URL, kan id_token inte användas för en OBO-flöde.  Dock kan åtkomsttoken som köpts via implicit beviljande av flödet fortfarande lösas in av en konfidentiell klient även om den initierande klienten har ett jokertecken svars-URL som registrerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om OAuth 2.0-protokollet och ett annat sätt att utföra tjänst till tjänst-autentisering via klientautentiseringsuppgifter.
 
-* [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient i Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Flöde för OAuth 2.0-kod i Azure AD v2.0](v2-oauth2-auth-code-flow.md)
-* [Med hjälp av den `/.default` omfång](v2-permissions-and-consent.md#the-default-scope) 
+* [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient i Microsoft identity-plattformen](v2-oauth2-client-creds-grant-flow.md)
+* [Flöde för OAuth 2.0-kod i Microsoft identity-plattformen](v2-oauth2-auth-code-flow.md)
+* [Med hjälp av den `/.default` omfång](v2-permissions-and-consent.md#the-default-scope)

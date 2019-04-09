@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858931"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Självstudier: Azure Active Directory-integrering med Lecorpio
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Lecorpi
 
     ![Lecorpio domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<instance name>.lecorpio.com/<customer name>`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<instance name>.lecorpio.com/<customer name>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<instance name>.lecorpio.com/<customer name>`
 
@@ -193,8 +193,8 @@ När du klickar på panelen Lecorpio i åtkomstpanelen, bör det vara loggas in 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

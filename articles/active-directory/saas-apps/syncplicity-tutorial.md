@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ac9d859ec76c782f762dfc6f424d70ea487665
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360236"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Självstudier: Azure Active Directory-integrering med Syncplicity
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Syncpli
 
     ![Syncplicity domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.syncplicity.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<companyname>.syncplicity.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.syncplicity.com/sp`
 
@@ -190,7 +190,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
     ![Länken Syncplicity i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
@@ -243,8 +243,8 @@ När du klickar på panelen Syncplicity i åtkomstpanelen, bör det vara loggas 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

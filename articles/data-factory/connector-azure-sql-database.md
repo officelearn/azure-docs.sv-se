@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875245"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266328"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,7 +65,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 - [SQL-autentisering](#sql-authentication)
 - [Azure AD-token-autentisering: Tjänstens huvudnamn](#service-principal-authentication)
-- [Azure AD-token-autentisering: hanterade identiteter för Azure-resurser](#managed-identity)
+- [Azure AD-token-autentisering: Hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
 >Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
@@ -373,7 +373,7 @@ För att kopiera data till Azure SQL Database, ange den **typ** -egenskapen i ak
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **SqlSink**. | Ja |
-| WriteBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**.<br/> Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
+| WriteBatchSize | Antalet rader som tillägg i SQL-tabell **per batch**.<br/> Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
 | writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås.<br/> Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Database. Det är bara anropas en gång per kopia som kör. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
 | sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur du använder källdata till en måltabell. Ett exempel är att göra upsertar eller omvandla med egen affärslogik. <br/><br/>Den här lagrade proceduren är **anropas per batch**. Åtgärder som endast kör en gång och har inget samband med källdata, använda den `preCopyScript` egenskapen. Exempel åtgärder är delete och trunkera. | Nej |
@@ -535,7 +535,7 @@ Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar
 
 I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i Azure SQL Database. Anta som indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
 
-#### <a name="output-dataset"></a>Datauppsättningen för utdata
+**Datauppsättningen för utdata:** ”tableName” ska vara samma typ parametern tabellnamnet i den lagrade proceduren (se lagrad procedur-skriptet nedan).
 
 ```json
 {
@@ -554,7 +554,7 @@ I följande exempel visas hur du använder en lagrad procedur för att göra en 
 }
 ```
 
-Definiera den **SqlSink** avsnittet i Kopieringsaktiviteten:
+Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande sätt.
 
 ```json
 "sink": {

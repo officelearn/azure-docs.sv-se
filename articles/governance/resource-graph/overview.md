@@ -1,19 +1,18 @@
 ---
 title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten kan komplexa frågor efter resurser i stor skala.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/06/2019
+ms.date: 03/29/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802330"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269299"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -26,13 +25,13 @@ Azure Resource Graph är en tjänst i Azure som utformats för att utöka Azure 
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph används av den nya bläddringsfunktionen för alla resurser i Azure Portal. Den har utformats för att hjälpa kunder som har behov av att hantera storskaliga miljöer.
+> Azure Resource Graph används av den nya bläddringsfunktionen för alla resurser i Azure Portal. Det är utformat för att hjälpa kunder med ett behov av att hantera storskaliga miljöer.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hur kompletterar Resource Graph Resurshantering i Azure
 
 Azure Resource Manager skickar för närvarande data till en begränsad resurscache som tillgängliggör flera resursfält, särskilt då resursnamn, ID, typ, resursgrupp, prenumerationer och plats. Tidigare krävde arbete med olika resursegenskaper anrop till varje enskild resursprovider och egenskapsinformation om begäran för varje resurs.
 
-Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider.
+Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. En lista över resurstyper som stöds, leta efter en **Ja** i den [resurser för distributioner av fullständig](../../azure-resource-manager/complete-mode-deletion.md) tabell.
 
 ## <a name="the-query-language"></a>Frågespråket
 
@@ -45,6 +44,9 @@ Information om åtgärder och funktioner som kan användas med Azure Resource Gr
 ## <a name="permissions-in-azure-resource-graph"></a>Behörigheter i Azure Resource Graph
 
 Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) med minst läsbehörighet till de resurser som du vill fråga. Utan minst `read`-behörigheter för Azure-objektet eller -objektgruppen returneras inte resultat.
+
+> [!NOTE]
+> Resursen används prenumerationer som är tillgängliga för ett huvudnamn under inloggningen. Om du vill se resurser till en ny prenumeration som har lagts till under en aktiv session, måste huvudkontot som uppdatera kontexten. Den här åtgärden sker automatiskt när logga ut och in igen.
 
 ## <a name="throttling"></a>Begränsning
 

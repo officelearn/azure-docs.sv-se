@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898473"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Självstudier: Azure Active Directory-integrering med HackerOne
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     ![Information om HackerOne-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://hackerone.com/<company name>/authentication`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://hackerone.com/<company name>/authentication`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://hackerone.com/users/saml/metadata`
 
@@ -145,9 +145,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     a. I textrutan **E-postdomän** skriver du en registrerad domän.
 
-    b. I textrutorna   **URL för enkel inloggning** klistrar du in värdet för  **Inloggnings-URL**  som du kopierade från Azure-portalen.
+    b. I **inloggning på URL för enkel** textrutor, klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    c. Öppna den **certifikatfil** som du laddade ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in det i textrutan **X509-certifikat** .
+    c. Öppna din hämtade **certifikatfilen** från Azure-portalen i anteckningar och kopiera innehållet i den till Urklipp och klistra in den till den **X509 certifikat** textrutan.
 
     d. Klicka på **Spara**.
 
@@ -222,7 +222,7 @@ När du klickar på HackerOne-ikonen i åtkomstpanelen bör du automatiskt logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

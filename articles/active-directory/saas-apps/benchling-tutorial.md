@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2613adf4db69d9ab2ad7862fe9e5504921a1a5d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9b3725f217ef261df7bc8d9821edf972bfe58806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671116"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Självstudier: Azure Active Directory-integrering med Benchling
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Benchli
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.benchling.com/ext/saml/metadata.xml`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.benchling.com/ext/saml/signin:finish`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.benchling.com/ext/saml/signin:finish`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -220,9 +220,9 @@ När du klickar på panelen Benchling i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

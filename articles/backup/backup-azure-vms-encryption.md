@@ -1,143 +1,164 @@
 ---
-title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer med hjälp av Azure Backup-tjänster
-description: Den här artikeln handlar om säkerhetskopiering och återställning av virtuella datorer krypteras med hjälp av Azure Disk Encryption.
+title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer med Azure Backup
+description: Beskriver hur du säkerhetskopiera och återställa krypterade virtuella Azure-datorer med Azure Backup-tjänsten.
 services: backup
 author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/10/2018
+ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 28126df0dfd9a03e93a76fa5071331603c4819a4
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266452"
 ---
-# <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
-Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
+# <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
-## <a name="supported-scenarios"></a>Scenarier som stöds
+Den här artikeln beskriver hur du säkerhetskopierar och återställer Windows eller Linux Azure-datorer (VM) med krypterade diskar med hjälp av den [Azure Backup](backup-overview.md) service.
 
- Säkerhetskopiering och återställning av krypterade virtuella datorer stöds bara för virtuella datorer som använder Azure Resource Manager-distributionsmodellen. Det finns inte stöd för virtuella datorer som använder den klassiska distributionsmodellen. Säkerhetskopiering och återställning av krypterade virtuella datorer stöds för Windows och Linux-datorer som använder Azure Disk Encryption. Diskkryptering använder branschens standard BitLocker-funktion i Windows och dm-crypt i Linux för att tillhandahålla kryptering av diskar. I följande tabell visar krypteringstyp och stöd för virtuella datorer.
+Granska dessa resurser om du vill lära dig mer om hur Azure Backup samverkar med Azure virtuella datorer innan du börjar:
 
-   |  | BEK och KEK virtuella datorer | BEK endast virtuella datorer |
-   | --- | --- | --- |
-   | **Icke-hanterade virtuella datorer**  | Ja | Ja  |
-   | **Hanterade virtuella datorer**  | Ja | Ja  |
+- [Granska](backup-architecture.md#architecture-direct-backup-of-azure-vms) arkitektur för Azure VM-säkerhetskopiering.
+- [Lär dig mer om](backup-azure-vms-introduction.md) säkerhetskopiering av Azure virtuella datorer och Azure Backup-tillägget.
 
-   > [!NOTE]
-   > Azure Backup stöder virtuella datorer som är krypterat med nycklar som fristående. Valfri tangent som är en del av ett certifikat som används för att kryptera en virtuell dator stöds inte i dag.
-   >
+## <a name="encryption-support"></a>Stöd för kryptering
 
-## <a name="prerequisites"></a>Förutsättningar
-* Den virtuella datorn har krypterats med hjälp av [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
+Azure Backup stöder säkerhetskopiering av Azure virtuella datorer som har sina OS/datadiskar krypterats med Azure Disk Encryption (ADE). ADE använder BitLocker för kryptering av Windows virtuella datorer och funktionen dm-crypt för Linux-datorer. ADE integreras med Azure Key Vault för att hantera diskkrypteringsnycklar och hemligheter. Krypteringsnycklar (KeyExchange-nycklar) för Key Vault nyckeln kan användas att lägga till ett extra lager av säkerhet, kryptering av kryptering hemligheter innan du skriver dem till Key Vault.
 
-* Recovery Services-valvet har skapats och storage-replikering har angetts genom att följa stegen i [förbereda miljön för säkerhetskopiering](backup-azure-arm-vms-prepare.md).
+Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med hjälp av ADE med och utan Azure AD-app som sammanfattas i tabellen nedan.
 
-* Säkerhetskopiering har gett behörighet att komma åt ett nyckelvalv som innehåller nycklar och hemligheter för krypterade virtuella datorer.
+**Typ av virtuell datordisk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
+--- | --- | --- 
+**Ohanterad** | Ja | Ja
+**Hanterad**  | Ja | Ja
 
-## <a name="back-up-an-encrypted-vm"></a>Säkerhetskopiera en krypterad virtuell dator
-Använd följande steg för att ange ett säkerhetskopieringsmål, definiera en princip, konfigurera och utlösa en säkerhetskopia.
+- Läs mer om [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), och [KeyExchange-nycklar](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
+- Läs den [vanliga frågor och svar](../security/azure-security-disk-encryption-faq.md) för Virtuella Azure-diskkryptering.
 
-### <a name="configure-backup"></a>Konfigurera säkerhetskopiering
-1. Om du redan har ett Recovery Services-valv öppnar du gå vidare till nästa steg. Om du inte har ett Recovery Services-valv som är öppna, men du befinner dig i Azure portal, Välj **alla tjänster**.
 
-   a. I listan över resurser skriver du **Recovery Services**.
 
-   b. När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv**, markera den.
+### <a name="limitations"></a>Begränsningar
 
-      ![Recovery Services-valv](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+- Du kan säkerhetskopiera och återställa krypterade virtuella datorer i samma prenumeration och region.
+- Azure Backup stöder virtuella datorer som är krypterat med nycklar som fristående. Valfri tangent som är en del av ett certifikat som används för att kryptera en virtuell dator stöds inte för närvarande.
+- Du kan säkerhetskopiera och återställa krypterade virtuella datorer i samma prenumeration och region som Recovery Services-Backup-valvet.
+- Inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du behöver återställa en hel virtuell dator för att återställa filer och mappar.
+- När du återställer en virtuell dator, du kan inte använda den [Ersätt befintlig virtuell dator](backup-azure-arm-restore-vms.md#restore-options) alternativet för krypterade virtuella datorer. Det här alternativet stöds bara för okrypterade hanterade diskar.
 
-    c. Listan över Recovery Services-valv visas. Välj ett valv i listan.
 
-     Instrumentpanelen för det valda valvet öppnas.
-1. I listan över objekt som visas under valvet, väljer **Backup** att börja säkerhetskopiera krypterade virtuella datorn.
 
-      ![Säkerhetskopiering bladet](./media/backup-azure-vms-encryption/select-backup.png)
-1. På den **Backup** panelen, väljer **säkerhetskopieringsmål**.
+
+## <a name="before-you-start"></a>Innan du börjar
+
+Innan du börjar måste du göra följande:
+
+1. Kontrollera att du har en eller flera [Windows](../security/azure-security-disk-encryption-windows.md) eller [Linux](../security/azure-security-disk-encryption-linux.md) virtuella datorer med ADE aktiverat.
+2. [Granska av stödmatrisen](backup-support-matrix-iaas.md) för virtuell Azure-säkerhetskopiering
+3. [Skapa](backup-azure-arm-vms-prepare.md#create-a-vault) ett Recovery Services-Backup-valv om du inte har något.
+4. Om du aktiverar kryptering för virtuella datorer som redan har aktiverats för säkerhetskopiering, behöver du bara ange säkerhetskopiering med behörighet till Key Vault så att säkerhetskopieringar kan fortsätta utan avbrott. [Läs mer](#provide-permissions) om hur du tilldelar dessa behörigheter.
+
+Det finns dessutom några saker som du kan behöva göra i vissa fall:
+
+- **Installera VM-agenten på den virtuella datorn**: Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn har skapats från en Azure marketplace-avbildning, är agenten installerad och körs. Om du skapar en anpassad virtuell dator eller om du migrerar en lokal virtuell dator, kan du behöva [installerar du agenten manuellt](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+- **Uttryckligen tillåta utgående åtkomst**: Normalt behöver du inte uttryckligen tillåta utgående nätverksåtkomst för en Azure-dator att kommunicera med Azure Backup. Men vissa virtuella datorer kan uppleva anslutningsproblem, som visar den **ExtensionSnapshotFailedNoNetwork** fel vid försök att ansluta. Om detta inträffar bör du [uttryckligen tillåta utgående åtkomst](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), så att tillägget Azure Backup kan kommunicera med Azure offentliga IP-adresser för säkerhetskopieringen.
+
+
+
+## <a name="configure-a-backup-policy"></a>Konfigurera en säkerhetskopieringspolicy
+
+1. Om du inte har skapat ett Recovery Services-säkerhetskopieringsvalv, följer du [dessa instruktioner](backup-azure-arm-vms-prepare.md#create-a-vault)
+2. Öppna valvet i portalen och välj **Backup** i den **komma igång** avsnittet.
+
+    ![Säkerhetskopiering bladet](./media/backup-azure-vms-encryption/select-backup.png)
+
+3. I **säkerhetskopieringsmål** > **var körs din arbetsbelastning?** Välj **Azure**.
+4. I **vad vill du säkerhetskopiera?** Välj **VM** > **OK**.
 
       ![Bladet scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-1. Under **var körs din arbetsbelastning?** väljer **Azure**. Under **vad vill du säkerhetskopiera?** väljer **VM**. Välj sedan **OK**.
 
-   ![Öppna bladet Scenario](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-1. Under **Välj säkerhetskopieringspolicy**, Välj den säkerhetskopieringspolicy som du vill använda för valvet. Välj sedan **OK**.
+5. I **säkerhetskopieringspolicy** > **Välj säkerhetskopieringspolicy**, väljer du den princip som du vill associera med valvet. Klicka sedan på **OK**.
+    - En princip för säkerhetskopiering anger när säkerhetskopior tas och hur länge de lagras.
+    - Information om standardprincipen visas under den nedrullningsbara menyn.
 
-      ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
+    ![Öppna bladet Scenario](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-    Information om standardprincipen visas. Om du vill skapa en princip väljer **Skapa ny** från den nedrullningsbara listan. När du har valt **OK**, principen för säkerhetskopiering är associerad med valvet.
+6. Om du inte vill använda standardprincipen väljer **Skapa ny**, och [skapar en anpassad princip](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-1. Välj de krypterade virtuella datorerna som associeras med den angivna principen och välj **OK**.
+
+7. De krypterade virtuella datorer du vill säkerhetskopiera använder Välj principen och väljer **OK**.
 
       ![Välj krypterade virtuella datorer](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-1. Den här sidan visas ett meddelande om nyckelvalv som är kopplad till de krypterade virtuella datorer som du har valt. Backup kräver skrivskyddad åtkomst till nycklar och hemligheter i nyckelvalvet. De här behörigheterna används för att säkerhetskopiera nycklar och hemligheter, tillsammans med de associerade virtuella datorerna.<br>
-Om du är en **medlemsanvändare**, aktivera säkerhetskopiering processen kommer sömlöst få åtkomst till nyckelvalvet för att säkerhetskopiera krypterade virtuella datorer utan användarens ingripande.
 
-   ![Meddelande för krypterade virtuella datorer](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
+8. Om du använder Azure Key Vault, på sidan valv, visas ett meddelande om att Azure Backup behöver skrivskyddad åtkomst till nycklar och hemligheter i Key Vault.
 
-   För en **gästanvändare**, måste du ange behörigheter till säkerhetskopieringstjänsten för att få åtkomst till nyckelvalvet för säkerhetskopior att fungera. Du kan ange dessa behörigheter genom att följa stegen som beskrivs i följande avsnitt
+    - Om du får det här meddelandet, krävs ingen åtgärd.
+    
+        ![Åtkomst OK](./media/backup-azure-vms-encryption/access-ok.png)
+        
+    - Om du får det här meddelandet måste du ange behörigheter som beskrivs i den [proceduren nedan](#provide-permissions).
+    
+        ![Åtkomst-varning](./media/backup-azure-vms-encryption/access-warning.png)
 
-   ![Meddelande för krypterade virtuella datorer](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+9. Klicka på **Aktivera säkerhetskopiering** att distribuera principen för säkerhetskopiering i valvet och aktivera säkerhetskopiering för de valda virtuella datorerna. 
 
-    Nu när du har definierat alla inställningar för valvet, Välj **Aktivera säkerhetskopiering** längst ned på sidan. **Aktivera säkerhetskopiering** distribueras principen till valvet och de virtuella datorerna.
 
-1. Nästa fas i förberedelse installerar VM-agenten eller att se till att den Virtuella Datoragenten är installerad. Om du vill göra samma sak, följer du stegen i [förbereda miljön för säkerhetskopiering](backup-azure-arm-vms-prepare.md).
+## <a name="trigger-a-backup-job"></a>Utlösa ett säkerhetskopieringsjobb
 
-### <a name="trigger-a-backup-job"></a>Utlösa ett säkerhetskopieringsjobb
-Följ stegen i [säkerhetskopierade virtuella Azure-datorer till ett Recovery Services-valv](backup-azure-arm-vms.md) att utlösa ett säkerhetskopieringsjobb.
+Den första säkerhetskopieringen kommer att köras i enlighet med schemat, men du kan köra den direkt enligt följande:
 
-### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Fortsätt säkerhetskopiering av redan säkerhetskopierade virtuella datorer med kryptering är aktiverat  
-Om du har virtuella datorer redan säkerhetskopieras i ett Recovery Services-valv som har aktiverats för kryptering senare måste du ge behörigheter till tillbaka upp till åtkomst till nyckeln valv för säkerhetskopior att fortsätta. Du kan ange dessa behörigheter genom att följa den [stegen i följande avsnitt](#provide-permissions). Du kan också följa stegen i avsnittet ”Aktivera säkerhetskopiering” i PowerShell på [PowerShell-dokumentationen](backup-azure-vms-automation.md).
+1. I menyn valvet klickar du på **Säkerhetskopiera objekt**.
+2. I **Säkerhetskopieringsobjekt** klickar du på **Azure-dator**.
+3. I den **Säkerhetskopieringsobjekt** klickar du på ellipserna (...).
+4. Klicka på **Säkerhetskopiera nu**.
+5. I **Säkerhetskopiera nu**, använder kalenderkontrollen för att välja den sista dagen som återställningspunkten ska behållas. Klicka sedan på **OK**.
+6. Meddelandena som portalen. Du kan övervaka jobbförloppet i instrumentpanelen för valvet > **säkerhetskopieringsjobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
+
 
 ## <a name="provide-permissions"></a>Ange behörigheter
-Använd följande steg för att tillhandahålla relevant behörighet för Azure Backup för att få åtkomst till nyckelvalvet och utför säkerhetskopiering av krypterade virtuella datorer.
-1. Välj **alla tjänster**, och Sök efter **viktiga valv**.
 
-    ![Nyckelvalv](./media/backup-azure-vms-encryption/search-key-vault.png)
+Azure virtuella datorn behöver skrivskyddad åtkomst för säkerhetskopiering av nycklar och hemligheter, tillsammans med de associerade virtuella datorerna.
 
-1. Listan över nyckelvalv, Välj det nyckelvalv som är associerade med den krypterade virtuella datorn som behöver säkerhetskopieras.
+- Key Vault är associerad med Azure AD-klient för Azure-prenumerationen. Om du är en **medlemsanvändare**, Azure Backup får åtkomst till Key Vault utan ytterligare åtgärder.
+- Om du är en **gästanvändare**, måste du ange behörigheter för Azure Backup för att få åtkomst till nyckelvalvet.
 
-     ![Val av nyckelvalv](./media/backup-azure-vms-encryption/select-key-vault.png)
+Att ange behörigheter:
 
-1. Välj **åtkomstprinciper**, och välj sedan **Lägg till ny**.
-
-    ![Lägg till ny](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-
-1. Välj **väljer huvudnamn**, och skriv sedan **Backup Management-tjänsten** i sökrutan.
-
-    ![Säkerhetskopieringstjänsten sökning](./media/backup-azure-vms-encryption/search-backup-service.png)
-
-1. Välj **Backup Management-tjänsten**, och välj sedan **Välj**.
+1. I Azure-portalen väljer du **alla tjänster**, och Sök efter **viktiga valv**.
+2. Välj det nyckelvalv som är associerade med den krypterade virtuella datorn du säkerhetskopierar.
+3. Välj **åtkomstprinciper** > **Lägg till ny**.
+4. Välj **väljer huvudnamn**, och skriv sedan **säkerhetskopiering Management**. 
+5. Välj **säkerhetskopiera hanteringstjänsten** > **Välj**.
 
     ![Val av Backup-tjänsten](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-1. Under **konfigurera från mall (valfritt)** väljer **Azure Backup**. Behörigheterna som krävs är fylls i automatiskt för **Nyckelbehörigheter** och **hemliga behörigheter**. Om den virtuella datorn är krypterad med hjälp av **BEK endast**, endast för hemligheter krävs, så måste du ta bort valet för **Nyckelbehörigheter**.
+6. I **Lägg till åtkomstprincip** > **konfigurera från mall (valfritt)** väljer **Azure Backup**.
+    - Behörigheterna som krävs är fylls i automatiskt för **Nyckelbehörigheter** och **hemliga behörigheter**.
+    - Om din virtuella dator har krypterats med **BEK endast**, ta bort valet för **Nyckelbehörigheter** eftersom du bara behöver behörigheter för hemligheter. 
 
     ![Azure backup val](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-1. Välj **OK**. Observera att **Backup Management-tjänsten** läggs i **åtkomstprinciper**.
+6. Klicka på **OK**. **Säkerhetskopiera hanteringstjänsten** läggs till i **åtkomstprinciper**. 
 
     ![Åtkomstprinciper](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-1. Välj **spara** att ge behörigheterna som krävs för säkerhetskopiering.
-
-    ![Säkerhetskopiering åtkomstprincip](./media/backup-azure-vms-encryption/save-access-policy.png)
-
-När behörigheterna har har angetts, kan du fortsätta med att aktivera säkerhetskopiering för krypterade virtuella datorer.
+7. Klicka på **spara** att ge Azure Backup med behörigheter.
 
 ## <a name="restore-an-encrypted-vm"></a>Återställa en krypterad virtuell dator
-Azure Backup nu stöder återställning av [Azure krypterade virtuella datorer utan Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) utöver den tidigare versionen av återställning stöd till Azure krypterade virtuella datorer med Azure AD.<br>
 
-Om du vill återställa en krypterad virtuell dator, återställa diskar genom att följa stegen i avsnittet ”återställa säkerhetskopierade diskar” i [väljer en konfiguration för återställning av virtuell dator](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Efter det kan använda du något av följande alternativ:
+Du återställa krypterade virtuella datorer på följande sätt:
 
-* Följ PowerShell steg i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) skapa en fullständig virtuell dator från återställda diskar.
-* Eller, [anpassa en återställd virtuell dator med hjälp av mallar](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) att skapa virtuella datorer från återställda diskar. Mallar kan användas endast för återställningspunkter som skapats efter den 26 April 2017.
+1. [Återställa den Virtuella datordisken](backup-azure-arm-restore-vms.md#restore-disks).
+2. Gör sedan något av följande:
+    - Med mallen som genereras under återställningen att anpassa inställningarna för virtuella datorer och utlösa distribution av virtuella datorer. [Läs mer](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    - Skapa en ny virtuell dator från återställda diskar med Powershell. [Läs mer](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="troubleshooting-errors"></a>Felsöka fel
-| Åtgärd | Felinformation | Lösning |
-| --- | --- | --- |
-|Backup | Felkod: UserErrorKeyVaultPermissionsNotConfigured<br><br>Felmeddelande: Azure Backup-tjänsten har inte tillräcklig behörighet till Key Vault för säkerhetskopiering krypterade virtuella datorer. | Säkerhetskopiering ska tillhandahållas behörigheterna genom att följa den [stegen i föregående avsnitt](#provide-permissions). Du kan också följa stegen i avsnittet ”Aktivera skydd” i artikeln för PowerShell [Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer](backup-azure-vms-automation.md#enable-protection). |  
-| Återställ | Du kan inte återställa den här krypterade virtuella datorn eftersom det nyckelvalv som är associerade med den här virtuella datorn inte finns. |Skapa ett nyckelvalv med hjälp av [vad är Azure Key Vault?](../key-vault/key-vault-overview.md). Se [återställa en key vault-nyckeln och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet, om de inte finns. |
-| Återställ | Felkod: UserErrorKeyVaultKeyDoesNotExist<br><br> Felmeddelande: Du kan inte återställa den här krypterade virtuella datorn eftersom nyckeln som är associerade med den här virtuella datorn inte finns. |Se [återställa en key vault-nyckeln och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet, om de inte finns. |
-| Återställ | Felkod: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Felmeddelande: Säkerhetskopieringstjänsten har inte åtkomstbehörighet till resurser i din prenumeration. |Som tidigare nämnts, Återställ diskar först genom att följa stegen i avsnittet ”återställa säkerhetskopierade diskar” i [väljer en konfiguration för återställning av virtuell dator](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Använd PowerShell för att [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+## <a name="next-steps"></a>Nästa steg
+
+Om du stöter på problem, granska
+
+- [Vanliga fel](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) när säkerhetskopiera och återställa krypterade virtuella Azure-datorer.
+- [Allmän](backup-azure-vms-troubleshoot.md) problem med virtuella Azure-datorer.
+- [Azure VM-agenten/säkerhetskopieringstillägget](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problem.

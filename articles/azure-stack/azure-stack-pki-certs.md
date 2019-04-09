@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660127"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276447"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -38,7 +38,7 @@ Azure Stack har en infrastruktur för offentliga nätverk med hjälp av externt 
 I följande lista beskrivs kraven på certifikaten som behövs för att distribuera Azure Stack: 
 - Certifikat måste utfärdas från en intern certifikatutfärdare eller en offentlig certifikatutfärdare. Om du använder en offentlig certifikatutfärdare, måste finnas med i den grundläggande operativsystemavbildningen som en del av Microsoft Trusted Root utfärdare Program. Du hittar en fullständig lista: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - Azure Stack-infrastruktur måste ha nätverksåtkomst till certifikatutfärdarens certifikat listan över Återkallade plats publiceras i certifikatet. Den här listan över återkallade certifikat måste vara en http-slutpunkt
-- När du roterar certifikat, måste certifikaten ha antingen utfärdas från samma interna certifikatutfärdare används för att signera certifikat som angavs vid distribution eller en offentlig certifikatutfärdare ovan
+- När du roterar certifikat i förväg 1903 versioner, certifikaten måste ha antingen utfärdas från samma interna certifikatutfärdare används för att signera certifikat som angavs vid distribution eller en offentlig certifikatutfärdare ovan. För 1903 & senare certifikat kan utfärdas av några enterprise eller en offentlig certifikatutfärdare.
 - Användning av självsignerade certifikat stöds inte
 - För distribution och rotation som du kan antingen använda ett enstaka certifikat som täcker alla namnutrymmen i certifikatets ämnesnamn och alternativt namn på CERTIFIKATMOTTAGARE eller du kan använda person-certifikat för varje namnrum nedan som Azure Stack tjänster som du planerar att använda kräver. Båda metoderna kräver med jokertecken för slutpunkter där de är obligatoriska, till exempel **KeyVault** och **KeyVaultInternal**. 
 - Certifikatets PFX-kryptering ska vara 3DES. 

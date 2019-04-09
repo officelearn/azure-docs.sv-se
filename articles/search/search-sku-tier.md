@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621280"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270962"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, **Standard**, eller **Lagringsoptimerade**.  **Standard** och **Lagringsoptimerade** är tillgängliga i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och sedan konverteras till en av de högsta betalda nivåerna för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning.
+I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, **Standard**, eller **Lagringsoptimerade**.  **Standard** och **Lagringsoptimerade** är tillgängliga i flera konfigurationer och kapaciteter. 
+
+De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och sedan konverteras till en av de högsta betalda nivåerna för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning.
 
 > [!NOTE]
 > Tjänstnivåer Lagringsoptimerade finns för närvarande finns som förhandsversion till rabatterade priser för testning och experimentering med målet att samla in feedback. Slutlig prissättning kommer att tillkännages senare när de här nivåerna är allmänt tillgängliga. Vi rekommenderar mot att använda de här nivåerna för program i produktion.
@@ -29,7 +31,7 @@ Nivåerna återspeglar egenskaperna för den maskinvara som är värd för den t
 + Antal index som du kan skapa
 + Storlek och hastighet partitioner (fysisk lagring)
 
-Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara små.
+Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md) har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara små.
 
 > [!NOTE] 
 > Undantaget till funktionsparitet är [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
@@ -53,7 +55,7 @@ I följande tabell visas de tillgängliga nivåerna. Andra informationskällor n
 |Lagringsoptimerade 2 (L2) | 2 TB/partition (högst 24 TB per tjänst) |
 
 > [!NOTE] 
-> Lagringsoptimerade-nivåerna erbjuder större lagringskapacitet till en lägre kostnad per TB än Standard-nivåerna.  Primär Nackdelen är högre svarstid som bör du kontrollera efter dina specifika programkrav.  Mer information om prestandaöverväganden för den här nivån finns [prestanda och optimering överväganden](search-performance-optimization.md).
+> Lagringsoptimerade-nivåerna erbjuder större lagringskapacitet till en lägre kostnad per TB än Standard-nivåerna. Primär Nackdelen är högre svarstid som bör du kontrollera efter dina specifika programkrav.  Mer information om prestandaöverväganden för den här nivån finns [prestanda och optimering överväganden](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Så fungerar debiteringen
@@ -70,17 +72,27 @@ I följande skärmbild per priser anges för Free, Basic och S1 (S2, S3, L1 och 
 
 Ytterligare repliker och partitioner är ett tillägg till den första kostnaden. En söktjänst kräver en replik- och partition så att den lägsta konfigurationen som är en av varje. Utöver minst du lägga till repliker och partitioner oberoende av varandra. Du kan till exempel lägga till endast repliker eller endast partitioner. 
 
-Ytterligare repliker och partitioner som debiteras baserat på en [formeln](#search-units). Kostnader som är inte linjär (vilket fördubblar kapacitet som är mer än kostnaden Double-värden). Ett exempel på hur av formeln fungerar finns i [”så här allokerar du repliker och partitioner”](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Ytterligare repliker och partitioner som debiteras baserat på en [formeln](#search-units). Kostnader som är inte linjär (vilket fördubblar kapacitet som är mer än kostnaden Double-värden). Ett exempel på hur av formeln fungerar finns i [”så här allokerar du repliker och partitioner”](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Kostnaderna för utgående datatrafik vid indexering
 
-När du hämtar data från en Azure SQL Database eller Cosmos DB-datakälla visas debiteringar för transaktionen på fakturan för dessa resurser. Dessa ändringar är inte Azure Search-mätare, men de nämns här eftersom om du använder indexerare hämtar data från Azure SQL Database eller Azure Cosmos DB kan du se den kostnaden på fakturan.
+Användning av [Azure Search-indexerare](search-indexer-overview.md) kan resultera i fakturering effekt beroende där tjänsterna finns. Du kan eliminera kostnaderna för utgående datatrafik helt och hållet om du skapar Azure Search-tjänst i samma region som dina data.
+
++ Inga avgifter för inkommande data till alla tjänster på Azure.
+
++ Inga avgifter för utgående data från Azure Search.
+
++ Inga avgifter för data eller filer som utgår från SQL DB, Cosmos, Blob-lagring (inkommande till Azure Search) så länge som alla tjänster som finns i samma region.
+
++ Gäller avgifterna för utgående data eller filer om storage och Azure Search finns i olika regioner.
+
+När routning data i Azure-regioner, visas bandbredd debiteringar på fakturan för dessa resurser. Dessa ändringar är inte en del av din Azure Search-faktura, men de nämns här om du använder indexerare för att hämta data eller filer i rörelse, ser du den kostnaden i dina kostnader.
+
+Om du inte använder indexerare, kostar det inget bandbredd. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-utökad indexering med kognitiva tjänster
 
-För [kognitiv sökning](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. Andra enrichments baserat på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
-
-Om du inte använder [kognitiv sökning](cognitive-search-concept-intro.md) eller [Azure Search-indexerare](search-indexer-overview.md), endast kostnaderna är relaterade till repliker och partitioner som används för vanliga indexerings- och arbetsbelastningar.
+För [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. Andra enrichments, till exempel bearbetning av naturligt språk, baseras på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
 
 <a name="search-units"></a>
 

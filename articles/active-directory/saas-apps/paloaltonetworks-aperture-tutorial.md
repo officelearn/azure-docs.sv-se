@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: beb84671db01020f0118502e35128387d36845d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 375b58f47454a7f5904bcdbd132b8318091e9ebd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361429"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks - öppning
 
@@ -107,7 +107,7 @@ Om du vill konfigurera Azure AD utför enkel inloggning med Palo Alto Networks -
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -223,9 +223,9 @@ När du klickar på Palo Alto Networks - Öppning panel i åtkomstpanelen, bör 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

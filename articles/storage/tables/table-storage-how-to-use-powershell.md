@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: c5491683a74321e370044cd6eb270cc34bbbce6a
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273132"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -35,13 +35,16 @@ I den här artikeln visar hur du skapar ett nytt Azure Storage-konto i en ny res
 Exemplen kräver Az PowerShell-moduler `Az.Storage (1.1.0 or greater)` och `Az.Resources (1.2.0 or greater)`. Kör i ett PowerShell-fönster `Get-Module -ListAvailable Az*` att hitta versionen. Om inget att visas eller om du behöver uppgradera kan du se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Med den här funktionen i Azure från PowerShell måste du ha den `Az` -modulen installerad. Den aktuella versionen av AzureRmStorageTable är inte kompatibel med den äldre AzureRM-modulen.
+> Med den här funktionen i Azure från PowerShell måste du ha den `Az` -modulen installerad. Den aktuella versionen av `AzTable` är inte kompatibelt med äldre AzureRM-modulen.
 > Följ den [senaste Installationsinstruktioner för att installera modulen Az](/powershell/azure/install-az-ps) om det behövs.
 
-När Azure PowerShell har installerats eller uppdaterats, måste du installera modulen **AzureRmStorageTable**, som innehåller kommandon för att hantera entiteterna. Installera den här modulen genom att köra PowerShell som administratör och Använd den **Install-Module** kommando.
+När Azure PowerShell har installerats eller uppdaterats, måste du installera modulen **AzTable**, som innehåller kommandon för att hantera entiteterna. Installera den här modulen genom att köra PowerShell som administratör och Använd den **Install-Module** kommando.
+
+> [!IMPORTANT]
+> För modulen namn kompatibilitet orsakerna till att vi fortfarande publicerar det här samma modul med det gamla namnet `AzureRmStorageTables` i PowerShell-galleriet. Det här dokumentet ska referera till det nya namnet.
 
 ```powershell
-Install-Module AzureRmStorageTable
+Install-Module AzTable
 ```
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -115,9 +118,9 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Referens för CloudTable-egenskapen för en viss tabell
 
 > [!IMPORTANT]
-> Användning av CloudTable är obligatorisk när du arbetar med **AzureRmStorageTable** PowerShell-modulen. Anropa den **Get-AzTableTable** kommando för att hämta en referens till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
+> Användning av CloudTable är obligatorisk när du arbetar med **AzTable** PowerShell-modulen. Anropa den **Get-AzTableTable** kommando för att hämta en referens till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
 
-Att utföra åtgärder på en tabell med **AzureRmStorageTable**, behöver du en referens till CloudTable egenskap för en specifik tabell.
+Att utföra åtgärder på en tabell med **AzTable**, behöver du en referens till CloudTable egenskap för en specifik tabell.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -160,6 +163,6 @@ Mer information finns i följande artiklar
 
 * [Storage PowerShell-cmdletar](/powershell/module/az.storage#storage)
 
-* [Arbeta med Azure-tabeller från PowerShell - AzureRmStorageTable PS-modulen v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [Arbeta med Azure-tabeller från PowerShell - AzureRmStorageTable/AzTable PS-modulen v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

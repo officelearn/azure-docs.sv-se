@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670843"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273149"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
 
@@ -156,7 +156,7 @@ Vi lägger också till funktionen för [anpassningsbar frågebearbetning](/sql/r
 SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](sql-database-security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet.
 
 > [!IMPORTANT]
-> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -186,7 +186,7 @@ Med SQL Database kan du centralt hantera identiteter för databasanvändare och 
 
 ### <a name="compliance-certification"></a>Efterlevnadscertifiering
 
-SQL Database granskas regelbundet och har certifierats mot flera efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
+SQL Database granskas regelbundet och har certifierats mot flera efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 ## <a name="easy-to-use-tools"></a>Lättanvända verktyg
 
@@ -255,10 +255,10 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 - Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
 - Läs följande snabbstarter innan du börjar:
 
-  - [Skapa en SQL-databas i Azure Portal](sql-database-single-database-get-started.md)  
+  - [Skapa en SQL-databas i Azure portal](sql-database-single-database-get-started.md)  
   - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
-  - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
+  - [Skapa en SQL-databas med hjälp av PowerShell](sql-database-get-started-powershell.md)
 
 - En uppsättning Azure CLI- och PowerShell-exempel finns här:
-  - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)
-  - [Azure PowerShell-exempel för SQL Database](sql-database-powershell-samples.md)
+  - [Azure CLI-exempel för SQL-databas](sql-database-cli-samples.md)
+  - [Azure PowerShell-exempel för SQL-databas](sql-database-powershell-samples.md)

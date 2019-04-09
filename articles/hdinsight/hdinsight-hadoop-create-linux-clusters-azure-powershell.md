@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 264b4737974010baffd82b38275a8fe56163e1f2
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361446"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264547"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Skapa Linux-baserade kluster i HDInsight med Azure PowerShell
 
@@ -71,7 +71,7 @@ Du kan också skapa ett HDInsight konfiguration objekt med hjälp av `New-AzHDIn
 
 Följande skript skapar ett konfigurationsobjekt för att konfigurera en R Server på typ av HDInsight-kluster. Konfigurationen kan en kantnod, RStudio och ett annat lagringskonto.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-99)]
 
 > [!WARNING]  
 > Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte. När du använder det här exemplet kan du skapa ytterligare storage-konto på samma plats som servern.
@@ -113,7 +113,7 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande resurser 
 ### <a name="apache-spark-clusters"></a>Apache Spark-kluster
 
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
 * [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
 

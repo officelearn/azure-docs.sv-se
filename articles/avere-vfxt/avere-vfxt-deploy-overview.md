@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991809"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268389"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT för Azure – distributionsöversikt
 
@@ -32,14 +32,6 @@ Här är en översikt över alla steg.
 1. Konfigurera krav 
 
    Innan du skapar en virtuell dator måste du skapa en ny prenumeration för Avere vFXT projektet, konfigurera äganderätten till prenumerationen, kontrollera kvoter och begära en ökning om det behövs och acceptera villkoren för att använda Avere vFXT programvara. Läs [förberedelser för att skapa Avere vFXT](avere-vfxt-prereqs.md) detaljerade anvisningar.
-
-1. Skapa en åtkomst för klusternoderna
-
-   Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att auktorisera klusternodens virtuella datorer att utföra vissa uppgifter. Till exempel måste klusternoderna kunna tilldela eller omtilldelar IP-adresser till andra noder i klustret. Innan du skapar klustret måste du definiera en roll som ger dem behörighet.
-
-   Läs [skapa klusterrollen noden åtkomst](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) anvisningar.
-
-   Kontrollanten klustret använder också en åtkomstroll, men du kan acceptera standardroll, ägare, istället för att skapa dina egna. Om du vill skapa en anpassad roll för kluster-styrenheten läsa [anpassad åtkomst kontrollantrollen](avere-vfxt-controller-role.md). 
 
 1. Skapa Avere vFXT kluster 
 

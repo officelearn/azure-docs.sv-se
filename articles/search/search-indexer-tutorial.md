@@ -1,23 +1,23 @@
 ---
-title: Självstudie i indexering av Azure SQL-databaser i Azure-portalen – Azure Search
-description: Ansluta till Azure SQL-databas i den här självstudien, extrahera sökbara data och läsa in den i ett Azure Search-index.
+title: 'Självstudier: Indexera data från Azure SQL-databaser i en C# exempelkod – Azure Search'
+description: En C# kodexempel visar hur du ansluter till Azure SQL database, extrahera sökbara data och läsa in den i ett Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201406"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270477"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudier: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
+# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudiekurs i C#: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
 Lär dig hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexerare för Azure SQL Database är de mest använda indexerare. 
 
@@ -37,35 +37,39 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+Följande tjänster, verktyg och data som används i den här snabbstarten. 
+
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
 
-* En [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) att tillhandahålla den externa datakällan som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) lagrar den externa datakällan som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen. Steg för att skapa tjänsten och databasen finns i den här självstudien.
 
-* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner kan användas för att köra exempellösningen. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
+
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) ger exempellösningen finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer.
 
 > [!Note]
 > Om du använder den kostnadsfria Azure Search-tjänsten är du begränsad till tre index, tre indexerare och tre datakällor. I den här kursen skapar du en av varje. Se till att det finns utrymme på din tjänst för de nya resurserna.
 
-### <a name="download-the-solution"></a>Ladda ned lösningen
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
-Indexerarlösningen i den här kursen kommer från en samling Azure Search-exempel som tillhandahålls i en nedladdning (master). Den lösning som används i den här kursen är *DotNetHowToIndexers*.
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. Gå till [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started) på GitHub-lagringsplatsen för Azure-exempel.
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. Klicka på **Clone or download (Klona eller ladda ned)** > **Download ZIP (Ladda ned ZIP)**. Som standard hämtas filen till mappen Hämtade filer.
+1.. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-3. I **Utforskaren** > **Hämtade filer** högerklickar du på filen och väljer **Extrahera alla**.
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
-4. Inaktivera skrivskyddet. Högerklicka på mappnamnet > **Egenskaper** > **Allmänt** och avmarkera attributet **Skrivskydd** för den aktuella mappen, undermapparna och filerna.
+Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-5. Öppna *DotNetHowToIndexers.sln* i **Visual Studio 2017**.
-
-6. I **Solution Explorer** högerklickar du på den översta noden Solution > **Restore Nuget Packages**.
-
-### <a name="set-up-connections"></a>Konfigurera anslutningar
+## <a name="set-up-connections"></a>Konfigurera anslutningar
 Anslutningsinformationen för nödvändiga tjänster anges i filen **appsettings.json** i lösningen. 
 
-Öppna **appsettings.json** i Solution Explorer så att du kan fylla i varje inställning med instruktionerna i den här självstudiekursen.  
+1. Visual Studio, öppna den **DotNetHowToIndexers.sln** fil.
+
+1. I Solution Explorer öppnar du **appsettings.json** så att du kan fylla i varje inställning.  
+
+De två första posterna kan du fylla i just nu använder URL: en och admin-nycklar för Azure Search-tjänsten. Får en slutpunkt av `https://mydemo.search.windows.net`, namnet på tjänsten för att tillhandahålla är `mydemo`.
 
 ```json
 {
@@ -75,48 +79,17 @@ Anslutningsinformationen för nödvändiga tjänster anges i filen **appsettings
 }
 ```
 
-### <a name="get-the-search-service-name-and-admin-api-key"></a>Hämta söktjänstnamnet och admin api-nyckeln
-
-Du hittar slutpunkten och nyckeln för söktjänsten i portalen. En nyckel ger åtkomst till tjänståtgärder. Admin-nycklar ger skrivåtkomst så att du kan skapa och ta bort objekt, till exempel index och indexerare, i din tjänst.
-
-1. Logga in på [Azure Portal](https://portal.azure.com/) och leta reda på [söktjänster för din prenumeration](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-
-2. Öppna tjänstsidan.
-
-3. Leta reda på tjänstnamnet längst upp på huvudsidan. På följande skärmbild är det *azs-tutorial*.
-
-   ![Tjänstnamn](./media/search-indexer-tutorial/service-name.png)
-
-4. Kopiera och klistra in det som första post i **appsettings.json** i Visual Studio.
-
-   > [!Note]
-   > Ett tjänstnamn är en del av slutpunkten som innehåller search.windows.net. Om du är nyfiken kan du se hela URL:en i **Essentials** på översiktssidan. URL:erna ser ut som i det här exemplet: https://your-service-name.search.windows.net
-
-5. I **Settings (Inställningar)** > **Keys (Nycklar)** kopierar du en av admin-nycklarna och klistrar in den som andra post i **appsettings.json**. Nycklarna är alfanumeriska strängar som genereras för din tjänst vid etableringen och krävs för att få åtkomst till tjänståtgärder. 
-
-   När du har lagt till båda inställningarna bör din fil se ut ungefär som i det här exemplet:
-
-   ```json
-   {
-    "SearchServiceName": "azs-tutorial",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
-    . . .
-   }
-   ```
+Den sista posten kräver en befintlig databas. Du ska skapa i nästa steg.
 
 ## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
-I det här steget skapar du en extern datakälla som indexeraren kan crawla. Datafilen för den här kursen är *hotels.sql* och finns i lösningsmappen \DotNetHowToIndexers. 
-
-### <a name="azure-sql-database"></a>Azure SQL Database
-
-Du kan använda Azure Portal och filen *hotels.sql* från exemplet för att skapa datauppsättningen i Azure SQL Database. Azure Search använder utjämnade raduppsättningar, till exempel en som genereras från en vy eller en fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
+I det här steget skapar du en extern datakälla som indexeraren kan crawla. Du kan använda Azure Portal och filen *hotels.sql* från exemplet för att skapa datauppsättningen i Azure SQL Database. Azure Search använder utjämnade raduppsättningar, till exempel en som genereras från en vy eller en fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/). 
 
-2. Klicka på **Skapa en resurs** > **SQL Database** för att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
+2. Hitta eller skapa en **Azure SQL Database** att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
    ![Ny databassida](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -143,7 +116,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    Prototypfrågan `SELECT * FROM Hotels` fungerar inte i frågeredigeraren. Exempeldata innehåller geografiska koordinater i fältet Location (Plats), som inte hanteras i redigeraren för tillfället. Om du vill ha en lista med andra kolumner att fråga kan du köra den här instruktionen: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    Prototypfrågan `SELECT * FROM Hotels` fungerar inte i frågeredigeraren. Exempeldata innehåller geografiska koordinater i fältet Location (Plats), som inte hanteras i redigeraren för tillfället. En lista över andra kolumner att fråga, kan du köra den här instruktionen: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Nu när du har en extern datauppsättning kopierar du ADO.NET-anslutningssträngen för databasen. På SQL Database-sidan för din databas går du till **Inställningar** > **Anslutningssträngar** och kopierar ADO.NET-anslutningssträngen.
  
@@ -156,13 +129,13 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
     ```json
     {
-      "SearchServiceName": "azs-tutorial",
-      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
+      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-index-and-indexer-code"></a>Om index- och indexerarkod
+## <a name="understand-the-code"></a>Förstå koden
 
 Nu kan du bygga och köra koden. Innan du gör det kan du ägna en stund åt att studera index- och indexerardefinitionerna för det här exemplet. Den relevanta koden finns i två filer:
 

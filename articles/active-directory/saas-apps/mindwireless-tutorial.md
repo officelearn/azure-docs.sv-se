@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 51f4801c00d23aa820949faa58f7cd64ee3597ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842404"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Självstudier: Azure Active Directory-integrering med mindWireless
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med mindWir
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.mwsmart.com/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [mindWireless klienten supportteam](mailto:sdulloor@mindwireless.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -220,9 +220,9 @@ När du klickar på panelen mindWireless i åtkomstpanelen, bör det vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34fe5d85829d909989513214406ba96ea5be0aa8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649194"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudier: Azure Active Directory-integrering med Pega system
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pega sy
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -115,7 +115,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pega sy
 
     a. I den **inloggnings-URL** text skriver tecken i URL-värdet.
 
-    b. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
+    b. I den **Vidarebefordransstatus** text skriver en URL med hjälp av följande mönster: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare, svars-URL, URL: en inloggning och vidarebefordra tillstånd URL: en. Du hittar du värdet för identifieraren och svars-URL från Pega program som beskrivs senare i den här självstudien. Vidarebefordransstatus, kontakta [Pega system klienten supportteamet](https://www.pega.com/contact-us) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -275,8 +275,8 @@ När du klickar på panelen Pega system i åtkomstpanelen, bör det vara loggas 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

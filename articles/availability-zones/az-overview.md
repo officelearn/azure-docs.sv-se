@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226580"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268729"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -45,6 +45,7 @@ Skapa programarkitekturen med hjälp av en kombination av Tillgänglighetszoner 
 - Frankrike, centrala
 - Norra Europa
 - Sydostasien 
+- Storbritannien, södra&#42;
 - Västra Europa
 - Västra USA 2
 
@@ -57,8 +58,8 @@ Azure-tjänster som stöd för Tillgänglighetszoner är:
 - Virtuella Windows-datorer
 - Virtual Machine Scale Sets
 - Managed Disks
-- Lastbalanserare
-- Offentlig IP-adress
+- Standard Load Balancer&#42;
+- Offentlig IP-adress&#42;
 - Zonredundant lagring
 - SQL Database
 - Event Hubs
@@ -66,6 +67,8 @@ Azure-tjänster som stöd för Tillgänglighetszoner är:
 - VPN Gateway
 - ExpressRoute
 - Application Gateway (förhandsversion)
+
+&#42;Resurser som skapats i Storbritannien, södra innan den 25 mars 2019 kommer snart att konvertera vara zonredundant. Resurser som skapats efter den 25 mars 2019 är zonredundant omedelbart.
 
 ## <a name="services-resiliency"></a>Tjänster återhämtning
 Alla Azure-hanteringstjänster arkitektur för att vara flexibel från fel region på zonnivå. Ett eller flera Tillgänglighetszon fel inom en region har ett mindre fel radius jämfört med en hel region-fel i spektrumet fel. Azure kan återställa från fel zon på servernivå med hanteringstjänster för regionen eller från en annan Azure-region. Azure utför kritiska Underhåll en zon i taget inom en region, för att förhindra eventuella fel som påverkar kundresurser som har distribuerats i olika Tillgänglighetszoner inom en region.

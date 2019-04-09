@@ -1,25 +1,25 @@
 ---
 title: Index-typer i Azure Cosmos DB
 description: Översikt över index typer i Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.author: mjbrown
-ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: 5e7ee7c0bdfd0cff6be182e6d087cc264910e440
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990556"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271568"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Index-typer i Azure Cosmos DB
 
-Det finns flera alternativ där du konfigurerar indexeringsprincipen för en sökväg. Du kan ange en eller flera indexering definitioner för varje sökväg:
+Det finns flera alternativ när du konfigurerar indexeringsprincipen för en sökväg. Du kan ange en eller flera indexering definitioner för varje sökväg:
 
 - **Datatyp:** Sträng, nummer, punkt, Polygon eller LineString (kan innehålla endast en post per datatypen per sökväg).
 
-- **Index-typ:** Intervall (likhet, intervall eller ORDER BY-frågor) eller avstånds (rumsliga förfrågningar).
+- **Index-typ:** Intervall (för likhet, intervall eller ORDER BY-frågor) eller avstånds (för rumsliga förfrågningar).
 
 - **Precision:** För ett intervall index maximal precisionsvärdet är -1, vilket är standard.
 
@@ -27,7 +27,7 @@ Det finns flera alternativ där du konfigurerar indexeringsprincipen för en sö
 
 Azure Cosmos DB stöder intervallsindex för varje sökväg som kan konfigureras för strängen eller talvärdet datatyper, eller båda.
 
-- **Intervallsindex** stöder effektiv likhetsfrågor, JOIN-frågor, omfångsfrågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER By-frågor som standard även kräva maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
+- **Intervallsindex** stöder effektiv likhetsfrågor, JOIN-frågor, omfångsfrågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER BY-frågor, kräva som standard även maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
 
 - **Spatialindexet** stöder effektiv spatial (inom och avståndet) frågor. Datatypen kan vara punkt, Polygon eller LineString. Azure Cosmos DB stöder också spatialindexet-typ för varje sökväg som kan anges för punkt, Polygon eller LineString-datatyper. Värdet på den angivna sökvägen måste vara ett giltigt GeoJSON-fragment som {”type”: ”Plats”, ”coordinates”: [0.0, 10.0]}. Azure Cosmos DB har stöd för automatisk indexering av Point och Polygon LineString-datatyper.
 
@@ -42,16 +42,16 @@ Här följer exempel på frågor som intervall och rumsindex kan användas för 
 
 - Om det finns inget intervallsindex för alla precision för att signalera att en sökning kan vara nödvändigt att betjäna frågan, i detta fall är som standard ett fel returneras för frågor med intervallet operatörer som > =.
 
-- Intervallfrågor kan utföras utan ett intervallsindex med hjälp av REST-API ”x-ms-documentdb-enable-genomsökning” rubriken eller alternativet ”EnableScanInQuery” begäran med hjälp av .NET SDK. Om det finns några andra filter i frågan att Azure Cosmos DB kan använda indexet för att filtrera mot, returneras inget fel.
+- Intervallfrågor kan utföras utan ett intervallsindex med hjälp av den **x-ms-documentdb-enable-genomsökning** huvud i REST API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Om det finns några andra filter i frågan att Azure Cosmos DB kan använda indexet för att filtrera mot, returneras inget fel.
 
-- Som standard returneras ett fel för rumsliga förfrågningar om det inte finns en spatialindexet eller andra filter som kan hanteras från indexet. Sådana frågor kan utföras som en genomsökning med hjälp av x-ms-documentdb-enable-genomsökning eller EnableScanInQuery.
+- Som standard returneras ett fel för rumsliga förfrågningar om det inte finns en spatialindexet eller andra filter som kan hanteras från indexet. Sådana frågor kan utföras som en genomsökning med hjälp av **x-ms-documentdb-enable-genomsökning** eller **EnableScanInQuery**.
 
 ## <a name="index-precision"></a>Index precision
 
 > [!NOTE]
-> En ny indexlayout som kräver ett anpassat index precision än maximal precision value(-1) inte längre stöd för Azure Cosmos-behållare. Med den här metoden är alltid sökvägar indexeras med det högsta precision. Om du anger ett precisionsvärde på indexprincip CRUD-begäranden på en behållare ska ignorera antalet decimaler och svaret från behållaren innehåller endast maximal precision value(-1).  Alla nya Cosmos-behållare använder den nya layouten för index som standard.
+> En ny indexlayout som kräver ett anpassat index precision än värdet för maximal precision (-1) inte längre stöd för Azure Cosmos-behållare. Med den här metoden är alltid sökvägar indexeras med det högsta precision. Om du anger ett precisionsvärde på indexprincip CRUD-begäranden på en behållare ska ignorera antalet decimaler och svaret från behållaren endast innehåller värdet för maximal precision (-1).  Alla nya Cosmos-behållare använder den nya layouten i indexet som standard.
 
-- Du kan använda indexet precision för att göra en kompromiss mellan index storage overhead och frågeprestanda. För siffror rekommenderar vi använder standardkonfigurationen för precision-1 (max). Eftersom siffror är 8 byte i JSON, motsvarar detta en konfiguration av 8 byte. Välja ett lägre värde för noggrannhet på millisekunder, till exempel 1 och 7, index innebär det att värdena inom vissa intervall som mappas till samma-post. Därför kan du minska index lagringsutrymme, men Frågekörningen behöva bearbeta fler objekt. Därför måste förbrukar den mer dataflöde/ru: er.
+- Du kan använda indexet precision för att göra en kompromiss mellan Omkostnad för indexlagring och prestanda för frågor. För siffror rekommenderar vi använder standardkonfigurationen för precision-1 (maximalt). Eftersom siffror är 8 byte i JSON, motsvarar detta en konfiguration av 8 byte. Välja ett lägre värde för noggrannhet på millisekunder, till exempel 1 och 7, index innebär det att värdena inom vissa intervall som mappas till samma-post. Därför kan du minska lagringsutrymmet index, men Frågekörningen behöva bearbeta fler objekt. Därför måste förbrukar den mer dataflöde/ru: er.
 
 - Index precision har mer praktiska program med sträng-intervall. Eftersom strängar kan vara en godtycklig längd, kan valet av index precisionen påverka prestanda för frågor för sträng-intervallet. Det kan även påverka mängden index lagringsutrymme som krävs. Sträng intervallet index kan konfigureras med ett index precision mellan 1 och 100 eller -1 (max). Om du vill utföra ORDER BY-frågor mot strängegenskaper, måste du ange en noggrannhet på 1 för motsvarande sökvägar.
 

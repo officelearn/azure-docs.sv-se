@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845145"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271602"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -29,11 +29,11 @@ Det finns två sätt att söka efter en plats i närheten. Ett sätt är att anv
 
 I koden ovan första kodblocket konstruerar ett Kartobjekt och ställer in autentiseringsmekanismen ska kunna använda nyckeln prenumeration. Du kan se [skapa en karta](./map-create.md) anvisningar.
 
-Andra kodblocket skapar en **SubscriptionKeyCredentialPolicy** att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Sedan **atlas.service.MapsURL.newPipeline()** tar den **SubscriptionKeyCredential** princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den **searchURL** representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+Andra kodblocket skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Sedan `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den `searchURL` representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
 
 Det tredje kodblocket skapar en datakälla objekt med den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och Lägg till sökresultat. En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  En symbol layer skapas och datakällan har lagts till symbol-lager, som sedan läggs till i kartan.
 
-Fjärde kodblocket använder den [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Du kan utföra en fri form textsökning via den [hämta Fuzzy Search rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy API för Get-sökning kan hantera valfri kombination av fuzzy indata. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret.
+Fjärde kodblocket använder den [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js). Du kan utföra en fri form textsökning via den [hämta Fuzzy Search rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy API för Get-sökning kan hantera valfri kombination av fuzzy indata. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den `geojson.getFeatures()` metoden och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret.
 
 Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) egenskapen.
 
@@ -75,4 +75,4 @@ Se följande artiklar för fullständig kodexempel:
 > [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Visa riktningar från A till B](./map-route.md)
+> [Visa anvisningar från A till B](./map-route.md)

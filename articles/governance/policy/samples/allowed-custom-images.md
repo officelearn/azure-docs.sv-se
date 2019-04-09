@@ -1,19 +1,18 @@
 ---
 title: Exempel – Godkända VM-avbildningar
 description: Den här exempelprincipdefinitionen kräver att endast godkända anpassade bilder distribueras i din miljö.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1fc7b9f49b806c4b740f4f85330dc9e37f0f61f2
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8def11c2d92af618054d0353fa2687d2e88e1134
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805626"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266723"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>Exempel - godkända avbildningar
 
@@ -158,11 +157,11 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | Kommando | Anteckningar |
 |---|---|
-| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Skapar en ny Azure Policy-definition. |
-| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hämtar en enskild resursgrupp. |
-| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |
-| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Tar bort en befintlig Azure Policy-tilldelning. |
-| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Tar bort en befintlig Azure Policy-definition. |
+| [Skapa AZ policy definition](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Skapar en ny Azure Policy-definition. |
+| [AZ group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hämtar en enskild resursgrupp. |
+| [Skapa AZ principtilldelning](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |
+| [ta bort AZ policy-tilldelning](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Tar bort en befintlig Azure Policy-tilldelning. |
+| [AZ policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Tar bort en befintlig Azure Policy-definition. |
 
 ## <a name="rest-api"></a>REST-API
 

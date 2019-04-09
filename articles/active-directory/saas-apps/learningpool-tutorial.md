@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16cf541dca003446e7b49033018d5b9950bfc54f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: edfc1f0b2d49510926cfbc306dacf6715225c5c1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Självstudier: Azure Active Directory-integrering med Learningpool Act
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Learn
 
     ![Information om enkel inloggning med Learningpool Act-domän och URL:er](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du följande URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. I den **inloggnings-URL** text skriver du URL: en: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
     
@@ -237,9 +237,9 @@ När du klickar på Learningpool Act-panelen i åtkomstpanelen bör du automatis
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

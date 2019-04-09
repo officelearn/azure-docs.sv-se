@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667491"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268525"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
 
@@ -369,7 +369,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### <a name="default-key-mapping"></a>Standardnyckeln mappning
-Som standard innehåller Service Fabric anpassningsdelar providern paketnamn, avsnittets namn och egenskapsnamn tillsammans för att skapa asp.net core-konfiguration-nyckeln med hjälp av följande funktion:
+Som standard innehåller Service Fabric-konfigurationsprovider paketnamn, avsnittets namn och egenskapsnamn tillsammans för att skapa asp.net core-konfiguration-nyckeln med hjälp av följande funktion:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
@@ -511,7 +511,7 @@ Tillståndskänsliga tjänster som endast anropas från i klustret ska använda 
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar felaktiga identitet problemet som beskrivs ovan med dynamisk porttilldelning. |
 
 ## <a name="next-steps"></a>Nästa steg
-[Felsöka ditt Service Fabric-program med Visual Studio](service-fabric-debugging-your-application.md)
+[Felsöka Service Fabric-program med hjälp av Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png

@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372721"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287110"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestanda block blob-lagring
 
-Premium prestanda block blob storage-kontot är optimerad för program som använder mindre, kilobyte adressintervall objekt. Det är perfekt för program som kräver mycket hög transaktioner eller konsekvent låg latens-lagring. Premium-prestanda block blob-lagring är utformat för att skala med dina program. Om du planerar att distribuera program som kräver hundratals tusentals förfrågningar per sekund eller petabyte lagringskapacitet du kontakta oss genom att skicka en supportförfrågan i den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Premium prestanda block blob storage-kontot är optimerad för program som använder mindre, kilobyte adressintervall objekt. Det är perfekt för program som kräver hög transaktioner eller konsekvent låg latens-lagring. Premium-prestanda block blob-lagring är utformat för att skala med dina program. Om du planerar att distribuera program som kräver hundratals tusentals förfrågningar per sekund eller petabyte lagringskapacitet du kontakta oss genom att skicka en supportförfrågan i den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Premium-prestanda FileStorage (förhandsversion)
+
+Premium-filerna använder ett unikt lagringskonto med namnet **FileStorage (förhandsversion)**. Den här kontotypen är utformad för arbetsbelastningar med hög IOPS, högt dataflöde med konsekvent låg latens. Premium-fillagring skalas med den etablerade resursstorleken.
+
+|Område  |Mål  |
+|---------|---------|
+|Maxstorlek     |5 TiB (offentlig förhandsversion), 100 TiB (begränsad offentlig förhandsversion)     |
+|Resurser   |Obegränsat  |
+|IOPS     |100 000 (begränsad offentlig förhandsversion)    |
+|Bandbredd|5 GB/s     |
+
+ Dela skala mål för premium-fil, se den [Premium-filer skala mål](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) avsnittet.
 
 ### <a name="premium-performance-page-blob-storage"></a>Sidbloblagring för Premium-prestanda
 
-Premium-prestanda i allmänna v1 eller v2-konton har följande skalbarhetsmål:
+Premium-prestanda, general-purpose v1 eller v2-konton har följande skalbarhetsmål:
 
 | Total kapacitet                            | Totala bandbredden för ett lokalt redundant lagringskonto                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

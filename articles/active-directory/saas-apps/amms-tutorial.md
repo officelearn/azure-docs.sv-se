@@ -1,34 +1,35 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Spacio | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Spacio.
+title: 'Självstudier: Azure Active Directory-integrering med AMMS | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AMMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 9df8d199-b955-483c-aa4e-cabad1a0b9d6
+ms.assetid: 107653a2-bd5c-4916-9fd2-1c15a9e24dc1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e91f51de53b920d1a130c3983489a08b7f1f6cfd
 ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273625"
+ms.locfileid: "59287338"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Självstudier: Azure Active Directory-integrering med Spacio
+# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Självstudier: Azure Active Directory-integrering med AMMS
 
-I den här självstudien får du lära dig hur du integrerar Spacio med Azure Active Directory (AD Azure).
-Integrera Spacio med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar AMMS med Azure Active Directory (AD Azure).
+Integrera AMMS med Azure AD ger dig följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Spacio.
-* Du kan aktivera användarna att vara automatiskt inloggad till Spacio (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till AMMS.
+* Du kan aktivera användarna att vara automatiskt inloggad till AMMS (Single Sign-On) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +37,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Spacio, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med AMMS, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Spacio enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* AMMS enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Spacio **SP** -initierad SSO
+* Har stöd för AMMS **SP** -initierad SSO
 
-## <a name="adding-spacio-from-the-gallery"></a>Att lägga till Spacio från galleriet
+## <a name="adding-amms-from-the-gallery"></a>Att lägga till AMMS från galleriet
 
-För att konfigurera integrering av Spacio i Azure AD, som du behöver lägga till Spacio från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av AMMS i Azure AD, som du behöver lägga till AMMS från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Spacio från galleriet:**
+**Utför följande steg för att lägga till AMMS från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +66,31 @@ För att konfigurera integrering av Spacio i Azure AD, som du behöver lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Spacio**väljer **Spacio** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **AMMS**väljer **AMMS** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![Spacio i resultatlistan](common/search-new-app.png)
+    ![AMMS i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Spacio baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Spacio upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med AMMS baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i AMMS upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Spacio, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med AMMS, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Spacio Single Sign-On](#configure-spacio-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera AMMS Single Sign-On](#configure-amms-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa testanvändare Spacio](#create-spacio-test-user)**  – du har en motsvarighet för Britta Simon i Spacio som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa testanvändare AMMS](#create-amms-test-user)**  – du har en motsvarighet för Britta Simon i AMMS som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Spacio:
+Utför följande steg för att konfigurera Azure AD enkel inloggning med AMMS:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Spacio** application integration markerar **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **AMMS** application integration markerar **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,24 +104,24 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Spacio:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Spacio domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![AMMS domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://sso.spac.io/<brokerageID>`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://sso.spac.io/<brokerageID>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `<SUBDOMAIN>.microwestcloud.com/amms`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Spacio klienten supportteamet](mailto:support@spac.io) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [AMMS klienten supportteamet](mailto:techsupport@microwestsoftware.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-spacio-single-sign-on"></a>Konfigurera Spacio Single Sign-On
+### <a name="configure-amms-single-sign-on"></a>Konfigurera AMMS enkel inloggning
 
-Att konfigurera enkel inloggning på **Spacio** sida, som du behöver skicka den **Appfederationsmetadata** till [Spacio supportteamet](mailto:support@spac.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **AMMS** sida, som du behöver skicka den **Appfederationsmetadata** till [AMMS supportteam](mailto:techsupport@microwestsoftware.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -138,8 +139,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -147,15 +147,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Spacio.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till AMMS.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Spacio**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **AMMS**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Spacio**.
+2. I listan med program väljer **AMMS**.
 
-    ![Länken Spacio i listan med program](common/all-applications.png)
+    ![Länken AMMS i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -171,20 +171,21 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-spacio-test-user"></a>Skapa Spacio testanvändare
+### <a name="create-amms-test-user"></a>Skapa AMMS testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Spacio. Arbeta med [Spacio supportteamet](mailto:support@spac.io) att lägga till användare i Spacio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i AMMS. Arbeta med [AMMS supportteam](mailto:techsupport@microwestsoftware.com) att lägga till användare i AMMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Spacio i åtkomstpanelen, bör det vara loggas in automatiskt till Spacio som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen AMMS i åtkomstpanelen, bör det vara loggas in automatiskt till AMMS som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

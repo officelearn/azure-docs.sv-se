@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd3228194ac232cf8fc0efae46454075c5c02314
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058738"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270811"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -132,14 +132,14 @@ Lägg till kod till *index.html* för att skapa användargränssnittet:
 1. Lägg till referenser till JavaScript- och CSS-filer för webbkontrollen för Azure Maps:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Lägg till en referens i Azure Maps-tjänstmodulen. Modulen är ett JavaScript-bibliotek som omsluter Azure Maps REST-tjänster och gör dem enkla att använda i JavaScript. Modulen är användbar för sökfunktioner.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Lägg till referenser till *index.js* och *index.css*:
@@ -970,3 +970,6 @@ Fler kodexempel och en interaktiv kodupplevelse:
 
 > [!div class="nextstepaction"]
 > [Så här använder du kartkontroll](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Använda datadrivna style uttryck](data-driven-style-expressions-web-sdk.md)

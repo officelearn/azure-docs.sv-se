@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dcae137db04b604d7b0450c3bec18fc23b36991
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227454"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Självstudier: Azure Active Directory-integrering med Aktivitetsse
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Aktivit
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://taseu.combtas.com/<DOMAIN>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -226,9 +226,9 @@ När du klickar på panelen ÅTGÄR i åtkomstpanelen bör det vara loggas in au
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264904"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -30,6 +30,8 @@ Alla användare har en enda *home* katalogen för autentisering. Användarna kan
 
 > [!Important]
 > När du associerar en prenumeration på en annan katalog, användare som har tilldelats med hjälp av roller [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) förlorar sin åtkomst. Klassiska prenumerationens administratörer (tjänstadministratören och Medadministratörer) kommer också att förlora åtkomst.
+> 
+> Flytta ditt kluster i Azure Kubernetes Service (AKS) till en annan prenumeration eller flytta ägande av kluster-prenumeration till en ny klient gör dessutom att klustret förlorar funktionalitet på grund av förlorad rolltilldelningar och tjänstens huvudnamn rättigheter. Läs mer om AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -67,15 +69,16 @@ Innan du kan koppla eller lägga till din prenumeration, måste du utföra följ
 
     ![Katalogsidan mellan aktiviteter med exempelinformation](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Ändra prenumerationskatalogen är en åtgärd på servicenivå, så att det inte påverkar faktureringsägarskapet för prenumerationen. Kontoadministratören kan ändå ändra tjänstadministratör från den [Kontocenter](https://account.azure.com/subscriptions). Om du vill ta bort den ursprungliga katalogen måste du överför prenumerationsfaktureringen ägarskap till en ny kontoadministratör Mer information om att överföra faktureringsägarskapet finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md). 
+Ändra prenumerationskatalogen är en åtgärd på servicenivå, så att det inte påverkar faktureringsägarskapet för prenumerationen. Kontoadministratören kan ändå ändra tjänstadministratör från den [Kontocenter](https://account.azure.com/subscriptions). Om du vill ta bort den ursprungliga katalogen måste du överför prenumerationsfaktureringen ägarskap till en ny kontoadministratör Mer information om att överföra faktureringsägarskapet finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Association steg efter
-
 När du har associerat en prenumeration på en annan katalog, kan det finnas ytterligare steg som du måste utföra om du vill återuppta åtgärder.
 
 1. Om du har alla viktiga valv, måste du ändra nyckelvalv klient-ID. Mer information finns i [ändra en nyckelvalvsklient-ID efter en prenumerationsflytt](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](../../azure-stack/azure-stack-registration.md).
+2. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

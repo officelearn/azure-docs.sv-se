@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 41337859feeff9cf9de507629eea4bc27b302a40
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93fd14d1148ce29731087cba5cd20f5ff1bcd4a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449882"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Självstudier: Azure Active Directory-integrering med Iris-intranät
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Iris in
 
     ![Iris intranät domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.irisintranet.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<SUBDOMAIN>.irisintranet.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.irisintranet.com`
 
@@ -184,9 +184,9 @@ När du klickar på panelen Iris intranät i åtkomstpanelen, bör det vara logg
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

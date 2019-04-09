@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400015"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278487"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Självstudier: Installera Azure Data Box Edge
 
@@ -90,7 +90,9 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 
 - Innan du kan läsa anvisningarna säkerhet i din säkerhet, miljö och föreskrifter broschyr. Den här häfte levererades med enheten.
 - Används för att börja installeras rails det tilldelade utrymmet som är närmast längst ned på höljet rack.
-- Tooled rail montering konfiguration, måste du ange åtta skruvar: #10-32, #12-24, #M5 eller #M6. Skruvarna head diameter måste vara mindre än 10 mm (0,4 ”).
+- För tooled rail montering konfiguration:
+    -  Du måste ange åtta skruvar: #10-32, #12-24, #M5 eller #M6. Skruvarna head diameter måste vara mindre än 10 mm (0,4 ”).
+    -  Du behöver en fast spets för.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identifiera rail kit innehållet
 
@@ -102,6 +104,9 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installera och ta bort verktyg rails (kvadratisk hål eller runda hål rack)
 
+> [!TIP]
+> Det här alternativet är verktyg eftersom det inte kräver verktyg för att installera och ta bort rails i icke gängade kvadraten eller avrunda hål i serverrack.
+
 1. Placera vänster och höger rail slutet delar märkta **FRONT** inför inåt och förstå varje slutpunkt del till enhet i hål på de lodräta racklister framsida.
 2. Justera varje slutpunkt del i de nedre och övre hål av de önskade U adressutrymmena.
 3. Engagera spåret backend-servern tills den fullständigt platser på lodrät rack flänsens och låset klickar på plats. Upprepa dessa steg om du vill placera och enhet klientdelen del på flänsens lodrät rack.
@@ -110,6 +115,9 @@ Leta upp komponenterna för att installera rail kit sammansättningen:
 ![Installera och ta bort verktyg rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installera och ta bort tooled rails (listvy hål rack)
+
+> [!TIP]
+> Det här alternativet är tooled eftersom den kräver ett verktyg (_en fast spets för_) att installera och ta bort rails i flertrådade runda hål i serverrack.
 
 1. Ta bort de PIN-koderna från främre och bakre montera hakparenteser med hjälp av en fast spets för.
 2. Hämta och rotera rail spärr delprodukter om du vill ta bort dem från montering hakparenteser.
@@ -152,7 +160,7 @@ OBS! För system som inte är utrustade med slam lås, skydda systemet med skruv
 
 1. Leta upp de yttre CMA hakparenteserna båda racklister inre sidor.
 2. Paketera kablarna försiktigt, att de Rensa av system-anslutningarna till vänster och höger.
-3. Tråd hook och slinga remmar via tooled fack på yttre CMA hakparenteserna på båda sidor av systemet för att skydda en kabel-paket.
+3. Tråd hook och slinga remmar via fack på yttre CMA hakparenteserna på båda sidor av systemet för att skydda en kabel-paket.
 
 
 ![Dirigera kablarna](./media/data-box-edge-deploy-install/routing-cables.png)
@@ -213,6 +221,6 @@ I den här självstudien har du lärt dig om Data Box Edge-ämnen som att:
 Gå vidare till nästa självstudie och lär dig hur du ansluter, konfigurerar och aktiverar enheten.
 
 > [!div class="nextstepaction"]
-> [Ansluta och konfigurera Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
+> [Ansluta och ställa in Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
 
 

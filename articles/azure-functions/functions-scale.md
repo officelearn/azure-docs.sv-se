@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266949"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
 Azure Functions som körs i två olika planer: Förbrukningsplan och premiumplan (offentlig förhandsversion). Med förbrukningsplanen läggs automatiskt datorkraft när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalas när koden har körts. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.  Premium-prenumerationen kommer också automatiskt skala och lägga till ytterligare datorkraft när koden körs.  Premiumprenumerationen levereras med ytterligare funktioner som premium-beräkningsinstanser, möjlighet att behålla instanser varma på obestämd tid och VNet-anslutning.  Du kan också köra dina funktionsappar i dem om du har en befintlig App Service-Plan.
 
 > [!NOTE]  
-> Båda [premiumprenumerationen](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) och [förbrukningsplan för Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) finns för närvarande i förhandsversion.
+> Båda [premiumprenumerationen](https://aka.ms/functions-premiumplan) och [förbrukningsplan för Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) finns för närvarande i förhandsversion.
 
 Om du inte är bekant med Azure Functions finns i den [översikt över Azure Functions](functions-overview.md).
 

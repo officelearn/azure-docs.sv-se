@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure DevTest Labs
+title: Populära scenarier för att använda Azure DevTest Labs
 description: Den här artikeln innehåller de primära scenarierna med Azure DevTest Labs och två allmänna sökvägar för att börja använda tjänsten i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803807"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272398"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>Kom igång med Azure DevTest Labs
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Populära scenarier för att använda Azure DevTest Labs
 Beroende på behoven hos företaget, kan DevTest Labs konfigureras för att uppfylla olika krav.  Den här artikeln beskrivs de populära scenarierna. Varje scenario beskriver fördelar som gav oss genom att använda DevTest Labs och resurser du använder för att implementera dessa scenarier.  
 
 - Developer-skrivbord
@@ -85,5 +85,5 @@ En **funktionstest av** distribution fokuserar på en topp arbete från en grupp
 Läs följande artiklar:
 
 - [DevTest Labs-koncept](devtest-lab-concepts.md)
-- [DevTest Labs vanliga frågor och svar](devtest-lab-faq.md)
+- [Vanliga frågor om DevTest Labs](devtest-lab-faq.md)
 

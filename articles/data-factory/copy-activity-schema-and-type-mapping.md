@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358719"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267131"
 ---
-# <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktiviteten
+# <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
 Den här artikeln beskriver hur Azure Data Factory Kopieringsaktivitet utför schemamappning och datatypmappningen från källdata till mottagare data när kör Datakopieringen.
 
 ## <a name="column-mapping"></a>Kolumnmappning
@@ -147,7 +147,7 @@ Schemamappning gäller när du kopierar data mellan hierarkisk formade data och 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
-| schemaMapping | En samling nyckel / värde-par som representerar mappning relationen från tabular sida till hierarkiska sida.<br/>- **Nyckel:** kolumnnamnet för tabelldata som definierats i datauppsättningsstrukturen.<br/>- **Värde:** JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `collectionReference` börjar du från matriselementet.  | Ja |
+| schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br/>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br/> När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |
 | collectionReference | Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till ange JSON-sökvägen för matrisen för cross-gäller per rad per objekt. Den här egenskapen stöds endast när hierarkiska data är källan. | Nej |
 
 **Exempel: kopiera från MongoDB till SQL:**
@@ -228,18 +228,18 @@ Du kan hitta mappningen mellan ursprunglig typ. till tillfälliga typ i avsnitte
 
 Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena nedan när du konfigurerar anger du följande information i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) konfiguration:
 
-* Byte]
+* Byte[]
 * Boolesk
 * DateTime
 * DateTimeOffset
 * Decimal
-* Double-värde
-* GUID
+* Double
+* Guid
 * Int16
 * Int32
 * Int64
-* Enkel
-* Sträng
+* Single
+* String
 * Tidsintervall
 
 ### <a name="explicit-data-type-conversion"></a>Explicit konvertering av datatyper
@@ -255,8 +255,8 @@ I nedan scenarier krävs ”struktur” i datauppsättningen:
 
 * Tillämpa [explicit konvertering av datatyper](#explicit-data-type-conversion) för filen källor vid kopiering (datauppsättningen för indata)
 * Tillämpa [explicit kolumnmappning](#explicit-column-mapping) vid kopiering (både indata och utdata datauppsättning)
-* Kopiera från Dynamics 365 / CRM källa (datauppsättningen för indata)
-* Kopiera till Cosmos DB som kapslade objekt när källan inte är JSON-filer (datauppsättningen för utdata)
+* Kopiera från Dynamics 365/CRM-källa (datauppsättning för indata)
+* Kopiera till Cosmos DB som kapslat objekt när källan inte är JSON-filer (datauppsättning för utdata)
 
 I nedan scenarier föreslås ”struktur” i datauppsättningen:
 

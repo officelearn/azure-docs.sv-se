@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07442d9636ec488da6eb3cdf9000b7f3cc24b61f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223520"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Självstudier: Azure Active Directory-integrering med SumoLogic
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SumoLog
 
     ![SumoLogic domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenantname>.SumoLogic.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<tenantname>.SumoLogic.com`
 
    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
 
@@ -225,7 +225,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För att aktivera Azure AD-användare att logga in på SumoLogic, måste de etableras till SumoLogic. När det gäller SumoLogic är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din **SumoLogic** klient.
 
@@ -260,9 +260,9 @@ När du klickar på panelen SumoLogic i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

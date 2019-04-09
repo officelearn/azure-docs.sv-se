@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 45b542cb644666a6bf1df3dc76cbf54693330810
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438911"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudier: Azure Active Directory-integrering med Pingboard
 
@@ -107,9 +107,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pingboa
 
     ![Pingboard domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du in en URL: `http://app.pingboard.com/sp`
+    a. I textrutan **Identifierare** skriver du en URL: `http://app.pingboard.com/sp`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -210,7 +210,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Pingboard. Pingboard stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information [här](pingboard-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-**Om du behöver skapa användare manuellt så gör du följande:**
+**Om du vill skapa användare manuellt kan du utföra följande steg:**
 
 1. Logga in på webbplatsen Pingboard företag som administratör.
 
@@ -247,10 +247,10 @@ När du klickar på panelen Pingboard i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
+- [Konfigurera Användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)

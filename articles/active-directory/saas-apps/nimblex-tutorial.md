@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cf646deb90bc086263b7bc3047a9da34865e798
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136642"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Självstudier: Azure Active Directory-integrering med Nimblex
 
@@ -107,11 +107,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Nimblex
 
     ![Nimblex domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<YOUR APPLICATION PATH>/`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<path-to-application>/SamlReply.aspx`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<path-to-application>/SamlReply.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Nimblex klienten supportteamet](mailto:support@ebms.com.au) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -224,9 +224,9 @@ När du klickar på panelen Nimblex i åtkomstpanelen, bör det vara loggas in a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

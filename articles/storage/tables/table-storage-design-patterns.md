@@ -2,18 +2,18 @@
 title: Designmönster för Azure storage-table | Microsoft Docs
 description: Använda mönster för Azure table service-lösningar.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995308"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271636"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -197,7 +197,7 @@ Om du vill aktivera sökning efter efternamn med entitetsstruktur som anges ovan
 * Skapa index entiteter i samma partition som anställdas enheter.  
 * Skapa index entiteter i en separat partition eller tabellen.  
 
-<u>Alternativ #1: Använda blob storage</u>  
+<u>Alternativ #1: Använda Blob Storage</u>  
 
 För det första alternativet, du skapa en blob för varje unikt efternamn och varje blob store en lista över de **PartitionKey** (avdelning) och **RowKey** (anställnings-ID) värden för anställda som har det senaste namnet. När du lägger till eller ta bort en medarbetare bör du kontrollera att innehållet i den relevanta blobben är konsekvent med enheterna som anställda.  
 
@@ -583,27 +583,25 @@ var query = (from employee in employeeQuery
             employee.RowKey.CompareTo("B") >= 0 &&
             employee.RowKey.CompareTo("C") < 0
             select employee).AsTableQuery();
+            
 var employees = query.Execute();  
 ```
 
 Observera hur frågan anger både en **RowKey** och en **PartitionKey** säkerställa bättre prestanda.  
 
-Följande kodexempel visar motsvarande funktioner med fluent-API (Mer information om fluent-API: er i allmänhet finns [bästa praxis för att utforma en Fluent-API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Följande kodexempel visar motsvarande funktioner utan att använda LINQ-syntax:  
 
 ```csharp
-TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
-    TableQuery.CombineFilters(
-    TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition(
-    "PartitionKey", QueryComparisons.Equal, "Sales"),
-    TableOperators.And,
-    TableQuery.GenerateFilterCondition(
-    "RowKey", QueryComparisons.GreaterThanOrEqual, "B")
-),
-TableOperators.And,
-TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "C")
-    )
-);
+TableQuery<EmployeeEntity> employeeQuery = 
+    new TableQuery<EmployeeEntity>().Where(
+        TableQuery.CombineFilters(
+            TableQuery.CombineFilters(
+                TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales"),
+                TableOperators.And,
+                TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThanOrEqual, "B")),
+            TableOperators.And,
+            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "C")));
+            
 var employees = employeeTable.ExecuteQuery(employeeQuery);  
 ```
 
@@ -622,36 +620,31 @@ En fråga till tabelltjänsten kan returnera högst 1 000 entiteter i taget och 
 Om du använder Storage-klientbiblioteket, hanterar den automatiskt fortsättning token åt dig när den returnerar entiteter från tabelltjänsten. Följande C# kodexemplet använder Storage-klientbiblioteket automatiskt hanterar fortsättning token om table service returnerar dem i ett svar:  
 
 ```csharp
-string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, "Sales");
-TableQuery<EmployeeEntity> employeeQuery =
-        new TableQuery<EmployeeEntity>().Where(filter);
+string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
+TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(filter);
 
 var employees = employeeTable.ExecuteQuery(employeeQuery);
 foreach (var emp in employees)
 {
-        ...
+    // ...
 }  
 ```
 
 Följande C#-kod hanterar uttryckligen fortsättning token:  
 
 ```csharp
-string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, "Sales");
-TableQuery<EmployeeEntity> employeeQuery =
-        new TableQuery<EmployeeEntity>().Where(filter);
+string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
+TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(filter);
 
 TableContinuationToken continuationToken = null;
-
 do
 {
-        var employees = employeeTable.ExecuteQuerySegmented(
-        employeeQuery, continuationToken);
+    var employees = employeeTable.ExecuteQuerySegmented(employeeQuery, continuationToken);
     foreach (var emp in employees)
     {
-    ...
+        // ...
     }
+    
     continuationToken = employees.ContinuationToken;
 } while (continuationToken != null);  
 ```
@@ -677,16 +670,15 @@ employeeQuery.TakeCount = 50;
 En enda entitet kan ha upp till 255 egenskaper och upp till 1 MB i storlek. När du frågar tabellen och hämta entiteter kan du kanske inte behöver alla egenskaper och kan undvika att överföra data onödan (om du vill minska svarstid och kostnader). Du kan använda serversidan projektion Överför bara de egenskaper som du behöver. I följande exempel är hämtar bara **e-post** egenskapen (tillsammans med **PartitionKey**, **RowKey**, **tidsstämpel**, och **ETag**) från de entiteter som valts av frågan.  
 
 ```csharp
-string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, "Sales");
+string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
 List<string> columns = new List<string>() { "Email" };
 TableQuery<EmployeeEntity> employeeQuery =
-        new TableQuery<EmployeeEntity>().Where(filter).Select(columns);
+    new TableQuery<EmployeeEntity>().Where(filter).Select(columns);
 
 var entities = employeeTable.ExecuteQuery(employeeQuery);
 foreach (var e in entities)
 {
-        Console.WriteLine("RowKey: {0}, EmployeeEmail: {1}", e.RowKey, e.Email);
+    Console.WriteLine("RowKey: {0}, EmployeeEmail: {1}", e.RowKey, e.Email);
 }  
 ```
 
@@ -921,31 +913,29 @@ Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **Partitio
 Det andra alternativet är att använda den **DynamicTableEntity** typ (en egenskapsuppsättning) i stället för en konkret POCO entitetstypen (det här alternativet kan också förbättra prestanda eftersom det finns inget behov att serialisera och deserialisera entiteten till .NET-typer). Följande C#-kod potentiellt hämtar flera entiteter av olika typer från tabellen, men returnerar alla entiteter som **DynamicTableEntity** instanser. Därefter använder den **EntityType** som bestämmer vilken typ av varje entitet:  
 
 ```csharp
-string filter = TableQuery.CombineFilters(
-    TableQuery.GenerateFilterCondition("PartitionKey",
-    QueryComparisons.Equal, "Sales"),
-    TableOperators.And,
+string filter =
     TableQuery.CombineFilters(
-    TableQuery.GenerateFilterCondition("RowKey",
-                    QueryComparisons.GreaterThanOrEqual, "B"),
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales"),
         TableOperators.And,
-        TableQuery.GenerateFilterCondition("RowKey",
-        QueryComparisons.LessThan, "F")
-    )
-);
+        TableQuery.CombineFilters(
+            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThanOrEqual, "B"),
+            TableOperators.And,
+            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "F")));
+        
 TableQuery<DynamicTableEntity> entityQuery =
     new TableQuery<DynamicTableEntity>().Where(filter);
+    
 var employees = employeeTable.ExecuteQuery(entityQuery);
 
 IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
 foreach (var e in entities)
 {
-EntityProperty entityTypeProperty;
-if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
-{
-    if (entityTypeProperty.StringValue == "Employee")
+    EntityProperty entityTypeProperty;
+    if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
     {
-        // Use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
+        if (entityTypeProperty.StringValue == "Employee")
+        {
+            // use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
         }
     }
 }  
@@ -958,42 +948,43 @@ Ett tredje alternativ är att kombinera med hjälp av den **DynamicTableEntity**
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
 {
-
-        TableEntity resolvedEntity = null;
-        if (props["EntityType"].StringValue == "Department")
-        {
+    TableEntity resolvedEntity = null;
+    if (props["EntityType"].StringValue == "Department")
+    {
         resolvedEntity = new DepartmentEntity();
-        }
-        else if (props["EntityType"].StringValue == "Employee")
-        {
+    }
+    else if (props["EntityType"].StringValue == "Employee")
+    {
         resolvedEntity = new EmployeeEntity();
-        }
-        else throw new ArgumentException("Unrecognized entity", "props");
+    }
+    else 
+    {
+        throw new ArgumentException("Unrecognized entity", "props");
+    }
 
-        resolvedEntity.PartitionKey = pk;
-        resolvedEntity.RowKey = rk;
-        resolvedEntity.Timestamp = ts;
-        resolvedEntity.ETag = etag;
-        resolvedEntity.ReadEntity(props, null);
-        return resolvedEntity;
+    resolvedEntity.PartitionKey = pk;
+    resolvedEntity.RowKey = rk;
+    resolvedEntity.Timestamp = ts;
+    resolvedEntity.ETag = etag;
+    resolvedEntity.ReadEntity(props, null);
+    return resolvedEntity;
 };
 
-string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, "Sales");
-TableQuery<DynamicTableEntity> entityQuery =
-        new TableQuery<DynamicTableEntity>().Where(filter);
+string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
+        
+TableQuery<DynamicTableEntity> entityQuery = new TableQuery<DynamicTableEntity>().Where(filter);
 
 var entities = employeeTable.ExecuteQuery(entityQuery, resolver);
 foreach (var e in entities)
 {
-        if (e is DepartmentEntity)
-        {
-    ...
-        }
-        if (e is EmployeeEntity)
-        {
-    ...
-        }
+    if (e is DepartmentEntity)
+    {
+        // ...
+    }
+    else if (e is EmployeeEntity)
+    {
+        // ...
+    }
 }  
 ```
 
@@ -1001,19 +992,17 @@ foreach (var e in entities)
 Du behöver inte vet vilken typ av en entitet att ta bort den och du vet alltid vilken datatyp för en entitet när du infogar den. Du kan dock använda **DynamicTableEntity** Skriv för att uppdatera en entitet utan att känna till dess typ och utan att använda en POCO-entitetsklass. Följande kodexempel hämtas en enda entitet och kontrollerar de **EmployeeCount** egenskapen finns innan du uppdaterar den.  
 
 ```csharp
-TableResult result =
-        employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
+TableResult result = employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
 DynamicTableEntity department = (DynamicTableEntity)result.Result;
 
 EntityProperty countProperty;
-
 if (!department.Properties.TryGetValue("EmployeeCount", out countProperty))
 {
-        throw new
-        InvalidOperationException("Invalid entity, EmployeeCount property not found.");
+    throw new InvalidOperationException("Invalid entity, EmployeeCount property not found.");
 }
+
 countProperty.Int32Value += 1;
-employeeTable.Execute(TableOperation.Merge(department));  
+employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>Kontrollera åtkomst med signaturer för delad åtkomst
@@ -1038,23 +1027,20 @@ Du kan förbättra dataflödet genom att köra lagringsåtgärder asynkront i en
 ```csharp
 private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
 {
-        string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, department);
-        TableQuery<EmployeeEntity> employeeQuery =
-        new TableQuery<EmployeeEntity>().Where(filter);
+    string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, department);
+    TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(filter);
 
-        TableContinuationToken continuationToken = null;
-
-        do
-        {
-        var employees = employeeTable.ExecuteQuerySegmented(
-                employeeQuery, continuationToken);
-        foreach (var emp in employees)
+    TableContinuationToken continuationToken = null;
+    do
     {
-        ...
-    }
+        var employees = employeeTable.ExecuteQuerySegmented(employeeQuery, continuationToken);
+        foreach (var emp in employees)
+        {
+            // ...
+        }
+        
         continuationToken = employees.ContinuationToken;
-        } while (continuationToken != null);
+    } while (continuationToken != null);
 }  
 ```
 
@@ -1063,22 +1049,20 @@ Du kan enkelt ändra den här koden så att frågan körs asynkront på följand
 ```csharp
 private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
 {
-        string filter = TableQuery.GenerateFilterCondition(
-        "PartitionKey", QueryComparisons.Equal, department);
-        TableQuery<EmployeeEntity> employeeQuery =
-        new TableQuery<EmployeeEntity>().Where(filter);
-        TableContinuationToken continuationToken = null;
-
-        do
-        {
-        var employees = await employeeTable.ExecuteQuerySegmentedAsync(
-                employeeQuery, continuationToken);
+    string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, department);
+    TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(filter);
+    
+    TableContinuationToken continuationToken = null;
+    do
+    {
+        var employees = await employeeTable.ExecuteQuerySegmentedAsync(employeeQuery, continuationToken);
         foreach (var emp in employees)
         {
-            ...
+            // ...
         }
+    
         continuationToken = employees.ContinuationToken;
-            } while (continuationToken != null);
+    } while (continuationToken != null);
 }  
 ```
 
@@ -1094,24 +1078,24 @@ Observera att det inte finns någon asynkron version av den **kör** -metod i de
 Du kan också infoga, uppdatera och ta bort entiteter asynkront. I följande C#-exempel visas en enkel, synkron metod för att infoga eller ersätta en anställd entitet:  
 
 ```csharp
-private static void SimpleEmployeeUpsert(CloudTable employeeTable,
-        EmployeeEntity employee)
+private static void SimpleEmployeeUpsert(
+    CloudTable employeeTable,
+    EmployeeEntity employee)
 {
-        TableResult result = employeeTable
-        .Execute(TableOperation.InsertOrReplace(employee));
-        Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
+    TableResult result = employeeTable.Execute(TableOperation.InsertOrReplace(employee));
+    Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
 }  
 ```
 
 Du kan enkelt ändra den här koden så att uppdateringen körs asynkront på följande sätt:  
 
 ```csharp
-private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
-        EmployeeEntity employee)
+private static async Task SimpleEmployeeUpsertAsync(
+    CloudTable employeeTable,
+    EmployeeEntity employee)
 {
-        TableResult result = await employeeTable
-        .ExecuteAsync(TableOperation.InsertOrReplace(employee));
-        Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
+    TableResult result = await employeeTable.ExecuteAsync(TableOperation.InsertOrReplace(employee));
+    Console.WriteLine("HTTP Status: {0}", result.HttpStatusCode);
 }  
 ```
 
@@ -1124,7 +1108,7 @@ Klientprogrammet kan anropa flera asynkrona metoder som det här och varje metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Modellering relationer](table-storage-design-modeling.md)
-- [Design för frågor](table-storage-design-for-query.md)
-- [Kryptering av tabelldata som](table-storage-design-encrypt-data.md)
-- [Design för dataändringar](table-storage-design-for-modification.md)
+- [Modellera relationer](table-storage-design-modeling.md)
+- [Utforma för frågor](table-storage-design-for-query.md)
+- [Kryptera tabelldata](table-storage-design-encrypt-data.md)
+- [Utforma för dataändring](table-storage-design-for-modification.md)

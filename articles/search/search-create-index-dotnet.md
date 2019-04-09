@@ -1,5 +1,5 @@
 ---
-title: Skapa ett index i C# – Azure Search
+title: 'Snabbstart: Skapa ett index i en C# konsolapp – Azure Search'
 description: Lär dig hur du skapar ett sökbart fulltextindex i C# med hjälp av Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -9,15 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
-ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/08/2019
+ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269052"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Snabbstart: 1 – skapa ett Azure Search-index iC#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portalen](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+>*
 
 Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search-index](search-what-is-an-index.md) med C# och [.NET SDK](https://aka.ms/search-sdk). Det här är den första lektionen i en 3 delar Övning för att skapa, läsa in och fråga ett index. Skapandet av index åstadkoms genom att utföra dessa uppgifter:
 
@@ -28,37 +34,45 @@ Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+Följande tjänster, verktyg och data som används i den här snabbstarten. 
+
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
-Hämta URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) ger exempellösningen är en .NET Core-konsolprogram som skrivits C#, som finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer. Data som ingår i lösningen.
 
-  1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
-  2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+Anrop till tjänsten kräver en URL-slutpunkt och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-  ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+
+2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
 Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="1---open-the-project"></a>1 – öppna projektet
+## <a name="1---configure-and-build"></a>1 – konfigurera och skapa
 
-Hämta exempelkoden [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) från GitHub. 
+1. Öppna den **DotNetHowTo.sln** filen i Visual Studio.
 
-I appsettings.json, ersätter du standard innehåll med exemplet nedan och ange sedan namnet på tjänsten och admin api-nyckel för din tjänst. För tjänstnamnet behöver du bara namnet i sig. Exempel: om din URL är https://mydemo.search.windows.net, lägga till `mydemo` till JSON-fil.
+1. I appsettings.json, ersätter du standard innehåll med exemplet nedan och ange sedan namnet på tjänsten och admin api-nyckel för din tjänst. 
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
 
-När dessa värden har angetts kan du F5 build lösningen så att den kör konsolappen. De återstående stegen i den här övningen och de som följer är en förklaring av hur den här koden fungerar. 
+  För tjänstnamnet behöver du bara namnet i sig. Exempel: om din URL är https://mydemo.search.windows.net, lägga till `mydemo` till JSON-fil.
 
-Du kan också referera till [hur du använder Azure Search från .NET-program ](search-howto-dotnet-sdk.md) mer detaljerad täckning av SDK-beteenden. 
+1. Tryck på F5 för att skapa lösningen och kör konsolappen. De återstående stegen i den här övningen och de som följer är en förklaring av hur den här koden fungerar. 
+
+Du kan också referera till [hur du använder Azure Search från .NET-program](search-howto-dotnet-sdk.md) mer detaljerad täckning av SDK-beteenden. 
 
 <a name="CreateSearchServiceClient"></a>
 

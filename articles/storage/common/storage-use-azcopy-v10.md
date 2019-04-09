@@ -2,18 +2,18 @@
 title: Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10 (förhandsversion) | Microsoft Docs
 description: Använda AzCopy v10 (förhandsversion) kommandoradsverktyget för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574985"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278436"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
 
@@ -24,6 +24,7 @@ AzCopy v10 (förhandsversion) är kommandoradsverktyg för att kopiera data till
 - Synkroniserar filsystem till Azure Blob storage eller vice versa. Använd `azcopy sync <source> <destination>`. Perfekt för inkrementell kopia scenarier.
 - Har stöd för Azure Data Lake Storage Gen2 API: er. Använd `myaccount.dfs.core.windows.net` som en URI för att anropa API: er för Data Lake Storage Gen2.
 - Har stöd för kopiering av ett hela konto (endast Blob-tjänst) till ett annat konto.
+- Har stöd för kopiering av data från en Amazon Web Services S3-bucket.
 - Använder den nya [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er för att konto kopia. Dataöverföringen är snabbare, eftersom krävs inte skickades till klienten.
 - Visar en lista över eller tar bort filer och blobar i en viss sökväg.
 - Stöd för mönster med jokertecken i en sökväg och--exkludera flaggor.
@@ -79,8 +80,8 @@ AzCopy v10 har en egen dokumenterade syntax. När du har loggat in till Azure Ac
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 Här är hur du kan hämta en lista över tillgängliga kommandon:
@@ -101,7 +102,7 @@ Om du vill se hjälpsidan och exempel för ett visst kommando kör du följande 
 
 ## <a name="create-a-blob-container-or-file-share"></a>Skapa en blob-behållare eller filresurs 
 
-**Skapa en blobbehållare**
+**Skapa en blobcontainer**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"
@@ -135,16 +136,16 @@ Använd kopieringskommandot för att överföra data från källan till målet. 
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-Följande kommando laddar upp alla filer i mappen `C:\local\path` rekursivt till behållaren `mycontainer1`, skapa `path` katalogen i behållaren:
+Följande kommando laddar upp alla filer i mappen `C:\local\path` rekursivt till behållaren `mycontainer1`, skapa `path` katalogen i behållaren. När `--put-md5` flagga har angetts, AzCopy beräknar och lagrar md5-hash för varje fil i `Content-md5` egenskapen för motsvarande blob för senare användning.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 Följande kommando laddar upp alla filer i mappen `C:\local\path` (utan recursing i underkatalogerna) till behållaren `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 Om du vill söka efter fler exempel, använder du följande kommando:
@@ -153,21 +154,27 @@ Om du vill söka efter fler exempel, använder du följande kommando:
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>Kopiera data mellan två lagringskonton
+## <a name="copy-blob-data-between-two-storage-accounts"></a>Kopiera Blob-data mellan två lagringskonton
 
 Kopiering av data mellan två lagringskonton använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, och inte använda klientdatorns bandbredd i nätverket. Data kopieras mellan två Azure Storage servrar direkt, medan AzCopy samordnar bara kopieringen. Det här alternativet är för närvarande bara tillgänglig för Blob storage.
 
-Om du vill kopiera data mellan två lagringskonton, använder du följande kommando:
+Om du vill kopiera alla Blob-data mellan två lagringskonton, använder du följande kommando:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> Det här kommandot kommer att räkna upp alla blob-behållare och kopiera dem till mål-kontot. För närvarande stöder AzCopy v10 kopierar endast blockblob-objekt mellan två lagringskonton. Den hoppar över alla andra storage-konto-objekt (till exempel tilläggsblobbar, sidblobar, filer, tabeller och köer).
+Om du vill kopiera en Blob-behållare till en annan Blob-behållare, använder du följande kommando:
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Kopiera en VHD-avbildning till ett lagringskonto
 
-AzCopy v10 som standard överför data till blockblobar. Men om en källfil har en `.vhd` tillägg, AzCopy v10 som standard laddar upp till en sidblobb. Den här åtgärden för tillfället inte kan konfigureras.
+AzCopy som standard överför data till blockblobar. Ladda upp filer som Tilläggsblobbar och Sidblobbar använder du flaggan `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synkronisering: inkrementell kopiera och ta bort (endast Blob storage)
 
@@ -192,6 +199,30 @@ Du kan också synkronisera en blob-behållare till ett lokalt filsystem:
 ```
 
 Det här kommandot synkroniserar stegvis källan till målet baserat på senaste ändrade tidsstämplar. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Före borttagningen uppmanar AzCopy dig att bekräfta.
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Kopiera data från Amazon Web Services (AWS) S3
+
+Ange följande miljövariabler för att autentisera med AWS S3-bucket:
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+Om du vill kopiera en bucket på en blobbehållare, kör du följande kommando:
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+Mer information om hur du kopierar data från AWS S3 med hjälp av AzCopy, finns på sidan [här](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -277,10 +308,11 @@ Om du vill filtrera överföringar efter status, använder du följande kommando
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Använd följande kommando för att återuppta ett jobb som misslyckades/har avbrutits. Det här kommandot använder sin identifierare tillsammans med SAS-token. Det är inte beständiga av säkerhetsskäl:
+Använd följande kommando för att återuppta ett jobb som misslyckades/har avbrutits. Det här kommandot använder sin identifierare tillsammans med SAS-token som det är inte beständiga av säkerhetsskäl:
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500210"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260569"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service i Azure Stack uppdatering 5 viktig information
 
-*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack uppdatering 5 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
@@ -77,7 +77,7 @@ Azure App Service i Azure Stack uppdatering 5 innehåller följande förbättrin
 ### <a name="post-deployment-steps"></a>Steg efter distribution
 
 > [!IMPORTANT]  
-> Om du har angett App Service-RP med en SQL alltid på instans måste du [lägga till appservice_hosting och appservice_metering databaser i en tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) och synkronisera databaser för att förhindra förlust av tjänsten i den händelse av ett databasfel.
+> Om du har angett App Service-resursprovidern med en SQL alltid på instans måste du [lägga till appservice_hosting och appservice_metering databaser i en tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) och synkronisera databaser för att förhindra förlust av tjänsten i händelse av ett databasfel.
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
 

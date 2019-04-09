@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535656"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264207"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR Service med hjälp av JavaScript
 
@@ -50,7 +50,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. I kodredigeraren öppnar du mappen *chat/src/javascript* på den klonade lagringsplatsen.
+1. Öppna i ditt kodredigeringsprogram den *src/chatt/javascript* mapp i den klonade lagringsplatsen.
 
 1. Byt namn på *local.settings.sample.json* till *local.settings.json*.
 
@@ -61,7 +61,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
-1. I terminalen kontrollerar du att du är i mappen *chatt/src/javascript*. Använd Azure Functions Core Tools för att installera tillägg som krävs för att köra appen.
+1. I terminalen kontrollerar du att du är i den *src/chatt/javascript* mapp. Använd Azure Functions Core Tools för att installera tillägg som krävs för att köra appen.
 
     ```bash
     func extensions install

@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777727"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280119"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
 Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
-[![Exempel på Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Examples för Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Tack vare den här kraftfulla kombinationen av kod, grafik och förklarande text har Jupyter blivit populärt för många användningsområden, däribland datavetenskapsinstruktion, datarensning och transformering, numerisk simulering, statistisk modellering och utveckling av maskininlärningsmodeller.
 
@@ -58,6 +58,8 @@ Kort sagt hjälper Azure Notebooks dig att utföra ditt arbete effektivare och d
 Azure Notebooks är en kostnadsfri tjänst, men varje projekt är begränsat till 4 GB minne och 1 GB data för att förhindra missbruk. Legitima användare som överskrider dessa gränser får en Captcha-utmaning för att fortsätta köra notebook-filer.
 
 Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du ansluta till valfria Azure Data Science Virtual Machine-instanser i den prenumerationen. Mer information finns i avsnittet om att [hantera och konfigurera projekt på beräkningsnivån](configure-manage-azure-notebooks-projects.md#compute-tier).
+
+Anteckningsboken servrar garanterat finns i högst 8 timmar. I de flesta fall behållaren är inte omfattas av den här gränsen och fortsätter att köras efter den här tiden, men kan ibland att stängas av långlivade sessioner för systemets stabilitet.
 
 ## <a name="available-kernels-and-environments"></a>Tillgängliga kernels och miljöer
 
@@ -95,25 +97,25 @@ Om du vill diskutera frågor om Azure Notebooks kan du rapportera ett problem p�
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
+- [Utforska exempelanteckningsböcker](azure-notebooks-samples.md)
 
 - Snabbstarter:
 
   - [Skapa och dela en notebook-fil](quickstart-create-share-jupyter-notebook.md)
-  - [Klona en notebook-fil](quickstart-clone-jupyter-notebook.md)
+  - [Skapa en notebook-fil](quickstart-clone-jupyter-notebook.md)
   - [Migrera en lokal Jupyter Notebook](quickstart-migrate-local-jupyter-notebook.md)
   - [Använda en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md)
   - [Logga in och ange ett användar-ID](quickstart-sign-in-azure-notebooks.md)
 
 - Självstudier:
 
-  - [Skapa och köra en notebook-fil](tutorial-create-run-jupyter-notebook.md  )
+  - [Skapa och kör en notebook-fil](tutorial-create-run-jupyter-notebook.md  )
 
 - Instruktionsartiklar:
   
   - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
   - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-  - [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
+  - [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
   - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
   - [Arbeta med datafiler](work-with-project-data-files.md)
   - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)

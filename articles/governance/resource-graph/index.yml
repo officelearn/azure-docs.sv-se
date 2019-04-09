@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803436"
 documentType: LandingData
 title: Dokumentation om Azure Resource Graph-tjänsten
 metadata:
-  title: Dokumentation om Azure Resource Graph – Självstudier, API-referens
+  title: 'Dokumentation om Azure Resource Graph – Självstudier, API-referens'
   description: Azure Resource Graph är en tjänst i Azure som möjliggör komplexa frågor till resurser i stor skala.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: Med dokumentation för Azure Resource Graph kan du konfigurera och lära dig frågespråket för att identifiera och utforska dina resurser i stor skala.
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Konfigurera Resource Graph och kör din första fråga.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Feedback
-  items:
-  - type: paragraph
-    text: Om du vill lämna feedback om den här funktionen eller få hjälp med frågor kan du gå till sidan <b>Resource Graph (förhandsversion)</b> från <b>Azure Policy</b> på Azure-portalen och klicka på Feedback. Du kan även skicka förslag till oss på <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Konfigurera Resource Graph och kör din första fråga.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Feedback
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK för .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK för Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API-referens</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>
+      - type: paragraph
+        text: 'Om du vill lämna feedback om den här funktionen eller få hjälp med frågor kan du gå till sidan <b>Resource Graph (förhandsversion)</b> från <b>Azure Policy</b> på Azure-portalen och klicka på Feedback. Du kan även skicka förslag till oss på <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Språk
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK för .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK för Python</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API-referens</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'

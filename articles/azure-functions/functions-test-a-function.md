@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439336"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283043"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -253,6 +253,8 @@ Medlemmar som implementerats i den här klassen är:
 
 - **Timer_should_log_message**: Det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
 
+Om du vill komma åt programinställningar i dina tester kan du använda [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### <a name="run-tests"></a>Kör test
 
 Om du vill köra testerna, navigera till den **Test Explorer** och klicka på **köra alla**.
@@ -375,6 +377,6 @@ Nu ska vi konfigurera en brytpunkt i test- och tryck på **F5**.
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skriver automatiska tester för dina funktioner, fortsätter du med dessa resurser:
-- [Manuellt köra en icke HTTP-utlöst funktion](./functions-manually-run-non-http.md)
+- [Köra en funktion som inte utlösts av HTTP manuellt](./functions-manually-run-non-http.md)
 - [Azure Functions-felhantering](./functions-bindings-error-pages.md)
 - [Azure-funktion Event Grid utlösa lokal felsökning](./functions-debug-event-grid-trigger-local.md)

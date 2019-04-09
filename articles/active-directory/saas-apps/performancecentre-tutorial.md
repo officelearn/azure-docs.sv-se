@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407580"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271585"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudier: Azure Active Directory-integrering med PerformanceCentre
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Perform
 
     ![PerformanceCentre domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `http://<companyname>.performancecentre.com/saml/SSO`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `http://<companyname>.performancecentre.com/saml/SSO`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<companyname>.performancecentre.com`
 
@@ -234,9 +234,9 @@ När du klickar på panelen PerformanceCentre i åtkomstpanelen, bör det vara l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

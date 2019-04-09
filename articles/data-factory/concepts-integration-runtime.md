@@ -3,7 +3,7 @@ title: Integration Runtime i Azure Data Factory | Microsoft Docs
 description: Mer information om Integration Runtime i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: jingwang
-ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: abnarain
+ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893058"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275418"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -156,5 +156,5 @@ Varje transformeringsaktivitet har en länkad målberäkningstjänst, som pekar 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
+- [Skapa Integration Runtime med lokal installation](create-self-hosted-integration-runtime.md)
 - [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 

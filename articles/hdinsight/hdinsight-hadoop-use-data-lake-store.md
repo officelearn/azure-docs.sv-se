@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: b567f5e74737c6020a3dd08484354383d45ecb7d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ed8884462030e10625f332b182bd900e833f34f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361897"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272741"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -43,6 +43,7 @@ Från och med nu, bara en del av HDInsight klusterstöd typer/versioner med Data
 
 | Typ av HDInsight-kluster | Data Lake Storage Gen1 som standardlagring | Data Lake Storage Gen1 som ytterligare lagringsutrymme| Anteckningar |
 |------------------------|------------------------------------|---------------------------------------|------|
+| HDInsight version 4.0 | Nej | Nej |ADLS Gen1 stöds inte med HDInsight 4.0 |
 | HDInsight version 3.6 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.5 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.4 | Nej | Ja | |
@@ -160,7 +161,7 @@ Använd följande länkar om du detaljerade anvisningar om hur du skapar HDInsig
 * [Använda portalen](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Använda PowerShell (med Data Lake Storage Gen1 som standardlagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Använda PowerShell (med Data Lake Storage Gen1 som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+* [Med Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Uppdatera HDInsight-certifikatet för Data Lake Storage Gen1 åtkomst
 

@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804657"
 documentType: LandingData
 title: Dokumentation om Azure Policy-tjänsten
 metadata:
-  title: Dokumentation om Azure Policy – självstudier, API-referens
+  title: 'Dokumentation om Azure Policy – självstudier, API-referens'
   description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -20,60 +13,60 @@ metadata:
 abstract:
   description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        alt: Azure Portal
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Resource Manager-mall
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Resource Manager-mall
-      href: ./assign-policy-template
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Resource Manager-mall
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Resource Manager-mall
+            href: ./assign-policy-template
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Skapa och hantera Azure Policy</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Skapa en anpassad principdefinition</a>
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Granska de tillgängliga exemplen för att få hjälp med att skapa principdefinitioner i Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Skapa och hantera Azure Policy</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Skapa en anpassad principdefinition</a>
+  - title: Exempel
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Exempel på index</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Granska de tillgängliga exemplen för att få hjälp med att skapa principdefinitioner i Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">Exempel på index</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (gästkonfiguration)</a></p>
-    - title: Mallar för Resurshanteraren
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Tilldelningar</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Principdefinitioner</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Initiativdefinitioner</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Händelser</a></p><p><a href="/rest/api/policy-insights/policystates">Tillstånd</a></p><p><a href="/rest/api/resources/policyassignments">Tilldelningar</a></p><p><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Principspårade resurser</a></p><p><a href="/rest/api/policy-insights/remediations">Reparationer</a></p><p><a href="/rest/api/guestconfiguration/">Gästkonfiguration</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (gästkonfiguration)</a></p>'
+          - title: Mallar för Resurshanteraren
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Tilldelningar</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Principdefinitioner</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Initiativdefinitioner</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">Händelser</a></p><p><a href="/rest/api/policy-insights/policystates">Tillstånd</a></p><p><a href="/rest/api/resources/policyassignments">Tilldelningar</a></p><p><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Principspårade resurser</a></p><p><a href="/rest/api/policy-insights/remediations">Reparationer</a></p><p><a href="/rest/api/guestconfiguration/">Gästkonfiguration</a></p>

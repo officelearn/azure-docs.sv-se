@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor metrics explorer
-description: Lär dig mer om nya funktioner i Azure Monitor metrics explorer
+title: Avancerade funktionerna i Azure Metrics Explorer
+description: Lär dig mer om de avancerade funktionerna i Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916350"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271687"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktionerna i Azure Metrics Explorer
 
-Azure Monitor metrics explorer är en komponent i Microsoft Azure-portalen som tillåter ritområdet diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Måttutforskaren är en viktig startpunkt för att undersöka olika prestanda och tillgänglighetsproblem med dina program och infrastruktur i Azure eller övervakas av Azure Monitor-tjänster.
+> [!NOTE]
+> Den här artikeln förutsätter att du är bekant med grundläggande funktioner i Metrics Explorer. Om du är nybörjare och vill lära dig hur du skapar din första måttdiagram finns [komma igång med Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
 [Mått i Azure Monitor](data-platform-metrics.md) är serie mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [tillägget för Windows Azure Diagnostics SÄKERHETSSPECIFIKA](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), eller genom [Azure Övervaka REST-API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-a-new-chart"></a>Skapa ett nytt diagram
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Skapa vyer med flera mått och diagram
 
-1. Öppna Azure portal
-2. Gå till den nya **övervakaren** fliken och välj sedan **mått**.
+Du kan skapa diagram som beskriver flera mått rader eller visa flera diagram med mätvärden på samma gång. Den här funktionen kan du:
 
-   ![Bild av mått](./media/metrics-charts/00001.png)
+- korrelera relaterade mått på samma diagram för att se hur ett värde som är relaterad till en annan
+- Visa mått med olika enheter i närheten
+- visuellt sammanställa och jämföra mått från flera resurser
 
-3. Den **mått väljare** kommer automatiskt att vara öppen åt dig. Välj en resurs från listan för att visa dess tillhörande mått. Endast resurser med mått visas i listan.
+Om du har 5 storage-konton och du vill veta hur mycket diskutrymme som används mellan dem, kan du skapa en (staplat) ytdiagram som visar person och summan av alla värden vid specifika tidpunkter i tid.
 
-   ![Bild av mått](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>Flera mått på samma diagram
 
-   > [!NOTE]
-   >Om du har mer än en Azure-prenumeration, Metrics Explorer-hämtningar i resurser i alla prenumerationer som har valts i Portal-inställningar -> Filter av prenumerationslista. Om du vill ändra den, klicka på kugghjulsikonen Portal inställningar på skärmen och välj vilka prenumerationer som du vill använda.
-
-4. För vissa resurstyper (Storage-konton och virtuella datorer) innan du väljer ett mått måste du välja en **Namespace**. Varje namnområde har en egen uppsättning mått som är relevanta till endast det här namnområdet och inte till andra namnområden.
-
-   Varje Azure Storage har till exempel mått för subservices ”BLOB”, ”filer”, ”Queues” och ”tabeller”, som är alla delar av storage-konto. Dock gäller mått ”Antal Kömeddelanden” naturligt till deltjänst ”kö” och inte till några andra subservices med lagring.
-
-   ![Bild av mått](./media/metrics-charts/00003.png)
-
-5. Välj ett mått i listan. Om du vet att en del av namnet på det mått som du vill kan du börja skriva den i att se en filtrerad lista över tillgängliga mått:
-
-   ![Bild av mått](./media/metrics-charts/00004.png)
-
-6. När du har valt ett mått återges i diagrammet med standardaggregeringen för det valda måttet. Klicka nu bara bort från den **mått väljare** att stänga den. Du kan även växla diagrammet till en annan aggregering. För vissa mått kan växlar aggregering du välja vilket värde som du vill visa i diagrammet. Exempelvis kan du växla mellan genomsnittlig, minsta och högsta värden. 
-
-7. Genom att klicka på **Lägg till mått** och upprepa steg 3 – 6, du kan lägga till fler mått på samma diagram.
+Först [skapa ett nytt diagram](metrics-getting-started.md#create-your-first-metric-chart). Klicka på **Lägg till måttet** och upprepa stegen för att lägga till ett annat mått på samma diagram.
 
    > [!NOTE]
    > Du normalt vill inte ha mått med olika enheter (d.v.s. ”millisekunder” och ”kilobyte”) eller med betydligt olika skala på ett diagram. Överväg istället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i metrics explorer.
+
+### <a name="multiple-charts"></a>Flera diagram
+
+Klicka på den **Lägg till diagram** och skapa ett annat diagram med ett annat mått.
+
+### <a name="order-or-delete-multiple-charts"></a>Sortera eller ta bort flera diagram
+
+Om du vill sortera eller ta bort flera diagram, klickar du på ellipserna ( **...**  ) symbol att öppna diagram-menyn och väljer lämplig menyalternativet av **Flytta upp**, **Flytta ned**, eller **ta bort**.
 
 ## <a name="apply-filters-to-charts"></a>Använda filter diagram
 
@@ -76,27 +71,7 @@ Du kan använda filter på diagram som visar mått med dimensioner. Till exempel
 
 5. Du kan upprepa steg 1 – 4 använda flera filter i samma diagram.
 
-## <a name="multiple-metrics-and-charts"></a>Flera mått och diagram
 
-Du kan också skapa diagram som beskriver flera mått eller visa flera diagram med mätvärden på samma gång. Den här funktionen kan du:
-
-- korrelera relaterade mått på samma diagram för att se hur ett värde som är relaterad till en annan
-- Visa mått med olika enheter i närheten
-- visuellt sammanställa och jämföra mått från flera resurser
-
-Om du har 5 storage-konton och du vill veta hur mycket diskutrymme som används mellan dem, kan du skapa en (staplat) ytdiagram som visar person och summan av alla värden vid specifika tidpunkter i tid.
-
-### <a name="multiple-metrics-on-a-chart"></a>Flera mått i ett diagram
-
-Först [skapa ett nytt diagram](#create-a-new-chart). Klicka på **Lägg till måttet** och upprepa stegen för att lägga till ett annat mått på samma diagram.
-
-### <a name="multiple-charts"></a>Flera diagram
-
-Klicka på den **Lägg till diagram** och skapa ett annat diagram med ett annat mått.
-
-### <a name="order-or-delete-multiple-charts"></a>Sortera eller ta bort flera diagram
-
-Om du vill sortera eller ta bort flera diagram, klickar du på ellipserna ( **...**  ) symbol att öppna diagram-menyn och väljer lämplig menyalternativet av **Flytta upp**, **Flytta ned**, eller **ta bort**.
 
 ## <a name="apply-splitting-to-a-chart"></a>Tillämpa delar upp till ett diagram
 

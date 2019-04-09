@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d550591f48fbecc60aae8154bed8eec482a2ed12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577075"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Självstudier: Azure Active Directory-integrering med Promapp
 
@@ -121,7 +121,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Promapp
     > [!NOTE] 
     > Azure AD-integrering med Promapp har för närvarande endast konfigurerats för initierad tjänstautentisering t.ex. Gå till en URL för Promapp initierar autentiseringen. Men svars-URL måste anges.
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -233,9 +233,9 @@ När du klickar på panelen Promapp i åtkomstpanelen, bör det vara loggas in a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

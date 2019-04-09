@@ -1,7 +1,6 @@
 ---
 title: Förstå sekvensen distributionsordning
 description: Läs om livscykeln för som en skissdefinitionen passerar och information om varje steg.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434814"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266196"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå sekvensen för distribution i Azure skisser
 
@@ -26,7 +25,7 @@ Azure skisser använder en **ordningsföljd** att fastställa ordningen för res
 
 Det finns variabler i JSON-exempel som du måste ersätta med dina egna värden:
 
-- `{YourMG}` – Ersätt med namnet på din hanteringsgrupp
+- `{YourMG}` – Ersätt med namnet på hanteringsgruppen
 
 ## <a name="default-sequencing-order"></a>Standard ordningsföljd
 

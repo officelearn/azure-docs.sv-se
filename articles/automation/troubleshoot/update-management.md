@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/05/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804470"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274594"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -181,6 +181,8 @@ Dubbelklicka på undantaget som visas i rött att se hela Undantagsmeddelandet. 
 |`0x8024402C`     | Om du använder en WSUS-server kontrollerar du registervärdena `WUServer` och `WUStatusServer` under registernyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` har korrekt WSUS-servern.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrollera att Windows Update-tjänsten (wuauserv) körs och har inte inaktiverats.        |
 |Allmänt undantag     | Gör en sökning efter möjliga lösningar på internet och arbeta med den lokala IT-supporten.         |
+
+Granska de `windowsupdate.log` kan du försöka hitta möjliga orsaker samt. Mer information om hur du läser loggen finns i [läsa filen Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Du kan också hämta och kör den [Windows Update-felsökningen](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) att se om det finns några problem med Windows Update på datorn.
 

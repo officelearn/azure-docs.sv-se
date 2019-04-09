@@ -1,19 +1,18 @@
 ---
 title: Exempel – Använd taggen och dess standardvärde
 description: Den här exempelprincipdefinitionen lägger till ett angivet taggnamn och värde, om taggen inte redan finns.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 36947eae2c134761f61459dac37b324c03bd85dd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804029"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266655"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exempel – Använd taggen och dess standardvärde
 
@@ -157,11 +156,11 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | Kommando | Anteckningar |
 |---|---|
-| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Skapar en ny Azure Policy-definition. |
-| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hämtar en enskild resursgrupp. |
-| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |
-| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Tar bort en befintlig Azure Policy-tilldelning. |
-| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Tar bort en befintlig Azure Policy-definition. |
+| [Skapa AZ policy definition](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Skapar en ny Azure Policy-definition. |
+| [AZ group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Hämtar en enskild resursgrupp. |
+| [Skapa AZ principtilldelning](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |
+| [ta bort AZ policy-tilldelning](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Tar bort en befintlig Azure Policy-tilldelning. |
+| [AZ policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Tar bort en befintlig Azure Policy-definition. |
 
 Det finns flera verktyg som kan användas för att interagera med Resource Manager REST API, till exempel [ARMClient](https://github.com/projectkudu/ARMClient) och PowerShell. Ett exempel på anrop till REST API från PowerShell finns i avsnittet **Aliases** (Alias) i [Policy definition structure](../concepts/definition-structure.md#aliases) (Principdefinitionsstrukturen).
 

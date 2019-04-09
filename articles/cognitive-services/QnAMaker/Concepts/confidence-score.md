@@ -1,6 +1,6 @@
 ---
-title: Förtroendepoäng – Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Förtroendepoäng – QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403744"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282584"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -66,7 +66,7 @@ När flera svar har en liknande förtroendepoäng, är det troligt att frågan v
 
 
 ## <a name="confidence-score-differences"></a>Förtroende poäng skillnader
-Förtroendepoäng av ett svar kan ändras negligibly mellan test och publicerade versionen av kunskapsbasen även om innehållet är samma. Det beror på att innehållet i testet och publicerade kunskapsbasen finns i olika Azure Search-index. När du publicerar en kunskapsbas flyttar frågor och svar innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search. Se hur [publicera](../How-To/publish-knowledge-base.md) åtgärden fungerar.
+Förtroendepoäng av ett svar kan ändras negligibly mellan test och publicerade versionen av kunskapsbasen även om innehållet är samma. Det beror på att innehållet i testet och publicerade kunskapsbasen finns i olika Azure Search-index. När du publicerar en kunskapsbas flyttar frågor och svar innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search. Se hur [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) åtgärden fungerar.
 
 Om du har en kunskapsbas i olika regioner, använder en egen Azure Search-index i varje region. Eftersom olika index används kommer poängen inte att exakt samma. 
 

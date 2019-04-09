@@ -1,17 +1,17 @@
 ---
 title: Introduktion till Azure Cosmos DB
 description: Läs om Azure Cosmos DB. Den här globalt distribuerade databasen med flera modeller har skapats för låg svarstid, elastisk skalbarhet och hög tillgänglighet, och den ger inbyggt stöd för NoSQL-data.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294373"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280952"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -97,11 +97,11 @@ Läs mer om Cosmos DB viktiga begrepp [nyckelfärdig global distribution](distri
 
 Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
 
-* [Komma igång med SQL-API för Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Kom igång med Azure Cosmos DB-API:n för Azure MongoDB](create-mongodb-nodejs.md)
-* [Kom igång med Cassandra-API för Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Komma igång med Gremlin API för Azure Cosmos DB](create-graph-dotnet.md)
-* [Komma igång med Tabell-API för Azure Cosmos DB](create-table-dotnet.md)
+* [Kom igång med Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
+* [Kom igång med Azure Cosmos DB API för MongoDB](create-mongodb-nodejs.md)
+* [Kom igång med Azure Cosmos DB Cassandra-API](create-cassandra-dotnet.md)
+* [Kom igång med Azure Cosmos DB Gremlin-API](create-graph-dotnet.md)
+* [Kom igång med Azure Cosmos DB Table API](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)

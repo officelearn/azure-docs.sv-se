@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571311"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268780"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
-Azure Maps är en samling geospatiala tjänster som ersätts med nya mappningsdata, vilket ger exakt geografisk kontext till webb- och mobilprogram. Azure Maps består av REST API:er för rendering av **kartor** i olika format och satellitbilder, **sökning** efter adresser och platser av intresse runt om i världen, **ruttplanering**, Point-to-Point, MultiPoint, MultiPoint-optimering, isokroner, nyttofordon, trafik som påverkas och matrisroutning, se bästa trafikflödet och incidenter, fastställa användarens plats via **Geoplats**, konvertera plats till **tidszoner**, samt se lokal tid för en plats. Dessutom erbjuder Azure Maps tjänster för **Geofencing**, lagring av kartans **data** – vara värd för platsinformation i Azure och **Spatial Operations** som visar platsinformation via geospatial analys. Azure Maps-tjänsterna är tillgängliga direkt som REST API:er eller genom **Web SDK** eller **Android SDK**. Med de här verktygen kan utvecklarna snabbt ta fram och skala lösningar som integrerar platsinformation i dina Azure-lösningar inifrån Azure-molnet. Registrera dig för ditt kostnadsfria [Azure Maps-konto](https://azure.microsoft.com/services/azure-maps/) i dag och sätt igång med utvecklingen!
+Azure Maps är en samling geospatiala tjänster som ersätts med nya mappningsdata, vilket ger exakt geografisk kontext till webb- och mobilprogram. Azure Maps består av REST API: er för rendering **Maps** i flera format och satellit bilder **sökning** för adresser, platser och Orienteringspunkter runt om i världen; **Routning** point-to-point, multipoint, multipoint optimering, isochrone, nyttofordon, trafik som påverkas och matrisen routning, visa branschledande trafikflöde och incidenter, upprätta Användarplats via **Geoplats**; och konvertera plats för att **tidszoner**, samt, hämtar du tid på en plats. Dessutom erbjuder Azure Maps tjänster för **Geofencing**, lagring av kartans **data** – vara värd för platsinformation i Azure och **Spatial Operations** som visar platsinformation via geospatial analys. Azure Maps-tjänsterna är tillgängliga direkt som REST API:er eller genom **Web SDK** eller **Android SDK**. Med de här verktygen kan utvecklarna snabbt ta fram och skala lösningar som integrerar platsinformation i dina Azure-lösningar inifrån Azure-molnet. Registrera dig för ditt kostnadsfria [Azure Maps-konto](https://azure.microsoft.com/services/azure-maps/) i dag och sätt igång med utvecklingen!
 
 I följande video beskriver vi Azure Maps mer ingående:
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Mer information om den här tjänsten finns på sidan med dokumentation om [tids
 Trafiktjänsterna är en svit med webbtjänster som utformats för utvecklare som skapar webb- och mobilprogram som kräver trafik. Tjänsten tillhandahåller två typer av data:
 
 * Traffic flow – realtidsinformation om observerade hastigheter och resetider för alla viktiga vägar i nätverket.
-* Traffic incidents – en precis bild över trafikstockningar och olyckor i vägnätet.
+* Trafik incidenter - en uppdaterad bild om trafikstockningar och olyckor i vägnätet.
 
 ![Azure Maps-trafik](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto ha
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Azure Maps-API:t är nu tillgängligt i alla länder och regioner utom följande:
+Azure Maps-API är nu tillgänglig i alla länder/regioner förutom följande regioner:
 
 * Argentina
 * Kina
@@ -130,16 +132,16 @@ Azure Maps-API:t är nu tillgängligt i alla länder och regioner utom följande
 * Pakistan
 * Sydkorea
 
-Kontrollera att platsen för din aktuella IP-adress inte är i någon av de länder som nämns ovan.
+Kontrollera att platsen för din aktuella IP-adress som inte är i något av ovanstående stöds inte länder.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om de nya funktionerna i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Ruttmatris, isokroner, IP-sökning med mera](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Väg matris, Isochrones, IP-sökning och mycket mer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-Gå vidare och testa en exempelapp som visar tjänsten:
+Prova att använda en exempelapp med Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Starta en demokarta för interaktiv sökning](quick-demo-map-app.md)
+> [Snabbstart: Skapa en webbapp](quick-demo-map-app.md)

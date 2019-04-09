@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 605ab73a11874c85f20728f5524eb770a7a1b259
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 587d6f8ecdc447672c14ce400ebc64609e4d472d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Självstudier: Azure Active Directory-integrering med ThousandEyes
 
@@ -209,7 +209,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i ThousandEyes. ThousandEyes stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information [här](thousandeyes-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-**Om du behöver skapa användare manuellt så gör du följande:**
+**Om du vill skapa användare manuellt kan du utföra följande steg:**
 
 1. Logga in på webbplatsen ThousandEyes företag som administratör.
 
@@ -249,10 +249,10 @@ När du klickar på panelen ThousandEyes i åtkomstpanelen, bör det vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
+- [Konfigurera Användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)

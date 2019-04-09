@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095661"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281057"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -182,7 +182,7 @@ Det här avsnittet gäller distributionsmodellen i Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Kan jag använda Azures VPN-gateway till att överföra trafik mellan mina lokala platser eller till ett annat virtuellt nätverk?
 
-**Distributionsmodell för Resource Manager**<br>
+**Distributionsmodell med Resource Manager**<br>
 Ja. Mer information finns i avsnittet om [BGP](#bgp).
 
 **Klassisk distributionsmodell**<br>
@@ -242,3 +242,5 @@ Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om V
 
 * Mer information om VPN Gateway finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Mer information om konfigurationsinställningar för VPN Gateway finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
+
+**”OpenVPN” är ett varumärke som tillhör OpenVPN Inc.**

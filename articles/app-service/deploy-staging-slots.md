@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484295"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266213"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ När du klonar konfigurationen från en annan distributionsplats kan klonade kon
 * Inställningar för övervakning och diagnostik
 * Offentliga certifikat
 * WebJobs-innehåll
-* Hybridanslutningar
+* Hybridanslutningar *
+* VNet-integrering *
+* Tjänstslutpunkter *
+* Azure CDN *
+
+Funktioner som markerats med en * planeras att göras Fäst till facket. 
 
 **Inställningar som inte växlas**:
 
@@ -93,10 +98,15 @@ När du klonar konfigurationen från en annan distributionsplats kan klonade kon
 * Privata certifikat och SSL-bindningar
 * Skalningsinställningar
 * WebJobs-schemaläggare
+* IP-begränsningar
+* Alltid på
+* Protokoll-inställningar (HTTP**S**, TLS-version, klientcertifikat)
+* Diagnostiklogginställningar
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Om du vill konfigurera en app-inställningen eller anslutningssträng till fästs mot en specifik plats (inte växlas), navigera till den **programinställningar** för att platsen och välj sedan den **platsinställning** för den konfigurationselement som bör fästs mot facket. Markera en konfigurationselement som fack specifika talar om för App Service att det inte är under drift.
+Om du vill konfigurera en app-inställningen eller anslutningssträng till fästs mot en specifik plats (inte växlas), navigera till den **programinställningar** för att platsen och välj sedan den **platsinställning** för den konfigurationselement som bör fästs mot facket. Markera en konfigurationselement som fack specifika talar om för App Service att det inte är under drift. 
 
 ![Platsinställning](./media/web-sites-staged-publishing/SlotSetting.png)
 

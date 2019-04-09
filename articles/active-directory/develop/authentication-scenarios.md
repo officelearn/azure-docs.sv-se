@@ -19,11 +19,11 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057106"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266332"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 

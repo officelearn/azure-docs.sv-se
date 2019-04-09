@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fa8f52cc106fdf9c104717d19792770677d10949
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5e7c1ce6ab217149acd3aed9e5268b70fbd664df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622152"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Självstudier: Azure Active Directory-integrering med Qualtrics
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Qualtri
 
     ![Qualtrics domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.qualtrics.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<companyname>.qualtrics.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
 
@@ -200,9 +200,9 @@ När du klickar på panelen Qualtrics i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

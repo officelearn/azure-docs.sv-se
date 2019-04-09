@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273727"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -36,8 +36,10 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
-* C-moduler för Azure IoT Edge har inte stöd för Windows-containrar. Om din IoT Edge-enhet är en Windows-dator ska du se till att den är konfigurerad för att använda Linux-containrar. Du kan läsa mer om installationsskillnader mellan Windows- och Linux-containrar i [Installera körningsmiljön för IoT Edge i Windows](how-to-install-iot-edge-windows.md).
+* Du kan använda en Azure virtuell dator som en IoT Edge-enhet genom att följa stegen i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
+
+   >[!TIP]
+   >Den här självstudiekursen använder Visual Studio Code för att utveckla en C-modell med hjälp av Linux-behållare. Om du vill utveckla i C för Windows-behållare kan behöva du använda Visual Studio 2017. Mer information finns i [Använd Visual Studio 2017 du utvecklar och felsöker moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 Molnresurser:
 
@@ -100,7 +102,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-c-module/repository.png)
 
-VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Mappen **modules** innehåller C-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. Och filen **deployment.debug.template.json** innehåller felsökningsversionen av modulerna. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen.
+VS Code-fönstret läser in din IoT Edge lösningens arbetsyta med fem komponenter på toppnivå. Den **moduler** mappen innehåller C-koden för din modul och Dockerfiles för att skapa din modul som en behållaravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. Och filen **deployment.debug.template.json** innehåller felsökningsversionen av modulerna. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen.
 
 Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil.
 
@@ -118,7 +120,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kontrollera om den rapporterade datortemperaturen har överskridit ett säkerhetströskelvärde och skicka informationen till IoT Hub.
+Lägg till kod i dina C-modul som gör att de kan kontrollera om temperaturen som rapporteras datorn har överskridit ett tröskelvärde för säker. Om temperaturen är för hög modulen lägger till en varningsparameter meddelandet innan data skickas till IoT Hub. 
 
 1. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
 
@@ -319,9 +321,9 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
 
 ## <a name="build-and-push-your-solution"></a>Skapa och push-överföra lösningen
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CModule som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger inom det godkända intervallet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
+I det föregående avsnittet du skapade en IoT Edge-lösning och lagt till kod till CModule som filtrerar ut meddelanden där temperaturen som rapporteras datorn ligger inom godkända gränser. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-1. Öppna den integrerade VS Code-terminalen genom att välja **Visa** > **Integrerad terminal**.
+1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**.
 
 1. Logga in på Docker genom att ange följande kommando i den integrerade Visual Studio Code-terminalen: Du måste logga in med dina Azure Container Registry-autentiseringsuppgifter så att du kan skicka din modulavbildning till registret.
      
@@ -368,7 +370,7 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
-Med hjälp av kommandot `iotedge list` på själva IoT Edge-enheten kan du se statusen för dina distributionsmoduler. Du bör se fyra moduler: de modulerna för IoT Edge-körning, tempSensor och den anpassade modul du skapade i den här självstudien. Det kan ta några minuter för alla moduler att starta, så kör kommandot igen om du till en början inte ser alla.
+Du kan se statusen för din distribution-moduler med hjälp av kommandot på IoT Edge-enheten själva `iotedge list`. Du bör se fyra moduler: de modulerna för IoT Edge-körning, tempSensor och den anpassade modul du skapade i den här självstudien. Det kan ta några minuter för alla moduler att starta, så kör kommandot igen om du till en början inte ser alla.
 
 Du kan visa de meddelanden som genereras av alla moduler med hjälp av kommandot `iotedge logs <module name>`.
 

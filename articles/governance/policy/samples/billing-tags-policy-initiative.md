@@ -1,19 +1,18 @@
 ---
 title: Exempel – Principinitiativ för faktureringstaggar
 description: Det här uppsättningen med exempelprincipdefinition kräver angivna taggvärden för kostnadsställe och produktnamn.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801782"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275019"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exempel – Principinitiativ för faktureringstaggar
 
@@ -29,7 +28,7 @@ Du kan distribuera den här mallen med hjälp av [Azure-portalen](#deploy-with-t
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
-[![Distribuera princip för exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy princip exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 

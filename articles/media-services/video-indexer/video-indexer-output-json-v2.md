@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892585"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280221"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
 
@@ -79,7 +79,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |privacyMode|Din analys på detaljnivå kan ha något av följande lägen: **Privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
 |thumbnailVideoId|ID för videon som miniatyren togs.
-|thumbnailId|Videons miniatyr-ID. Anropa Get-miniatyrbilden för att få den faktiska miniatyrbilden (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
+|thumbnailId|Videons miniatyr-ID. För att få den faktiska miniatyrbilden kan anropa [Get-miniatyr](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
 |ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
 |nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
 |sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
@@ -106,7 +106,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |metadata|Videons externa metadata (om det angetts av användaren).|
 |isAdult|Anger om videon manuellt har granskat och identifieras som en video som är olämpligt för barn.|
 |insikter|Insights-objekt. Mer information finns i [insights](#insights).|
-|thumbnailId|Videons miniatyr-ID. Att hämta det faktiska miniatyr anropet Get-miniatyr (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den video-ID och thumbnailId.|
+|thumbnailId|Videons miniatyr-ID. Att hämta det faktiska miniatyr anropet [Get-miniatyr](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och skickar den video-ID och thumbnailId.|
 |publishedUrl|En url som används för att strömma videon.|
 |publishedUrlProxy|En url som används för att strömma video från (för Apple-enheter).|
 |viewToken|En kort livslängd visa token för strömning av videon.|

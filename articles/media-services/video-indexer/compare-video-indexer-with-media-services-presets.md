@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 041e76ccecb4dd0fe9c060681609dfb92c03ec5a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 2c98f6d12f4868e5f90874fe3210fe5368f7ca2d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893154"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270344"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Jämför Azure Media Services v3 förinställningar och Video Indexer 
 
@@ -33,9 +33,9 @@ För närvarande finns ett överlapp mellan funktioner som erbjuds av den [Video
 |Media Insights|[Optimerad](video-indexer-output-json-v2.md) |[Grunder](../latest/intelligence-concept.md)|
 |Upplevelser|Se en fullständig lista över funktioner som stöds: <br/> [Översikt](video-indexer-overview.md)|Returnerar endast videoinsikter|
 |Fakturering|[Prissättningen av Medietjänsterna](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Prissättningen av Medietjänsterna](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Efterlevnad|[Azure-efterlevnad](https://aka.ms/AzureCompliance)|Media Services är kompatibelt med många certifieringar. Kolla in [Azure efterlevnad Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och Sök efter ”Media Services” för att se om den överensstämmer med ett certifikat av intresse.|
+|Efterlevnad|[ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci), och [ HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust) certifierade. De senaste uppdateringarna finns [aktuella certifieringar statusen för Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services är kompatibelt med många certifieringar. Kolla in [Azure efterlevnad Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och Sök efter ”Media Services” för att se om den överensstämmer med ett certifikat av intresse.|
 |Kostnadsfri utvärderingsversion|Östra USA|Inte tillgängligt|
-|Tillgänglighet |Västra USA, östra Asien, Nordeuropa|Se [Azure-status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
+|Regional tillgänglighet|Östra USA 2, södra centrala USA, västra USA 2, Nordeuropa, Västeuropa, Sydostasien, Östasien och Östra Australien.  De senaste uppdateringarna finns i [produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) sidan.|Se [Azure-status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Nästa steg
 

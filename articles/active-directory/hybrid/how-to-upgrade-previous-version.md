@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193763"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267046"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till senast
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera din Azure Active Directory (Azure AD) Connect-installationen till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [Swingmigrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.
+
+>[!NOTE]
+> Det finns för närvarande stöd för att uppgradera från en version av Azure AD Connect till den aktuella versionen. Uppgraderingar på plats av DirSync eller ADSync stöds inte och en swingmigrering krävs.  Om du vill uppgradera från DirSync läser [uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](how-to-dirsync-upgrade-get-started.md) eller [Swingmigrering](#swing-migration) avsnittet.  </br>I praktiken stöta kunder på mycket äldre versioner på problem som inte är direkt relaterat till Azure AD Connect. Servrar som har varit i produktion i flera år, vanligtvis har haft flera korrigeringsprogram som tillämpas på dem och inte alla dessa kan redovisas.  I allmänhet kunder som inte har uppgraderat i 12 – 18 månader överväga en uppgradering av swing i stället, eftersom detta är det lägsta och minst riskfyllda alternativet.
 
 Om du vill uppgradera från DirSync läser [uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](how-to-dirsync-upgrade-get-started.md) i stället.
 

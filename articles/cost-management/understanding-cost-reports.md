@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109822"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265839"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn kostnad rapporter
 
@@ -85,7 +85,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
        - Avgift
        - Support
        - Förbrukningskostnad
-     - **Kunden**
+     - **Kund**
        - Välj en viss kund, flera kunder, eller alla kunder.
      - **Kontonamn**
        - Namnet på konto eller prenumeration. I Azure är det namnet på den Azure-prenumerationen.
@@ -116,7 +116,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
        - Plats
      - **Tilläggstyp**
        - Markera som är negativa eller positiva tilläggstyp eller båda.
-     - **Innehavare**
+     - **Innehav**
        - Om en dator körs som en dedikerad dator.
      - **Användningstyp**
        - Användningstyp kan vara engångsavgifter eller återkommande avgifter.
@@ -154,7 +154,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Använd allokeringsregler för att tillämpa eller inaktivera kostnadsfördelning kostnaden beräknas. Du kan aktivera eller inaktivera cost allocation omberäkningen för faktureringsinformation. Omberäkningen gäller för de valda kategorierna i rapporten. Det kan du utvärdera kostnaden allokering omberäkning effekten mot fakturering rådata.
 
-10. **Ej kategoriserade**
+10. **Inte kategoriserad**
 
     Använd Ej kategoriserade att inkludera eller exkludera Ej kategoriserade kostnader i rapporten.
 
@@ -168,7 +168,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     ![Symbolerna i format som du kan välja](./media/understanding-cost-reports/display-formats.png)
 
-13. **Flera färg**
+13. **Multi-color**
 
     Använda flera färg för att ange färgen på diagram i rapporten.
 

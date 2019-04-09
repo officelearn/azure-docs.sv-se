@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108204"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269579"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Använd Cloud Explorer för Visual Studio för Azure IoT Hub-enhetshantering
 
-![Slutpunkt till slutpunkt-diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+![Slutpunkt till slutpunkt-diagram](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) är ett användbart Visual Studio-tillägg som gör att du kan visa dina Azure-resurser, granska deras egenskaper och utföra viktiga developer åtgärder från Visual Studio. Den innehåller alternativ som du kan använda för att utföra olika uppgifter.
 
@@ -35,7 +35,7 @@ Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (m
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-Du lär dig använda Cloud Explorer för Visual Studio med olika hanteringsalternativ på utvecklingsdatorn.
+Du lär dig hur du använder Cloud Explorer för Visual Studio med olika hanteringsalternativ på utvecklingsdatorn.
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -43,8 +43,8 @@ Kör Cloud Explorer för Visual Studio med olika alternativ.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-- En aktiv Azure-prenumeration.
-- En Azure IoT-hubb i din prenumeration.
+- En aktiv Azure-prenumeration
+- En Azure IoT-hubb i din prenumeration
 - Microsoft Visual Studio 2017 Update 8 eller senare
 - Cloud Explorer-komponenten från installationsprogrammet för Visual Studio (valt som standard med Azure-arbetsbelastning)
 

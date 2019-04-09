@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010539"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274680"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway (förhandsversion)
 
-Den här artikeln hjälper dig att konfigurera OpenVPN klienter.
+Den här artikeln hjälper dig att konfigurera **OpenVPN® protokollet** klienter.
 
 > [!IMPORTANT]
 > Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -49,7 +49,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Öppna den *profileinfo.txt* i anteckningar. Om du vill ha den privata nyckeln, markerar du texten (inklusive och mellan) ”---BEGIN privata NYCKELN---” och ”---BEGIN PRIVATE KEY---” och kopiera den.
+8. Öppna den *profileinfo.txt* i anteckningar. Om du vill ha den privata nyckeln, markerar du texten (inklusive och mellan) ”---BEGIN privata NYCKELN---” och ”---END privat nyckel---” och kopiera den.
 9. Gå tillbaka till vpnconfig.ovpn-filen i anteckningar och hitta det här avsnittet. Klistra in den privata nyckeln som ersätter allt mellan och ”nyckel” och ”/ nyckel”.
 
    ```
@@ -109,7 +109,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Öppna profileinfo.txt i en textredigerare. Om du vill ha den privata nyckeln, markerar du texten inklusive och mellan ”---BEGIN privata NYCKELN---” och ”---BEGIN PRIVATE KEY---” och kopiera den.
+8. Öppna profileinfo.txt i en textredigerare. Om du vill ha den privata nyckeln, markerar du texten inklusive och mellan ”---BEGIN privata NYCKELN---” och ”---END privat nyckel---” och kopiera den.
 
 9. Öppna filen vpnconfig.ovpn i en textredigerare och hitta det här avsnittet. Klistra in den privata nyckeln som ersätter allt mellan och ”nyckel” och ”/ nyckel”.
 
@@ -139,3 +139,5 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill att VPN-klienter ska kunna komma åt resurser i ett annat virtuellt nätverk (produktion), följ instruktionerna på den [VNet-till-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikeln om du vill konfigurera en vnet-till-vnet-anslutning. Se till att aktivera BGP på gateway och anslutningar, annars kommer inte trafiken.
+
+**”OpenVPN” är ett varumärke som tillhör OpenVPN Inc.**

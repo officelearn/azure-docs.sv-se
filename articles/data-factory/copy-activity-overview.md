@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311147"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267165"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -54,14 +54,15 @@ Kopieringsaktivitet går igenom följande steg för att kopiera data från en k�
 
 Du kan använda Kopieringsaktivitet som **kopiera filer som – är** mellan två filbaserat datalager, där fallet data kopieras effektivt utan att någon serialisering/deserialisering.
 
-Kopieringsaktivitet har också stöd för att läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimerings-codec **GZip, Deflate, BZip2 och ZipDeflate** stöds. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
+Kopieringsaktivitet har också stöd för att läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimera och decompresing filer med följande: **GZip, Deflate, BZip2 och ZipDeflate**. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
 
 Du kan exempelvis göra följande kopieringsaktiviteter:
 
-* Kopiera data i en lokal SQL Server och skriva till Azure Data Lake Store i ORC-format.
+* Kopiera data i en lokal SQL Server och skriva till Azure Data Lake Storage Gen2 i Parquet-format.
 * Kopiera filer i textformat (CSV) från den lokala filsystem och skriva till Azure Blob i Avro-format.
-* Kopiera komprimerade filer från den lokala filsystem och expandera sedan mark till Azure Data Lake Store.
+* Kopiera komprimerade filer från den lokala filsystem och expandera sedan mark till Azure Data Lake Storage Gen2.
 * Kopiera data i GZip-komprimerade textfiler (CSV)-format från Azure Blob och skriva till Azure SQL Database.
+* Och många fler fall med serialisering/deserialisering eller komprimering/dekomprimering behöver.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

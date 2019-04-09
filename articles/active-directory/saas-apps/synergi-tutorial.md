@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3c416254acf63dc479326cf00e3113c1425c4008
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2e6916cc96f9d9778cc829e39f82ef7204e137bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360800"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Självstudier: Azure Active Directory-integrering med Synergi
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Synergi
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<company name>.irmsecurity.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.irmsecurity.com/sso/<organization id>`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<company name>.irmsecurity.com/sso/<organization id>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Synergi klienten supportteamet](https://www.irmsecurity.com/contact/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -193,9 +193,9 @@ När du klickar på panelen Synergi i åtkomstpanelen, bör det vara loggas in a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

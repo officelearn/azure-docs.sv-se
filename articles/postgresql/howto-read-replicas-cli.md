@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/05/2019
+ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847764"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265296"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Skapa och hantera skrivskyddade repliker från Azure CLI
 
@@ -44,7 +44,7 @@ Den `azure.replication_support` parametern måste anges till **REPLIKEN** på hu
 
 ## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
-Den `az mysql server replica create` kommandot kräver följande parametrar:
+Den [az postgres serverreplik skapa](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) kommandot kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -64,14 +64,14 @@ En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När e
 > Innan en huvudserver-konfiguration har uppdaterats till nya värden, uppdatera konfigurationen för repliken till samma eller högre värden. Den här åtgärden säkerställer att replikeringen kan hålla jämna steg med ändringar som görs till huvudservern.
 
 ## <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över replikeringar av en huvudserver.
+Du kan visa listan över replikeringar av en huvudserver med hjälp av [az postgres server replikeringslistan](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) kommando.
 
 ```azurecli-interactive
-az postgres server replica stop --server-name mydemoserver --resource-group myresourcegroup 
+az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
-Du kan stoppa replikering mellan en huvudserver och en skrivskyddad replik.
+Du kan stoppa replikering mellan en huvudserver och en skrivskyddad replik med hjälp av [az postgres server replica sluta](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) kommando.
 
 När du har slutat replikering till en huvudserver och en skrivskyddad replik, kan inte den ångras. Läs replik blir en fristående server som har stöd för både läsningar och skrivningar. Den fristående servern kan inte göras i en replik igen.
 
@@ -80,7 +80,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## <a name="delete-a-master-or-replica-server"></a>Ta bort en master-databasen eller repliken server
-Om du vill ta bort en master-databasen eller repliken server, kan du använda samma kommando för att ta bort en fristående Azure Database for PostgreSQL-server. 
+Om du vill ta bort en master-databasen eller repliken server måste du använda den [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) kommando.
 
 När du tar bort en huvudserver har replikering till alla skrivskyddade repliker stoppats. Skrivskyddade repliker bli fristående servrar som stöder nu både läsningar och skrivningar.
 

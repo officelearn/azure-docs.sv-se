@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121629"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267154"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure cloud Services
 När du skapar en tjänst i molnet, Azure tilldelar den till en underdomän till **cloudapp.net**. Exempel: om din molntjänst heter ”contoso”, användarna kommer att kunna komma åt ditt program på en URL liknande http://contoso.cloudapp.net. Azure tilldelar också en virtuell IP-adress.
@@ -64,11 +64,11 @@ Om du vill skapa en CNAME-post, du måste lägga till en ny post i tabellen DNS 
 
 1. Använd någon av följande metoder för att hitta den **. cloudapp.net** domännamn som tilldelats till din molntjänst.
 
-   * Logga in på den [Azure Portal], Välj din molntjänst, titta på den **Essentials** avsnittet och hitta den **webbplatsens URL** posten.
+   * Logga in på den [Azure-portalen], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **webbplatsens URL** posten.
 
        ![snabböversikten avsnitt som visar webbplatsens URL][csurl]
 
-       **OR**
+       **ELLER**
    * Installera och konfigurera [Azure Powershell](/powershell/azure/overview), och Använd sedan följande kommando:
 
        ```powershell
@@ -97,11 +97,11 @@ Om du vill skapa en A-post, måste du först hitta den virtuella IP-adressen fö
 
 1. Använd någon av följande metoder för att hämta IP-adressen för din molntjänst.
 
-   * Logga in på den [Azure Portal], Välj din molntjänst, titta på den **Essentials** avsnittet och hitta den **offentliga IP-adresser** posten.
+   * Logga in på den [Azure-portalen], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **offentliga IP-adresser** posten.
 
        ![snabböversikten avsnitt som visar VIP][vip]
 
-       **OR**
+       **ELLER**
    * Installera och konfigurera [Azure Powershell](/powershell/azure/overview), och Använd sedan följande kommando:
 
        ```powershell

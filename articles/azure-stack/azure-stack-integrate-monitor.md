@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257305"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure Stack
 
@@ -30,7 +30,7 @@ Du behöver övervaka Azure Stack-programvara, de fysiska datorerna och de fysis
 - Fysiska datorer kan tillgängliggöra hälso- och aviseringsinformation via hanteringsstyrenheter för baskort (bmc).
 - Fysiska nätverksenheter kan göra hälso- och aviseringsinformation tillgängliga via SNMP-protokollet.
 
-Varje Azure Stack-lösning levereras med en maskinvara livscykel-värd. Den här värden körs Original Equipment Manufacturer (OEM) maskinvaruleverantören övervakningsprogram för fysiska servrar och nätverksenheter. Om du vill kan du kringgå dessa övervakningslösningar och direkt integrera med befintliga övervakningslösningar i ditt datacenter.
+Varje Azure Stack-lösning levereras med en maskinvara livscykel-värd. Den här värden körs Original Equipment Manufacturer (OEM) maskinvaruleverantören övervakningsprogram för fysiska servrar och nätverksenheter. Kontrollera med leverantören av OEM-tillverkare om deras övervakningslösningar kan integreras med befintliga övervakningslösningar i ditt datacenter.
 
 > [!IMPORTANT]
 > Den externa övervakningslösning som du använder måste vara utan Agent. Du kan inte installera agenter från tredje part i Azure Stack-komponenterna.
@@ -40,7 +40,7 @@ Följande diagram visar trafikflödet mellan ett integrerat Azure Stack-system, 
 ![Diagrammet visar trafik mellan Azure Stack, övervakning och ärenden lösning.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> Externa övervakning integrering direkt med fysiska servrar och nätverksenheter är inte tillåtna och blockerade aktivt av åtkomstkontrollistor (ACL). 
+> Externa övervakning integrering direkt med fysiska servrar är inte tillåtna och blockerade aktivt av åtkomstkontrollistor (ACL).  Externa övervakning integrering direkt med fysiska nätverksenheter stöds, kontrollera med leverantören av OEM-tillverkare om hur du aktiverar den här funktionen.
 
 Den här artikeln förklarar hur du integrerar Azure Stack med externa övervakningslösningar, till exempel System Center Operations Manager och Nagios. Den innehåller också hur du arbetar med aviseringar programmässigt med hjälp av PowerShell eller via REST API-anrop.
 

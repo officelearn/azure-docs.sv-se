@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852176"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex
 
@@ -107,14 +107,14 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     ![Information om enkel inloggning med Cisco Webex-domänen och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL: `https://web.ciscospark.com/#/signin`
+    a. I den **inloggnings-URL** anger en URL som: `https://web.ciscospark.com/#/signin`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
     > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Om du har tjänstproviderns metadata kan du ladda upp den i avsnittet **Grundläggande SAML-konfiguration**. Värdet för **Identifierare (entitets-ID)** fylls i automatiskt.
 
-5. Cisco Webex-programmet förväntar sig att hitta SAML-försäkringar i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattributen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera**  för att lägga till attributen.
+5. Cisco Webex-programmet förväntar sig att hitta SAML-försäkringar i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattributen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att lägga till attributen.
 
     ![image](common/edit-attribute.png)
 
@@ -259,10 +259,10 @@ När du klickar på Cisco Webex-panelen i åtkomstpanelen bör du automatiskt lo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 
+- [Konfigurera Användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

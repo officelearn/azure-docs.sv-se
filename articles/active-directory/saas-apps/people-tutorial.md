@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a22de254a2a0ddde3f6fe53a9adaed246e1754a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 14313567df69b26b000f9bddd98e009aeed2dcd7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407665"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Självstudier: Azure Active Directory-integrering med personer
 
@@ -105,11 +105,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med persone
 
     ![Personer domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<company name>.peoplehr.net`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<company name>.peoplehr.net`
 
     b. I textrutan **Identifierare** skriver du in en URL: `https://www.peoplehr.com`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Kontakta [personer klienten supportteamet](mailto:customerservices@peoplehr.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -207,9 +207,9 @@ När du klickar på panelen personer i åtkomstpanelen, bör det vara loggas in 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

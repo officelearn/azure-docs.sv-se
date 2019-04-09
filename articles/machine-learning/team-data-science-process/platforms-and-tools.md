@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471019"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281275"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -44,7 +44,7 @@ Den virtuella datorn för datavetenskap erbjuds på både Windows och Linux av M
 - Power BI desktop för Windows
 - SQL Server 2016 Developer Edition på Windows / Postgres på Linux
 
-Den innehåller också **ML- och AI-verktyg** som CNTK (en öppen källkod Deep Learning-verktyg från Microsoft), xgboost, mxnet och Vowpal Wabbit.
+Den innehåller också **ML- och AI-verktyg** som xgboost, mxnet och Vowpal Wabbit.
 
 DSVM är för närvarande tillgängligt i **Windows** och **Linux CentOS** operativsystem. Välj storleken på din DSVM (antal processorkärnor) och mängden minne baserat på dina behov för data science-projekt som du planerar att köra på den. 
 

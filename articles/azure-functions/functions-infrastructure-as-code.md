@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 05/25/2017
+ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792505"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270913"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resursdistribution för din funktionsapp i Azure Functions
 
@@ -30,20 +30,26 @@ Exempelmallar finns här:
 - [Funktionsappen i förbrukningsplan]
 - [Funktionsappen i Azure App Service-plan]
 
+> [!NOTE]
+> Premium-plan för som är värd för Azure Functions är för närvarande i förhandsversion. Mer information finns i [premiumplan för Azure Functions](functions-premium-plan.md).
+
 ## <a name="required-resources"></a>Resurser som krävs
 
-En funktionsapp kräver dessa resurser:
+En Azure Functions-distribution består vanligtvis av dessa resurser:
 
-* En [Azure Storage](../storage/index.yml) konto
-* En värdplan (förbrukningsplan eller App Service-plan)
-* En funktionsapp 
+| Resurs                                                                           | Krav | Referens för syntax och egenskaper                                                         |   |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
+| En funktionsapp                                                                     | Krävs    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| En [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) komponent | Valfri    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| En [värdplan](./functions-scale.md)                                             | Valfritt<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-JSON-syntax och egenskaper för dessa resurser finns i:
+<sup>1</sup>en värdplan är endast krävs när du väljer att köra funktionsappen en [premiumprenumerationen](./functions-premium-plan.md) (i förhandsversion) eller på en [App Service-plan](../app-service/overview-hosting-plans.md).
 
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+> [!TIP]
+> Du måste inte, rekommenderar vi starkt att du konfigurerar Application Insights för din app.
 
+<a name="storage"></a>
 ### <a name="storage-account"></a>Lagringskonto
 
 Ett Azure storage-konto krävs för en funktionsapp. Du behöver ett konto för generell användning som har stöd för blobbar, tabeller, köer och filer. Mer information finns i [krav för Azure Functions lagringskonto](functions-create-function-app-portal.md#storage-account-requirements).
@@ -52,8 +58,9 @@ Ett Azure storage-konto krävs för en funktionsapp. Du behöver ett konto för 
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-07-01",
     "location": "[resourceGroup().location]",
+    "kind": "StorageV2",
     "properties": {
         "accountType": "[parameters('storageAccountType')]"
     }
@@ -76,15 +83,51 @@ Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` objekt:
         "name": "AzureWebJobsDashboard",
         "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
     }
-```    
+]
+```
+
+### <a name="application-insights"></a>Application Insights
+
+Application Insights rekommenderas för att övervaka dina funktionsappar. Application Insights-resursen har definierats med typen **Microsoft.Insights/components** och vilken typ **web**:
+
+```json
+        {
+            "apiVersion": "2015-05-01",
+            "name": "[variables('appInsightsName')]",
+            "type": "Microsoft.Insights/components",
+            "kind": "web",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource"
+            },
+            "properties": {
+                "Application_Type": "web",
+                "ApplicationId": "[variables('functionAppName')]"
+            }
+        },
+```
+
+Dessutom instrumenteringsnyckeln måste anges i funktionen app med hjälp av den `APPINSIGHTS_INSTRUMENTATIONKEY` programinställningen. Den här egenskapen har angetts i den `appSettings` samling i den `siteConfig` objekt:
+
+```json
+"appSettings": [
+    {
+        "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+    }
+]
+```
 
 ### <a name="hosting-plan"></a>Värdplan
 
-Definitionen av värdplanen varierar beroende på om du använder en förbrukning eller App Service-plan. Se [distribuera en funktionsapp på förbrukningsplanen](#consumption) och [distribuera en funktionsapp i App Service-planen](#app-service-plan).
+Definitionen av värdplanen varierar och kan vara något av följande:
+* [Förbrukningsplan](#consumption) (standard)
+* [Premiumprenumerationen](#premium) (i förhandsversion)
+* [App Service-plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
 
-Funktionen app-resursen definieras med hjälp av en resurs av typen **Microsoft.Web/Site** och typ **functionapp**:
+Funktionen app-resursen definieras med hjälp av en resurs av typen **Microsoft.Web/sites** och typ **functionapp**:
 
 ```json
 {
@@ -92,24 +135,65 @@ Funktionen app-resursen definieras med hjälp av en resurs av typen **Microsoft.
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+```
+
+> [!IMPORTANT]
+> Om du explicit definierar en värdplan, behövs ytterligare ett objekt i matrisen dependsOn: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+
+En funktionsapp måste innehålla dessa programinställningar:
+
+| Inställningsnamn                 | Beskrivning                                                                               | Exempelvärden                        |
+|------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
+| AzureWebJobsStorage          | En anslutningssträng för ett storage-konto som Functions-körningstiden för interna jobbköer | Se [Storage-konto](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions-körningen                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | Språk-stack som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`, eller `python` |
+| WEBSITE_NODE_DEFAULT_VERSION | Behövs bara om du använder den `node` språk stack, anger versionen som ska användas              | `10.14.1`                             |
+
+Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` egenskapen:
+
+```json
+"properties": {
+    "siteConfig": {
+        "appSettings": [
+            {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+            },
+            {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "node"
+            },
+            {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                "value": "10.14.1"
+            },
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            }
+        ]
+    }
+}
 ```
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Distribuera en funktionsapp på förbrukningsplanen
+## <a name="deploy-on-consumption-plan"></a>Distribuera i förbrukningsplan
 
-Du kan köra en funktionsapp i två olika lägen: förbrukningsplanen och App Service-planen. Med förbrukningsplanen beräkningskraften automatiskt när koden körs, skalas ut efter behov för att hantera belastningen och sedan skalas när koden inte körs. Så du behöver betala för virtuella datorer och du behöver inte reserverad kapacitet i förväg. Mer information om värdplaner finns [Azure Functions-förbrukning och App Service-planer](functions-scale.md).
+Med förbrukningsplanen beräkningskraften automatiskt när koden körs, skalas ut efter behov för att hantera belastningen och sedan skalas när koden inte körs. Du behöver betala för virtuella datorer och du behöver inte reserverad kapacitet i förväg. Mer information finns i [Azure Functions skalning och värdtjänster](functions-scale.md#consumption-plan).
 
 En exempelmall av Azure Resource Manager finns i [funktionsappen i förbrukningsplan].
 
 ### <a name="create-a-consumption-plan"></a>Skapa en förbrukningsplan
 
-En förbrukningsplan är en särskild typ av resurs ”serverklustret”. Du anger den med hjälp av den `Dynamic` värde för den `computeMode` och `sku` egenskaper:
+En förbrukningsplan behöver inte definieras. En kommer automatiskt skapade eller markerat på basis av per region när du skapar själva resursen för app funktion.
+
+Med förbrukningsplanen är en särskild typ av resurs ”serverklustret”. För Windows, kan du ange det med hjälp av den `Dynamic` värde för den `computeMode` och `sku` egenskaper:
 
 ```json
 {
@@ -125,29 +209,30 @@ En förbrukningsplan är en särskild typ av resurs ”serverklustret”. Du ang
 }
 ```
 
+> [!NOTE]
+> Med förbrukningsplanen kan inte definieras uttryckligen för Linux. Det kommer att skapas automatiskt.
+
+Om du explicit definierar din förbrukningsplan, behöver du ange den `serverFarmId` egenskapen på appen så att den pekar på resurs-ID för planen. Du bör kontrollera att funktionsappen har en `dependsOn` för planen samt.
+
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Dessutom kan en förbrukningsplan kräver två ytterligare inställningar i plats-konfiguration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE`. De här egenskaperna konfigurera storage-konto och sökvägen där funktionskod och konfiguration lagras.
+#### <a name="windows"></a>Windows
+
+På Windows, en förbrukningsplan kräver två ytterligare inställningar i plats-konfiguration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE`. De här egenskaperna konfigurera storage-konto och sökvägen där funktionskod och konfiguration lagras.
 
 ```json
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2016-03-01",
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     ],
     "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
             "appSettings": [
-                {
-                    "name": "AzureWebJobsDashboard",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
-                },
                 {
                     "name": "AzureWebJobsStorage",
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
@@ -161,24 +246,149 @@ Dessutom kan en förbrukningsplan kräver två ytterligare inställningar i plat
                     "value": "[toLower(variables('functionAppName'))]"
                 },
                 {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~1"
+                    "value": "~2"
                 }
             ]
         }
     }
 }
-```                    
+```
+
+#### <a name="linux"></a>Linux
+
+På Linux, funktionsappen måste ha sin `kind` inställd `functionapp,linux`, och måste ha den `reserved` egenskapen `true`:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        },
+        "reserved": true
+    }
+}
+```
+
+
+
+<a name="premium"></a>
+
+## <a name="deploy-on-premium-plan"></a>Distribuera på Premium-abonnemang
+
+Premiumprenumerationen erbjuder samma skalning som förbrukningsplanen men innehåller dedikerade resurser och fler funktioner. Mer information finns i [Azure Functions Premium Plan (förhandsversion)](./functions-premium-plan.md).
+
+### <a name="create-a-premium-plan"></a>Skapa en premiumplan
+
+En premiumplan är en särskild typ av resurs ”serverklustret”. Du kan ange det genom att använda antingen `EP1`, `EP2`, eller `EP3` för den `sku` egenskapsvärdet.
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "EP1"
+    }
+}
+```
+
+### <a name="create-a-function-app"></a>Skapa en funktionsapp
+
+En funktionsapp på en premiumplan måste ha den `serverFarmId` -egenskapen angetts till resurs-ID för den plan som skapades tidigare. Dessutom kan en premiumplan kräver två ytterligare inställningar i plats-konfiguration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE`. De här egenskaperna konfigurera storage-konto och sökvägen där funktionskod och konfiguration lagras.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTSHARE",
+                    "value": "[toLower(variables('functionAppName'))]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Distribuera en funktionsapp i App Service-plan
+## <a name="deploy-on-app-service-plan"></a>Distribuera på App Service-plan
 
-Din funktionsapp körs på dedikerade virtuella datorer på Basic, Standard och Premium-SKU: er, liknande till web apps i App Service-plan. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md). 
+Din funktionsapp körs på dedikerade virtuella datorer på Basic, Standard och Premium-SKU: er, liknande till web apps i App Service-plan. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md).
 
 En exempelmall av Azure Resource Manager finns i [funktionsappen i Azure App Service-plan].
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
+
+En App Service plan definieras av en ”serverklustret”-resurs.
 
 ```json
 {
@@ -196,9 +406,169 @@ En exempelmall av Azure Resource Manager finns i [funktionsappen i Azure App Ser
 }
 ```
 
+Om du vill köra din app på Linux, måste du också ange den `kind` till `Linux`:
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "Linux",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "[parameters('sku')]",
+        "workerSize": "[parameters('workerSize')]",
+        "hostingEnvironment": "",
+        "numberOfWorkers": 1
+    }
+}
+```
+
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp 
 
-När du har valt ett alternativ för skalning kan du skapa en funktionsapp. Appen är behållare som innehåller alla funktioner.
+En funktionsapp i en App Service-plan måste ha den `serverFarmId` -egenskapen angetts till resurs-ID för den plan som skapades tidigare.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
+Linux-appar bör också innehålla en `linuxFxVersion` egenskapen under `siteConfig`. Om du bara distribuerar kod, avgörs värde för den här av din önskade körningsstack:
+
+| Stack            | Exempelvärde                                         |
+|------------------|-------------------------------------------------------|
+| Python (förhandsversion) | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
+| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
+| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+        }
+    }
+}
+```
+
+Om du är [distribuera en anpassad behållaravbildning](./functions-create-function-linux-custom-image.md), måste du ange den med `linuxFxVersion` och inkluderar konfiguration som gör att din avbildning som ska hämtas i [Web App for Containers](/azure/app-service/containers). Ange dessutom `WEBSITES_ENABLE_APP_SERVICE_STORAGE` till `false`, eftersom ditt appinnehåll tillhandahålls i själva behållaren:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_URL",
+                    "value": "[parameters('dockerRegistryUrl')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                    "value": "[parameters('dockerRegistryUsername')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                    "value": "[parameters('dockerRegistryPassword')]"
+                },
+                {
+                    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                    "value": "false"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+        }
+    }
+}
+```
+
+## <a name="customizing-a-deployment"></a>Anpassa en distribution
 
 En funktionsapp har många underordnade resurser som du kan använda i din distribution, inklusive inställningar och alternativ. Kanske du vill ta bort den **sourcecontrols** underordnade resursen och använda en annan [distributionsalternativet](functions-continuous-deployment.md) i stället.
 
@@ -221,8 +591,14 @@ En funktionsapp har många underordnade resurser som du kan använda i din distr
      "siteConfig": {
         "alwaysOn": true,
         "appSettings": [
-            { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~1" },
-            { "name": "Project", "value": "src" }
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            },
+            {
+                "name": "Project",
+                "value": "src"
+            }
         ]
      }
   },
@@ -238,7 +614,10 @@ En funktionsapp har många underordnade resurser som du kan använda i din distr
         ],
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
-          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
+          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "Project": "src"
         }
      },
      {

@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: ff772d4f53b279d8d048720beaa62cfdeb6401eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283366"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Accelererat nätverk med haveriberedskap i Azure-dator
 
@@ -43,7 +43,7 @@ Följande distributioner stöds direkt från Azure-galleriet:
 ### <a name="supported-vm-instances"></a>VM-instanser som stöds
 Accelererat nätverk stöds i de flesta generella och beräkningsoptimerade instansstorlekar med minst 2 virtuella processorer.  Dessa alternativ som stöds är: D/DSv2 och F/Fs
 
-På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Stöds-serier är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms
+På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms
 
 Läs mer på VM-instanser, [Windows VM-storlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -64,7 +64,7 @@ Följande distributioner stöds direkt från Azure-galleriet:
 ### <a name="supported-vm-instances"></a>VM-instanser som stöds
 Accelererat nätverk stöds i de flesta generella och beräkningsoptimerade instansstorlekar med minst 2 virtuella processorer.  Dessa alternativ som stöds är: D/DSv2 och F/Fs
 
-På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Stöds-serier är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms.
+På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/DSv3 E/ESv3, Fsv2 och Ms-/ Mms.
 
 Läs mer på VM-instanser, [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

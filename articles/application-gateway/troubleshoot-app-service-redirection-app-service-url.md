@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123189"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274547"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Felsöka Application Gateway med App Service – omdirigering till App Service-URL:en
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Felsöka Application Gateway med App Service
 
- Lär dig att diagnostisera och lösa omdirigering av problem med Application Gateway där App Service-URL: en hämtar exponeras.
+Lär dig att diagnostisera och lösa problem med Application Gateway och App Service som backend-servern.
 
 ## <a name="overview"></a>Översikt
+
+I den här artikeln får lära du dig att felsöka följande problem:
+
+> [!div class="checklist"]
+> * App Service-URL komma att visas i webbläsaren när det finns en omdirigering
+> * App Service ARRAffinity Cookie-domän som har angetts till App Service-värdnamn (example.azurewebsites.net) i stället för ursprungliga värden
 
 När du konfigurerar en offentlig mot App Service i serverdelspoolen för Application Gateway och om du har en omdirigering som konfigurerats i din programkod, kan du se att när du har åtkomst till Application Gateway, kommer du att omdirigeras av webbläsaren direkt till appen Tjänst-URL.
 
@@ -28,6 +34,8 @@ Det här problemet kan inträffa på grund av följande huvudsakliga skäl:
 - Du har Azure AD-autentisering vilket gör att omdirigeringen.
 - Du har aktiverat ”Välj värdnamn från Backend-adress”-växel i HTTP-inställningarna för Application Gateway.
 - Du har inte den anpassade domänen som registrerats med din App Service.
+
+Dessutom när du använder App Services bakom Application Gateway och du använder en anpassad domän för att få åtkomst till Application Gateway, kan du se domänvärdet för ARRAffinity cookien som angetts av App Service har domännamnet ”example.azurewebsites.net”. Om du vill att din ursprungliga värdnamnet är cookie-domän, följer du lösningen i den här artikeln.
 
 ## <a name="sample-configuration"></a>Exempel på konfiguration
 
@@ -94,6 +102,16 @@ För att uppnå detta, måste du äga en anpassad domän och följ processen som
 - Koppla anpassad avsökning tillbaka till serverdelens HTTP-inställningar och kontrollera hälsotillstånd för serverdel om den är felfri.
 
 - När detta är gjort Application Gateway bör nu vidarebefordra samma värdnamnet ”www.contoso.com” till App Service och omdirigering sker på samma värdnamn. Du kan kontrollera de exempel begärande- och svarshuvuden nedan.
+
+Följ exempel PowerShell-skriptet nedan för att implementera de steg som nämns ovan med hjälp av PowerShell för en befintlig installation. Observera hur vi inte har använt växlarna - PickHostname i konfigurationen av avsökningen och HTTP-inställningar.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

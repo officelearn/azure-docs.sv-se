@@ -1,7 +1,7 @@
 ---
 title: Skapa, publicera, besvara i QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Den här portalbaserade självstudien vägleder dig genom att programmatiskt skapa och publicera en kunskapsbas och sedan besvara en fråga från kunskapsbasen.
+description: Skapa en ny kunskapsbas med frågor och svar från en offentlig webbaserade vanliga frågor och svar. Spara, träna och publicera i knowledge base. När kunskapsbasen har publicerats kan skicka en fråga och ta emot ett svar med ett CURL-kommando. Sedan skapa en robot och testa bot med samma fråga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884133"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266961"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Självstudier: Skapa en kunskapsbas och besvara sedan fråga via QnA Maker-portalen
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Med QnA Maker portal kan du skapa en kunskapsbas
 
-Den här självstudien vägleder dig genom att skapa och publicera en kunskapsbas och sedan besvara en fråga från kunskapsbasen.
+Skapa en ny kunskapsbas med frågor och svar från en offentlig webbaserade vanliga frågor och svar. Spara, träna och publicera i knowledge base. När kunskapsbasen har publicerats kan skicka en fråga och ta emot ett svar med ett Curl-kommando. Sedan skapa en robot och testa bot med samma fråga. 
 
 I den här guiden får du lära dig att: 
 
@@ -29,6 +29,7 @@ I den här guiden får du lära dig att:
 > * Granska, spara och träna kunskapsbasen
 > * Publicera kunskapsbasen
 > * Använda Curl för att köra frågor mot kunskapsbasen
+> * Skapa en robot
 > 
 > [!NOTE]
 > Den programmässiga versionen av den här självstudien finns med en kompletta lösning från GitHub-lagringsplatsen [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -51,7 +52,7 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
     |Inställning|Syfte|
     |--|--|
-    |Microsoft Azure Directory Id|Ditt _Id för Microsoft Azure Directory_ är associerat med det konto som används för att logga in på Azure-portalen och QnA Maker-portalen. |
+    |Microsoft Azure Directory Id|Din _ID för Microsoft Azure Directory_ är associerad med det konto som används för att logga in på Azure-portalen och QnA Maker-portalen. |
     |Prenumerationsnamn för Azure|Faktureringskontot du skapade QnA Maker-resursen i.|
     |Azure QnA Service|Din befintliga QnA Maker-resurs.|
 
@@ -99,7 +100,9 @@ När kunskapsbasen har publicerats visas slutpunkten
 
 ![Publicera sidans slutpunktsinställningar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-## <a name="use-curl-to-query-for-an-faq-answer"></a>Använd curl för att fråga efter ett FAQ-svar
+Stäng inte det här **publicera** kan du använda den för att skapa en robot senare under kursen. 
+
+## <a name="use-curl-to-query-for-an-faq-answer"></a>Använd Curl till att fråga efter ett svar på vanliga frågor och svar
 
 1. Välj fliken **Curl**. 
 
@@ -109,7 +112,7 @@ När kunskapsbasen har publicerats visas slutpunkten
 
 1. Ersätt `<Your question>` med `How large can my KB be?`. Det här är nära frågan `How large a knowledge base can I create?` men inte exakt densamma. QnA Maker tillämpar bearbetning av naturligt språk för att fastställa att de två frågorna är desamma.     
 
-1. Köra CURL-kommando och få JSON-svar inklusive poäng och svar. 
+1. Köra Curl-kommando och få JSON-svar inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -133,11 +136,11 @@ När kunskapsbasen har publicerats visas slutpunkten
 
     QnA Maker är ganska trygg med poängen 42,81 %.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använda curl för att fråga efter ett kommunikationssvar
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använd Curl till att fråga efter en Chit-chatt-svar
 
-1. I den Curl-aktiverade terminalen ersätter du `How large can my KB be?` med en robots konversationsavslutande instruktion från användaren, till exempel `Thank you`.   
+1. I terminalen Curl-aktiverade ersätter `How large can my KB be?` med en bot konversationen slut instruktion från användare, till exempel `Thank you`.   
 
-1. Köra CURL-kommando och få JSON-svar inklusive poäng och svar. 
+1. Köra Curl-kommando och få JSON-svar inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -173,13 +176,13 @@ När kunskapsbasen har publicerats visas slutpunkten
 
     Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade även alla relaterade frågor samt den metadata-egenskap som innehåller information om metadatataggen för kommunikation.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>Använda curl för att fråga efter standardsvar
+## <a name="use-curl-to-query-for-the-default-answer"></a>Använd Curl till att fråga efter Standardsvar
 
 Alla frågor som QnA Maker inte är säker på i ett svar får standardsvaret. Det här svaret har konfigurerats i Azure-portalen. 
 
 1. I den Curl-aktiverade terminalen ersätter du `Thank you` med `x`. 
 
-1. Köra CURL-kommando och få JSON-svar inklusive poäng och svar. 
+1. Köra Curl-kommando och få JSON-svar inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,15 +200,25 @@ Alla frågor som QnA Maker inte är säker på i ett svar får standardsvaret. D
     }
     ```
     
-    QnA Maker returnerade ett resultat på 0 vilket betyder att inget förtroende, men även standardsvaret returnerades. 
+    QnA Maker returnerade ett resultat på `0`, vilket innebär att inga förtroende, men den också returnerade standard-svaret. 
+
+## <a name="create-a-knowledge-base-bot"></a>Skapa en kunskapsbas-robot
+
+Mer information finns i [skapa en chattrobot med den här kunskapsbas](create-qna-bot.md).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med knowledge base-robot, tar du bort resursgruppen, `my-tutorial-rg`, för att ta bort alla Azure-resurser skapas i bot-processen.
+
+När du är klar med kunskapsbas i QnA Maker-portalen väljer du **min kunskapsbaser**, välj sedan kunskapsbasen, **Mina självstudien kb**, välj ikonen Ta bort längst till höger på den raden.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Datakällor som stöds](../Concepts/data-sources-supported.md) för mer information om filformat som stöds. 
+Mer information finns i [datakällor som stöds](../Concepts/data-sources-supported.md) för mer information om support-filformat. 
 
 Mer information om [kommunikationspersonligheter](../Concepts/best-practices.md#chit-chat).
 
 Mer information om standardsvaret finns i [Ingen matchning hittades](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Knowledge base-begrepp](../Concepts/knowledge-base.md)
+> [Skapa en chattrobot med den här kunskapsbas](create-qna-bot.md)

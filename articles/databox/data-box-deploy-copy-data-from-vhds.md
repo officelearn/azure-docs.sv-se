@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 1358751c71dfba39574807c9b232957227980f5d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887518"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282567"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudier: Använd Data Box för att importera data som hanterade diskar i Azure
 
@@ -46,7 +46,7 @@ Baserat på resursgrupperna angetts, skapa Data kan du en resurs för varje till
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Inom varje resurs skapas följande fyra mappar som motsvarar en behållare i ditt storage-konto.
+Inom varje resurs skapas följande tre mappar som motsvarar en behållare i ditt storage-konto.
 
 - Premium SSD
 - Standard HDD
@@ -142,8 +142,8 @@ Granska följande innan du börjar kopiering av data:
 
 Beroende på om du ansluter via SMB- eller NFS, kan du använda:
 
-- [Kopieringsdata via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Kopieringsdata via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Kopiera data via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
+- [Kopiera data via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 Vänta tills kopieringsjobben är klara. Se till att kopiera jobb har slutförts utan fel innan du går vidare till nästa steg.
 

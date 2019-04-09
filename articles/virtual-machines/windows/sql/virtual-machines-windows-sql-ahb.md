@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: f3ebbfb1b9894b2bf1ca41ac46970e138d107f7b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005795"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265091"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av PowerShell eller Azure CLI, kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -42,7 +42,8 @@ Växla mellan de två modellerna licens medför **utan avbrott**, startar inte d
 
  - Möjligheten att konvertera licensieringsmodellen är för närvarande bara tillgänglig när du startar en SQL Server VM-avbildning med modellen Betala per användning. Om du startar med en Bring your own license-avbildning från portalen kan du inte konvertera avbildningen till Betala per användning.
   - För närvarande kan stöds ändra så att licensieringsmodellen bara för virtuella datorer som distribueras med hjälp av Resource Manager-modellen. Virtuella datorer som distribueras med den klassiska modellen stöds inte. 
-   - Ändra så att licensieringsmodellen för närvarande är endast aktiverad för offentliga moln-installationer.
+   - För närvarande kan aktiveras ändra så att licensieringsmodellen endast för offentliga moln-installationer.
+   - Den här proceduren är för närvarande stöds endast på virtuella datorer som har ett enda nätverkskort (nätverksgränssnitt). På virtuella datorer som har mer än ett NIC, du bör först ta bort ett nätverkskort (med hjälp av Azure-portalen) innan du försöker proceduren. I annat fall körs i ett fel som liknar följande: ”Den virtuella datorn '\<vmname\>' har mer än ett NIC som är associerade”. Även om du kan lägga till nätverkskortet tillbaka till den virtuella datorn när du har ändrat licensieringsalternativ, åtgärder via bladet SQL-konfiguration som automatisk uppdatering och säkerhetskopiering, inte längre betraktas som stöds.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

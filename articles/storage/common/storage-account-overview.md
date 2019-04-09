@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371821"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278997"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
-Ett Azure storage-konto innehåller alla dina Azure Storage-dataobjekt: blobar, filer, köer, tabeller och diskar. Data i Azure storage-kontot är hållbar och med hög tillgänglighet, säkra, mycket skalbar och kan nås från var som helst i världen via HTTP eller HTTPS. 
+Ett Azure storage-konto innehåller alla dina Azure Storage-dataobjekt: blobar, filer, köer, tabeller och diskar. Data i Azure storage-kontot är hållbar och med hög tillgänglighet, säkra, mycket skalbar och kan nås från var som helst i världen via HTTP eller HTTPS.
 
 Läs hur du skapar ett Azure storage-konto i [skapa ett lagringskonto](storage-quickstart-create-account.md).
 
@@ -52,7 +52,7 @@ General-Purpose v1-konton ger åtkomst till alla Azure Storage-tjänster, men ka
 - Köer
 - Tabeller
 
-Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst för dessa scenarier: 
+Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst för dessa scenarier:
 
 * Dina program kräver den klassiska distributionsmodellen. Gpv2-konton och Blob storage-konton stöder endast Azure Resource Manager-distributionsmodellen.
 
@@ -64,6 +64,10 @@ Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst 
 
 Block blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar eller tilläggsblobar. Block blob storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
 
+### <a name="filestorage-preview-storage-accounts"></a>Lagringskonton för FileStorage (förhandsversion)
+
+Ett FileStorage storage-konto är ett specialanpassat lagringskonto som används för att lagra och skapa premium-filresurser. FileStorage lagringskonton erbjuder unika dedikerade prestandaegenskaper, till exempel IOPS bursting. Mer information om dessa egenskaper finns i den [prestandanivåer för filen resursen](../files/storage-files-planning.md#file-share-performance-tiers) avsnittet filernas Planeringshandbok.
+
 ## <a name="naming-storage-accounts"></a>Namngivning av lagringskonton
 
 Tänk på dessa regler när du namnger lagringskontot:
@@ -71,7 +75,7 @@ Tänk på dessa regler när du namnger lagringskontot:
 - Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
 - Namnet på ditt lagringskonto måste vara unikt i Azure. Det får inte finnas två lagringskonton med samma namn.
 
-## <a name="performance-tiers"></a>Prestandanivåer
+## <a name="general-purpose-performance-tiers"></a>Allmänna prestandanivåer
 
 Allmänna lagringskonton kan konfigureras för något av följande prestandanivåer:
 
@@ -84,9 +88,9 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block blob-da
 
 Tillgängliga åtkomstnivåer är:
 
-* Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är något högre. Nya lagringskonton som skapas i frekvent nivå som standard.
-* Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara något dyrare än att komma åt data på frekvent lagringsnivå.
-* Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än att komma åt data i frekvent eller lågfrekvent nivå. 
+* Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är högre. Nya lagringskonton som skapas i frekvent nivå som standard.
+* Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara dyrare än att komma åt data på frekvent lagringsnivå.
+* Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än att komma åt data i frekvent eller lågfrekvent nivå.
 
 Om det finns en ändring i användningsmönstret för dina data, kan du växla mellan de olika nivåerna när som helst. Läs mer om åtkomstnivåerna [Azure Blob storage: frekvent, lågfrekvent och arkivnivå åtkomst](../blobs/storage-blob-storage-tiers.md).
 

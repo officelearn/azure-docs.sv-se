@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088663"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265650"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
@@ -30,7 +30,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Files noggran
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
 - [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-system. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
-- Ha ett FedEx/DHL-konto. 
+- Ha ett FedEx/DHL-konto. Om du vill använda en operatör än FedEx/DHL kontakta Azure Data Box Operations-teamet på `adbops@microsoft.com`.  
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
     - Generera en spårningsnummer för export-jobbet.
     - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte.
@@ -145,7 +145,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 4. I **returnera leveransinformation**:
 
-    - Välj vilken operatör från den nedrullningsbara listan.
+    - Välj vilken operatör från den nedrullningsbara listan. Om du vill använda en operatör än FedEx/DHL väljer du ett befintligt alternativ i listrutan. Kontakta Azure Data Box Operations team på `adbops@microsoft.com` med information om vilken operatör du tänker använda.
     - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
 

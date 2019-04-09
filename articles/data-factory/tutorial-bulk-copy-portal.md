@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445547"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279796"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -215,7 +215,7 @@ Pipelinen **GetTableListAndTriggerCopyData** utför två steg:
 * den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
 * Den utlöser pipelinen **IterateAndCopySQLTables** för att utföra den faktiska datakopieringen.
 
-**GetTableListAndTriggerCopyData** listar tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure SQL Data Warehouse med hjälp av mellanlagrad kopiering och PolyBase.
+Den **IterateAndCopySQLTables** tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure SQL Data Warehouse med hjälp av mellanlagrad kopiering och PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Skapa pipelinen IterateAndCopySQLTables
 

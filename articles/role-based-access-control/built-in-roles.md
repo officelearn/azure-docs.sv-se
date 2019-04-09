@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010676"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281224"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -121,7 +121,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Spatial Anchors-kontoinnehavare](#spatial-anchors-account-owner) | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
 | [Spatial Anchors-kontoläsare](#spatial-anchors-account-reader) | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
-| [SQL-hanterad instans-deltagare](#sql-managed-instance-contributor) | Låter dig hantera SQL-hanterade instanser, men det går inte att ge åtkomst till andra. |
 | [SQL-säkerhetshanteraren](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
@@ -2229,31 +2228,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *inga* |  |
-> | **NotDataActions** |  |
-> | *inga* |  |
-
-## <a name="sql-managed-instance-contributor"></a>SQL-hanterad instans-deltagare
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beskrivning** | Låter dig hantera SQL-hanterade instanser, men det går inte att ge åtkomst till andra. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Åtgärder** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
-> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
-> | Microsoft.Network/networkSecurityGroups/write | Skapar en grupp eller uppdaterar en befintlig nätverkssäkerhetsgrupp |
-> | Microsoft.Network/routeTables/write | Skapar en routningstabell eller uppdaterar en befintlig routningstabell |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Skapa och hantera supportärenden |
-> | Microsoft.Network/virtualNetworks/subnets/write | Skapar ett virtuellt nätverksundernät eller uppdaterar ett befintligt undernät för virtuellt nätverk |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
-> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
-> | **NotActions** |  |
-> | *inga* |  |
 > | **DataActions** |  |
 > | *inga* |  |
 > | **NotDataActions** |  |

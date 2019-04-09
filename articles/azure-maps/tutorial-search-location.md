@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 42a7eee37d993e5f9245374adbfd133344797eff
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058177"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260853"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 
@@ -81,11 +81,11 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -116,7 +116,7 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
 
    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den `GetMap` funktionen innehåller infogat JavaScript-kod för att komma åt Azure Maps-API: er.
 
-3. Lägg till följande JavaScript-kod i HTML-filens `GetMap`-funktion. Ersätt strängen **\<Din Azure Maps-nyckel\>** med den primärnyckel som du kopierade från Maps-kontot.
+3. Lägg till följande JavaScript-kod i HTML-filens `GetMap`-funktion. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckeln som du kopierade från ditt Maps-konto.
 
     ```JavaScript
     //Instantiate a map object
@@ -129,9 +129,9 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
     });
     ```
 
-   Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. **Atlas** är det namnområde som innehåller API:et och relaterade visuella komponenter. **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta.
+   Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. `atlas` är det namnområde som innehåller API: et och relaterade visuella komponenter. `atlas.Map` ger en visuell och interaktiv webbkarta kontroll.
 
-4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Det här är den mest grundläggande mappningen du kan göra genom att anropa **atlas.map** med hjälp av din kontonyckel.
+4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Det här är den mest grundläggande karta som du kan göra genom att anropa `atlas.Map` med din kontonyckel.
 
    ![Visa kartan](./media/tutorial-search-location/basic-map.png)
 
@@ -184,9 +184,9 @@ Det här avsnittet visar hur du använder kartorna [API: et Search](https://docs
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   Den **SubscriptionKeyCredential** skapar en **SubscriptionKeyCredentialPolicy** att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den **atlas.service.MapsURL.newPipeline()** tar den **SubscriptionKeyCredential** princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den **searchURL** representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+   Den `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Den `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instans. Den `searchURL` representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
 
-2. Lägg därefter till följande skriptblock för att skapa sökfrågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta fuzzy-indata som adresser, platser och platser av intresse (POI). Den här koden söker efter i närheten bensinstationer inom angiven radie av angivna latitud och longitud. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret. Den sista delen av skriptet ställer in kameravyn med hjälp av avgränsningsrektangeln för resultat med kartans [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-egenskap.
+2. Lägg därefter till följande skriptblock för att skapa sökfrågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta fuzzy-indata som adresser, platser och platser av intresse (POI). Den här koden söker efter i närheten bensinstationer inom angiven radie av angivna latitud och longitud. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den `geojson.getFeatures()` metoden och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret. Den sista delen av skriptet ställer in kameravyn med hjälp av avgränsningsrektangeln för resultat med kartans [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-egenskap.
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -239,7 +239,7 @@ Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökr
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    API:et **atlas. Popup** ger ett informationsfönster som är fäst vid motsvarande position på kartan. 
+    API: et `sup` ger ett fönster förankrad vid position på kartan. 
 
 2. I den *skriptet* tagg efter den `GetMap` fungera, Lägg till följande kod för att visa den moused över resultatet information i popup-fönstret.
 

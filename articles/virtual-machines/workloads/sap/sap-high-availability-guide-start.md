@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667063"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265074"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
@@ -196,7 +196,7 @@ Den här artikelserien innehåller:
     > Vi rekommenderar starkt att du använder Azure Resource Manager-distributionsmodellen för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributionsmodellen. Läs mer om Azure [distributionsmodeller][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP hög tillgänglighet på:
-  * ![Windows][Logo_Windows]**Windows**med hjälp av **Windows Server-redundanskluster (WSFC)**
+  * ![Windows][Logo_Windows]**Windows**med hjälp av **Windows Server-redundanskluster (WSFC)** 
   * ![Linux][Logo_Linux] **Linux**med hjälp av **Framework för Linux-kluster**
 
 Lär dig hur du kan skydda felkritisk fel (SPOF)-komponenter, till exempel SAP Central Services (ASCS/SCS) och system för databashantering (DBMS) i de här artiklarna. Här beskrivs också hur redundanta komponenter i Azure, till exempel SAP-programservern.
@@ -228,7 +228,7 @@ Artikeln omfattar både ![Windows][Logo_Windows] **Windows** och ![Linux][Logo_L
 
 * ![RHEL][Logo_Linux] [förbereda Azure-infrastrukturen för hög tillgänglighet för SAP ASCS/SCS - ställts in GlusterFS på RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [förbereda Azure-infrastrukturen för hög tillgänglighet för SAP ASCS/SCS - ställts in Pacemaker på RHEL ][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [förbereda Azure-infrastrukturen för hög tillgänglighet för SAP ASCS/SCS - ställts in Pacemaker på RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Installation av ett system med SAP NetWeaver hög tillgänglighet i Azure
 

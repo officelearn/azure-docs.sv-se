@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112797"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273829"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudier: Apache Kafka Streams-API
 
@@ -23,14 +23,13 @@ Lär dig hur du skapar ett program som använder Apache Kafka Streams-API:et och
 Programmet som används i den här självstudien är en strömmande ordräkning. Den läser textdata från ett Kafka-ämne, extraherar enskilda ord och lagrar sedan ordet och antalet till ett annat Kafka-ämne.
 
 > [!NOTE]  
-> Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 0.10.0 (i HDInsight 3.5 och 3.6) introducerade Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning. 
+> Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 1.1.0 (i HDInsight 3.5 och 3.6) införde Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning. 
 >
 > Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ställt in din utvecklingsmiljö
 > * Förstå koden
 > * Skapa och distribuera programmet
 > * Konfigurera Kafka-ämnen
@@ -42,15 +41,11 @@ I den här guiden får du lära dig att:
 
 * Utför stegen i dokumentet [Apache Kafka-konsument- och producent-API](apache-kafka-producer-consumer-api.md). Stegen i det här dokumentet använder exempelprogram och avsnitt som skapats i den här kursen.
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
 
-Du måste ha följande komponenter installerade i utvecklingsmiljön:
+* [Apache Maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt buildsystemet för Java-projekt.
 
-* [Java JDK 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
-
-* [Apache Maven](https://maven.apache.org/)
-
-* En SSH-klient och kommandot `scp` . Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
 För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför du följande steg:
 
-1. Hämta exempel från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Ange din aktuella katalog till platsen för den `hdinsight-kafka-java-get-started-master\Streaming` katalog och använder följande kommando för att skapa ett jar-paket:
 
-2. Ändra katalogerna till katalogen `Streaming` och använd sedan följande kommando för att skapa ett jar-paket:
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     Det här kommandot skapar paketet på `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Använd följande kommando för att kopiera filen `kafka-streaming-1.0-SNAPSHOT.jar` till ditt HDInsight-kluster:
-   
-    ```bash
+2. Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Använd följande kommando för att kopiera den `kafka-streaming-1.0-SNAPSHOT.jar` filen till ditt HDInsight-kluster. Ange lösenordet för SSH-användarkontot om du uppmanas till det.
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det. Mer information om hur du använder `scp` med HDInsight finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-apache-kafka-topics"></a>Skapa Apache Kafka-ämnen
 
-1. Använd följande kommando för att öppna en SSH-anslutning till klustret:
+1. Ersätt `sshuser` med SSH-användare för klustret och ersätt `CLUSTERNAME` med namnet på klustret. Öppna en SSH-anslutning i klustret, genom att ange följande kommando. Ange lösenordet för SSH-användarkontot om du uppmanas till det.
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det. Mer information om hur du använder `scp` med HDInsight finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. Spara klustrets namn som en variabel och installera ett JSON-parsningsverktyget (`jq`), med följande kommandon. Ange Kafka-klustrets namn när du uppmanas till detta:
+2. Installera [jq](https://stedolan.github.io/jq/), en kommandorad JSON-processor. Från den öppna SSH-anslutningen anger du följande kommando för att installera `jq`:
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
+3. Konfigurera miljövariabler. Ersätt `PASSWORD` och `CLUSTERNAME` med inloggningslösenordet för klustret och klustret namnge respektive genom att ange sedan kommandot:
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Skapa ämnen som används av strömningen med följande kommandon:
+4. Extrahera korrekt alltid i klustrets namn. Faktiska versaler och gemener i klustrets namn kan skilja sig än förväntat, beroende på hur klustret har skapats. Det här kommandot ska hämta faktiska gemener och versaler, lagra det i en variabel och sedan visa korrekt cased namn och det namn du angav tidigare. Ange följande kommando:
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. Skapa ämnen som används av strömningen med följande kommandon:
 
     > [!NOTE]  
     > Du kan få ett felmeddelande om att ämnet `test` redan finns. Det är OK eftersom det kan ha skapats i självstudien Producent- och konsument-API.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     > [!NOTE]  
     > Parametern `--from-beginning` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
 
-7. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.
+4. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.
+
+5. Om du vill ta bort ämnen som används av strömmande igen, använder du följande kommandon:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

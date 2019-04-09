@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010353"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277127"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 
@@ -223,8 +223,7 @@ Använd den [az vmss-kryptering aktiverar](/cli/azure/vmss/encryption#az-vmss-en
 Om du vill kryptera eller dekryptera Windows VM-skalningsuppsättning genom att använda Azure Resource Manager-mallar och anvisningarna nedan:
 
 - [Aktivera kryptering på en Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Distribuera en VM-skalningsuppsättning med virtuella Windows-datorer med en jumpbox och aktivera kryptering på Windows VM scale Sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Inaktivera kryptering på en Windows VM scale Sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Inaktivera kryptering på en Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Klicka på **Distribuera till Azure**.
      2. Fyll i de obligatoriska fälten och samtycker till villkoren.

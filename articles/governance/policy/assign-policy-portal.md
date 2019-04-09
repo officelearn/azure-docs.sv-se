@@ -1,7 +1,6 @@
 ---
 title: Skapa en princip för icke-kompatibla resurser
 description: Den här artikeln beskriver stegen för att skapa en principdefinition för att identifiera icke-kompatibla resurser.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803994"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278963"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser
 
@@ -77,7 +76,7 @@ Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelni
 
 När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt markeras dessa resurser som inkompatibla med principen. Följande tabell visar hur olika principåtgärder fungerar med villkorsutvärderingen för den efterlevnadsstatus som blir resultatet. Även om du inte ser utvärderingslogiken i Azure Portal visas resultatet för kompatibilitetstillståndet. Resultatet för kompatibilitetstillståndet är antingen kompatibla eller icke-kompatibla resurser.
 
-| **Resurstillstånd** | **Effekt** | **Principutvärdering** | **Kompatibilitetstillstånd** |
+| **Resurstillstånd** | **Verkan** | **Principutvärdering** | **Kompatibilitetsstatus** |
 | --- | --- | --- | --- |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
@@ -100,7 +99,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 I den här snabbstarten har du tilldelat en principdefinition till ett omfång och utvärderat dess efterlevnadsrapport. Principdefinitionen kontrollerar att alla resurser i omfånget är kompatibla och identifierar vilka som inte är det.
 
-Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
+Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

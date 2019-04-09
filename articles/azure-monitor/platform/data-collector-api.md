@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883946"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264105"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Azure Monitor från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Azure Monitor.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -61,7 +61,8 @@ Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som
 | Auktorisering |Signatur för auktorisering. Senare i artikeln kan du läsa om hur du skapar en HMAC-SHA256-rubrik. |
 | Loggtyp |Ange posttypen för de data som skickas. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| time-generated-field |Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
+| x-ms-AzureResourceId | Resurs-ID för Azure-resursen data bör associeras med. Detta fyller den [_ResourceId](log-standard-properties.md#_resourceid) egenskapen och gör att data som ska ingå i [resurs-centric](manage-access.md#access-modes) frågor. Om det här fältet har inte angetts inkluderas inte data i resurs-centric frågor. |
+| time-generated-field | Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
 
 ## <a name="authorization"></a>Auktorisering
 Varje Azure Monitor HTTP Data Collector API-begäran måste innehålla en auktoriseringsrubrik. För att autentisera en begäran, måste du logga på begäran med antingen primärt eller sekundära nyckeln för den arbetsyta som gör begäran. Skicka sedan den signaturen som en del av begäran.   

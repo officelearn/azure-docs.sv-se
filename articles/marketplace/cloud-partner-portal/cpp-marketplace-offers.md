@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446717"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010591"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure och AppSource Marketplace-erbjudanden
 
@@ -54,13 +54,13 @@ I följande tabell visas de aktuella erbjudandetyper som stöds av den [Cloud Pa
 |                ----------                |  -----------  |   -----------                                                           |
 | [Azure-program](./azure-applications/cpp-azure-app-offer.md) | Azure | Lösningen består av en eller flera virtuella datorer (VM), valfri anpassad Azure kod, distribueras via en Azure Resource Manager-mall.  Distributionen kan vara antingen av en lösningsmall kunden eller hanteras av utgivaren. Den här typen används för att ge mer flexibilitet än den angivna virtuella datorn erbjudandetypen.  |
 | [Konsulttjänst](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Båda | Microsoft kvalificerade konsulter kan visa sina domänspecifika tjänster på Azure Marketplace eller AppSource.  Sin expertis hjälper kunder bedöma deras problem eller skapa och distribuera lösningar för rätt att uppfylla sina affärsmål.  |
-| [Behållare](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserad tjänst eller Azure Container instances. |
+| [Container](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserad tjänst eller Azure Container instances. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Ett paket som utökar den här Sage (Företagsresursplanering) och företag hanteringssystemet. |
-| [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar den här kunden resurs (CRM) hanteringssystemet via dess försäljning, service, projekt-tjänsten och fältet service-moduler.  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här Företagsresursplanering service (Företagsresursplanering) som har stöd för avancerade ekonomi, åtgärder, tillverkning och hantering av leverantörskedja. |
+| [Dynamics 365 för Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar den här kunden resurs (CRM) hanteringssystemet via dess försäljning, service, projekt-tjänsten och fältet service-moduler  |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här Företagsresursplanering service (Företagsresursplanering) som har stöd för avancerade ekonomi, åtgärder, tillverkning och hantering av leverantörskedja |
 | [IoT Edge-modul](./iot-edge-module/cpp-offer-process-parts.md) | Azure | En Docker-kompatibla behållare som körs på en IoT Edge-enhet.  Den innehåller små databaserad moduler som använder en kombination av anpassad kod, andra Azure-tjänster och tjänster 3 part. |
-| [Power BI-appen](./power-bi/cpp-power-bi-offer.md) | AppSource | Ett paket som använder dataflöden för att ansluta rapporter och instrumentpaneler till data i vanliga datalagring. |
-| [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Lösningen är en programvara som tjänst-prenumeration som hanteras av utgivare, vilka användare logga in via ett anpassat gränssnitt som utnyttjar Azure Active Directory. |
+| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | En Power BI-appen som paket anpassningsbara Power BI-innehåll, inklusive datauppsättningar, rapporter och instrumentpaneler |
+| [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Lösningen är en programvara som tjänst-prenumeration som hanteras av utgivare, vilka användare logga in via ett anpassat gränssnitt som använder Azure Active Directory. |
 | [Virtuell dator](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Lösningen ingår i en virtuell dator distribueras till kundens prenumeration.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +69,4 @@ Mer information finns i [publicera guide av erbjudandetypen](../publisher-guide-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kommer lära dig om de allmänna åtgärder som du kan utföra på marketplace-erbjudanden och vanliga tekniska attribut och tillgångar i avsnittet [hantera erbjudanden](./manage-offers/cpp-manage-offers.md).
+Du kommer lära dig om de allmänna åtgärder som du kan utföra på marketplace-erbjudanden och vanliga tekniska attribut och tillgångar i artikeln [hantera erbjudanden](./manage-offers/cpp-manage-offers.md).

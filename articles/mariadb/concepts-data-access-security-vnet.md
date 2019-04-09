@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958923"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006701"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database for MariaDB
 
@@ -105,6 +105,8 @@ Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 ## <a name="limitations"></a>Begränsningar
 
 För Azure Database for MariaDB har funktionen för regler för virtuellt nätverk följande begränsningar:
+
+- En Webbapp kan mappas till en privat IP-adress i ett virtuellt nätverk/undernät. Även om tjänstslutpunkter är aktiverade från de angivna VNet/undernät, har anslutningar från Webbappen till servern en Azure offentlig IP-källa, inte en virtuellt nätverk/undernät källa. Om du vill aktivera anslutningen från en Webbapp till en server med VNet-brandväggsreglerna, måste du tillåta Azure-tjänster för att komma åt servern på servern.
 
 - Refererar till ett undernät i brandväggen för din Azure Database for MariaDB varje regel för virtuella nätverk. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för Azure Database for MariaDB.
 

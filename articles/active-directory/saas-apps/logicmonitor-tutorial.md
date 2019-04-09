@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06358f88e9b41d80f010b4e463c1b5f6b6fab349
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886489"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Självstudier: Azure Active Directory-integrering med LogicMonitor
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med LogicMo
 
     ![LogicMonitor domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.logicmonitor.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<companyname>.logicmonitor.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.logicmonitor.com`
 
@@ -205,7 +205,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För Azure AD-användare för att kunna logga in, måste de etableras till programmet LogicMonitor med deras Azure Active Directory-användarnamn.
 
-**Utför följande steg för att konfigurera användarförsörjning:**
+**Konfigurera användaretablering genom att utföra följande steg:**
 
 1. Logga in på webbplatsen LogicMonitor företag som administratör.
 
@@ -236,9 +236,9 @@ När du klickar på panelen LogicMonitor i åtkomstpanelen, bör det vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

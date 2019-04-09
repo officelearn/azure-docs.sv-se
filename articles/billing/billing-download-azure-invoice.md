@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652390"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264071"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
@@ -135,7 +135,7 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.m
 
 Mer information om din faktura och avgifter finns:
 
-- [Visa och hämta dina Microsoft Azure-användning och kostnader](billing-download-azure-daily-usage.md)
+- [Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Förstå fakturan för Microsoft Azure](billing-understand-your-bill.md)
 - [Förstå villkoren på fakturan för Azure](billing-understand-your-invoice.md)
 - [Förstå villkoren på Microsoft Azure detaljerad användning](billing-understand-your-usage.md)
@@ -143,7 +143,7 @@ Mer information om din faktura och avgifter finns:
 
 Om du har ett Microsoft-kundavtal, se:
 
-- [Förstå debiteringar på fakturan för din faktureringsinformation profil ](billing-mca-understand-your-bill.md)
+- [Förstå debiteringar på fakturan för din faktureringsinformation profil](billing-mca-understand-your-bill.md)
 - [Förstå villkoren på fakturan för din faktureringsinformation profil](billing-mca-understand-your-invoice.md)
 - [Förstå filen Azure användning och avgifter för din faktureringsinformation profil](billing-mca-understand-your-usage.md)
 - [Visa och hämta skattedokument för din faktureringsinformation profil](billing-mca-download-tax-document.md)

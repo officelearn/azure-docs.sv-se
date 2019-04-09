@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513514"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007211"
 ---
 ## <a name="preventative"></a>Förebyggande
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513514"
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv)| Ja | Log Analytics stöds via diagnostikloggar. Se övervakaren Azure Backup skyddade arbetsbelastningar med hjälp av Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) för mer information. |
+| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Log Analytics stöds via diagnostikloggar. Se övervakaren Azure Backup skyddade arbetsbelastningar med hjälp av Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) för mer information. |
 
 ## <a name="iam-support"></a>IAM-stöd
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
 | Åtkomsthantering - autentisering| Ja | Autentisering är via Azure Active Directory. |
-| Åtkomsthantering - auktorisering| Ja | Kunden har skapat och inbyggda RBAC-roller används. Se Use Role-Based Access Control för att hantera Azure Backup återställningspunkter (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) för mer information. |
+| Åtkomsthantering - auktorisering| Ja | Kunden har skapat och inbyggda RBAC-roller används. Se Use Role-Based Access Control för att hantera Azure Backup återställningspunkter (/ azure/backup/backup-rbac-rs-valv) för mer information. |
 
 
 ## <a name="audit-trail"></a>Spårning
@@ -55,4 +55,4 @@ ms.locfileid: "55513514"
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshantering av konfigurationen osv)| Ja|  |
+| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja|  |

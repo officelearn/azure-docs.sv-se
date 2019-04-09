@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 505bb292a6b8a81f5fa11a03bc150a7f43129956
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852815"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Självstudier: Azure Active Directory-integrering med Montage Online
 
@@ -106,13 +106,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Montage
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
 
-    För Produktionsmiljö: `https://<subdomain>.montageonline.co.nz/`
+    För produktionsmiljö: `https://<subdomain>.montageonline.co.nz/`
 
     För testmiljön: `https://build-<subdomain>.montageonline.co.nz/`
 
     b. I den **identifierare** textrutan anger du ett URL:
 
-    För Produktionsmiljö: `MOL_Azure`
+    För produktionsmiljö: `MOL_Azure`
 
     För testmiljön: `MOL_Azure_Build`
 
@@ -200,9 +200,9 @@ När du klickar på panelen Montage Online i åtkomstpanelen, bör det vara logg
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

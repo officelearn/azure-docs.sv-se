@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: da1ff2be9661de143bd36c8e17fd388d64f947a7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407512"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Självstudier: Azure Active Directory-integrering med Pantheon
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Pantheo
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `urn:auth0:pantheon:<orgname>-SSO`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Pantheon klienten supportteamet](https://pantheon.io/docs/getting-support/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -217,9 +217,9 @@ När du klickar på panelen Pantheon i åtkomstpanelen, bör det vara loggas in 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549158"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260756"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -46,7 +46,7 @@ Om du hitta din datafabrik inte har en hanterad identitet som är associerade f�
 
 - [Generera hanterad identitet med hjälp av PowerShell](#generate-managed-identity-using-powershell)
 - [Generera hanterad identitet med hjälp av REST API](#generate-managed-identity-using-rest-api)
-- Generera hanterad identitet med en Azure Resource Manager-mall
+- [Generera hanterad identitet med en Azure Resource Manager-mall](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generera hanterad identitet med hjälp av SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Du kan hämta den hanterade identitet från Azure-portalen eller via programmeri
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Hämta hanterad identitet med hjälp av Azure portal
 
-Du kan hitta hanterad identitetsinformationen från Azure portal -> din data factory -> Inställningar -> Egenskaper:
+Du kan hitta hanterad identitetsinformationen från Azure portal -> din data factory -> Egenskaper:
 
-- TJÄNSTIDENTITETS-ID
-- TJÄNSTIDENTITETSKLIENT
-- **IDENTITETS-ID för programmet** > Kopiera detta värde
+- Objekt-ID för hanterad identitet
+- Hanterad identitetsklientorganisation
+- **Hanterade Identitetsprogram-ID** > Kopiera detta värde
 
 ![Hämta hanterad identitet](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

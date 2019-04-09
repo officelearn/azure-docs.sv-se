@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 614d56cba4a95b7f9364bc9c044e78d291caf3ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998602"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Självstudier: Azure Active Directory-integrering med SciQuest spendera Director
 
@@ -106,11 +106,11 @@ Om du vill konfigurera Azure AD enkel inloggning med SciQuest spendera Director,
 
     ![SciQuest spendera Director domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<companyname>.sciquest.com`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [SciQuest spendera Director klienten supportteamet](https://www.jaggaer.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -203,8 +203,8 @@ När du klickar på panelen SciQuest spendera Director på åtkomstpanelen, bör
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

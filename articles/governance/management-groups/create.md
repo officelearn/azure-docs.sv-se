@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057446"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259825"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -50,7 +50,7 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 ### <a name="create-in-powershell"></a>Skapa i PowerShell
 
-I PowerShell kan använda du cmdleten New-AzManagementGroup:
+Du använder PowerShell använder den [New AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet för att skapa en ny hanteringsgrupp.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 Den **GroupName** är en unik identifierare som håller på att skapas. Detta ID används av andra kommandon för att referera till den här gruppen och kan inte ändras senare.
 
-Om du vill använda hanteringsgruppen som visar ett annat namn i Azure-portalen kan du lägga till den **DisplayName** med strängen för parametern. Om du vill skapa en hanteringsgrupp med GroupName Contoso och visningsnamnet för ”Contoso-grupp”, skulle du till exempel använda följande cmdlet:
+Om du vill hanteringsgruppen som visar ett annat namn i Azure-portalen, lägger du till den **DisplayName** parametern. Till exempel för att skapa en hanteringsgrupp med GroupName Contoso och visningsnamnet för ”Contoso-grupp”, använder du följande cmdlet:
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Använd den **ParentId** parametern ska ha den här hanteringsgruppen skapas under en annan hantering.
+I föregående exempel skapas den nya hanteringsgruppen under rot-hanteringsgruppen. Om du vill ange en annan hanteringsgrupp som det överordnade objektet, använder den **ParentId** parametern.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Skapa i Azure CLI
 
-På Azure CLI kan du använda az-management-kontogruppen skapar kommandot.
+Azure CLI, använder den [az-management-kontogruppen skapa](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) kommando för att skapa en ny hanteringsgrupp.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+Den **namn** är en unik identifierare som håller på att skapas. Detta ID används av andra kommandon för att referera till den här gruppen och kan inte ändras senare.
+
+Om du vill hanteringsgruppen som visar ett annat namn i Azure-portalen, lägger du till den **visningsnamn** parametern. Till exempel för att skapa en hanteringsgrupp med GroupName Contoso och visningsnamnet för ”Contoso-grupp”, använder du följande kommando:
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+I föregående exempel skapas den nya hanteringsgruppen under rot-hanteringsgruppen. Om du vill ange en annan hanteringsgrupp som det överordnade objektet, använder den **överordnade** parametern och ange namnet på den överordnade gruppen.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>Nästa steg

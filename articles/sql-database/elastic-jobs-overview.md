@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264428"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
@@ -76,6 +76,8 @@ För tillfället är förhandsgranskningen begränsad till 100 samtidiga jobb.
 
 För att resurser inte ska överbelastas vid körning av jobb mot databaser i en elastisk SQL-pool kan jobb konfigureras för att begränsa antalet databaser som ett jobb kan köras mot samtidigt.
 
+Ange hur många samtidiga databaser som ett jobb körs på genom att ange den `sp_add_jobstep` lagrade procedurens `@max_parallelism` parameter i T-SQL, eller `Add-AzSqlElasticJobStep -MaxParallelism` i PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Metodtips för att skapa jobb
 
 ### <a name="idempotent-scripts"></a>Idempotent-skript
@@ -97,4 +99,4 @@ På liknande sätt måste ett skript kunna lyckas köra genom att logiskt testa 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell.md)
-- [Skapa och hantera elastiska jobb med Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Skapa och hantera elastiska jobb med hjälp av Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

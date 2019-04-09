@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93790edbce20022ff1dcf0b547caf2cf3843ab3c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849995"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Självstudier: Azure Active Directory-integrering med Thoughtworks Mingle
 
@@ -194,7 +194,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För Azure AD-användare för att kunna logga in, måste de etableras till programmet Thoughtworks Mingle med deras Azure Active Directory-användarnamn. När det gäller Thoughtworks Mingle är etablering en manuell aktivitet.
 
-**Utför följande steg för att konfigurera användarförsörjning:**
+**Konfigurera användaretablering genom att utföra följande steg:**
 
 1. Logga in på webbplatsen Thoughtworks Mingle företag som administratör.
 
@@ -232,9 +232,9 @@ När du klickar på panelen Thoughtworks Mingle i åtkomstpanelen, bör det vara
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

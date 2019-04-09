@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905842"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262507"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 
 Aktivera övervakning på .NET och .NET Core-baserat webbprogram som körs på Azure App Services är nu enklare än någonsin. Tidigare nödvändigt att manuellt installera ett webbplatstillägg, är den senaste versionen tillägg/agenten inbyggt i app service-avbildning som standard. Den här artikeln kommer vägleder dig genom att aktivera Application Insights-övervakning samt ge preliminär vägledning för att automatisera processen för storskaliga distributioner.
 
 > [!NOTE]
-> Att manuellt lägga till en Application Insights-webbplatstillägg via **utvecklingsverktyg** > **tillägg** är inaktuell. Den senaste stabila versionen av tillägget finns nu [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service-avbildning. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabila versionen. Om du följer anvisningarna för agenten baserat att aktivera övervakning nedan, raderas föråldrad tillägget automatiskt åt dig.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Att manuellt lägga till en Application Insights-webbplatstillägg via **utvecklingsverktyg** > **tillägg** är inaktuell. Den här metoden för installation av tillägg var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget finns nu [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service-avbildning. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabila versionen. Om du följer anvisningarna för agenten baserat att aktivera övervakning nedan, raderas föråldrad tillägget automatiskt åt dig.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -285,6 +282,8 @@ Nedan visas ett exempel, Ersätt alla förekomster av `AppMonitoredSite` med pla
 
 Endast de underliggande programinställningarna behöver ändras för att aktivera programövervakning via PowerShell. Nedan visas ett exempel som gör att övervakningen för en webbplats som kallas ”AppMonitoredSite” i resursgruppen ”AppMonitoredRG”, och konfigurerar data som ska skickas till ”012345678-abcd-ef01-2345-6789abcd” instrumenteringsnyckeln.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ Tabellen nedan innehåller en mer detaljerad förklaring av vad de här värdena
 |Värdet för problem|Förklaring|Korrigera
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget upptäckte att någon aspekt av SDK: N finns redan i programmet och kommer backoff. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, eller `Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser har lagts till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Om programmet är inställd på .NET Core 2.1 eller 2.2 och refererar till [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paketet, sedan in i Application Insights och tillägget kommer backoff. | Kunder på .NET Core 2.1,2.2 [rekommenderas](https://github.com/aspnet/Announcements/issues/287) kan använda Microsoft.AspNetCore.App meta-paketet i stället.|
 |`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen från en tidigare distribution. | Rensa mappen för att säkerställa att dessa DLL-filer har tagits bort.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet, och kommer backoff. | Ta bort referensen.
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet, och kommer backoff.| Ta bort referensen.

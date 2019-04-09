@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894773"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256897"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -93,7 +93,7 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat sömlös enk
 ![Azure-portalen: Azure AD Connect-fönstret](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` i din lokala Active Directory (AD) i varje AD-skog. Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar.
+> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` i din lokala Active Directory (AD) i varje AD-skog. Den `AZUREADSSOACC` datorkonto måste vara starkt skyddat av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Se till att Kerberos-delegering på datorkontot är inaktiverat. Store datorkontot i en organisation (OU) där de är säkra från oavsiktliga borttagningar och där endast domänadministratörer har åtkomst.
 
 >[!NOTE]
 > Om du använder Pass-the-Hash-och problemlösning för stöld av autentiseringsuppgifter i din lokala miljö, gör lämpliga ändringar så att den `AZUREADSSOACC` datorkontot inte hamnar i behållaren karantän. 

@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877371"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260399"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -60,7 +60,7 @@ Om en användare har tilldelats rollen begränsad administratör eller global ad
 Visst! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
 Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://portal.azure.com), använda en princip för villkorlig åtkomst i Windows Azure klassiska modellen API:
 1. Ändra den **alla användare** gruppen så att den innehåller bara medlemmar.
-   ![Skärmbild som visar gruppen Alla användare där UserType inte är lika med gästen ](media/faq/modify-all-users-group.png)
+   ![Skärmbild som visar gruppen Alla användare där UserType inte är lika med gästen](media/faq/modify-all-users-group.png)
 2. Skapa en dynamisk grupp som innehåller gästanvändare.
    ![Skärmbild som visar en ny grupp för alla gästanvändare](media/faq/group-with-guest-users.png)
 3. Konfigurera en princip för villkorlig åtkomst blockera gästanvändare från att komma åt portalen, som visas i följande video:

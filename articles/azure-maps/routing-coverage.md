@@ -3,17 +3,17 @@ title: Routningstäckning i Azure Maps | Microsoft Docs
 description: Lär dig mer om routningstäckning i Azure Maps
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 9337a8fcc7aa097c94515bc2dc64d0f059be5e0a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 718eefc95384dde050a4a25e6850fe6db574d294
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369470"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258937"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routning täckning
 
@@ -23,7 +23,7 @@ Kolla in täckning för [ **Geokodning**](geocoding-coverage.md).
 Kolla in täckning för [ **trafik**](traffic-coverage.md).  
 Kolla in täckning för [ **rendera**](render-coverage.md).
 <br>  
-**Förklaring**
+**Teckenförklaring**
 
 | Symbol             | Betydelse                                |
 |--------------------|----------------------------------------|
@@ -199,14 +199,14 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | +Aruba                         |        ✓       |                      |             | 
 | + Karibien Nederländerna         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Norge                         |        ✓       |         ✓            |     ✓      | 
 | Polen                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Rumänien                        |        ✓       |         ✓            |     ✓      | 
 | Ryska federationen             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Serbien                         |        ✓       |                      |     ✓      | 
 | Slovakien                       |        ✓       |         ✓            |     ✓      | 
 | Slovenien                       |        ✓       |         ✓            |     ✓      |
@@ -233,7 +233,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahrain                        |        ✓       |         ✓            |             |
 | Irak                           |        ✓       |                      |             |
-| Israel                         |                |         ✓            |             |
+| Israel                         |        ✓       |         ✓            |             |
 | Jordanien                         |        ✓       |                      |             |
 | Kuwait                         |        ✓       |         ✓            |             |
 | Libanon                        |        ✓       |                      |             |

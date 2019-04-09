@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 71b7cfb92b4caded75e0723564a09fae9f10858c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359781"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudier: Azure Active Directory-integrering med Jitbit Helpdesk
 
@@ -210,7 +210,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För att aktivera Azure AD-användare att logga in på Jitbit Helpdesk, måste de etableras i Jitbit Helpdesk. När det gäller Jitbit Helpdesk är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din **Jitbit Helpdesk** klient.
 
@@ -251,8 +251,8 @@ När du klickar på panelen Jitbit Helpdesk i åtkomstpanelen, bör det vara log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

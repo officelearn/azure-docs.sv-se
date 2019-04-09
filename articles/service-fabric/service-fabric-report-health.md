@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670395"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058619"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägga till anpassade hälsorapporter i Service Fabric
 Azure Service Fabric introducerar en [hälsomodellen](service-fabric-health-introduction.md) utformats för att flaggan feltillstånd kluster och program villkor för specifika entiteter. Hälsomodell använder **hälsotillstånd rapportörer** (systemkomponenter och watchdogs). Målet är enkel och snabb diagnos och reparation. Skrivare för tjänsten måste du tänka igenom initiala om hälsotillstånd. Alla villkor som kan påverka hälsotillståndet redovisas, särskilt om det kan hjälpa att flaggan problem nära roten. Hälsoinformation kan spara tid och möda på felsökning och undersökning. Led är särskilt tydligt när tjänsten är igång och körs i skala i molnet (privat eller Azure).
@@ -55,18 +55,18 @@ När hälsotillståndet reporting design är tydligt, hälsorapporter kan skicka
 > 
 
 ## <a name="health-client"></a>Hälsotillstånd klienten
-Rapporter om hälsotillstånd skickas till hälsoarkivet via en health-klienten, som finns i fabric-klienten. Health-klienten kan konfigureras med följande inställningar:
+Rapporter om hälsotillstånd skickas till hälsoindikatorn via en health-klienten, som finns i fabric-klienten. Hälsoindikatorn sparar rapporter i health store. Health-klienten kan konfigureras med följande inställningar:
 
-* **HealthReportSendInterval**: Fördröjningen mellan den tid som rapporten läggs till klienten och tid som det har skickats till health store. Används för att batch-rapporter till ett enda meddelande, i stället för att skicka ett meddelande för varje rapport. Den batchbearbetning förbättrar prestandan. Standard: 30 sekunder.
-* **HealthReportRetrySendInterval**: Intervallet då hälsotillstånd klienten skickar ackumulerade hälsotillstånd rapporterar till health store. Standard: 30 sekunder.
-* **HealthOperationTimeout**: Tidsgränsen för en rapport-meddelanden som skickas till health store. Om ett meddelande tidsgränsen hälsotillstånd klienten ett nytt försök den förrän hälsoarkivet bekräftar att rapporten har bearbetats. Standard: två minuter.
+* **HealthReportSendInterval**: Fördröjningen mellan den tid som rapporten läggs till klienten och tid det skickas till hälsoindikatorn. Används för att batch-rapporter till ett enda meddelande, i stället för att skicka ett meddelande för varje rapport. Den batchbearbetning förbättrar prestandan. Standard: 30 sekunder.
+* **HealthReportRetrySendInterval**: Intervallet då hälsotillstånd klienten skickar ackumulerade hälsotillstånd rapporterar till hälsoindikatorn. Standard: 30 sekunders mellanrum, minsta: 1 sekund.
+* **HealthOperationTimeout**: Tidsgränsen för en rapport-meddelanden som skickas till hälsoindikatorn. Om ett meddelande tidsgränsen hälsotillstånd klienten ett nytt försök den tills hälsoindikatorn bekräftar att rapporten har bearbetats. Standard: två minuter.
 
 > [!NOTE]
-> När rapporterna grupperas fabric klienten måste hållas alive för minst HealthReportSendInterval så att de skickas. Om meddelandet går förlorad eller health store kan inte använda dem på grund av tillfälliga fel, fabric klienten måste hållas aktiv längre att ge det en risk att försöka igen.
+> När rapporterna grupperas fabric klienten måste hållas alive för minst HealthReportSendInterval så att de skickas. Om meddelandet går förlorad eller hälsoindikatorn kan inte använda dem på grund av tillfälliga fel, fabric klienten måste hållas aktiv längre att ge det en risk att försöka igen.
 > 
 > 
 
-Buffring på klienten tar unikhet av rapporterna i beräkningen. Om en viss felaktig rapport rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, till exempel ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i kön för klienten. Om batchbearbetning har konfigurerats är antalet rapporter som skickas till hälsoarkivet bara en per skicka intervall. Den här rapporten är den senaste har lagts tillagda rapporten, som visar senaste tillståndet för entiteten.
+Buffring på klienten tar unikhet av rapporterna i beräkningen. Om en viss felaktig rapport rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, till exempel ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i kön för klienten. Om batchbearbetning har konfigurerats är antalet rapporter som skickas till hälsoindikatorn bara en per skicka intervall. Den här rapporten är den senaste har lagts tillagda rapporten, som visar senaste tillståndet för entiteten.
 Ange konfigurationsparametrar när `FabricClient` har skapats genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med önskade värden health-relaterade poster.
 
 I följande exempel skapar en fabric-klient och anger att rapporterna ska skickas när de har lagts till. Återförsök sker på tidsgränser och fel som kan försökas sekunders 40.
@@ -314,5 +314,5 @@ Baserat på de health kan service skrivare och -kluster/programadministratörer 
 
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric-Programuppgradering](service-fabric-application-upgrade.md)
+[Uppgradera Service Fabric-programmet](service-fabric-application-upgrade.md)
 

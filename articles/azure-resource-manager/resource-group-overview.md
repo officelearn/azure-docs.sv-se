@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: d4af11f5956d548ec25eb0dd9b553e2cf56b195f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409865"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058551"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
@@ -84,6 +84,8 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 * En resurs kan interagera med resurser i andra resursgrupper. Denna interaktion är vanlig när de två resurserna är relaterade, men inte delar samma livscykel (till exempel webbappar som är anslutna till en databas).
 
 När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
+
+Om den resursgrupp regionen är inte tillgänglig för tillfället, kan du inte uppdatera resurser i resursgruppen eftersom metadata är inte tillgänglig. Resurser i andra regioner fortsätter att fungera som förväntat, men du kan inte uppdatera dem. För att minimera risken att leta upp din resursgrupp och resurser i samma region.
 
 ## <a name="resource-providers"></a>Resursproviders
 

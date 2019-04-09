@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895066b2ce21e75095d544de47b817866cd1a8ef
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855860"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Självstudier: Azure Active Directory-integrering med Jobbadmin
 
@@ -105,11 +105,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Jobbadm
 
     ![Jobbadmin domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<instancename>.jobnorge.no`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    c. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Jobbadmin klienten supportteamet](https://www.jobbnorge.no/om-oss/kontakt-oss) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -195,8 +195,8 @@ När du klickar på panelen Jobbadmin i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

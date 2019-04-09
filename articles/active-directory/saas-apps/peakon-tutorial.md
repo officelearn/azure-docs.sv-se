@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: bf291f22f523756c868128cbe5595fa56cf7d109
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361684"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Självstudier: Azure Active Directory-integrering med Peakon
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Peakon:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.peakon.com/saml/<companyid>/assert`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://app.peakon.com/saml/<companyid>/assert`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -220,7 +220,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 För att aktivera Azure AD-användare att logga in på Peakon, måste de etableras i Peakon.  
 När det gäller Peakon är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på webbplatsen Peakon företag som administratör.
 
@@ -250,9 +250,9 @@ När du klickar på panelen Peakon i åtkomstpanelen, bör det vara loggas in au
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

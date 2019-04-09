@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875147"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257917"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -43,9 +43,9 @@ Om du vill läsa från en textfil eller skriva till en textfil, anger den `type`
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
-| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (standard)</b> |Nej |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>FALSKT (standard)</b> |Nej |
 | skipLineCount |Anger hur många **icke-tomma** rader att hoppa över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nej |
-| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>False |Nej |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**SANT (standard)**<br/>False |Nej |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
 
@@ -96,6 +96,9 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | encodingName |Ange kodningsnamnet. Lista över giltiga kodningsnamn finns i: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. Exempel: windows-1250 or shift_jis. Den **standard** värdet är: **UTF-8**. |Nej |
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
+>[!NOTE]
+>Om-korstillämpa data i matrisen i flera rader (fall 1 -> exempel 2 i [JsonFormat-exempel](#jsonformat-example)), du kan endast välja att expandera enskild matris med hjälp av egenskapen `jsonNodeReference`. 
+
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
 Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
@@ -104,7 +107,7 @@ Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
 
     Varje fil som innehåller ett enskilt objekt eller flera radavgränsade/sammanfogade objekt. När det här alternativet väljs i en utdatauppsättning genererar kopieringsaktiviteten en enskild JSON-fil med ett objekt per rad (radavgränsade).
 
-    * **Exempel på JSON med enskilda objekt**
+    * **enskilt objekt JSON-exempel**
 
         ```json
         {
@@ -117,7 +120,7 @@ Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
         }
         ```
 
-    * **Exempel med radavgränsad JSON**
+    * **exempel med radavgränsad JSON**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -125,7 +128,7 @@ Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Exempel med sammanfogad JSON**
+    * **exempel med sammanfogad JSON**
 
         ```json
         {
@@ -227,8 +230,8 @@ och du vill kopiera den till en Azure SQL-tabell i följande format, genom att e
 
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [mappa kolumner för datauppsättningar för källa till datauppsättningen målkolumner](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Du kan använda för att kopiera data från en matris, `array[x].property` och få värdefull information för en viss egenskap från den `xth` objekt, eller du kan använda `array[*].property` att hitta värdet från alla objekt som innehåller sådan egenskap.
+- `structure` avsnittet definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [mappa kolumner för datauppsättningar för källa till datauppsättningen målkolumner](copy-activity-schema-and-type-mapping.md).
+- `jsonPathDefinition` Anger JSON-sökvägen för varje kolumn och anger var du vill extrahera data från. Du kan använda för att kopiera data från en matris, `array[x].property` och få värdefull information för en viss egenskap från den `xth` objekt, eller du kan använda `array[*].property` att hitta värdet från alla objekt som innehåller sådan egenskap.
 
 ```json
 "properties": {
@@ -302,9 +305,9 @@ som du vill kopiera till en Azure SQL-tabell i följande format genom att fören
 
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [mappa kolumner för datauppsättningar för källa till datauppsättningen målkolumner](copy-activity-schema-and-type-mapping.md).
+- `structure` avsnittet definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [mappa kolumner för datauppsättningar för källa till datauppsättningen målkolumner](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` Anger om du vill iterera och extrahera data från objekten med samma mönster under **matris** `orderlines`.
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet `ordernumber`, `orderdate`, och `city` under rotobjektet med JSON sökväg som börjar med `$.`, medan `order_pd` och `order_price` definieras med sökvägen från matriselementet utan `$.` .
+- `jsonPathDefinition` Anger JSON-sökvägen för varje kolumn och anger var du vill extrahera data från. I det här exemplet `ordernumber`, `orderdate`, och `city` under rotobjektet med JSON sökväg som börjar med `$.`, medan `order_pd` och `order_price` definieras med sökvägen från matriselementet utan `$.` .
 
 ```json
 "properties": {
@@ -342,7 +345,7 @@ Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 }
 ```
 
-**Observera följande:**
+**Observera följande punkter:**
 
 * Om `structure` och `jsonPathDefinition` inte har definierats i Data Factory-datauppsättningen identifierar kopieringsaktiviteten schemat från det första objektet och förenklar hela objektet.
 * Om JSON-indata har en matris konverterar kopieringsaktiviteten som standard hela matrisvärdet till en sträng. Du kan välja att extrahera data från den med hjälp av `jsonNodeReference` och/eller `jsonPathDefinition`, eller hoppa över det genom att inte ange den i `jsonPathDefinition`.
@@ -590,7 +593,7 @@ Se följande artiklar om filbaserat datalager som stöds av Azure Data Factory:
 - [Azure Data Lake Store-koppling](connector-azure-data-lake-store.md)
 - [Amazon S3-koppling](connector-amazon-simple-storage-service.md)
 - [Filsystemets anslutningsapp](connector-file-system.md)
-- [FTP-anslutningsappen](connector-ftp.md)
+- [FTP-anslutningsapp](connector-ftp.md)
 - [SFTP-anslutningsapp](connector-sftp.md)
 - [HDFS-koppling](connector-hdfs.md)
 - [HTTP-anslutningsappen](connector-http.md)

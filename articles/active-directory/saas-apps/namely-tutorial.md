@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e3b66f4cb93f0917a3c29b0f337e29dd6c94448
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844825"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Självstudier: Azure Active Directory-integrering med nämligen
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med nämlig
 
     ![Nämligen domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.namely.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<subdomain>.namely.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.namely.com/saml/metadata`
 
@@ -242,9 +242,9 @@ När du klickar på den panelen nämligen i åtkomstpanelen, du bör vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

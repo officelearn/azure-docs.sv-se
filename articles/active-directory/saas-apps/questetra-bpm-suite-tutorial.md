@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bcc1930bf099955af9716a04aa73fb7b9496aa88
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848960"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudier: Azure Active Directory-integrering med Questetra BPM Suite
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Questet
 
     ![Questetra BPM Suite domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.questetra.net/`
 
@@ -242,9 +242,9 @@ När du klickar på panelen Questetra BPM Suite i åtkomstpanelen, bör det vara
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

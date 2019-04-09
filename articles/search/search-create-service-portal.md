@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885735"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264037"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
@@ -22,7 +22,7 @@ Azure Search är en fristående-resurs som används för att koppla in en sökfu
 
 I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/).
 
-[![Animerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![A[nimerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Om du behöver hjälp att komma igång går du till [Hantera Azure Search med PowerShell](search-manage-powershell.md).
 
@@ -34,7 +34,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-search"></a>Hitta Azure Search
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 3. Använd sökfältet för att hitta ”Azure Search” eller gå till resursen via **Web** > **Azure Search**.
 
@@ -71,7 +71,7 @@ Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är 
 
 Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. [Priserna kan variera](https://azure.microsoft.com/pricing/details/search/) efter geografiskt område.
 
-Om du planerar att använda kognitiv sökning väljer du en [region med funktionstillgänglighet](cognitive-search-quickstart-blob.md#supported-regions).
+Om du indexerar innehåll som finns i en Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), skapa Azure Search-tjänsten i samma region som dina data för att undvika kostnader för bandbredd. Det finns inga avgifter för utgående data när tjänster som är i samma region.
 
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 

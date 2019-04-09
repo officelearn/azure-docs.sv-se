@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/19/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd0bfac873d77e02c16fca78a85706afc18265f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 35a428c2ae706d7838778c7590e5378ab5df40f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241584"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258410"
 ---
 # <a name="what-is-azure-blob-storage"></a>Vad är Azure Blob Storage? 
 
@@ -21,5 +21,5 @@ ms.locfileid: "55241584"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Introduktion till Azure Blob Storage](storage-blobs-introduction.md)
-- [Introduktion till Azure Data Lake Storage Gen2 – förhandsversion](../blobs/data-lake-storage-introduction.md)
+- [Introduktion till Azure Blob storage](storage-blobs-introduction.md)
+- [Introduktion till Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

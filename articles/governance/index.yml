@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341241"
 documentType: LandingData
 title: Azure-hantering – styrning
 metadata:
   title: Azure-hantering – styrning
-  description: Läs mer om de begrepp och Azure-tjänster som är tillgängliga för hantering av din miljö med enhetlighet, genom explicit design och regler, och hur du granskar efterlevnad.
-  services: governance
+  description: 'Läs mer om de begrepp och Azure-tjänster som är tillgängliga för hantering av din miljö med enhetlighet, genom explicit design och regler, och hur du granskar efterlevnad.'
   author: DCtheGeek
   manager: carmonm
   ms.service: governance
@@ -18,58 +11,58 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: Azure-styrning är en samling begrepp och tjänster som är utformade för att möjliggöra hantering av olika Azure-resurser i stor skala. De här tjänsterna gör det möjligt att ordna och strukturera dina prenumerationer på ett logiskt sätt, skapa och distribuera återanvändbara och Azure-interna paket med resurser, definiera, granska och åtgärda dina resurser och mycket mer. Använd den här sidan om du vill veta mer om de här begreppen och tjänsterna och hur du använder dem i din miljö i dag.
+  description: 'Azure-styrning är en samling begrepp och tjänster som är utformade för att möjliggöra hantering av olika Azure-resurser i stor skala. De här tjänsterna gör det möjligt att ordna och strukturera dina prenumerationer på ett logiskt sätt, skapa och distribuera återanvändbara och Azure-interna paket med resurser, definiera, granska och åtgärda dina resurser och mycket mer. Använd den här sidan om du vill veta mer om de här begreppen och tjänsterna och hur du använder dem i din miljö i dag.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 225
       src: ./media/video.png
       width: 250
-    title: Få kontroll över resurser med Azure-styrning (1:47)
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    title: 'Få kontroll över resurser med Azure-styrning (1:47)'
+    href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
     width: 250
 sections:
-- title: Komponenter och tjänster
-- items:
-  - type: list
-    style: cards
-    className: cardsD
-    columns: 2
-    items:
-    - href: ./management-groups/overview
-      html: <p>Läs mer om hur du grupperar och ordnar dina prenumerationer i en logisk hierarki som underlättar distribution av andra styrningstjänster på ett strukturerat sätt.<br /></p>
-      image:
-        alt: Hanteringsgrupper
-        src: ./media/management-groups-illustration.svg
-      title: Hanteringsgrupper
-    - href: ./resource-graph/
-      html: <p>Använd ett kraftfullt kommandoradsverktyg (med stöd för Azure CLI och Azure PowerShell) för att snabbt fråga efter komplex information om dina Azure-resurser. Hitta och tillgängliggör information som tidigare krävde komplexa och iterativa skript för att identifiera de resurserna i stor skala.</p>
-      image:
-        alt: Resursdiagram
-        src: ./media/resource-graph-illustration.svg
-      title: Resursdiagram
-    - href: ./policy/
-      html: <p>Definiera och använd standarder för resurser i din miljö. Förhindra att oönskade resurser skapas, förbättra nya resurser med ytterligare element, och granska och åtgärda resurser som redan finns i miljön.</p>
-      image:
-        alt: Princip
-        src: ./media/policy-illustration.svg
-      title: Princip
-    - href: ./blueprints/
-      html: <p>Skapa ett Azure-internt paket med <i>artefakter</i> (resursgrupper, principer, rolltilldelningar, Resource Manager-mallar och mer) som kan distribueras dynamiskt till prenumerationer för att skapa enhetliga och upprepningsbara miljöer.</p>
-      image:
-        alt: Skisser
-        src: ./media/blueprints-illustration.svg
-      title: Skisser
-- title: Implementeringar
-- items:
-  - type: list
-    style: cards
-    className: cardsZ
-    columns: 3
-    items:
-    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-      html: <p>Tidigare ägde och ansvarade företagen för alla tekniknivåerna, från infrastruktur till programvara. Men molnet gör det möjligt för företagen att använda teknik på ett nytt sätt och etablera och förbruka resurser efter behov.</p>
-      title: Molnimplementering för företag
-    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-      html: <p>Gör det möjligt för administratörer att säkerställa att arbetsbelastningar uppfyller de lägsta styrningskraven för en organisation utan att hindra affärsgrupper och utvecklare från att snabbt uppnå sina egna mål.<br /><br /></p>
-      title: Enterprise-kodskelett
+  - title: Komponenter och tjänster
+  - items:
+      - type: list
+        style: cards
+        className: cardsD
+        columns: 2
+        items:
+          - href: ./management-groups/overview
+            html: <p>Läs mer om hur du grupperar och ordnar dina prenumerationer i en logisk hierarki som underlättar distribution av andra styrningstjänster på ett strukturerat sätt.<br /></p>
+            image:
+              alt: Hanteringsgrupper
+              src: ./media/management-groups-illustration.svg
+            title: Hanteringsgrupper
+          - href: ./resource-graph/
+            html: <p>Använd ett kraftfullt kommandoradsverktyg (med stöd för Azure CLI och Azure PowerShell) för att snabbt fråga efter komplex information om dina Azure-resurser. Hitta och tillgängliggör information som tidigare krävde komplexa och iterativa skript för att identifiera de resurserna i stor skala.</p>
+            image:
+              alt: Resursdiagram
+              src: ./media/resource-graph-illustration.svg
+            title: Resursdiagram
+          - href: ./policy/
+            html: '<p>Definiera och använd standarder för resurser i din miljö. Förhindra att oönskade resurser skapas, förbättra nya resurser med ytterligare element, och granska och åtgärda resurser som redan finns i miljön.</p>'
+            image:
+              alt: Princip
+              src: ./media/policy-illustration.svg
+            title: Princip
+          - href: ./blueprints/
+            html: '<p>Skapa ett Azure-internt paket med <i>artefakter</i> (resursgrupper, principer, rolltilldelningar, Resource Manager-mallar och mer) som kan distribueras dynamiskt till prenumerationer för att skapa enhetliga och upprepningsbara miljöer.</p>'
+            image:
+              alt: Skisser
+              src: ./media/blueprints-illustration.svg
+            title: Skisser
+  - title: Implementeringar
+  - items:
+      - type: list
+        style: cards
+        className: cardsZ
+        columns: 3
+        items:
+          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+            html: '<p>Tidigare ägde och ansvarade företagen för alla tekniknivåerna, från infrastruktur till programvara. Men molnet gör det möjligt för företagen att använda teknik på ett nytt sätt och etablera och förbruka resurser efter behov.</p>'
+            title: Molnimplementering för företag
+          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+            html: <p>Gör det möjligt för administratörer att säkerställa att arbetsbelastningar uppfyller de lägsta styrningskraven för en organisation utan att hindra affärsgrupper och utvecklare från att snabbt uppnå sina egna mål.<br /><br /></p>
+            title: Enterprise-kodskelett

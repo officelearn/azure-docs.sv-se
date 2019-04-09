@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339320"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268434"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-En viktig sak att notera är den transaktionella körningen av utlösare i Azure Cosmos DB. Den här efterutlösaren körs som en del av samma transaktion som används när Azure Cosmos DB-objektet skapas. Det betyder att om ett undantag genereras när efterutlösaren körs, till exempel om det inte går att uppdatera metadataobjektet, så misslyckas och återställs hela transaktionen. Så, Azure Cosmos DB-objektet skapas och ett undantag returneras.
+En viktig sak att notera är den transaktionella körningen av utlösare i Azure Cosmos DB. Efter utlösaren körs som en del av samma transaktion för det underliggande objektet själva. Ett undantag under körningen efter utlösaren misslyckas hela transaktionen. Något allokerat kommer att återställas och ett undantag returneras.
 
 Exempel på hur du registrerar och anropar en förutlösare finns i artiklarna om [förutlösare](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) och [efterutlösare](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
@@ -320,8 +320,8 @@ Lär dig mer om begrepp och hur du skriver och använder lagrade procedurer, utl
 
 * [Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Skriva lagrade procedurer och utlösare med hjälp fråge-API:et för Javascript i Azure Cosmos DB](how-to-write-javascript-query-api.md)
+* [Hur du skriver lagrade procedurer och utlösare med hjälp av Javascript fråge-API i Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Arbeta med lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB](stored-procedures-triggers-udfs.md)
+* [Arbeta med Azure Cosmos DB lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Arbeta med det språkintegrerade fråge-API:et för JavaScript i Azure Cosmos DB](javascript-query-api.md)
+* [Arbeta med JavaScript-språket integrerade fråge-API i Azure Cosmos DB](javascript-query-api.md)

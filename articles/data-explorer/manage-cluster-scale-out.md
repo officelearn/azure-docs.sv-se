@@ -1,18 +1,18 @@
 ---
-title: Skala ut en Azure Data Explorer kluster ändrade behov
+title: Skala ut ett kluster i Azure Data Explorer
 description: Den här artikeln beskriver steg för att skala ut och skala i ett Azure Data Explorer-kluster utifrån ändrade begäran.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044242"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261606"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
 
@@ -22,21 +22,23 @@ En bättre metod är att *skala* ett kluster, att lägga till och ta bort kapaci
 
 Den här artikeln visar hur du hanterar klustret utskalning, även känt som automatisk skalning. Automatisk skalning kan du skala ut instansantalet automatiskt baserat på fördefinierade regler och scheman. Ange inställningarna för automatisk skalning för ditt kluster i Azure-portalen, enligt beskrivningen i den här artikeln.
 
-Gå till ditt kluster. Under **inställningar**väljer **skala ut**. Under **konfigurera**väljer **aktivera autoskalning**.
+## <a name="steps-to-configure-autoscale"></a>Steg för att konfigurera automatisk skalning
 
-![Aktivera autoskalning](media/manage-cluster-scaling/enable-autoscale.png)
+Gå till din Data Explorer-klusterresursen i Azure-portalen. Under den **inställningar** väljer **skala ut**. På den **konfigurera** fliken **aktivera autoskalning**.
 
-Följande bild visar flödet av de kommande stegen. Mer information finns under bilden.
+   ![Aktivera autoskalning](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Skalningsregel](media/manage-cluster-scaling/scale-rule.png)
+Följande bild visar flödet av de kommande stegen. Mer information följer på bilden.
 
-1. I den **namn på Autoskalningsinställning** ange ett namn, till exempel *skalbar: cachelagra användning*.
+1. I den **namn på Autoskalningsinställning** ange ett namn, till exempel *skalbar: cachelagra användning*. 
 
-1. För **Skalningsläge**väljer **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett specifikt instansantal**.
+   ![Skalningsregel](media/manage-cluster-scaling/scale-rule.png)
 
-1. Välj **+ Lägg till en regel**.
+2. För **Skalningsläge**väljer **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett specifikt instansantal**.
 
-1. I den **skalningsregeln** till höger och ange värden för varje inställning.
+3. Välj **+ Lägg till en regel**.
+
+4. I den **skalningsregeln** till höger och ange värden för varje inställning.
 
     **Kriterie**
 
@@ -59,9 +61,9 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
     |  |  |
 
-1. Välj **Lägg till**.
+5. Välj **Lägg till**.
 
-1. I den **Instansgränser** till vänster och ange värden för varje inställning.
+6. I den **Instansgränser** till vänster och ange värden för varje inställning.
 
     | Inställning | Beskrivning och värde |
     | --- | --- |
@@ -70,10 +72,14 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     | **Standard** | Standardantalet instanser. Den här inställningen används om det är problem med att läsa. |
     |  |  |
 
-1. Välj **Spara**.
+7. Välj **Spara**.
 
 Du har nu konfigurerat utskalningen för ditt Azure Data Explorer-kluster. Lägg till en annan regel för att skala in. Den här konfigurationen kan klustret för att skala dynamiskt baserat på mått som du anger.
 
 Du kan också [hantera klusteruppskalningen](manage-cluster-scale-up.md) för lämplig storlek i ett kluster.
 
 Om du behöver hjälp med skalning av klustret problem [öppna en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) i Azure-portalen.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer](using-metrics.md)

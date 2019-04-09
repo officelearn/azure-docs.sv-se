@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838620"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008755"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Framework (Windows)
 
@@ -25,7 +25,7 @@ Använd den här guiden för att skapa ett tal till text-konsolprogram med hjäl
 
 För en snabb demonstration (utan att skapa Visual Studio-projektet på egen hand enligt nedan):
 
-Få senaste [Cognitive Services tal SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från Github.
+Få senaste [Cognitive Services tal SDK-exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från GitHub.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -68,7 +68,7 @@ För att slutföra det här projektet behöver du:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska C# exemplen på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 

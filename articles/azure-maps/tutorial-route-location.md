@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 87ad3b8984907b5f5b889c36c2406f07cbeb242b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540745"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056783"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -109,8 +109,8 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 1. Efter initiering av kartan, lägger du till följande JavaScript-kod.
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -121,8 +121,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
             strokeColor: '#2272B9',
             strokeWidth: 5,
             lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
+            lineCap: 'round'
         }), 'labels');
 
         //Add a layer for rendering point data.
@@ -135,14 +134,14 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
                 textField: ['get', 'title'],
                 offset: [0, 1.2]
             },
-            filter: ['==', '$type', 'Point']
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
     });
     ```
-
-    En inläsningshändelse har lagts till på kartan, som utlöses när kartresurserna har lästs in helt. I händelsehanteraren för kartinläsningen skapas en datakälla för att lagra väglinjen samt start- och slutpunkterna. En linjeskikt skapas och ansluts till datakällan för att definiera hur raden route återges. Raden route återges i en färgton blå med 5 bildpunkter och avrundade rad kopplingar och caps bredden. Ett filter läggs till för att säkerställa att det här lagret endast renderar GeoJSON LineString-data. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt.
-
-2. Den här självstudien anger du startpunkten till Microsoft campus och slutpunkten som en Bensinstation i Seattle. I händelsehanteraren för kartinläsning lägger du till följande kod.
+    
+    I mappningarna `ready` händelsehanterare, skapas en datakälla för att lagra raden route samt start- och punkter. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Väglinjen renderas som med en fin blå nyans och en bredd på 5 bildpunkter samt rundade linjekopplingar och omslutningar. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
+    
+2. För den här självstudien anger du startpunkt som Microsoft, och målpunkt som en bensinstation i Seattle. I mappningarna `ready` händelsehanterare, Lägg till följande kod.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -175,7 +174,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 
 ## <a name="get-directions"></a>Hämta anvisningar
 
-Det här avsnittet visar hur du använder Azure Maps route service API för att hitta rutten från en viss startpunkt till slutpunkten. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Samtliga följande funktioner ska läggas till **i kartinläsningsfunktionen eventListener i kartan**, så att de laddas först när kartan har lästs in helt.
+Det här avsnittet visar hur du använder Azure Maps route service API för att hitta rutten från en viss startpunkt till slutpunkten. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Alla följande funktioner bör läggas **i kartan redo eventListener** så att de läsas in efter mappningsresurser är redo att användas.
 
 1. I funktionen GetMap lägger du till följande Javascript-kod.
 
@@ -223,7 +222,7 @@ Du kan komma åt kodexemplet för den här självstudien här:
 
 > [Hitta vägen med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-[Se detta exempel live här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+[Se det här exemplet att finnas här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Nästa självstudie visar hur du skapar en vägfråga med begränsningar som resläge eller typ av last och visar sedan flera vägar på samma karta.
 

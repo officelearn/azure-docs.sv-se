@@ -1,6 +1,6 @@
 ---
 title: Dirigera Azure trafik till Azure SQL Database och SQL Data Warehouse | Microsoft Docs
-description: Det här dokumentet beskriver den Azure SQL Database och SQL Data Warehouse anslutningsarkitektur från Azure eller från utanför Azure.
+description: Det här dokumentet beskriver Azcure SQL onnectivity arkitekturen för databasanslutningar från Azure eller från utanför Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918611"
+ms.locfileid: "59006773"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
 Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutning arkitekturen samt hur de olika komponenterna fungerar därigenom dirigera trafik till din Azure SQL-instans. Dessa komponenter-funktion för anslutningen att dirigera nätverkstrafik till Azure SQL Database eller SQL Data Warehouse med klienter som ansluter från i Azure och klienter som ansluter från utanför Azure. Den här artikeln innehåller också skriptexempel för att ändra hur anslutning sker, samt den information som rör ändra standardinställningar för anslutningen.
-
-> [!IMPORTANT]
-> **[Förändring] För service-slutpunkt-anslutningar till Azure SQL-servrar, en `Default` anslutning beteendet ändras till `Redirect`.**
-> Kunder bör skapa nya servrar och en uppsättning befintliga kunder med anslutningstypen explicit inställd på omdirigering (bättre) eller Proxy beroende på deras anslutningsarkitektur.
->
-> Om du vill förhindra att anslutningar via en tjänstslutpunkt bryts i befintliga miljöer på grund av den här ändringen, använder vi telemetri gör du följande:
->
-> - För servrar som vi identifierar som kontrollerades via tjänstslutpunkter innan ändringen får vi växlar anslutningstypen till `Proxy`.
-> - För alla andra servrar vi byta anslutning typ växlas till `Redirect`.
->
-> Användare av tjänsten endpoint kan fortfarande påverkas i följande scenarier:
->
-> - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program
-> - Automatisk distribution logic skapar en SQL-databasserver förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
->
-> Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 11999. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
-> [!NOTE]
-> Det här avsnittet gäller för Azure SQL Database-servrar som är värd för enkla databaser och elastiska pooler, SQL Data Warehouse-databaser, Azure Database for MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL. För enkelhetens skull används SQL-databas när du refererar till SQL Database, SQL Data Warehouse, Azure Database för MySQL, Azure Database for MariaDB och Azure Database för PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 

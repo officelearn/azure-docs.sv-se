@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520674"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008500"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal till text?
 
@@ -58,7 +58,7 @@ Vi erbjuder snabbstarterna i mest populära programmeringsspråk, alla har utfor
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Bläddra](https://aka.ms/csspeech/cppref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Bläddra](https://aka.ms/csspeech/javaref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Bläddra](https://aka.ms/csspeech/javaref) |
-| [JavaScript, webbläsare](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tv) |
+| [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tv) |
 | [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tv) |
 | [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Bläddra](https://aka.ms/csspeech/objectivecref) |
 | [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Bläddra](https://aka.ms/AA434tr)  |
@@ -84,7 +84,7 @@ Förutom den universella modellen som används av Speech Services, kan du skapa 
 |-------|-------------|
 | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell är användbar om ditt program, verktyg eller enheter används i en viss miljö, som i en bil eller en fabrik med specifika inspelning villkor. Exempel innefattar tal med brytning, vissa bakgrundsljud eller användning av en särskild mikrofon för inspelning. |
 | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språkmodell för att förbättra transkription av branschspecifika ordförråd och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-| [Uttalsmodell](how-to-customize-pronunciation.md) | Du kan definiera fonetiska, formulär och visning av ett ord eller en term med en anpassad uttal-modell. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
+| [Uttal av modellen](how-to-customize-pronunciation.md) | Du kan definiera fonetiska, formulär och visning av ett ord eller en term med en anpassad uttal-modell. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
 
 > [!NOTE]
 > Anpassningsalternativ varierar beroende på språk och nationella (se [språk som stöds](supported-languages.md)).
@@ -102,8 +102,8 @@ Om ditt program, verktyg eller produkter använder API: er för Bing-tal eller a
 ## <a name="reference-docs"></a>Referensdokument
 
 * [Speech SDK](speech-sdk-reference.md)
-* [Tal enheter SDK](speech-devices-sdk.md)
-* [REST-API: Speech-to-text](rest-speech-to-text.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST-API: Tal till text](rest-speech-to-text.md)
 * [REST-API: Text till tal](rest-text-to-speech.md)
 * [REST-API: Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
 

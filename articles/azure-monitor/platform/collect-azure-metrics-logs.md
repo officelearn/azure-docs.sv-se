@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540186"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006260"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Samla in Azure-tjänstloggar och mått i Log Analytics-arbetsyta i Azure Monitor
 
@@ -32,7 +32,7 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 
 | Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
 | --- | --- | --- | --- | --- |
-| Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application insights    |                                         | Koppling   | Koppling   | [Application Insights-anslutningsprogram](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsversion) |
 | Automation-konton     | Microsoft.Automation/AutomationAccounts | Diagnostik |             | [Mer information](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch-konton          | Microsoft.Batch/batchAccounts           | Diagnostik | Diagnostik | |
@@ -42,20 +42,20 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostik |             | |
 | Namnområde för händelsehubb     | Microsoft.EventHub/namespaces           | Diagnostik | Diagnostik | |
 | IoT-hubbar                | Microsoft.Devices/IotHubs               |             | Diagnostik | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostik |             | [KeyVault-analys](../../azure-monitor/insights/azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostik |             | [KeyVault Analytics](../insights/azure-key-vault.md) |
 | Lastbalanserare          | Microsoft.Network/loadBalancers         | Diagnostik |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostik | Diagnostik | |
-| Nätverkssäkerhetsgrupper | Microsoft.Network/networksecuritygroups | Diagnostik |             | [Azure Network Security Group Analytics](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Nätverkssäkerhetsgrupper | Microsoft.Network/networksecuritygroups | Diagnostik |             | [Azure Network Security Group Analytics](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
 | Recovery-valv         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services-analys (förhandsversion)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Söktjänster         | Microsoft.Search/searchServices         | Diagnostik | Diagnostik | |
 | Service Bus-namnområde   | Microsoft.ServiceBus/namespaces         | Diagnostik | Diagnostik | [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric-analys (förhandsversion)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL-analys (förhandsversion)](../../azure-monitor/insights/azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostik | [Azure SQL Analytics (förhandsversion)](../insights/azure-sql.md) |
 | Storage                 |                                         |             | Skript      | [Azure Storage-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtuella datorer        | Microsoft.Compute/virtualMachines       | Anknytning   | Anknytning <br> Diagnostik  | |
 | Skalningsuppsättningar för virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
 | Server webbgrupper        | Microsoft.Web/serverfarms               |             | Diagnostik | |
-| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps-analys (förhandsversion)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps Analytics (förhandsversion)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

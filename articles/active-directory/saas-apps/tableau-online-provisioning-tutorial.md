@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077827"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057497"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Tableau Online för automatisk användaretablering
 
@@ -45,27 +46,21 @@ Innan du konfigurerar Tableau Online för automatisk användaretablering med Azu
 
 **Om du vill lägga till Tableau Online från Azure AD-programgalleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Företagsprogram avsnittet][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till Tableau Online, klicka på den **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Tableau Online**.
+4. I sökrutan skriver **Tableau Online**väljer **Tableau Online** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/AppSearch.png)
-
-5. I resultatpanelen väljer **Tableau Online**, och klicka sedan på den **Lägg till** vill lägga till Tableau Online i din lista över SaaS-program.
-
-    ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/AppSearchResults.png)
-
-    ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/AppCreation.png)
+    ![Tableau Online i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Tilldela användare till Tableau Online
 
@@ -90,11 +85,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Konfigurera automatisk användaretablering för Tableau Online i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Tableau Online**.
 
-2. Välj Tableau Online från din lista över SaaS-program.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/AppInstanceSearch.png)
+2. I listan med program väljer **Tableau Online**.
+
+    ![Länken Tableau Online i listan med program](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
 
@@ -116,13 +113,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 6. När du loggar in till ditt administratörskonto för Online Tableau värdena för **domän** och **Innehållswebbadress** kan extraheras från URL: en för sidan.
 
-    *   Den **domän** för Tableau Online konto kan kopieras från den här delen av URL: en: ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    * Den **domän** för Tableau Online konto kan kopieras från den här delen av URL: en:
 
-    *   Den **Innehållswebbadress** för Tableau Online konto kan kopieras från det här avsnittet och har ett värde som definierats under installation av kontot. Värdet är ”contoso” i det här exemplet: ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+        ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+
+    * Den **Innehållswebbadress** för Tableau Online konto kan kopieras från det här avsnittet och har ett värde som definierats under installation av kontot. Värdet är ”contoso” i det här exemplet:
+
+        ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
-        > Din **domän** kan skilja sig från den som visas här. 
-
+        > Din **domän** kan skilja sig från den som visas här.
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Tableau Online. Om anslutningen misslyckas se till att ditt Tableau Online-konto har administratörsbehörighet och försök igen.
 
@@ -132,35 +132,35 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-10. Klicka på **Spara**.
+9. Klicka på **Spara**.
 
-11. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Tableau**.
+10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Tableau**.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-12. Granska användarattribut som ska synkroniseras från Azure AD med Tableau Online i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Tableau Online för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska användarattribut som ska synkroniseras från Azure AD med Tableau Online i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Tableau Online för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper som Tableau**.
+12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper som Tableau**.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-14. Granska Gruppattribut som synkroniseras från Azure AD till Tableau Online i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Tableau Online för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+13. Granska Gruppattribut som synkroniseras från Azure AD till Tableau Online i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Tableau Online för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-16. Om du vill aktivera den Azure AD-etableringstjänsten för Tableau Online, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+15. Om du vill aktivera den Azure AD-etableringstjänsten för Tableau Online, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-17. Ange användare och/eller grupper som du vill att etablera till Tableau Online genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+16. Ange användare och/eller grupper som du vill att etablera till Tableau Online genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-18. När du är redo att etablera, klickar du på **spara**.
+17. När du är redo att etablera, klickar du på **spara**.
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -172,7 +172,6 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

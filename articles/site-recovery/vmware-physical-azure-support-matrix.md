@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649466"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006925"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -23,14 +23,14 @@ Om du vill börja använda Azure Site Recovery med det enklaste distributionssce
 
 ## <a name="replication-scenario"></a>Replikeringsscenario
 
-**Scenario** | **Detaljer**
+**Scenario** | **Information**
 --- | ---
 VMwares virtuella datorer | Replikering av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure portal eller med hjälp av [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Fysiska servrar | Replikering av lokala Windows-/ Linux fysiska servrar till Azure. Du kan distribuera det här scenariot i Azure-portalen.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringsservrar
 
-**Server** | **Krav** | **Detaljer**
+**Server** | **Krav** | **Information**
 --- | --- | ---
 VMware | vCenter Server 6.7 6.5, 6.0 eller 5.5 eller vSphere 6.7, 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard process server-komponenter som körs på konfigurationsservern, så blir det nätverket där du ställer in konfigurationsservern, om inte du ställa in en dedikerad processerver.
 Fysiska | Gäller inte
@@ -60,7 +60,7 @@ Portar | 443 används för kontrolkanalsorchestration)<br/>9443 som används fö
 
 Site Recovery har stöd för replikering av alla arbetsbelastningar som körs på en dator som stöds.
 
-**Komponent** | **Detaljer**
+**Komponent** | **Information**
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Datorns arbetsbelastning | Site Recovery har stöd för replikering av alla arbetsbelastningar (exempelvis Active Directory, SQLServer osv.) som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
@@ -72,7 +72,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 6.10<b
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel versions
 
 
-**Versionen som stöds** | **Azure Site Recovery Mobility Service version** | **Kernelversion** |
+**Versionen som stöds** | **Azure Site Recovery Mobility Service version** | **Kernel-version** |
 --- | --- | --- |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic till 3.13.0-165-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-142-generic,<br/>4.15.0-1023-Azure till 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-Generic till 3.13.0-164-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-140-generic,<br/>4.15.0-1023-Azure till 4.15.0-1036-azure |
@@ -87,7 +87,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 6.10<b
 ### <a name="debian-kernel-versions"></a>Debian kernel-versioner
 
 
-**Versionen som stöds** | **Azure Site Recovery Mobility Service version** | **Kernelversion** |
+**Versionen som stöds** | **Azure Site Recovery Mobility Service version** | **Kernel-version** |
 --- | --- | --- |
 Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -96,7 +96,7 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 kernel-versioner som stöds
 
-**Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
+**Frisläpp** | **Mobilitetstjänstversionen** | **Kernel-version** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.23][9.23 UR] | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.79-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
@@ -108,7 +108,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11
 **Komponent** | **Stöds**
 --- | ---
 Filsystem | ext3, ext4, XFS
-Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 stöds. <br/> 2. LVM stöds för data-diskar. <br/> 3. Azure virtuella datorer har bara en enda OS-disk.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare, LVM och LVM2 stöds.
+Volymhanterare | Innan du [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM stöds. <br/> 2. / Boot på LVM-volym stöds inte. <br/> 3. Flera operativsystemdiskar stöds inte.<br/><br/>Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) och senare kan/Boot på LVM stöds. Flera operativsystemdiskar stöds inte.
 Paravirtualiserade lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kö blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenhet HP CCISS | Stöds ej.
@@ -120,7 +120,7 @@ Kostnadsfri kraven på diskutrymme | 2 GB på/Root-partition <br/><br/> 250 MB p
 
 ## <a name="vmdisk-management"></a>VM/Diskhantering
 
-**Åtgärd** | **Detaljer**
+**Åtgärd** | **Information**
 --- | ---
 Ändra storlek på disk på den replikerade virtuella datorn | Stöds.
 Lägg till disk på den replikerade virtuella datorn | Inaktivera replikering för den virtuella datorn, lägga till disken och sedan återaktivera replikering. Lägger till en disk på en replikerande virtuella datorn stöds inte för närvarande.
@@ -187,6 +187,7 @@ Gäst/server multipath (MPIO) | Nej
 >
 > - Stöds endast migrering till Azure. Växla tillbaka till den lokala VMware-platsen stöds inte.
 > - Servern bör inte ha fler än fyra partitioner på operativsystemdisken.
+> - Endast NTFS stöds
 > - Kräver Mobilitetstjänsten version 9.13 eller senare.
 
 ## <a name="azure-storage"></a>Azure-lagring
@@ -218,7 +219,7 @@ Hanterade diskar | Ja
 
 Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven för virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery körs en kravkontroll misslyckas om vissa av kraven inte uppfylls.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Gästoperativsystem | Kontrollera [operativsystem som stöds](#replicated-machines) för replikerade datorer. | Det går inte att kontrollera om stöds inte.
 Gästen operativsystemets arkitektur | 64-bitars. | Det går inte att kontrollera om stöds inte.
@@ -236,7 +237,7 @@ VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror 
 
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat rekommenderar vi starkt att [kör verktyget Distributionshanteraren](site-recovery-deployment-planner.md) och köra omfattande programtester med redundanstest med att få en bild av verklig prestanda för programmet.
 
-**Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
+**Replication storage target** | **Genomsnittlig källdisken i/o-storlek** |**Genomsnittlig källa dataomsättningen för disken** | **Total source disk dataomsättning per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
@@ -245,7 +246,7 @@ Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 
-**Källans dataomsättning** | **Övre gräns**
+**Dataomsättning för källa** | **Övre gräns**
 ---|---
 Genomsnittlig dataomsättning per virtuell dator| 25 MB/s
 Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734308"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005932"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prisändringar för Azure Network Performance Monitor
 
 Vi har lyssnat på er feedback och nyligen introducerade en [ny prisnivå upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) för olika övervakningstjänster i Azure. Den här artikeln fångar prisändringar som rör Azure [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) i ett enkelt att läsa frågor och svar-format.
 
 Övervakare av nätverksprestanda består av tre komponenter:
-* [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
+* [Prestandaövervakning](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
 * [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [ExpressRoute-övervakning](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 I följande avsnitt beskrivs prisändringar för NPM-komponenter.
 
@@ -38,7 +38,7 @@ I följande avsnitt beskrivs prisändringar för NPM-komponenter.
 
 Faktureringen för NPM baserades på användning och förbrukning av två komponenter:
 * **Noder**: Alla syntetiska transaktioner har sitt ursprung och avsluta på noderna. Noder är kallas även agenter eller Microsoft Hanteringsagenter.
-* **Data**: Resultatet av olika nätverkstester lagras i Azure Log Analytics-databasen.
+* **Data**: Resultatet av olika nätverkstester lagras i Log Analytics-arbetsytan.
 
 Under den gamla modellen beräknades fakturan utifrån antalet noder och mängden data som genereras. 
 
@@ -63,7 +63,7 @@ Kostnaden för övervakning av en enda undernät länk under hela månaden, finn
 
 **Vad är kostnaderna för data som övervakaren av nätverksprestanda genererar?**
 
-Kostar datainmatning (ladda upp data till Log Analytics, bearbetning och indexering) är tillgänglig på den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet datainmatning. Avgift för datakvarhållning (d.v.s. data som kvarhålls enligt kundens val, utöver den första månaden) är även tillgängligt i den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/), i avsnittet Datakvarhållning.
+Kostar datainmatning (ladda upp data till Log Analytics-arbetsyta i Azure Monitor kan bearbeta och indexering) är tillgänglig på den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet datainmatning. Avgift för datakvarhållning (d.v.s. data som kvarhålls enligt kundens val, utöver den första månaden) är även tillgängligt i den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/), i avsnittet Datakvarhållning.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-övervakning

@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430224"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006614"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för MySQL
 
@@ -107,6 +107,8 @@ Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 ## <a name="limitations"></a>Begränsningar
 
 För Azure Database for MySQL har funktionen för regler för virtuellt nätverk följande begränsningar:
+
+- En Webbapp kan mappas till en privat IP-adress i ett virtuellt nätverk/undernät. Även om tjänstslutpunkter är aktiverade från de angivna VNet/undernät, har anslutningar från Webbappen till servern en Azure offentlig IP-källa, inte en virtuellt nätverk/undernät källa. Om du vill aktivera anslutningen från en Webbapp till en server med VNet-brandväggsreglerna, måste du tillåta Azure-tjänster för att komma åt servern på servern.
 
 - Refererar till ett undernät i brandväggen för din Azure Database for MySQL varje regel för virtuella nätverk. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för Azure Database för MySQL.
 

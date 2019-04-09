@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b156917a9987b023a9bf94e51c0cc14aebb133c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738393"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006213"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning Dataomvandling Flow sökning
 
@@ -25,3 +25,21 @@ Använda sökning för att lägga till referensdata från en annan källa till d
 Välj de fält som du vill matcha i mellan de inkommande dataströmmen och fälten från käll-referens. Du måste först ha skapat en ny källa på dataflöde design arbetsytan ska användas som till höger för sökningen.
 
 När matchningar påträffas läggs de resulterande rader och kolumner från käll-referens till ditt dataflöde. Du kan välja vilka fält av intresse som du vill inkludera i dina mottagare i slutet av ditt dataflöde.
+
+## <a name="optimizations"></a>Optimeringar
+
+I Data Factory kör Data flödar i utskalade Spark miljöer. Om din datauppsättning passar in i minnesutrymme för worker-nod, optimera vi prestanda för din sökning.
+
+![Broadcast-koppling](media/data-flow/broadcast.png "Broadcast-koppling")
+
+### <a name="broadcast-join"></a>Broadcast-koppling
+
+Välj till vänster och/eller höger broadcast-koppling för att begära ADF om du vill skicka hela datamängden från endera sidan av uppslagsrelation i minnet.
+
+### <a name="data-partitioning"></a>Datapartitionering
+
+Du kan också ange partitionering av dina data genom att välja ”Ange Datapartitionering” på fliken Optimize Lookup omvandlingen att skapa uppsättningar av data som kan passa bättre minne per worker.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Ansluta till](data-flow-join.md) och [Exists](data-flow-exists.md) transformationer utföra liknande aktiviteter i ADF mappning Data flödar. Ta en titt på dessa transformationer nästa.

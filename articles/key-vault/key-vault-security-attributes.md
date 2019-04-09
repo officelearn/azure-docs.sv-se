@@ -7,29 +7,20 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1df710b256715cab9650e6d141a3dd187be41cfd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 32aa111c45835883cd779fc40946b89139af6ea5
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109530"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004694"
 ---
 # <a name="security-attributes-for-azure-key-vault"></a>Security attribut för Azure Key Vault
 
-Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln tar upp security-attribut som är inbyggda i Azure Key Vault. Attributet security är en kvalitet eller funktion i Azure-tjänst som bidrar till i tjänstens förmåga att förhindra, identifiera och besvara säkerhetsproblem.
+Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Key Vault. 
 
-Security attribut kategoriseras som:
-* Förebyggande
-* Nätverkssegmentering
-* Detection (Identifiering)
-* Support för identitets- och åtkomsthantering
-* Granskningslogg
-* Åtkomstkontroller (om det används)
-* Konfigurationshantering (om det används)
-
-I varje kategori, vi identifiera om ett attribut som används eller inte (Ja/Nej). För vissa tjänster kanske inte gäller ett attribut och de visas som ej tillämpligt. En kommentar eller en länk till mer information om ett attribut kan också anges.
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-[!INCLUDE [security-attributes-key-vault](../../includes/security-attributes-key-vault.md)]
+[!INCLUDE [Security Attributes for Key Vault](../../includes/security-attributes-key-vault.md)]

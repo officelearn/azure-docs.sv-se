@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522009"
 documentType: LandingData
-title: Dokumentation om Video Indexer
+title: Dokumentation om Azure Media Services Video Indexer
 metadata:
-  document_id: 
-  title: Dokumentation om Video Indexer | Microsoft Docs
+  document_id: null
+  title: Dokumentation om Azure Media Services Video Indexer | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
@@ -21,38 +15,38 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer.<br/>Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">jämförelsedokumentet</a>.
+  description: 'Azure Media Services Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som API:et för ansiktsigenkänning, Microsoft Translator, API:et för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer.<br/>Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">jämförelsedokumentet</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: video-indexer-overview.md
+            html: <p>Video Indexer innehåller AI-mediateknik som underlättar extrahering av insikter från videor.</p>
+            image:
+              src: media/index/AMSIcons-media_servicesV3.svg
+            title: Vad är Azure Media Services Video Indexer?
+  - title: Snabbstarter på 5 minuter
     items:
-    - href: video-indexer-overview.md
-      html: <p>Video Indexer innehåller AI-mediateknik som underlättar extrahering av insikter från videor.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV3.svg
-      title: Vad är Video Indexer?
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Logga in på Video Indexer-webbplatsen och ladda upp din första video:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Logga in på Video Indexer-webbplatsen och ladda upp din första video:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Indexera information
+            href: /azure/media-services/video-indexer/video-indexer-get-started
+  - title: Steg för steg-självstudier
     items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Indexera information
-      href: /azure/media-services/video-indexer/video-indexer-get-started
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig att indexera information i dina videor med Video Indexer-API:et:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Indexera information
-      href: /azure/media-services/video-indexer/video-indexer-use-apis
+      - type: paragraph
+        text: 'Lär dig att indexera information i dina videor med Video Indexer-API:et:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: Indexera information
+            href: /azure/media-services/video-indexer/video-indexer-use-apis

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3a32f9fb2755fc164c33a6759d0130ac7ddad5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445764"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009590"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med hjälp av REST API-anrop
 
@@ -88,14 +88,14 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -160,7 +160,7 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
     }  
    ```  
 
-### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet på en befintlig skalningsuppsättning för virtuella datorer
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet på en befintlig VM-skalningsuppsättning
 
 Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skalningsuppsättning, måste du hämta en åtkomsttoken och sedan använder vi CURL för att anropa Resource Manager REST-slutpunkt för att uppdatera identitetstypen.
 
@@ -183,14 +183,14 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -206,7 +206,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
 
    API-versionen `2018-06-01` lagrar användartilldelade hanterade identiteter i den `userAssignedIdentities` värde i formatet ordlista inte den `identityIds` värde i en matrisformat som används i API-versionen `2017-12-01`.
    
-   **API-VERSIONEN 2018-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -216,14 +216,14 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |
  
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -240,7 +240,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
     }
    ```
    
-   **API-VERSION 2017-12-01**
+   **API VERSION 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -250,14 +250,14 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -294,14 +294,14 @@ Om du vill inaktivera en systemtilldelade identiteter på en befintlig VM-skalni
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -341,7 +341,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
 5. Skapa en VM-skalningsuppsättning med CURL för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en VM-skalningsuppsättning med namnet *myVMSS* i resursgruppen *myResourceGroup* med en Användartilldelad hanterad identitet `ID1`, vilket identifieras i begärandetexten med värdet `"identity":{"type":"UserAssigned"}`. Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du har begärt en ägar-token för åtkomst och `<SUBSCRIPTION ID>` värde som passar din miljö.
  
-   **API-VERSIONEN 2018-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -351,14 +351,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -428,7 +428,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     }
    ```   
 
-   **API-VERSION 2017-12-01**
+   **API VERSION 2017-12-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -438,14 +438,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |
  
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -533,7 +533,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
@@ -544,7 +544,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    I följande exempel tilldelar en Användartilldelad hanterad identitet, `ID1` till en VM-skalningsuppsättning med namnet *myVMSS* i resursgruppen *myResourceGroup*.  Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du har begärt en ägar-token för åtkomst och `<SUBSCRIPTION ID>` värde som passar din miljö.
 
-   **API-VERSIONEN 2018-06-01**
+   **API VERSION 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -554,14 +554,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -576,7 +576,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     }
    ``` 
     
-   **API-VERSION 2017-12-01**
+   **API VERSION 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -586,14 +586,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -608,7 +608,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
 5. Om du har en befintlig Användartilldelad eller systemtilldelade hanterade identiteten som tilldelats din VM-skalningsuppsättning:
    
-   **API-VERSIONEN 2018-06-01**
+   **API VERSION 2018-06-01**
 
    Lägg till hanterad Användartilldelad identitet till den `userAssignedIdentities` ordlista värde.
 
@@ -622,14 +622,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -647,7 +647,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     }
    ```
 
-   **API-VERSION 2017-12-01**
+   **API VERSION 2017-12-01**
 
    Behåll de användartilldelade hanterade identiteter som du vill behålla i den `identityIds` matrisen värdet när du lägger till nya användartilldelade hanterad identitet.
 
@@ -661,14 +661,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-    **Begärandehuvuden**
+    **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -700,7 +700,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
@@ -710,7 +710,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     
    Exempel: Om du har användartilldelade hanterade identiteter `ID1` och `ID2` tilldelas till din skalningsuppsättning för virtuell dator och du vill behålla `ID1` tilldelas och behålla systemtilldelade hanterad identitet:
 
-   **API-VERSIONEN 2018-06-01**
+   **API VERSION 2018-06-01**
 
    Lägg till `null` tilldelas den användaren-hanterad identitet som du vill ta bort:
 
@@ -722,14 +722,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -742,7 +742,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     }
    ```
 
-   **API-VERSION 2017-12-01**
+   **API VERSION 2017-12-01**
 
    Behåll endast de Användartilldelad hanterade identity(s) som du vill behålla i den `identityIds` matris:
 
@@ -754,14 +754,14 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Begärandehuvuden**
+   **Begärandehuvud**
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Content-Type*     | Krävs. Ange `application/json`.        |
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-   **Brödtext i begäran**
+   **Begärandetext**
 
    ```JSON
     {
@@ -784,14 +784,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Begärandehuvuden**
+**Begärandehuvud**
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Content-Type*     | Krävs. Ange `application/json`.        |
 |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-**Brödtext i begäran**
+**Begärandetext**
 
 ```JSON
 {
@@ -811,14 +811,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Begärandehuvuden**
+**Begärandehuvud**
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Content-Type*     | Krävs. Ange `application/json`.        |
 |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-**Brödtext i begäran**
+**Begärandetext**
 
 ```JSON
 {

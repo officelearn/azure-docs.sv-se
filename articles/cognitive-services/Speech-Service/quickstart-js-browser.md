@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841182"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008994"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig hur du skapar en webbplats med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
-Programmet baseras på Microsoft Cognitive Services Speech SDK ([ladda ned version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+Programmet baseras på tal-SDK för JavaScript ([Download version 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En prenumerationsnyckel för taltjänsten. Se [testa Speech Services kostnadsfritt](get-started.md).
 * En PC eller Mac, med fungerande mikrofon.
 * En textredigerare.
-* En aktuell version av Chrome eller Microsoft Edge.
+* En aktuell version av Chrome, Microsoft Edge eller Safari.
 * Alternativt en webbläsare som stöder värd för PHP-skript.
 
 ## <a name="create-a-new-website-folder"></a>Skapa en ny webbplatsmapp
@@ -52,7 +52,7 @@ Skapa en ny fil i mappen, med namnet `index.html` och öppna filen med en textre
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -98,6 +98,10 @@ På så sätt lämnar prenumerationen aldrig servern och tillåter att användar
 ## <a name="build-and-run-the-sample-locally"></a>Skapa och köra exemplet lokalt
 
 Starta appen genom att dubbelklicka på index.html-filen eller öppna index.html med valfri webbläsare. Ett enkelt grafiskt användargränssnitt visas där du kan ange din prenumerationsnyckel och [region](regions.md) och utlösa en igenkänning med mikrofonen.
+
+> [!NOTE]
+> Den här metoden fungerar inte på Safari-webbläsaren.
+> På Safari måste sidan exemplet finnas på en webbserver. Safari kan inte webbplatser som lästs in från en lokal fil att använda mikrofonen.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Skapa och köra exemplet via en webbserver
 

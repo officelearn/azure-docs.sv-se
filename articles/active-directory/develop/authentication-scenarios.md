@@ -1,6 +1,6 @@
 ---
-title: Autentisering i Azure Active Directory
-description: Lär dig mer om autentisering i Azure Active Directory (Azure AD), appmodellen, API, etablering och de vanligaste autentiseringsscenarierna som Azure AD stöder.
+title: Autentisering i Microsoft identity-plattformen | Azure
+description: Lär dig mer om autentisering i Microsoft identity-plattformen, appen modellera, API, etablering, och har stöd för de vanligaste scenarierna för autentisering som Microsoft identity-plattformen.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295716"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057106"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -31,24 +31,24 @@ ms.locfileid: "58295716"
 
 *Auktorisering* innebär att bevilja ett autentiserat säkerhetsobjekt behörighet att göra något. Det anger vilka du data du får åtkomst till och vad du kan gör med dem. Auktorisering förkortas ibland AuthZ.
 
-Azure Active Directory (Azure AD) förenklar autentisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för branschstandardprotokoll som OAuth 2.0 och OpenID Connect samt för bibliotek med öppen källkod för olika plattformar för att du ska kunna börja koda snabbt.
+Microsoft identity-plattformen förenklar autentisering för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för branschstandardprotokoll som OAuth 2.0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar till hjälper dig att börja koda snabbt.
 
-Det vinns två huvudsakliga typer i Azure AD-programmeringsmodellen:
+Det finns två huvudsakliga typer i Microsoft identity-plattformen programmeringsmodell:
 
 * Under ett beviljande flöde för OAuth 2.0-auktorisering – när resursägaren beviljar behörighet för klientprogrammet och tillåter klienten åtkomst till resursägarens resurser.
 * Under resursåtkomst av klienten – enligt implementering av resursservern, med anspråksvärden som finns i åtkomsttoken för att fatta beslut om åtkomstkontroll utifrån dem.
 
-## <a name="authentication-basics-in-azure-active-directory"></a>Grundläggande om autentisering i Azure Active Directory
+## <a name="authentication-basics-in-microsoft-identity-platform"></a>Grunder i Microsoft identity-plattformen
 
 Föreställ dig det enklaste scenariot där det krävs identitet: en användare i en webbläsare behöver autentiseras för ett webbprogram. Följande diagram visar det här scenariot:
 
-![Översikt över inloggning till webbprogram](./media/authentication-scenarios/basics_of_auth_in_aad.png)
+![Översikt över inloggning till webbprogram](./media/authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
 Det här behöver du känna till om olika komponenter som visas i diagrammet:
 
-* Azure AD är identitetsprovidern. Identitetsprovidern ansvarar för att verifiera identiteten för användare och program som finns i en organisations katalog och utfärdar säkerhetstoken vid utförd autentisering av de användarna och programmen.
-* Ett program som vill flytta över autentiseringen till Azure AD måste registreras i Azure AD. Azure AD registrerar och identifierar unikt appen i katalogen.
-* Utvecklare kan använda Azure AD-autentiseringsbiblioteken med öppen källkod för att göra autentiseringen enkel genom att hantera protokollinformationen åt dig. Mer information finns i Azure AD [v2.0-autentiseringsbibliotek](reference-v2-libraries.md) och [v1.0-autentiseringsbibliotek](active-directory-authentication-libraries.md).
+* Microsoft identity-plattformen är identitetsprovidern. Identitetsprovidern ansvarar för att verifiera identiteten för användare och program som finns i en organisations katalog och utfärdar säkerhetstoken vid utförd autentisering av de användarna och programmen.
+* Ett program som vill flytta över autentisering till Microsoft identity-plattformen måste registreras i Azure Active Directory (AD Azure). Azure AD registrerar och identifierar unikt appen i katalogen.
+* Utvecklare kan använda autentiseringsbibliotek för öppen källkod Microsoft identity-plattformen för att göra autentisering enkelt genom att hantera protocol-information för dig. Mer information finns i Microsofts identitetsplattform [v2.0 autentiseringsbibliotek](reference-v2-libraries.md) och [v1.0 autentiseringsbibliotek](active-directory-authentication-libraries.md).
 * När en användare har autentiserats måste programmet validera användarens säkerhetstoken för att säkerställa att autentiseringen har utförts. Du hittar snabbstarter, självstudier och kodexempel på flera olika språk och ramverk som visar vad programmet måste göra.
   * Om du snabbt vill bygga en app och lägga till funktioner som att hämta tokens, uppdatera tokens, logga in en användare, visa användarinformation med mera läser du avsnittet **Snabbstarter** i dokumentationen.
   * Om du vill ha djupgående, scenariobaserade procedurer för vanliga uppgifter för auktoriseringsutveckling som att hämta åtkomsttoken och använda dem i anrop till Microsoft Graph API och andra API:er, implementera inloggning med Microsoft med en traditionell webbläsarbaserad app som använder OpenID Connect, med mera, läser du avsnittet **Självstudier** i dokumentationen.
@@ -60,28 +60,28 @@ I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
 * Appar som behöver säker åtkomst till resurser
 * Appar som har rollen av själva resursen
 
-Nu när du har en översikt över grunderna kan du läsa vidare för att förstå identitetens appmodell och API, hur etablering fungerar i Azure AD och länkar till detaljerad information om vanliga scenarier som Azure AD stöder.
+Nu när du har en översikt över grunderna, Läs vidare för att förstå app identitetsmodellen och API: et stöder hur etablering fungerar i Microsoft identity-plattformen och länkar till detaljerad information om vanliga scenarier som Microsoft identity-plattformen.
 
 ## <a name="application-model"></a>Programmodell
 
-Azure AD representerar program enligt en specifik modell som har utformats för att uppfylla två huvudfunktioner:
+Microsoft identity-plattformen representerar program efter en viss modell som har utformats för att uppfylla två huvudfunktioner:
 
-* **Identifiera appen enligt de autentiseringsprotokoll den stöder** – Detta innebär uppräkning av alla identifierare, URL:er, hemligheter och relaterad information som behövs vid identifieringen. Här gör Azure AD följande:
+* **Identifiera appen enligt de autentiseringsprotokoll den stöder** – Detta innebär uppräkning av alla identifierare, URL:er, hemligheter och relaterad information som behövs vid identifieringen. Här kan Microsoft identity-plattformen:
 
     * Innehåller alla data som krävs för att stödja autentisering vid körning.
     * Innehåller alla data för att besluta vilka resurser en app kan behöva för åtkomst och om en viss begäran ska uppfyllas och under vilka omständigheter.
     * Tillhandahåller infrastrukturen för implementering av appetableringen i apputvecklarens klientorganisation och i andra Azure AD-klientorganisationer.
 
-* **Hantera användarmedgivande vid tokenbegäran och underlätta dynamisk etablering av appar över klientorganisationer** – här gör Azure AD följande:
+* **Hantera användargodkännande under tokenbegäran tid och underlättar dynamisk etablering av appar över klienter** – här kan Microsoft identity-plattformen:
 
     * Möjliggör för användare och administratörer att dynamiskt bevilja eller neka medgivande för appen att få åtkomst till resurser för deras räkning.
     * Möjliggör för administratörer att i slutänden bestämma vilka appar som tillåts göra vad och vilka användare som kan använda specifika appar samt hur åtkomsten till katalogresurserna går till.
 
-I Azure AD beskriver ett **programobjekt** ett program som en abstrakt entitet. Utvecklare kan arbeta med program. I utvecklingsarbetet använder Azure AD ett angivet programobjekt som en skiss för att skapa ett **huvudnamn för tjänsten**, som representerar en konkret instans av ett program i en katalog eller klientorganisation. Det är tjänstens huvudnamn som definierar vad appen faktiskt kan göra i en specifik målkatalog, vilka som kan använda den, vilka resurser den har åtkomst till och så vidare. Azure AD skapar ett huvudnamn för tjänsten utifrån ett programobjekt genom **medgivande**.
+I Microsoft identity-plattformen, en **programobjektet** beskriver ett program som en abstrakt entitet. Utvecklare kan arbeta med program. Vid tidpunkten för distribution, Microsofts identitetsplattform använder ett visst program-objekt som en skiss för att skapa en **tjänstens huvudnamn**, som representerar en konkret instans av ett program i en katalog eller klient. Det är tjänstens huvudnamn som definierar vad appen faktiskt kan göra i en specifik målkatalog, vilka som kan använda den, vilka resurser den har åtkomst till och så vidare. Microsoft identity-plattformen skapar ett huvudnamn för tjänsten från ett programobjekt via **godkänna**.
 
-I följande diagram visas ett förenklat etableringsflöde för Azure AD som drivs av medgivande.  I den finns två klienter (A och B), där klient A äger programmet och klient B instansiera programmet via ett huvudnamn för tjänsten.  
+Följande diagram visar en förenklad Microsoft identity-plattformen etablering flöde som drivs av medgivande.  I den finns två klienter (A och B), där klient A äger programmet och klient B instansiera programmet via ett huvudnamn för tjänsten.  
 
-![Förenklat etableringsflöde som drivs av medgivande](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
+![Förenklat etableringsflöde som drivs av medgivande](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 I det här etableringsflödet sker följande:
 
@@ -90,15 +90,15 @@ I det här etableringsflödet sker följande:
 | 1 | En användare från klient B försöker logga in med appen |
 | 2 | Autentiseringsuppgifterna hämtas och verifieras |
 | 3 | Användaren uppmanas att godkänna att appen får åtkomst till klientorganisation B |
-| 4 | Azure AD använder programobjektet i en som underlag för att skapa ett huvudnamn för tjänsten i klient B |
+| 4 | Microsofts identitetsplattform använder programobjektet i A som underlag för att skapa ett tjänstens huvudnamn i klient B |
 | 5 | Användaren får begärd token |
 |   |   |
 
-Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Klient A behåller skissen för appen (programobjektet). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [Program- och tjänsthuvudobjekt i Azure AD](app-objects-and-service-principals.md).
+Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Klient A behåller skissen för appen (programobjektet). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [program och tjänstobjekt i Microsoft identity-plattformen](app-objects-and-service-principals.md).
 
-## <a name="claims-in-azure-ad-security-tokens"></a>Anspråk i säkerhetstoken för Azure AD
+## <a name="claims-in-microsoft-identity-platform-security-tokens"></a>Anspråk i säkerhetstoken för Microsoft identity-plattformen
 
-Säkerhetstoken (åtkomst- och ID-token) som utfärdas av Azure AD innehåller anspråk, eller försäkringar för information om subjektet som har autentiserats. Program kan använda anspråk för olika uppgifter, till exempel:
+Säkerhetstoken (åtkomst och ID-token) utfärdats av Microsoft identity-plattformen innehåller anspråk eller intyg för information om ämnet som har autentiserats. Program kan använda anspråk för olika uppgifter, till exempel:
 
 * Validera token
 * Identifiera subjektets katalogklientorganisation
@@ -107,7 +107,7 @@ Säkerhetstoken (åtkomst- och ID-token) som utfärdas av Azure AD innehåller a
 
 Anspråk som finns i alla angivna säkerhetstoken beror på typen av token, på typen av autentiseringsuppgift som används för att autentisera användaren och på programkonfigurationen.
 
-En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i tabellen nedan. Mer detaljerad information finns i [åtkomsttoken](access-tokens.md) och [ID-token](id-tokens.md) som utfärdas av Azure AD.
+En kort beskrivning av varje typ av anspråk som orsakats av Microsoft identity-plattformen finns i tabellen nedan. Mer information finns i den [åtkomsttoken](access-tokens.md) och [ID-token](id-tokens.md) utfärdats av Microsoft identity-plattformen.
 
 | Begäran | Beskrivning |
 | --- | --- |
@@ -134,4 +134,4 @@ En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om de [programtyper och scenarier i Azure Active Directory](app-types.md)
+* Lär dig mer om den [programtyper och scenarier som stöds i Microsoft identity-plattformen](app-types.md)

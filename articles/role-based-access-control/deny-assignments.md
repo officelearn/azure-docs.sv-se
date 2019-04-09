@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992098"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006724"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
 
@@ -59,9 +59,9 @@ Den här artikeln beskrivs hur neka tilldelningar har definierats.
 Till stöd för neka tilldelningar, den **systemdefinierade huvudnamn** har introducerats. Den här huvudnamn representerar alla användare, grupper, tjänstens huvudnamn och hanterade identiteter i Azure AD-katalog. Om ägar-ID är ett noll GUID `00000000-0000-0000-0000-000000000000` och huvudnamn är en `SystemDefined`, huvudkontot som representerar alla säkerhetsobjekt. `SystemDefined` kan kombineras med `ExcludePrincipals` att neka alla huvudkonton utom vissa användare. `SystemDefined` har följande begränsningar:
 
 - Kan användas endast i `Principals` och kan inte användas i `ExcludePrincipals`.
-- `Principals[i].Type` måste anges till `SystemDefined`.
+- `Principals[i].Type` Måste anges till `SystemDefined`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lista neka tilldelningar för Azure-resurser med hjälp av REST-API](deny-assignments-rest.md)
+* [Visa neka tilldelningar för Azure-resurser med Azure portal](deny-assignments-portal.md)
 * [Förstå rolldefinitioner för Azure-resurser](role-definitions.md)

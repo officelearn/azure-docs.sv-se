@@ -4,140 +4,144 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 84fc4f36-ecd1-42c6-8a70-cb0f3dc15655
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/25/2018
+ms.topic: tutorial
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 86f176ce43e4d7162c664115a6fd3ce9369fe79a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165135"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Självstudier: Azure Active Directory-integrering med sätt som vi gör
 
 I den här självstudien får du lära dig hur du integrerar sätt vi göra med Azure Active Directory (AD Azure).
-
 Integrera sätt vi göra med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till sätt som vi gör.
-- Du kan aktivera användarna att automatiskt få loggat in på sätt som vi gör (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till sätt som vi gör.
+* Du kan aktivera användarna att logga in automatiskt sätt vi göra (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med sätt vi göra, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- Ett sätt som vi enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Sätt som vi enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till sätt vi göra från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Hur vi gör stöder **SP** -initierad SSO
+
+* Hur vi gör stöder **Just In Time** etableringen av användare
 
 ## <a name="adding-way-we-do-from-the-gallery"></a>Att lägga till sätt vi göra från galleriet
+
 För att konfigurera integrering av sätt vi göra i Azure AD, som du behöver lägga till sätt vi göra från galleriet i din lista över hanterade SaaS-appar.
 
 **Lägg till sätt vi göra från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **sätt vi göra**väljer **sätt vi göra** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Sätt som vi gör i resultatlistan](./media/waywedo-tutorial/tutorial_waywedo_addfromgallery.png)
+    ![Sätt som vi gör i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med sätt som vi gör baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i sätt som vi gör är att en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i sätt vi göra upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med sätt som vi gör baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i sätt vi göra upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med sätt vi göra, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare sätt vi göra](#create-a-way-we-do-test-user)**  – du har en motsvarighet för Britta Simon på sätt som vi gör som är länkad till en Azure AD-representation av användaren.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Konfigurera sättet som vi enkel inloggning](#configure-way-we-do-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa sätt som vi testanvändare](#create-way-we-do-test-user)**  – du har en motsvarighet för Britta Simon på sätt som vi gör som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt sätt vi göra program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med sätt vi göra:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med sätt vi göra:
 
-1. I Azure-portalen på den **sätt vi göra** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **sätt vi göra** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/waywedo-tutorial/tutorial_waywedo_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **sätt vi göra domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Sätt vi göra domän och URL: er med enkel inloggning för information](./media/waywedo-tutorial/tutorial_waywedo_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SUBDOMAIN>.waywedo.com`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com) att hämta dessa värden. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
+    ![Sätt vi göra domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    ![Länk för nedladdning av certifikatet](./media/waywedo-tutorial/tutorial_waywedo_certificate.png) 
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
-5. Klicka på **spara** knappen.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.waywedo.com`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/waywedo-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. På den **sätt vi göra Configuration** klickar du på **konfigurera sätt vi göra** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Sätt att göra konfiguration](./media/waywedo-tutorial/tutorial_waywedo_configure.png) 
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-7. I ett annat webbläsarfönster, logga in på sätt som vi gör som en administratör.
+6. På den **ställa in hur vi gör** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-8. Klicka på den **person ikonen** i det övre högra hörnet på en sida i sätt som vi gör, och klicka på **konto** i den nedrullningsbara menyn.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-way-we-do-single-sign-on"></a>Konfigurera sättet som vi enkel inloggning
+
+1. I ett annat webbläsarfönster, loggar du in hur vi gör som en administratör.
+
+2. Klicka på den **person ikonen** i det övre högra hörnet på en sida i sätt som vi gör, och klicka på **konto** i den nedrullningsbara menyn.
 
     ![Hur vi gör konto](./media/waywedo-tutorial/tutorial_waywedo_account.png) 
 
-9. Klicka på den **menyikonen** att öppna den push navigeringsmenyn och klicka på **Single Sign On**.
+3. Klicka på den **menyikonen** att öppna den push navigeringsmenyn och klicka på **Single Sign On**.
 
     ![Sätt som vi gör enda](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
-10. På den **installationsprogrammet för enkel inloggning** utför följande steg:
+4. På den **installationsprogrammet för enkel inloggning** utför följande steg:
 
     ![Sätt som vi gör spara](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
@@ -145,9 +149,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **namn för enkel inloggning** textrutan, ange ditt namn.
 
-    c. I den **entitets-ID** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    c. I den **entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
 
-    d. I den **URL för SAML SSO** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    d. I textrutan **SAML SSO URL** (URL för enkel inloggning med SAML) klistrar du in det värde för **Inloggnings-URL** som du har kopierat från Azure-portalen.
 
     e. Ladda upp certifikatet genom att klicka på den **Välj** bredvid knappen **certifikat**.
 
@@ -162,100 +166,74 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     g. Klicka på **spara** att spara dina inställningar.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/waywedo-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/waywedo-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/waywedo-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/waywedo-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-way-we-do-test-user"></a>Skapa ett sätt som vi gör testanvändare
-
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i sätt som vi gör. Hur vi gör stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt sätt vi göra om den inte finns.
-
-> [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till sätt som vi gör.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **sätt vi göra**.
 
-**Utför följande steg om du vill tilldela Britta Simon sätt vi göra:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **sätt vi göra**.
 
-    ![Länken sätt som vi gör i listan med program](./media/waywedo-tutorial/tutorial_waywedo_app.png)  
+    ![Länken sätt som vi gör i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-way-we-do-test-user"></a>Skapa sätt vi göra testanvändare
+
+I det här avsnittet skapas en användare som kallas Britta Simon i sätt som vi gör. Hur vi gör stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns på sätt som vi gör, skapas en ny efter autentisering.
+
+> [!Note]
+> Om du vill skapa en användare manuellt kan du kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com).
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen sätt som vi gör i åtkomstpanelen du bör få automatiskt loggat in på ditt sätt vi göra program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen sätt som vi gör i åtkomstpanelen, bör det vara loggas in automatiskt till de sätt vi gör som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/waywedo-tutorial/tutorial_general_01.png
-[2]: ./media/waywedo-tutorial/tutorial_general_02.png
-[3]: ./media/waywedo-tutorial/tutorial_general_03.png
-[4]: ./media/waywedo-tutorial/tutorial_general_04.png
-
-[100]: ./media/waywedo-tutorial/tutorial_general_100.png
-
-[200]: ./media/waywedo-tutorial/tutorial_general_200.png
-[201]: ./media/waywedo-tutorial/tutorial_general_201.png
-[202]: ./media/waywedo-tutorial/tutorial_general_202.png
-[203]: ./media/waywedo-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

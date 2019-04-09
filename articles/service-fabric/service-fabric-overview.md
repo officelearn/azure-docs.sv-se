@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666400"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009011"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
@@ -29,7 +29,7 @@ Denna korta video presenterar Service Fabric och mikrotjänster:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Efterlevnad
-Azure Service Fabric-Resursprovider är tillgänglig i alla Azure-regioner och är kompatibel med alla efterlevnad certifikat som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPPA och GDRP. Läs följande för en fullständig lista över efterlevnad certifikat: [Efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric-Resursprovider är tillgänglig i alla Azure-regioner och är kompatibel med alla efterlevnad certifikat som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPAA och GDRP. Läs följande för en fullständig lista över efterlevnad certifikat: [Efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Program som består av mikrotjänster 
 Med Service Fabric kan du skapa och hantera skalbara och tillförlitliga program som består av mikrotjänster och som körs med hög densitet på en delad pool med datorer, som kallas ett kluster. Det ger en avancerad och lättviktig körning för att skapa distribuerade, skalbara, tillståndslösa och tillståndskänsliga mikrotjänster som körs i containrar. Det ger även omfattande funktioner för programhantering för att etablera, distribuera, övervaka, uppgradera/korrigera och ta bort distribuerade program, inklusive tjänster i containrar.

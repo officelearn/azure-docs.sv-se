@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d7aff33f89a8e1948c5715345ec40af91b0ce9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048511"
+ms.locfileid: "59056945"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en systemtilldelad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via en SAS-autentiseringsuppgift
 
@@ -29,7 +29,7 @@ ms.locfileid: "59048511"
 Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator och hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
-> SAS-nyckeln som genererades i den här självstudiekursen kommer inte vara begränsade/bundna till den virtuella datorn. Om exc
+> SAS-nyckeln som genererades i den här självstudiekursen kommer inte vara begränsade/bundna till den virtuella datorn.  
 
 En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagringskonto under en begränsad tid och för en särskild tjänst (i vårt fall blob-tjänsten) utan att göra kontots åtkomstnyckel tillgänglig. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien visar vi hur man laddar upp och ned en blob med hjälp av Azure Storage CLI. Du lär dig hur du:
 

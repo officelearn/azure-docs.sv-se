@@ -12,20 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 11bbd87eb283dca2c7da19e32833221c7320a79f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f18a1b05e5a38a79945d8df6706dd2147d6b43df
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817804"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009724"
 ---
-# <a name="power-bi-app-offer"></a>Erbjudandet för Power BI-appen
+# <a name="power-bi-app-offer"></a>Erbjudande för Power BI-appen
 
 |              |                                |
-|-|--------------------------------|
-| Den här artikeln förklarar hur du publicerar en Power BI-appen för Microsoft [AppSource-marknadsplatsen](https://appsource.microsoft.com/). En Power BI-appen paket Power BI-innehåll och använder dataflöden för att ansluta rapporter och instrumentpaneler till data i vanliga datalagring. Du kan sedan distribuera appen till andra klienter via AppSource. | ![Power BI icon](./media/powerbi-icon.png) |
+|--------------|--------------------------------|
+| Den här artikeln förklarar hur du publicerar en Power BI-App till Microsofts [AppSource-marknadsplatsen](https://appsource.microsoft.com/).  En Power BI-app-paket anpassningsbara Power BI-innehåll, inklusive datauppsättningar, rapporter och instrumentpaneler. Du kan distribuera appen till andra Power BI-klienter via AppSource, utföra justeringar och anpassningar som tillåts av utvecklaren och ansluter den till dina egna data. | ![Power BI icon](./media/powerbi-icon.png) |
 
 
 Den här artikeln är uppdelad i tre delar:
@@ -43,17 +43,16 @@ Här är de övergripande stegen för att publicera ett erbjudande med Power BI-
 
 Här är Power BI-appen erbjudandet publiceringsprocessen:
 
-1. Skapa ett tjänstprogram i Power BI. Den här åtgärden genererar en paketet installationen URL, som representerar de tekniska resurserna för erbjudandet. Mer information finns i [vad är Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
-2. Samla in eller skapa företagstillgångar, inklusive:
-    - Marknadsföringsmaterial.
-    - Juridiska och stöd för dokument.
-3.  Skapa erbjudandet. Använd partnerportalen i molnet för att konfigurera information om erbjudandet, inklusive erbjudande-beskrivning, marknadsföringsmaterial, juridisk information, supportinformation och tillgångsspecifikationer.
-4.  Certifiera och publicera erbjudandet. Detta startar publiceringsprocessen.
-    - Onboarding-teamet AppSource testar, validerar och certifierar att ditt program. 
-    - När erbjudandet har certifierats kan granska i dess testmiljö och frigör den.
+1. Skapa en App i Power BI. Den här åtgärden genererar en paketet installationen URL, som representerar den primära tekniska tillgången till erbjudandet. Främja också testpaket till Förproduktion just nu. Mer information finns i [vad är Power BI-mall appar?](https://docs.microsoft.com/power-bi/service-template-apps-overview). 
+2. Samla in eller skapa erbjudandets marknadsföringsmaterial, inklusive: officiellt namn, beskrivning, logotyper, osv. 
+3. Samla in eller skapa erbjudandets juridiska krav och stöder dokument: *användningsvillkoren*, *sekretesspolicy*, *Supportpolicy*, Användarhjälp och så vidare.
+4. Skapa erbjudandet: använda Cloud Partner Portal för att konfigurera information om erbjudandet, inklusive erbjudande-beskrivning, marknadsföringsmaterial, juridisk information, supportinformation och tillgångsspecifikationer.  När erbjudandet anges helt, skicka in för publicering.
+5. Övervaka publiceringsprocessen i partnerportalen i molnet.  Det här steget AppSource onboarding-teamet testar, validerar och certifierar att ditt program. 
+6. När appen har certifierats, granska i dess testmiljö och frigör den. 
+7. Power BI-appen visas på AppSource (det ”går live”).
+8. Flytta upp paketet Förproduktion till produktion i Power BI. Mer information finns i [hantera app mallversion](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
-När du har slutfört de här stegen kan lanseras erbjudandet Power BI-appen på AppSource.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du skapar erbjudandet Power BI-appen och publicera den på AppSource, måste du uppfylla de [krav](./cpp-prerequisites.md) för att publicera en Power BI-app på AppSource.
+Innan du skapar erbjudandet Power BI-appen och publicera den på AppSource, måste du uppfylla de [krav](./cpp-prerequisites.md) för att publicera en Power BI-App på AppSource.

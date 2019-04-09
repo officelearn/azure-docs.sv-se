@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 385a1153-0f47-4e41-8f44-da1b49d7629e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: afb80f54c2354f65054d8d53b93add6ed5ffa63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ed158ae825ec8aac24a57eb0f5a986b2124b66fb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099958"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057803"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler tre för automatisk användaretablering
 
@@ -27,46 +28,41 @@ Målet med den här självstudien är att demonstrera stegen som utförs i tre Z
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
 
-*   En Azure AD-klient
-*   En Zscaler tre klient
-*   Ett användarkonto i tre Zscaler med administratörsbehörighet
+* En Azure AD-klient
+* En Zscaler tre klient
+* Ett användarkonto i tre Zscaler med administratörsbehörighet
 
 > [!NOTE]
 > Azure AD-etablering-integrering förlitar sig på Zscaler tre SCIM API, som är tillgängliga för Zscaler tre utvecklare för konton med Enterprise-paketet.
 
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Att lägga till tre Zscaler från galleriet
+
 Innan du konfigurerar Zscaler tre för automatisk användarförsörjning med Azure AD, som du behöver lägga till tre Zscaler från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
 **Om du vill lägga till tre Zscaler från Azure AD-programgalleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Företagsprogram avsnittet][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till tre Zscaler, klicka på den **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Zscaler tre**.
+4. I sökrutan skriver **Zscaler tre**väljer **Zscaler tre** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/app-search.png)
-
-5. I resultatpanelen väljer **Zscaler tre**, och klicka sedan på den **Lägg till** för att lägga till tre Zscaler i listan med SaaS-program.
-
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/app-search-results.png)
-
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/app-creation.png)
+    ![Zscaler tre i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-three"></a>Tilldela användare till tre Zscaler
 
@@ -74,13 +70,13 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Zscaler tre. När du valt, kan du tilldela dessa användare och/eller grupper till Zscaler tre genom att följa instruktionerna här:
 
-*   [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Viktiga tips för att tilldela användare till tre Zscaler
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats Zscaler tre att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats Zscaler tre att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till tre Zscaler, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till tre Zscaler, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-three"></a>Konfigurera automatisk användaretablering till tre Zscaler
 
@@ -91,11 +87,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-three-in-azure-ad"></a>Konfigurera automatisk användaretablering för Zscaler tre i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Zscaler tre**.
 
-2. Välj Zscaler tre från din lista över SaaS-program.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/app-instance-search.png)
+2. I listan med program väljer **Zscaler tre**.
+
+    ![Zscaler tre länken i listan med program](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
 
@@ -111,16 +109,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
-    Klicka på **konfigurera SAML** att öppna **Configuration SAML** alternativ. 
+    Klicka på **konfigurera SAML** att öppna **Configuration SAML** alternativ.
 
     ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
-    
+
     Välj **Enable SCIM-Based etablering** att hämta **bas-URL** och **ägar-Token**, spara inställningarna. Kopiera den **bas-URL** till **klient-URL** och **ägar-Token** till **hemlighet Token** i Azure-portalen.
 
 7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Zscaler tre. Om anslutningen misslyckas, kontrollera din Zscaler tre kontot har administratörsbehörighet och försök igen.
 
     ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/test-connection.png)
-    
+
 8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan **skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/notification.png)

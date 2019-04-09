@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793666"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056685"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -67,6 +67,23 @@ När du konfigurerar före och efter skript, du kan skicka parametrar precis som
 Om du behöver en annan objekttyp kan skicka du den till en annan typ med egen logik i runbooken.
 
 Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här parametern är **SoftwareUpdateConfigurationRunContext**. Den här parametern är en JSON-sträng, och om du definierar parametern i skriptet före eller efter det skickas automatiskt av uppdateringsdistributionen. Parametern innehåller information om distributionen av uppdateringen, vilket är en delmängd av information som returneras av den [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) i följande tabell visar de egenskaper som anges i variabeln:
+
+## <a name="stopping-a-deployment"></a>Stoppa en distribution
+
+Om du vill stoppa en distribution baserad på ett Pre-skript som du måste [throw](automation-runbook-execution.md#throw) ett undantag. Om du inte utlöser ett undantag, körs distribution och inlägg skriptet fortfarande. Den [exempel-runbooken](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) i galleriet visar hur du kan göra detta. Följande är ett kodfragment från samma runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>Avbryt patch-distribution
+
+Om pre skriptet returnerar ett fel, kan du vill avbryta din distribution. Om du vill göra detta måste du [throw](/powershell/module/microsoft.powershell.core/about/about_throw) ett fel i ditt skript för någon logik som skulle kunna utgöra ett fel.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>Kända problem
 
 * Du kan inte skicka objekt eller matriser till parametrar när du använder skript före och efter. Runbook misslyckas.
@@ -240,5 +268,5 @@ if ($summary.Type -eq "Error")
 Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
+> [Hantera uppdateringar och korrigeringar för dina virtuella Windows-datorer i Azure](automation-tutorial-update-management.md)
 

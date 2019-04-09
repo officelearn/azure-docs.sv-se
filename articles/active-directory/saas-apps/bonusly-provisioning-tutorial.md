@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173716"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056970"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Bonusly för automatisk användaretablering
 
@@ -33,39 +34,34 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
 
-*   En Azure AD-klient
-*   En [Bonusly klient](https://bonus.ly/pricing)
-*   Ett användarkonto i Bonusly med administratörsbehörighet
+* En Azure AD-klient
+* En [Bonusly klient](https://bonus.ly/pricing)
+* Ett användarkonto i Bonusly med administratörsbehörighet
 
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Bonusly Rest API](https://bonusly.gelato.io/reference), som är tillgängliga för Bonusly utvecklare.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Att lägga till Bonusly från galleriet
+
 Du måste lägga till Bonusly från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Bonusly för automatisk användaretablering med Azure AD.
 
 **Utför följande steg för att lägga till Bonusly från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen klickar du på den **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Företagsprogram avsnittet][2]
-    
-3. Lägg till Bonusly, klicka på den **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-4. I sökrutan skriver **Bonusly**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Bonusly etablering](./media/bonusly-provisioning-tutorial/AppSearch.png)
+4. I sökrutan skriver **Bonusly**väljer **Bonusly** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-5. I resultatpanelen väljer **Bonusly**, och klicka sedan på den **Lägg till** vill lägga till Bonusly i din lista över SaaS-program.
-
-    ![Bonusly etablering](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
-
-    ![Bonusly etablering](./media/bonusly-provisioning-tutorial/AppCreation.png)
+    ![Bonusly i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bonusly"></a>Tilldela användare till Bonusly
 
@@ -73,13 +69,13 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Bonusly. När du valt, kan du tilldela dessa användare och/eller grupper till Bonusly genom att följa instruktionerna här:
 
-*   [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Viktiga tips för att tilldela användare till Bonusly
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats Bonusly att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats Bonusly att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till Bonusly, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till Bonusly, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Konfigurera automatisk användaretablering för Bonusly
 
@@ -90,14 +86,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Konfigurera automatisk användaretablering för Bonusly i Azure AD:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory > företagsprogram > alla program**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Bonusly**.
 
-2. Välj Bonusly från din lista över SaaS-program.
- 
-    ![Bonusly etablering](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **Bonusly**.
+
+    ![Bonusly länken i listan med program](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
-    
+
     ![Bonusly etablering](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
 4. Ange den **Etableringsläge** till **automatisk**.
@@ -105,6 +103,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
     ![Bonusly etablering](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **hemlighet Token** för din Bonusly kontot enligt beskrivningen i steg 6.
+
+    ![Bonusly etablering](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
 6. Den **hemlighet Token** för din Bonusly kontot finns i **Admin > företag > integreringar**. I den **om du vill kod** klickar du på **API > Skapa åtkomsttoken för nya API: et** att skapa en ny hemlighet-Token.
 
@@ -123,7 +123,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 8. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Bonusly. Om anslutningen misslyckas, kontrollera din Bonusly kontot har administratörsbehörighet och försök igen.
 
     ![Bonusly etablering](./media/bonusly-provisioning-tutorial/TestConnection.png)
-    
+
 9. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan **skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![Bonusly etablering](./media/bonusly-provisioning-tutorial/EmailNotification.png)
@@ -152,7 +152,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Bonusly etablering](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Bonusly.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
@@ -161,7 +160,6 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 * [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

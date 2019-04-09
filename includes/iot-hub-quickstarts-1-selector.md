@@ -10,7 +10,7 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 5511519b9f79f5301169b0d2f7a61735801d6dbe
 ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52427684"

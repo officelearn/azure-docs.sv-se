@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498816"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009826"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exempel: Lägg till förslag eller Komplettera automatiskt i ditt Azure Search-program
 
-I det här exemplet lär du dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) att skapa en kraftfull kryssruta som har stöd för sökning-som-du-type-beteenden.
+I den här artikeln lär du dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) att skapa en kraftfull kryssruta som har stöd för sökning-som-du-type-beteenden.
 
-+ *Förslag* är en lista över föreslagna resultaten som genereras när du skriver, där varje förslag är ett enskilt resultat från indexet som matchar vad du har skrivit hittills. 
++ *Förslag* är föreslagna resultaten som genereras när du skriver, där varje förslag är ett enskilt resultat från indexet som matchar vad du har skrivit hittills. 
 
-+ *Automatisk komplettering*, [en förhandsgranskningsfunktion](search-api-preview.md), ”är klar” ord eller fraser som en användare är för närvarande för att skriva. Precis som med förslag, förutsätter slutförda ord eller fraser en matchning i indexet. 
++ *Automatisk komplettering*, [en förhandsgranskningsfunktion](search-api-preview.md), ”är klar” ord eller fraser som en användare är för närvarande för att skriva. Den är klar en fråga som du kan sedan köra för att returnera resultat istället för att returnera resultat. Precis som med förslag, förutsätter en slutförd ord eller fraser i en fråga på en matchning i indexet. Tjänsten kommer inte erbjuder frågor som returnerar resultat i indexet.
 
 Du kan ladda ned och kör exempelkoden i **DotNetHowToAutocomplete** att utvärdera dessa funktioner. Exempelkoden riktar sig mot ett fördefinierade index som fyllts med [NYCJobs demonstrera data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). NYCJobs indexet innehåller en [förslagsställare konstruktion](index-add-suggesters.md), vilket är ett krav för att använda förslag eller Komplettera automatiskt. Du kan använda förberedda indexet finns i en sandbox-tjänst eller [fylla i din egen index](#configure-app) med hjälp av en inläsaren av inventeringsdata i exempellösningen NYCJobs. 
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-Koden ovan körs i webbläsaren på sidhämtning konfigurera jQuery UI automatisk komplettering för textrutan ”example1a”.  `minLength: 3` ser till att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
+Koden ovan körs i webbläsaren på sidhämtning konfigurera jQuery UI automatisk komplettering för textrutan ”example1a”.  `minLength: 3` säkerställer att rekommendationer kommer endast att visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#version
+## <a name="c-example"></a>C#-exempel
 
 Nu när vi har granskat JavaScript-koden för webbsidan, ska vi titta på den C# serversidan kontrollantkoden som faktiskt hämtar de föreslagna matchningar med hjälp av Azure Search .NET SDK.
 
@@ -229,9 +229,11 @@ Funktionen för automatisk komplettering tar termen sökinmatning. Metoden skapa
 
 Andra exempel på sidan följer samma mönster för att lägga till markering av träffar och aspekter att stödja klientcachelagring resultatets automatisk komplettering. Granska varje exempel så att du förstår hur de fungerar och hur du kan använda dem i din sökfunktion.
 
-## <a name="javascript-version-with-rest"></a>JavaScript-version med REST
+## <a name="javascript-example"></a>JavaScript-exempel
 
-JavaScript-implementeringen öppna **IndexJavaScript.cshtml**. Observera att jQuery UI automatisk komplettering funktionen används också för sökrutan insamling av termen sökinmatningar och asynkrona anrop till Azure Search hämta föreslås matchningar eller slutförts villkor. 
+En Javascript-implementering av automatisk komplettering och förslag anropar REST-API som använder en URI som källa för att ange index och åtgärden. 
+
+Om du vill granska JavaScript-implementeringen, öppna **IndexJavaScript.cshtml**. Observera att jQuery UI automatisk komplettering funktionen används också för sökrutan insamling av termen sökinmatningar och asynkrona anrop till Azure Search hämta föreslås matchningar eller slutförts villkor. 
 
 Låt oss titta på JavaScript-koden i det första exemplet:
 

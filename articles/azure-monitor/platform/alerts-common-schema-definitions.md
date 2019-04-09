@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 1a55fa4f39f2ebc2cdcc421eb6d7fecc62277f90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851933"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010404"
 ---
-# <a name="common-alert-schema-definitions"></a>Vanliga avisering schemadefinitioner
+# <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
 Den här artikeln beskriver den [vanliga avisering schemadefinitioner](https://aka.ms/commonAlertSchemaDocs) för Webhooks/Logic Apps/Azure Functions. 
 
@@ -152,6 +152,9 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 ```
 
 ### <a name="log-alerts"></a>Loggaviseringar
+
+> [!NOTE]
+> Om du använder det anpassade JSON-alternativet för din befintliga loggvarningar bevaras inte anpassning i det gemensamma schemat.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 

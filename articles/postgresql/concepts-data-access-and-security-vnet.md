@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417490"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006332"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för PostgreSQL
 
@@ -106,6 +106,8 @@ Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 ## <a name="limitations"></a>Begränsningar
 
 För Azure Database for PostgreSQL har funktionen för regler för virtuellt nätverk följande begränsningar:
+
+- En Webbapp kan mappas till en privat IP-adress i ett virtuellt nätverk/undernät. Även om tjänstslutpunkter är aktiverade från de angivna VNet/undernät, har anslutningar från Webbappen till servern en Azure offentlig IP-källa, inte en virtuellt nätverk/undernät källa. Om du vill aktivera anslutningen från en Webbapp till en server med VNet-brandväggsreglerna, måste du tillåta Azure-tjänster för att komma åt servern på servern.
 
 - Refererar till ett undernät i brandväggen för din Azure Database for PostgreSQL varje regel för virtuella nätverk. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för Azure Database för PostgreSQL.
 

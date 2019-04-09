@@ -6,26 +6,26 @@ documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 9df4c7c5-9a58-478e-93b7-2f77aae12807
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe36969661ae1b729601681c02f79e777b2f8cab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: c8fecc5232b26c98c4027174454cf29b81b0ee41
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345004"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058126"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Självstudier: Konfigurera MerchLogix för automatisk användaretablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i MerchLogix och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till MerchLogix. 
+Målet med den här självstudien är att ange vilka åtgärder som ska utföras i MerchLogix och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till MerchLogix.
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -34,11 +34,12 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-*   En Azure AD-klient
-*   En MerchLogix-klient
-*   En teknisk kontakt MerchLogix som kan ge SCIM slutpunkts-URL och Hemlig token krävs för etableringen av användare
+* En Azure AD-klient
+* En MerchLogix-klient
+* En teknisk kontakt MerchLogix som kan ge SCIM slutpunkts-URL och Hemlig token krävs för etableringen av användare
 
 ## <a name="adding-merchlogix-from-the-gallery"></a>Att lägga till MerchLogix från galleriet
+
 Du måste lägga till MerchLogix från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar MerchLogix för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till MerchLogix från Azure AD-programgalleriet:**
@@ -50,7 +51,7 @@ Du måste lägga till MerchLogix från Azure AD-programgalleriet i listan över 
 2. Gå till **företagsprogram** > **alla program**.
 
     ![Företagsprogram avsnittet][2]
-    
+
 3. Lägg till MerchLogix, klicka på den **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -67,13 +68,13 @@ Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för
 
 Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till MerchLogix. När du valt, kan du tilldela dessa användare och/eller grupper till MerchLogix genom att följa instruktionerna här:
 
-*   [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-merchlogix"></a>Viktiga tips för att tilldela användare till MerchLogix
 
-*    Vi rekommenderar att en enda Azure AD-användare har tilldelats MerchLogix att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
+* Vi rekommenderar att en enda Azure AD-användare har tilldelats MerchLogix att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
 
-*   När du tilldelar en användare till MerchLogix, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till MerchLogix, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
 ## <a name="configuring-automatic-user-provisioning-to-merchlogix"></a>Konfigurera automatisk användaretablering för MerchLogix 
 
@@ -96,13 +97,12 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet:
 
-    *   I den **klient-URL** anger SCIM-slutpunkts-URL som tillhandahålls av din MerchLogix tekniska kontakt.
+    * I den **klient-URL** anger SCIM-slutpunkts-URL som tillhandahålls av din MerchLogix tekniska kontakt.
 
-    *   I den **hemlighet Token** anger hemlig token som tillhandahålls av din MerchLogix tekniska kontakt.
+    * I den **hemlighet Token** anger hemlig token som tillhandahålls av din MerchLogix tekniska kontakt.
 
 6. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till MerchLogix. Om anslutningen misslyckas, kontrollera MerchLogix-kontot har administratörsbehörighet och försök igen.
 
-    
 7. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
 
 8. Klicka på **Spara**.
@@ -118,7 +118,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 13. Om du vill aktivera den Azure AD-etableringstjänsten för MerchLogix, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
 
 14. När du är redo att etablera, klickar du på **spara**.
-
 
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på MerchLogix.
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734497"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006135"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Azure Data Factory mappning dataflödet finns omvandling
 
@@ -25,3 +25,10 @@ Exists-transformeringen är en rad som filtrering omvandling som hindrar eller t
 Välj andra källan för dina Exists så att dataflöde kan jämföra värden från Stream 1 mot Stream 2.
 
 Välj kolumnen från källa 1 och från källan 2 vars värden du vill kontrollera mot Exists eller finns inte.
+
+## <a name="multiple-exists-conditions"></a>Flera finns villkor
+
+Bredvid varje rad i din kolumn villkor för Exsits hittar du en + inloggning som är tillgängliga när du hovrar över nå raden. Detta kan du lägga till flera rader för Exists-villkor.
+
+## <a name="next-steps"></a>Nästa steg
+

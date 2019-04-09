@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905247"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006359"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge-systemkrav
 
@@ -101,6 +101,37 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 ## <a name="internet-bandwidth"></a>Internetbandbredd
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Beräkna storlek överväganden
+
+Använd din upplevelse när du utvecklar och testar din lösning för att se till att det finns tillräckligt med kapacitet på din Data Box Edge-enhet och du får optimala prestanda från din enhet.
+
+Faktorer som du bör överväga är:
+
+- **Behållaren ärendets** -tänka på följande.
+
+    - Hur många behållare finns i din arbetsbelastning? Du kan ha mycket förenklade behållare jämfört med några resursintensiva format.
+    - Vilka är de resurser som allokerats till de här behållarna jämfört med vilka är de resurser de förbrukar?
+    - Hur många lager delar dina behållare?
+    - Finns det oanvända behållare? En stoppade behållare tar fortfarande upp diskutrymme.
+    - Vilket språk som skrivs dina behållare?
+- **Storleken på data som bearbetas** – hur mycket data kommer dina behållare kan behandla? Förbrukar dessa data diskutrymme eller data bearbetas i RAM-minne?
+- **Förväntade prestanda** -vilka är de önskade prestandaegenskaperna för din lösning? 
+
+Att förstå och förbättra prestandan för din lösning, kan du använda:
+
+- Den beräkning tillgängliga måtten i Azure-portalen. Gå till din Data Box Edge-resurs och gå sedan till **övervakning > mått**. Titta på den **Edge compute - minnesanvändning** och **Edge compute - procent CPU** att förstå de tillgängliga resurserna och hur resurserna komma förbrukas.
+- Övervakning kommandon som är tillgängliga via PowerShell-gränssnittet på enheten som:
+
+    - `dkr` statistik för att få en direktsänd dataström med behållare användningsstatistik för resursen. Kommandot stöder processor, minnesanvändning, minnesgräns och nätverket i/o-mått.
+    - `dkr system df` att hämta information om hur mycket diskutrymme som används. 
+    - `dkr image [prune]` för att rensa upp bilder som inte används och frigöra utrymme.
+    - `dkr ps --size` du vill visa den ungefärliga storleken på en behållare som körs. 
+
+    Mer information om tillgängliga kommandon går du till [övervaka och felsöka beräkning moduler](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Kontrollera slutligen att du verifiera din lösning på din datauppsättning och kvantifiera prestanda på Data Box Edge innan du distribuerar i produktionen.
+
 
 ## <a name="next-step"></a>Nästa steg
 

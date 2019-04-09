@@ -1,38 +1,51 @@
 ---
-title: Distribuera grupper med flera behållare i Azure Container Instances med Azure CLI och YAML
-description: Lär dig hur du distribuerar en behållargrupp med flera behållare i Azure Container Instances med hjälp av Azure CLI och en YAML-fil.
+title: Självstudie – distribuera en grupp med flera behållare i Azure Container Instances - YAML
+description: I de här självstudierna lär du dig att distribuera en behållargrupp med flera behållare i Azure Container Instances med hjälp av en YAML-fil med Azure CLI.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372445"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006184"
 ---
-# <a name="deploy-a-multi-container-container-group-with-yaml"></a>Distribuera en behållargrupp med flera behållare med YAML
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudier: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
-Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållargruppen](container-instances-container-groups.md). Grupper med flera behållare behållare är användbara när du skapar ett program sidovagn för loggning, övervakning eller en annan konfiguration där en tjänst behöver en andra anslutna process.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
+>
 
-Det finns två metoder för att distribuera grupper med flera behållare med Azure CLI:
+Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållargruppen](container-instances-container-groups.md). En behållargrupp är användbart när du skapar ett program sidovagn för loggning, övervakning eller en annan konfiguration där en tjänst behöver en andra anslutna process.
 
-* YAML-fildistribution (den här artikeln)
-* [Resource Manager för malldistribution](container-instances-multi-container-group.md)
+I de här självstudierna gör du för att köra en enkel två behållare sidovagn konfiguration genom att distribuera en YAML-fil med hjälp av Azure CLI. En YAML-fil innehåller en koncis format för att ange inställningar för instansen. Lär dig att:
 
-På grund av YAML-format kortare natur, distribution med en YAML-fil rekommenderas när distributionen omfattar *endast* behållarinstanser. Om du vill distribuera ytterligare Azure-tjänstresurser (till exempel en Azure Files-resurs) vid tidpunkten för distribution av behållarinstanser rekommenderas Resource Manager för malldistribution.
+> [!div class="checklist"]
+> * Konfigurera en YAML-fil
+> * Distribuera behållargruppen
+> * Visa loggarna för behållarna
 
 > [!NOTE]
-> Grupper med flera behållare är för närvarande begränsade till Linux-behållare. Medan vi arbetar för att göra alla funktioner till Windows-behållare, du kan hitta nuvarande skillnaderna i [kvoter och regiontillgänglighet för Azure Container Instances](container-instances-quotas.md).
+> Grupper med flera behållare är för närvarande begränsade till Linux-behållare.
 
-## <a name="configure-the-yaml-file"></a>Konfigurera YAML-fil
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Distribuera en behållargrupp med flera behållare med den [az container skapa] [ az-container-create] kommandot i Azure CLI, måste du ange konfigurationen av behållaren grupp i en YAML-fil och sedan skicka YAML-fil som en parameter i kommandot.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Starta genom att kopiera följande YAML till en ny fil med namnet **distribuera aci.yaml**.
+## <a name="configure-a-yaml-file"></a>Konfigurera en YAML-fil
+
+Distribuera en grupp med flera behållare med den [az container skapa] [ az-container-create] kommandot i Azure CLI, måste du ange konfigurationen av behållaren grupp i en YAML-fil. Skicka sedan YAML-fil som en parameter i kommandot.
+
+Starta genom att kopiera följande YAML till en ny fil med namnet **distribuera aci.yaml**. Du kan använda Visual Studio Code i Azure Cloud Shell för att skapa filen i arbetskatalogen:
+
+```
+code deploy-aci.yaml
+```
 
 Den här YAML-filen definierar en behållargrupp med namnet ”myContainerGroup” med två behållare, en offentlig IP-adress och två portar. Behållarna distribueras från offentliga Microsoft-avbildningar. Den första behållaren i gruppen kör ett webbprogram för webbservergrupper på internet. Behållaren andra sidovagnen, skickar regelbundet HTTP-begäranden till webbprogrammet som körs i den första behållaren via det behållargruppen lokala nätverk.
 
@@ -71,6 +84,15 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
+Om du vill använda ett privat behållarregister bild, lägger du till den `imageRegistryCredentials` egenskapen för behållargruppen med värden som har ändrats för din miljö:
+
+```YAML
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
 ## <a name="deploy-the-container-group"></a>Distribuera behållargruppen
 
 Skapa en resursgrupp med det [az gruppen skapa] [ az-group-create] kommando:
@@ -103,9 +125,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-logs"></a>Visa loggar
+## <a name="view-container-logs"></a>Visa containerloggar
 
-Visa loggutdata för behållaren med den [az behållarloggarna] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som du vill hämta loggar från. Den första behållaren har angetts i det här exemplet.
+Visa loggutdata för behållaren med den [az behållarloggarna] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som du vill hämta loggar från. I det här exemplet på `aci-tutorial-app` behållare har angetts.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -120,7 +142,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Kör samma kommando anger andra behållarens namn om du vill visa loggarna för behållaren sidvagn.
+Om du vill se loggar för behållaren sidovagn, kör du en liknande kommando för att ange den `aci-tutorial-sidecar` behållare.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -146,92 +168,25 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Som du ser är sidovagnen regelbundet att en HTTP-förfrågan till det huvudsakliga webbprogrammet via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan utökas för att utlösa en avisering om den har fått en HTTP-svarskoden än 200 OK.
-
-## <a name="deploy-from-private-registry"></a>Distribuera från privata register
-
-För att använda ett privat behållarregister avbildning, inkluderar du följande YAML med värden som har ändrats för din miljö:
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-Till exempel distribuerar följande YAML en behållargrupp med en enskild behållare vars avbildningen hämtas från ett privat Azure-Behållarregister med namnet ”myregistry”:
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## <a name="export-container-group-to-yaml"></a>Exportera behållargruppen till YAML
-
-Du kan exportera konfigurationen av en befintlig behållargrupp till en YAML-fil med hjälp av Azure CLI-kommando [az container export][az-container-export].
-
-Användbart om du vill bevara en behållargrupp konfiguration, exportera kan du lagra dina behållare konfigurationer i versionskontroll för ”konfiguration som kod”. Eller Använd den exporterade filen som en startpunkt när du utvecklar en ny konfiguration i YAML.
-
-Exportera konfigurationen för behållargruppen som du skapade tidigare genom att utfärda följande [az container export] [ az-container-export] kommando:
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-Inga utdata visas om kommandot genomförs, men du kan visa innehållet i filen och se resultatet. Till exempel de första raderna med `head`:
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
+Som du ser är sidovagnen regelbundet att en HTTP-förfrågan till det huvudsakliga webbprogrammet via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan utökas för att utlösa en avisering om den har fått en HTTP-svarskoden än `200 OK`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs de steg som krävs för att distribuera en flera behållare, Azure container-instans. En slutpunkt till slutpunkt Azure Container Instances upplevelse, inklusive via en privat Azure container registry, finns i självstudien för Azure Container Instances.
+I den här självstudien använde du en YAML-fil för att distribuera en grupp med flera behållare i Azure Container Instances. Du har lärt dig att:
 
-> [!div class="nextstepaction"]
-> [Självstudie för Azure Container Instances][aci-tutorial]
+> [!div class="checklist"]
+> * Konfigurera en YAML-fil för en grupp med flera behållare
+> * Distribuera behållargruppen
+> * Visa loggarna för behållarna
+
+Du kan också ange en grupp med flera behållare med hjälp av en [Resource Manager-mall](container-instances-multi-container-group.md). Resource Manager-mall kan lätt anpassas för scenarier när du behöver distribuera ytterligare Azure-tjänstresurser med behållargruppen.
 
 <!-- LINKS - External -->
-[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create
-[az-container-export]: /cli/azure/container#az-container-export
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create

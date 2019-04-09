@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094930"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009279"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln lär du dig hur du skapar en iOS-app i Objective-C med hjälp av Cognitive Services Speech-SDK för att transkribera en ljudfil med inspelat tal till text.
+I den här artikeln lär du dig att skapa en iOS-app i Objective-C med hjälp av Cognitive Services tal SDK för att transkribera tal till text från mikrofon eller från en fil med ljud.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,16 +29,16 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 
 * En [prenumerationsnyckel](get-started.md) för Speech Service
 * En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare
-* Målet angett till iOS version 11.4 eller senare
+* Målet inställd på iOS-version 9.3 eller senare
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Skaffa Speech SDK för iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.3.1`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.4.0`.
 
-Cognitive Services Speech SDK för Mac och iOS distribueras för närvarande som ett Cocoa-ramverk.
-Du kan ladda ned det på https://aka.ms/csspeech/iosbinary. Ladda ned filen till arbetskatalogen.
+Cognitive Services tal SDK för iOS är för närvarande distribueras som ett Cocoa ramverk.
+Den kan hämtas från [här](https://aka.ms/csspeech/iosbinary). Ladda ned filen till arbetskatalogen.
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
@@ -58,10 +58,10 @@ I dialogrutorna som följer gör du följande val:
     1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
     1. Justera sökvägarna till SDK:et i *Project Settings* (Projektinställningar).
         1. Lägg till SDK-biblioteket som ett ramverk under rubriken **Embedded Binaries** (Inbäddade binära) på fliken **General** (Allmänt): **Add embedded binaries** > **Add other...** (Lägg till inbäddade binära > Lägg till annan) > navigera till arbetskatalogen och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Det här lägger även automatiskt till SDK-biblioteket i rubriken **Länkat ramverk och bibliotek**.
-        ![Tillagt ramverk](media/sdk/qs-objectivec-framework.png)
+        ![Har lagts till Framework](media/sdk/qs-objectivec-framework.png)
         1. Gå till fliken **Build Settings** (Versionsinställningar) och aktivera **All** (Alla).
         1. Lägg till katalogen `$(SRCROOT)/..` i *Framework Search Paths* (Sökvägar för ramverket) under rubriken **Search Paths** (Sökvägar).
-        Inställning för ![Framework Search Path](media/sdk/qs-objectivec-framework-search-paths.png) (Sökväg för ramverket)
+        ![Framework-inställningen för sökvägen](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Konfigurera användargränssnittet
 
@@ -102,4 +102,5 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska Objektive-C-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska Objective-C-exempel på GitHub](https://aka.ms/csspeech/samples)
+

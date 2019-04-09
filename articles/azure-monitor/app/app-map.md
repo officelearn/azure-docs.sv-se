@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622118"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009203"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -184,6 +185,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Förstå Cloud.RoleName inom ramen för Programkartan
+
+När det gäller hur tänka Cloud.RoleName kan det vara bra att titta på en karta för program som har flera Cloud.RoleNames finns:
+
+![Skärmbild av programmet karta](media/app-map/cloud-rolename.png)
+
+Är Cloud.RoleName/role värden för olika aspekter av det aktuella distribuerade programmet i programavbildning ovan vart och ett av namnen i gröna rutorna. Så för den här appen dess roller består av: `Authentication`, `acmefrontend`, `Inventory Management`, ett `Payment Processing Worker Role`. 
+
+När det gäller den här appen varje av dessa `Cloud.RoleNames` också representerar en annan unik Application Insights-resurs med sina egna instrumenteringsnycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av de fyra olika Application Insights-resurserna, kan Programkartan en karta över underliggande relationerna sätta ihop.
+
+För den [officiella definitioner](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+Du kan också kan Cloud.RoleInstance vara användbart för scenarier där Cloud.RoleName talar om problemet är någonstans i din webbservergrupp, men du kanske kör din webbservergrupp över flera belastningsutjämnade servrar så att kunna öka detaljnivån i ett lager som är djupare via Kusto-frågor och att känna till om problemet påverkar kan alla web servrar/klientdelsinstanserna eller bara en vara mycket viktigt.
+
+Ett scenario där du kanske vill åsidosätta värdet för Cloud.RoleInstance uppstå om din app körs i en miljö med behållare där bara att känna till den enskilda servern kanske inte tillräckligt med information för att hitta ett visst problem.
 
 Mer information om hur du åsidosätter egenskapen cloud_RoleName med telemetri-initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 

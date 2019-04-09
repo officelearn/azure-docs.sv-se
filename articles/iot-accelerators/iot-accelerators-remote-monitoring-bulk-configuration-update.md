@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683435"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009675"
 ---
-# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
+# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudier: Hantera dina anslutna enheter i grupp
 
 I den här självstudien använder du lösningsacceleratorn för fjärrövervakning för att hantera konfigurationen av dina anslutna enheter i grupp.
 
@@ -57,7 +57,7 @@ Du behöver följande programvara installerad på den lokala datorn:
 Innan du börjar:
 
 * Kontrollera att [startprogrammet på IoT DevKit-enheten är version 1.4.0 eller senare](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Board Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
+* Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Tavla Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
 Du behöver även ansluta minst en IoT DevKit-enhet till lösningsacceleratorn för fjärrövervakning. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till lösningsacceleratorn för IoT-fjärrövervakning](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
@@ -89,7 +89,7 @@ Senare i den här självstudien använder du den här enhetsgruppen för att til
 
 1. Kontrollera att din IoT DevKit inte är ansluten till datorn. Starta VS Code och ansluta sedan DevKit till datorn.
 
-1. Tryck på **F1** för att öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Examples**. Välj sedan **IoT DevKit** som tavla.
+1. Tryck på **F1** för att öppna kommandopaletten, skriver du och väljer **IoT Workbench: Exempel**. Välj sedan **IoT DevKit** som tavla.
 
 1. Leta upp **Firmware OTA** och klicka på **Öppna exempel**. Ett nytt VS Code-fönster öppnas, och projektmappen **firmware_ota** visas:
 
@@ -103,7 +103,7 @@ Den första versionen av enhetens inbyggda programvara är 1.0.0. Den nya inbygg
 
     ![Ändra version av inbyggd programvara](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Device Compile** (Enhetskompilering) för att kompilera koden:
+1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Device Compile** (Enhetskompilering) för att kompilera koden:
 
     ![Enhetskompilering](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ Den första versionen av enhetens inbyggda programvara är 1.0.0. Den nya inbygg
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Generera CRC-värdet och beräkna filstorleken för den inbyggda programvaran
 
-1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Generera CRC**:
+1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Generera CRC**:
 
     ![Generera CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,19 +139,19 @@ Använd ditt Azure Storage-konto som värd för den nya filen för inbyggd progr
 
     ![Version 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Enhetsuppladdning**:
+1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Enhetsuppladdning**:
 
     ![Enhetsuppladdning](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. VS Code verifierar och laddar upp koden till din IoT DevKit-enhet.
 
-1. När uppladdningen är klar startas IoT DevKit-enheten om. När omstarten är klar visar skärmen för IoT DevKit **FW version: 1.0.0** och att den söker efter ny inbyggd programvara:
+1. När uppladdningen är klar startas IoT DevKit-enheten om. När omstarten är klar visar skärmen för IoT DevKit **VB-version: 1.0.0**, och att den söker efter nya inbyggda programvaran:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Skapa en enhetskonfiguration
 
-En enhetskonfiguration anger önskad status för dina enheter. Vanligtvis [skapar en utvecklare konfigurationen](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) på sidan **IoT-enhetskonfiguration** på Azure-portalen. En enhetskonfiguration är ett JSON-dokument som anger det önskade tillståndet för dina enheter och en uppsättning mått.
+En enhetskonfiguration anger önskad status för dina enheter. Vanligtvis [skapar en utvecklare konfigurationen](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) på sidan **IoT-enhetskonfiguration** på Azure-portalen. En enhetskonfiguration är ett JSON-dokument som anger det önskade tillståndet för dina enheter och en uppsättning mått.
 
 Spara följande konfiguration som en fil med namnet **firmware-update.json** på den lokala datorn. Ersätt platshållarna `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` och `YOURPACKAGESIZE` med de värden som du antecknade tidigare:
 

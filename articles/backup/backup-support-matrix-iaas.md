@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649819"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361469"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -28,7 +28,7 @@ Andra matriser för support:
 
 Här är hur du kan säkerhetskopiera och återställa virtuella Azure-datorer med Azure Backup-tjänsten.
 
-**Scenario** | **Säkerhetskopiering** | **Agent** |**Återställ**
+**Scenario** | **Backup** | **Agent** |**Återställ**
 --- | --- | --- | ---
 Direkt säkerhetskopiering av virtuella Azure-datorer  | Säkerhetskopiera hela VM.  | Ingen agent krävs för virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till den [Virtuella Azure-datoragenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) som körs på den virtuella datorn. | Återställa på följande sätt:<br/><br/> - **Skapa en grundläggande virtuell dator**. Detta är användbart om den virtuella datorn har ingen särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **Återställa den Virtuella datordisken**. Återställ disken. Sedan kan du koppla den till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **Ersätt virtuell disk**. Om en virtuell dator finns och den använder hanterade diskar (okrypterat), kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **Återställa specifika filer/mappar**. Du kan återställa filer/mappar från en virtuell dator i stället för från en hel virtuell dator.
 Direkt säkerhetskopiering av virtuella Azure-datorer (endast Windows)  | Säkerhetskopiera specifika filer/mappar/volym. | Installera den [Azure Recovery Services-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhetskopieringstillägget för Azure VM-agenten för säkerhetskopiering av den virtuella datorn på filen/mappen nivå. | Återställa specifika mappar/filer.
@@ -100,7 +100,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="supported-restore-methods"></a>Stöds restore-metoder
 
-**Restore-metod** | **Detaljer**
+**Restore-metod** | **Information**
 --- | ---
 Skapa en ny virtuell dator | Du kan skapa en virtuell dator under återställningsprocessen. <br/><br/> Det här alternativet får en grundläggande virtuell dator igång. Du kan ange den virtuella datorn namnet, resursgrupp, virtuellt nätverk, undernät, och storage.  
 Återställa en disk | Du kan återställa en disk och använda den för att skapa en virtuell dator.<br/><br/> När du väljer det här alternativet kan kopierar Azure Backup data från valvet till ett lagringskonto som du väljer. Återställningsjobbet genererar en mall. Du kan hämta den här mallen, använda för att ange anpassade inställningar för virtuell dator och skapa en virtuell dator.<br/><br/> Det här alternativet kan du ange fler inställningar som du tidigare möjlighet att skapa en virtuell dator.<br/><br/>
@@ -157,8 +157,8 @@ Säkerhetskopiera virtuella datorer konsekvens | som inte stöds. <br/><br/>Azur
 
 **Komponent** | **Support**
 --- | ---
-Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller mindre datadiskar.
-Datadiskstorleken | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om dina valv kör den senaste versionen av Azure Backup (även kallat omedelbar återställning), disken storlekar upp till 4 TB stöds. [Läs mer](backup-instant-restore-capability.md).
+Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller mindre datadiskar. <br/><br/> Stöder disk storlekar upp till 4 TB.
+Datadiskstorleken | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om dina valv kör den senaste versionen av Azure Backup (även kallat omedelbar återställning), disken storlekar upp till 4 TB stöds. [Läs mer](backup-instant-restore-capability.md).  
 Lagringstyp | Standard HDD, SSD som standard, premium SSD. <br/><br/> Standard SSD stöds om dina valv har uppgraderats till den senaste versionen av virtuell Azure-säkerhetskopiering (kallas omedelbar återställning). [Läs mer](backup-instant-restore-capability.md).
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Azure virtuella datorer aktiveras med Azure Disk Encryption kan säkerhetskopieras (med eller utan Azure AD-app).<br/><br/> Inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa en hel virtuell dator.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
@@ -168,8 +168,11 @@ Lägg till disk till skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
 Delad lagring| Säkerhetskopiera virtuella datorer med CSV- eller Scale-Out File Server rekommenderas inte. CSV-skrivarna är sannolikt att misslyckas.
 
-## <a name="vm-network-support"></a>Stöd för VM-nätverk
+> [!NOTE]
+> Azure Backup stöder inte stripe diskar. Storleksändring av disk rekommenderas inte av Azure Backup.
 
+
+## <a name="vm-network-support"></a>Stöd för VM-nätverk
 
 **Komponent** | **Support**
 --- | ---

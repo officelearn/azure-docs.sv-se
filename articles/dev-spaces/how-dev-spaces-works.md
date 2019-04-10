@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500567"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361494"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -85,10 +85,10 @@ Förbereda AKS-kluster omfattar:
 * Att aktivera Azure Dev blanksteg på ditt kluster med hjälp av `az aks use-dev-spaces`
 
 Mer information om hur du skapar och konfigurerar ett AKS-kluster för Azure Dev blanksteg finns i komma igång-guider:
-* [Kom igång med Azure Dev blankstegen med Java](get-started-java.md)
-* [Kom igång med Azure Dev blankstegen med .NET Core och Visual Studio](get-started-netcore-visualstudio.md)
-* [Kom igång med Azure Dev blanksteg med .NET Core](get-started-netcore.md)
-* [Kom igång med Azure Dev blankstegen med Node.js](get-started-nodejs.md)
+* [Komma igång med Azure Dev Spaces med Java](get-started-java.md)
+* [Komma igång med Azure Dev Spaces med .NET Core och Visual Studio](get-started-netcore-visualstudio.md)
+* [Komma igång med Azure Dev Spaces med .NET Core](get-started-netcore.md)
+* [Komma igång med Azure Dev Spaces med Node.js](get-started-nodejs.md)
 
 När Azure Dev blanksteg är aktiverat på AKS-klustret, installerar kontrollanten för klustret. Styrenheten är en separat Azure-resurs utanför klustret och gör följande för att resurser i klustret:
 

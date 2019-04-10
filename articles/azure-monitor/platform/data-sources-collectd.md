@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999325"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426145"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
 [Insamlade](https://collectd.org/) är en Linux-daemon för öppen källkod som regelbundet samlar in prestandamått från program och system nivåinformation. Exempelprogram är Java Virtual Machine (JVM), MySQL-Server och Nginx. Den här artikeln innehåller information om att samla in prestandadata från insamlade i Azure Monitor.
@@ -112,14 +112,14 @@ Om du vill upprätthålla en modell med välbekanta infrastruktur mått som reda
 
 | Insamlade mått fält | Azure Monitor-fält |
 |:--|:--|
-| värd | Dator |
-| plugin | Ingen |
-| plugin_instance | Instansnamn<br>Om **plugin_instance** är *null* sedan InstanceName = ”*_Total*” |
-| typ | ObjectName |
-| type_instance | CounterName<br>Om **type_instance** är *null* sedan CounterName =**tom** |
-| dsnames[] | CounterName |
-| dstypes | Ingen |
-| values[] | CounterValue |
+| `host` | Dator |
+| `plugin` | Ingen |
+| `plugin_instance` | Instansnamn<br>Om **plugin_instance** är *null* sedan InstanceName = ”*_Total*” |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Om **type_instance** är *null* sedan CounterName =**tom** |
+| `dsnames[]` | CounterName |
+| `dstypes` | Ingen |
+| `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 

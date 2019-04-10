@@ -3,17 +3,17 @@ title: Enhetsanslutning i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör enhetsanslutning i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522102"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425975"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -30,7 +30,7 @@ Med hjälp av DPS kan:
 - Du kan använda din egen enhet ID: N för att registrera enheter i IoT Central. Med ditt eget enhets-ID: N som förenklar integrering med befintliga BackOffice-system.
 - Ett konsekvent sätt att ansluta enheter till IoT Central.
 
-I den här artikeln beskrivs följande fyra användningsfall:
+Den här artikeln beskrivs följande fyra användningsfall:
 
 1. [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
 1. [Anslut enheter i stor skala med hjälp av SAS](#connect-devices-at-scale-using-sas)
@@ -39,24 +39,7 @@ I den här artikeln beskrivs följande fyra användningsfall:
 
 ## <a name="connect-a-single-device"></a>Ansluta en enskild enhet
 
-Den här metoden är användbar när du experimentera med IoT Central eller testa enheter.
-
-Följ dessa steg om du vill ansluta en enskild enhet till IoT Central med hjälp av SAS:
-
-1. Om du vill lägga till riktig enhet, gå till den **Device Explorer**, Välj en mall för enheten och välj **+ Ny > verkliga**:
-    - Ange ett eget (gemener) **enhets-ID** eller använda det föreslagna ID.
-    - Ange en **enhetsnamn** eller använda det föreslagna namnet.
-
-      ![Lägg till enhet](media/concepts-connectivity/add-device.png)
-
-1. Välj för att få informationen som enheten **Connect** på enhetssidan. Du behöver den **Scopeid**, **enhets-ID**, och **primärnyckel** värden:
-    - Varje IoT Central-App har ett unikt [Scopeid](../iot-dps/concepts-device.md#id-scope) som genereras av DPS.
-    - [Enhets-ID](../iot-dps/concepts-device.md#device-id) är unikt enhets-ID. Enheten ID lagras i den [identitetsregistret](../iot-hub/iot-hub-devguide-identity-registry.md).
-    - **Primär nyckel** är en SAS-token genereras av IoT Central för enheten.
-
-      ![Anslutningsinformation](media/concepts-connectivity/device-connect.png)
-
-Använda anslutningsinformationen i din kod för enheten för att aktivera enheten för att ansluta och skicka data till IoT till din IoT Central-App. Mer information om hur du ansluter enheter finns i [nästa steg](#next-steps).
+Den här metoden är användbar när du experimentera med IoT Central eller testa enheter. Du kan använda informationen i anslutning från ditt IoT Central-program för att generera anslutningssträngen för en enhet. Detaljerade anvisningar finns i [hur du skapar en anslutningssträng för enheten för att ansluta till ett Azure IoT Central program](howto-generate-connection-string.md).
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Anslut enheter i stor skala med hjälp av SAS
 
@@ -169,26 +152,6 @@ När: en riktig enhet som ansluter till ditt IoT Central-program, dess etablerin
 
 1. En operatör kan blockera en enhet. När en enhet har blockerats, kan inte det skicka data till programmets IoT Central. Blockerade enheter har statusen etablering av **blockerad**. En operatör måste återställa enheten innan den kan fortsätta att skicka data. När en operatör häver blockeringen för en enhet som etableringsstatusen återgår till det tidigare värdet **registrerad** eller **etablerad**.
 
-## <a name="get-a-connection-string"></a>Få en anslutningssträng
-
-Följande steg beskriver hur du skaffar en anslutningssträng för en enhet:
-
-1. Välj **Connect** på den **Device Explorer** att hämta anslutningsinformationen: **Scope-ID**, **enhets-ID**, och **enheten primärnyckel**:
-
-    ![Anslutningsinformation](media/concepts-connectivity/device-connect.png)
-
-1. Använd den `dps-keygen` kommandoradsverktyget för att generera en anslutningssträng:  Installera den [nyckeln generator verktyget](https://github.com/Azure/dps-keygen), kör du följande kommando:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-    Kör följande kommando för att generera en anslutningssträng:
-
-    ```cmd/sh
-    dps-keygen -di:<device_id> -dk:<device_key> -si:<scope_id>
-    ```
-
 ## <a name="sdk-support"></a>SDK-support
 
 SDK: er för Azure-enheter erbjudandet det enklaste sättet för dig implementera enhetskoden. Följande enhet SDK: er är tillgängliga:
@@ -218,7 +181,7 @@ I följande tabell sammanfattas hur Azure IoT Central enhetsfunktioner mappas ti
 
 Mer information om hur du använder SDK: er för enheter finns i följande artiklar exempelkod:
 
-- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
+- [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)
 - [Ansluta en Raspberry Pi-enhet till Azure IoT Central programmet](howto-connect-raspberry-pi-python.md)
 - [Ansluta en DevDiv kit enhet till Azure IoT Central programmet](howto-connect-devkit.md).
 
@@ -244,5 +207,5 @@ Nu när du har lärt dig om enhetsanslutning i Azure IoT Central, är här näst
 
 - [Förbereda och ansluta en DevKit-enhet](howto-connect-devkit.md)
 - [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
+- [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)
 - [C SDK: Etablering Enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

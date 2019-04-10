@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862955"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426499"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -565,7 +565,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>Med dynamiska grupper (förhandsversion)
+## <a name="using-dynamic-groups"></a>Med dynamiska grupper
 
 Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtuella Azure-datorer för distributioner av uppdateringar. De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. Dynamiska grupper fungerar inte med klassiska virtuella datorer. När du definierar din fråga måste kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
 

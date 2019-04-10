@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842421"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426315"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
 
@@ -26,15 +26,10 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
-
-Nu är du redo att skapa en Kubernetes-baserad utvecklarmiljö i Azure.
+> **Om du fastnar** när som helst, finns det [felsökning](troubleshooting.md) avsnittet.
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-> [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.43 eller senare.
 
 ### <a name="sign-in-to-azure-cli"></a>Logga in på Azure CLI
 Logga in i Azure. Skriv in följande kommando i ett terminalfönster:
@@ -113,7 +108,7 @@ Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu an
     ```
 
 Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar med standardinställningarna:
-* `./Dockerfile` beskriver appens containeravbildning och hur källkoden byggs och körs i containern.
+* `./Dockerfile` Beskriver appens behållaravbildning och hur källkoden bygger och körs i behållaren.
 * Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
 För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
@@ -153,7 +148,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 > Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna kodfilen med namnet `src/main/java/com/ms/sample/webfrontend/Application.java` och redigera välkomstmeddelandet: `return "Hello from webfrontend in Azure!";`
+1. Öppna kodfilen `src/main/java/com/ms/sample/webfrontend/Application.java`, och redigera hälsningsmeddelande: `return "Hello from webfrontend in Azure!";`
 1. Spara filen.
 1. Kör `azds up` i terminalfönstret.
 
@@ -220,7 +215,7 @@ I stället för att återskapa och distribuera om en ny containeravbildning varj
 
 Uppdatera webbappen i webbläsaren. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
-**Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra container.
+**Nu har du en metod för att snabbt iterera på koden och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra container.
 
 ## <a name="next-steps"></a>Nästa steg
 

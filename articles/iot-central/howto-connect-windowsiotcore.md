@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309918"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426247"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -48,10 +48,7 @@ Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktio
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID, primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
-
- > [!NOTE]
-   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen.
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID, primärnyckel**). Följ de här anvisningarna [generera enhetens anslutningssträng](howto-generate-connection-string.md) med hjälp av den **Scope-ID**, **enhets-ID**, och **primärnyckel** du gjort en Observera av tidigare.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Förbereda Windows 10 IoT Core-enhet
 
@@ -67,7 +64,8 @@ För att distribuera klientprogrammet från föregående steg till din Windows 1
 
 **Se till att anslutningssträngen lagras på enheten för att klientprogrammet kan använda**
 * Spara anslutningssträngen i en textfil med namnet connection.string.iothub på skrivbordet.
-* Kopiera filen till enhetens dokumentmapp: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+* Kopiera filen till enhetens dokumentmapp:
+`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
 När du har gjort det, måste du öppna den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i alla webbläsare.
 

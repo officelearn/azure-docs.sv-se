@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268219"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361555"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -407,11 +407,14 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |AzureStorageMaxWorkerThreads | int, standard är 25 |Dynamisk|Det maximala antalet trådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder, är standardvärdet 6000 |Dynamisk|Ange tidsintervall i sekunder. Tidsgräns för xstore åtgärden har slutförts. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, standard är FALSKT |Dynamisk|Den här konfigurationen aktiverar eller inaktiverar automatisk rensning av programpaket på lyckad etablering. |
+|CleanupUnusedApplicationTypes|bool, standard är FALSKT |Dynamisk|Den här konfigurationen tillåts om aktiverad för att avregistrera oanvända programtypversioner hoppar över de senaste tre oanvända versionerna därmed trimmar diskutrymme upptas av avbildningsarkivet automatiskt. Automatisk rensning aktiveras i slutet av lyckade etablera för den specifika apptypen och körs även regelbundet en gång om dagen för alla programtyper av. Antal oanvända versioner att hoppa över kan konfigureras med hjälp av parametern ”MaxUnusedAppTypeVersionsToKeep”. |
 |DisableChecksumValidation | Bool, standard är FALSKT |Statisk| Den här konfigurationen gör att vi kan aktivera eller inaktivera validering av kontrollsumma vid etableringen av programmet. |
 |DisableServerSideCopy | Bool, standard är FALSKT |Statisk|Den här konfigurationen aktiverar eller inaktiverar serversidan kopia av programpaket på ImageStore vid etableringen av programmet. |
 |ImageCachingEnabled | Bool, standard är SANT |Statisk|Den här konfigurationen gör att vi kan aktivera eller inaktivera cachelagring. |
 |ImageStoreConnectionString |SecureString |Statisk|Anslutningssträng till roten för ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, standardvärdet är 1024 |Dynamisk|Den minsta överföringshastigheten mellan kluster och ImageStore. Det här värdet används för att fastställa tidsgräns vid åtkomst till externa ImageStore. Ändra det här värdet bara om fördröjningen mellan kluster och ImageStore är högt för att ge mer tid för klustret för att ladda ned från externa ImageStore. |
+|MaxUnusedAppTypeVersionsToKeep | Int, standard är 3 |Dynamisk|Den här konfigurationen definierar hur många oanvända programtypversioner som ska hoppas över för rensning. Den här parametern gäller endast om parametern CleanupUnusedApplicationTypes är aktiverat. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller en kort beskrivning** |

@@ -11,7 +11,7 @@ ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54433377"
@@ -176,7 +176,7 @@ Du har nu konfigurerat övervakningsdata så att de arkiveras på ett lagringsko
 
 2. Navigera till avsnittet **Diagnostikinställningar**. Klicka på den resurs på vilken du skapade en diagnostikinställning i det föregående steget **Dirigera resursdata till lagringskontot**. Hitta de inställningar du skapade, klicka på knappen **Redigera inställning** och klicka på **Ta bort**.
 
-3. Navigera till avsnittet **Diagnostikinställningar** på den virtuella dator som du konfigurerade i det föregående steget **Dirigera data från virtuell dator (gästoperativsystem) till lagringskontot**. På fliken **Agent** klickar du på **Ta bort** (under avsnittet **Ta bort Azure-diagnostikagent**).
+3. Navigera till avsnittet **Diagnostikinställningar** på den virtuella dator som du konfigurerade i det föregående steget **Dirigera data från virtuell dator (gästoperativsystem) till lagringskontot**. På fliken **Agent** klickar du på **Ta bort** (under avsnittet **Ta bort Azure Diagnostics-agent**).
 
 4. Navigera till det lagringskonto som du skapade i det föregående steget **Skapa ett lagringskonto**. Klicka på **Ta bort lagringskonto**. Ange namnet på lagringskontot och klicka sedan på **Ta bort**.
 

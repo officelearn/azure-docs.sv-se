@@ -1,19 +1,18 @@
 ---
 title: Jämför lagringsalternativ för användning med Azure HDInsight-kluster
 description: Översikt över lagringstyper och hur de fungerar med Azure HDInsight.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101490"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361791"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagringsalternativ för användning med Azure HDInsight-kluster
 
@@ -119,6 +118,8 @@ Mer information finns i [Använd Azure Data Lake Storage Gen2 URI](../storage/bl
 Azure Storage är en robust allmänna lagringslösning som smidigt kan integreras med HDInsight. HDInsight kan använda en blobcontainer i Azure Storage som standardfilsystem för klustret. Genom ett HDFS-gränssnitt kan en fullständig uppsättning komponenter i HDInsight tillämpas direkt på strukturerade eller Ostrukturerade data som lagrats som blobar.
 
 Vi rekommenderar att du använder separata behållare för dina standardklusterlagringen och dina affärsdata för att isolera HDInsight-loggar och temporära filer från din egen affärsdata. Vi rekommenderar också tar bort standardbehållaren, som innehåller program- och systemloggar, efter varje användning för att minska kostnaden för lagring. Se till att hämta loggarna innan du tar bort containern.
+
+Om du väljer att skydda ditt lagringskonto med den **brandväggar och virtuella nätverk** begränsningar för **valda nätverk**, måste du aktivera undantaget **Tillåt att betrodda Microsoft tjänster...**  så att HDInsight kan komma åt ditt storage-konto.
 
 ### <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 

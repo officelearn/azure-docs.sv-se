@@ -16,7 +16,7 @@ ms.date: 01/14/2019
 ms.author: TomSh
 ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
 ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/02/2019
 ms.locfileid: "57241518"
@@ -82,7 +82,7 @@ Integrationsscenarier för en händelse i aktivitetsloggen:
 
 Du kan använda ett lagringskonto eller [händelsehubbnamnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) som inte är i samma prenumeration som det som avger loggen. Den konfigurerar inställningen måste ha rätt [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) åtkomst till båda prenumerationerna.
 
-### <a name="azure-diagnostics-logs"></a>Azure-diagnostikloggar
+### <a name="azure-diagnostics-logs"></a>Azure Diagnostics-loggar
 
 Azure-diagnostikloggar genereras av en resurs som ger omfattande, frekventa data om användningen av den här resursen. Innehållet i de här loggarna varierar efter resurstyp. Till exempel [Windows-händelsesystemloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) är en kategori för diagnostikloggar för virtuella datorer och [blob, tabell och kö loggar](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) finns kategorier för diagnostikloggar för storage-konton. Diagnostikloggar skiljer sig från aktivitetsloggar som ger insikt i de åtgärder som utförts på resurser i din prenumeration.
 

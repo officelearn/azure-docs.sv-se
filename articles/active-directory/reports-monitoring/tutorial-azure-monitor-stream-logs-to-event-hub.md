@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion) | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure-diagnostik för att skicka Azure Active Directory-loggar till en händelsehubb (förhandsversion)
+description: Lär dig hur du konfigurerar Azure Diagnostics för att skicka Azure Active Directory-loggar till en händelsehubb (förhandsversion)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

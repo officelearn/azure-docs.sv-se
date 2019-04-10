@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: e71e102a5a6df44e6bdd6a845540de3cbbef98f3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456988"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426111"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub-bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med Azure Functions-bindningar för IoT Hub. Stöd för IoT Hub är baserad på den [bindning för Azure Event Hubs](link to event hub doc).
+Den här artikeln förklarar hur du arbetar med Azure Functions-bindningar för IoT Hub. Stöd för IoT Hub är baserad på den [bindning för Azure Event Hubs](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Arkivera Azure Active Directory-loggar till ett lagringskonto (förhandsversion) | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure-diagnostik för att skicka Azure Active Directory-loggar till ett lagringskonto (förhandsversion)
+description: Lär dig hur du konfigurerar Azure Diagnostics för att skicka Azure Active Directory-loggar till ett lagringskonto (förhandsversion)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

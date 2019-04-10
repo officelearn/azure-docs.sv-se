@@ -14,19 +14,19 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282125"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357440"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
 [Hanterad instans](sql-database-managed-instance.md) granskning spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
 
 - Hjälper dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
-- Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+- Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Konfigurera granskning för din server till Azure storage
 
@@ -242,7 +242,7 @@ Nyckeln skillnader i den `CREATE AUDIT` syntax för granskning till Azure Blob s
 ## <a name="next-steps"></a>Nästa steg
 
 - En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](sql-database-auditing.md).
-- Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+- Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 <!--Image references-->
 

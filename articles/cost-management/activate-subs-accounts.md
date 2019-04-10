@@ -19,7 +19,7 @@ ms.locfileid: "57997652"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
-Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Cloudyn identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azures diagnostiktillägg aktiverat på dina virtuella datorer kan Cloudyn samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
+Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Cloudyn identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azure Diagnostics-tillägg aktiverat på dina virtuella datorer kan Cloudyn samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
 
 Cloudyn har ingen åtkomst till flertalet av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Cloudyn kan komma åt dem.
 

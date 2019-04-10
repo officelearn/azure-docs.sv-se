@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234008"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426400"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -100,7 +100,34 @@ Prestandadiagrammet visar fyra prestandamått:
 
 Du kan använda åt vänster och höger piltangenterna för att växla mellan varje datapunkt i diagrammet och upp/ned-nycklar för att gå igenom raderna: e percentilen.
 
-När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för objekt som valts, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
+Azure Monitor för behållare stöder även Azure Monitor [måttutforskaren](../platform/metrics-getting-started.md), där du kan skapa egna diagram diagram, korrelera och undersöka trender och fästa på instrumentpaneler. Från metrics explorer kan du också använda de kriterier som du har angett för att visualisera dina mått som bas för en [mått baserade varningsregel](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Visa behållaren mått i metrics explorer
+I metrics explorer, kan du visa aggregerade noden och pod mätvärden för resursutnyttjande från Azure Monitor för behållare. I följande tabell sammanfattas information som hjälper dig att använda diagram med mätvärden för att visualisera behållarmätvärden.
+
+|Namnområde | Mått |
+|----------|--------|
+| Insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| Insights.container/pods | |
+| | PodCount |
+
+Du kan använda [uppdelningen](../platform/metrics-charts.md#apply-splitting-to-a-chart) för ett mått att visa per dimension och visualisera hur olika delar av den jämfört med varandra. För en nod kan du segmentera diagrammet efter den *värden* dimension, och från en pod kan du segmentera det efter följande dimensioner:
+
+* Kontrollenhet
+* Kubernetes-namnområde
+* Node
+* Fas
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, domänkontrollanter och hälsotillstånd för behållare
+
+När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för det objekt-markerats, inklusive etiketter som du definierar för att organisera Kubernetes-objekten. Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
 
 ![Egenskapsrutan för exempel Kubernetes perspektiv](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Som standard prestandadata baseras på de senaste sex timmarna, men du kan ändr
 
 När du för muspekaren över stapeldiagrammet under den **Trend** kolumnen visar varje fältet CPU eller minne användning, beroende på vilken enskilt mått har valts, inom 15 minuter exemplet. När du har valt trenddiagram via ett tangentbord, kan du använda tangenterna Alt + Page Up eller Alt + PgDn för att gå igenom varje stapel individuellt och få samma information som du skulle göra förklaring.
 
-![Trend liggande diagram hovra exempel](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Trend stapeldiagram hovra över exempel](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 I nästa exempel Observera för första i listan - nod *aks-nodepool1 -*, värdet för **behållare** är 9, vilket är en sammanslagning av det totala antalet behållare som distribueras.
 
@@ -176,10 +203,10 @@ Informationen som visas när du visar domänkontrollanter beskrivs i följande t
 |--------|-------------|
 | Namn | Namnet på kontrollanten.|
 | Status | Insamling av status för behållarna när den har slutförts kör med status, till exempel *OK*, *Uppsagd*, *misslyckades* *stoppad*, eller *Pausats*. Om behållaren körs, men status har inte korrekt visas eller hämtades inte av agenten och har inte svarat mer än 30 minuter, statusen är *okänd*. Ytterligare information om statusikonen finns i tabellen nedan.|
-| Genomsnittlig&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50&nbsp;%, 90&nbsp;% | Samlad medelvärde för den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
-| Genomsn, Min, Max, 50, 90  | Insamling av Genomsnittlig CPU millicore eller minne prestanda för behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
+| Genomsnittlig&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50&nbsp;%, 90&nbsp;% | Rulla upp medelvärdet för den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
+| Genomsn, Min, Max, 50, 90  | Samlar in den genomsnittliga CPU millicore eller minne över prestanda behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
 | Containrar | Totalt antal behållare för domänkontrollant eller pod. |
-| Startar om | Insamling av antalet omstarter från behållare. |
+| Startar om | Summera för omstart räkningen från behållare. |
 | Drifttid | Representerar tid efter att en behållare startades. |
 | Node | Endast för behållare och poddar. Den visar vilken domänkontrollant som den är bosatt. | 
 | Trend genomsnittlig&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50&nbsp;%, 90&nbsp;%| Stapeldiagram trend representerar genomsnittliga: e percentilen mått för kontrollenheten. |

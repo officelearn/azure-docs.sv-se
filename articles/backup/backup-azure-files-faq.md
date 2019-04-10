@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492818"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426621"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ När du försöker säkerhetskopiera och väljer ett lagringskonto för att iden
 Ja. Men du måste [stoppa skyddet](backup-azure-files.md#stop-protecting-an-azure-file-share) från det anslutna valvet, [avregistrera](troubleshoot-azure-files.md#configuring-backup) det här lagringskontot och sedan skydda det från ett annat valv.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>I vilka geografiska områden kan jag säkerhetskopiera Azure-filresurser? <br/>
-Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser: 
-- Östra Australien (AE) 
-- Australien, sydöstra (ASE) 
+Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser:
+- Östra Australien (AE)
+- Australien, sydöstra (ASE)
 - Brasilien, södra (BRS)
 - Kanada, centrala (CNC)
 - Kanada, östra (CE)
@@ -50,17 +50,17 @@ Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsvers
 - USA, östra 2 (EUS2)
 - Japan, östra (JPE)
 - Japan, västra (JPW)
-- Indien, centrala (INC) 
+- Indien, centrala (INC)
 - Indien, södra (INS)
 - Sydkorea, centrala (KRC)
 - Sydkorea, södra (KRS)
-- USA, norra centrala (NCUS) 
-- Europa, norra (NE) 
-- USA, södra centrala (SCUS) 
+- USA, norra centrala (NCUS)
+- Europa, norra (NE)
+- USA, södra centrala (SCUS)
 - Asien, sydöstra (SEA)
-- Storbritannien, södra (UKS) 
-- Storbritannien, västra (UKW) 
-- Europa, västra (WE) 
+- Storbritannien, södra (UKS)
+- Storbritannien, västra (UKW)
+- Europa, västra (WE)
 - USA, västra (WUS)
 - USA, västra centrala (WCUS)
 - USA, västra 2 (WUS 2)
@@ -82,7 +82,7 @@ Nej. Filresurserna i ett lagringskonto kan endast skyddas med ett och samma valv
 Du kan ha upp till 200 ögonblicksbilder för en filresurs vid varje tidpunkt. Gränsen gäller ögonblicksbilderna som har tagits av Azure Backup enligt definitionen i din princip. Om dina säkerhetskopior börjar misslyckas när gränsen är nådd tar du bort återställningspunkter på begäran för lyckade säkerhetskopior i framtiden.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>När jag aktiverade virtuella nätverk på mitt lagringskonto började säkerhetskopieringen av filresurser på kontot att misslyckas. Varför?
-Säkerhetskopiering för Azure-filresurser stöder för närvarande inte lagringskonton med aktiverade virtuella nätverk. Inaktivera virtuella nätverk i lagringskonton för att få en fungerande säkerhetskopiering. 
+Säkerhetskopiering för Azure-filresurser stöder för närvarande inte lagringskonton med aktiverade virtuella nätverk. Inaktivera virtuella nätverk i lagringskonton för att få en fungerande säkerhetskopiering.
 
 ## <a name="restore"></a>Återställ
 
@@ -91,6 +91,10 @@ När du tar bort en Azure-filresurs visas listan över säkerhetskopieringar som
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Kan jag återställa från säkerhetskopior om jag har stoppat skyddet på en Azure-filresurs? <br/>
 Ja. Om du valde **Behåll säkerhetskopieringsdata** när du stoppade skyddet kan du återställa från alla befintliga återställningspunkter.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter en pågående återställningsjobbet?
+Om en pågående återställningsjobbet avbryts kvar återställning processen stoppas och alla filer som är återställd innan åtgärden avbryts finns i konfigurerade mål (ursprungliga eller en annan plats) utan några återställningar. 
+
 
 ## <a name="manage-backup"></a>Hantera säkerhetskopiering
 
@@ -106,8 +110,8 @@ Säkerhetskopiering för Azure-filresurser ger dig möjlighet att konfigurera pr
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Vad händer om jag ändrar säkerhetskopieringspolicyn för en Azure-filresurs? <br/>
 När en ny princip tillämpas på en eller flera filresurser följs schemat och kvarhållningstiden för den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning vid nästa rensningsjobb och tas bort.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Den här informationen handlar bara om säkerhetskopiering av Azure Files. Om du vill veta mer om andra användningsområden i Azure Backup kan du läsa andra vanliga frågor och svar om säkerhetskopiering:
--  [Recovery Services-valv – vanliga frågor och svar](backup-azure-backup-faq.md)
--  [Säkerhetskopiering av virtuella Azure-datorer – vanliga frågor och svar ](backup-azure-vm-backup-faq.md)
--  [Azure Backup-agent – vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)
+-  [Vanliga frågor och svar för Recovery Services-valv](backup-azure-backup-faq.md)
+-  [Azure VM backup vanliga frågor och svar](backup-azure-vm-backup-faq.md)
+-  [Azure Backup-agenten vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)

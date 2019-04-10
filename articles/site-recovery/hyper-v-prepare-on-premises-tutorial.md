@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315783"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361884"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar på haveriberedskap till Azure
 
-Den här självstudien visar hur du förbereder din lokala Hyper-V-infrastruktur när du vill replikera Hyper-V-datorer till Azure för haveriberedskap. Hyper-V-värdar kan hanteras av System Center Virtual Machine Manager (VMM), men det krävs inte.  I den här självstudiekursen får du lära du dig att:
+Den här artikeln beskriver hur du förbereder din lokala Hyper-V-infrastruktur när du vill konfigurera haveriberedskap för Hyper-v-datorer till Azure, med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+
+
+Det här är den andra självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala Hyper-V-datorer. I den första kursen vi [ställer in Azure-komponenterna](tutorial-prepare-azure.md) krävs för Hyper-V-haveriberedskap.
+
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Granska kraven för Hyper-V och kraven för VMM om det är tillämpligt.
-> * Förbereda VMM om tillämpligt
-> * Kontrollera Internetåtkomst till Azure-platser
-> * Förbereda virtuella datorer så att du kan komma åt dem efter redundansväxlingen till Azure
+> * Granska kraven för Hyper-V och kraven för VMM om Hyper-V-värdar som hanteras av System Center VMM.
+> * Förbereda VMM om det är tillämpligt.
+> * Kontrollera Internetåtkomst till Azure-platser.
+> * Förbereda virtuella datorer så att du kan komma åt dem efter redundansväxlingen till Azure.
 
-Det här är den andra självstudien i serien. Se till att du har [konfigurerat Azure-komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående självstudie.
+> [!NOTE]
+> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikel i avsnittet How To i Site Recovery i innehållsförteckningen.
 
+## <a name="before-you-start"></a>Innan du börjar
 
+Kontrollera att du har förberett Azure enligt beskrivningen i den [första kursen i den här serien](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Granska krav och förutsättningar
 
@@ -79,7 +87,7 @@ För att ansluta till Windows virtuella datorer med RDP efter en redundansväxli
 
 1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
 2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP ska tillåtas i **Windows-brandväggen** -> **Tillåtna appar och funktioner** för nätverken **Domän och privat**.
-   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns det kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
+   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns, kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
 3. Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Du kan komma åt virtuella Azure-datorer med samma IP-adress som replikerade lokal virtuell dator eller en annan IP-adress efter redundansväxling. [Läs mer](concepts-on-premises-to-azure-networking.md) om hur du konfigurerar IP-adresser för redundans.

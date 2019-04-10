@@ -34,7 +34,7 @@ I den här självstudiekursen får du lära du dig att:
 >
 > Förstapartsintegreringar stöds inte när virtuella nätverk är aktiverade.
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk –
-> * Azure-diagnostik och loggning
+> * Azure Diagnostics och loggning
 > * Azure Stream Analytics
 > * Event Grid-integrering
 > * Web Apps och Functions måste finnas i ett virtuellt nätverk.

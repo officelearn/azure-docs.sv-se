@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540053"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426197"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Avisera poster som samlas in av Nagios har en **typ** av **avisering** och en **
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Typ |*Avisera* |
-| SourceSystem |*Nagios* |
-| AlertName |Namnet på aviseringen. |
-| AlertDescription | Beskrivning av aviseringen. |
-| AlertState | Status för tjänsten eller värden.<br><br>Ok<br>VARNING<br>UP<br>NEDÅT |
-| Värdnamn | Namnet på den värd som skapade aviseringen. |
-| PriorityNumber | Prioritetsnivån för aviseringen. |
-| StateType | Typ av aviseringens status.<br><br>MJUK - problem som inte kontrolleras igen.<br>HARD - problem som har ett angivet antal gånger på nytt.  |
-| TimeGenerated |Datum och tid då aviseringen skapades. |
+| `Type` |*Varning* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Namnet på aviseringen. |
+| `AlertDescription` | Beskrivning av aviseringen. |
+| `AlertState` | Status för tjänsten eller värden.<br><br>Ok<br>VARNING<br>UP<br>NEDÅT |
+| `HostName` | Namnet på den värd som skapade aviseringen. |
+| `PriorityNumber` | Prioritetsnivån för aviseringen. |
+| `StateType` | Typ av aviseringens status.<br><br>MJUK - problem som inte kontrolleras igen.<br>HARD - problem som har ett angivet antal gånger på nytt.  |
+| `TimeGenerated` |Datum och tid då aviseringen skapades. |
 
 
 ### <a name="zabbix-alert-records"></a>Aviseringsposter som Zabbix
@@ -108,17 +108,17 @@ Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Typ |*Avisera* |
-| SourceSystem |*Zabbix* |
-| AlertName | Namnet på aviseringen. |
-| AlertPriority | Allvarlighetsgrad för aviseringen.<br><br>inte klassificerats<br>information<br>varning<br>genomsnittligt<br>Hög<br>haveriberedskap  |
-| AlertState | Status för aviseringen.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.  |
-| AlertTypeNumber | Anger om avisering kan skapa flera problem händelser.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.    |
-| Kommentarer | Ytterligare kommentarer för aviseringen. |
-| Värdnamn | Namnet på den värd som skapade aviseringen. |
-| PriorityNumber | Värde som anger aviseringens allvarlighetsgrad.<br><br>0 – inte klassificerats<br>1 – information<br>2 – varning<br>3 – genomsnitt<br>4 – hög<br>5 – haveriberedskap |
-| TimeGenerated |Datum och tid då aviseringen skapades. |
-| TimeLastModified |Datum och tid som tillståndet för aviseringen senast ändrades. |
+| `Type` |*Varning* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Namnet på aviseringen. |
+| `AlertPriority` | Allvarlighetsgrad för aviseringen.<br><br>inte klassificerats<br>information<br>varning<br>genomsnittligt<br>Hög<br>haveriberedskap  |
+| `AlertState` | Status för aviseringen.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.  |
+| `AlertTypeNumber` | Anger om avisering kan skapa flera problem händelser.<br><br>0 - tillståndet är uppdaterad.<br>1 - tillståndet är okänt.    |
+| `Comments` | Ytterligare kommentarer för aviseringen. |
+| `HostName` | Namnet på den värd som skapade aviseringen. |
+| `PriorityNumber` | Värde som anger aviseringens allvarlighetsgrad.<br><br>0 – inte klassificerats<br>1 – information<br>2 – varning<br>3 – genomsnitt<br>4 – hög<br>5 – haveriberedskap |
+| `TimeGenerated` |Datum och tid då aviseringen skapades. |
+| `TimeLastModified` |Datum och tid som tillståndet för aviseringen senast ändrades. |
 
 
 ## <a name="next-steps"></a>Nästa steg

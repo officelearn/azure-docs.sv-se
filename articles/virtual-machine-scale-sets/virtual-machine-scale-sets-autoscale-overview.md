@@ -116,7 +116,7 @@ Azure diagnostics-tillägg är en agent som körs på en VM-instans. Agenten öv
 
 För att använda Azure diagnostics-tillägg, måste du skapa Azure storage-konton för dina VM-instanser, installera Azure diagnostics-agenten och konfigurera de virtuella datorerna till stream specifika prestandaräknare till lagringskontot.
 
-Mer information finns i artiklarna om att aktivera Azure-diagnostiktillägget på en [virtuell Linux-dator](../virtual-machines/extensions/diagnostics-linux.md) eller en [virtuell Windows-dator](../virtual-machines/extensions/diagnostics-windows.md).
+Mer information finns i artiklarna om att aktivera Azure Diagnostics-tillägget på en [virtuell Linux-dator](../virtual-machines/extensions/diagnostics-linux.md) eller en [virtuell Windows-dator](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Programnivå mått med App Insights

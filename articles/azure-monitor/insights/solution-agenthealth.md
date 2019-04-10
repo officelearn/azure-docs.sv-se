@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757970"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426230"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsolösning i Azure Monitor
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta i Azure Monitor eller en System Center Operations Manager-hanteringsgrupp som är anslutna till Azure Monitor, som är inte svarar och Skicka användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -76,21 +76,21 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| Type | *Pulsslag*|
-| Kategori | Värdet är *Direct Agent*, *SCOM Agent* eller *SCOM Management Server*.|
-| Dator | Datornamn.|
-| OSType | Windows- eller Linux-operativsystem.|
-| OSMajorVersion | Högre operativsystemversion.|
-| OSMinorVersion | Lägre operativsystemversion.|
-| Version | Log Analytics-agenten eller Operations Manager Agent-version.|
-| SCAgentChannel | Värdet är *Direkt* och/eller *SCManagementServer*.|
-| IsGatewayInstalled | Om Log Analytics-gatewayen har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
-| ComputerIP | IP-adressen för datorn.|
-| RemoteIPCountry | Geografisk plats där datorn har distribuerats.|
-| ManagementGroupName | Namn på Operations Manager-hanteringsgrupp.|
-| SourceComputerId | Unikt ID för datorn.|
-| RemoteIPLongitude | Longituden för datorns geografiska plats.|
-| RemoteIPLatitude | Latituden för datorns geografiska plats.|
+| `Type` | *Pulsslag*|
+| `Category` | Värdet är *Direct Agent*, *SCOM Agent* eller *SCOM Management Server*.|
+| `Computer` | Datornamn.|
+| `OSType` | Windows- eller Linux-operativsystem.|
+| `OSMajorVersion` | Högre operativsystemversion.|
+| `OSMinorVersion` | Lägre operativsystemversion.|
+| `Version` | Log Analytics-agenten eller Operations Manager Agent-version.|
+| `SCAgentChannel` | Värdet är *Direkt* och/eller *SCManagementServer*.|
+| `IsGatewayInstalled` | Om Log Analytics-gatewayen har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
+| `ComputerIP` | IP-adressen för datorn.|
+| `RemoteIPCountry` | Geografisk plats där datorn har distribuerats.|
+| `ManagementGroupName` | Namn på Operations Manager-hanteringsgrupp.|
+| `SourceComputerId` | Unikt ID för datorn.|
+| `RemoteIPLongitude` | Longituden för datorns geografiska plats.|
+| `RemoteIPLatitude` | Latituden för datorns geografiska plats.|
 
 Varje agent som rapporterar till en hanteringsserver för Operations Manager skickar två pulsslag och egenskapsvärdet för SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vad datakällor och övervakar lösningar som du har aktiverat i din prenumeration. Om du kommer ihåg data från lösningar antingen skickas direkt från en hanteringsserver för Operations Manager till Azure Monitor eller på grund av mängden data som samlas in från agenten, skickas direkt från agenten till Azure Monitor. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
 

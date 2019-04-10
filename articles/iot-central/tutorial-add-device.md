@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425941"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
 
@@ -41,6 +41,8 @@ Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slut
 * [Definiera en ny enhetstyp](tutorial-define-device-type.md) (obligatoriskt)
 * [Konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md) (valfritt)
 * [Anpassa operatörsvyer](tutorial-customize-operator.md) (valfritt)
+
+Installera [Node.js](https://nodejs.org/) version 8.0.0 eller senare på utvecklingsdatorn. Du kan köra `node --version` i kommandoraden för att kontrollera vilken version. Node.js är tillgängligt för många olika operativsystem.
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
@@ -92,37 +94,27 @@ I artiklarna i den [nästa steg](#next-steps) avsnittet omfattar mer komplett ex
 
 Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
 
-1. Installera [Node.js](https://nodejs.org/)-versionen 4.0.x eller senare på datorn. Node.js är tillgängligt för många olika operativsystem.
-
-1. Skapa en mapp med namnet `connectedairconditioner` på datorn.
-
-1. I kommandoradsmiljön går du till mappen `connectedairconditioner` som du skapade.
-
-1. Installera DPS-nyckelgeneratorn med hjälp av följande kommando:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   Läs mer om [kommandoradsverktyget här](https://www.npmjs.com/package/dps-keygen).
+### <a name="get-the-device-connection-information"></a>Hämta anslutningsinformationen för enhet
 
 1. Anslutningssträngen för en enhetsinstans i ditt program genereras från enhetsinformation som tillhandahålls av IoT Central.
 
-   Gå tillbaka till IoT Central-portalen. På enhetsskärmen för den riktiga, anslutna luftkonditioneringsenheten väljer du **Anslut**.
+   På enhetsskärmen för den riktiga, anslutna luftkonditioneringsenheten väljer du **Anslut**.
 
    ![Enhetssidan visar informationslänk för att visa anslutning](media/tutorial-add-device/connectionlink.png)
 
-1. På sidan Enhetsanslutning kopierar och klistrar du in omfångs-ID, enhets-ID och primärnyckeln i en textredigerare och sparar. Du använder dessa värden i nästa steg.
+1. På sidan enhetsanslutning anteckna den **Scopeid**, **enhets-ID** och **primärnyckel** värden. Du använder dessa värden i nästa steg.
 
    ![Anslutningsinformation](media/tutorial-add-device/device-connect.png)
 
-1. Gå tillbaka till kommandoradsmiljön och generera anslutningssträngen genom att köra:
+### <a name="generate-the-connection-string"></a>Generera anslutningssträngen
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Kopiera utdata och spara i en ny fil (till exempel connection.txt).
+### <a name="prepare-the-nodejs-project"></a>Förbered Node.js-projekt
+
+1. Skapa en mapp med namnet `connectedairconditioner` på utvecklingsdatorn.
+
+1. I kommandoradsmiljön går du till mappen `connectedairconditioner` som du skapade.
 
 1. Kör följande kommando och acceptera alla standardvärden för att initiera Node.js-projektet:
 
@@ -309,7 +301,7 @@ Om du vill konfigurera din klientkod för att ansluta till Azure IoT Central-pro
     var connectionString = '{your device connection string}';
     ```
 
-1. Ersätt `{your device connection string}` med den riktiga enhetens anslutningssträng. Du sparade anslutningssträngen tidigare i en textredigerare.
+1. Ersätt `{your device connection string}` med den riktiga enhetens anslutningssträng. Du har kopierat anslutningssträngen som du genererade i föregående steg.
 
 1. Spara ändringarna i filen **ConnectedAirConditioner.js**.
 
@@ -362,12 +354,12 @@ Som operatör lär du dig att:
 
 * [Hantera dina enheter](howto-manage-devices.md)
 * [Använda enhetsuppsättningar](howto-use-device-sets.md)
-* [Skapa anpassade analyser](howto-use-device-sets.md)
+* [Skapa anpassad analys](howto-use-device-sets.md)
 
 Som enhetsutvecklare lär du dig att:
 
 * [Förbereda och ansluta en DevKit enhet (C)](howto-connect-devkit.md)
-* [Förbereda och ansluta en Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Förbereda och ansluta en Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Förbereda och ansluta Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Förbereda och ansluta Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Förbereda och Anslut en Windows 10 IoT core-enhet (C#)](howto-connect-windowsiotcore.md)
-* [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
+* [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)

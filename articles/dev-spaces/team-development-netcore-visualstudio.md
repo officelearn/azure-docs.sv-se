@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 25b72b6770e088a2999f1e70f3dc3559587cd0e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774824"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361446"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
@@ -58,8 +58,8 @@ _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt a
 ### <a name="set-up-your-baseline"></a>Konfigurera din baslinje
 Först behöver vi distribuera en baslinje för våra tjänster. Den här distributionen representerar den ”senaste kända välfungerande” så att du enkelt kan jämföra beteendet för din lokala kod jämfört med den incheckade versionen. Sedan skapar vi ett underordnat utrymme baserat på den här baslinjen så att vi kan testa ändringarna i *mywebapi* inom ramen för det större programmet.
 
-1. Klona [Dev Spaces-exempelprogrammet](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Checka ut fjärrgrenen *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
+1. Klona den [Dev blanksteg exempelprogrammet](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Kolla in fjärrgren *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Stäng alla F5-/felsökningssessioner för båda tjänsterna, men lämna projekten öppna i Visual Studio-fönstren.
 1. Växla till Visual Studio-fönstret med projektet _mywebapi_.
 1. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905774"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361973"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper (begränsad offentlig förhandsversion)
 
@@ -22,7 +22,9 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 > [!NOTE]
 > Om du vill flytta ett Recovery Services-valv och dess kopplade resurser till en annan resursgrupp, bör du först [registrera datakälla prenumerationen](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>Stöds geografiska områden
+
+För att flytta resursen för Recovery Services-valv stöds i Östra Australien, östra södra, Kanada, centrala, Kanada, östra, Sydostasien, Östasien, centrala USA, norra centrala USA, östra USA, östra usa2, södra centrala USA, västra centrala USA, västra centrala USA östra 2, västra USA Centrala Indien, södra Indien, Japan, östra och Japan, västra, Korea, centrala Korea, södra, Nordeuropa, Västeuropa, Sydafrika, norra, Sydafrika, västra, Storbritannien, södra, Storbritannien, västra, Förenade Arabemiraten, centrala och Förenade Arabemiraten, norra.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Förutsättningar för att flytta ett valv
 
@@ -34,12 +36,12 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 - För närvarande kan du flytta ett Recovery Services-valv per region i taget.
 - Om en virtuell dator inte flytta med Recovery Services-valv mellan prenumerationer eller till en ny resursgrupp, sparas de aktuella VM-återställningspunkterna den i valvet tills de upphör att gälla.
 - Om den virtuella datorn flyttas med valvet eller inte, kan du alltid återställa den virtuella datorn från den sparade historiken för säkerhetskopiering i valvet.
--   Azure Disk Encryption kräver att dina nyckelvalv och virtuella datorer finns i samma Azure-region och prenumeration.
--   Om du vill flytta en virtuell dator med hanterade diskar finns i den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
--   Alternativ för att flytta resurser som har distribuerats via den klassiska modellen varierar beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
--   Principer för säkerhetskopiering som definierats för valvet bevaras när valvet flyttas mellan prenumerationer eller till en ny resursgrupp.
--   För närvarande kan flytta du inte valv som innehåller den Azure Files eller Azure File Sync SQL i virtuella IaaS-datorer mellan prenumerationer och resursgrupper. Stöd för dessa scenarier kommer att läggas i framtida versioner.
--   Om du flyttar ett valv som innehåller VM säkerhetskopierade data mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och Använd samma målresursgruppen för att fortsätta säkerhetskopieringar.<br>
+- Azure Disk Encryption kräver att dina nyckelvalv och virtuella datorer finns i samma Azure-region och prenumeration.
+- Om du vill flytta en virtuell dator med hanterade diskar finns i den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Alternativ för att flytta resurser som har distribuerats via den klassiska modellen varierar beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- Principer för säkerhetskopiering som definierats för valvet bevaras när valvet flyttas mellan prenumerationer eller till en ny resursgrupp.
+- För närvarande kan flytta du inte valv som innehåller den Azure Files eller Azure File Sync SQL i virtuella IaaS-datorer mellan prenumerationer och resursgrupper.
+- Om du flyttar ett valv som innehåller VM säkerhetskopierade data mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och Använd samma målresursgruppen för att fortsätta säkerhetskopieringar.<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ Att registrera datakälla prenumerationen **flytta** Recovery Services-valvet, k
 1. Logga in på ditt Azure-konto
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. Välj den prenumeration som du vill registrera
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. Registrera den här prenumerationen
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Köra kommandot
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Vänta i 30 minuter för prenumerationen som ska vitlistas innan du börjar med flyttåtgärden med hjälp av Azure portal eller PowerShell.
@@ -139,18 +141,18 @@ Du kan flytta ett Recovery Services-valv och dess kopplade resurser till en anna
 
 ## <a name="use-powershell-to-move-a-vault"></a>Använd PowerShell för att flytta ett valv
 
-Flytta ett Recovery Services-valv till en annan resursgrupp genom att använda den `Move-AzResource` cmdlet. `Move-AzResource` kräver resursnamn och typ av resurs. Du kan hämta båda från den `Get-AzRecoveryServicesVault` cmdlet.
+Flytta ett Recovery Services-valv till en annan resursgrupp genom att använda den `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` kräver resursnamn och typ av resurs. Du kan hämta båda från den `Get-AzureRmRecoveryServicesVault` cmdlet.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 För att flytta resurser till en annan prenumeration, innehåller den `-DestinationSubscriptionId` parametern.
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Efter körning av ovanstående cmdletar, blir du ombedd att bekräfta att du vill flytta de angivna resurserna. Typ **Y** att bekräfta. Efter en lyckad validering flyttar resursen.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360568"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471485"
 ---
 # <a name="azure-stack-1903-update"></a>Uppdatering av Azure Stack 1903
 
@@ -97,7 +97,8 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 - När du kör [Test-AzureStack](azure-stack-diagnostic-test.md), visas ett varningsmeddelande från den Hanteringsstyrenheten för baskort (BMC). Du kan ignorera den här varningen.
 
-- <!-- 2468613 - IS --> Under installationen av den här uppdateringen kan du se aviseringar med rubriken **fel – mall för FaultType UserAccounts.New saknas.** Du kan ignorera dessa aviseringar. Aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
+<!-- 2468613 - IS -->
+- Under installationen av den här uppdateringen kan du se aviseringar med rubriken **fel – mall för FaultType UserAccounts. Ny saknas.** Du kan ignorera dessa aviseringar. Aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
 
 ## <a name="post-update-steps"></a>Steg efter uppdateringen
 
@@ -124,10 +125,15 @@ Här följer efter installation kända problem för den här build-versionen.
 - Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan först ta bort användarresurser eller hela resursgruppen och sedan ta bort prenumerationer för användare.
 
 <!-- 1663805 - IS ASDK --> 
-- Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan du använda [PowerShell för att kontrollera behörigheterna](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan du använda [PowerShell för att kontrollera behörigheterna](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- I användarportalen, när du navigerar till en blob i ett lagringskonto och försök att öppna **åtkomstprincip** i navigeringsträdet fönstret efterföljande inte kan läsas in.
+- I användarportalen, när du navigerar till en blob i ett lagringskonto och försök att öppna **åtkomstprincip** i navigeringsträdet fönstret efterföljande inte kan läsas in. Undvik det här problemet, aktiverar följande PowerShell-cmdletar skapa, hämta, ange och ta bort åtkomstprinciper, respektive:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - I användarportalen, när du försöker ladda upp en blob med hjälp av den **OAuth(preview)** alternativet uppgiften misslyckas med felmeddelandet. Undvik problemet genom att ladda upp en blob med hjälp av den **SAS** alternativet.
@@ -157,17 +163,16 @@ Här följer efter installation kända problem för den här build-versionen.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för inloggning. Som en lösning kan använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
 
-- Azure Stack har nu stöd för Windows Azure Linux-agenter som är högre än version 2.2.20. Det här stödet var en del av 1901 och 1902 snabbkorrigeringar och gör att kunderna att upprätthålla konsekvent linux-avbildningar mellan Azure och Azure Stack.
-
+- Azure Stack har nu stöd för Windows Azure Linux-agenter som är högre än version 2.2.20. Det här stödet var en del av 1901 och 1902 snabbkorrigeringar och gör att kunderna att upprätthålla konsekvent Linux-avbildningar mellan Azure och Azure Stack.
 
 - Om du inte har en maskinvara livscykel värden (HLH): före build 1902, var du tvungen att ställa in Grupprincip **Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Lokala Principer\säkerhetsalternativ** till **Skicka LM & NTLM – Använd NTLMv2-sessionssäkerhet om förhandlas**. Sedan build 1902, måste du lämna den som **inte har definierats** eller anger **endast skicka NTLMv2-svar** (vilket är standardvärdet). Annars kan du inte längre att upprätta en PowerShell-fjärrsession så ser du en **åtkomst nekas** fel:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed

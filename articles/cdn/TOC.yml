@@ -101,7 +101,7 @@ items:
   - name: Analysera
     href: cdn-log-analysis.md
     items:
-    - name: Azure-diagnostikloggar
+    - name: Azure Diagnostics-loggar
       href: cdn-azure-diagnostic-logs.md
     - name: Analysverktyg för Azure CDN från Verizon
       items:

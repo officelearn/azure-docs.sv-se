@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273982"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361234"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3-API – .NET
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK me
 1. Från den **filen** -menyn klickar du på **New** > **projekt**. 
 1. Skapa en **.NET Core** -konsolapp.
 
-Exempelappen i det här avsnittet riktar sig mot `netcoreapp2.0`. Koden i använder 'async huvudsakliga ”, som är tillgängliga från och med C# 7.1. Se den här [blogg](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) för mer information.
+Exempelappen i det här avsnittet riktar sig mot `netcoreapp2.0`. Koden använder 'async huvudsidan ”, som är tillgängliga från och med C# 7.1. Se den här [blogg](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) för mer information.
 
 ## <a name="add-required-nuget-packages"></a>Lägg till NuGet-paket som krävs
 
@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 - [Självstudier: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
 - [Självstudier: Stream live med Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [Skapa filter med Media Services – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Avancerade video på begäran-exempel på Azure Functions v2 med Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="see-also"></a>Se också
 
 [.NET-referens](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

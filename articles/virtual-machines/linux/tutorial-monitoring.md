@@ -123,7 +123,7 @@ En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. 
 
 ## <a name="install-diagnostics-extension"></a>Installera diagnostiktillägget
 
-Grundläggande värdmått är tillgängliga, men om du vill se mer detaljerade och VM-specifika mått måste du installera Azure-diagnostiktillägget på den virtuella datorn. Med Azure-diagnostiktillägget kan du få ut mer övervaknings- och diagnostikdata från den virtuella datorn. Du kan visa dessa prestandamått och skapa aviseringar baserat på hur det går för den virtuella datorn. Diagnostiktillägget installeras via Azure Portal på följande sätt:
+Grundläggande värdmått är tillgängliga, men om du vill se mer detaljerade och VM-specifika mått måste du installera Azure Diagnostics-tillägget på den virtuella datorn. Med Azure Diagnostics-tillägget kan du få ut mer övervaknings- och diagnostikdata från den virtuella datorn. Du kan visa dessa prestandamått och skapa aviseringar baserat på hur det går för den virtuella datorn. Diagnostiktillägget installeras via Azure Portal på följande sätt:
 
 1. I Azure Portal: välj **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 1. Klicka på **diagnosinställningar**. I listrutan *Välj ett lagringskonto* väljer du kontot *mydiagdata [1234]* som har skapats i föregående avsnitt, om du inte redan har gjort det.

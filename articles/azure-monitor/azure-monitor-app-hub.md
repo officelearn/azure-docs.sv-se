@@ -5,17 +5,17 @@ title: Azure Monitor Application insights-dokumentation – självstudier, API-r
 description: Azure Monitor Application Insights erbjuder djupgående kodnivå övervakning av programprestanda.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244249"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426281"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -85,7 +85,7 @@ ms.locfileid: "56244249"
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">Mobil</a><br>
                                                             <a href="./app/website-monitoring.md">Webbläsaren-/ klientsidan</a>
                                                         </p>
                                                         <br><br>
@@ -103,7 +103,7 @@ ms.locfileid: "56244249"
                                                             <a href="./app/distributed-tracing.md">Vad är distribuerad spårning?</a><br>
                                                             <a href="./app/opencensus-python.md">OpenCensus för Python</a><br>
                                                             <a href="./app/opencensus-go.md">OpenCensus för Go</a><br>
-                                                            <a href="./app/opencensus-local-forwarder.md">Lokala vidarebefordrare</a>
+                                                            <a href="./app/opencensus-local-forwarder.md">Lokal vidarebefordrare</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>Automatisk smart identifiering</h3>
@@ -121,7 +121,7 @@ ms.locfileid: "56244249"
                                                         <br><br>
                                                         <h3>Referens</h3>
                                                         <p>
-                                                            <a href="./app/auto-collect-dependencies.md">Beroende Automatisk insamling</a><br>
+                                                            <a href="./app/auto-collect-dependencies.md">Automatisk insamling för beroenden</a><br>
                                                             <a href="./app/correlation.md">Telemetrikorrelation</a><br>
                                                             <a href="./app/nuget.md">NuGet-paket</a><br>
                                                             <a href="./app/azure-functions-supported-features.md">Azure Functions</a>
@@ -146,7 +146,7 @@ ms.locfileid: "56244249"
                                                             <a href="./app/java-agent.md">Agent-konfiguration för beroendespårning</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Anpassade händelser och mätvärden</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Config-XML</a><br>
+">Config .xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">Öppen källkod Java SDK på GitHub-lagringsplats</a>
                                                         </p>
                                                         <br><br>

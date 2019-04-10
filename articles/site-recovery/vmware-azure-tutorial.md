@@ -6,50 +6,44 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310599"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357875"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
-[Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
+Den här artikeln beskriver hur du aktiverar replikering för den lokala virtuella VMware-datorer, på haveriberedskap till Azure med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
+Det här är den tredje självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala virtuella VMware-datorer. I den tidigare självstudiekursen, vi [förberett den lokala VMware-miljön](vmware-azure-tutorial-prepare-on-premises.md) för haveriberedskap till Azure.
 
-Den här självstudien visar hur du distribuerar Site Recovery med grundläggande inställningar, utan anpassning av. Granska artiklar under How To för mer komplexa alternativ.
-
-    - Konfigurera [replikeringskällan](vmware-azure-set-up-source.md) och [konfigurationsservern](vmware-azure-deploy-configuration-server.md).
-    - Konfigurera [replikeringsmålet](vmware-azure-set-up-target.md).
-    - Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) och [aktivera replikering](vmware-azure-enable-replication.md).
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ange replikeringskälla och mål.
-> * Konfigurera källmiljön för replikering, inklusive lokala Azure Site Recovery-komponenter och målmiljön för replikeringen.
+> * Ställ in källans replikeringsinställningar och en lokal konfigurationsserver för Site Recovery.
+> * Konfigurera replikeringsinställningar för målet.
 > * Skapar en replikeringsprincip.
-> * Aktiverar replikering för en virtuell dator.
+> * Aktivera replikering för en VMware-VM.
+
+> [!NOTE]
+> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikel i avsnittet How To i Site Recovery i innehållsförteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du börjar är det bra att:
+Slutföra de föregående självstudierna:
+1. Kontrollera att du har [ställa in Azure](tutorial-prepare-azure.md) på den lokala VMware-haveriberedskap till Azure.
+2. Följ [här](vmware-azure-tutorial-prepare-on-premises.md) att förbereda lokala VMware-distribution för haveriberedskap till Azure.
+3. I den här självstudien visar vi dig hur du replikerar en enda virtuell dator. Om du distribuerar flera virtuella VMware-datorer bör du använda den [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner). [Läs mer](site-recovery-deployment-planner.md) om det här verktyget.
+4. Den här självstudien används ett antal alternativ som du kanske vill göra på olika sätt:
+    - I självstudiekursen används en mall för OVA för att skapa konfigurationsservern VMware VM. Om du inte kan göra det av någon anledning, följer du [instruktionerna](physical-manage-configuration-server.md) du ställer in konfigurationsservern manuellt.
+    - I de här självstudierna Site Recovery hämtar och installerar automatiskt MySQL till konfigurationsservern. Om du vill kan konfigurera du det manuellt i stället. [Läs mer](vmware-azure-deploy-configuration-server.md#configure-settings).
 
-- [Granska arkitekturen](vmware-azure-architecture.md) för detta haveriberedskapsscenario.
-- Om du vill lära dig om att ställa in haveriberedskap för virtuella VMware-datorer i detalj kan du granska och använda följande resurser:
-    - [Läs vanliga frågor](vmware-azure-common-questions.md) om haveriberedskap för VMware.
-    - [Läs](vmware-physical-azure-support-matrix.md) vad som stöds och krävs för VMware.
-- I den här självstudien visar vi dig hur du replikerar en enda virtuell dator. Om du distribuerar flera virtuella datorer bör du använda den [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner) för att planera distributionen. [Läs mer](site-recovery-deployment-planner.md) om det här verktyget.
-
-Och granska dessa tips:
-- I den här självstudien används en OVA-mall för att skapa konfigurationsserverns virtuella VMware-dator. Om du inte kan göra detta, följer du [instruktionerna](physical-manage-configuration-server.md) du ställer in konfigurationsservern manuellt.
-- I den här självstudien hämtar och installerar Site Recovery MySQL till konfigurationsservern. Om du vill kan konfigurera du det manuellt i stället. [Läs mer](vmware-azure-deploy-configuration-server.md#configure-settings).
-  >Du kan ladda ned den senaste versionen av konfigurationsservermallen direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-  Licensnumret du fått med OVF-mall är en utvärderingslicens som är giltig i 180 dagar. Windows som körs på den virtuella datorn måste aktiveras med licensen som krävs. 
 
 
 
@@ -65,15 +59,18 @@ Och granska dessa tips:
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-I källmiljön behöver du en fristående, med hög tillgänglighet, en lokal dator till värd lokala Site Recovery-komponenter. Komponenterna är konfigurationsservern, processervern och huvudmålservern:
+I källmiljön behöver du en enda, med hög tillgänglighet, en lokal dator som värd för dessa lokala Site Recovery-komponenter:
 
-- Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
-- Processervern fungerar som en replikeringsgateway. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar den till cachen storage-konto i Azure. Processervern installerar också mobilitetstjänsten på de virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala virtuella VMware-datorer.
-- Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
-
-Om du vill konfigurera konfigurationsservern som en virtuell VMware-dator med hög tillgänglighet laddar du ned en förberedd Open Virtualization Application-mall (OVA) och importerar mallen till VMware för att skapa den virtuella datorn. När du har konfigurerat konfigurationsservern kan du registrera den i valvet. Site Recovery identifierar lokala virtuella VMware-datorer efter registreringen.
+- **Konfigurationsservern**: Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
+- **Processerver**: Processervern fungerar som en replikeringsgateway. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar det till ett cachelagringskonto i Azure. Processervern installerar också Mobilitetstjänsten-agenten på de virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala virtuella VMware-datorer.
+- **Huvudmålservern**: Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
 
 
+Alla dessa komponenter har installerats på de enda lokala datorer som kallas den *konfigurationsservern*. Som standard för VMware-haveriberedskap, konfigurera vi konfigurationsservern som en högtillgänglig VMware VM. Om du vill göra detta måste du ladda ned en förberedd Open Virtualization program (OVA)-mall och importerar mallen till VMware för att skapa den virtuella datorn. 
+
+- Den senaste versionen av konfigurationsservern är tillgänglig i portalen. Du kan också hämta den direkt från den [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Om du av någon anledning inte kan du använda en mall för OVA för att ställa in en virtuell dator, följer du [instruktionerna](physical-manage-configuration-server.md) du ställer in konfigurationsservern manuellt.
+- Licensnumret du fått med OVF-mall är en utvärderingslicens som är giltig i 180 dagar. Windows som körs på den virtuella datorn måste aktiveras med licensen som krävs. 
 
 
 ### <a name="download-the-vm-template"></a>Ladda ned VM-mallen
@@ -105,7 +102,7 @@ Om du vill konfigurera konfigurationsservern som en virtuell VMware-dator med h�
 
 ## <a name="add-an-additional-adapter"></a>Lägg till ytterligare en adapter
 
-Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
+Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger du till den innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
 2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
@@ -114,6 +111,8 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du d
 
 
 ## <a name="register-the-configuration-server"></a>Registrera konfigurationsservern 
+
+När konfigurationsservern har konfigurerats kan registrera du den i valvet.
 
 1. Sätt på den virtuella datorn från VMWare vSphere-klientkonsolen.
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
@@ -124,7 +123,11 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du d
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt om några sekunder.
 
+
 ### <a name="configure-settings-and-add-the-vmware-server"></a>Konfigurera inställningar och lägga till VMware-servern
+
+Slut att konfigurera och registrera konfigurationsservern. 
+
 
 1. I guiden Konfigurera serverhantering, väljer **Ställ in anslutning**. Först väljer du det nätverkskort som inbyggd processervern som används för identifiering och push-installation av mobilitetstjänsten på källdatorer listrutor, och sedan väljer du det nätverkskort som konfigurationsservern använder för anslutning till Azure. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
 2. I **Välj Recovery Services-valv** väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
@@ -140,7 +143,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du d
 10. När registreringen är klar i Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på sidan **Källa** i valvet. Välj sedan **OK** för att konfigurera målinställningarna.
 
 
-Site Recovery ansluter till VMware-servrar med hjälp av de angivna inställningarna och identifierar virtuella datorer.
+När konfigurationsservern har registrerats kan Site Recovery ansluter till VMware-servrar med hjälp av de angivna inställningarna och identifierar virtuella datorer.
 
 > [!NOTE]
 > Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **Konfigurationsservrar** > ***servernamn*** > **Uppdatera server**.
@@ -171,7 +174,7 @@ Välj och kontrollera målresurserna.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-Aktivera replikering kan utföras på följande sätt:
+Aktivera replikering för virtuella datorer på följande sätt:
 
 1. Välj **Replikera program** > **Källa**.
 1. I **Källa**väljer du **Lokalt** och väljer konfigurationsservern i **källplats**.
@@ -181,7 +184,7 @@ Aktivera replikering kan utföras på följande sätt:
 1. I **Mål** väljer du den prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Vi använder Resource Manager-distributionsmodellen. 
 1. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 1. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla virtuella datorer som du aktiverat replikering för. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator.
-1. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**. Om du inte kan visa /välja en viss virtuell dator klickar du [här](https://aka.ms/doc-plugin-VM-not-showing) för att lösa problemet.
+1. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**. Om det inte går att visa/välja en viss virtuell dator [mer](https://aka.ms/doc-plugin-VM-not-showing) om hur du löser problemet.
 1. I **Egenskaper** > **Konfigurera egenskaper** väljer du det konto som ska användas av processervern för att automatiskt installera mobilitetstjänsten på datorn.
 1. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts.
 1. Välj **Aktivera replikering**. Site Recovery installerar mobilitetstjänsten när replikering är aktiverad för en virtuell dator.
@@ -190,6 +193,6 @@ Aktivera replikering kan utföras på följande sätt:
 1. Om du vill övervaka de virtuella datorer som du lägger till, kan du se när de senast identifierades i **Konfigurationsservrar** > **Senaste kontakt**. Om du vill lägga till virtuella datorer utan att vänta på den schemalagda identifieringen markerar du konfigurationsservern (välj den inte) och väljer **Uppdatera**.
 
 ## <a name="next-steps"></a>Nästa steg
-
+Kör ett test för att kontrollera att allt fungerar som förväntat när du har aktiverat replikering.
 > [!div class="nextstepaction"]
-> När du har aktiverat replikering, [kör ett programåterställningstest](site-recovery-test-failover-to-azure.md) att se till att allt fungerar som förväntat.
+> [Köra ett programåterställningstest](site-recovery-test-failover-to-azure.md)

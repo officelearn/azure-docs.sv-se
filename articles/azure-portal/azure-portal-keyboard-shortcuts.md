@@ -12,39 +12,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359717"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure portal
-Den här artikeln visar kortkommandon som fungerar i hela Azure-portalen. Enskilda tjänster kan ha sina egna kortkommandon.
+
+Den här artikeln innehåller kortkommandon som fungerar överallt i Azure-portalen. Enskilda tjänster kan ha sina egna kortkommandon.
 
 ## <a name="actions"></a>Åtgärder
-|Om du vill |Tryck på |
+
+|Att utföra den här åtgärden |Tryck på |
 | --- | --- |
-|Skapa en ny resurs|G+N|
-|Öppna fönstret ”alla tjänster”|G+B|
-|Sök efter resurser|G+/| 
+|Skapa en resurs|G+N|
+|Öppna **alla tjänster**|G+B|
+|Sök efter resurser, tjänster och dokument|G+/|
 |Sökobjekt resurs-menyn|CTRL+/ |
-|Flytta det markerade vänster objektet uppåt |ALT + SKIFT + UPPIL|
-|Flytta det markerade vänster objektet nedåt |ALT + SKIFT + NEDPIL|
+|Flytta upp det valda vänstra sidorutan-objektet |ALT + SKIFT + UPPIL|
+|Flytta det markerade vänstra sidorutan objektet nedåt |ALT + SKIFT + NEDPIL|
 
 ## <a name="navigation"></a>Navigering
-|Om du vill |Tryck på |
+
+|Att göra den här navigering |Tryck på |
 | --- | --- |
 |Flytta fokus till kommandofältet |G+, |
-|Växla fokus mellan översta raden och sidfältet | G+. |
+|Växla fokus mellan huvud- och vänstra sidopanelen | G+. |
 
 ## <a name="go-to"></a>Gå till
-|Om du vill |Tryck på |
+
+|Gå till den här platsen |Tryck på |
 | --- | --- |
-|Gå till instrumentpanelen |G+D |
-|Gå till alla resurser|G+A |
-|Gå till resursgrupper|G+R |
-|Öppna det vänstra fönstret objektet på den här platsen |G+nummer|
+|Gå till **instrumentpanel** |G+D |
+|Gå till **alla resurser**|G+A |
+|Gå till **resursgrupper**|G+R |
+|Öppna vänstra sidorutan objektet på den här positionen |G+nummer|
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
+- [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)

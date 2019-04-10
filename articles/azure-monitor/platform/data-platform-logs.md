@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904159"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360623"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -46,7 +46,7 @@ I följande tabell visas de olika sätt som du kan använda loggarna i Azure Mon
 | Analysera | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure portal för att skriva [logga frågor](../log-query/log-query-overview.md) och analysera loggdata med hjälp av kraftfulla Data Explorer analysis motorn interaktivt.<br>Använd den [Application Insights analytics-konsolen](../app/analytics.md) i Azure portal för att skriva loggfrågor och analysera loggdata från Application Insights interaktivt. |
 | Visualisera | Fästa resultatet av frågan renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbetsboken](../app/usage-workbooks.md) du kombinerar med flera uppsättningar av data i en interaktiv rapport. <br>Exportera resultatet av en fråga till [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) att utnyttja dess dashboarding och kombinera med andra datakällor.|
 | Varning | Konfigurera en [loggvarningsregler](alerts-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när frågans resultat matchar ett visst resultat.<br>Konfigurera en [måttaviseringsregel](alerts-metric-logs.md) på vissa loggar för data som extraheras som mått. |
-| Hämta | Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till loggresultat för frågan från ett anpassat program som använder [REST API](https://dev.loganalytics.io/). |
+| Hämta | Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Åtkomst till loggresultat för frågan från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till loggresultat för frågan från ett anpassat program som använder [REST API](https://dev.loganalytics.io/). |
 | Exportera | Skapa ett arbetsflöde för att hämta loggdata och kopiera den till en extern plats med hjälp av [Logikappar](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala
 |:---|:---|
 | Begäranden och undantag | Detaljerad information om programmet begäranden och undantag finns i den _begäranden_, _pageViews_, och _undantag_ tabeller. Anrop till [externa komponenter](../app/asp-net-dependencies.md) finns i den _beroenden_ tabell. |
 | Användning och prestanda | Prestanda för programmet är tillgängligt i den _begäranden_, _browserTimings_ och _performanceCounters_ tabeller. Data för [anpassade mått](../app/api-custom-events-metrics.md#trackevent) finns i den _customMetrics_ tabell.|
-| Spårningsdata | Resultat av [distribuerad spårning](/app/distributed-tracing) lagras i den _spårningar_ tabell. |
-| Tillgänglighetstester | Sammanfattningsdata från [tillgänglighetstester](/app/monitor-web-app-availability) lagras i den _availabilityResults_ tabell. Detaljerade data från dessa tester finns i separat lagring och nås från Application Insights i Azure-portalen. |
+| Spårningsdata | Resultat av [distribuerad spårning](../app/distributed-tracing.md) lagras i den _spårningar_ tabell. |
+| Tillgänglighetstester | Sammanfattningsdata från [tillgänglighetstester](../app/monitor-web-app-availability.md) lagras i den _availabilityResults_ tabell. Detaljerade data från dessa tester finns i separat lagring och nås från Application Insights i Azure-portalen. |
 
 ### <a name="insights"></a>Insikter
 
@@ -127,7 +127,7 @@ Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala
 | Data | Beskrivning |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) lagrar data som samlas in i en Log Analytics-arbetsyta där de kan analyseras med andra loggdata. Se [insamling av Data i Azure Security Center](../../security-center/security-center-enable-data-collection.md) mer information om konfigurationen för arbetsytan. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) lagrar data från datakällor i en Log Analytics-arbetsyta. Se [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) lagrar data från datakällor i en Log Analytics-arbetsyta. Se [ansluta datakällor](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Nästa steg

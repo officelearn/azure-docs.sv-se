@@ -1,5 +1,5 @@
 ---
-title: Kombinerade registrering för Azure AD SSPR och MFA (förhandsversion) – Azure Active Directory
+title: Kombinerat registreringen för Azure AD SSPR och Multi-Factor Authentication (förhandsversion) – Azure Active Directory
 description: Azure AD-Multifaktorautentisering och lösenordsåterställning via självbetjäning återställa registrering (förhandsversion)
 services: active-directory
 ms.service: active-directory
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370167"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280017"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
-Innan kombinerade registrerades registrerad användare autentiseringsmetoder för Azure Multi-Factor Authentication (MFA) och lösenordsåterställning via självbetjäning (SSPR) via två olika kanaler. Personer har förväxlas att liknande metoder har använts för både Azure MFA och SSPR, men de tvungna att registrera separat för varje funktion. Nu med kombinerade registration kan användare registrera en gång och få fördelarna med både Azure MFA och SSPR.
+Innan du kombinerade registrerings registrerad användare autentiseringsmetoder för Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning (SSPR) separat. Personer har förväxlas att liknande metoder har använts för Multifaktorautentisering och SSPR, men de tvungna att registrera dig för båda funktionerna. Nu med kombinerade registration kan användare registrera en gång och få fördelarna med både Multifaktorautentisering och SSPR.
 
 ![Min profil som visar registrerade säkerhetsinformation för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,24 +28,24 @@ Granska den här administratören designmiljöer dokumentationen och fokus på a
 
 |     |
 | --- |
-| Kombinerade security information registreringen för Azure Multi-Factor Authentication och Azure AD lösenordsåterställning via självbetjäning är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Kombinerade security information registreringen för Multifaktorautentisering och återställning av lösenord för Azure Active Directory (Azure AD) är en funktion i offentliga förhandsversionen av Azure AD. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 > [!IMPORTANT]
-> Om en användare har aktiverats för både den ursprungliga förhandsversionen och förbättrad kombinerade registrerings-upplevelse, visas så den nya upplevelsen. Användare som har aktiverats för båda upplevelser visas endast den nya upplevelsen för min profil. Den nya Mina profilen överensstämmer med utseendet och känslan kombinerade registrerings och ger en sömlös upplevelse för användare. Användare kan se min profil genom att gå till [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+> Användare som är aktiverade för både den ursprungliga förhandsversionen och förbättrad kombinerade registrerings-upplevelsen ser det nya beteendet. Användare som har aktiverats för båda upplevelser visas endast den nya upplevelsen min profil. Den nya Mina profilen överensstämmer med utseendet och känslan kombinerade registrerings och ger en sömlös upplevelse för användare. Användare kan se min profil genom att gå till [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
 
-Min profil sidorna är lokaliserade baserat på de aktuella språkinställningarna på datorn som kommer åt sidan. Microsoft lagrar det senaste språk som används i webbläsarens cacheminne så efterföljande försök att komma åt kommer fortsätta att visas i det senaste språk som används. Rensa cacheminnet kommer sidorna att visas igen. Om du vill tvinga fram ett visst språk att lägga till en `?lng=de-DE` i slutet av URL: en där `de-DE` har angetts till rätt språk kod tvingar sidorna att visas på det språket.
+Min profilsidorna är lokaliserade baserat på språkinställningar på den dator som kommer åt sidan. Microsoft lagrar det senaste språk som används i webbläsarens cacheminne, så att efterföljande försök att komma åt sidorna kommer fortsätta att visas i det senaste språk som används. Om du har rensat, renderas igen sidorna. Om du vill tvinga ett visst språk kan du lägga till `?lng=<language>` i slutet av URL: en, där `<language>` är koden för det språk du vill rendera.
 
-![Konfigurera SSPR eller andra verifieringsmetoder för ytterligare säkerhet](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Konfigurera SSPR eller andra säkerhetsmetoder för verifiering](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
-## <a name="methods-available-in-converged-registration"></a>Metoder som finns tillgängliga i konvergerade registreringen
+## <a name="methods-available-in-combined-registration"></a>Metoder som finns tillgängliga i kombinerade registreringen
 
-För närvarande stöder kombinerade registrering av följande metoder och åtgärder för dessa metoder:
+Kombineras registrering har stöd för följande autentiseringsmetoder och åtgärder:
 
 |   | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (max 5) | Nej | Ja |
-| Andra authenticator-appen | Ja (max 5) | Nej | Ja |
+| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
+| Andra authenticator-appen | Ja (högst 5) | Nej | Ja |
 | Maskinvarutoken | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
@@ -55,87 +55,87 @@ För närvarande stöder kombinerade registrering av följande metoder och åtg�
 | Applösenord | Ja | Nej | Ja |
 
 > [!NOTE]
-> Applösenord är bara tillgängliga för användare som har utförts för MFA. Applösenord är inte tillgängliga för användare som är aktiverade för MFA via principer för villkorlig åtkomst.
+> Applösenord är endast tillgängliga för användare som har utförts för Multifaktorautentisering. Applösenord är inte tillgängliga för användare som har aktiverats för multi-Factor Authentication via en princip för villkorlig åtkomst.
 
-Användare kan ange följande alternativ som deras standardmetoden för MFA:
+Användare kan ange något av följande alternativ som standardmetoden för autentisering med flera faktorer:
 
-- Microsoft Authenticator – meddelande
-- Authenticator-appen eller maskinvara token – code
-- Telefonsamtal
-- Textmeddelande
+- Microsoft Authenticator – meddelande.
+- Authenticator-appen eller maskinvara token – code.
+- Telefonsamtal.
+- Textmeddelande.
 
-När vi fortsätter att lägga till flera autentiseringsmetoder som sådana i Azure AD, blir metoderna tillgänglig i kombinerade registreringen.
+När vi fortsätter att lägga till flera autentiseringsmetoder i Azure AD, blir metoderna tillgänglig i kombinerade registreringen.
 
-## <a name="combined-registration-modes"></a>Kombinerade registrerings lägen
+## <a name="combined-registration-modes"></a>Kombinerade registrerings-lägen
 
-Det finns två ”lägen” kombinerade registrerings: Avbryt och hantera.
+Det finns två lägen kombinerade registrerings: Avbryt och hantera.
 
-Avbryter läge, är en guiden-liknande upplevelse som visas för en användare när de registrera eller uppdatera deras säkerhetsinformation vid inloggning.
+- **Avbryter läge** är en guiden-liknande upplevelse som visas för användare när de registrera eller uppdatera deras säkerhetsinformation vid inloggning.
 
-Hantera läge är en del av användarens profil och låter dem att hantera deras säkerhetsinformation.
+- **Hantera läge** är en del av användarens profil och tillåter användare att hantera deras säkerhetsinformation.
 
-För båda lägena, om en användare har redan registrerat en metod som kan användas för MFA, behöver de utföra MFA innan de kan komma åt deras säkerhetsinformation.
+För båda lägena behöver användare som tidigare har registrerat en metod som kan användas för multi-Factor Authentication att utföra Multifaktorautentisering innan de kan komma åt deras säkerhetsinformation.
 
 ### <a name="interrupt-mode"></a>Avbryt läge
 
-Kombinerade registrerings värnar om både MFA och SSPR-principer om båda är aktiverade för din klient. Dessa principer styr om en användare avbryts för att registrera sig när de loggar in och vilka metoder är tillgängliga för att registrera.
+Kombinerade registrerings värnar om både Multifaktorautentisering och SSPR-principer om båda är aktiverade för din klient. Dessa principer styr om en användare avbryts för registrering under inloggning och vilka metoder är tillgängliga för registrering.
 
-Följande lista över flera scenarier där en användare kan uppmanas att registrera eller uppdatera deras säkerhetsinformation:
+Här följer flera scenarier där användarna uppmanas att registrera eller uppdatera deras säkerhetsinformation:
 
-* MFA-registrering som aktiveras via Identity Protection: Användare uppmanas att registrera när de loggar in. De registrera MFA-metoder och SSPR-metoder (om användaren är aktiverad för SSPR).
-* MFA-registrering som aktiveras via MFA per användare: Användare uppmanas att registrera när de loggar in. De registrera MFA-metoder och SSPR-metoder (om användaren är aktiverad för SSPR).
-* MFA-registrering som aktiveras via villkorlig åtkomst eller andra principer: Användarna uppmanas att registrera vid åtkomst till en resurs som kräver MFA. Användare ska registrera MFA-metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
-* SSPR-registrering tillämpas: Användarna uppmanas att registrera när de loggar in. De endast registrera SSPR-metoder
-* SSPR-uppdatering tillämpas: Användarna uppmanas att granska deras säkerhetsinformation vid ett intervall som angetts av administratören. Användarna kan visas deras information och välja ”ser bra” eller gör ändringar om det behövs.
+* Registrering för Multifaktorautentisering aktiveras via Identity Protection: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+* Registrering för Multifaktorautentisering aktiveras via per användare för Multifaktorautentisering: Användarna uppmanas att registrera under inloggning. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+* Registrering för Multifaktorautentisering aktiveras via villkorlig åtkomst eller andra principer: Användarna uppmanas att registrera när de använder en resurs som kräver Multifaktorautentisering. De registrerar Multifaktorautentisering metoder och SSPR-metoder (om användaren har aktiverats för SSPR).
+* SSPR-registrering tillämpas: Användarna uppmanas att registrera under inloggning. De registrerar sig för SSPR-metoder.
+* SSPR-uppdatering tillämpas: Användarna uppmanas att granska deras säkerhetsinformation vid ett intervall som angetts av administratören. Användare kan visas deras information och kontrollera den aktuella informationen eller gör ändringar om det behövs.
 
-När registreringen tillämpas visas användare det minsta antalet metoder som krävs för att vara kompatibel med både MFA och SSPR-principer från de flesta minst säkert.
+När registreringen tillämpas visas användare det minsta antalet metoder som krävs för att vara kompatibel med både Multifaktorautentisering och SSPR-principer, från mest till minst säkert.
 
 Exempel:
 
 * En användare har aktiverats för SSPR. SSPR-princip krävs två metoder för att återställa och har aktiverat mobilappkoden, e-post och telefon.
    * Den här användaren krävs för att registrera på två sätt.
-      * Som standard visas de authenticator-appen och telefon.
+      * Användaren visas authenticator-appen och phone som standard.
       * Användaren kan välja att registrera e-post i stället för authenticator-appen eller telefon.
 
-I följande flödesschema beskrivs vilka metoder visas för en användare avbruten att registrera när de loggar in:
+Det här flödesschemat beskrivs vilka metoder visas för en användare avbruten registrerar vid inloggning:
 
-![Flödesschema för kombinerade security info](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Flödesschema för kombinerade säkerhet info](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
-Om du har både MFA och SSPR aktiverat, rekommenderar vi att använda MFA-registrering.
+Om du har både Multifaktorautentisering och SSPR aktiverat, rekommenderar vi att du framtvinga registrering för Multifaktorautentisering.
 
-Om SSPR-principen kräver att användare att granska deras säkerhetsinformation med jämna mellanrum, avbryts när de loggar in användare och visas alla sina registrerade metoder. De kan välja ”ser bra” om informationen är uppdaterad eller de kan välja ”Redigera information” att göra ändringar.
+Om SSPR-principen kräver att användare att granska deras säkerhetsinformation med jämna mellanrum, avbryts under inloggning användare och visas alla sina registrerade metoder. De kan kontrollera den aktuella informationen om den är uppdaterad, eller de kan göra ändringar om det behövs.
 
 ### <a name="manage-mode"></a>Hantera läge
 
-Användare kan komma åt hantera läge genom att gå till [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo) eller genom att välja ”säkerhetsinformation” från min profil. Därifrån kan användare kan lägga till metoder, ta bort eller ändra befintliga metoder, ändra deras standardmetoden och mycket mer.
+Användare kan komma åt hantera läge genom att gå till [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo) eller genom att välja **säkerhetsinformation** från min profil. Därifrån kan användare kan lägga till metoder, ta bort eller ändra befintliga metoder, ändra standardmetoden och mycket mer.
 
 ## <a name="key-usage-scenarios"></a>Scenarier för nyckelanvändning
 
-### <a name="set-up-security-info-during-sign-in"></a>Konfigurera säkerhetsinformation när de loggar in
+### <a name="set-up-security-info-during-sign-in"></a>Konfigurera säkerhetsinformation under inloggning
 
 En administratör har tvingande registrering.
 
-En användare inte har ställt in alla nödvändiga säkerhetsinformation och navigerar till Azure-portalen. När du har angett sitt användarnamn och lösenord, uppmanas användaren att ställa in säkerhetsinformation. Användaren följer sedan anvisningarna som visas i guiden för att ställa in säkerhetsinformationen som krävs. Användaren kan välja att konfigurera andra metoder än vad som anges som standard om dina inställningar tillåter. I slutet av guiden granskar du de metoder som de har konfigurerat och deras standardmetoden för MFA. För att slutföra installationen måste användaren bekräftar informationen och fortsätter att Azure-portalen.
+En användare inte har ställt in alla nödvändiga säkerhetsinformation och går till Azure-portalen. När du har angett det användarnamn och lösenord, uppmanas användaren att ställa in säkerhetsinformation. Användaren följer sedan anvisningarna som visas i guiden för att ställa in säkerhetsinformationen som krävs. Om dina inställningar tillåter det, kan användaren välja att konfigurera andra metoder än de som visas som standard. När guiden har slutförts, granska användare de metoder som de har konfigurerat och deras standardmetoden för Multifaktorautentisering. För att slutföra installationen måste användaren bekräftar informationen och fortsätter att Azure-portalen.
 
 ### <a name="set-up-security-info-from-my-profile"></a>Konfigurera säkerhetsinformation från min profil
 
 En administratör har inte tvingande registrering.
 
-En användare som ännu inte har ställts in all nödvändig säkerhetsinformation navigerar till [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com). Användaren väljer sedan **säkerhetsinformation** från det vänstra navigeringsfältet. Därifrån kan användaren väljer att lägga till en metod, väljer någon av metoderna som är tillgängliga för dem och följer stegen för att ställa in den metoden. När du är klar ser användaren den metod som de som precis har konfigurerat på sidan säkerhetsinformation.
+En användare som ännu inte har ställts in all nödvändig säkerhetsinformation går till [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com). Användaren väljer **säkerhetsinformation** i den vänstra rutan. Därifrån kan användaren väljer att lägga till en metod, väljer någon av metoderna som är tillgängliga och följer stegen för att ställa in den metoden. När du är klar ser användaren den metod som precis har ställts in på sidan säkerhetsinformation.
 
 ### <a name="delete-security-info-from-my-profile"></a>Ta bort säkerhetsinformation från min profil
 
 En användare som redan har konfigurerat minst en metod som navigerar till [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo). Användaren väljer att ta bort ett av de tidigare registrerade metoderna. När du är klar ser användaren inte längre den metoden på sidan säkerhetsinformation.
 
-### <a name="change-default-method-from-my-profile"></a>Ändra standardmetoden från min profil
+### <a name="change-the-default-method-from-my-profile"></a>Ändra standardmetoden från min profil
 
-En användare som redan har konfigurerat minst en metod som kan användas för MFA navigerar till [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo). Användaren ändrar sitt aktuella standardmetoden till en annan standard-metod. När du är klar ser användaren sina nya standardmetoden på sidan säkerhetsinformation.
+En användare som redan har konfigurerat minst en metod som kan användas för multi-Factor Authentication navigerar till [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo). Användaren ändrar aktuella standardmetoden till en annan standard-metod. När du är klar ser användaren den nya standardmetoden på sidan säkerhetsinformation.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Aktivera kombinerade registrering i din klient](howto-registration-mfa-sspr-combined.md)
 
-[Tillgängliga metoder för MFA och SSPR](concept-authentication-methods.md)
+[Tillgängliga metoder för Multifaktorautentisering och SSPR](concept-authentication-methods.md)
 
 [Konfigurera lösenordsåterställning via självbetjäning](howto-sspr-deployment.md)
 

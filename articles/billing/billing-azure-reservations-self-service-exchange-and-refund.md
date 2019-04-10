@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653254"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281989"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Självbetjäning utbyte och återbetalningar för Azure-reservationer
 
 Azure reservationer ger flexibilitet för att möta dina växande behov. Du kan byta en reservation för en annan reservation av samma typ. Du kan också återbetala en reservation, upp till 50 000 USD per år, om du inte längre behöver den.
+
+Självbetjäning kapaciteten för exchange och Avbryt är inte tillgängligt för US Government Enterprise Agreement-kunder. Andra typer av US Government prenumerationer, inklusive betala per användning och CSP stöds.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Byta en befintlig reserverad instans
 
 Du kan byta din reservation med tre enkla steg i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Välj reservationer som du vill återbetala och klicka på **Exchange**.  
-    ![Exempelbild som visar reservationer att returnera ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![Exempelbild som visar reservationer att returnera](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. Välj VM-produkt som du vill köpa och anger du ett antal. Se till att det nya köp totala antalet är större än Returnerar summan. [Avgör om rätt storlek innan du köper](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Exempelbild som visar en VM-produkt för att köpa med en exchange ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Exempelbild som visar en VM-produkt för att köpa med en exchange](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Granska och Slutför transaktionen.  
-    ![Exempelbild som visar en VM-produkt att köpa med en exchange som du har slutfört avkastningen ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![Exempelbild som visar en VM-produkt att köpa med en exchange som du har slutfört avkastningen](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Gå till att ersätta en reservation **reservationsinformation** och klicka på **återbetalning**.
 
@@ -84,7 +86,7 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
 
 - Läs hur du hanterar en reservation i [hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 - Om du vill veta mer om Azure reservationer, finns i följande artiklar:
-    - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+    - [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
     - [Hantera reservationer i Azure](billing-manage-reserved-vm-instance.md)
     - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
     - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)

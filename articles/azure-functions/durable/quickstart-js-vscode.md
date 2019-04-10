@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281241"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -127,11 +127,11 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 5. Med ett verktyg som [Postman](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/) skickar du en HTTP POST-begäran till URL-slutpunkten.
 
-    Svaret är det första resultatet från HTTP-funktionen, som anger att den beständiga orkestreringen har startats korrekt.  Det är inte ännu slutresultatet av orkestreringen.  Svaret innehåller några användbara URL:er.  För tillfället kör vi en fråga om orkestreringens status.
+   Svaret är det första resultatet från HTTP-funktionen, som anger att den beständiga orkestreringen har startats korrekt. Det är inte ännu slutresultatet av orkestreringen. Svaret innehåller några användbara URL:er. För tillfället kör vi en fråga om orkestreringens status.
 
-6. Kopiera URL-värdet för `statusQueryGetUri`, klistra in den i webbläsarens adressfält och kör din begäran.
+6. Kopiera URL-värdet för `statusQueryGetUri` och klistra in den i webbläsarens adressfält och kör din begäran. Alternativt kan du också fortsätta att använda Postman för att utfärda en GET-begäran.
 
-    Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör så småningom få ett svar som liknar följande.  Detta visar att instansen har slutförts och innehåller utdata eller resultat för den beständiga funktionen.
+   Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör få ett eventuell svar som visar oss instansen har slutförts och innehåller utdata eller resultatet av funktionen varaktiga. Det ser ut som: 
 
     ```json
     {

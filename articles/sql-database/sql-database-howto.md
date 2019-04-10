@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759227"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359689"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Hur du använder Azure SQL Database
 
@@ -26,28 +26,28 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 ## <a name="load-data"></a>Läsa in data
 
 - [Kopiera en enkel databas eller en databas i Azure](sql-database-copy.md)
-- [Importera en databas från en BACPAC](sql-database-import.md)
-- [Exportera en databas till BACPAC](sql-database-export.md)
+- [Importera en databas från en BACPAC-fil](sql-database-import.md)
+- [Exportera en databas till en BACPAC-fil](sql-database-export.md)
 - [Läs in data med BCP](sql-database-load-from-csv-with-bcp.md)
 - [Läs in data med ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Datasynkronisering
 
 - [SQL Data Sync](sql-database-sync-data.md)
-- [Data Sync-agenten](sql-database-data-sync-agent.md)
+- [Datasynkroniseringsagent](sql-database-data-sync-agent.md)
 - [Replikera schemaändringar](sql-database-update-sync-schema.md)
 - [Övervaka med OMS](sql-database-sync-monitor-oms.md)
-- [Metodtips för datasynkronisering](sql-database-best-practices-data-sync.md)
-- [Felsöka datasynkronisering](sql-database-troubleshoot-data-sync.md)
+- [Metodtips för Data Sync](sql-database-best-practices-data-sync.md)
+- [Felsöka Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Övervakning och justering
 
 - [Manuell inställning](sql-database-performance-guidance.md)
-- [Använda DMV: er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
-- [Använda Query store för att övervaka prestanda](sql-database-operate-query-store.md)
-- [Felsöka prestanda med smarta insikter](sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Använda diagnostiklogg med smarta insikter](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Övervaka minnesintern OLTP-utrymme](sql-database-in-memory-oltp-monitoring.md)
+- [Använda DMV:er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
+- [Använda Query Store för att övervaka prestanda](sql-database-operate-query-store.md)
+- [Felsöka prestanda med Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Använda Intelligent Insights-diagnostikloggar](sql-database-intelligent-insights-use-diagnostics-log.md)
+- [Övervaka minnesintern OLTP-plats](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Utökade händelser
 
@@ -59,11 +59,11 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 
 - [Konfigurera Azure AD-autentisering](sql-database-aad-authentication-configure.md)
 - [Konfigurera villkorlig åtkomst](sql-database-conditional-access.md)
-- [Multifaktorautentisering för AAD](sql-database-ssms-mfa-authentication.md)
+- [Flerfaktorautentisering för AAD](sql-database-ssms-mfa-authentication.md)
 - [Konfigurera multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md)
-- [Konfigurera temporala bevarandeprincip](sql-database-temporal-tables-retention-policy.md)
-- [Konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
-- [Rotera TDE BYOK nycklar](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [Konfigurera temporal bevarandeprincip](sql-database-temporal-tables-retention-policy.md)
+- [Konfigurera TDE med BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
+- [Rotera TDE BYOK-nycklar](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Ta bort TDE-skydd](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Konfigurera minnesintern OLTP](sql-database-in-memory-oltp-migration.md)
 - [Konfigurera Azure Automation](sql-database-manage-automation.md)
@@ -71,11 +71,11 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 ## <a name="develop-applications"></a>Utveckla program
 
 - [Anslutning](sql-database-libraries.md)
-- [Använda Spark-Anslutningsappen](sql-database-spark-connector.md)
+- [Använda Spark-anslutningsappen](sql-database-spark-connector.md)
 - [Autentisera app](sql-database-client-id-keys.md)
 - [Felmeddelanden](sql-database-develop-error-messages.md)
 - [Använda batchbearbetning för bättre prestanda](sql-database-use-batching-to-improve-performance.md)
-- [Vägledning för anslutning](sql-database-connectivity-issues.md)
+- [Vägledning för anslutningar](sql-database-connectivity-issues.md)
 - [DNS-alias](dns-alias-overview.md)
 - [Konfigurera DNS-alias PowerShell](dns-alias-powershell.md)
 - [Portar – ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
@@ -85,12 +85,12 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 ## <a name="design-applications"></a>Utforma program
 
 - [Utforma för haveriberedskap](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Design för elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-- [Design för uppgraderingar av appar](sql-database-manage-application-rolling-upgrade.md)
+- [Utforma för elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Utforma för appuppgraderingar](sql-database-manage-application-rolling-upgrade.md)
 
 ### <a name="design-multi-tenant-saas-applications"></a>Utforma flera innehavare SaaS-program
 
-- [Designmönster för SaaS](saas-tenancy-app-design-patterns.md)
+- [SaaS-designmönster](saas-tenancy-app-design-patterns.md)
 - [SaaS-videoindexerare](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Säkerhet för SaaS-app](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 

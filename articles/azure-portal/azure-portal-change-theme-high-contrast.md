@@ -5,23 +5,27 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
-manager: dougeby
-ms.openlocfilehash: 0807921ce304bec6848744b5fc6ec3208e71eca0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+manager: mtillman
+ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887061"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357821"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Aktivera hög kontrast eller ändra tema i Azure portal
-Om du behöver mer kontrast eller om du vill ändra färgschema i Azure-portalen, gå till portalen inställningarna för att göra ändringen. 
+
+Hög kontrast gör det enklare att läsa Azure-portalen. Du kan också välja ett tema som ändrar bakgrundsfärgen för portalen.
+
+Om du behöver mer kontrast eller om du vill ändra färgschema i Azure-portalen, gå till portalen inställningarna för att göra ändringen.
 
 ## <a name="turn-on-high-contrast"></a>Aktivera högkontrast
-1. Längst upp till höger på den [Azure-portalen](https://portal.azure.com)väljer **inställningar**. 
+
+1. I rubriken för den [Azure-portalen](https://portal.azure.com)väljer **inställningar**.
 
     ![Skärmbild som visar portalinställningar kugghjulsikonen i Azure portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 1. Välj **White** eller **svart**.
@@ -29,15 +33,24 @@ Om du behöver mer kontrast eller om du vill ändra färgschema i Azure-portalen
     ![Skärmbild som visar alternativ för hög kontrast i Azure portalinställningar](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
 1. Välj **Använd**.
 
+> [!NOTE]
+> Om du väljer ett högkontrasttema så åsidosätts alla andra tema val.
+>
+>
+
 ## <a name="change-theme"></a>Ändra tema
-1. Längst upp till höger på den [Azure-portalen](https://portal.azure.com)väljer **inställningar**.
+
+1. I rubriken för den [Azure-portalen](https://portal.azure.com)väljer **inställningar**.
 
     ![Skärmbild som visar portalinställningar kugghjulsikonen i Azure portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+
 1. Välj ett tema.
 
     ![Skärmbild som visar alternativ för tema i Azure portalinställningar](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
+
 1. Välj **Använd**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 - [Kortkommandon i Azure-portalen](azure-portal-keyboard-shortcuts.md)
 - [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)

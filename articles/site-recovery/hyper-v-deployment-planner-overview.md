@@ -1,18 +1,18 @@
 ---
 title: Om Azure Site Recovery Deployment Planner för haveriberedskap för Hyper-V-datorer till Azure | Microsoft Docs
 description: Läs mer om Azure Site Recovery Deployment Planner Hyper-V-katastrofåterställning till Azure.
-author: nsoneji
+author: mayurigupta13
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 4/9/2019
+ms.author: mayg
+ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207402"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360270"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure
 
@@ -30,7 +30,7 @@ Du kan se följande information i verktyget:
 
 * En utvärdering av om den virtuella datorn stöds, baserat på antal diskar, diskstorlek, IOPS, dataomsättning och några egenskaper hos den virtuella datorn.
 
-**Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål**
+**Nätverkets bandbreddsbehov kontra utvärdering av Återställningspunktmål**
 
 * Beräknad nätverksbandbredd som krävs för deltareplikering
 * Dataflödet som Azure Site Recovery kan få från lokala datorer till Azure
@@ -38,7 +38,7 @@ Du kan se följande information i verktyget:
 * Påverkan på det önskade återställningspunktmålet vid lägre brandbredder.
 
     
-**Krav på infrastruktur för Azure**
+**Krav för Azure-infrastrukturen**
 
 * Typ av lagringsutrymme (Standard Storage- eller Premium Storage-konto) som krävs för varje virtuell dator
 * Totalt antal Standard Storage- och Premium Storage-konton som ska konfigureras för replikering
@@ -47,7 +47,7 @@ Du kan se följande information i verktyget:
 * Antalet Azure-kärnor som ska etableras innan redundanstest/redundansväxling för prenumerationen
 * Den rekommenderade storleken på den virtuella Azure-datorn för varje lokal virtuell dator
 
-**Krav på lokal infrastruktur**
+**Kraven på lokal infrastruktur**
 * Den mängd ledigt lagringsutrymme som krävs för varje Hyper-V-lagringsvolym för en lyckad initial replikering och deltareplikering, för att garantera att replikeringen av virtuella datorer inte orsakar några oönskade driftstopp för dina produktionsprogram.
 * Maximal kopieringsfrekvens måste ställas in för Hyper-V-replikering
 
@@ -57,7 +57,7 @@ Du kan se följande information i verktyget:
 * Ordningen som varje batch ska skyddas i
 * Uppskattad tidsåtgång för fullständig inledande replikering av varje batch
 
-**Beräknad kostnad för haveriberedskap till Azure**
+**Beräknad kostnad för Haveriberedskap till Azure**
 * Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Azure Site Recovery-licenskostnader
 * Detaljerad analys av kostnader per virtuell dator
 
@@ -73,9 +73,9 @@ Du kan se följande information i verktyget:
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
 Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
-Version som stöds | vCenter 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Saknas |Windows Server 2016, Windows Server 2012 R2|Saknas
-Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Saknas|Hyper-V-kluster, Hyper-V-värd|Saknas|
-Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Saknas |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Saknas
+Version som stöds | vCenter 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
+Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
+Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
@@ -132,8 +132,8 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
   >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
 
 ## <a name="version-history"></a>Versionshistorik
-Den senaste versionen av ASR-Distributionshanteraren är 2.3.
-Läs sidan med [versionshistorik för ASR-distributionsplaneraren](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
+Den senaste versionen av Distributionshanteraren för Azure Site Recovery är 2.3.
+Referera till [versionshistorik för Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för om korrigeringarna som har lagts till i varje uppdatering.
 
 
 ## <a name="next-steps"></a>Nästa steg

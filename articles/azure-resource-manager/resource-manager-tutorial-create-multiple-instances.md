@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311890"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279390"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudier: Skapa flera resursinstanser med Resource Manager-mallar
 
@@ -126,14 +126,14 @@ Mer information finns i avsnittet [Distribuera mallen](./resource-manager-quicks
 
 Om du vill visa alla tre lagringskonton utelämnar du parametern --name:
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,7 +155,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skapa flera instanser av ett lagringskonto. I nästa självstudie lär du dig hur du flyttar en resurs från en resursgrupp till en annan resursgrupp.
+I de här självstudierna lärde du dig att skapa flera instanser av ett lagringskonto.  I nästa självstudie utvecklar du en mall med flera resurser och flera resurstyper. Några av resurserna har beroende resurser.
 
 > [!div class="nextstepaction"]
-> [Flytta resurser](./resource-manager-tutorial-move-resources.md)
+> [Skapa beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

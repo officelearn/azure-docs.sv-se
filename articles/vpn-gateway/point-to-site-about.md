@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878221"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282108"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -22,7 +22,7 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Punkt-till-plats-VPN kan använda något av följande protokoll:
 
-* OpenVPN, en SSL/TLS baserat VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS (versioner 11.0 och senare), Windows, Linux och Mac-enheter (OSX-versionerna 10.13 och senare).
+* **OpenVPN® protokollet**, en SSL/TLS-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS (versioner 11.0 och senare), Windows, Linux och Mac-enheter (OSX-versionerna 10.13 och senare).
 
 * Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 
@@ -54,7 +54,7 @@ RADIUS-servern kan också integreras med AD-Certifikattjänster. På så sätt k
 En RADIUS-server kan också integreras med andra system för extern Identitetshantering. Detta öppnar massor av alternativ för autentisering för P2S VPN, inklusive alternativ för multifaktorautentisering.
 
 >[!NOTE]
->OpenVPN protokoll stöds inte med RADIUS-autentisering.
+>**OpenVPN® protokollet** stöds inte med RADIUS-autentisering.
 >
 
 ![punkt-till-plats](./media/point-to-site-about/p2s.png "punkt-till-plats")
@@ -109,3 +109,5 @@ En P2S-konfiguration kräver ett ganska stort antal specifika steg. I följande 
 * [Konfigurera en P2S-anslutning – RADIUS-autentisering](point-to-site-how-to-radius-ps.md)
 
 * [Konfigurera en P2S-anslutning – Azures interna certifikatautentisering](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+**”OpenVPN” är ett varumärke som tillhör OpenVPN Inc.**

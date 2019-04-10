@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651320"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358277"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
 Den här artikeln förklarar kommunikation i en hanterad Azure SQL Database-instans. Här beskrivs också anslutningsarkitektur och hur komponenterna dirigera trafik till den hanterade instansen.  
 
@@ -117,7 +117,6 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 > [!IMPORTANT]
 > Även om nödvändiga inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440 och 1452, portarna skyddas av en inbyggd brandvägg. Mer information finns i [fastställa slutpunktsadress management](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Om du vill använda Transaktionsreplikering i en hanterad instans, och om du använder en instans-databas som en utgivare eller distributör, kan du öppna port 445 (TCP utgående) i undernätets säkerhetsregler. Den här porten kommer att tillåta åtkomst till Azure-filresursen.
 

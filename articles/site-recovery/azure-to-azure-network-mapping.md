@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 2/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013125"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359806"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
@@ -73,7 +73,7 @@ IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på 
 
 ## <a name="ip-address-assignment-during-failover"></a>Tilldelning av IP-adress under redundansväxling
 
-**Käll- och undernät** | **Detaljer**
+**Käll- och undernät** | **Information**
 --- | ---
 Samma adressutrymme | IP-adressen för källan VM NIC har angetts som mål VM NIC IP-adress.<br/><br/> Om adressen inte är tillgängligt, har nästa tillgängliga IP-adress angetts som mål.
 
@@ -83,7 +83,7 @@ Olika adressutrymmen<br/><br/> Nästa tillgängliga IP-adress i målundernätet 
 
 ## <a name="ip-address-assignment-during-test-failover"></a>IP-adresstilldelning under redundanstest
 
-**Målnätverk** | **Detaljer**
+**Målnätverk** | **Information**
 --- | ---
 Målnätverket är redundans virtuellt nätverk | / Mål-IP-adressen är statisk men inte samma IP-adress som reserverats för redundans.<br/><br/>  -Tilldelade adressen är nästa tillgängliga adress från slutet av undernätsintervallet.<br/><br/> Exempel: Om källans IP-adress är 10.0.0.19 och redundansnätverk använder adressintervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den Virtuella måldatorn 10.0.0.254.
 Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  – Om samma IP-adress har redan tilldelats, är det nästa tillgänglig för varje undernätsintervallet med IP-adressen.<br/><br/> Exempel: Om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är nätverket för redundanstestet, med adressintervallet 10.0.0.0/24, kommer den statiska IP-adressen för målet vara 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.

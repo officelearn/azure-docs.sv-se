@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117463"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277705"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure disk encryption (ADE) aktiverade virtuella datorer till en annan Azure-region
 
@@ -148,7 +148,7 @@ Du kan använda [skriptet](#copy-ade-keys-to-dr-region-using-powershell-script) 
 Om du väljer en redan skapad Keyvault i målregionen istället låta Azure Site Recovery skapa den. Kontrollera att Key vault har kräver behörigheter som nämns ovan.</br>
 *Till exempel*: En användare försöker replikera en virtuell dator som har ett nyckelvalv i källregionen Säg ”ContososourceKeyvault”.
 Användaren har alla behörigheter på källnyckelvalvet för region men vid skydd som han väljer ett redan skapat key vault ”ContosotargetKeyvault” som inte har behörighet och sedan protection kommer genererar ett fel.</br>
-**Så här åtgärdar du:** Kom till ”Start > Keyvaults > ContososourceKeyvault > principerna för dataåtkomst” och lägga till behörigheter som ovan. 
+**Så här åtgärdar du:** Kom till ”Start > Keyvaults > ContososourceKeyvault > principerna för dataåtkomst” och lägga till behörigheter som ovan.
 
 **Orsak 2:** Du kanske har markerat en redan skapad Keyvault från den målregion som inte har decry pt-kryptera behörigheter.
 Om du väljer en redan skapad Keyvault i målregionen istället låta Azure Site Recovery skapa den. Kontrollera att användaren har Kryptera dekryptera behörigheter om du krypterar nyckeln för i källregionen.</br>

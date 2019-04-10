@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c4e87e365e11084a7088522f64abef238d04b715
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271492"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357988"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
 
@@ -29,6 +29,31 @@ Data replikeras till Azure-lagring under replikering, och du behöver inte betal
 
 ## <a name="azure"></a>Azure
 
+### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Vad behöver jag i Hyper-V att samordna replikeringen med Site Recovery?
+
+Vad du behöver för Hyper-V-värdservern beror på distributionsscenariot. Du hittar kraven för Hyper-V i:
+
+* [Replikera virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replikera virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
+* [Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
+* Om du replikerar till ett sekundärt datacenter Läs mer om [gästoperativsystem som stöds för Hyper-V-datorer](https://technet.microsoft.com/library/mt126277.aspx).
+* Om du replikerar till Azure Site Recovery stöder alla gästoperativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+
+### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Kan jag skydda virtuella datorer när Hyper-V körs på ett klientoperativsystem?
+Nej, virtuella datorer måste finnas på en Hyper-V-värdserver som körs på en Windows-serverdator som stöds. Om du vill skydda en klientdator kan du replikera den som en fysisk dator [Azure](site-recovery-vmware-to-azure.md) eller en [sekundärt datacenter](site-recovery-vmware-to-vmware.md).
+
+### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Behöver Hyper-V-värdar i VMM-moln?
+Om du vill replikera till ett sekundärt datacenter Hyper-V-datorer måste vara på Hyper-V-värdar servrar som finns i ett VMM-moln. Om du vill replikera till Azure kan du replikera virtuella datorer med eller utan VMM-moln. [Läs mer](tutorial-hyper-v-to-azure.md) om Hyper-V-replikering till Azure.
+
+
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan jag replikera virtuella Hyper-V-datorer i generation 2 till Azure?
+Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställningen konverteras datorn tillbaka till generation 2. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+
+
+### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Kan jag distribuera Site Recovery med VMM om jag bara har en VMM-server?
+
+Ja. Du kan antingen replikera virtuella datorer på Hyper-V-servrar i VMM-moln till Azure eller replikera mellan VMM-moln på samma server. För en lokal plats till en lokal replikering rekommenderar vi att du har en VMM-server i båda primära och sekundära platser. 
+
 ### <a name="what-do-i-need-in-azure"></a>Vad behöver jag i Azure?
 Du behöver en Azure-prenumeration, Recovery Services-valvet, ett lagringskonto och ett virtuellt nätverk. Valvet, lagringskontot och nätverket måste vara i samma region.
 
@@ -43,7 +68,7 @@ Nej, Site Recovery komma åt inte replikerade data och har inte någon informati
 
 Site Recovery är ISO 27001: 2013, 27018, HIPAA, DPA certifierade och håller på att SOC2 och FedRAMP JAB-utvärderingar.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Kan vi lagrar lokala metadata inom en geografiska regioner?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Kan vi lagrar lokala metadata inom ett geografiskt område?
 Ja. När du skapar ett valv i en region, kontrollera att alla metadata som används av Site Recovery finns kvar inom regionens geografisk gräns.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
@@ -127,7 +152,7 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
-När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte. 
+När du replikerar till Azure når replikeringstrafiken de offentliga slutpunkterna för ett Azure Storage-konto. Därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) och VPN fungerar inte. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
 
@@ -187,7 +212,7 @@ Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via e
 Azure är utformat med flexibilitet i fokus. Site Recovery är utformat för redundansväxling till en sekundär Azure-datacenter, i enlighet med serviceavtalet för Azure. Vid redundans vi Kontrollera att dina metadata och valv finns kvar i samma geografiska region som du har valt för ditt valv.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
-[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [PowerShell](/powershell/module/az.siterecovery) att utlösa redundans.
+[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [PowerShell](/powershell/module/az.recoveryservices) att utlösa redundans.
 
 ### <a name="how-do-i-fail-back"></a>Hur växlar jag tillbaka?
 
@@ -199,7 +224,7 @@ När din lokala infrastruktur är igång igen kan du inte återställa. Återst�
     - Fullständig nedladdning: Med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
 
 2. Du kan välja för att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
-3. När den första synkroniseringen är klar kan välja du för att slutföra redundansen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrollera att allt fungerar som förväntat. Du kan se att den virtuella Azure-datorer har stoppats i Azure-portalen.
+3. När den första synkroniseringen är klar kan välja du för att slutföra redundansen. När den är klar kan logga du in till den lokala virtuella datorn att kontrollera att allt fungerar som förväntat. Du kan se att den virtuella Azure-datorer har stoppats i Azure-portalen.
 4. Du etablerar redundansen för att avsluta och få åtkomst till arbetsbelastningen från den lokala virtuella datorn igen.
 5. När arbetsbelastningar har återställts, aktiverar du omvänd replikering så att replikera lokala virtuella datorer till Azure igen.
 

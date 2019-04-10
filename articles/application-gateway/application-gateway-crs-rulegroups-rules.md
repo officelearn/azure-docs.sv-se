@@ -1,23 +1,17 @@
 ---
 title: Azure Application Gateway Brandvägg för webbaserade program CRS regeln grupper och regler
 description: Den här sidan innehåller information om web application firewall tillhandahållna CRS-regelgrupper och -regler.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 4/16/2018
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302049"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279711"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista med web application firewall tillhandahållna CRS-regelgrupper och -regler
 
@@ -37,41 +31,23 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 |RuleId|Beskrivning|
 |---|---|
-|911011|Regeln 911011|
-|911012|Regeln 911012|
 |911100|Metoden tillåts inte av en princip|
-|911013|Regeln 911013|
-|911014|Regeln 911014|
-|911015|Regeln 911015|
-|911016|Regeln 911016|
-|911017|Regeln 911017|
-|911018|Regeln 911018|
 
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|913011|Regeln 913011|
-|913012|Regeln 913012|
 |913100|Hitta användar-Agent som är associerade med Säkerhetsskanner|
 |913110|Hitta huvudet i begäran som är associerade med Säkerhetsskanner|
 |913120|Hitta begäran filename/argument som är associerade med Säkerhetsskanner|
-|913013|Regeln 913013|
-|913014|Regeln 913014|
 |913101|Hitta användar-Agent som är associerade med skript/generisk HTTP-klient|
 |913102|Hitta användar-Agent som är associerade med web crawler/robot|
-|913015|Regeln 913015|
-|913016|Regeln 913016|
-|913017|Regeln 913017|
-|913018|Regeln 913018|
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|920011|Regeln 920011|
-|920012|Regeln 920012|
 |920100|Ogiltig HTTP-begäran-rad|
 |920130|Det gick inte att parsa begärandetexten.|
 |920140|Flera delar begäran brödtext misslyckades strikt verifiering = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
@@ -102,30 +78,22 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |920430|HTTP-protokollversion tillåts inte av princip|
 |920440|URL-filtillägg är begränsad av princip|
 |920450|HTTP-huvud är begränsad av principen (%@{MATCHED_VAR})|
-|920013|Regeln 920013|
-|920014|Regeln 920014|
 |920200|Intervall = för många fält (6 eller mer)|
 |920201|Intervall = för många fält för pdf-begäran (35 eller mer)|
 |920230|Flera URL-kodning har identifierats|
 |920300|Begäran saknar en acceptera rubrik|
 |920271|Ogiltigt tecken i begäran (icke utskrivbara tecken)|
 |920320|Agent-huvud saknas användare|
-|920015|Regeln 920015|
-|920016|Regeln 920016|
 |920272|Ogiltigt tecken i begäran (utanför utskrivbara tecken nedan ascii 127)|
-|920017|Regeln 920017|
-|920018|Regeln 920018|
 |920202|Intervall = för många fält för pdf-begäran (6 eller mer)|
 |920273|Ogiltigt tecken i begäran (utanför strikt set)|
 |920274|Ogiltigt tecken i begärandehuvuden (utanför strikt set)|
-|920460|Regeln 920460|
+|920460|Onormalt escape-tecken|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|921011|Regeln 921011|
-|921012|Regeln 921012|
 |921100|HTTP-begäran som Kommandoinmatning Attack.|
 |921110|HTTP-begäran Huvudinmatning Attack|
 |921120|HTTP-svar uppdelningen av Attack|
@@ -133,75 +101,43 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |921140|HTTP-huvud-angrepp via rubriker|
 |921150|HTTP-huvud-angrepp via nyttolast (CR/LF har identifierats)|
 |921160|HTTP-huvud-angrepp via nyttolast (CR/LF och rubriknamn har identifierats)|
-|921013|Regeln 921013|
-|921014|Regeln 921014|
 |921151|HTTP-huvud-angrepp via nyttolast (CR/LF har identifierats)|
-|921015|Regeln 921015|
-|921016|Regeln 921016|
-|921170|Regeln 921170|
+|921170|HTTP-parametern avseende|
 |921180|HTTP-parametern avseende (% @{TX.1})|
-|921017|Regeln 921017|
-|921018|Regeln 921018|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|930011|Regeln 930011|
-|930012|Regeln 930012|
 |930100|Path Traversal Attack (/... /)|
 |930110|Path Traversal Attack (/... /)|
 |930120|OS-filen åtkomstförsök|
 |930130|Begränsad filen åtkomstförsök|
-|930013|Regeln 930013|
-|930014|Regeln 930014|
-|930015|Regeln 930015|
-|930016|Regeln 930016|
-|930017|Regeln 930017|
-|930018|Regeln 930018|
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|931011|Regeln 931011|
-|931012|Regeln 931012|
 |931100|Möjliga Remote File inkludering (RFI)-Attack = URL-Parameter med IP-adress|
 |931110|Möjliga Remote File inkludering (RFI)-Attack = vanliga RFI sårbara parameternamnet används w/URL nyttolast|
 |931120|Möjliga fjärrfil inkludering (RFI) Attack = URL: en nyttolast används w/avslutande fråga Mark tecken (?)|
-|931013|Regeln 931013|
-|931014|Regeln 931014|
 |931130|Möjliga fjärrfil inkludering (RFI) Attack = av domän/referenslänk|
-|931015|Regeln 931015|
-|931016|Regeln 931016|
-|931017|Regeln 931017|
-|931018|Regeln 931018|
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|932011|Regeln 932011|
-|932012|Regeln 932012|
 |932120|Fjärrkörning = Windows PowerShell-kommandot hittades|
 |932130|Fjärrkörning = Unix Shell uttryck hittades|
 |932140|Fjärrkörning = Windows för / om kommandot hittades|
 |932160|Fjärrkörning = Unix Shell kod hittades|
 |932170|Fjärrkörning = Shellshock (CVE-2014-6271)|
 |932171|Fjärrkörning = Shellshock (CVE-2014-6271)|
-|932013|Regeln 932013|
-|932014|Regeln 932014|
-|932015|Regeln 932015|
-|932016|Regeln 932016|
-|932017|Regeln 932017|
-|932018|Regeln 932018|
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|933011|Regeln 933011|
-|933012|Regeln 933012|
 |933100|PHP-angrepp = inledande/avslutande tagg hittades|
 |933110|PHP-angrepp = Filuppladdning för PHP-skript hittades|
 |933120|PHP-angrepp = konfiguration direktiv hittades|
@@ -209,58 +145,42 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |933150|PHP-angrepp = med hög risk PHP funktionsnamn hittades|
 |933160|PHP-angrepp = med hög risk PHP-funktionsanrop som finns|
 |933180|PHP-angrepp = variabeln funktionsanrop som finns|
-|933013|Regeln 933013|
-|933014|Regeln 933014|
 |933151|PHP-angrepp = sådan PHP funktionsnamn hittades|
-|933015|Regeln 933015|
-|933016|Regeln 933016|
 |933131|PHP-angrepp = variabler hittades|
 |933161|PHP-angrepp = Versionsprocess PHP-funktionsanrop som finns|
 |933111|PHP-angrepp = Filuppladdning för PHP-skript hittades|
-|933017|Regeln 933017|
-|933018|Regeln 933018|
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|941011|Regeln 941011|
-|941012|Regeln 941012|
 |941100|XSS Attack har identifierats via libinjection|
 |941110|XSS Filter - kategori 1 = skriptet taggen vektor|
 |941130|XSS Filter - kategori 3 = attributet vektor|
 |941140|XSS Filter - kategori 4 = Javascript-URI-vektor|
 |941150|XSS Filter - kategori 5 = otillåtna HTML-attribut|
 |941180|Nod-verifieraren svartlistat nyckelord|
-|941190|IE XSS filter - Attack upptäcktes.|
-|941200|IE XSS filter - Attack upptäcktes.|
-|941210|IE XSS filter - Attack upptäcktes.|
-|941220|IE XSS filter - Attack upptäcktes.|
-|941230|IE XSS filter - Attack upptäcktes.|
-|941240|IE XSS filter - Attack upptäcktes.|
-|941260|IE XSS filter - Attack upptäcktes.|
-|941270|IE XSS filter - Attack upptäcktes.|
-|941280|IE XSS filter - Attack upptäcktes.|
-|941290|IE XSS filter - Attack upptäcktes.|
-|941300|IE XSS filter - Attack upptäcktes.|
+|941190|XSS med hjälp av formatmallar|
+|941200|XSS ramsida VML|
+|941210|XSS med dolda Javascript|
+|941220|XSS med dolts VB-skript|
+|941230|XSS med hjälp av ”bädda in” tagg|
+|941240|XSS med attributen 'import' eller 'implementering ”|
+|941260|XSS med taggen ”metadata”|
+|941270|XSS med hjälp av ”länka” href|
+|941280|XSS med ”grundläggande” taggen|
+|941290|XSS med taggen ”appleten'|
+|941300|XSS med taggen ”objekt”|
 |941310|US-ASCII felaktig kodning XSS Filter - Attack upptäcktes.|
 |941330|IE XSS filter - Attack upptäcktes.|
 |941340|IE XSS filter - Attack upptäcktes.|
 |941350|UTF-7 kodning IE XSS - Attack upptäcktes.|
-|941013|Regeln 941013|
-|941014|Regeln 941014|
 |941320|Möjliga XSS Attack påträffas - hanterare för HTML-tagg|
-|941015|Regeln 941015|
-|941016|Regeln 941016|
-|941017|Regeln 941017|
-|941018|Regeln 941018|
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|942011|Regeln 942011|
-|942012|Regeln 942012|
 |942100|SQL-inmatning attacker har identifierats via libinjection|
 |942110|SQL-angrepp: Vanliga inmatning testning har identifierats|
 |942130|SQL-angrepp: SQL Tautology Detected.|
@@ -280,35 +200,21 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |942350|Identifierar MySQL UDF-inmatning och andra manipulering av datastruktur/försöker|
 |942360|Identifierar sammanlänkad grundläggande SQL-inmatning och SQLLFI försök|
 |942370|Identifierar klassiska SQL injection probings 2/2|
-|942013|Regeln 942013|
-|942014|Regeln 942014|
 |942150|SQL-angrepp|
 |942410|SQL-angrepp|
 |942430|Begränsade Avvikelseidentifiering för SQL-tecknet (argument): antal specialtecken har överskridits (12)|
 |942440|SQL Comment Sequence Detected.|
 |942450|SQL Hex Encoding Identified|
-|942015|Regeln 942015|
-|942016|Regeln 942016|
 |942251|Identifierar HAVING-inmatningar|
 |942460|Avisering för identifiering av meta tecknet Avvikelseidentifiering - repetitiva icke-alfanumeriska tecken|
-|942017|Regeln 942017|
-|942018|Regeln 942018|
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
 |RuleId|Beskrivning|
 |---|---|
-|943011|Regeln 943011|
-|943012|Regeln 943012|
 |943100|En Session upptagningen Attack = ange värden för cookies i HTML|
 |943110|En Session upptagningen Attack = SessionID parameternamn med av domän referent|
 |943120|En Session upptagningen Attack = SessionID parameternamn med inga referent|
-|943013|Regeln 943013|
-|943014|Regeln 943014|
-|943015|Regeln 943015|
-|943016|Regeln 943016|
-|943017|Regeln 943017|
-|943018|Regeln 943018|
 
 ## <a name="owasp229"></a> OWASP_2.2.9
 
@@ -569,5 +475,3 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du inaktiverar WAF-regler genom att besöka: [Anpassa WAF-regler](application-gateway-customize-waf-rules-portal.md)
-
-[1]: ./media/application-gateway-integration-security-center/figure1.png

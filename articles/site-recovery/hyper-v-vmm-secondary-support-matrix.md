@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310616"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360807"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för Hyper-V-datorer till en sekundär plats
 
@@ -26,7 +26,7 @@ Den här artikeln sammanfattar vad som stöds när du använder den [Azure Site 
 
 ## <a name="host-servers"></a>Värdservrar
 
-**Operativsystem** | **Detaljer**
+**Operativsystem** | **Information**
 --- | ---
 Windows Server 2012 R2 | Servrar måste köra de senaste uppdateringarna.
 Windows Server 2016 |  VMM 2016 moln med en blandning av Windows Server 2016 och 2012 R2-värdar stöds inte för närvarande.<br/><br/> Distributioner som uppgraderats från System Center 2012 R2 VMM 2012 R2 till System Center 2016 stöds inte för närvarande.
@@ -108,7 +108,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom ell
 
 Providern samordnar kommunikationen mellan VMM-servrar. 
 
-**senaste** | **Uppdateringar**
+**Senaste** | **Uppdateringar**
 --- | --- 
 5.1.19 ([tillgängliga från portal](https://aka.ms/downloaddra) | [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/kb/3155002)
 

@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400962"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282822"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Vad är Azure Data Box-Gateway?
 
@@ -29,6 +29,8 @@ Data Box Gateway kan utnyttjas för att överföra data till molnet, som molnark
 - **Kontinuerlig datainmatning** -kontinuerligt mata in data i enheten för att kopiera till molnet, oavsett storleken på data. När data skrivs till gateway-enheten, överför data till Azure Storage med hjälp av enheten.  
 
 - **Inledande bulk överföring följt av inkrementella överföringen** -Använd Data Box för stora dataöverföringar i en offline-läge (inledande seed) och Data Box-Gateway för inkrementella överföringar (pågående matning) över nätverket.
+
+Mer information går du till [användningsfall för Azure Data Box Gateway](data-box-gateway-use-cases.md).
 
 ## <a name="benefits"></a>Fördelar
 

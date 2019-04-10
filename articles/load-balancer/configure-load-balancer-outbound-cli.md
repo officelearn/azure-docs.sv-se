@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849955"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281955"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Konfigurera belastningsutjämning och utgående regler i Standardbelastningsutjämnare med Azure CLI
 
@@ -99,7 +99,7 @@ Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az ne
 Skapa en ytterligare backend-adresspool för att definiera utgående anslutning för en pool med virtuella datorer med [az network lb adresspool skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *bepooloutbound*.  Skapa en separat utgående pool ger maximal flexibilitet, men du kan utelämna det här steget och bara använda det inkommande *bepoolinbound* samt.
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound
@@ -183,4 +183,4 @@ När de inte längre behövs kan du ta bort resursgruppen, lastbalanseraren och 
 I den här artikeln skapade Standardbelastningsutjämnare, konfigurerat både inkommande trafik belastningsutjämningsregler, konfigurerats och hälsoavsökning för de virtuella datorerna i serverdelspoolen. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Azure Load Balancer-självstudier](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

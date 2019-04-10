@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 97da0608781c286e685fd70dd7be37192dd3c9fd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580418"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281751"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en skyddad Sharepoint-datakälla till din kunskapsbas
 
@@ -57,7 +57,7 @@ När QnA Maker manager väljer kontot, får Active Directory-administratör ett 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory-hanteraren: bevilja läsbehörighet för filen till QnA Maker
 
-Active Directory-hanteraren (inte QnA Maker manager) måste bevilja åtkomst till QnA Maker för åtkomst till Sharepoint-resursen genom att välja [den här länken](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) att auktorisera QnA Maker Portal Sharepoint enterprise appen att ha läs-fil behörigheter. 
+Active Directory-hanteraren (inte QnA Maker manager) måste bevilja åtkomst till QnA Maker för åtkomst till Sharepoint-resursen genom att välja [den här länken](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) att auktorisera QnA Maker Portal Sharepoint enterprise appen att ha läs-fil behörigheter. 
 
 ![Azure Active Directory manager ger behörighet att interaktivt](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
@@ -96,22 +96,22 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 1. Select **YES** in the pop-up confirmation windows. 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
-
-### Grant access from the Azure Active Directory admin center
-
-1. The Active Directory manager signs in to the Azure portal and opens **[Enterprise applications](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
-
-1. Search for `QnAMakerPortalSharepoint` the select the QnA Maker app. 
-
-    [![Search for QnAMakerPortalSharepoint in Enterprise apps list](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
-
-1. Under **Security**, go to **Permissions**. Select **Grant admin consent for Organization**. 
-
-    [![Select authenticated user for Active Directory Admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
-
-1. Select a Sign-On account with permissions to grant permissions for the Active Directory. 
-
 -->
+### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Bevilja åtkomst från Azure Active Directory Administrationscenter
+
+1. Active Directory-manager loggar in på Azure-portalen och öppnar  **[företagsprogram](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
+
+1. Sök efter `QnAMakerPortalSharepoint` Välj QnA Maker-app. 
+
+    [![Sök efter QnAMakerPortalSharepoint i Enterprise-applista](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+
+1. Under **Security**går du till **behörigheter**. Välj **bevilja administratörens godkännande för organisation**. 
+
+    [![Svälja autentiserade användaren för Active Directory-administratör](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+
+1. Välj en inloggnings-konto med behörighet att bevilja behörigheter för Active Directory. 
+
+
   
 <!--
 

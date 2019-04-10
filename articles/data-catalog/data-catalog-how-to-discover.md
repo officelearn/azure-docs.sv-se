@@ -1,25 +1,26 @@
 ---
 title: Identifiera datakällor i Azure Data Catalog
 description: Den här artikeln visar hur du identifierar registrerade datatillgångar med Azure Data Catalog, inklusive sökning och filtrering och använda träffar fokus funktionerna i Azure Data Catalog-portalen.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 11216640a4f4f78e0b0de850f32f0ff85bbc9ef2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 04/05/2019
+ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407067"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277702"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Identifiera datakällor i Azure Data Catalog
+
 ## <a name="introduction"></a>Introduktion
-Azure Data Catalog är en fullständigt hanterad molntjänst som fungerar som ett system för registrering och upptäckt för företagsdatakällor. Med andra ord Data Catalog hjälper människor att identifiera, förstå och använda datakällor och det hjälper organisationer att få ut mer av sina befintliga data. När en datakälla har registrerats med Data Catalog indexeras dess metadata av tjänsten, så att du enkelt kan söka för att identifiera de data du behöver.
+
+Azure Data Catalog är en fullständigt hanterad molntjänst som fungerar som ett system för registrering och upptäckt för företagsdatakällor. Med andra ord hjälper Data Catalog människor att identifiera, förstå och använda datakällor. Det hjälper organisationer att få ut mer av sina befintliga data. När en datakälla har registrerats med Data Catalog indexeras dess metadata av tjänsten, så att du enkelt kan söka för att identifiera de data du behöver.
 
 ## <a name="searching-and-filtering"></a>Sökning och filtrering
+
 I Data Catalog-identifieringen använder två primära mekanismer: sökning och filtrering.
 
 Sökningen har utformats att vara både intuitiv och kraftfull. Som standard matchas sökvillkor mot en egenskap i katalogen, inklusive kommentarer av användaren.
@@ -29,6 +30,7 @@ Filtreringen är avsedd att komplettera sökningen. Du kan välja specifika egen
 Genom att använda en kombination av sökning och filtrering kan navigera du snabbt i datakällorna som har registrerats med Data Catalog för att identifiera de datakällor som du behöver.
 
 ## <a name="search-syntax"></a>Söksyntax
+
 Men standard fritextsökningen är enkelt och intuitivt, kan du också använda söksyntax för Data Catalog för bättre kontroll över sökresultaten. Datakatalogssökning stöder följande metoder:
 
 | Teknik | Användning | Exempel |
@@ -39,24 +41,25 @@ Men standard fritextsökningen är enkelt och intuitivt, kan du också använda 
 | Gruppera med parenteser |Använd paranteser att gruppera delar av frågan för att skapa en logisk isolering, särskilt i kombination med booleska operatorer. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Jämförelseoperatorer |Använda andra jämförelser än lika för egenskaper som innehåller datum och numeriska datatyper. |`modifiedTime > "11/05/2014"` |
 
-Mer information om Data Catalog search finns i den [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) artikeln.
+Mer information om Data Catalog search finns i den [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference) artikeln.
 
 ## <a name="hit-highlighting"></a>Träffmarkering
+
 När du visar sökresultatet visas alla egenskaper som matchar de angivna sökvillkor (till exempel data certifikattillgångens namn, beskrivning och taggar) är markerade för att göra det returnerades lättare att identifiera varför en viss datatillgång av en viss sökning.
 
 > [!NOTE]
 > Om du vill inaktivera markering av träffar, använda den **Markera** växel i Data Catalog-portalen.
->
->
 
-När du visar sökresultaten kan kanske det inte alltid är uppenbara varför en datatillgång tas med, även med markering av träffar aktiverat. Eftersom alla egenskaper söks som standard, kan en datatillgång returneras på grund av en matchning på en egenskap på kolumnnivå. Och eftersom flera användare kan kommentera registrerade datatillgångar med sina egna taggar och beskrivningar, inte alla metadata kan visas i listan över sökresultat.
+När du visar sökresultaten kan kanske det alltid inte uppenbara varför en datatillgång tas med, även med markering av träffar aktiverat. Eftersom alla egenskaper söks som standard, kan en datatillgång returneras på grund av en matchning på en egenskap på kolumnnivå. Och eftersom flera användare kan kommentera registrerade datatillgångar med sina egna taggar och beskrivningar, inte alla metadata visas i listan över sökresultat.
 
 I standard panelvy, varje panel som visas i sökresultatet innehåller en **visa sökterm matchar** ikonen så att du snabbt visa antalet matchningar och deras plats och att gå till dem om du vill.
 
  ![Träffmarkering och sökning matchar i Azure Data Catalog-portalen](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Sammanfattning
+
 Eftersom registrering av datakälla med Data Catalog kopierar strukturella och beskrivande metadata från datakällan till katalogtjänsten, blir det lättare att identifiera och förstå datakällan. När du har registrerat en datakälla kan du identifiera den med hjälp av filtrering och söka från Data Catalog-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Steg för steg-information om hur du identifierar datakällor finns i [Kom igång med Azure Data Catalog](data-catalog-get-started.md).

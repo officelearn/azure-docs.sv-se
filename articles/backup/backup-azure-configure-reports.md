@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278833"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
@@ -43,9 +43,6 @@ Följ dessa steg om du vill konfigurera lagringskontot för Recovery Services-va
 
    * I listan över resurser, anger du **återställningstjänster**.
    * När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv**, markera den.
-
-      ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * Listan över Recovery Services-valv visas. Välj ett valv i listan över Recovery Services-valv.
 
      Instrumentpanelen för det valda valvet öppnas.

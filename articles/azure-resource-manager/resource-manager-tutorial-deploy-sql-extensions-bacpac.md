@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085073"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282363"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
@@ -53,13 +53,13 @@ En BACPAC-fil delas på ett [Azure Storage-konto med offentlig åtkomst](https:/
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som användes i den här självstudien heter [Deploy an Azure SQL Server with Threat Detection](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/) (Distribuera en Azure SQL-server med hotidentifiering).
+Den mall som användes i den här självstudien är lagrad i en [Azure Storage-konto](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
 
@@ -175,4 +175,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 I den här självstudien har du distribuerat en SQL Server och en SQL-databas samt importerat en BACPAC-fil. BACPAC-filen lagras i ett Azure Storage-konto. Vem som helst med URL:en kan komma åt filen. Läs hur du skyddar BACPAC-filen (artefakten) i
 
 > [!div class="nextstepaction"]
-> [Skydda artefakterna](./resource-manager-tutorial-secure-artifacts.md)
+> [Skydda artefakter](./resource-manager-tutorial-secure-artifacts.md)

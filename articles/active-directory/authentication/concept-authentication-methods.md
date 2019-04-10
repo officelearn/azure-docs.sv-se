@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894601"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360647"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
-När återställning av en administratör väljer autentiseringsmetoder för Azure Multi-Factor Authentication och återställning av lösenord (SSPR) rekommenderar vi att du kräver att användare registrerar flera autentiseringsmetoder. När en autentiseringsmetod inte är tillgänglig för en användare, kan de välja att autentisera med någon annan metod.
+Som administratör kan du välja autentiseringsmetoder för Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning (SSPR) rekommenderar vi att du kräver att användare registrerar flera autentiseringsmetoder. När en autentiseringsmetod inte är tillgänglig för en användare, kan de välja att autentisera med någon annan metod.
 
 Administratörer kan definiera i vilka autentiseringsmetoder är tillgängliga för användare av SSPR och MFA-principen. Vissa autentiseringsmetoder är kanske inte tillgänglig för alla funktioner. Mer information om hur du konfigurerar principer finns i artiklar [hur distribuera lösenordsåterställning via självbetjäning](howto-sspr-deployment.md) och [planera en molnbaserad Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ Microsoft Authenticator-appen kan hjälpa att förhindra obehörig åtkomst till
 
 Om du aktiverar användningen av både meddelande via mobilapp och Verifieringskod från mobilappen, användare som registrerar Microsoft Authenticator-appen med hjälp av ett meddelande kan använda både meddelande och kod för att verifiera sin identitet.
 
+> [!NOTE]
+> Om din organisation har personal arbeta i eller reser till Kina, den **meddelande via mobilapp** metoden på **Android-enheter** fungerar inte i det landet. Alternativa metoder ska göras tillgängliga för dessa användare.
+
 ### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
 
 Microsoft Authenticator-appen eller andra appar från tredje part kan användas som en programvarutoken för att generera en OATH-Verifieringskod. När du har angett ditt användarnamn och lösenord, kan du ange koden som tillhandahålls av appen i inloggning-skärmen. Verifieringskoden ger ett andra formen av autentisering.
@@ -149,11 +152,11 @@ Microsoft Authenticator-appen eller andra appar från tredje part kan användas 
 > För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning av verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
 
-Användare kan ha en kombination av upp till 5 OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
+Användare kan ha en kombination av upp till fem OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH-maskinvarutoken (offentlig förhandsversion)
 
-OATH är en öppen standard som anger hur enstaka lösenord (OTP) koder genereras. Azure AD stöder användning av OATH-TOTP SHA-1-token på 30 sekunder eller 60-sekunders olika. Kunder kan skaffa dessa token från leverantören av valfri. Observera att hemliga nycklar är begränsad till 128 tecken, vilket inte kanske är kompatibel med alla token.
+OATH är en öppen standard som anger hur enstaka lösenord (OTP) koder genereras. Azure AD stöder användning av OATH-TOTP SHA-1-token på 30 sekunder eller 60-sekunders olika. Kunder kan skaffa dessa token från leverantören av valfri. Hemliga nycklar är begränsad till 128 tecken, vilket inte kanske är kompatibel med alla token.
 
 ![Ladda upp OATH-token till bladet MFA Server OATH-token](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ Beroende på storleken på CSV-filen kan dröja det några minuter att bearbeta.
 
 När du har åtgärdat eventuella fel administratören kan aktivera varje nyckel genom att klicka på **aktivera** för token som ska aktiveras och anger OTP visas i token.
 
-Användare kan ha en kombination av upp till 5 OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
+Användare kan ha en kombination av upp till fem OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
 
 ## <a name="mobile-phone"></a>Mobiltelefon
 

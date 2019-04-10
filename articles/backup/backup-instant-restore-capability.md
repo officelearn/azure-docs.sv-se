@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905978"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359973"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905978"
 Den nya modellen för omedelbar återställning innehåller följande funktionsförbättringar:
 
 * Möjlighet att använda ögonblicksbilder som tas som en del av ett säkerhetskopieringsjobb som är tillgängliga för återställning utan att behöva vänta på att överföra data till valvet för att slutföra. Det minskar väntetiden för ögonblicksbilder att kopiera till valvet innan återställningen.
-* Minskar tider för säkerhetskopiering och återställning genom att behålla ögonblicksbilder lokalt, i två dagar som standard. Det här standard-valvet kan konfigureras till ett värde mellan 1 till 5 dagar.
-* Stöder disk storlekar upp till 4 TB.
+* Minskar tider för säkerhetskopiering och återställning genom att behålla ögonblicksbilder lokalt, i två dagar som standard. Det här standardvärdet ögonblicksbild kvarhållning kan konfigureras till ett värde mellan 1 till 5 dagar.
+* Stöder disk storlekar upp till 4 TB. Azure Backup stöder inte stripe diskar. Storleksändring av disk rekommenderas inte av Azure Backup.
 * Stöder Standard SSD-diskar tillsammans med Standard HDD-diskar och Premium SSD-diskar.
 *   Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
 
@@ -75,9 +74,9 @@ I Azure-portalen kan du se ett fält har lagts till i den **VM Backup-principen*
 > Från Az PowerShell version 1.6.0 eller senare och senare, kan du uppdatera kvarhållningsperioden för omedelbar återställning ögonblicksbild i principen med hjälp av PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 Standard ögonblicksbild kvarhållning för varje princip har angetts till 2 dagar. Användaren kan ändra värdet till minst 1 och högst fem dagar. För varje vecka principer har ögonblicksbild kvarhållning åtgärdats till 5 dagar.
 

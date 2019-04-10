@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275614"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361144"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -34,7 +34,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 |:--- |:--- |:--- |
 | Östra Australien |Tillgängligt |Den 1 juni 2019 |
 | Sydöstra Australien |Den 15 april 2019 |Den 1 maj 2019 |
-| Södra Brasilien |Den 15 maj 2019 |\* |
+| Södra Brasilien |Den 15 maj 2019 |Den 1 juni 2019 |
 | Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
 | Östra Kanada |\* |\* |
 | Centrala USA |Tillgängligt |Den 1 juni 2019 |
@@ -44,8 +44,8 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Kina, norra 2 |\* |\* |
 | Östasien |Tillgängligt |Den 1 juni 2019 |
 | Östra USA |Tillgängligt |Den 1 juni 2019 |
-| USA, östra 2 |Tillgängligt |Den 1 juni. 2019 |
-| Frankrike, centrala |\* |\* |
+| USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
+| Frankrike, centrala |\* |Den 1 juni 2019 |
 | Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
 | Centrala Indien |Tillgängligt |Den 1 juni 2019 |

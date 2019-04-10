@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905043"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358886"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
@@ -39,7 +39,7 @@ I följande tabell visas de olika sätt som du kan använda måttdata i Azure Mo
 | Varning | Konfigurera en [måttaviseringsregel](alerts-metric.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när måttet överskrider ett tröskelvärde. |
 | Automatisera |  Använd [Autoskala](autoscale-overview.md) att öka eller minska resurser baserat på ett måttvärde korsa ett tröskelvärde. |
 | Exportera | [Dirigera mått till loggar](diagnostic-logs-stream-log-store.md) att analysera data i Azure Monitor Metrics tillsammans med data i Azure Monitor-loggar och för att lagra måttvärden under längre tid än 93 dagar.<br>Stream mått för att en [Event Hub](stream-monitoring-data-event-hubs.md) att dirigera dem till externa system. |
-| Hämta | Komma åt mätvärden värden från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Komma åt måttvärden från anpassade program med hjälp av [REST API](rest-api-walkthrough.md).<br>Komma åt mätvärden värden från en kommandorad med hjälp av [CLI](/azure/monitor/metrics). |
+| Hämta | Komma åt mätvärden värden från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Komma åt måttvärden från anpassade program med hjälp av [REST API](rest-api-walkthrough.md).<br>Komma åt mätvärden värden från en kommandorad med hjälp av [CLI](/cli/azure/monitor/metrics). |
 | Arkiv | [Arkivera](..//learn/tutorial-archive-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline. |
 
 

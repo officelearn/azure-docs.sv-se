@@ -9,12 +9,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 61a10d4401daeedcf81ea85b7b837f5c1fbfb909
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902713"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357151"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 
@@ -60,7 +60,7 @@ Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`.
        });
     });
     ```
-   1. *Ta bort* raden `server.close()` i slutet av `server.js`
+   1. *Ta bort* den `server.close()` rad i slutet av `server.js`
 
 I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den inkommande till den utgående begäran. Lite längre fram ser du hur detta kan underlätta utvecklingsarbetet i ett team.
 
@@ -101,4 +101,4 @@ Nu har du ett program med flera containrar där varje container kan utvecklas oc
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om teamutveckling i Dev Spaces](team-development-nodejs.md)
+> [Lär dig mer om utveckling i grupp i Dev blanksteg](team-development-nodejs.md)

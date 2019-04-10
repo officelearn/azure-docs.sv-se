@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855732"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280544"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
@@ -131,19 +131,21 @@ Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecogn
 
 Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingModel.FromAppId()` och lägger till de LUIS-avsikter som du vill känna igen igenkännarens `AddIntent()`-metod. De här två stegen förbättrar taligenkänningens noggrannhet genom att ange ord som det är troligt att användaren använder i sina begäranden. Du behöver inte lägga till alla appens avsikter om du inte behöver identifiera dem alla i ditt program.
 
-För att lägga till avsikter krävs tre argument: LUIS-modellen (som precis har skapats och heter `model`), avsiktsnamnet och ett avsikts-ID. Skillnaden mellan ID och namnet är som följer.
+Att lägga till avsikter kräver tre argument: LUIS-modell (som har skapats och heter `model`), avsiktlig namn och en avsiktlig-ID. Skillnaden mellan ID och namnet är som följer.
 
-|`AddIntent()`-argument|Syfte|
+|`AddIntent()` Argumentet|Syfte|
 |--------|-------|
 |intentName |Namnet på avsikten enligt vad som definierats i LUIS-appen. Måste matcha LUIS-avsiktsnamnet exakt.|
 |intentID    |Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Kan vara vad som helst; det behöver inte motsvara avsiktsnamnet enligt vad som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
 
-LUIS-appen Home Automation har två avsikter: en för att aktivera en enhet och en annan för att stänga av en enhet. Raderna nedan lägger till dessa avsikter till igenkännaren. Ersätt de tre `AddIntent`-raderna i metoden `RecognizeIntentAsync()` med den här koden.
+Start Automation LUIS-app har två avsikter: en för att aktivera en enhet och en annan för att inaktivera en enhet. Raderna nedan lägger till dessa avsikter till igenkännaren. Ersätt de tre `AddIntent`-raderna i metoden `RecognizeIntentAsync()` med den här koden.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+I stället för att lägga till enskilda avsikter, du kan också använda den `AddAllIntents` metod för att lägga till alla avsikter i en modell till identifieraren.
 
 ## <a name="start-recognition"></a>Starta igenkänning
 
@@ -186,4 +188,4 @@ Leta upp koden från den här artikeln i mappen samples/csharp/sharedcontent/con
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så identifierar du tal](how-to-recognize-speech-csharp.md)
+> [Hur du känna igen tal](how-to-recognize-speech-csharp.md)

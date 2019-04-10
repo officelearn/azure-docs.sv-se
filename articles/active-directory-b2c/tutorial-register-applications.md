@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338165"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278402"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudier: Registrera ett program i Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Om du inte redan har skapat dina egna [Azure AD B2C-klient](tutorial-create-tena
 
 ## <a name="create-a-client-secret"></a>Skapa en klienthemlighet
 
-Om du är programmet utbyter en kod för en token, måste du skapa en programhemlighet.
+Om ditt program utbyter en kod för en token, måste du skapa en programhemlighet.
 
 1. Välj **nycklar** och klicka sedan på **skapa nycklar**.
 2. Välj **spara** att visa nyckeln. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.

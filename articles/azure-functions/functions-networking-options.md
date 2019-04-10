@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896644"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358148"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -43,7 +43,8 @@ Funktionsappar kan finnas på flera olika sätt.
 
 IP-restriktioner kan du definiera en prioritet sorterade tillåta/Neka lista med IP-adresser som ska kunna komma åt din app. Listan över tillåtna kan innehålla IPv4 och IPv6-adresser. När det finns en eller flera poster, är det en implicit neka allt som finns i slutet av listan. Begränsningar för IP-funktionen fungerar med alla funktionen som är värd för alternativ.
 
-> ! [VIKTIGT] Om du vill kunna använda Azure portal redigeraren portalen måste kunna få direkt åtkomst till funktionsappen som körs och den enhet som du använder för åtkomst till portalen måste ha sin IP-godkänd. Begränsningar för nätverk på plats, kan du fortfarande använda alla funktioner i den **plattformsfunktioner** fliken.
+> [!NOTE]
+> Om du vill kunna använda Azure portal redigeraren portalen måste kunna få direkt åtkomst till funktionsappen som körs och den enhet som du använder för åtkomst till portalen måste ha sin IP-godkänd. Begränsningar för nätverk på plats, kan du fortfarande använda alla funktioner i den **plattformsfunktioner** fliken.
 
 [Läs mer här](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

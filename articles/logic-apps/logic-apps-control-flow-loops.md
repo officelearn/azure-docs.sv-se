@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225016"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360761"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 
 Om du vill bearbeta en matris i din logikapp, kan du skapa en [”Foreach”-loop](#foreach-loop). Den här loopen upprepas en eller flera åtgärder för varje objekt i matrisen. Gränser för antalet matrisobjekt som ”Foreach” loopar kan bearbeta finns i [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md). 
 
-Om du vill upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras, kan du skapa en [”Until”-loop](#until-loop). Logikappen körs alla åtgärder i den här slingan och sedan kontrollerar villkor eller tillstånd. Om villkoret är uppfyllt, stoppar loopen. I annat fall upprepas loopen. Gränser för antalet ”till” loopar i en logikappskörning, finns i [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras, kan du skapa en [”Until”-loop](#until-loop). Logikappen kan du först kör alla åtgärder i den här slingan, och därefter utvärderas villkoret eller tillstånd. Om villkoret är uppfyllt, stoppar loopen. I annat fall upprepas loopen. Gränser för antalet ”till” loopar i en logikappskörning, finns i [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje objekt i matrisen kan du *debatch* matrisen med den [ **SplitOn** utlösa egenskapen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Om du arbetar med din logikapp JSON-definition, kan du använda den `Sequential`
 
 ## <a name="until-loop"></a>”Until”-loop
   
-Om du vill upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras, placera dessa åtgärder i en ”tills”-loop. Här följer några vanliga scenarier där du kan använda en ”tills”-loop:
+Placera dessa åtgärder i en ”tills”-loop för att köra och upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras. Logikappen kan du först kör alla åtgärder i den här slingan, och därefter utvärderas villkoret eller tillstånd. Om villkoret är uppfyllt, stoppar loopen. I annat fall upprepas loopen.
+
+Här följer några vanliga scenarier där du kan använda en ”tills”-loop:
 
 * Anropa en slutpunkt tills du får svar som du vill ha.
 
@@ -194,7 +196,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
    | Egenskap  | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Ditt namn | 
-   | **Typ** | Integer | Data variabeltyp | 
+   | **Type** | Integer | Data variabeltyp | 
    | **Värde** | 0 | Startvärde för variabeln | 
    |||| 
 
@@ -235,8 +237,8 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
       | Egenskap  | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
       | **Till** | *<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
-      | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
-      | **Brödtext** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
+      | **Subjekt** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
+      | **Innehåll** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
       |||| 
 
 1. Spara din logikapp. För att manuellt testa din logikapp på verktygsfältet för appdesignern väljer **kör**.

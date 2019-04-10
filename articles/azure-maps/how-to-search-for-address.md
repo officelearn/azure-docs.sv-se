@@ -1,23 +1,30 @@
 ---
 title: Söka efter en adress med hjälp av tjänsten Azure Maps Search | Microsoft Docs
 description: Lär dig hur du söker efter en adress med hjälp av Azure Maps Search-tjänst
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277331"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Hitta en adress med hjälp av Azure Maps search-tjänst
 
 Söktjänsten Maps är en uppsättning RESTful API: er för utvecklare att söka efter adresser, platser, Orienteringspunkter, företag och annan geografisk information. Tjänsten tilldelar latitud/longitud till en specifik adress, mellan gata, geografiska funktion eller orienteringspunkt (POI). Latitud och longitud värden som returneras av sökningen kan användas som parametrar i andra Maps-tjänster som väg och trafikflöde.
+
+I den här artikeln som du får lära dig hur du:
+
+* Sök efter en adress med hjälp av [Fuzzy Search-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Sök efter en adress tillsammans med egenskaper och koordinater
+* Gör en [omvänd sökningen efter adresser](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) att söka efter en gatuadress
+* Sök efter en mellan gatuadress med [adress omvänd mellan gatuadress API för webbsökning](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Förutsättningar
 

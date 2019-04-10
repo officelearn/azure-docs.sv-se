@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759093"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282329"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
@@ -30,7 +30,7 @@ Ett projekt har också enhetsspecifika metadata och andra konfigurationsinställ
 
 Din **Mina projekt** instrumentpanelen på `https://notebooks.azure.com/<userID>/projects` kan du visa, hantera, och skapa projekt:
 
-[![Min instrumentpanel för projekt i Azure-anteckningsböcker](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Minstrumentpanelen för y-projekt i Azure-anteckningsböcker](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot som äger det användar-ID:
 
@@ -38,7 +38,7 @@ Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot 
 | --- | --- | --- |
 | **Kör** | Ägare | Startar projektserver och öppnar projektmappen i Jupyter. (Vanligare, du navigerar till en projektmapp först och sedan starta en anteckningsbok därifrån.) |
 | **Ladda ned** | Vem som helst | Laddar ned en kopia av det valda projektet som en ZIP-fil. |
-| **Filresurs** | Vem som helst | Visar delningsapplikationen popup-fönstret genom vilka du kan hämta en URL till ett valt projekt, dela till sociala medier, skicka ett e-postmeddelande med URL-Adressen och hämta HTML- eller Markdown-kod för med en ”dagbok Start”-märket (se [skaffa en start-märket](#obtain-a-launch-badge)) med URL-Adressen. |
+| **Dela** | Vem som helst | Visar delningsapplikationen popup-fönstret genom vilka du kan hämta en URL till ett valt projekt, dela till sociala medier, skicka ett e-postmeddelande med URL-Adressen och hämta HTML- eller Markdown-kod för med en ”dagbok Start”-märket (se [skaffa en start-märket](#obtain-a-launch-badge)) med URL-Adressen. |
 | **Ta bort** | Ägare | Tar bort det valda projektet. Du kan inte ångra den här åtgärden. |
 | **Terminal** | Ägare | Startar projektserver, och sedan öppnas ett nytt webbläsarfönster med bash terminal för den här servern. |
 | **+ Nytt projekt** | Ägare | Skapar ett nytt projekt. Se [skapa ett nytt projekt](#create-a-new-project). |
@@ -120,10 +120,10 @@ Att klona ett projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
+- [Utforska exempelanteckningsböcker](azure-notebooks-samples.md)
 - [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
 - [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
 - [Anvisningar: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
-- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Arbeta med datafiler](work-with-project-data-files.md)
+- [Anvisningar: Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
 - [Anvisningar: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

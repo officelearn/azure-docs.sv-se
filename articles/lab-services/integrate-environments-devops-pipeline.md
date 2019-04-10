@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887240"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357402"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i din Azure DevOps CI/CD-pipelines
 Du kan använda tillägget Azure DevTest Labs-uppgifter som är installerad i Azure DevOps-tjänsterna (kallades tidigare Visual Studio Team Services) för att enkelt integrera din kontinuerlig integrering (CI) / kontinuerlig leverans (CD) version och versionen pipeline med Azure DevTest Labs. De här tilläggen gör det lättare att snabbt distribuera en [miljö](devtest-lab-test-env.md) för en specifik testa aktivitet och tar bort den när testet är klart. 
@@ -56,7 +56,7 @@ Nästa steg i distributionen är att skapa miljön som ska användas för utveck
 
 1. Välj i versionsdefinitionen, **lägga till aktiviteter**.
 2. På den **uppgifter** fliken, Lägg till en uppgift i Azure DevTest Labs skapa miljö. Konfigurera aktiviteten enligt följande:
-    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/devops/pipelines/library/service-endpoints).
+    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/azure/devops/pipelines/library/service-endpoints).
 2. För **Labbnamn**, Välj namnet på den instans som du skapade tidigare *.
 3. För **databasnamn**, Välj den databas där Resource Manager-mall (201) har överförts till *.
 4. För **mallnamn**, Välj namnet på den miljö som du sparade till din datakälla kod lagringsplats *. 
@@ -71,7 +71,7 @@ Det sista steget är att ta bort miljön som du distribuerade i din Azure DevTes
 I versionsdefinitionen, väljer **lägga till aktiviteter**, och klicka sedan på den **distribuera** fliken, lägga till en **ta bort Azure DevTest Labs-miljön** uppgift. Konfigurera enligt följande:
 
 1. Om du vill ta bort den virtuella datorn, se [Azure DevTest Labs-uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/devops/pipelines/library/service-endpoints).
+    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/azure/devops/pipelines/library/service-endpoints).
     2. För **Labbnamn**, Välj labbet där miljön finns.
     3. För **Miljönamn**, anger du namnet på miljön som ska tas bort.
 2. Ange ett namn för versionsdefinitionen och spara den.
@@ -80,5 +80,5 @@ I versionsdefinitionen, väljer **lägga till aktiviteter**, och klicka sedan p�
 Se följande artiklar: 
 - [Skapa miljöer för flera virtuella datorer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
 - Snabbstart för Resource Manager-mallar för DevTest Labs automation från den [DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates).
-- [Felsökning av VSTS-sidan](/devops/pipelines/troubleshooting)
+- [Felsökning av VSTS-sidan](/azure/devops/pipelines/troubleshooting)
 

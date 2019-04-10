@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: eababa0d83e1db4934fc8b2315e20407ccc77f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892956"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Självstudier: Azure Active Directory-integrering med ClickUp Productivity Platform
 
@@ -50,7 +50,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av ClickUp Productivity Platform i Azure AD behöver du lägga till ClickUp Productivity Platform från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till ClickUp Productivity Platform från galleriet:**
+**Utför följande steg för att lägga till ClickUp produktivitet plattform från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Click
 
     ![Information om enkel inloggning med ClickUp Productivity Platform-domän och URL:er](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://app.clickup.com/login/sso`
+    a. I den **inloggnings-URL** text skriver en URL: `https://app.clickup.com/login/sso`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
@@ -213,9 +213,9 @@ När du klickar på ClickUp Productivity Platform-panelen i åtkomstpanelen bör
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

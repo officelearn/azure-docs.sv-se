@@ -6,36 +6,41 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e85226d15b818dda65600760b3950fab9dd7aaf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312333"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358182"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
-I den här självstudien visar vi hur du kör ett programåterställningstest för en lokal dator till Azure med hjälp av ett redundanstest. Med ett test kan du verifiera din replikeringsstrategi utan dataförlust.
+Den här artikeln beskriver hur du kör ett programåterställningstest för en lokal dator till Azure med den [Azure Site Recovery](site-recovery-overview.md) service. Med ett test kan du verifiera din replikeringsstrategi utan dataförlust.
 
-Den här är den fjärde kursen i en serie som illustrerar hur du ställer in haveriberedskap i Azure för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer.
 
-Den här kursen förutsätter att du har slutfört de första tre självstudierna:
-- I den [första självstudien](tutorial-prepare-azure.md), konfigurerade vi Azure komponenter som krävs för katastrofåterställning för VMware.
-- I den [andra kursen](vmware-azure-tutorial-prepare-on-premises.md) förberedde vi lokala komponenter för katastrofåterställning och granskade förutsättningarna.
-- I den [tredje kursen](vmware-azure-tutorial.md) ställde vi in och aktiverade replikering för våra lokala VMware VM.
-- Självstudierna är utformade för att visa den **enklaste distributionsvägen för ett scenario**. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill veta mer om redundansteststegen kan du läsa [Anvisningsguiden](site-recovery-test-failover-to-azure.md).
+Det här är den fjärde självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala datorer.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Ställer in ett isolerat nätverk för redundanstestet
 > * Förbereder för att ansluta till den virtuella Azure-datorn efter en redundansväxling
-> * Kör ett redundanstest för en enstaka virtuell dator
+> * Köra ett redundanstest för en enskild dator.
 
+> [!NOTE]
+> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill lära dig om disaster recovery-test stegen i detalj, [läsa den här artikeln](site-recovery-test-failover-to-azure.md).
 
+## <a name="before-you-start"></a>Innan du börjar
+
+Slutföra de föregående självstudierna:
+
+1. Kontrollera att du har [ställa in Azure](tutorial-prepare-azure.md) för lokal haveriberedskap för virtuella VMware-datorer, Hyper-V-datorer och fysiska datorer till Azure.
+2. Förbered dina lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md) eller [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) miljön för katastrofåterställning. Om du konfigurerar haveriberedskap för fysiska servrar, granska de [stödmatris](vmware-physical-secondary-support-matrix.md).
+3. Konfigurera haveriberedskap för [virtuella VMware-datorer](vmware-azure-tutorial.md), [Hyper-V-datorer](hyper-v-azure-tutorial.md), eller [fysiska datorer](physical-azure-disaster-recovery.md).
+ 
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
 
@@ -76,14 +81,13 @@ Kör redundanstestet på följande sätt:
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
+## <a name="connect-after-failover"></a>Anslut efter redundans
 
-Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
-
-Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundans, [förbereder för att ansluta](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Om det uppstår några problem med nätverksanslutningen efter en redundansväxling kan du följa den [felsökning](site-recovery-failover-to-azure-troubleshoot.md) guide.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Köra redundans och återställning efter fel för lokala virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md).
-> [Köra redundans och återställning efter fel för lokala virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md).
+> [Köra redundans och återställning efter fel för virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md).
+> [Köra redundans och återställning efter fel för Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md).
+> [Köra redundans och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)

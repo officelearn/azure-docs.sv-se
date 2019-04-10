@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762333"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282550"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
@@ -30,8 +30,9 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-| **Anpassad avbildning support** | Nu kan du installera den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) för anpassade OS- och SQL-avbildningar, som erbjuder begränsad funktionalitet för [flexibla licensiering](virtual-machines-windows-sql-ahb.md). När registrera en anpassad avbildning med SQL-resursprovider anger licenstypen som ”AHUB” som annars misslyckas registreringen. Hanterbarhet genom SQL Config-bladet i Azure portal finns inte stöd för anpassade avbildningar.   | 
+| **Anpassad avbildning support** | Nu kan du installera den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) för anpassade OS- och SQL-avbildningar, som erbjuder begränsad funktionalitet för [flexibla licensiering](virtual-machines-windows-sql-ahb.md). När registrera en anpassad avbildning med SQL-resursprovider anger licenstypen som ”AHUB” som annars misslyckas registreringen.  | 
 | **Namngiven instans support** | Du kan nu använda den [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) med en namngiven instans om standardinstansen har avinstallerats korrekt. | 
+| **Förbättring av portalen** | Azure-portalen tidigare för att distribuera en SQL Server VM har har gjort om för att förbättra användbarhet. Mer information finns i rapport [snabbstarten](quickstart-sql-vm-create-portal.md) och mer omfattande [How-to](virtual-machines-windows-portal-sql-server-provision.md) vägledning för distribution av en SQL Server VM. |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar
@@ -77,12 +78,12 @@ Ingen
 * [Etablera en virtuell dator med SQL Server Windows](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrera en databas till SQLServer på en virtuell Azure-dator](virtual-machines-windows-migrate-sql.md)
 * [Hög tillgänglighet och katastrofåterställning för SQLServer på Azure virtuella datorer](virtual-machines-windows-sql-high-availability-dr.md)
-* [Prestandametodtips för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Programmönster och utvecklingsstrategier för SQLServer på Azure virtuella datorer](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md)
+* [Programmönster och utvecklingsstrategier för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Virtuella Linux-datorer**:
 
 * [Översikt över SQLServer på en virtuell Linux-dator](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Etablera en SQL Server Linux-dator](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [Vanliga frågor och svar (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Dokumentation om SQL Server på Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server på Linux-dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

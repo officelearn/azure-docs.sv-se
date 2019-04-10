@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: SQL Server-moln, SQL Server i molnet, PaaS-databas, moln-SQL Server, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835426"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360816"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Välja rätt SQL Server-alternativ i Azure
 
@@ -135,7 +135,7 @@ När du börjar använda en molnplattform, inkluderar kostnaden för programkör
 
 Mer information om priser finns i följande resurser:
 
-- [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Prisinformation för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Priser för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/) för [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) och för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Priskalkylator för Azure](https://azure.microsoft.com/pricing/calculator/)
 

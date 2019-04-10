@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087201"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283485"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -45,7 +45,7 @@ Matchningsvillkor enhet identifierar begäranden som görs från en mobil enhet 
 
 Namn | Syfte
 -----|--------
-[enheten](#device) | Identifierar begäranden som görs från en mobil enhet baserat på dess egenskaper.
+[Enhet](#device) | Identifierar begäranden som görs från en mobil enhet baserat på dess egenskaper.
 
 ## <a name="location-match-conditions"></a>Plats matchningsvillkor
 
@@ -71,7 +71,7 @@ Matchningsvillkor begäran identifiera förfrågningar baserat på deras egenska
 
 Namn | Syfte
 -----|--------
-[Klientens IP-adress](#client-ip-address) | Identifierar förfrågningar som kommer från en viss IP-adress.
+[IP-adress för klient](#client-ip-address) | Identifierar förfrågningar som kommer från en viss IP-adress.
 [Cookie-Parameter](#cookie-parameter) | Kontrollerar de cookies som är associerade med varje begäran för det angivna värdet.
 [Cookie parametern Regex](#cookie-parameter-regex) | Kontrollerar de cookies som är associerade med varje begäran för det angivna reguljära uttrycket.
 [Edge Cname](#edge-cname) | Identifierar begäranden som pekar på en specifik edge CNAME.
@@ -101,7 +101,7 @@ Namn | Syfte
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referens för regelmotor – matchningsvillkor
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>Alltid
 

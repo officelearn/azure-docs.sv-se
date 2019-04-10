@@ -4,15 +4,15 @@ description: Den här artikeln kan hjälpa dig att planera kapacitet och skalnin
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: ramamill
+ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338288"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358008"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
 
@@ -30,7 +30,7 @@ Komponent | Information
 --- | ---
 **Replikering** | **Maximal dagliga förändringstakten**: En skyddad dator kan använda endast en processerver. En enda processerver kan hantera en daglig ändringen Betygsätt upp till 2 TB. 2 TB är därför de maximala daglig dataändringshastighet som stöds för en skyddad dator.<br /><br /> **Maximalt dataflöde**: En replikerad dator kan höra till ett lagringskonto i Azure. Ett Azure Storage-konto av standardtyp kan hantera upp till 20 000 begäranden per sekund. Vi rekommenderar att du begränsar antalet indata/utdataåtgärder per sekund (IOPS) över en källdator till 20 000. Om du har en källdator som har fem diskar och varje disk genererar 120 IOPS (8 kB) på källdatorn, exempelvis ligger källdatorn inom Azure per disk-IOPS-gränsen på 500. (Antal lagringskonton som krävs är lika med den totala källdatorn dividerat med 20 000 IOPS.)
 **Konfigurationsserver** | Configuration server måste kunna hantera dagliga ändra frekvensen kapaciteten i alla arbetsbelastningar som körs på skyddade datorer. Konfiguration av datorn måste ha tillräckligt mycket bandbredd för att kontinuerligt replikera data till Azure Storage.<br /><br /> Ett bra tips är att placera konfigurationsservern på samma nätverk och LAN-segment som de datorer som du vill skydda. Du kan placera konfigurationsservern på ett annat nätverk, men datorer som du vill skydda måste ha 3 nätverk skiktsynlighet.<br /><br /> Storleksrekommendationer för konfigurationsservern sammanfattas i tabellen i avsnittet nedan.
-**Processervern** | Den första processervern installeras som standard på konfigurationsservern. Du kan distribuera ytterligare processervrar för att skala din miljö. <br /><br /> Processervern tar emot replikeringsdata från skyddade datorer. Processervern optimerar data med hjälp av cachelagring, komprimering och kryptering. Processervern skickar sedan data till Azure. Den process server-datorn måste ha tillräckligt med resurser för att utföra dessa uppgifter.<br /><br /> Processervern använder ett diskbaserad cacheminne. Använd en separat cachedisk 600 GB eller mer för att hantera dataförändringar av som lagras om ett flaskhalsar i nätverket eller avbrott inträffar.
+**Processerver** | Den första processervern installeras som standard på konfigurationsservern. Du kan distribuera ytterligare processervrar för att skala din miljö. <br /><br /> Processervern tar emot replikeringsdata från skyddade datorer. Processervern optimerar data med hjälp av cachelagring, komprimering och kryptering. Processervern skickar sedan data till Azure. Den process server-datorn måste ha tillräckligt med resurser för att utföra dessa uppgifter.<br /><br /> Processervern använder ett diskbaserad cacheminne. Använd en separat cachedisk 600 GB eller mer för att hantera dataförändringar av som lagras om ett flaskhalsar i nätverket eller avbrott inträffar.
 
 ## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Storleksrekommendationer för konfigurationsservern och inbyggda processervern
 

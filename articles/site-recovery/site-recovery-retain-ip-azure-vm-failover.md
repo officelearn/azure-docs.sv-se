@@ -2,16 +2,16 @@
 title: Behålla IP-adresser vid redundansväxling av Azure virtuella datorer med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du behålla IP-adresser när redundansväxla virtuella datorer i Azure för haveriberedskap till en sekundär region med Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090754"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357898"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Behålla IP-adresser vid redundans
 

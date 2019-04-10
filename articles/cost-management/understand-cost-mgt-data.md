@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282992"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -31,8 +31,8 @@ Följande information visar för närvarande stöds [Microsoft Azure erbjuder](h
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise-avtal (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsofts kundavtal** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Microsofts kundavtal** | [Microsoft Azure Plan för Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Microsofts kundavtal** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte |
+| **Microsofts kundavtal** | [Microsoft Azure Plan för Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | Gäller inte |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ Följande tabeller visar data som har inkluderat eller inte finns i Cost Managem
 | **Ingår** | **Ingår inte** |
 | --- | --- |
 | Azure tjänstanvändning<sup>1</sup> | Köp av reservation – mer information finns i [API: er för Azure reservation automation](../billing/billing-reservation-apis.md). |
-| Användning av Marketplace-erbjudande | Marketplace-Köp – mer information finns i [från tredje part tjänstavgifter](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace erbjuder användning<sup>2</sup> | Marketplace-Köp – mer information finns i [från tredje part tjänstavgifter](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Hantera kostnader – mer information, se [villkoren för förklaras](../billing/billing-understand-your-invoice.md). |
 |   | Skatter - mer information finns i [villkoren för förklaras](../billing/billing-understand-your-invoice.md). |
 |   | Krediter - mer information finns i [villkoren för förklaras](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> azure tjänstanvändning baseras på reservation och förhandlas priser.
+<sup>2</sup> marketplace erbjuder användning är inte tillgänglig för användningsbaserad betalning, MSDN, och Visual Studio erbjuder just nu.
 
 **Metadata**
 
 | **Ingår** | **Ingår inte** |
 | --- | --- |
-| Resurstaggar<sup>2</sup> | gruppen resurstaggar |
+| Resurstaggar<sup>3</sup> | gruppen resurstaggar |
 
-<sup>2</sup> resurstaggar tillämpas enligt användning som sänts ut från varje tjänst och är inte tillgängliga retroaktivt för historisk användning.
+<sup>3</sup> resurstaggar tillämpas enligt användning som sänts ut från varje tjänst och är inte tillgängliga retroaktivt för historisk användning.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Graderad användning datauppdateringsschemat
 

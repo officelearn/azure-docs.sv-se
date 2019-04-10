@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dc1451d75b14c89fd9fa1742c3e0b078b035d7f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361854"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudier: Azure Active Directory-integrering med d & E Express
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med d & E E
 
     a. I den **identifierare** text skriver värdet som URL med hjälp av följande mönster: `https://<domain>.tyeexpress.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [d & E Express klienten supportteam](http://www.tyeexpress.com/contacto.aspx) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -195,7 +195,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För att aktivera Azure AD-användare att logga in på d & E Express, måste de etableras i T & E Express. När det gäller T & E Express är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Utför följande steg för att tillhandahålla ett användarkonto:**
 
 1. Logga in på webbplatsen d & E Express företagets som administratör.
 
@@ -221,9 +221,9 @@ När du klickar på panelen d & E Express i åtkomstpanelen, bör det vara logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

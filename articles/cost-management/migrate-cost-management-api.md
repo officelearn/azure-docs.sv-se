@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518793"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279881"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft Customer avtal API: er
 
@@ -81,7 +81,7 @@ Om du använder alla befintliga EA-API: er, måste du uppdatera dem för att st�
 | Syfte | Gamla erbjudande | Nya erbjudandet |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) innehållspaket och anslutning | [Microsoft Azure Consumption Insights Power BI-appen](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) och [ Azure Consumption Insights-anslutningsapp](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) innehållspaket och anslutning | [Microsoft Azure Consumption Insights Power BI-appen](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) och [Azure Consumption Insights-anslutningsapp](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API: er för att få balans och krediter
 
@@ -373,7 +373,7 @@ I följande tabell visar fälten i äldre Enterprise hämta price sheet API: et.
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Exakta strängvärden kan variera. |
 | includedQuantity  | includedQuantity | Ej tillämpligt för tjänster i Microsoft kundens avtal. |
-| PartNumber  | _Inte tillämpligt_ | Använd istället en kombination av productOrderName (samma som offerId) och meterid. |
+| partNumber  | _Inte tillämpligt_ | Använd istället en kombination av productOrderName (samma som offerId) och meterid. |
 | unitPrice  | unitPrice | Enhetspriset kan användas för tjänster du förbrukar i Microsoft kundens avtal. |
 | currencyCode  | pricingCurrency | Microsoft Customer avtal har pris garantier i pris valuta och valuta. CurrencyCode motsvarar pricingCurrency i Microsoft kundens avtal. |
 | offerId | productOrderName | I stället för OfferId, du kan använda productOrderName men är inte densamma som OfferId. ProductOrderName och mätaren fastställa priser i Microsoft Customer avtal rör meterId och Offerid i äldre registreringar. |

@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447740"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359977"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -30,11 +30,11 @@ I den här snabbstarten får du använda [SQL Server Management Studio][ssms-ins
 
   || Enskild databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
-  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
+  |||[Anslutningen från på plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
@@ -44,7 +44,7 @@ I den här snabbstarten får du använda [SQL Server Management Studio][ssms-ins
 
 ## <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
 
-Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-install-latest-84g]. 
+Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -58,7 +58,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
 ## <a name="connect-to-your-database"></a>Ansluta till databasen
 
-Anslut till din Azure SQL Database-server i SMSS. 
+Anslut till din Azure SQL Database-server i SMSS.
 
 > [!IMPORTANT]
 > En Azure SQL Database-server avlyssnar port 1433. För att anslutning ska kunna ske till en SQL Database-server inifrån en företagsbrandvägg måste brandväggen ha den här porten öppen.
@@ -68,11 +68,11 @@ Anslut till din Azure SQL Database-server i SMSS.
 
 2. Ange följande information:
 
-   | Inställning      | Föreslaget värde    | Beskrivning | 
-   | ------------ | ------------------ | ----------- | 
+   | Inställning      | Föreslaget värde    | Beskrivning |
+   | ------------ | ------------------ | ----------- |
    | **Servertyp** | Databasmotor | Obligatoriskt värde. |
-   | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
-   | **Autentisering** | SQL Server-autentisering | Den här självstudien använder SQL-autentisering. |
+   | **servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | **Authentication** | SQL Server-autentisering | Den här självstudien använder SQL-autentisering. |
    | **Inloggning** | Serveradministratörskontots användar-ID | Användar-ID från det serveradministratörskonto som användes när servern skapades. |
    | **Lösenord** | Serveradministratörskontots lösenord | Lösenord från det serveradministratörskonto som användes när servern skapades. |
    ||||
@@ -83,7 +83,7 @@ Anslut till din Azure SQL Database-server i SMSS.
 
    ![ansluta till databas på server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Välj **Anslut**. Fönstret Object Explorer öppnas. 
+4. Välj **Anslut**. Fönstret Object Explorer öppnas.
 
 5. Om du vill se databasens objekt expanderar du **Databaser** och **mySampleDatabase**.
 
@@ -140,15 +140,14 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 1. Ersätt den tidigare frågan med denna.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Välj **Kör**. Följande resultat visas. 
+
+2. Välj **Kör**. Följande resultat visas.
 
    ![Resultatet](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>Uppdatera data
 
 Kör det här [uppdatering](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-kod för att ändra din nya produkt.
@@ -188,8 +187,6 @@ Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transac
 - Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
 - Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

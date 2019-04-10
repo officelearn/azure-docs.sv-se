@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449879"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357004"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Använd PowerShell för att skapa en Azure SQL Database-hanterad instans
 
-Det här PowerShell-Skriptexemplet skapar en hanterad Azure SQL Database-instans i ett dedikerat undernät i ett nytt virtuellt nätverk. Den konfigurerar också en routningstabell och en nätverkssäkerhetsgrupp för det virtuella nätverket. När skriptet har körts utan problem, kan den hanterade instansen nås från det virtuella nätverket eller från en lokal miljö. Snabbstart som visar hur du gör detta, se [konfigurera Azure VM för att ansluta till en Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) och [konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](../sql-database-managed-instance-configure-p2s.md).
+Det här PowerShell-Skriptexemplet skapar en hanterad Azure SQL Database-instans i ett dedikerat undernät i ett nytt virtuellt nätverk. Den konfigurerar också en routningstabell och en nätverkssäkerhetsgrupp för det virtuella nätverket. När skriptet har körts utan problem, kan den hanterade instansen nås från det virtuella nätverket eller från en lokal miljö. Se [konfigurera Azure VM för att ansluta till en Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) och [konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > Begränsningar, finns i [regioner som stöds](../sql-database-managed-instance-resource-limits.md#supported-regions) och [stöds prenumerationstyper](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -36,7 +36,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Lägger till en undernätskonfiguration till ett virtuellt nätverk |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Hämtar ett virtuellt nätverk i en resursgrupp |

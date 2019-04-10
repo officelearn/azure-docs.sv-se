@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567119"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358800"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Synkronisera nätverkskonfiguration för Azure App Service-värdplan
 
-Det kan hända att även om du [integrerat din app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), du kan inte upprätta anslutning till hanterad instans. En sak som du ska uppdatera nätverkskonfigurationen för din serviceplan. 
+Det kan hända att även om du [integrerat din app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), du kan inte upprätta anslutning till hanterad instans. En sak som du ska uppdatera nätverkskonfigurationen för din serviceplan.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Synkronisera nätverkskonfiguration för App Service-värdplanen
 
 Det gör du genom att följa dessa steg:  
 
 1. Gå till web apps App Service-plan.
- 
+
    ![apptjänstplan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Klicka på **nätverk** och klicka sedan på **Klicka här för att hantera**.
- 
+
    ![hantera service-plan](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Välj din **VNet** och klicka på **synkronisera nätverk**. 
- 
+3. Välj din **VNet** och klicka på **synkronisera nätverk**.
+
    ![Synkronisera nätverk](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Vänta tills synkroniseringen är klar.

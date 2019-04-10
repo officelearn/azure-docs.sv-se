@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360188"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -50,11 +50,11 @@ Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för 
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
-Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. 
+Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen.
 
 Automatiserade säkerhetskopieringar för 7 dagar av dina databaser kopieras till RA-GRS standardbloblagring som standard. Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Storleken på transaktionsloggen beror på ändringsfrekvensen i databasen. En minimimängd lagringsutrymme motsvarande 100 procent av databasens storlek tillhandahålls utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras för GB/månad.
 
-Mer information om priserna för lagring finns i den [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) sidan. 
+Mer information om priserna för lagring finns i den [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) sidan.
 
 ## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 
@@ -71,7 +71,7 @@ Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurs
 > **Region begränsningar:** Den aktuella listan över regioner som stöds finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i den region som inte stöds för närvarande kan du [skicka supportförfrågan via Azure-portalen](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Om din databas eller elastisk pool förbrukar mer än 300 dtu: er, kan konvertera till den vCore-baserade inköpsmodellen minska dina kostnader. Om du vill konvertera kan konvertera du med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Konvertering är inte obligatoriskt och görs inte automatiskt. Om den DTU-baserade inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen, väljer du beräkningsstorleken med hjälp av följande tumregel: 
+Om din databas eller elastisk pool förbrukar mer än 300 dtu: er, kan konvertera till den vCore-baserade inköpsmodellen minska dina kostnader. Om du vill konvertera kan konvertera du med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Konvertering är inte obligatoriskt och görs inte automatiskt. Om den DTU-baserade inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen, väljer du beräkningsstorleken med hjälp av följande tumregel:
 
 - Varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning
 - Varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk

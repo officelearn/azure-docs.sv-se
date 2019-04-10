@@ -4,28 +4,26 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278793"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
 Resource Manager tillhandahåller följande funktioner för att arbeta med strängar:
 
-* [base64](#base64)
+* [Base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
@@ -35,15 +33,16 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [tom](#empty)
 * [endsWith](#endswith)
 * [första](#first)
+* [Format](#format)
 * [GUID](#guid)
 * [indexOf](#indexof)
-* [last](#last)
+* [senaste](#last)
 * [lastIndexOf](#lastindexof)
 * [Längd](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [Ersätt](#replace)
-* [skip](#skip)
+* [hoppa över](#skip)
 * [split](#split)
 * [startsWith](#startswith)
 * [sträng](#string)
@@ -53,7 +52,7 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [toUpper](#toupper)
 * [trim](#trim)
 * [uniqueString](#uniquestring)
-* [uri](#uri)
+* [URI](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)
@@ -714,9 +713,66 @@ Utdata från föregående exempel med standardvärdena är:
 | arrayOutput | String | en |
 | stringOutput | String | O |
 
+## <a name="format"></a>Format
+
+`format(formatString, arg1, arg2, ...)`
+
+Skapar en formaterad sträng från indatavärden.
+
+### <a name="parameters"></a>Parametrar
+
+| Parameter | Krävs | Typ | Beskrivning |
+|:--- |:--- |:--- |:--- |
+| formatString | Ja | sträng | Den sammansatta Formatsträngen. |
+| arg1 | Ja | sträng, heltal eller booleskt värde | Värdet som ska ingå i den formaterade strängen. |
+| ytterligare argument | Nej | sträng, heltal eller booleskt värde | Ytterligare värden som ska ingå i den formaterade strängen. |
+
+### <a name="remarks"></a>Kommentarer
+
+Använd den här funktionen för att formatera en sträng i mallen. Den använder samma formateringsalternativ som den [System.String.Format](/dotnet/api/system.string.format) -metod i .NET.
+
+### <a name="examples"></a>Exempel
+
+Följande exempelmall visar hur du använder funktionen format.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel med standardvärdena är:
+
+| Namn | Typ | Värde |
+| ---- | ---- | ----- |
+| formatTest | String | Hello, användare. Formaterat nummer: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Skapar ett värde i formatet av en globalt unik identifierare som baserat på de värden som anges som parametrar.
 
@@ -731,7 +787,7 @@ Skapar ett värde i formatet av en globalt unik identifierare som baserat på de
 
 Den här funktionen är användbar när du behöver skapa ett värde i formatet av en globalt unik identifierare. Du kan ange parametervärden som begränsar du omfattningen för unikhet för resultatet. Du kan ange om namnet är unikt prenumeration, resursgrupp eller distribution.
 
-Det returnerade värdet är inte en slumpmässig sträng utan i stället resultatet av en hash-funktionen på parametrarna. Det returnerade värdet är 36 tecken långt. Det är inte unikt globalt. Använd för att skapa ett nytt GUID som inte baseras på det hash-värdet för parametrarna i [newGuid](#newguid) funktion.
+Det returnerade värdet är inte en slumpmässig sträng, men i stället resultatet av en hash-funktionen på parametrarna. Det returnerade värdet är 36 tecken långt. Det är inte unikt globalt. Använd för att skapa ett nytt GUID som inte är baserad på det hash-värdet för parametrarna i [newGuid](#newguid) funktion.
 
 I följande exempel visas hur du använder guid för att skapa ett unikt värde för vanliga nivåer.
 
@@ -1776,7 +1832,7 @@ Skapar en deterministisk hash-sträng som baseras på de värden som anges som p
 
 Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du kan ange parametervärden som begränsar du omfattningen för unikhet för resultatet. Du kan ange om namnet är unikt prenumeration, resursgrupp eller distribution. 
 
-Det returnerade värdet är inte en slumpmässig sträng utan i stället resultatet av en hash-funktionen. Det returnerade värdet är 13 tecken lång. Det är inte unikt globalt. Du kanske vill kombinera värdet med ett prefix från din namngivningskonvention för att skapa ett beskrivande namn. I följande exempel visas formatet på värdet som returneras. Det faktiska värdet varierar beroende på de angivna parametrarna.
+Det returnerade värdet är inte en slumpmässig sträng, men i stället resultatet av en hash-funktionen. Det returnerade värdet är 13 tecken lång. Det är inte unikt globalt. Du kanske vill kombinera värdet med ett prefix från din namngivningskonvention för att skapa ett beskrivande namn. I följande exempel visas formatet på värdet som returneras. Det faktiska värdet varierar beroende på de angivna parametrarna.
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ Unik begränsade till distributionen för en resursgrupp
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-I följande exempel visar hur du skapar ett unikt namn för ett lagringskonto baserat på din resursgrupp. Namnet är inte unikt om du skapar på samma sätt i resursgruppen.
+I följande exempel visar hur du skapar ett unikt namn för ett lagringskonto baserat på din resursgrupp. I resursgruppen och namnet är inte unika om skapas på samma sätt.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ I följande exempel visar hur du skapar ett unikt namn för ett lagringskonto ba
     ...
 ```
 
-Om du vill skapa ett nytt unikt namn varje gång du distribuerar en mall och inte avsikt att uppdatera resursen kan du använda den [utcNow](#utcnow) funktion med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcnow).
+Om du vill skapa ett nytt unikt namn varje gång du distribuerar en mall och inte planerar att uppdatera resursen kan du använda den [utcNow](#utcnow) funktion med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Returvärde
 

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 86821e2082deb500f050eeab827dcee593082661
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776367"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279898"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Identifiera och använda exempelanteckningsböcker
 
@@ -42,6 +42,6 @@ När du har identifierat en bärbar dator som du vill utforska, är här några 
 ## <a name="next-steps"></a>Nästa steg  
 
 - [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
-- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Arbeta med datafiler](work-with-project-data-files.md)
+- [Anvisningar: Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
 - [Anvisningar: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

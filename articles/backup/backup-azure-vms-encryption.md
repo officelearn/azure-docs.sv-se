@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266452"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358225"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ Azure Backup stöder säkerhetskopiering av Azure virtuella datorer som har sina
 Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med hjälp av ADE med och utan Azure AD-app som sammanfattas i tabellen nedan.
 
 **Typ av virtuell datordisk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
---- | --- | --- 
+--- | --- | ---
 **Ohanterad** | Ja | Ja
 **Hanterad**  | Ja | Ja
 
@@ -95,14 +95,14 @@ Det finns dessutom några saker som du kan behöva göra i vissa fall:
 8. Om du använder Azure Key Vault, på sidan valv, visas ett meddelande om att Azure Backup behöver skrivskyddad åtkomst till nycklar och hemligheter i Key Vault.
 
     - Om du får det här meddelandet, krävs ingen åtgärd.
-    
+
         ![Åtkomst OK](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Om du får det här meddelandet måste du ange behörigheter som beskrivs i den [proceduren nedan](#provide-permissions).
-    
+
         ![Åtkomst-varning](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Klicka på **Aktivera säkerhetskopiering** att distribuera principen för säkerhetskopiering i valvet och aktivera säkerhetskopiering för de valda virtuella datorerna. 
+9. Klicka på **Aktivera säkerhetskopiering** att distribuera principen för säkerhetskopiering i valvet och aktivera säkerhetskopiering för de valda virtuella datorerna.
 
 
 ## <a name="trigger-a-backup-job"></a>Utlösa ett säkerhetskopieringsjobb
@@ -129,18 +129,18 @@ Att ange behörigheter:
 1. I Azure-portalen väljer du **alla tjänster**, och Sök efter **viktiga valv**.
 2. Välj det nyckelvalv som är associerade med den krypterade virtuella datorn du säkerhetskopierar.
 3. Välj **åtkomstprinciper** > **Lägg till ny**.
-4. Välj **väljer huvudnamn**, och skriv sedan **säkerhetskopiering Management**. 
+4. Välj **väljer huvudnamn**, och skriv sedan **säkerhetskopiering Management**.
 5. Välj **säkerhetskopiera hanteringstjänsten** > **Välj**.
 
     ![Val av Backup-tjänsten](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. I **Lägg till åtkomstprincip** > **konfigurera från mall (valfritt)** väljer **Azure Backup**.
     - Behörigheterna som krävs är fylls i automatiskt för **Nyckelbehörigheter** och **hemliga behörigheter**.
-    - Om din virtuella dator har krypterats med **BEK endast**, ta bort valet för **Nyckelbehörigheter** eftersom du bara behöver behörigheter för hemligheter. 
+    - Om din virtuella dator har krypterats med **BEK endast**, ta bort valet för **Nyckelbehörigheter** eftersom du bara behöver behörigheter för hemligheter.
 
     ![Azure backup val](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Klicka på **OK**. **Säkerhetskopiera hanteringstjänsten** läggs till i **åtkomstprinciper**. 
+6. Klicka på **OK**. **Säkerhetskopiera hanteringstjänsten** läggs till i **åtkomstprinciper**.
 
     ![Åtkomstprinciper](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ Du återställa krypterade virtuella datorer på följande sätt:
 
 Om du stöter på problem, granska
 
-- [Vanliga fel](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) när säkerhetskopiera och återställa krypterade virtuella Azure-datorer.
-- [Allmän](backup-azure-vms-troubleshoot.md) problem med virtuella Azure-datorer.
+- [Vanliga fel](backup-azure-vms-troubleshoot.md) när säkerhetskopiera och återställa krypterade virtuella Azure-datorer.
 - [Azure VM-agenten/säkerhetskopieringstillägget](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problem.

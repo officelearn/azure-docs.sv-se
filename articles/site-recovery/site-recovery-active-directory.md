@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821396"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358039"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
 
@@ -106,9 +106,9 @@ När du initierar ett redundanstest innehåller inte alla domänkontrollanter i 
 Från och med Windows Server 2012 [ytterligare säkerhetsåtgärder som är inbyggda i Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Dessa skydd hjälper till att skydda virtualiserade domänkontrollanter mot USN återställningar om den underliggande hypervisor-plattformen stöder **VM-Generationsid**. Azure stöder **VM-Generationsid**. Därför har domänkontrollanter som kör Windows Server 2012 eller senare på Azure-datorer dessa ytterligare säkerhetsåtgärder.
 
 
-När **VM-Generationsid** återställs, den **InvocationID** återställs även värdet för AD DS-databasen. Dessutom RID-poolen förkastas och SYSVOL markeras som icke-auktoritativ. Mer information finns i [introduktion till virtualisering av Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) och [på ett säkert sätt virtualisering av DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+När **VM-Generationsid** återställs, den **InvocationID** återställs även värdet för AD DS-databasen. Dessutom RID-poolen förkastas och sysvol-mappen markeras som icke-auktoritativ. Mer information finns i [introduktion till virtualisering av Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) och [på ett säkert sätt virtualisering av DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Redundansväxel till Azure kan orsaka **VM-Generationsid** att återställa. När du återställer **VM-Generationsid** utlöser ytterligare säkerhetsåtgärder när domain controller virtuella datorn startar i Azure. Detta kan resultera i en *betydande fördröjning* ska kunna logga in på domain controller virtuella datorn.
+Redundansväxel till Azure kan orsaka **VM-Generationsid** att återställa. När du återställer **VM-Generationsid** utlöser ytterligare säkerhetsåtgärder när domain controller virtuella datorn startar i Azure. Detta kan resultera i en *betydande fördröjning* ska kunna logga in på den domain controller virtuella datorn.
 
 Eftersom den här domänkontrollanten används endast i ett redundanstest virtualiseringsskydd inte är nödvändiga. Att se till att den **VM-Generationsid** ändras inte värdet för domain controller virtuell dator kan du ändra värdet för följande DWORD till **4** i den lokala domänkontrollanten:
 
@@ -128,11 +128,11 @@ Om efter ett redundanstest utlöses skyddsmekanismerna för virtualisering, visa
 
     ![Ändring av anrops-ID](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL och NETLOGON-resurser är inte tillgängliga.
+* Mappen Sysvol och NETLOGON-resurser är inte tillgängliga.
 
-    ![SYSVOL-resursen](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Mappen Sysvol-resursen](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol-mappen](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR-databaser tas bort.
 
@@ -146,7 +146,7 @@ Om efter ett redundanstest utlöses skyddsmekanismerna för virtualisering, visa
 >
 >
 
-1. Kör följande kommando för att kontrollera om SYSVOL och NETLOGON-mappar som delas i Kommandotolken:
+1. Kör följande kommando för att kontrollera om mappen sysvol och NETLOGON-mappen delas i Kommandotolken:
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fu
     * Även om vi inte rekommenderar [FRS replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), om du använder FRS-replikering, följer du stegen för en auktoritativ återställning. Processen beskrivs i [använda registernyckeln BurFlags för att starta om tjänsten File Replication](https://support.microsoft.com/kb/290762).
 
         Mer information om BurFlags finns i bloggposten [D2 och D4: Vad är det för? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Om du använder DFSR replikering, följer du instruktionerna för en auktoritativ återställning. Processen beskrivs i [tvinga fram en auktoritär och icke-auktoritativ synkronisering för DFSR-replikerad SYSVOL (som ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556).
+    * Om du använder DFSR replikering, följer du instruktionerna för en auktoritativ återställning. Processen beskrivs i [tvinga fram en auktoritär och icke-auktoritativ synkronisering för DFSR-replikerad sysvol-mappen (till exempel ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556).
 
         Du kan också använda PowerShell-funktioner. Mer information finns i [DFSR SYSVOL auktoritativa/icke-auktoritativ återställning PowerShell funktioner](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

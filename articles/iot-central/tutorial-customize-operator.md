@@ -3,17 +3,17 @@ title: Anpassa operatörsvyerna i Azure IoT Central | Microsoft Docs
 description: Som byggare anpassar du operatörsvyerna i Azure IoT Central-programmet.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/29/2018
+ms.date: 03/26/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769684"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279949"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central (Ny UI-design)
 
@@ -160,5 +160,5 @@ I självstudien har du lärt dig att anpassa operatörsvyn för programmet.
 
 Nu när du har lärt dig att anpassa operatörsvyn för programmet kan du gå vidare för att:
 
-* [Övervaka dina enheter (som operatör)](tutorial-monitor-devices.md)
-* [Lägga till en ny enhet i programmet (som operatör och enhetsutvecklare)](tutorial-add-device.md)
+* [Övervaka dina enheter (som en operatör)](tutorial-monitor-devices.md)
+* [Lägga till en ny enhet i ditt program (som en operatör och enheten utvecklare)](tutorial-add-device.md)

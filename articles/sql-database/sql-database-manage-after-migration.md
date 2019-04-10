@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216942"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358412"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -83,7 +83,7 @@ SQL Database tar allvar säkerhet och sekretess. Säkerheten i SQL-databas är t
 
 Det finns [två autentiseringsmetoder](sql-database-control-access.md#authentication) erbjuds i SQL-databas:
 
-- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
+- [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
 - SQL-autentisering
 
 Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och med en [få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss SQL Database-server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
@@ -207,7 +207,7 @@ Expressroute kan du utöka upp till 2 x Bandbreddsgräns som du köper för utan
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL-databas som är kompatibel med alla efterlevnadskrav och vad som bidrar med min egen organisation efterlevnad
 
-SQL Database är kompatibla med en mängd efterlevnadskraven. Om du vill visa den senaste uppsättningen efterlevnadskraven som har uppfyllts, Besök den [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) och öka detaljnivån för de efterlevnadskraven som är viktiga för din organisation att se om SQL-databas ingår under kompatibla Azure-tjänster. Det är viktigt att Observera att även om SQL Database kan vara certifierat kompatibla tjänster, det hjälper till med kompatibiliteten för tjänsten för din organisation, men inte automatiskt garanterar den.
+SQL Database är kompatibla med en mängd efterlevnadskraven. Den senaste uppsättningen efterlevnadskraven som utförts av SQL Database finns i [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och öka detaljnivån för de efterlevnadskraven som är viktiga för din organisation att se om SQL-databas ingår under den kompatibel Azure-tjänster. Det är viktigt att Observera att även om SQL Database kan vara certifierat kompatibla tjänster, det hjälper till med kompatibiliteten för tjänsten för din organisation, men inte automatiskt garanterar den.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent database-övervakning och underhåll efter migreringen
 

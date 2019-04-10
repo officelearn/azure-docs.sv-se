@@ -3,17 +3,17 @@ title: Språk som stöds i Azure Maps | Microsoft Docs
 description: Lär dig mer om språk som stöds för tjänster i Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849645"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358126"
 ---
 # <a name="azure-maps-supported-languages"></a>Språk som stöds av Azure Maps
 Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehåller koder för språk som stöds för varje tjänst.  
@@ -33,7 +33,10 @@ Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehå
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-NL      | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Nederländska (Belgien)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| SV-Australien      | Engelska (Australien)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en NZ      | Engelska (Nya Zeeland)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | Engelska (Storbritannien) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Engelska (USA)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Franska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

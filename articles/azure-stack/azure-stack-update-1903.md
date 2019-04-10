@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 0448f583743f9e5b3f8fd6de3a85b05e16bff126
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.lastreviewed: 04/09/2019
+ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269154"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360568"
 ---
 # <a name="azure-stack-1903-update"></a>Uppdatering av Azure Stack 1903
 
@@ -209,9 +209,9 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>Syslog 
-- Systemloggkonfigurationen behålls inte via en uppdateringscykeln, vilket resulterar i syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809).
-Lösningen är att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
+### <a name="syslog"></a>Syslog
+
+- Systemloggkonfigurationen bevaras inte genom en uppdateringscykeln orsakar syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809). Undvik problemet genom att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
 

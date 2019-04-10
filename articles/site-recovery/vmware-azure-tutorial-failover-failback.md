@@ -6,51 +6,55 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 68f1c5156f4c12af33e6088d862fc12d98021fd4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9206e751fadab7a09c696fbe262aecdde002ae74
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310225"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357204"
 ---
-# <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
+# <a name="fail-over-and-fail-back-vmware-vms"></a>Redundansväxla och återställa virtuella VMware-datorer
 
-I den här självstudien beskrivs hur du redundansväxlar en virtuell VMware-dator till Azure. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här guiden får du lära dig att:
+Den här artikeln beskrivs hur du växlar över en lokal VMware-dator till Azure [Azure Site Recovery](site-recovery-overview.md) service. 
+
+Det här är den femte självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala datorer.
+
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Kontrollera egenskaperna för den virtuella VMware-datorn för att se att den överensstämmer med kraven för Azure
 > * Köra en redundans i Azure
-> * Skapa en processerver och huvudmålserver för återställning efter fel
-> * Återaktivera skyddet av virtuella Azure-datorer till den lokala platsen
-> * Redundansväxla från Azure till lokal plats
-> * Återaktivera skyddet av lokala virtuella datorer för att börja replikera till Azure igen
 
->[!NOTE]
->Självstudierna är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill veta mer om redundansteststegen kan du läsa [Anvisningsguiden](site-recovery-failover.md).
 
-Detta är den femte självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.
+> [!NOTE]
+> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill lära dig om redundans i detalj, [läsa den här artikeln](site-recovery-failover.md).
 
-1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. [Förbereda lokal VMware](vmware-azure-tutorial-prepare-on-premises.md)
-3. [Konfigurera haveriberedskap](vmware-azure-tutorial.md)
-4. [Köra ett återställningstest](tutorial-dr-drill-azure.md)
-5. Utöver ovanstående steg är det bra att [granska arkitekturen](vmware-azure-architecture.md) för haveriberedskapscenariot.
+## <a name="before-you-start"></a>Innan du börjar
+Slutföra de föregående självstudierna:
+
+1. Kontrollera att du har [ställa in Azure](tutorial-prepare-azure.md) för lokal haveriberedskap för virtuella VMware-datorer, Hyper-V-datorer och fysiska datorer till Azure.
+2. Förbered dina lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md) eller [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) miljön för katastrofåterställning. Om du konfigurerar haveriberedskap för fysiska servrar, granska de [stödmatris](vmware-physical-secondary-support-matrix.md).
+3. Konfigurera haveriberedskap för [virtuella VMware-datorer](vmware-azure-tutorial.md), [Hyper-V-datorer](hyper-v-azure-tutorial.md), eller [fysiska datorer](physical-azure-disaster-recovery.md).
+4. Kör en [programåterställningstest](tutorial-dr-drill-azure.md) att se till att allt fungerar som förväntat.
+
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
 
 Redundans och återställning efter fel har fyra stadier:
 
-1. **Redundansväxla till Azure**: Redundansväxla datorer från den lokala platsen till Azure.
-2. **Återaktivera skydd av virtuella Azure-datorer**: Återaktiverar skydd av virtuella Azure-datorer så att de börjar replikera tillbaka till de lokala virtuella VMware-datorerna. Den lokala virtuella datorn stängs av under återaktiveringen av skyddet. Detta hjälper att säkerställa datakonsekvens vid replikeringen.
-3. **Redundansväxla till lokala**: Kör en redundansväxling för att återställa från Azure.
-4. **Återaktivera skyddet av lokala virtuella datorer**: När data har återställts återaktiveras skyddet av de lokala virtuella datorer som du återställde till, så att de börjar replikera till Azure.
+1. **Redundansväxla till Azure**: Om din primära lokala plats kraschar redundansväxla datorer till Azure. Efter en redundansväxling skapas virtuella Azure-datorer från replikerade data.
+2. **Återaktivera skydd av virtuella Azure-datorer**: Återaktivera skyddet på virtuella Azure-datorer i Azure, så att de börjar replikera tillbaka till den lokala virtuella VMware-datorer. Den lokala virtuella datorn stängs av under återaktiveringen av skyddet för att säkerställa datakonsekvens.
+3. **Redundansväxla till lokala**: När den lokala platsen är igång och körs, kör en redundansväxling till redundansväxla från Azure.
+4. **Återaktivera skyddet av lokala virtuella datorer**: När data har återställts, skydd de lokala virtuella datorer som växlas tillbaka, så att de börjar replikera till Azure.
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
 
-Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azure-kraven](vmware-physical-azure-support-matrix.md#replicated-machines).
+Innan du kör en redundans, kontrollera VM-egenskaperna och se till att virtuella datorer som uppfyller [krav för Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+Kontrollera egenskaper enligt följande:
 
 1. I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 
@@ -65,105 +69,40 @@ Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azur
 ## <a name="run-a-failover-to-azure"></a>Köra en redundans i Azure
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **Redundans**.
-
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
    - **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
-   - **Senaste bearbetade**: Alternativet redundansväxlar den virtuella datorn till den senaste återställningspunkt som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
+   - **Senaste bearbetade**: Det här alternativet redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
    - **Senaste appkonsekventa**: Alternativet redundansväxlar den virtuella datorn till den senaste appkonsekventa återställningspunkt som bearbetats av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans** att stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 
-I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att **redundanstiden är längre** för virtuella VMWare-datorer som använder en mobilitetstjänst som är äldre än version 9.8, fysiska servrar, virtuella VMWare Linux-datorer, virtuella Hyper-V-datorer som skyddas som fysiska servrar, virtuella VMWare-datorer som inte har DHCP-tjänsten aktiverad och virtuella VMWare-datorer som inte har följande drivrutiner: storvsc, vmbus, storflt, intelide, atapi.
+I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker längre redundanstiden för:
+- Virtuella VMware-datorer som kör en äldre än 9.8 mobilitetstjänstversionen
+- Fysiska servrar
+- Virtuella VMware Linux-datorer
+- Hyper-V-datorer som skyddas som fysiska servrar
+- Virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten
+- Virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen.
-> Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
-## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Ansluta till redundansväxlade virtuella datorer i Azure
+## <a name="connect-to-failed-over-vm"></a>Ansluta till redundansväxlad virtuell Maskin
 
-1. Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
-2. After redundans går du till den virtuella datorn och verifierar den genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
-3. När du har verifierat klickar du på **Genomför** och slutför återställningspunkten för den virtuella datorn efter redundans. När detta genomförs tas alla andra tillgängliga återställningspunkter bort. Nu är du klart med redundans-aktiviteten.
+1. Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundans, [verifiera kraven](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. Gå till den virtuella datorn efter en redundansväxling, och verifiera med [ansluter](../virtual-machines/windows/connect-logon.md) till den.
+3. Använd **ändra återställningspunkt** om du vill använda en annan återställningspunkt efter en redundansväxling. När du etablerar redundansen i nästa steg, längre det här alternativet inte tillgänglig.
+4. Efter valideringen kan du klicka på **genomför** att slutföra återställningspunkten för den virtuella datorn efter redundans.
+5. Efter genomförande, alla andra tillgängliga återställningspunkter tas bort. Nu är du klar med redundans.
 
 >[!TIP]
-> Med **Ändra återställningspunkt** kan du välja en annan återställningspunkt efter redundans, om du inte är nöjd med den redundansväxlade virtuella datorn. När du har tryckt på **Genomför** är det här alternativet inte längre tillgängligt.
+> Om det uppstår några problem med nätverksanslutningen efter en redundansväxling kan du följa den här [felsökningsguide för](site-recovery-failover-to-azure-troubleshoot.md).
 
-Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="preparing-for-reprotection-of-azure-vm"></a>Förbereda för återaktivering av den virtuella Azure-datorn
+Återaktivera skyddet av virtuella Azure-datorer till den lokala efter redundansväxlingen. Sedan, när de virtuella datorerna är skyddade och replikering till den lokala platsen kan redundansväxla från Azure när du är klar.
 
-- Du kan använda den lokala processervern (den inbyggda processervern) som installerades automatiskt på konfigurationsservern som en del av konfigurationen **om du har en Azure ExpressRoute-anslutning**.
-
-> [!IMPORTANT]
-> Om du har en VPN-anslutning mellan din lokala miljö och Azure måste du konfigurera en virtuell Azure-dator som en processerver för återaktivering av skydd och återställning efter fel. Om du vill konfigurera en processerver i Azure följer du instruktionerna i [den här artikeln](vmware-azure-set-up-process-server-azure.md).
-
-Mer information om kraven för återaktivering av skydd och återställning efter fel finns i [det här avsnittet](vmware-azure-reprotect.md##before-you-begin). 
-
-### <a name="configure-the-master-target-server"></a>Konfigurera huvudmålservern
-
-Huvudmålservern tar emot och hanterar replikeringsdata vid återställning efter fel från Azure. Som standard finns den tillgänglig på den lokala konfigurationsservern. I den här självstudien använder vi standardhuvudmålservern.
-
->[!NOTE]
->Du behöver skapa en separat huvudmålserver om du vill skydda en Linux-baserad virtuell dator. [Klicka här](vmware-azure-install-linux-master-target.md) om du vill läsa mer.
-
-Om den virtuella datorn finns på en **ESXi-värd som hanteras av en vCenter**-server, måste huvudmålservern ha åtkomst till den virtuella datorns datalager (VMDK) om den ska kunna skriva replikerade data till VM-diskarna. Kontrollera att VM-datalagret har monterats på huvudmålserverns värd med läs- och skrivåtkomst.
-
-Om den virtuella datorn finns på en **ESXi som inte hanteras av en vCenter**-server, skapar Site Recovery-tjänsten en ny virtuell dator vid återaktiveringen av skyddet. Den virtuella datorn skapas på ESX-värden där du skapade huvudmålet.
-Hårddisken på den virtuella datorn måste finnas i ett datalager som kan nås av den värd där huvudmålservern körs.
-
-Om den virtuella datorn **inte använder vCenter** bör du genomföra identifiering av värden där huvudmålservern körs, innan du kan skydda datorn igen. Detta gäller även vid återställning av fysiska servrar. Ett annat alternativ, om det finns lokala virtuella datorer, är att ta bort den innan du gör en återställning efter fel. Återställningen efter fel skapar sedan en ny virtuell dator på samma värddator som är värd för huvudmålserverns ESX. När du återställer till en annan plats, återställs datan till samma datalager och samma ESX-värd som användes av den lokala huvudmålservern.
-
-Du kan inte använda Storage vMotion på huvudmålservern. Om du gör detta fungerar återställningen inte, eftersom diskarna inte är tillgängliga för den. Ta bort huvudmålservrarna från vMotion-listan.
-
->[!Warning]
->Om du använder en annan huvudmålserver för att återaktivera skyddet av en replikeringsgrupp, får inte servern en gemensam tidpunkt.
-
-## <a name="reprotect-azure-vms"></a>Återaktivera skyddet av virtuella Azure-datorer
-
-Att återaktivera skyddet av virtuella Azure-datorer leder till replikering av data till den lokala virtuella datorn. Det här är ett obligatoriskt steg innan du kör en redundans från Azure till den lokala virtuella datorn. Följ anvisningarna nedan om du vill återaktivera skyddet.
-
-1. I **Inställningar** > **Replikerade objekt** högerklickar du på den virtuella datorn som har redundansväxlats > **Återaktivera skydd**.
-2. I **Återaktivera skydd** kontrollerar du att **Azure till lokal plats** är valt.
-3. Ange den lokala huvudmålservern och processervern.
-4. I **Datalager** välj du det huvudmåldatalager som du vill återställa diskarna till lokalt. Om den virtuella datorn har tagits bort skapas nya diskar på det här datalagret. Inställningen ignoreras om diskarna redan finns, men du måste ange ett värde.
-5. Välj kvarhållningsenhetens huvudmål. Failback-principen väljs automatiskt.
-6. Klicka på **OK** ska börja återaktivera skyddet. Ett jobb börjar att replikera den virtuella datorn från Azure till den lokala platsen. Du kan följa förloppet på fliken **Jobb**.
-7. När, under **Replikerade objekt**, den virtuella datorns status ändras till **Skyddad** är datorn redo för redundans till lokalt.
-
-> [!NOTE]
-> Den virtuella Azure-datorn kan återställas till en befintlig lokal virtuell dator eller till en annan plats. Mer information finns i [den här artikeln](concepts-types-of-failback.md).
-
-## <a name="run-a-failover-from-azure-to-on-premises"></a>Kör en redundans från Azure till en lokal plats
-
-Om du vill replikera tillbaka lokalt används en failback-princip. Den här principen skapas automatiskt när du har skapat en replikeringsprincip för replikering till Azure:
-
-- Principen associeras automatiskt med konfigurationsservern.
-- Principen kan inte ändras.
-- Principvärdena är:
-    - Tröskelvärde för återställningspunktmålet = 15 minuter
-    - Återställningspunkt för kvarhållning = 24 timmar
-    - Frekvens för appkonsekvent ögonblicksbild = 60 minuter
-
-Kör en redundans enligt följande:
-
-1. På sidan **Replikerade objekt** högerklickar du på datorn > **Redundans**.
-2. I **Bekräfta redundans** kontrollerar du att redundansriktningen är från Azure.
-    ![redundansriktning](media/vmware-azure-tutorial-failover-failback/failover-direction.PNG)
-3. Välj en återställningspunkt som ska användas för redundansen. En appkonsekvent återställningspunkt utförs före den senaste tidpunkten och den kommer att orsaka viss dataförlust.
-
-    >[!WARNING]
-    >När redundansen körs stänger Site Recovery av de virtuella Azure-datorerna och startar den lokala virtuella datorn. Det kommer att bli vissa avbrott, så du bör välja en lämplig tidpunkt.
-
-4. Du kan följa förloppet för jobbet på **Recovery Services-valv** > **Övervakning och rapporter** > **Site Recovery-jobb**.
-5. När redundans har slutförts högerklickar du på den virtuella datorn och klickar på **Genomför**. Detta utlöser ett jobb som tar bort de virtuella Azure-datorerna.
-6. Kontrollera att de virtuella Azure-datorerna har stängts av som förväntat.
-
-## <a name="reprotect-on-premises-machines-to-azure"></a>Återaktivera skyddet av lokala datorer till Azure
-
-Dina data bör nu finnas lokalt igen, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
-
-1. I valvet > **Skyddade objekt** >**Replikerade objekt**, väljer du den återställda virtuella datorn och klickar på **Återaktivera skydd**.
-2. Välj den processerver som ska användas för att skicka replikerade data till Azure och klicka på **OK**.
-
-När återaktiveringen av skyddet har slutförts kommer den virtuella datorn replikera tillbaka till Azure och du kan köra en redundans vid behov.
+> [!div class="nextstepaction"]
+> [Återaktivera skyddet av virtuella Azure-datorer](vmware-azure-reprotect.md)
+> [Redundansväxla från Azure](vmware-azure-failback.md) 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918271"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358245"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för Cloud Services
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för molntjänstrollinstanser (webb- och arbetsroller). Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek är tillgänglig på den [priser för Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.
@@ -205,7 +205,7 @@ Här är ett exempel för att ställa in rollstorleken vara Standard_D2 för en 
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Ändra storlek på en befintlig roll
 
-Som typen av arbetsbelastning ändringar eller nya VM-storlekar blir tillgängliga, kan du ändra storleken på din roll. Om du vill göra det måste du ändra VM-storleken i din tjänstdefinitionsfilen (som visas ovan), Paketera om din molntjänst och distribuera den. Det går inte att ändra storlekar för Virtuella datorer direkt från portalen eller PowerShell.
+Som typen av arbetsbelastning ändringar eller nya VM-storlekar blir tillgängliga, kan du ändra storleken på din roll. Om du vill göra det måste du ändra VM-storleken i din tjänstdefinitionsfilen (som visas ovan), Paketera om din molntjänst och distribuera den.
 
 >[!TIP]
 > Du kanske vill använda olika storlekar på Virtuella datorer för din roll i olika miljöer (t.ex.) testning eller produktion). Ett sätt att göra detta är att skapa flera tjänstdefinitionen (.csdef) filer i projektet, sedan skapa annat moln servicepaket per miljö för under din automatisk build med hjälp av verktyget CSPack. Läs mer om elementen i ett paket för cloud services och hur du skapar dem i [vad är molnet services modellen och hur jag paketera den?](cloud-services-model-and-package.md)

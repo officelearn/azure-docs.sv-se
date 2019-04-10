@@ -8,19 +8,19 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358331"
 ---
-# <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
+# <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten
 
 SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database levererar dynamiskt skalbar prestanda i två olika inköpschef modeller: en vCore-baserade inköpsmodellen och en DTU-baserade inköpsmodellen. SQL Database tillhandahåller också alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extrem analytisk analys och rapportering, och [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
 
@@ -102,12 +102,12 @@ Du använder de inbyggda verktygen för [prestandaövervakning](sql-database-per
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
 I en traditionell SQL Server-miljö, skulle du vanligtvis har (minst) 2 datorer lokalt konfigurera med exakt (synkront behålla) kopior av data (med funktioner som AlwaysOn-Tillgänglighetsgrupper eller Redundansklusterinstanser) att skydda mot en fel på en enskild dator/komponent.  Detta ger hög tillgänglighet men skyddar inte mot en naturkatastrof förstöra ditt datacenter.
- 
+
 Katastrofåterställning förutsätter att en händelse av katastrof är geografiskt lokaliserade tillräckligt långt har en annan dator/uppsättning datorer med en kopia av dina data.  Du kan använda Always On-Tillgänglighetsgrupper som körs i asynkron läge i SQL Server för att hämta den här funktionen.  Hastigheten på ljus problem innebär vanligtvis att personer som inte vill vänta tills replikeringen ske som långt innan du genomför en transaktion, så det finns en risk för dataförlust när du gör oplanerade redundanser.
 
 Databaser i den premium- och kritiska nivåer redan [göra något som är mycket lik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) till synkronisering av en tillgänglighetsgrupp. Databaser i lägre tjänstnivåer ger redundans lagring med hjälp av en [mekanism för olika men motsvarande](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Det finns logik som skyddar mot en enskild dator-fel.  Funktionen aktiv geo-replikering ger dig möjlighet att skydda mot katastrof där en hel region förstörs.
 
-Azure Availability Zones är en play om problemet som har hög tillgänglighet.  Försök att skydda mot längre avbrott i ett datacenter att skapa inom en enda region.  Så företaget att skydda mot förlust av kapacitets- eller nätverket till en byggnad. Detta fungerar i SQL Azure, genom att placera olika repliker i olika tillgänglighetszoner (olika byggnader effektivt) och annars fungerar som tidigare. 
+Azure Availability Zones är en play om problemet som har hög tillgänglighet.  Försök att skydda mot längre avbrott i ett datacenter att skapa inom en enda region.  Så företaget att skydda mot förlust av kapacitets- eller nätverket till en byggnad. Detta fungerar i SQL Azure, genom att placera olika repliker i olika tillgänglighetszoner (olika byggnader effektivt) och annars fungerar som tidigare.
 
 I själva verket Azures branschledande ledande 99,99% tillgänglighet servicenivåavtal [(SLA)](https://azure.microsoft.com/support/legal/sla/), drivs av ett globalt nätverk av Microsoft-hanterade datacenter, gör att din app är igång 24/7. Azure-plattformen fullständigt hanterar varje databas och garanterar att inga data går förlorade och hög andel datatillgänglighet. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar ständigt aktiverade Tillgänglighetsgrupper under försättsbladen. En fullständig beskrivning av kapacitet för hög tillgänglighet i Azure SQL Database finns i [tillgänglighet för SQL Database](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
 
@@ -156,7 +156,7 @@ Vi lägger också till funktionen för [anpassningsbar frågebearbetning](/sql/r
 SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](sql-database-security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet.
 
 > [!IMPORTANT]
-> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -186,7 +186,7 @@ Med SQL Database kan du centralt hantera identiteter för databasanvändare och 
 
 ### <a name="compliance-certification"></a>Efterlevnadscertifiering
 
-SQL Database granskas regelbundet och har certifierats mot flera efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+SQL Database granskas regelbundet och har certifierats mot flera efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
 
 ## <a name="easy-to-use-tools"></a>Lättanvända verktyg
 
@@ -240,7 +240,6 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 |SQL Server Enterprise Edition core kunder med SA|<li>Kan betala grundpris på generell användning eller SKU affärskritisk</li><br><li>1 kärna på lokala = 4 kärnor i SKU generell användning</li><br><li>1 kärna på lokala = 1 kärna i SKU affärskritisk</li>|
 |SQL Server Standard Edition core kunder med SA|<li>Endast kan grundpris betalar SKU generell användning</li><br><li>1 kärna på lokala = 1 kärna i SKU generell användning</li>|
 |||
-
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
 

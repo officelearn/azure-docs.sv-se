@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762780"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358845"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -25,10 +25,9 @@ Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt n�
 
 Om något av följande fall till dig, kan du validera och ändra ditt nätverk med hjälp av skript som beskrivs i den här artikeln:
 
-* Du har ett nytt undernät som fortfarande inte har konfigurerats.
-* Du inte vet att undernätet stämmer överens med den [krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* Du vill kontrollera att undernätet fortfarande uppfyller de [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements) när du har gjort ändringar.
-
+- Du har ett nytt undernät som fortfarande inte har konfigurerats.
+- Du inte vet att undernätet stämmer överens med den [krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Du vill kontrollera att undernätet fortfarande uppfyller de [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements) när du har gjort ändringar.
 
 > [!Note]
 > Du kan skapa en hanterad instans bara i virtuella nätverk som skapats via Azure Resource Manager-distributionsmodellen. Azure-nätverk som skapats via den klassiska distributionsmodellen stöds inte. Beräkna undernätets storlek genom att följa riktlinjerna i den [avgör storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md) artikeln. Du kan inte ändra storlek på undernätet när du har distribuerat resurser i.

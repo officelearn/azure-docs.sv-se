@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847001"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359009"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Lär dig hur du använder säkerhetskopiering och återställning i Azure SQL Da
 
 En *data warehouse ögonblicksbild* skapar en återställningspunkt som du kan använda för att återställa eller kopiera din datalager till ett tidigare tillstånd.  Eftersom SQL Data Warehouse är ett distribuerat system, består en ögonblicksbild av data warehouse med många filer som finns i Azure storage. Sparar hårdiskdata inkrementella ändringar från data som lagras i ditt informationslager.
 
-En *datalager återställning* är ett nytt datalager som har skapats från en återställningspunkt för en befintlig eller borttagna data warehouse. Återställa ditt informationslager är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom den återskapar dina data efter oavsiktliga skador eller tas bort. Data warehouse är också en kraftfull mekanism för att skapa kopior av ditt informationslager för test- eller utvecklingsmiljö.  SQL Data Warehouse använder snabb återställning mekanismer inom samma region som har varit mäts för att ta mindre än 20 minuter för alla datastorlekar.
+En *datalager återställning* är ett nytt datalager som har skapats från en återställningspunkt för en befintlig eller borttagna data warehouse. Återställa ditt informationslager är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom den återskapar dina data efter oavsiktliga skador eller tas bort. Data warehouse är också en kraftfull mekanism för att skapa kopior av ditt informationslager för test- eller utvecklingsmiljö.  SQL Data Warehouse återställning priser kan variera beroende på databasens storlek och plats för källa och mål-datalagret. I genomsnitt inom samma region ta återställning priserna vanligtvis cirka 20 minuter. 
 
 ## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
 

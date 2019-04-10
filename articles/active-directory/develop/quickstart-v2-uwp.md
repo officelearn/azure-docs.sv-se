@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793177"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360112"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -64,14 +64,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen åt mig]()
+> > [Gör den här ändringen för mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerat](media/quickstart-v2-uwp/green-check.png) ditt program har konfigurerats med dessa attribut.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
- - [Ladda ned Visual Studio 2017-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Ladda ned Visual Studio 2017-projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -86,11 +86,11 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
->   - Om ditt program stöder **Endast min organisation** ska du ersätta värdet med **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
->   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
+> - `Enter_the_Application_Id_here` -är program-Id för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` -är ett av alternativen nedan:
+>   - Om ditt program stöder **organisationen endast**, Ersätt detta värde med den **klient-Id** eller **klientnamn** (exempel: contoso.onmicrosoft.com)
+>   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
+>   - Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Prova att använda självstudien om Windows-skrivbordet för en komplett stegvis guide till att skapa appar och nya funktioner, däribland en fullständig förklaring av den här snabbstarten.
 
 > [!div class="nextstepaction"]
-> [UWP – Självstudie om att anropa Graph API](tutorial-v2-windows-uwp.md)
+> [UWP - anropet Graph API-självstudier](tutorial-v2-windows-uwp.md)

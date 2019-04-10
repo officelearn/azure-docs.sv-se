@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271840"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361113"
 ---
 # <a name="azure-stack-1902-update"></a>Uppdatering av Azure Stack 1902
 
@@ -97,13 +97,14 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
   ```  
   
 - För att förbättra på övergripande tillförlitlighet och tillgänglighet av grundläggande infrastruktur för tjänster under uppdateringen, interna Update-resursprovidern som en del av åtgärdsplan update identifierar och anropa automatisk globala reparationer när det behövs. Global reparation ”reparera” arbetsflöden är:
-    - Söker efter infrastrukturens virtuella datorer som är i ett icke-optimala tillstånd och försöker reparera dem efter behov 
-    - Sök efter problem med SQL-tjänsten som en del av plan för åtkomstkontroll och försöker reparera dem efter behov
-    - Kontrollera tillståndet för tjänsten Software Load Balancer (SLB) som en del av Network Controller (NC) och försöker reparera dem efter behov
-    - Kontrollera tillståndet för tjänsten Network Controller (NC) och försöker reparera det vid behov
-    - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella
-    - Kontrollera tillståndet för XRP service fabric-noder och åtgärda eventuella
-    - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella
+
+  - Kontrollerar infrastrukturens virtuella datorer som är i ett icke-optimala tillstånd och försöker reparera dem efter behov.
+  - Sök efter problem med SQL-tjänsten som en del av plan för åtkomstkontroll och försöker reparera dem efter behov.
+  - Kontrollera status för tjänsten Software Load Balancer (SLB) som en del av Network Controller (NC) och försöker reparera dem efter behov.
+  - Kontrollera tillståndet för tjänsten Network Controller (NC) och försöker reparera det vid behov
+  - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella.
+  - Kontrollera tillståndet för rollen och reparera efter behov.
+  - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -258,8 +259,8 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>Syslog 
-- Systemloggkonfigurationen behålls inte via en uppdateringscykeln, vilket resulterar i syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809).
-Lösningen är att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
+
+- Systemloggkonfigurationen bevaras inte genom en uppdateringscykeln orsakar syslog-klienten att förlora sin konfiguration och syslog-meddelanden för att stoppa vidarebefordras. Det här problemet gäller alla versioner av Azure Stack sedan den allmänt tillgängliga versionen av syslog-klienten (1809). Undvik problemet genom att konfigurera om syslog-klienten efter att ha tillämpat en Azure Stack-uppdatering.
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
 

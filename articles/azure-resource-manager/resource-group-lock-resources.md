@@ -4,22 +4,20 @@ description: Hindra användare från uppdatering eller radering viktiga Azure-re
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649177"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360438"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -36,12 +34,32 @@ När du använder ett lås på en överordnad omfattning, ärver alla resurser i
 
 Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Läs om att ange behörigheter för användare och roller i [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-Lås gäller endast för åtgärder som sker i Hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsa inte hur resurser utföra egna funktioner. Resursändringar är begränsade men resursåtgärder är inte begränsade. Till exempel ett ReadOnly-lås på en SQL Database gör att du inte tar bort eller ändrar databasen, men det hindrar inte dig från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
+Resource Manager-Lås gäller endast för åtgärder som sker i Hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsa inte hur resurser utföra egna funktioner. Resursändringar är begränsade men resursåtgärder är inte begränsade. Till exempel gör ett ReadOnly-lås på en SQL Database att du inte tar bort eller ändrar databasen. Den hindra inte dig från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
 Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som verkar vara läsa åtgärder faktiskt kräver ytterligare åtgärder. Till exempel placera en **ReadOnly** låset på ett lagringskonto som förhindrar att alla användare lista nycklarna. Listan med nycklar åtgärden hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för skrivåtgärder. För ett annat exempel är att placera en **ReadOnly** lås på en App Service-resurs som förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivbehörighet.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Vem som kan skapa eller ta bort lås i din organisation
+## <a name="who-can-create-or-delete-locks"></a>Vem som kan skapa eller ta bort lås
 För att skapa eller ta bort hanteringslås, måste du ha åtkomst till `Microsoft.Authorization/*` eller `Microsoft.Authorization/locks/*` åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
+
+## <a name="managed-applications-and-locks"></a>Hanterade program och lås
+
+Vissa Azure-tjänster, till exempel Azure Databricks, använda [hanterade program](../managed-applications/overview.md) du implementerar tjänsten. I så fall kan skapar tjänsten två resursgrupper. En resursgrupp som innehåller en översikt över tjänsten och inte är låst. Andra resursgruppen innehåller infrastrukturen för tjänsten och är låst.
+
+Om du försöker ta bort resursgruppen infrastruktur, får du ett felmeddelande om att resursgruppen är låst. Om du försöker ta bort låset för resursgruppen infrastruktur, får du ett felmeddelande om att låset inte kan tas bort eftersom den ägs av ett systemprogram för.
+
+Ta bort tjänsten, vilket även tar bort resursgruppen infrastruktur i stället.
+
+Välj den tjänst som du har distribuerat för hanterade program.
+
+![Välj tjänst](./media/resource-group-lock-resources/select-service.png)
+
+Observera tjänsten innehåller en länk för en **hanterad resursgrupp**. Resursgruppen innehåller infrastrukturen och är låst. Det går inte att direkt ta bort.
+
+![Visa grupp](./media/resource-group-lock-resources/show-managed-group.png)
+
+Om du vill ta bort allt innehåll för tjänsten, inklusive den låsta infrastrukturresursgrupp Välj **ta bort** för tjänsten.
+
+![Ta bort tjänst](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portalen
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]

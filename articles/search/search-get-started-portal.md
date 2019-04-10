@@ -1,23 +1,29 @@
 ---
-title: Snabbsjälvstudie för indexering och fråga med Azure-portalen – Azure Search
-description: Lär dig hur du skapar och kör frågor mot ditt första index i Azure Search med hjälp av inbyggda exempeldata och guiden Importera Data i Azure-portalen.
+title: 'Snabbstart: Skapa, läsa in och fråga ett index i Azure portal – Azure Search'
+description: Skapa och avfråga ditt första index i Azure Search med hjälp av inbyggda exempeldata och guiden Importera Data i Azure-portalen.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137835"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282669"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
+> [!div class="op_single_selector"]
+> * [Portalen](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigeringsverktyg erbjuder inte fullständig paritet med .NET och REST API:er, men du kan snabbt komma igång med en kodfri introduktion och skriva intressanta frågor mot exempeldata på bara några minuter.
 
@@ -222,7 +228,7 @@ Träffmarkering innebär att formatera all text som matchar sökordet på ett s�
 
 ### <a name="fuzzy-search"></a> Prova fuzzy-sökning
 
-Som standard får du inga träffar på felstavade ord i en typisk sökning, om du till exempel skriver *samamish* när du söker på ”Sammamish Plateau” utanför Seattle. Följande exempel returnerar inga resultat.
+Som standard felstavad sökord, t.ex *samamish* Sammamish-träffar i Seattle-området misslyckas med att returnera matchningar Plateau. Följande exempel returnerar inga resultat.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Exempel (felstavat ord, ohanterat): `search=samamish`
 
@@ -267,5 +273,5 @@ Om den här självstudien var den första gången du använde Azure Search-tjän
 Du kan utforska mer av Azure Search med hjälp av programmässiga verktyg:
 
 * [Skapa ett index med .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Skapa ett index med REST API:er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Skapa ett index med Postman eller Fiddler och Azure Search REST API:er](search-fiddler.md)
+* [Skapa ett index med REST API: er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Skapa ett index med Postman eller Fiddler och Azure Search REST-API: er](search-fiddler.md)

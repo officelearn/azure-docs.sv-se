@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878306"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280901"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -87,6 +87,8 @@ Distribuerade modeller paketeras i en bild. Bilden innehåller de beroenden som 
 
 För **Azure-Behållarinstans**, **Azure Kubernetes Service**, och **Azure IoT Edge** distributioner, den [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klassen används för att skapa en konfiguration för avbildningen. Bild-konfigurationen används sedan för att skapa en ny dockeravbildning.
 
+När du skapar avbildningen konfigurationen kan du använda antingen en __standardavbildningen__ tillhandahålls av Azure Machine Learning-tjänsten eller en __anpassad avbildning__ som du anger.
+
 Följande kod visar hur du skapar en ny bildkonfiguration:
 
 ```python
@@ -112,6 +114,36 @@ Viktiga parametrar i det här exemplet som beskrivs i följande tabell:
 Ett exempel för att skapa en avbildning konfiguration finns i [distribuera en avbildning klassificerare](tutorial-deploy-models-with-aml.md).
 
 Mer information finns i referensdokumentationen för [ContainerImage-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Använd en anpassad avbildning
+
+När du använder en anpassad avbildning, måste avbildningen uppfylla följande krav:
+
+* Ubuntu 16.04 eller större.
+* Conda 4.5. # eller större.
+* Python 3.5. # eller 3.6. #.
+
+Om du vill använda en anpassad avbildning, ange den `base_image` egenskapen för bildkonfiguration till adressen för avbildningen. I följande exempel visar hur du använder en avbildning från både en offentliga och privata Azure Container Registry:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Mer information om att ladda upp bilder till ett Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarregister](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+Om din modell har tränats på beräkning av Azure Machine Learning, med hjälp av __version 1.0.22 eller större__ av SDK för Azure Machine Learning, en avbildning skapas under utbildning. I följande exempel visar hur du använder den här bilden:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Körning av skript
 
@@ -396,7 +428,7 @@ En genomgång för att distribuera en modell med Project Brainwave finns i den [
 
 ## <a name="define-schema"></a>Definiera schema
 
-Anpassade dekoratörer kan användas för [OpenAPI](https://swagger.io/docs/specification/about/) specifikationen generation och indata skriver manipulering av när du distribuerar webbtjänsten. I den `score.py` -fil du anger ett exempel på indata/utdata i konstruktorn eller för en definierad typ.-objekt och typ och exemplet används för att generera schemat automatiskt. Följande typer stöds för närvarande:
+Anpassade dekoratörer kan användas för [OpenAPI](https://swagger.io/docs/specification/about/) specifikationen generation och indata skriver manipulering av när du distribuerar webbtjänsten. I den `score.py` -fil du anger ett exempel på indata/utdata i konstruktorn eller för en definierad typ.-objekt och typ och exemplet används för att automatiskt skapa schemat. Följande typer stöds för närvarande:
 
 * `pandas`
 * `numpy`

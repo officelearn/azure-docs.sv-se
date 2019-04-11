@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270480"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471468"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Självstudier: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
 
@@ -37,7 +37,7 @@ Följande tjänster, verktyg och data som används i den här snabbstarten.
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen. 
 
-[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), och sedan [har en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Eftersom du kommer att använda en nyckel och storage-kontonamnet för anslutningen, kontrollera att behållarens offentlig åtkomstnivå är inställt på ”behållare (anonym läsåtkomst för behållare)”.
+[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) används för att lagra exempeldata.
 
 [Skrivbordsappen postman](https://www.getpostman.com/) används för att skicka begäranden till Azure Search.
 
@@ -57,13 +57,19 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 
 ## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
-1. Leta upp exempeldata som du hämtade i systemet.
+1. [Logga in på Azure-portalen](https://portal.azure.com)navigerar du till ditt Azure storage-konto, klickar du på **Blobar**, och klicka sedan på **+ behållare**.
 
-1. [Logga in på Azure-portalen](https://portal.azure.com), navigera till ditt Azure storage-konto och Blob-behållare och på **överför**.
+1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Eftersom du kommer att använda en nyckel och storage-kontonamnet för anslutningen, kontrollera att behållarens offentlig åtkomstnivå är inställt på ”behållare (anonym läsåtkomst för behållare)”.
 
-1. Klicka på **Avancerat**, ange ”clinical-trials-json” och ladda sedan upp alla JSON-filer som du hämtade.
+   ![Ange offentlig åtkomstnivå](media/search-semi-structured-data/container-public-access-level.png "ange offentlig åtkomstnivå")
 
-  ![Halvstrukturerad sökning](media/search-semi-structured-data/clinicalupload.png)
+1. När behållaren har skapats kan du öppna den och välj **överför** i kommandofältet.
+
+   ![Ladda upp i kommandofältet](media/search-semi-structured-data/upload-command-bar.png "överför i kommandofältet")
+
+1. Navigera till mappen som innehåller exempelfilerna. Markera alla av dem och klicka sedan på **överför**.
+
+   ![Ladda upp filer](media/search-semi-structured-data/clinicalupload.png "ladda upp filer")
 
 När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
@@ -83,20 +89,22 @@ Kör följande tre API-anrop från REST-klienten.
 
 ## <a name="create-a-data-source"></a>Skapa en datakälla
 
-En datakälla är ett Azure Search-objekt som anger vilka data som ska indexeras.
+Den [skapa API för Data källan](https://docs.microsoft.com/rest/api/searchservice/create-data-source)skapar ett Azure Search-objekt som anger vilka data som ska indexeras.
 
-Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten. För det här anropet behöver du namnet på lagringskontot och lagringskontonyckeln. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
+Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten. 
+
+Begärandetexten måste innehålla namnet på ditt lagringskonto, din lagringskontonyckel och blob-behållarnamn för det här anropet. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
 
   ![Halvstrukturerad sökning](media/search-semi-structured-data/storagekeys.png)
 
-Ersätt `[storage account name]` och `[storage account key]` i meddelandetexten för anropet innan du utför anropet.
+Ersätt `[storage account name]`, `[storage account key]`, och `[blob container name]` i meddelandetexten för anropet innan du utför anropet.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -114,8 +122,8 @@ Svaret ska se ut så här:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -124,7 +132,7 @@ Svaret ska se ut så här:
 
 ## <a name="create-an-index"></a>Skapa ett index
     
-Det andra API-anropet skapar ett Azure Search-index. Ett index anger alla parametrar och deras attribut.
+Det andra anropet är [Create Index-API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), skapa ett Azure Search-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
 URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
 
@@ -214,7 +222,7 @@ Svaret ska se ut så här:
 
 ## <a name="create-and-run-an-indexer"></a>Skapa och köra en indexerare
 
-En indexerare ansluter datakällan, importerar data till målsökindex och tillhandahåller eventuellt ett schema för att automatisera datauppdateringen.
+En indexerare ansluter datakällan, importerar data till målsökindex och tillhandahåller eventuellt ett schema för att automatisera datauppdateringen. REST-API: et är [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 URL:en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
 
@@ -257,7 +265,11 @@ Svaret ska se ut så här:
 
 ## <a name="search-your-json-files"></a>Söka i JSON-filer
 
-Nu kan du skicka frågor mot indexet. Den här uppgiften ska använda [ **Sökutforskaren** ](search-explorer.md) i portalen.
+Du kan börja söka så fort det första dokumentet har lästs in. Den här uppgiften ska använda [ **Sökutforskaren** ](search-explorer.md) i portalen.
+
+I Azure-portalen öppnar du söktjänsten **översikt** sidan, hitta det index som du skapade i den **index** lista.
+
+Var noga med att välja det index som du nyss skapade. API-versionen kan vara förhandsversion eller en allmänt tillgänglig version. Det enda kravet för förhandsversion var för indexera JSON-matriser.
 
   ![Ostrukturerad sökning](media/search-semi-structured-data/indexespane.png)
 
@@ -283,7 +295,7 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan koppla AI-drivna algoritmer till en indexerarpipeline. I nästa steg fortsätter du med följande självstudie:
+Du kan koppla AI-driven Cognitive Services-algoritmer till en indexerare-pipeline. I nästa steg fortsätter du med följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Indexera dokument i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [Indexering med AI](cognitive-search-tutorial-blob.md)

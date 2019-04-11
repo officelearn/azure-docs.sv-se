@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009554"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471290"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -478,6 +478,15 @@ Följande distributionsalternativ för anpassad behållare är tillgängliga:
 | **`--min`**  | Du kan också anger det minsta antalet funktionen app-instanserna ska distribueras till. |
 | **`--config`** | Anger en valfri distributionskonfigurationsfilen. |
 
+## <a name="monitoring-functions"></a>Övervakningsfunktioner
+
+Det är det rekommenderade sättet att övervaka körning av dina funktioner genom att integrera med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar din funktionsapp med hjälp av Azure CLI.
+
+Aktivera Application Insights för din funktionsapp:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 ## <a name="next-steps"></a>Nästa steg
 
 Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  

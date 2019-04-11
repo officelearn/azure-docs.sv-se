@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510331"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471672"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Funktioner som stöds av Application Insights för Azure Functions
 
@@ -27,12 +27,12 @@ Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/
 
 | Azure Functions                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.7.2**         |
+| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Automatisk insamling av**        |                 |                   |               
 | &bull; Begäranden                     | Ja             | Ja               | 
 | &bull; Undantag                   | Ja             | Ja               | 
-| &bull; Prestandaräknare         | Ja             |                   |
+| &bull; Prestandaräknare         | Ja             | Ja               |
 | &bull; Beroenden                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Ja               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Ja               | 
@@ -65,3 +65,30 @@ De Anpassa filter kriterier som du anger skickas tillbaka till komponenten Live 
 ## <a name="sampling"></a>Samling
 
 Azure Functions kan Sampling som standard i konfigurationen. Mer information finns i [konfigurera Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+
+Om ditt projekt tar ett beroende på Application Insights SDK för att göra manuell telemetri spårning, kan det uppstå onormalt beteende om sampling konfigurationen skiljer sig från de funktionerna sampling konfiguration. 
+
+Vi rekommenderar att du använder samma konfiguration som funktioner. Med **Functions v2**, du kan få samma konfiguration med hjälp av beroendeinmatning i din konstruktorn:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```

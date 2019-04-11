@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251010"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471417"
 ---
 # <a name="export-a-u-sql-database"></a>Exportera en U-SQL-databas
 
@@ -84,7 +84,7 @@ För närvarande, om du väljer den **Schema och Data** alternativet i steg3, ve
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om U-SQL-databaser](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
-* [Testa och felsöka U-SQL-jobb med lokal körning och Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
+* [Lär dig mer om U-SQL-databaser](/u-sql/data-definition-language-ddl-statements) 
+* [Testa och felsöka U-SQL-jobb genom att använda lokala kör och Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 

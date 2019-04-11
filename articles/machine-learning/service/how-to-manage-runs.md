@@ -1,7 +1,7 @@
 ---
 title: Starta, övervaka och avbryta träningskörningar i Python
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du kommer igång, status, tagg och organisera exempelexperiment för maskininlärning.
+description: Lär dig mer om att starta, ange status för taggen och organisera exempelexperiment för maskininlärning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
-ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426743"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471502"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta träningskörningar i Python
 
@@ -47,7 +47,7 @@ Du behöver följande:
 
 <a name="monitor"></a>
 
-## <a name="start-and-status-a-run"></a>Start- och status för en körning
+## <a name="start-a-run-and-set-its-status"></a>Påbörja en körning och ange dess status
 
 Konfigurera ditt experiment genom att importera den [arbetsytan](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [experimentera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [kör](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), och [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) klasser från [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) paketet.
 
@@ -101,7 +101,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## <a name="cancel-or-fail-runs"></a>Avbryta eller misslyckas körs
 
- Om du ser ett misstag eller din körning verkar vara tar lång tid att slutföra, Använd den [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) metod för att stoppa körningen innan den är klar och markeras som har avbrutits.
+ Om du ser ett misstag eller din körning verkar ta en stund att slutföra, Använd den [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) metod för att stoppa körningen innan den är klar och markeras som har avbrutits.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')

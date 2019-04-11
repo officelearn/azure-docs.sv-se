@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2018
+ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103136"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470941"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI
-Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MySQL-brandväggar, se [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md)
+Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MySQL-brandväggar, se [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md).
+
+Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Kommandon:
 - **Visa**: Visa information om en Azure MySQL-server brandväggsregel.
 - **update**: Uppdatera en brandväggsregel för Azure MySQL-server.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Logga in på Azure och lista din Azure Database för MySQL-servrar
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Logga in på Azure och lista din Azure Database för MySQL-servrar
 På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-inloggning** kommando.
 
 1. Kör följande kommando på kommandoraden:
@@ -42,7 +44,7 @@ På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-
 
 2. Använd en webbläsare för att öppna sidan [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), och ange koden.
 
-3. Logga in med dina autentiseringsuppgifter för Azure när du ombeds göra det.
+3. Logga in med dina autentiseringsuppgifter för Azure i Kommandotolken.
 
 4. När din inloggning har behörighet, skrivs en lista över prenumerationer i konsolen. Kopiera ID för den önskade prenumerationen för att ställa in den aktuella prenumerationen du använder. Använd den [az-kontogrupper](/cli/azure/account#az-account-set) kommando.
     ```azurecli-interactive
@@ -119,3 +121,4 @@ Vid en lyckad distribution finns det inga utdata. Vid fel visar felmeddelandetex
 ## <a name="next-steps"></a>Nästa steg
 - Läser mer om [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md).
 - [Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure-portalen](./howto-manage-firewall-using-portal.md).
+- Ytterligare säker åtkomst till servern genom att [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md).

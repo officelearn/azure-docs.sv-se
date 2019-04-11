@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 188acaea134a00ca8e2412aafd8515ee26596590
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050000"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471451"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Självstudier: Ladda upp bilder till Bing Visual Search API
 
@@ -772,4 +772,5 @@ Lägg till följande `<style>` avsnitt i den `<head>` taggen för att organisera
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Hitta liknande bilder från tidigare sökningar med hjälp av ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Självstudier: Hitta liknande bilder från tidigare sökningar med ImageInsightsToken](./tutorial-visual-search-insights-token.md)

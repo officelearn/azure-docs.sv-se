@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835460"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471094"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-Programmeringsguide
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Läs mer om hur du använder appliers i ett väljer uttryck [U-SQL väljer att välja från CROSS APPLY och OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+Läs mer om hur du använder appliers i ett väljer uttryck [U-SQL väljer att välja från CROSS APPLY och OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 Den användardefinierade applier basklass-definitionen är följande:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Mer information finns i [KOMBINERA uttryck (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Mer information finns i [KOMBINERA uttryck (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 För att definiera en användardefinierad combiner, måste vi skapa den `ICombiner` gränssnitt med den [`SqlUserDefinedCombiner`] attribut, som är valfritt för en användardefinierad Combiner definition.
 
@@ -1877,7 +1877,7 @@ Inkommande raduppsättningar skickas som **vänstra** och **rätt** `IRowset` ty
 
 För cachelagring, kan vi skapa en lista\<T\> typ av minne struktur som ett resultat av en LINQ Frågekörningen, särskilt lista <`IRow`>. Anonym datatypen kan användas under uppräkning samt.
 
-Se [introduktion till LINQ-frågor (C#)](https://msdn.microsoft.com/library/bb397906.aspx) för mer information om LINQ-frågor och [IEnumerable\<T\> gränssnittet](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) mer information om IEnumerable\<T\> gränssnitt.
+Se [introduktion till LINQ-frågor (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) för mer information om LINQ-frågor och [IEnumerable\<T\> gränssnittet](/dotnet/api/system.collections.generic.ienumerable-1) mer information om IEnumerable\<T\> gränssnitt.
 
 Att hämta värden för faktiska data från inkommande `IRowset`, vi använda metoden Get() i `IRow` gränssnitt.
 

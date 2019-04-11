@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358435"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471570"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -217,7 +217,7 @@ Mer information finns i [ALTER DATABASE SET PARTNER och SET WITNESS](https://doc
 
 - Flera loggfiler stöds inte.
 - InMemory-objekt stöds inte på tjänstnivån generell användning.  
-- Det finns en gräns på 280 filer per generella instans innebär max 280 filer per databas. Både data och loggfiler filer generellt syfte nivå räknas mot den här gränsen. [Kritiska affärsnivå stöder 32 767 filer per databas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Det finns en gräns på 280 filer per generella instans innebär max 280 filer per databas. Både data och loggfiler filer generellt syfte nivå räknas mot den här gränsen. [Kritiska affärsnivå stöder 32 767 filer per databas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Databasen får inte innehålla filgrupper som innehåller filestream-data.  Återställningen misslyckas om .bak innehåller `FILESTREAM` data.  
 - Varje fil placeras i Azure Blob storage. I/o och dataflöde per fil beror på storleken på varje enskild fil.  
 
@@ -467,7 +467,6 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 - `@@SERVICENAME` Returnerar NULL, eftersom begreppet tjänsten eftersom det finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` stöds. Returnerar NULL om Azure AD-inloggningen inte är i sys.syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` stöds inte. Returnerar fel data (tillfälligt kända problem). Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` och andra inbyggda datum/tid-funktioner returnerar alltid tid i UTC-tidszonen. Se [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Kända problem och begränsningar
 
@@ -494,7 +493,7 @@ Detta visar som under vissa omständigheter på grund av en specifik distributio
 
 I det här exemplet befintliga databaser fortsätter att fungera och kan växa utan problem, förutsatt att nya filer inte har lagts till. Men nya databaser kunde inte skapas eller återställas eftersom det inte finns tillräckligt med utrymme för nya diskenheter, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Felet som returneras är i så fall oklart.
 
-Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med systemvyer. Om du ansluter till den här gränsen försöker [tom och ta bort några av de mindre filer med hjälp av DBCC SHRINKFILE instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [affärskritisk nivå som inte har den här gränsen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med systemvyer. Om du ansluter till den här gränsen försöker [tom och ta bort några av de mindre filer med hjälp av DBCC SHRINKFILE instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [affärskritisk nivå som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 
@@ -567,11 +566,11 @@ CLR-moduler som placeras i en hanterad instans och länkade servrar/distribuerad
 
 **Lösning**: Använd om möjligt kontext anslutningar i CLR-modulen.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Transparent Datakryptering krypteras databaser stöder inte användarinitierad säkerhetskopior
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>Transparent Datakryptering krypteras databaser med tjänsthanterad nyckel stöder inte användarinitierad säkerhetskopiering
 
-Du kan inte utföra `BACKUP DATABASE ... WITH COPY_ONLY` för en databas som är krypterad med Transparent datakryptering (TDE). TDE tvingar säkerhetskopieringar krypteras med internt TDE-nycklar och går inte att exportera nyckeln så att du kan inte att återställa säkerhetskopian.
+Du kan inte utföra `BACKUP DATABASE ... WITH COPY_ONLY` för en databas som är krypterad med tjänsthanterad Transparent datakryptering (TDE). Tjänsthanterad TDE tvingar säkerhetskopieringar krypteras med internt TDE-nyckel och nyckeln kan inte exporteras, så du kan inte att återställa säkerhetskopian.
 
-**Lösning**: Använd automatisk säkerhetskopiering och point-in-time-återställning, eller inaktivera kryptering på databasen.
+**Lösning**: Använd automatisk säkerhetskopiering och point-in-time-återställning, eller Använd [kundhanterad (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället, eller inaktivera kryptering på databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 

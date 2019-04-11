@@ -5,13 +5,14 @@ author: christianreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
+ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 1e3b2d42ae390b9eb755e568b82fc1a90e0eae6a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807053"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471332"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure Pipelines för att skapa och distribuera HPC-lösningar
 
@@ -505,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 Förutom den här artikeln finns det två självstudier som använder ffmpeg, med .NET och Python. Se de här självstudierna för mer information om hur du interagerar med ett Batch-konto via ett enkelt program.
 
-* [Kör en parallell arbetsbelastning med Azure Batch med hjälp av Python API](tutorial-parallel-python.md)
-* [Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET-API](tutorial-parallel-dotnet.md)
+* [Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API](tutorial-parallel-python.md)
+* [Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et](tutorial-parallel-dotnet.md)

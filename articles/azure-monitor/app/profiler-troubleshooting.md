@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855681"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471536"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -67,9 +67,15 @@ Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från
 För Profiler ska fungera korrekt:
 * Web app service-planen måste vara Basic-nivån eller högre.
 * Din webbapp måste ha Application Insights som aktiveras.
-* Din webbapp måste ha den **APPINSIGHTS_INSTRUMENTATIONKEY** appinställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
-* Din webbapp måste ha den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen definieras och inställd på 1.0.0.
-* Din webbapp måste ha den **DiagnosticServices_EXTENSION_VERSION** appinställningen och värdet ~ 3.
+* Din webbapp måste ha följande inställningar för appen:
+
+    |Programinställning    | Värde    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey du Application Insights-resurs    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * Den **ApplicationInsightsProfiler3** webbjobb måste köras. Så här kontrollerar webbjobbet:
    1. Gå till [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. I den **verktyg** menyn och välj **WebJobs-instrumentpanelen**.  
@@ -93,12 +99,13 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 1. Ange **.NET Framework-version** till **v4.6**.
 
 1. Ange **Always On** till **på**.
+1. Skapa dessa inställningar:
 
-1. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
-
-1. Lägg till den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen och ange 1.0.0.
-
-1. Lägg till den **DiagnosticServices_EXTENSION_VERSION** appinställningen och ange värdet till ~ 3.
+    |Programinställning    | Värde    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey du Application Insights-resurs    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>För många aktiva sessioner för profilering
 
@@ -124,7 +131,7 @@ Profiler körs som ett kontinuerligt webbjobb i webbapp. Du kan öppna webbappre
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Felsöka problem med Profiler och Azure Diagnostics
 
-  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler. Om du använder Visual Studio för att nedgradera versionen av SDK: N för App Insights, kan du få en bindning omdirigerings-fel vid körning. Det beror på att ”newVersion” i filen web.config för Microsoft.ApplicationInsights ska vara inställd på ”2.7.2.0” när nedgradering AI-SDK, men det inte uppdateras automatiskt.
+>**Fel i profiler som levereras i WAD för molntjänster har åtgärdats.** Den senaste versionen av WAD (1.12.2.0) för Cloud Services fungerar med alla de senaste versionerna av App Insights SDK. Cloud Service värdar uppgraderar WAD automatiskt, men det sker inte omedelbart. Du kan distribuera om din tjänst eller starta om noden om du vill framtvinga en uppgradering.
 
 Om du vill se om Profiler är korrekt konfigurerad genom Azure Diagnostics-data, gör du följande tre saker: 
 1. Kontrollera först om du vill se om innehållet i Azure Diagnostics-konfiguration som distribueras är vad du förväntar dig. 

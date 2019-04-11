@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576214"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471638"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -37,11 +37,11 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 1. Logga in på Azure-portalen och öppna den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Klicka på **kontroller**.
+1. I den vänstra menyn klickar du på **Åtkomstgranskningar**.
 
 1. Klicka på **ny åtkomstgranskning** att skapa en ny åtkomstgranskning.
 
-    ![Åtkomstgranskning - kontroller](./media/create-access-review/controls.png)
+    ![Åtkomstgranskning - kontroller](./media/create-access-review/access-reviews.png)
 
 1. Namnet åtkomstgranskningen. Du kan också ge granskningen en beskrivning. Namn och beskrivning visas granskarna.
 
@@ -51,15 +51,15 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
     ![Skapa en åtkomstgranskning - Start- och slutdatum](./media/create-access-review/start-end-dates.png)
 
-1. För att göra åtkomsten granska återkommande, ändra den **frekvens** från **en gång** till **veckovisa**, **månatliga**,  **Kvartalsvis** eller **årligen**, och använda den **varaktighet** skjutreglaget eller text om du vill definiera hur många dagar som varje granskning av serien med återkommande kommer att vara öppna för indata från granskare. Maximal varaktighet som du kan ange för den månatliga granskningen är till exempel 27 dagar att undvika överlappande granskningar.
+1. För att göra åtkomsten granska återkommande, ändra den **frekvens** från **en gång** till **veckovisa**, **månatliga**,  **Kvartalsvis** eller **årligen**. Använd den **varaktighet** skjutreglaget eller text om du vill definiera hur många dagar som varje granskning av serien med återkommande kommer att vara öppna för indata från granskare. Maximal varaktighet som du kan ange för den månatliga granskningen är till exempel 27 dagar att undvika överlappande granskningar.
 
 1. Använd den **slutet** inställningen för att specificera hur du avslutar återkommande åtkomst granska serien. Serien kan sluta på tre sätt: det körs kontinuerligt för att starta granskningar på obestämd tid tills ett visst datum eller efter ett angivet antal förekomster har slutförts. Du administratören för en annan eller en annan Global administratör kan stoppa serien när du har skapat genom att ändra datumet i **inställningar**, så att den slutar på det datumet.
 
-1. I den **användare** anger du de användare som använder granska gäller för. Åtkomstgranskningar kan vara medlemmar i en grupp eller användare som har tilldelats till ett program. Du kan ytterligare begränsa åtkomsten endast granskning till granskning gästanvändare som är medlemmar (eller tilldelats programmet), i stället för att granska alla användare som är medlemmar eller som har åtkomst till programmet.
+1. I den **användare** avsnittet, ange vilka användare som åtkomstgranskningen gäller för. Åtkomstgranskningar kan vara medlemmar i en grupp eller användare som har tilldelats till ett program. Du kan ytterligare begränsa åtkomsten endast granskning till granskning gästanvändare som är medlemmar (eller tilldelats programmet), i stället för att granska alla användare som är medlemmar eller som har åtkomst till programmet.
 
     ![Skapa en åtkomstgranskning - användare](./media/create-access-review/users.png)
 
-1. I den **grupper** väljer du en eller flera grupper som du vill granska medlemskap.
+1. I den **grupp** väljer du en eller flera grupper som du vill granska medlemskap.
 
     > [!NOTE]
     > Att välja mer än en grupp skapar flera åtkomstgranskningar. Till exempel skapar att välja grupper fem separata åtkomstgranskningar.
@@ -112,7 +112,9 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 ## <a name="start-the-access-review"></a>Starta åtkomstgranskningen
 
-När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**.
+När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**. Åtkomstgranskningen visas i listan med en indikator för dess status.
+
+![Åtkomstgranskningar lista](./media/create-access-review/access-reviews-list.png)
 
 Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst till grupper eller program](perform-access-review.md). Om din granskning är för gäster att granska sin egen åtkomst, visas instruktioner för hur du [granska åtkomst själv till grupper eller program](review-your-access.md).
 
@@ -120,13 +122,15 @@ Om några av granskarna gäster, Gäster får ett meddelande via e-post endast o
 
 ## <a name="manage-the-access-review"></a>Hantera åtkomstgranskningen
 
-Du kan följa förloppet när granskarna har slutfört sina granskningar i Azure AD-instrumentpanelen i den **Åtkomstgranskningar** avsnittet. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](complete-access-review.md).
+Du kan följa förloppet när granskarna har slutfört sina granskningar på den **översikt** sidan i åtkomstgranskningen. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](complete-access-review.md).
+
+![Åtkomstgranskningar pågår](./media/create-access-review/overview-progress.png)
 
 Om det här är en enstaka granskning efter åtkomstgranskningsperiod är över eller administratören stoppar åtkomstgranskning, Följ stegen i [Slutför en åtkomstgranskning av grupper eller program som](complete-access-review.md) att se och tillämpa resultaten.  
 
-För att hantera en serie med åtkomstgranskningar, navigera till åtkomstgranskning från **kontroller**, och du ska hitta kommande förekomster i schemalagd granskningar och redigera slutdatumet eller Lägg till/ta bort granskare i enlighet med detta. 
+För att hantera en serie med granskningar, gå till åtkomstgranskningen, och du ska hitta kommande förekomster i schemalagd granskningar och redigera slutdatumet eller Lägg till/ta bort granskare i enlighet med detta.
 
-Baserat på dina val i vid slutförande-inställningar, autotillämpad ska köras efter slutet granskningsdatum eller när du manuellt stoppa granskningen. Status för granskningen kommer att ändras från slutförd via mellanliggande tillstånd, till exempel använda och slutligen till tillstånd tillämpas. Du bör förvänta dig att se nekade användare, om sådant finns, tas bort från grupptilldelning för medlemskap eller ett program på några få minuter.
+Baserat på dina val i **vid slutförande-inställningar**, Använd kommer automatiskt utförs efter slutet granskningsdatum eller när du manuellt stoppa granskningen. Status för granskningen kommer att ändras från **slutförd** via mellanliggande tillstånd som **tillämpar** och slutligen till tillstånd **kopplat**. Du bör förvänta dig att se nekade användare, om sådant finns, tas bort från grupptilldelning för medlemskap eller ett program på några få minuter.
 
 ## <a name="create-reviews-via-apis"></a>Skapa granskningar via API: er
 

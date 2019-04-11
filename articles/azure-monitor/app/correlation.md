@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092726"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471723"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -143,8 +143,8 @@ Den [OpenTracing datamodelldata specifikationen](https://opentracing.io/) och Ap
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` med `span.kind = server`                  |
-| `Dependency`                          | `Span` med `span.kind = client`                  |
+| `Request`,  `PageView`                 | `Span` med  `span.kind = server`                  |
+| `Dependency`                          | `Span` med  `span.kind = client`                  |
 | `Id` av `Request` och `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
 | `Operation_ParentId`                  | `Reference` av typen `ChildOf` (den överordnade span)   |
@@ -183,6 +183,11 @@ Den [Application Insights SDK för Java](../../azure-monitor/app/java-get-starte
 > Endast de anrop som görs via Apache HTTPClient har stöd för funktionen korrelation. Om du använder Spring RestTemplate eller Feign användas både med Apache HTTPClient i lösningen.
 
 För närvarande stöds automatisk kontext spridning över meddelandetekniker (sådana Kafka, RabbitMQ eller Azure Service Bus) inte. Det är dock möjligt att skriva kod sådana scenarier manuellt med hjälp av den `trackDependency` och `trackRequest` API: er. I dessa API: er, en beroendetelemetri representerar ett meddelande som köas genom en producent och begäran representerar ett meddelande som bearbetas av en konsument. I det här fallet både `operation_id` och `operation_parentId` ska spridas i meddelandets egenskaper.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Telemetrikorrelation i asynkrona Java-program
+
+För att korrelera telemetri i asynkrona Spring Boot-program genom att följa [detta](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) uttömmande artikeln. Det innehåller vägledning för instrumentering Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) samt [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Rollnamn

@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091502"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471247"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Begränsningar för kända problem/migrering med online migreringar till Azure SQL DB
 
 Kända problem och begränsningar som är associerade med online migreringar från SQL Server till Azure SQL Database beskrivs nedan.
+
+> [!IMPORTANT]
+> Migrering av SQL_variant datatyper stöds inte med online migrering av SQL Server till Azure SQL Database.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av temporala tabeller som inte stöds
 
@@ -62,17 +65,20 @@ Du kan se ett SQL-undantag föreslå ”ntext är inte kompatibel med hierarchyi
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
+2. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
 
-   1. Kör migreringsaktiviteten.
+3. Kör migreringsaktiviteten.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migrering fel med olika integritet överträdelser med active utlösare i schemat under ”fullständiga Datainläsningen” eller ”inkrementell datasynkronisering”
 
 **Lösning**
+
 1. Hitta utlösare som är aktiva i källdatabasen med frågan nedan:
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Inaktivera utlösare på källdatabasen med hjälp av anvisningarna i artikeln [inaktivera UTLÖSAREN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Kör migreringsaktiviteten igen.
@@ -101,11 +107,11 @@ DMS migrera inte tidsstämpel källvärdet; i stället genererar DMS ett nytt ti
 
 Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källtabellen, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Migreringsfel innehåller ytterligare information på bladet Database detaljerad statusinformation om.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Migreringsfel innehåller inte mer information på bladet Database detaljerad statusinformation om.
 
 **Symtom**
 
-När det uppstår migrering fel i statusvyn för databaser information om att välja den **migreringsfel** länken i övre menyfliksområdet kan inte innehålla ytterligare information som är specifika för migreringen felen.
+När du stöter på fel för migrering i statusvyn för databaser information att välja den **migreringsfel** länken i övre menyfliksområdet kan inte innehålla ytterligare information som är specifika för migreringen felen.
 
 ![migreringsfel ingen information-exempel](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

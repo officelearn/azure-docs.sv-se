@@ -17,9 +17,9 @@ ms.locfileid: "59009675"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudier: Hantera dina anslutna enheter i grupp
 
-I den här självstudien använder du lösningsacceleratorn för fjärrövervakning för att hantera konfigurationen av dina anslutna enheter i grupp.
+I den här självstudien använder du acceleratorn för fjärrövervakningslösningen för att hantera konfigurationen av dina anslutna enheter i grupp.
 
-Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i lösningsacceleratorn för fjärrövervakning. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
+Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i acceleratorn för fjärrövervakningslösningen. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
 
 I den här kursen för du göra följande:
 
@@ -27,7 +27,7 @@ I den här kursen för du göra följande:
 > * Skapa en enhetsgrupp.
 > * Förbereda och hantera den inbyggda programvaran.
 > * Skapa en enhetskonfiguration på Azure-portalen.
-> * Importera en enhetskonfiguration till fjärrövervakningslösningen.
+> * Importera en enhetskonfiguration till fjärrövervakningslösningen
 > * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
@@ -41,9 +41,9 @@ If this is going to be a tutorial - we need to split this include into two so th
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
+Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
-Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
+Om du inte har distribuerat acceleratorn Fjärrövervakningslösning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
 
 Du behöver ett Azure-lagringskonto för att hantera filer för den inbyggda programvaran. Du kan använda ett befintligt lagringskonto eller [skapa ett nytt lagringskonto](../storage/common/storage-quickstart-create-account.md) i din prenumeration.
 
@@ -59,13 +59,13 @@ Innan du börjar:
 * Kontrollera att [startprogrammet på IoT DevKit-enheten är version 1.4.0 eller senare](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Tavla Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Du behöver även ansluta minst en IoT DevKit-enhet till lösningsacceleratorn för fjärrövervakning. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till lösningsacceleratorn för IoT-fjärrövervakning](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Du behöver även ansluta minst en IoT DevKit-enhet till acceleratorn för fjärrövervakningslösningen. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till acceleratorn för IoT-fjärrövervakningslösningen](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Gå till instrumentpanelen
 
 Om du vill visa fjärrövervakningslösningens instrumentpanel i webbläsaren går du först till [Acceleratorer för Microsoft Azure IoT-lösning](https://www.azureiotsolutions.com/Accelerators#dashboard). Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
 
-Klicka sedan på **Starta** på panelen för den lösningsaccelerator för fjärrövervakning som du distribuerade i [Snabbstarten](quickstart-remote-monitoring-deploy.md).
+Klicka sedan på **Starta** på panelen för den accelerator för fjärrövervakningslösningen som du distribuerade i [Snabbstarten](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="create-a-device-group"></a>Skapa en enhetsgrupp.
 
@@ -204,7 +204,7 @@ Du använder den här konfigurationsfilen i följande avsnitt.
 
 ## <a name="import-a-configuration"></a>Importera en konfiguration
 
-I det här avsnittet importerar du enhetskonfigurationen som ett paket i lösningsacceleratorn för fjärrövervakning. Vanligtvis slutför en operatör den här uppgiften.
+I det här avsnittet importerar du enhetskonfigurationen som ett paket i acceleratorn för fjärrövervakningslösningen. Vanligtvis slutför en operatör den här uppgiften.
 
 1. I webbgränssnittet för fjärrövervakning går du till sidan **Paket** och klickar på **+ Nytt paket**:
 

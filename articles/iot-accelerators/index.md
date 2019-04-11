@@ -53,7 +53,7 @@ Lär dig hur du använder IoT-lösningsacceleratorer. De här artiklarna beskriv
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Översikt över lösningsacceleratorn för fjärrövervakning</h3>
+                        <h3>Översikt över acceleratorn för fjärrövervakningslösning</h3>
                     </div>
                 </div>
             </div>

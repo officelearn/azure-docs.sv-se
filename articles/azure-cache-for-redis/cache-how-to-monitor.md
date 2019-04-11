@@ -120,7 +120,7 @@ Varje mått innehåller två versioner. Ett mått som mäter prestanda för hela
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Aviseringar
-Du kan konfigurera för att ta emot varningar baserat på mått och aktivitet. Med Azure Monitor kan du konfigurera att en avisering ska göra följande när den utlöses:
+Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetsloggar. Med Azure Monitor kan du konfigurera att en avisering ska göra följande när den utlöses:
 
 * Skicka ett e-postmeddelande
 * Anropa en webbhook

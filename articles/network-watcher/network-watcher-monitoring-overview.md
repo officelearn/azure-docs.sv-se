@@ -18,7 +18,7 @@ ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
 ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2019
 ms.locfileid: "56984415"
@@ -37,7 +37,7 @@ Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsak
 
 Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure-regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
 
-Övervakaren för nätverksprestanda är en molnbaserad lösning för övervakning av hybridnätverk som hjälper dig att övervaka nätverkets prestanda mellan olika punkter i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. Övervakaren för nätverksprestanda identifierar nätverksproblem som blockering av svartlistad trafik, routningsfel och problem som inte kan identifieras med vanliga nätverksövervakningsmetoder. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. Läs mer om [övervakaren av nätverksprestanda](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Övervakaren för nätverksprestanda är en molnbaserad övervakningslösning av hybridnätverk som hjälper dig att övervaka nätverkets prestanda mellan olika punkter i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. Övervakaren för nätverksprestanda identifierar nätverksproblem som blockering av svartlistad trafik, routningsfel och problem som inte kan identifieras med vanliga nätverksövervakningsmetoder. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. Läs mer om [övervakaren av nätverksprestanda](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visa resurser i ett virtuellt nätverk och deras relationer
 
@@ -85,7 +85,7 @@ Det finns [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetw
 
 Informationen är användbar när du planerar kommande resursdistributioner.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 ### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analysera trafiken till eller från en nätverkssäkerhetsgrupp
 
@@ -93,7 +93,7 @@ Nätverkssäkerhetsgrupper (NSG) tillåter eller nekar inkommande eller utgåend
 
 ![Trafikanalys](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Lär mer om NSG flödet loggarna genom att slutföra kursen [Logga nätverkstrafik till och från en virtuell dator](network-watcher-nsg-flow-logging-portal.md) och hur du implementerar [trafikanalys](traffic-analytics.md).
+Lär mer om NSG-flödesloggarna genom att slutföra kursen [Logga nätverkstrafik till och från en virtuell dator](network-watcher-nsg-flow-logging-portal.md) och hur du implementerar [trafikanalys](traffic-analytics.md).
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
 

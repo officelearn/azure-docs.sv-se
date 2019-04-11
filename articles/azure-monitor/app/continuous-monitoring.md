@@ -86,7 +86,7 @@ När du lägger till distribution gates skyddar en avisering i Application Insig
 
 Om du vill se det här beteendet, Välj **versioner** > Högerklicka på versionen namn **öppna** > **loggar.**
 
-![Logs](media/continuous-monitoring/006.png)
+![Loggar](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -17,12 +17,12 @@ ms.locfileid: "39162351"
 ---
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
+Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
-Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
+Om du inte har distribuerat acceleratorn Fjärrövervakningslösning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Gå till instrumentpanelen
 
 Om du vill visa fjärrövervakningslösningens instrumentpanel i webbläsaren går du först till [Acceleratorer för Microsoft Azure IoT-lösning](https://www.azureiotsolutions.com/Accelerators#dashboard). Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
 
-Klicka sedan på **Starta** på panelen för den lösningsaccelerator för fjärrövervakning som du distribuerade i [Snabbstarten](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
+Klicka sedan på **Starta** på panelen för den accelerator för fjärrövervakningslösningen som du distribuerade i [Snabbstarten](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).

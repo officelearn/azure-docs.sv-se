@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58176144"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn för fjärrövervakning
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över acceleratorn för fjärrövervakningslösning
 
 Den fjärrövervakning [lösningsaccelerator](../iot-accelerators/about-iot-accelerators.md) implementerar en lösning för slutpunkt till slutpunkt-övervakning för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som utgångspunkt för en egen implementering och [anpassa](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) dem efter dina specifika affärskrav.
 

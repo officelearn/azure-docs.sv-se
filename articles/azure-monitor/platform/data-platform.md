@@ -42,7 +42,7 @@ Mått är tillgängliga för interaktiv analys i Azure-portalen med [Metrics Exp
 
 Läs mer om Azure Monitor-mått, till exempel sina datakällor i [mått i Azure Monitor](data-platform-metrics.md).
 
-### <a name="logs"></a>Logs
+### <a name="logs"></a>Loggar
 [Loggar](data-platform-logs.md) är händelser som inträffade i systemet. De kan innehålla olika typer av data och kan vara strukturerade eller fritext formuläret med en tidsstämpel. De kan skapas sporadiskt som händelser i miljön genererar loggposter och genererar en systemet hårt belastad vanligtvis mer loggvolym.
 
 Loggar i Azure Monitor lagras i Log Analytics-arbetsytan som baseras på [Azure Data Explorer](/azure/data-explorer/) som ger en kraftfull analys-motor och [funktionsrikt frågespråk](/azure/kusto/query/). Loggar normalt ger tillräcklig information för att tillhandahålla slutförd kontexten för problemet har identifieras och är värdefull för att identifiera roten fall av problem.
@@ -67,7 +67,7 @@ Läs mer om distribuerad spårning på [vad som är distribuerad spårning?](../
 
 I följande tabell jämförs mått och loggar i Azure Monitor.
 
-| Attribut  | Mått | Logs |
+| Attribut  | Mått | Loggar |
 |:---|:---|:---|
 | Fördelar | Enkel och kunna nästan i realtid scenarier, till exempel aviseringar. Perfekt för snabb identifiering av problem. | Analyseras med omfattande frågespråket. Perfekt för detaljerad analys och identifiera grundorsaken. |
 | Data | Endast numeriska värden | Eller det numeriska data |

@@ -68,7 +68,7 @@ Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id
 Med följande steg konfigurerar du installationen av agenten för Log Analytics i Azure- och Azure Government-molnet.  
 
 >[!NOTE]
->Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta.  
+>Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics-arbetsyta.  
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics kan du ange proxykonfigurationen på kommandoraden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern. 
 

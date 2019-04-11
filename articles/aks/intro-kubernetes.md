@@ -39,7 +39,7 @@ Mer information om att säkra AKS-kluster finns i [integrera Azure Active Direct
 
 ### <a name="integrated-logging-and-monitoring"></a>Integrerad loggning och övervakning
 
-Azure Monitor för hälsotillstånd för behållare samlar in minne och mått från behållare, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Behållarloggar är tillgängliga och du kan också [granska huvudloggarna för Kubernetes][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
+Azure Monitor för hälsotillstånd för behållare samlar in minne och mått från behållare, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Containerloggar är tillgängliga och du kan också [granska huvudloggarna för Kubernetes][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
 
 Mer information finns i [Övervaka Azure Kubernetes Service hälsotillstånd för containrar][container-health].
 

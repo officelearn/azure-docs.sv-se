@@ -72,7 +72,7 @@ Azure-dianostikloggar är mått som genereras av en Azure-tjänst som tillhandah
 }
 ```
 
-### <a name="activity-logs-example"></a>Exempel på aktivitetslogg
+### <a name="activity-logs-example"></a>Exempel på aktivitetsloggar
 
 Azure-aktivitetsloggar finns prenumerationsnivå loggar som ger inblick i de åtgärder som utförs på resurser i din prenumeration. Här är ett exempel på en aktivitetsloggshändelse för att kontrollera åtkomst:
 

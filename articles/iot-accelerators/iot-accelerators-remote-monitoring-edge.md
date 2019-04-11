@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att identifiera avvikelser vid gränsen i en lösning | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du övervakar IoT Edge-enheter med lösningsacceleratorn Fjärrövervakning.
+description: I den här självstudiekursen lär du dig hur du övervakar IoT Edge-enheter med acceleratorn för fjärrövervakningslösningen.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -16,13 +16,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58166760"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudier: Identifiera avvikelser vid gränsen med lösningsacceleratorn för fjärrövervakning
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudier: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
 
-I den här självstudien konfigurerar du lösningen för fjärrövervakning för att svara på avvikelser som identifierats av en IoT Edge-enhet. Med IoT Edge-enheter kan du bearbeta telemetri vid gränsen för att minska mängden telemetri som skickas till lösningen och få snabbare svar på händelser på enheter. Läs mer om fördelarna med Edge-bearbetning i [Vad är Azure IoT Edge](../iot-edge/about-iot-edge.md).
+I den här självstudien konfigurerar du fjärrövervakningslösningen för att svara på avvikelser som identifierats av en IoT Edge-enhet. Med IoT Edge-enheter kan du bearbeta telemetri vid gränsen för att minska mängden telemetri som skickas till lösningen och få snabbare svar på händelser på enheter. Läs mer om fördelarna med Edge-bearbetning i [Vad är Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
-I den här självstudien används en simulerad oljepumpjackenhet för att introducera Edge-bearbetning med fjärrövervakning. Oljepumpjacket hanteras av en organisation som heter Contoso och är anslutet till lösningsacceleratorn Fjärrövervakning. Sensorer på oljepumpjacket mäter temperatur och tryck. Operatörer på Contoso vet att en onormal temperaturökning kan orsaka att oljepumpjacket blir långsammare. Operatörer på Contoso behöver inte övervaka enhetens temperatur när det är inom det normala intervallet.
+I den här självstudien används en simulerad oljepumpjackenhet för att introducera Edge-bearbetning med fjärrövervakning. Oljepumpjacket hanteras av en organisation som heter Contoso och är anslutet till acceleratorn Fjärrövervakningslösning. Sensorer på oljepumpjacket mäter temperatur och tryck. Operatörer på Contoso vet att en onormal temperaturökning kan orsaka att oljepumpjacket blir långsammare. Operatörer på Contoso behöver inte övervaka enhetens temperatur när det är inom det normala intervallet.
 
-Contoso vill distribuera en modul för den intelligenta nätverksgränsen till oljepumpjacket som identifierar temperaturavvikelser. En annan Edge-modul skickar aviseringar till lösningen för fjärrövervakning. När en avisering tas emot kan en Contoso-operator skicka en underhållstekniker. Contoso kan också konfigurera en automatisk åtgärd, som att skicka ett e-postmeddelande, som ska köras när lösningen tar emot en avisering.
+Contoso vill distribuera en modul för den intelligenta nätverksgränsen till oljepumpjacket som identifierar temperaturavvikelser. En annan Edge-modul skickar aviseringar till fjärrövervakningslösningen. När en avisering tas emot kan en Contoso-operator skicka en underhållstekniker. Contoso kan också konfigurera en automatisk åtgärd, som att skicka ett e-postmeddelande, som ska köras när lösningen tar emot en avisering.
 
 Följande diagram visar huvudkomponenterna i självstudiescenariot:
 
@@ -53,14 +53,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="add-an-iot-edge-device"></a>Lägga till en IoT Edge-enhet
 
-Det finns två steg för att lägga till en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning. Det här avsnittet visar hur du använder:
+Det finns två steg för att lägga till en IoT Edge-enhet i acceleratorn för fjärrövervakningslösningen. Det här avsnittet visar hur du använder:
 
 * Lägg till en IoT Edge-enhet på sidan **Device Explorer** i webbgränssnittet för fjärrövervakning.
 * Installera IoT Edge-körning i en Linux-dator (VM).
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Lägga till en IoT Edge-enhet till din lösning
 
-Om du vill lägga till en IoT Edge-enhet till lösningsacceleratorn för fjärrövervakning navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
+Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakningslösningen navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
 
 I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
@@ -68,7 +68,7 @@ I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som 
 
 Anteckna enhetsanslutningssträngen. Du behöver den i nästa avsnitt av den här självstudien.
 
-När du registrerar en enhet med IoT-hubben i lösningsacceleratorn för fjärrövervakning visas den på sidan **Device Explorer** i webbgränssnittet:
+När du registrerar en enhet med IoT-hubben i acceleratorn för fjärrövervakningslösningen visas den på sidan **Device Explorer** i webbgränssnittet:
 
 [![Ny IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
@@ -139,7 +139,7 @@ En Edge-enhet kräver att Edge-körningen är installerad. I den här självstud
 
     Kom ihåg att ange anslutningssträngen inom dubbla citattecken.
 
-Du har nu installerat och konfigurerat IoT Edge-körningen på en Linux-enhet. Senare i den här självstudien använder du lösningen för fjärrövervakning för att distribuera IoT Edge-moduler till den här enheten.
+Du har nu installerat och konfigurerat IoT Edge-körningen på en Linux-enhet. Senare i den här självstudien använder du fjärrövervakningslösningen för att distribuera IoT Edge-moduler till den här enheten.
 
 ## <a name="create-an-edge-manifest"></a>Skapa ett Edge-manifest
 
@@ -148,7 +148,7 @@ Om du vill simulera oljejackpumpenheten måste du lägga till följande moduler 
 * Temperatursimuleringsläge.
 * Avvikelseidentifiering i Azure Stream Analytics.
 
-Följande steg visar hur du skapar ett manifest för Edge-distribution som innehåller dessa moduler. Senare i den här självstudien importerar du manifestet som ett paket i lösningsacceleratorn för fjärrövervakning.
+Följande steg visar hur du skapar ett manifest för Edge-distribution som innehåller dessa moduler. Senare i den här självstudien importerar du manifestet som ett paket i acceleratorn för fjärrövervakningslösningen.
 
 ### <a name="create-the-azure-stream-analytics-job"></a>Skapa Azure Stream Analytics-jobbet
 
@@ -199,9 +199,9 @@ Du har nu definierat ett Stream Analytics-jobb som ska köras på din Edge-enhet
 
 ### <a name="create-the-iot-edge-deployment"></a>Skapa IoT Edge-distributionen
 
-Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka moduler som ska köras på din Edge-enhet. I nästa avsnitt importerar du manifestet som ett paket i lösningsacceleratorn för fjärrövervakning.
+Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka moduler som ska köras på din Edge-enhet. I nästa avsnitt importerar du manifestet som ett paket i acceleratorn för fjärrövervakningslösningen.
 
-1. Navigera till IoT-hubblösningen för fjärrövervakning i Azure-portalen. Du kan hitta IoT-hubben i resursgruppen som har samma namn som lösningen för fjärrövervakning.
+1. Navigera till IoT-hubben för fjärrövervakningslösningen i Azure-portalen. Du kan hitta IoT-hubben i resursgruppen som har samma namn som fjärrövervakningslösningen.
 
 1. I IoT-hubben klickar du på **IoT Edge** i avsnittet **Automatisk enhetshantering**. Klicka på **Lägg till en IoT Edge-distribution**.
 
@@ -249,7 +249,7 @@ Nu har du skapat en IoT Edge-manifestet för att importera till lösningen för 
 
 ## <a name="import-a-package"></a>Importera ett paket
 
-I det här avsnittet importerar du Edge-manifestet som ett paket i lösningsacceleratorn för fjärrövervakning.
+I det här avsnittet importerar du Edge-manifestet som ett paket i acceleratorn för fjärrövervakningslösningen.
 
 1. I webbgränssnittet för fjärrövervakning går du till sidan **Paket** och klickar på **+ Nytt paket**:
 
@@ -331,7 +331,7 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen visades hur du lägger till och konfigurerar en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning. Om du vill lära dig mer om hur du arbetar med IoT Edge-paket i lösningen för fjärrövervakning kan du läsa följande instruktionsguide:
+I den här självstudiekursen visades hur du lägger till och konfigurerar en IoT Edge-enhet i acceleratorn för fjärrövervakningslösningen. Om du vill lära dig mer om hur du arbetar med IoT Edge-paket i fjärrövervakningslösningen kan du läsa följande instruktionsguide:
 
 > [!div class="nextstepaction"]
 > [Importera ett IoT Edge-paket till lösningsacceleratorn för fjärrövervakning](iot-accelerators-remote-monitoring-import-edge-package.md)

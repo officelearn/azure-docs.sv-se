@@ -33,7 +33,7 @@ Den här artikeln innehåller en förklaring av de olika byggstenarna för den A
 
 - Standardnivån för IoT-hubb
     - RBAC-roll **ägare** privilegier 
-- [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Azure Security Center (rekommenderas)
     - Användning av Azure Security Center är bara en rekommendation och inte ett krav, utan detta kommer du inte visa dina andra Azure-resurser i IoT Hub. 
  

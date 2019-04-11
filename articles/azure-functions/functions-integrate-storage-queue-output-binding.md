@@ -114,7 +114,7 @@ I det här avsnittet lägger du till kod som skriver ett meddelande till utdatak
     
     Som ett alternativ till att välja **Kör** här kan du anropa funktionen genom att ange en URL i en webbläsare och ange värdet `name` i frågesträngen. Webbläsarmetoden visas i den [tidigare snabbstarten](functions-create-first-azure-function.md#test-the-function).
 
-2. Kontrollera i loggfilerna att funktionen har slutförts utan fel. 
+2. Kontrollera i loggarna att funktionen har slutförts utan fel. 
 
 En ny kö med namnet **outqueue** skapas i ditt lagringskonto av funktionskörningen när utdatabindningen används för första gången. Du använder Storage Explorer för att verifiera att kön och ett meddelande i den har skapats.
 

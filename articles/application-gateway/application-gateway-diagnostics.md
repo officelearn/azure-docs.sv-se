@@ -143,7 +143,7 @@ Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser
 
    ![Aktivera diagnostik][1]
 
-3. På sidan **Diagnostikinställningar** kan du göra inställningar för de diagnostiska loggarna. I det här exemplet lagras loggarna i Log Analytics. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
+3. På sidan **Diagnostikinställningar** kan du göra inställningar för diagnostikloggarna. I det här exemplet lagras loggarna i Log Analytics. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 
    ![Börjar konfigurationsprocessen][2]
 
@@ -290,7 +290,7 @@ Brandväggsloggen skapas endast om du har aktiverat det för varje application g
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
 * **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
+* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehållspaketet Azure aktivitetsloggar för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera åtkomst, prestanda och loggar från brandväggen
 

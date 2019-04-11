@@ -60,7 +60,7 @@ Den **Microsoft.Compute** resursprovidern i Azure Stack innehåller:
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Program - diagnostikloggar, programloggar och mått
 
-Program kan köras i Operativsystemet för en virtuell dator som körs med den **Microsoft.Compute** resursprovidern. Dessa program och virtuella datorer kan du generera en egen uppsättning loggar och mått. Azure Monitor är beroende av tillägget Azure diagnostics (Windows eller Linux) för att samla in de flesta måtten och loggarna på programnivå. 
+Program kan köras i Operativsystemet för en virtuell dator som körs med den **Microsoft.Compute** resursprovidern. Dessa program och virtuella datorer kan du generera en egen uppsättning loggar och mått. Azure Monitor är beroende av tillägget Azure Diagnostics (Windows eller Linux) för att samla in de flesta måtten och loggarna på programnivå. 
 
 Typer av åtgärder vara:
  - Prestandaräknare

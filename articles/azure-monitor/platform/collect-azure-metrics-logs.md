@@ -30,7 +30,7 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 4. Skript för att samla in och publicera sedan data till Log Analytics-arbetsyta i Azure Monitor (tomma i följande tabell och för tjänster som inte visas)
 
 
-| Tjänst                 | Resurstyp                           | Logs        | Mått     | Lösning |
+| Tjänst                 | Resurstyp                           | Loggar        | Mått     | Lösning |
 | --- | --- | --- | --- | --- |
 | Programgateways    | Microsoft.Network/applicationGateways   | Diagnostik | Diagnostik | [Azure Application Gateway Analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application insights    |                                         | Koppling   | Koppling   | [Application Insights-anslutningsprogram](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (förhandsversion) |
@@ -129,7 +129,7 @@ Det är möjligt att skicka dem till Azure storage och sedan konfigurera Log Ana
 
 Azure Monitor kan använda den här metoden för att samla in diagnostik från Azure storage för följande resurser och loggar:
 
-| Resurs | Logs |
+| Resurs | Loggar |
 | --- | --- |
 | Service Fabric |ETWEvent <br> Drifthändelse <br> Tillförlitliga aktörer-händelse <br> Händelse för tillförlitlig tjänst |
 | Virtuella datorer |Linux Syslog <br> Windows-händelse <br> IIS-logg <br> Windows ETWEvent |

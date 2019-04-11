@@ -102,7 +102,7 @@ Du kan också hämta färdiga log analytics-vyer för Azure AD activity logs. Vy
 * **Inloggningar händelser**: Den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
 * **Användare som utför medgivande**: Den här vyn visar rapporter som rör användargodkännande, t.ex. samtycke ger av användaren, inloggningar efter användare som givit medgivande samt inloggningar av program för alla medgivande-baserade program. 
 
-Lär dig att [installera och använda Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
+Lär dig att [installera och använda logganalysvyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg

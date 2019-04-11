@@ -195,7 +195,7 @@ Den här mallen använder följande Application Insights-komponenter:
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) aktiverar Kärnövervakning för Azure-tjänster genom att låta insamling av mått, aktivitetsloggar och diagnostikloggar. Azure Monitor ger grundläggande infrastruktursmått och loggfiler för de flesta tjänster i Microsoft Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) aktiverar Kärnövervakning för Azure-tjänster genom att låta insamling av mått, aktivitetsloggar och diagnostikloggar. Azure Monitor ger grundläggande infrastruktursmått och loggar för de flesta tjänster i Microsoft Azure.
 
 ## <a name="threat-model"></a>Hotmodell
 

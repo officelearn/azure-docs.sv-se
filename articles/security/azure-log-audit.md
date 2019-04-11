@@ -328,7 +328,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 
 * Skript för att samla in och publicera sedan data i Azure Monitor-loggar (tomma celler i följande tabell och för tjänster som inte visas)
 
-| Tjänst | Resurstyp | Logs | Mått | Lösning |
+| Tjänst | Resurstyp | Loggar | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
 |Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     Koppling|  Koppling|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Anslutningsapp (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|

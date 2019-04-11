@@ -10,14 +10,14 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
 ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2019
 ms.locfileid: "56653624"
 ---
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att gå vidare till nästa självstudie lämnar du den distribuerade lösningsacceleratorn Fjärrövervakning. Du kan minska kostnaden för att köra lösningsacceleratorn när du inte använder den genom att stoppa de simulerade enheterna på inställningspanelen:
+Om du planerar att gå vidare till nästa självstudie lämnar du den distribuerade acceleratorn Fjärrövervakningslösning. Du kan minska kostnaden för att köra lösningsacceleratorn när du inte använder den genom att stoppa de simulerade enheterna på inställningspanelen:
 
 [![Pausa telemetri](./media/iot-accelerators-tutorial-cleanup/togglesimulation-inline.png)](./media/iot-accelerators-tutorial-cleanup/togglesimulation-expanded.png#lightbox)
 

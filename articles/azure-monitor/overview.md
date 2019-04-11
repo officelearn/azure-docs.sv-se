@@ -44,7 +44,7 @@ Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/l
 
 Azure Monitor använder en version av den [Kusto-frågespråket](/azure/kusto/query/) används av Azure Data Explorer som är lämpliga för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
-![Logs](media/overview/logs.png)
+![Loggar](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Vilka data samlar Azure Monitor?
 Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata för dina program i nivåer som sträcker sig från ditt program, alla operativsystem och tjänster som den förlitar sig på, till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:

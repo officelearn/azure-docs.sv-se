@@ -110,7 +110,7 @@ Logikappen innehåller följande:
 Kontrollera att du har följande information från föregående steg innan du skapar din logikapp:
 - Namn på händelsehubb
 - Anslutningssträng för händelsehubben (antingen den primära eller den sekundära) för händelsehubbsnamnområdet.
-- Arbetsyte-ID för Log Analytics
+- Log Analytics-arbetsytans ID
 - Delad nyckel för Log Analytics
 
 Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen i [Kontrollera namnområdesbehörigheter i Event Hubs och hitta anslutningssträngen](../../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).

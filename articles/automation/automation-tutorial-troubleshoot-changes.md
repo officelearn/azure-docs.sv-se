@@ -13,7 +13,7 @@ ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
 ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56816954"
@@ -27,7 +27,7 @@ I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för spårning av ändringar och lager
-> * Sök i återställningsloggar efter stoppade enheter
+> * Sök i ändringsloggar efter stoppade enheter
 > * Konfigurera spårning av ändringar
 > * Aktivera aktivitetslogganslutning
 > * Utlösa en händelse
@@ -219,7 +219,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för spårning av ändringar och lager
-> * Sök i återställningsloggar efter stoppade enheter
+> * Sök i ändringsloggar efter stoppade enheter
 > * Konfigurera spårning av ändringar
 > * Aktivera aktivitetslogganslutning
 > * Utlösa en händelse

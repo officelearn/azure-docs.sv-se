@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att identifiera enhetsproblem i en fjärrövervakningslösning – Azure | Microsoft Docs
-description: I den här självstudien får du lära dig att använda regler och åtgärder till att automatiskt identifiera problem med tröskelvärden i lösningen för fjärrövervakning.
+description: I den här självstudien får du lära dig att använda regler och åtgärder till att automatiskt identifiera problem med tröskelvärden i fjärrövervakningslösningen.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53598692"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudier: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
-I den här självstudien konfigurerar du självstudiekursen använder du lösningsacceleratorn Fjärrövervakning till att identifiera problem med dina anslutna IoT-enheter. Du kan identifiera problem med dina enheter genom att lägga till regler som genererar aviseringar på instrumentpanelen för lösningen.
+I den här självstudien konfigurerar du självstudiekursen använder du acceleratorn Fjärrövervakningslösning till att identifiera problem med dina anslutna IoT-enheter. Du kan identifiera problem med dina enheter genom att lägga till regler som genererar aviseringar på instrumentpanelen för lösningen.
 
-I självstudiekursen använder vi regler och aviseringar för ett simulerat kylaggregat. Kylaggregatet hanteras av en organisation som heter Contoso och är anslutet till lösningsacceleratorn Fjärrövervakning. Contoso har redan en regel som genererar en kritisk avisering när trycket i kylaggregatet överstiger 298 psi. Som operatör på Contoso vill du identifiera kylaggregat enheter med felaktiga sensorer genom att leta efter plötsliga toppar i tryckvärdena. Det gör du genom att lägga till en regel som genererar en avisering när trycket i kylaggregatet överstiger 150 psi.
+I självstudiekursen använder vi regler och aviseringar för ett simulerat kylaggregat. Kylaggregatet hanteras av en organisation som heter Contoso och är anslutet till acceleratorn Fjärrövervakningslösning. Contoso har redan en regel som genererar en kritisk avisering när trycket i kylaggregatet överstiger 298 psi. Som operatör på Contoso vill du identifiera kylaggregat enheter med felaktiga sensorer genom att leta efter plötsliga toppar i tryckvärdena. Det gör du genom att lägga till en regel som genererar en avisering när trycket i kylaggregatet överstiger 150 psi.
 
 Du har också blivit ombedd att skapa en kritisk avisering för ett kylaggregat när den genomsnittliga luftfuktigheten i enheten varit högre än 80 % och enhetens temperatur varit högre än 75 grader fahrenheit under de senaste fem minuterna.
 
@@ -134,7 +134,7 @@ Du kan bara ta bort en regel i taget.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen såg du hur du kan använda sidan **Regler** i lösningsacceleratorn Fjärrövervakning till att skapa och hantera regler som utlöser aviseringar i lösningen. Fortsätt till nästa självstudie om du vill lära dig hur du använder lösningsacceleratorn till att hantera och konfigurera dina anslutna enheter.
+I den här självstudiekursen såg du hur du kan använda sidan **Regler** i acceleratorn Fjärrövervakningslösning till att skapa och hantera regler som utlöser aviseringar i lösningen. Fortsätt till nästa självstudie om du vill lära dig hur du använder lösningsacceleratorn till att hantera och konfigurera dina anslutna enheter.
 
 > [!div class="nextstepaction"]
 > [Konfigurera och hantera enheter som är anslutna till din övervakningslösning](iot-accelerators-remote-monitoring-manage.md)

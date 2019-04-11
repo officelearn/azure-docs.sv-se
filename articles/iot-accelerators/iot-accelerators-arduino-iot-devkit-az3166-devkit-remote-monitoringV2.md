@@ -111,7 +111,7 @@ Du kan ändra färg på en DevKit-led: ar med den **LedColor** metod:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att gå vidare till självstudierna låter du Fjärrövervakning-lösningsacceleratorn vara distribuerad.
+Om du planerar att gå vidare till självstudierna låter du acceleratorn för fjärrövervakningslösningen vara distribuerad.
 
 Om du inte längre behöver lösningsaccelerator kan ta bort den från sidan etablerade lösningar genom att markera den och sedan klicka på Ta bort lösningen:
 

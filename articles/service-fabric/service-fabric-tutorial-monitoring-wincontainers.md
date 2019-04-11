@@ -190,13 +190,13 @@ Gör följande ändringar i *template.json*:
 
 Distribuera mallen med dina ändringar för att uppgradera det aktuella klustret. Du bör se log analytics-resurser i resursgruppen när den har slutförts. När klustret är klart kan du distribuera ditt containerprogram till det. I nästa steg ställer vi in containerövervakning.
 
-## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Lägga till lösning för övervakning av containrar i Log Analytics-arbetsytan
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Lägga till övervakningslösning för containrar i Log Analytics-arbetsytan
 
-När du vill konfigurera containerlösningen i arbetsytan söker du efter *Lösning för övervakning av container* och skapar en containerresurs (i kategorin Övervakning och hantering).
+När du vill konfigurera containerlösningen i arbetsytan söker du efter *Övervakningslösning för container* och skapar en containerresurs (i kategorin Övervakning och hantering).
 
 ![Lägga till containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-När du tillfrågas om den *Log Analytics-arbetsyta*, Välj den arbetsyta som skapades i resursgruppen och klicka på **skapa**. Det här lägger till en *lösning för övervakning av containrar* på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
+När du tillfrågas om den *Log Analytics-arbetsyta*, Välj den arbetsyta som skapades i resursgruppen och klicka på **skapa**. Det här lägger till en *övervakningslösning för containrar* på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
 
 Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du klickar på den visar landningssidan antalet containeravbildningar som körs.
 

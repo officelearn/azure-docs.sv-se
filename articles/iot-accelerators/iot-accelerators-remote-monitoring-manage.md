@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att konfigurera enheter i en fjärrövervakningslösning – Azure | Microsoft Docs
-description: Den här självstudien visar dig hur du konfigurerar enheter som är anslutna till Fjärrövervakning-lösningsacceleratorn.
+description: Den här självstudien visar dig hur du konfigurerar enheter som är anslutna till acceleratorn Fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "58183398"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Självstudier: Konfigurera enheter som är anslutna till din övervakningslösning
 
-I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn och konfigurerar enheten.
+I den här självstudiekursen använder du acceleratorn Fjärrövervakningslösning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn och konfigurerar enheten.
 
-Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i Fjärrövervakning-lösningsacceleratorn och testar att den simulerade enheten svarar korrekt på konfigurationsuppdateringar. I den här självstudien används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [riktig enhet ansluten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
+Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i acceleratorn Fjärrövervakningslösning och testar att den simulerade enheten svarar korrekt på konfigurationsuppdateringar. I den här självstudien används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [riktig enhet ansluten till acceleratorn Fjärrövervakningslösning](iot-accelerators-connecting-devices.md).
 
 I den här kursen för du göra följande:
 
@@ -123,7 +123,7 @@ Nu kan Contoso-operatören fråga efter enheter baserat på driftsteamet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen visades hur du konfigurerar och hanterar enheter anslutna till lösningsacceleratorn Fjärrövervakning. Fortsätt till nästa självstudie om du vill lära dig att använda lösningsacceleratorn till att utföra en rotorsaksanalys för en oväntad avisering.
+I den här självstudiekursen visades hur du konfigurerar och hanterar enheter anslutna till acceleratorn Fjärrövervakningslösning. Fortsätt till nästa självstudie om du vill lära dig att använda lösningsacceleratorn till att utföra en rotorsaksanalys för en oväntad avisering.
 
 > [!div class="nextstepaction"]
 > [Utföra en rotorsaksanalys för en avisering](iot-accelerators-remote-monitoring-root-cause-analysis.md)

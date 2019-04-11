@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/07/2019
 ms.locfileid: "54065808"
@@ -406,7 +406,7 @@ Du kan få det här felet om du försöker installera gatewayen på en domänkon
 
 <a name="logs"></a>
 
-### <a name="logs"></a>Logs
+### <a name="logs"></a>Loggar
 
 Hjälper dig att felsöka och alltid börja med att samla in och granska gateway-loggar. Du har flera olika sätt för att samla in loggar, men det enklaste alternativet när du har installerat gatewayen är via användargränssnittet för installationsprogrammet för gateway. 
 

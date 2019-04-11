@@ -18,7 +18,7 @@ ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 1448c72e87d51c0bb88c9ee521a7a3112060473b
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58483837"
@@ -200,7 +200,7 @@ Portalen samlar in följande indata:
 
 - **Automatisk uppgradering delversion**: Det här fältet som mappar till den **AutoUpdate** växla i cmdlets och aktiverar tillägget att uppdatera till den senaste versionen automatiskt under installationen. **Ja** instruerar tilläggshanterare att använda den senaste tillgängliga versionen och **nr** tvingar den **Version** angivna installeras. Att välja varken **Ja** eller **nr** är detsamma som att välja **nr**.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 Loggar för tillägget lagras på följande plats: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 

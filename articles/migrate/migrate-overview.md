@@ -94,7 +94,7 @@ I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 | --- | --- |--- |
 |Insamlare  | Tjänsten Azure Migrate | Insamlaren ansluter till tjänsten via SSL-port 443.|
 |Insamlare | vCenter Server | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port konfigurerar du den som en utgående port på VM-insamlaren.|
-|Lokala virtuella datorer | Log Analytics Workspace | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) använder TCP-port 443 för att ansluta till Azure Monitor-loggar. Du behöver bara den här porten om du använder beroendevisualisering, som kräver MMA-agenten.|
+|Lokala virtuella datorer | Log Analytics-arbetsyta | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) använder TCP-port 443 för att ansluta till Azure Monitor-loggar. Du behöver bara den här porten om du använder beroendevisualisering, som kräver MMA-agenten.|
 
 
 ## <a name="what-happens-after-assessment"></a>Vad händer efter utvärderingen?

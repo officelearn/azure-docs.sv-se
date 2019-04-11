@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att använda aviseringar och åtgärda enhetsproblem i fjärrövervakningslösningen – Azure | Microsoft Docs
-description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till lösningsacceleratorn Fjärrövervakning.
+description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till acceleratorn Fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54451731"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Självstudier: Felsök och åtgärda enhetsproblem
 
-I den här självstudien använder du självstudiekursen använder du lösningsacceleratorn Fjärrövervakning till att identifiera och åtgärda problem med dina anslutna IoT-enheter. Du använder aviseringar i lösningsacceleratorns instrumentpanel till att identifiera problem och kör sedan fjärrjobb för att åtgärda dessa problem.
+I den här självstudien använder du självstudiekursen använder du acceleratorn Fjärrövervakningslösning till att identifiera och åtgärda problem med dina anslutna IoT-enheter. Du använder aviseringar i lösningsacceleratorns instrumentpanel till att identifiera problem och kör sedan fjärrjobb för att åtgärda dessa problem.
 
 Contoso testar en ny enhet av typen **Prototype** (Prototyp) i fältet. Som Contoso-operatör märker du under testningen att **prototypen** oväntat utlöser en temperaturavisering på instrumentpanelen. Du måste nu undersöka beteendet hos den felaktiga **prototypen** och lösa problemet.
 
@@ -86,4 +86,4 @@ Du kan kontrollera att temperaturen för enheten har minskat genom att visa tele
 
 I den här självstudiekursen visades hur du identifierar problem med enheter och hur du agerar för att lösa dessa problem. Fortsätt till instruktionsartiklarna om du vill läsa om hur du ansluter en riktig enhet till lösningsacceleratorn.
 
-Nu har du lärt dig hur du hanterar enhetsproblem. Förslag på nästa steg är att lära sig hur du [ansluter enheten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
+Nu har du lärt dig hur du hanterar enhetsproblem. Förslag på nästa steg är att lära sig hur du [ansluter enheten till acceleratorn Fjärrövervakningslösning](iot-accelerators-connecting-devices.md).

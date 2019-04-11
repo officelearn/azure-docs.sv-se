@@ -31,7 +31,7 @@ Threat intelligence-baserad filtrering är aktiverat som standard i läget för 
 
 ![Hotinformation baserad filtrering portalgränssnitt](media/threat-intel/threat-intel-ui.png)
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 Följande log utdrag visar en utlösta regel:
 

@@ -35,7 +35,7 @@ Azure Security Center använder olika [identifieringsfunktioner](security-center
 * Sammanhangsbaserad information
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Beteendeanalys av virtuell dator
-Azure Security Center kan använda beteendeanalyser för att identifiera resurser som har komprometterats, baserat på analysen av Event Logs i virtuella datorer. Till exempel processgenereringshändelser och inloggningshändelser. Dessutom korreleras data med andra tecken för att hitta bevis på utbredda attacker.
+Azure Security Center kan använda beteendeanalyser för att identifiera resurser som har komprometterats, baserat på analysen av händelseloggar i virtuella datorer. Till exempel processgenereringshändelser och inloggningshändelser. Dessutom korreleras data med andra tecken för att hitta bevis på utbredda attacker.
 
 > [!NOTE]
 > Mer information om hur identifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md).

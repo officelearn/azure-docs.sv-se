@@ -34,9 +34,9 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: Analysera data i Log Analytics
+  - name: Analysera data i logganalys
     href: learn/tutorial-viewdata.md
-  - name: Visualisera data i Log Analytics
+  - name: Visualisera data i logganalys
     href: learn/tutorial-logs-dashboards.md
   - name: Arkivera plattformsmått och loggdata
     href: learn/tutorial-archive-data.md
@@ -70,7 +70,7 @@ items:
       href: platform/data-platform.md
     - name: Mått
       href: platform/data-platform-metrics.md
-    - name: Logs
+    - name: Loggar
       href: platform/data-platform-logs.md
   - name: Datakällor
     items:
@@ -686,7 +686,7 @@ items:
         href: platform/metrics-charts.md
       - name: Exempel på måttdiagram
         href: platform/metric-chart-samples.md
-    - name: Logs
+    - name: Loggar
       items:
       - name: Loggfrågor
         href: log-query/log-query-overview.md
@@ -994,19 +994,19 @@ items:
     items:
     - name: Övervaka
       href: /powershell/module/az.applicationinsights
-    - name: Logs
+    - name: Loggar
       href: /powershell/module/az.operationalinsights
   - name: REST-API
     items:
     - name: Övervaka
       href: /rest/api/monitor/
-    - name: Logs
+    - name: Loggar
       href: /rest/api/loganalytics
   - name: Resource Manager-mall
     items:
     - name: Övervaka
       href: /azure/templates/microsoft.insights/allversions
-    - name: Logs
+    - name: Loggar
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Mått
     items:

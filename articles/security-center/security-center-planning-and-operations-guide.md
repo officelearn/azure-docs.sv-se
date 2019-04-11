@@ -157,7 +157,7 @@ Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det
 
 En arbetsyta är en Azure-resurs som fungerar som en datacontainer. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
-Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.
+Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga Log Analytics-arbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.
 
 Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 

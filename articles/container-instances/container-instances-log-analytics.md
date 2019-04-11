@@ -9,7 +9,7 @@ ms.date: 07/17/2018
 ms.author: danlep
 ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
 ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56879721"
@@ -44,7 +44,7 @@ Gör följande för att hämta ID och den primära nyckeln för Log Analytics-ar
 
 ## <a name="create-container-group"></a>Skapa containergrupp
 
-Nu när du har Log Analytics arbetsyte-ID och primärnyckeln är du redo att skapa en grupp för loggningsaktiverad containergrupp.
+Nu när du har Log Analytics-arbetsytans ID och primärnyckel är du redo att skapa en grupp för loggningsaktiverad containergrupp.
 
 I följande exempel visas två sätt att skapa en containergrupp med en enda [fluentd][fluentd]-container: Azure CLI och Azure CLI med en YAML-mall. Fluentd-containern skapar flera rader utdata i sin standardkonfiguration. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
 

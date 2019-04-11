@@ -222,7 +222,7 @@ items:
     - name: Nätverkssäkerhetsgrupper
       href: manage-network-security-group.md
       items:
-      - name: Logs
+      - name: Loggar
         href: virtual-network-nsg-manage-log.md
     - name: Routningstabeller
       href: manage-route-table.md

@@ -58,7 +58,7 @@ Alternativen beskrivs i följande tabell:
 | Alternativ | Beskrivning |
 |:--|:--|
 | Uppdatera   | Uppdaterar vy med den senaste informationen. | 
-| Logs      | Öppnar den [Log Analytics](../log-query/portals.md) att analysera data med loggfrågor. |
+| Loggar      | Öppnar den [Log Analytics](../log-query/portals.md) att analysera data med loggfrågor. |
 | Redigera       | Öppnar vyn i Vydesigner redigera dess innehåll och konfiguration.  |
 | Klona      | Skapar en ny vy och öppnar den i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men med *kopia* läggas till den. |
 | Datumintervall | Ange filter för datum och tid intervallet för de data som ingår i vyn. Den här datumintervall kopplas före eventuella datumintervall som anges i frågor i vyn.  |

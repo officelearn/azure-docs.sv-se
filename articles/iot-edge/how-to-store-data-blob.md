@@ -345,7 +345,7 @@ Här är ett exempel på önskade egenskaper för den här modulen: ![ange önsk
     }
 
    ```
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 Följ anvisningarna för att [konfigurera ditt dockerloggar för IoT Edge-moduler](production-checklist.md#set-up-logs-and-diagnostics)
 

@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
 ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2018
 ms.locfileid: "52284578"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudie: Utföra en rotorsaksanalys för en avisering
 
-I den här självstudiekursen lär du dig hur du diagnostiserar rotorsaken till en avisering med lösningsacceleratorn Fjärrövervakning. Du ser att en avisering har utlösts i lösningens fjärrövervakningsinstrumentpanel. Använd sedan Azure Time Series Insights-utforskaren för att undersöka orsaken.
+I den här självstudiekursen lär du dig hur du diagnostiserar rotorsaken till en avisering med acceleratorn Fjärrövervakningslösning. Du ser att en avisering har utlösts i fjärrövervakningslösningens instrumentpanel. Använd sedan Azure Time Series Insights-utforskaren för att undersöka orsaken.
 
-I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, höjd, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till lösningsacceleratorn Fjärrövervakning. Som Contoso-operatör måste du veta varför en av dina lastbilar (lastbil-02) har loggat en avisering om låg temperatur.
+I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, höjd, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till acceleratorn Fjärrövervakningslösning. Som Contoso-operatör måste du veta varför en av dina lastbilar (lastbil-02) har loggat en avisering om låg temperatur.
 
 I den här kursen för du göra följande:
 
@@ -88,7 +88,7 @@ För att bekräfta din misstanke om att lastbilarna tog olika resvägar lägger 
 
 ## <a name="create-a-new-rule"></a>Skapa en ny regel
 
-Medan lastbilsvägar vanligtvis optimeras i förväg upptäcker du att trafikmönster, väder och andra oförutsedda händelser kan orsaka förseningar och låter lastbilsförarna fatta de slutgiltiga besluten baserat på deras omdöme. Men eftersom tillgångarna i lastbilarna är temperaturkänsliga bör du skapa en extra regel i din fjärrvarningslösning. Den här regeln är till för att ge dig en varning om genomsnittshöjden är över 105 meter över ett 1-minutsintervall:
+Medan lastbilsvägar vanligtvis optimeras i förväg upptäcker du att trafikmönster, väder och andra oförutsedda händelser kan orsaka förseningar och låter lastbilsförarna fatta de slutgiltiga besluten baserat på deras omdöme. Men eftersom tillgångarna i lastbilarna är temperaturkänsliga bör du skapa en extra regel i din fjärrövervakningslösning. Den här regeln är till för att ge dig en varning om genomsnittshöjden är över 105 meter över ett 1-minutsintervall:
 
 [![Fliken fjärrövervakningsregler höjdregel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
@@ -98,7 +98,7 @@ Läs föregående självstudie för information om att skapa och [identifiera en
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen fick du lära dig att använda Time Series Insights-utforskaren för att diagnostisera rotorsaken till en avisering med lösningsacceleratorn Fjärrövervakning. Fortsätt till nästa självstudiekurs om du vill lära dig hur du använder lösningsacceleratorn till att identifiera och åtgärda problem med anslutna enheter.
+I den här självstudiekursen fick du lära dig att använda Time Series Insights-utforskaren för att diagnostisera rotorsaken till en avisering med acceleratorn Fjärrövervakningslösning. Fortsätt till nästa självstudiekurs om du vill lära dig hur du använder lösningsacceleratorn till att identifiera och åtgärda problem med anslutna enheter.
 
 > [!div class="nextstepaction"]
 > [Använda enhetsaviseringar för att identifiera och åtgärda problem med enheter anslutna till din övervakningslösning](iot-accelerators-remote-monitoring-maintain.md)

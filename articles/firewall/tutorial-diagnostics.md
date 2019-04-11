@@ -52,7 +52,7 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
    * AzureFirewallNetworkRule
 
 3. Om du vill börja samla in data klickar du på **Aktivera diagnostik**.
-4. På sidan **Diagnostikinställningar** kan du göra inställningar för de diagnostiska loggarna. 
+4. På sidan **Diagnostikinställningar** kan du göra inställningar för diagnostikloggarna. 
 5. I det här exemplet lagras loggarna av Azure Monitor-loggar, så använd **Firewall log analytics** som namn.
 6. Klicka på **Skicka till Log Analytics** för att konfigurera din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 7. Under **Log Analytics** klickar du på **Konfigurera**.
@@ -95,7 +95,7 @@ Så här aktiverar du diagnostisk loggning:
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
 * **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
+* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehållspaketet Azure aktivitetsloggar för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visa och analysera loggar för nätverk och programregler
 

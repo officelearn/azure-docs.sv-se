@@ -15,7 +15,7 @@ ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f8590c9ef89e68a823beefd7e74a894edd219359
 ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57779393"
@@ -37,7 +37,7 @@ ms.locfileid: "57779393"
 Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](solutions-creating.md) och strukturen för en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) och lösningsfilen.
 
 
-## <a name="log-analytics-workspace"></a>Log Analytics Workspace
+## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 Alla resurser i Log Analytics finns i en [arbetsytan](../../azure-monitor/platform/manage-access.md). Mer information finns i [Log Analytics-arbetsytan och Automation-kontot](solutions.md#log-analytics-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men måste finnas innan lösningen är installerad. Om den inte är tillgänglig misslyckas lösning installationen.
 
 Namnet på arbetsytan är namnet på varje Log Analytics-resurs. Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel för en resurs för SavedSearch.

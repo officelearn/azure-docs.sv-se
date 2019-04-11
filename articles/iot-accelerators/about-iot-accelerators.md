@@ -34,7 +34,7 @@ Det finns för närvarande fyra lösningsacceleratorer för dig att distribuera:
 
 ### <a name="remote-monitoring"></a>Fjärrövervakning
 
-Använd [Lösningsacceleratorn för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md) för att samla in telemetri från fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
+Använd [acceleratorn för fjärrövervakningslösning](iot-accelerators-remote-monitoring-sample-walkthrough.md) för att samla in telemetri från fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
 
 Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
 
@@ -91,7 +91,7 @@ Läs mer om arkitektur för mikrotjänster i [Introduktion till Azure IoT-refere
 
 Du kan distribuera lösningsacceleratorerna från webbplatsen för [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators#) eller från kommandoraden.
 
-Du kan distribuera lösningsacceleratorn för fjärrövervakning i följande konfigurationer:
+Du kan distribuera acceleratorn för fjärrövervakningslösningen i följande konfigurationer:
 
 * **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
 * **Grundläggande:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.

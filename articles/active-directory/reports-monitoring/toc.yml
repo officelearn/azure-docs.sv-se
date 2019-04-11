@@ -76,7 +76,7 @@ items:
       href: howto-integrate-activity-logs-with-log-analytics.md
     - name: Analysera aktivitetsloggar i Azure Monitor-loggar
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Installera och använda Log Analytics-vyer för Azure AD
+    - name: Installera och använda logganalysvyer för Azure AD
       href: howto-install-use-log-analytics-views.md
     - name: Integrera aktivitetsloggar med SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md

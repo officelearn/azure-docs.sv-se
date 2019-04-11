@@ -25,7 +25,7 @@ Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och f�
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha den [uppdateringshanteringslösningen](automation-update-management.md) lagts till i ditt Automation-konto.
-* Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till arbetsytan Log Analytics som även har lösningen för uppdateringshantering aktiverad.
+* Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till Log Analytics-arbetsytan som även har lösningen för uppdateringshantering aktiverad.
 * Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera den centrala administrationswebbplatsen för Configuration Manager eller en fristående primär plats med Azure Monitor-loggar och importera samlingar, granska [Anslut Konfigurationshanteraren till Azure Monitor loggar](../azure-monitor/platform/collect-sccm.md).  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update om de inte får säkerhetsuppdateringar från Configuration Manager.   
 

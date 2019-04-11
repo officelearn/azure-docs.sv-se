@@ -197,7 +197,7 @@ I exemplet ovan regexDelimiter har definierats som ”\\n” för ny rad. Log-av
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Konfigurera Log Analytics för att skicka Azure Diagnostics-data
 För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till arbetsytan och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:
 
-| Resurstyp | Logs | Mått |
+| Resurstyp | Loggar | Mått |
 | --- | --- | --- |
 | Programgateways    | Ja | Ja |
 | Automation-konton     | Ja | |

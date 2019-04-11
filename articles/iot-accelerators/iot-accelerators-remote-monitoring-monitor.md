@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att övervaka dina IoT-enheter via en Azure-lösning – Azure | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du övervakar IoT-enheter med lösningsacceleratorn Fjärrövervakning.
+description: I den här självstudiekursen lär du dig hur du övervakar IoT-enheter med acceleratorn för fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -18,9 +18,9 @@ ms.locfileid: "58173829"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Självstudier: Övervaka dina IoT-enheter
 
-I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att övervaka dina anslutna IoT-enheter. Du använder lösningens instrumentpanel för att visa telemetri, enhetsinformation, aviseringar och KPI:er.
+I den här självstudiekursen använder du acceleratorn för fjärrövervakningslösningen för att övervaka dina anslutna IoT-enheter. Du använder lösningens instrumentpanel för att visa telemetri, enhetsinformation, aviseringar och KPI:er.
 
-I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till lösningsacceleratorn Fjärrövervakning. Som Contoso-operatör behöver du övervaka plats och beteende på fältet för en av dina lastbilar (truck-02).
+I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till acceleratorn Fjärrövervakningslösning. Som Contoso-operatör behöver du övervaka plats och beteende på fältet för en av dina lastbilar (truck-02).
 
 I den här kursen för du göra följande:
 
@@ -97,7 +97,7 @@ Samma filter som har angett tidsintervallet för aviseringar och kontrollerar vi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen visades hur du använder sidan **Instrumentpanel** i lösningsacceleratorn Fjärrövervakning för att filtrera och övervaka de simulerade lastbilarna. Fortsätt till nästa självstudiekurs om du vill lära dig hur du använder lösningsacceleratorn till att identifiera problem med anslutna enheter.
+I den här självstudiekursen visades hur du använder sidan **Instrumentpanel** i acceleratorn Fjärrövervakningslösning för att filtrera och övervaka de simulerade lastbilarna. Fortsätt till nästa självstudiekurs om du vill lära dig hur du använder lösningsacceleratorn till att identifiera problem med anslutna enheter.
 
 > [!div class="nextstepaction"]
 > [Identifiera problem med enheter som är anslutna till din övervakningslösning](iot-accelerators-remote-monitoring-automate.md)

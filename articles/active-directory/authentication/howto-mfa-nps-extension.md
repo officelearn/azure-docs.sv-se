@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311738"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470363"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -207,6 +207,8 @@ Du kan välja att skapa den här nyckeln och ange den till FALSE, medan använda
 
 Leta efter ett självsignerat certifikat som skapas av installationsprogrammet i certifikatarkiv och kontrollera att den privata nyckeln har behörigheterna för användaren **NÄTVERKSTJÄNST**. Certifikatet har ett ämnesnamn **CN \<tenantid\>, OU = Microsoft NPS-tillägget**
 
+Självsignerat certifikat som genereras av den *AzureMfaNpsExtnConfigSetup.ps1* skript har också en giltigheten livslängd på två år. När du verifierat att certifikatet har installerats, bör du också kontrollera att certifikatet inte har gått ut.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Hur kan jag kontrollera att min klientcertifikatet är kopplade till min klient i Azure Active Directory?
@@ -261,6 +263,14 @@ Kontrollera att AD Connect körs och att användaren finns i både Windows Activ
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Varför ser jag HTTP anslutningsfel i loggar med min autentiseringar misslyckas?
 
 Kontrollera att https://adnotifications.windowsazure.com kan nås från servern som kör NPS-tillägget.
+
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Varför autentiseringen inte fungerar, trots ett giltigt certifikat vara närvarande?
+
+Om din tidigare datorcertifikat har upphört att gälla och ett nytt certifikat har skapats, bör du ta bort utgångna certifikat. Med utgångna certifikat kan orsaka problem med NPS-tillägget startar.
+
+Kontrollera det lokala datorkontot Certificate Store med hjälp av MMC för att kontrollera om du har ett giltigt certifikat och se till att certifikatet inte har passerats dess förfallodatum. Om du vill generera ett nyligen giltigt certifikat, kör stegen i avsnittet ”[Kör PowerShell-skript](#run-the-powershell-script)”
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och chiffersviter
 

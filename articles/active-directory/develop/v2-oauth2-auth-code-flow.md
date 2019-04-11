@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263527"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470278"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-plattformen och OAuth 2.0-auktoriseringskodflöde
 
@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | obligatorisk    | Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | obligatorisk    | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app.  |
 | `response_type` | obligatorisk    | Måste innehålla `code` för auktoriseringskodsflödet.       |
-| `redirect_uri`  | Rekommenderas | Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | obligatorisk | Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | obligatorisk    | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna. |
 | `response_mode`   | Rekommenderas | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara något av följande:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Mer information finns i [OpenID Connect-protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Värdet kan också koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
@@ -242,7 +242,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens är korta bott och du måste uppdatera dem när de går ut om du vill fortsätta få åtkomst till resurser. Kan du göra det genom att skicka in en annan `POST` begäran till den `/token` slutpunkten, den här gången erbjuder den `refresh_token` i stället för den `code`.  Uppdateringstoken är giltig för alla behörigheter som klienten redan har tagit emot medgivande för - därför en uppdateringstoken utfärdas för en begäran för `scope=mail.read` kan användas för att begära en ny åtkomsttoken för `scope=api://contoso.com/api/UseResource`.  
 
-Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera [fel som returneras av utfärdande-slutpunkten](#error-codes-for-token-endpoint-errors) korrekt.  Observera att uppdateringstoken inte återkallas när användes för att hämta nya åtkomsttoken. 
+Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera [fel som returneras av utfärdande-slutpunkten](#error-codes-for-token-endpoint-errors) korrekt. 
+
+Även om uppdateringstoken inte återkallas när användes för att hämta nya åtkomsttoken, förväntas du ta bort den gamla uppdateringstoken. Den [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-6) säger: ”Auktoriseringsservern kan utfärda en ny uppdateringstoken, i vilket fall klienten måste ta bort den gamla uppdateringstoken och Ersätt den med den nya uppdateringstoken. Auktoriseringsservern kan återkalla den gamla uppdateringstoken efter en ny uppdateringstoken till klienten ”.  
 
 ```
 // Line breaks for legibility only
@@ -254,7 +256,6 @@ Content-Type: application/x-www-form-urlencoded
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
 ```
@@ -271,8 +272,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | obligatorisk    | Måste vara `refresh_token` för den här delen i auktoriseringskodsflödet. |
 | `scope`         | obligatorisk    | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det ursprungliga authorization_code begäran ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
 | `refresh_token` | obligatorisk    | Refresh_token som du har köpt i den andra delen i flödet. |
-| `redirect_uri`  | obligatorisk    |  En `redirect_uri`registrerad i klientprogrammet. |
-| `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.                                                                                                                                                    |
+| `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan. |
 
 #### <a name="successful-response"></a>Lyckat svar
 

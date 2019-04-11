@@ -1,5 +1,5 @@
 ---
-title: Publiceringsguide för Azure Marketplace SEO | Microsoft Docs
+title: Azure Marketplace SEO-vägledning | Microsoft Docs
 description: Innehåller information om maximera sökmotoroptimering (SEO).
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834344"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469666"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Publiceringsguide för Azure Marketplace SEO
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO-vägledning
 
-### <a name="general-explanation-of-algorithm"></a>Allmän förklaring av algoritmen
+Den här artikeln förklarar hur du maximerar för att göra ditt erbjudande via sökfunktionen i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [AppSource](https://appsource.microsoft.com). 
 
-Marketplace använder Azure Search för platsens sökfunktioner. Algoritmen som baseras på termen frekvens – inverterade dokumentet frekvens ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standard [analysverktyget från Lucene](https://lucene.apache.org/core/) används.
+
+## <a name="general-explanation-of-algorithm"></a>Allmän förklaring av algoritmen
+
+Microsofts marknadsplatser använda Azure Search för platsens sökfunktioner. Algoritmen som baseras på termen frekvens – inverterade dokumentet frekvens ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standard [analysverktyget från Lucene](https://lucene.apache.org/core/) används.
 
 I allmänhet all text fält, kategorier och branscher och ingår i weightage relevanta. Specialiserad termer som används sällan som appar, men ofta i din app genererar en högre poäng matchning med search. Inklusive villkor som ”VM” så skulle erbjuder lite förmånen medan ”Azure search” skulle vara mycket mer specialiserade.
 Nedan visas de mest relevanta fälten att tänka på.
@@ -42,7 +44,7 @@ Nedan visas de mest relevanta fälten att tänka på.
 |  |  |  |
 
 
-### <a name="other-tips"></a>Andra Tips
+## <a name="other-tips"></a>Andra Tips
 
 -   Sök föreslår hämtar tung användaraktivitet. Prioriteras matchningar mot appens namn/utgivare. Kort beskrivning blir nyckelfältet för när söktermen som inte är en exakt matchning med utgivare/appnamn.
 -   Dokument för att ladda ned ingår inte i sökningen weightage.

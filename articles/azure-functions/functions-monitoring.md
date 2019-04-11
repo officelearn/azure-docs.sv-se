@@ -9,22 +9,22 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518738"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471026"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
 [Azure Functions](functions-overview.md) erbjuder inbyggd integrering med [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) att övervaka funktioner. Den här artikeln visar hur du konfigurerar Azure Functions för att skicka systemgenererade loggfiler till Application Insights.
 
-![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
+Vi rekommenderar att du använder Application Insights eftersom den samlar in log, prestanda och Feldata. Automatiskt identifierar prestandaavvikelser och inkluderar kraftfulla analysverktyg för att hjälpa dig att diagnostisera problem och förstå hur dina funktioner används. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Du kan även använda Application Insights under lokal funktionen apputvecklingen för projektet. Mer information finns i [vad är Application Insights?](../azure-monitor/app/app-insights-overview.md)
 
-Azure Functions har också inbyggd övervakning som inte använder Application Insights. Vi rekommenderar Application Insights eftersom det ger mer data och bättre sätt att analysera data.
+Eftersom nödvändiga Application Insights-instrumentationen är inbyggt i Azure Functions, allt du behöver är en giltig instrumentationsnyckel att ansluta din funktionsapp till en Application Insights-resurs.
 
 ## <a name="application-insights-pricing-and-limits"></a>Priser för Application Insights och begränsningar
 
@@ -34,56 +34,28 @@ Du kan testa Application Insights-integrering med Funktionsappar utan kostnad. D
 
 Den måste ange instrumenteringsnyckeln för en Application Insights-resurs för en funktionsapp kan skicka data till Application Insights. Nyckeln måste vara i en app som inställning med namnet **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Du kan ställa in den här anslutningen i den [Azure-portalen](https://portal.azure.com):
+### <a name="new-function-app-in-the-portal"></a>Ny funktionsapp i portalen
 
-* [Anslut automatiskt en ny funktionsapp](#new-function-app)
-* [Ansluta en Application Insights-resurs manuellt](#manually-connect-an-app-insights-resource)
+När du [skapar funktionsappen i Azure-portalen](functions-create-first-azure-function.md), Application Insights-integrering är aktiverad som standard. Application Insights-resursen har samma namn som din funktionsapp och den har skapats i samma region eller i närmaste regionen.
 
-### <a name="new-function-app"></a>Ny funktionsapp
-<!-- Add a transitional sentence to introduce the procedure. -->
+Om du vill granska Application Insights-resursen håller på att skapas, väljer du den för att expandera den **Application Insights** fönster. Du kan ändra den **nytt resursnamn** eller välj en annan **plats** i en [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill lagra dina data.
 
-1. Gå till funktionsappen **skapa** sidan.
+![Aktivera Application Insights när du skapar en funktionsapp](media/functions-monitoring/enable-ai-new-function-app.png)
 
-1. Ange den **Programinsikter** växla **på**.
-
-1. Välj en **Application Insights-plats**. Välj den region som ligger närmast din funktionsapp region och i en [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill lagra dina data.
-
-   ![Aktivera Application Insights när du skapar en funktionsapp](media/functions-monitoring/enable-ai-new-function-app.png)
-
-1. Ange den begärda informationen och välj **skapa**.
-
-Nästa steg är att [inaktivera inbyggd loggning](#disable-built-in-logging).
-
+När du väljer **skapa**, en Application Insights-resursen har skapats med din funktionsapp, som har den `APPINSIGHTS_INSTRUMENTATIONKEY` anges i inställningarna för programmet. Allt är klart.
 
 <a id="manually-connect-an-app-insights-resource"></a>
-### <a name="application-insights-resource"></a>Application Insights-resurs 
-<!-- Add a transitional sentence to introduce the procedure. -->
+### <a name="add-to-an-existing-function-app"></a>Lägga till i en befintlig funktionsapp 
 
-1. Skapa Application Insights-resursen. Ange programtypen **Allmänt**.
+När du skapar en funktionsapp med hjälp de [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), eller [Visual Studio Code](functions-create-first-function-vs-code.md), måste du skapa Application Insights-resursen. Du kan sedan lägga till instrumentationsnyckeln från den här resursen som en programinställning i din funktionsapp.
 
-   ![Skapa en Application Insights-resurs av typen Allmänt](media/functions-monitoring/ai-general.png)
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-1. Kopiera instrumenteringsnyckeln från den **Essentials** för Application Insights-resursen. Peka mot slutet av visas nyckelvärdet för att få en **Klicka om du vill kopiera** knappen.
-
-   ![Kopiera instrumenteringsnyckeln Application Insights](media/functions-monitoring/copy-ai-key.png)
-
-1. I funktionsappen **programinställningar** sidan [lägga till en appinställning](functions-how-to-use-azure-function-app-settings.md#settings) genom att välja **Lägg till ny inställning**. Namnge den nya inställningen **APPINSIGHTS_INSTRUMENTATIONKEY** och klistra in den kopierade instrumenteringsnyckeln.
-
-   ![Lägg till instrumentationsnyckel appinställningar](media/functions-monitoring/add-ai-key.png)
-
-1. Välj **Spara**.
-
-<!-- Before the next H2 heading, add transitional sentences to summarize why the procedures were necessary. -->
-
-## <a name="disable-built-in-logging"></a>Inaktivera inbyggd loggning
-
-När du aktiverar Application Insights kan du inaktivera inbyggd loggning som använder Azure Storage. Inbyggd loggning är användbart för att testa med lätta arbetsbelastningar, men är inte avsett för användning i produktion för hög belastning. Vi rekommenderar Application Insights för övervakning av produktionen. Om du använder inbyggd loggning i produktion, kan loggning-posten vara ofullständiga på grund av begränsningar i Azure Storage.
-
-Om du vill inaktivera inbyggd loggning, ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure-portalen finns i den **programinställningar** delen av [hantera en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appinställningen, kontrollera att inga befintliga funktioner i samma funktionsapp använda inställningen för Azure Storage-utlösare och bindningar.
+Tidiga versioner av funktioner används inbyggd övervakning, vilket inte längre rekommenderas. När du aktiverar Application Insights-integrering för en funktionsapp måste du också [inaktivera inbyggd loggning](#disable-built-in-logging).  
 
 ## <a name="view-telemetry-in-monitor-tab"></a>Visa telemetri i fliken övervakning
 
-När du har konfigurerat Application Insights-integrering som visas i föregående avsnitt, kan du visa dessa data i den **övervakaren** fliken.
+Med [Application Insights-integrering aktiverat](#enable-application-insights-integration), du kan visa dessa data i den **övervakaren** fliken.
 
 1. I sidan för funktionsappar, väljer du en funktion som har kört minst en gång när Application Insights har konfigurerats. Välj sedan den **övervakaren** fliken.
 
@@ -103,13 +75,13 @@ När du har konfigurerat Application Insights-integrering som visas i föregåen
 
    ![Anropsinformation](media/functions-monitoring/invocation-details-ai.png)
 
-Båda sidor (anrop listan och anropsinformation) länka till Application Insights Analytics-frågan som hämtar data:
+Du kan se att båda sidorna har en **kör i Application Insights** länka till Application Insights Analytics-fråga som hämtar data.
 
 ![Kör i Application Insights](media/functions-monitoring/run-in-ai.png)
 
-![Application Insights Analytics anrop listan](media/functions-monitoring/ai-analytics-invocation-list.png)
+Följande fråga visas. Du kan se att listan anrop är begränsad till de senaste 30 dagarna. I listan visas mer än 20 rader (`where timestamp > ago(30d) | take 20`). Anrop information om listan är för de senaste 30 dagarna utan gräns.
 
-Du kan se att anrop listan är begränsad till de senaste 30 dagar från de här frågorna. I listan visas mer än 20 rader (`where timestamp > ago(30d) | take 20`). Anrop information om listan är för de senaste 30 dagarna utan gräns.
+![Application Insights Analytics anrop listan](media/functions-monitoring/ai-analytics-invocation-list.png)
 
 Mer information finns i [fråga telemetridata](#query-telemetry-data) senare i den här artikeln.
 
@@ -121,25 +93,17 @@ Mer information finns i [fråga telemetridata](#query-telemetry-data) senare i d
 
 Information om hur du använder Application Insights finns i den [dokumentation om Application Insights](https://docs.microsoft.com/azure/application-insights/). Det här avsnittet visas några exempel på hur du visar data i Application Insights. Om du redan är bekant med Application Insights kan du gå direkt till [i avsnittet om hur du konfigurerar och anpassar dessa data](#configure-categories-and-log-levels).
 
-I [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), kan du skapa diagram och aviseringar som baseras på mått. Mått är antalet funktionsanrop, körningstid och Slutförandefrekvens.
+![Fliken för Application Insights, översikt](media/functions-monitoring/metrics-explorer.png)
 
-![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
+Följande områden i Application Insights kan vara användbart när du utvärderar beteende, prestanda och fel i dina funktioner:
 
-På den [fel](../azure-monitor/app/asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar som baseras på funktionen fel och server undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden.
-
-![Fel](media/functions-monitoring/failures.png)
-
-På den [prestanda](../azure-monitor/app/performance-counters.md) fliken du kan analysera problem med prestanda.
-
-![Prestanda](media/functions-monitoring/performance.png)
-
-Den **servrar** fliken visar Resursanvändning och dataflöde per server. Dessa data kan vara användbart för felsökning av scenarier där funktioner bogging ned dina underliggande resurser. Servrar kallas **Cloud rollinstanser**.
-
-![Servrar](media/functions-monitoring/servers.png)
-
-Den [Live Metrics Stream](../azure-monitor/app/live-stream.md) fliken visar måttdata som den har skapats i realtid.
-
-![Direktsänd ström](media/functions-monitoring/live-stream.png)
+| Tab | Beskrivning |
+| ---- | ----------- |
+| **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar som baseras på funktionen fel och undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden. |
+| **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera problem med prestanda. |
+| **Servrar** | Visa resursanvändningen och dataflöde per server. Dessa data kan vara användbart för felsökning av scenarier där funktioner bogging ned dina underliggande resurser. Servrar kallas **Cloud rollinstanser**. |
+| **[Mått](../azure-monitor/app/metrics-explorer.md)** | Skapa diagram och aviseringar som baseras på mått. Mått är antalet funktionsanrop, körningstid och Slutförandefrekvens. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Visa måttdata som den har skapats i realtid. |
 
 ## <a name="query-telemetry-data"></a>Telemetridata för fråga
 
@@ -160,12 +124,14 @@ requests
 
 Tabeller som är tillgängliga som visas i den **schemat** fliken till vänster. Du kan hitta data som genereras av funktionsanrop i följande tabeller:
 
-* **spårningar**: Loggar som skapats av körningen, av funktionskoden.
-* **begäranden**: En begäran för varje funktionsanrop.
-* **Undantag**: Alla undantag från körningen.
-* **customMetrics**: Totalt antal lyckade eller misslyckade anrop, Slutförandefrekvens och varaktighet.
-* **customEvents**: Händelser som spåras av körning, till exempel: HTTP-begäranden som utlöser en funktion.
-* **performanceCounters**: Information om prestanda för de servrar som funktionerna som körs på.
+| Tabell | Beskrivning |
+| ----- | ----------- |
+| **spårningar** | Loggar som skapats av körningen, av funktionskoden. |
+| **förfrågningar** | En begäran för varje funktionsanrop. |
+| **undantag** | Alla undantag från körningen. |
+| **customMetrics** | Totalt antal lyckade eller misslyckade anrop, Slutförandefrekvens och varaktighet. |
+| **customEvents** | Händelser som spåras av körning, till exempel: HTTP-begäranden som utlöser en funktion. |
+| **PerformanceCounters** | Information om prestanda för de servrar som funktionerna som körs på. |
 
 De andra tabellerna är för tillgänglighetstester och telemetri för klienten och webbläsare. Du kan implementera anpassade telemetri för att lägga till data i dem.
 
@@ -180,7 +146,7 @@ Körningen ger den `customDimensions.LogLevel` och `customDimensions.Category` f
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurera kategorier och logga nivåer
 
-Du kan använda Application Insights utan anpassad konfiguration. Standardkonfigurationen kan leda till stora mängder data. Om du använder ett Visual Studio-prenumerationen kan du uppnått datakapaciteten för Application Insights. Senare i den här artikeln får du lära dig hur du konfigurerar och anpassar de data som dina funktioner skicka till Application Insights.
+Du kan använda Application Insights utan anpassad konfiguration. Standardkonfigurationen kan leda till stora mängder data. Om du använder ett Visual Studio-prenumerationen kan du uppnått datakapaciteten för Application Insights. Senare i den här artikeln får du lära dig hur du konfigurerar och anpassar de data som dina funktioner skicka till Application Insights. För en funktionsapp loggning har konfigurerats i den [host.json] fil.
 
 ### <a name="categories"></a>Kategorier
 
@@ -208,7 +174,7 @@ Certifikatutfärdarnivå `None` förklaras i nästa avsnitt.
 
 ### <a name="log-configuration-in-hostjson"></a>Konfigurationen av loggen i host.json
 
-Den [host.json](functions-host-json.md) filen konfigurerar hur mycket loggning som en funktionsapp skickar till Application Insights. För varje kategori, kan du ange den lägsta loggningsnivån för att skicka. Det finns två exempel: den första exemplet är riktad mot den [funktionskörningen version 2.x](functions-versions.md#version-2x) (.NET Core) och det andra exemplet avser version 1.x-körningen.
+Den [host.json] filen konfigurerar hur mycket loggning som en funktionsapp skickar till Application Insights. För varje kategori, kan du ange den lägsta loggningsnivån för att skicka. Det finns två exempel: den första exemplet är riktad mot den [funktionskörningen version 2.x](functions-versions.md#version-2x) (.NET Core) och det andra exemplet avser version 1.x-körningen.
 
 ### <a name="version-2x"></a>Version 2.x
 
@@ -248,12 +214,12 @@ V2.x runtime använder den [.NET Core loggning Filterhierarkin](https://docs.mic
 Det här exemplet ställer in följande regler:
 
 * För loggar med kategori `Host.Results` eller `Function`, skicka endast `Error` nivå och högre till Application Insights. Loggar för `Warning` nivå och nedan ignoreras.
-* För loggar med kategori `Host.Aggregator`, skicka alla loggar till Application Insights. Den `Trace` loggningsnivån är samma som det vissa tangenttryckningar kallar `Verbose`, men använda `Trace` i den [host.json](functions-host-json.md) fil.
+* För loggar med kategori `Host.Aggregator`, skicka alla loggar till Application Insights. Den `Trace` loggningsnivån är samma som det vissa tangenttryckningar kallar `Verbose`, men använda `Trace` i den [host.json] fil.
 * För alla andra loggar Skicka endast `Information` nivå och högre till Application Insights.
 
-Kategori-värdet i [host.json](functions-host-json.md) styr loggning för alla kategorier som börjar med samma värde. `Host` i [host.json](functions-host-json.md) kontroller loggning för `Host.General`, `Host.Executor`, `Host.Results`och så vidare.
+Kategori-värdet i [host.json] styr loggning för alla kategorier som börjar med samma värde. `Host` i [host.json] kontroller loggning för `Host.General`, `Host.Executor`, `Host.Results`och så vidare.
 
-Om [host.json](functions-host-json.md) innehåller flera kategorier som börjar med samma sträng, de längre som matchas. Anta att du vill att allt från runtime utom `Host.Aggregator` att logga in på `Error` nivå, men du vill att `Host.Aggregator` att logga in på den `Information` nivå:
+Om [host.json] innehåller flera kategorier som börjar med samma sträng, de längre som matchas. Anta att du vill att allt från runtime utom `Host.Aggregator` att logga in på `Error` nivå, men du vill att `Host.Aggregator` att logga in på den `Information` nivå:
 
 ### <a name="version-2x"></a>Version 2.x 
 
@@ -322,7 +288,7 @@ Loggar som skrivits av Funktionskoden har kategori `Function` och kan vara valfr
 
 ## <a name="configure-the-aggregator"></a>Konfigurera aggregatorn
 
-Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funktionskörningar under en viss tidsperiod. Standardvärdet är 30 sekunder eller 1 000 körs, beroende på vilket som kommer först. Du kan konfigurera den här inställningen i den [host.json](functions-host-json.md) fil.  Här är ett exempel:
+Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funktionskörningar under en viss tidsperiod. Standardvärdet är 30 sekunder eller 1 000 körs, beroende på vilket som kommer först. Du kan konfigurera den här inställningen i den [host.json] fil.  Här är ett exempel:
 
 ```json
 {
@@ -335,7 +301,7 @@ Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funkt
 
 ## <a name="configure-sampling"></a>Konfigurera sampling
 
-Application Insights har en [sampling](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När mängden inkommande telemetri överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är fem. Du kan konfigurera linjer i [host.json](functions-host-json.md).  Här är ett exempel:
+Application Insights har en [sampling](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata på slutförts körningar vid tidpunkter med hög belastning. När mängden inkommande körningar överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande körningar. Standardinställningen för maximalt antal körningar per sekund är 20 (fem i version 1.x). Du kan konfigurera linjer i [host.json].  Här är ett exempel:
 
 ### <a name="version-2x"></a>Version 2.x 
 
@@ -345,7 +311,7 @@ Application Insights har en [sampling](../azure-monitor/app/sampling.md) funktio
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 5
+        "maxTelemetryItemsPerSecond" : 20
       }
     }
   }
@@ -465,18 +431,18 @@ using Microsoft.Extensions.Logging;
 
 namespace functionapp0915
 {
-    public static class HttpTrigger2
+    public class HttpTrigger2
     {
-        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
-        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
-        // automatically use that key for all telemetry. It will also enable telemetry correlation
-        // with the current operation.
-        // If you require a custom TelemetryConfiguration, create it initially with
-        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
-        private static TelemetryClient telemetryClient = new TelemetryClient();
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
 
         [FunctionName("HttpTrigger2")]
-        public static Task<IActionResult> Run(
+        public Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest req, ExecutionContext context, ILogger log)
         {
@@ -491,12 +457,12 @@ namespace functionapp0915
             // Track an Event
             var evt = new EventTelemetry("Function called");
             evt.Context.User.Id = name;
-            telemetryClient.TrackEvent(evt);
+            this.telemetryClient.TrackEvent(evt);
 
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
             metric.Context.User.Id = name;
-            telemetryClient.TrackMetric(metric);
+            this.telemetryClient.TrackMetric(metric);
 
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -509,7 +475,7 @@ namespace functionapp0915
                 Success = true
             };
             dependency.Context.User.Id = name;
-            telemetryClient.TrackDependency(dependency);
+            this.telemetryClient.TrackDependency(dependency);
 
             return Task.FromResult<IActionResult>(new OkResult());
         }
@@ -627,58 +593,62 @@ module.exports = function (context, req) {
 
 Den `tagOverrides` parameteruppsättningar den `operation_Id` till funktionens anrops-ID. Den här inställningen kan du kombinera alla automatiskt genererade och anpassad telemetri för en viss funktionsanrop.
 
-## <a name="known-issues"></a>Kända problem
-<!-- Add a transitional sentence to introduce the section. -->
-
-### <a name="dependencies"></a>Beroenden
+## <a name="dependencies"></a>Beroenden
 
 Beroenden som funktionen har till andra tjänster visas inte automatiskt. Du kan skriva anpassad kod för att visa beroenden. Exempel finns i exempelkoden i den [ C# anpassad telemetri avsnittet](#log-custom-telemetry-in-c-functions). Exempelkoden resulterar i en *programkartan* i Application Insights som ser ut som följande bild:
 
-![Programkarta](media/functions-monitoring/app-map.png)
+![Programkarta](./media/functions-monitoring/app-map.png)
 
-### <a name="report-issues"></a>Rapportera problem
+## <a name="report-issues"></a>Rapportera problem
 
 Rapportera ett problem med Application Insights-integrering i funktioner och ge förslag eller begäranden, [skapa ett ärende i GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="monitor-without-application-insights"></a>Övervakaren utan Application Insights
+## <a name="streaming-logs"></a>Direktuppspelningsloggar
 
-Vi rekommenderar Application Insights för övervakning av funktioner. Den erbjuder mer data och bättre sätt att analysera data. Men om du vill inbyggd loggning-system som använder Azure Storage kan du kan fortsätta att använda den metoden.
+När du utvecklar ett program, kan det ofta vara användbart att visa loggningsinformation i nära realtid. Du kan visa en dataström med loggfiler som skapas av dina funktioner i Azure portal eller i en kommandorad session på den lokala datorn.
 
-### <a name="azure-storage-account-for-logging"></a>Azure Storage-konto för loggning
+Detta motsvarar utdata visas när du felsöker dina funktioner under [lokal utveckling](functions-develop-local.md). Mer information finns i [så strömma loggar](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
-Inbyggd loggning använder storage-kontot som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Välj en funktion i en funktionen app-sida och välj sedan den **övervakaren** fliken och väljer att förvara den på **klassiskt läge**.
+> [!NOTE]
+> Direktuppspelningsloggar stöder endast en instans av Functions-värden. När din funktion skalas till flera instanser visas inte data från andra instanser i strömmen log. Den [Live Metrics Stream](../azure-monitor/app/live-stream.md) i Application Insights stöd för flera instanser. Medan även i nära realtid, strömningsanalyser även baseras på [exempeldata](#configure-sampling).
 
-![Växla till klassisk vy](media/functions-monitoring/switch-to-classic-view.png)
+### <a name="portal"></a>Portalen
 
-Du får en lista över funktionskörningar. Välj körning av en funktion att granska varaktighet, indata, fel och associerade loggfilerna.
+Om du vill visa direktuppspelningsloggarna i portal, Välj den **plattformsfunktioner** fliken i din funktionsapp. Sedan, under **övervakning**, Välj **loggströmningen**.
 
-Om du har aktiverat Application Insights kan du gå tillbaka till med hjälp av inbyggd loggning. Inaktivera Application Insights manuellt och väljer sedan den **övervakaren** fliken. Om du vill inaktivera Application Insights-integrering, ta bort den `APPINSIGHTS_INSTRUMENTATIONKEY` appinställningen.
+![Aktivera direktuppspelningsloggarna i portalen](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
-Även om den **övervakaren** fliken visar Application Insights-data kan du se loggdata i filsystemet om du inte gjort [inaktiverad inbyggd loggning](#disable-built-in-logging). I Storage-resurs, går du till **filer**, och välj tjänsten för funktionen. Gå till **LogFiles** > **programmet** > **Functions** > **funktionen**  >  **your_function** till finns i loggfilen.
+Det här ansluter din app till loggen strömningstjänst och programloggar visas i fönstret. Du kan växla mellan **programloggar** och **Web serverloggar**.  
 
-### <a name="real-time-monitoring"></a>Övervakning i realtid
+![Visa direktuppspelningsloggarna i portalen](./media/functions-monitoring/streaming-logs-window.png)
 
-Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation. Använd den [Azure kommandoradsgränssnitt (CLI)](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).  
+### <a name="azure-cli"></a>Azure CLI
 
-För Azure CLI, använder du följande kommandon att logga in, väljer din prenumeration och loggfiler för stream:
+Du kan aktivera direktuppspelningsloggarna med hjälp av den [Azure kommandoradsgränssnitt (CLI)](/cli/azure/install-azure-cli). För Azure CLI, använder du följande kommandon att logga in, väljer din prenumeration och loggfiler för stream:
 
 ```azurecli
 az login
 az account list
 az account set --subscription <subscriptionNameOrId>
-az webapp log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
-För Azure PowerShell använder du följande kommandon för att lägga till ditt Azure-konto, väljer din prenumeration och loggfiler för stream:
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Du kan aktivera direktuppspelningsloggarna med hjälp av [Azure PowerShell](/powershell/azure/overview). För PowerShell, använder du följande kommandon för att lägga till ditt Azure-konto, väljer din prenumeration och loggfiler för stream:
 
 ```powershell
 Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <function app name> -Tail
+Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-Mer information finns i [så strömma loggar](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+## <a name="disable-built-in-logging"></a>Inaktivera inbyggd loggning
+
+När du aktiverar Application Insights kan du inaktivera inbyggd loggning som använder Azure Storage. Inbyggd loggning är användbart för att testa med lätta arbetsbelastningar, men är inte avsett för användning i produktion för hög belastning. Vi rekommenderar Application Insights för övervakning av produktionen. Om du använder inbyggd loggning i produktion, kan loggning-posten vara ofullständiga på grund av begränsningar i Azure Storage.
+
+Om du vill inaktivera inbyggd loggning, ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure-portalen finns i den **programinställningar** delen av [hantera en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appinställningen, kontrollera att inga befintliga funktioner i samma funktionsapp använda inställningen för Azure Storage-utlösare och bindningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -686,3 +656,5 @@ Mer information finns i följande resurser:
 
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core-loggning](/aspnet/core/fundamentals/logging/)
+
+[host.json]: functions-host-json.md

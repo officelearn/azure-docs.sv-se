@@ -209,13 +209,13 @@ Azure har två inbyggda användarroller för Log Analytics-arbetsytor:
 
 Medlemmar av *Log Analytics Reader*-rollen kan:
 - Visa och söka i alla övervakningsdata 
-- Visa övervakningsinställningar, även konfiguration av Azure-diagnostik för alla Azure-resurser.
+- Visa övervakningsinställningar, även konfiguration av Azure Diagnostics för alla Azure-resurser.
 
 Läsarroll för Log Analytics innehåller följande Azure åtgärder:
 
 | Typ    | Behörighet | Beskrivning |
 | ------- | ---------- | ----------- |
-| Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurskonfigurationen. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser |
+| Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurskonfigurationen. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser |
 | Åtgärd | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Kan utföra Log Search v2-sökfrågor |
 | Åtgärd | `Microsoft.OperationalInsights/workspaces/search/action` | Kan utföra Log Search v1-sökfrågor |
 | Åtgärd | `Microsoft.Support/*` | Kan öppna supportärenden |
@@ -233,7 +233,7 @@ Medlemmar av *Log Analytics Contributor*-rollen kan:
 - Konfigurera loggsamlingar från Azure Storage  
 - Redigera övervakningsinställningar för Azure-resurser, bland annat
   - Lägga till tillägg för virtuell dator i virtuella datorer
-  - Konfigurera Azure-diagnostik på alla Azure-resurser
+  - Konfigurera Azure Diagnostics på alla Azure-resurser
 
 > [!NOTE] 
 > Du kan använda möjligheten att lägga till ett virtuellt datortillägg i en virtuell dator för att få fullständig kontroll över datorn.
@@ -242,7 +242,7 @@ Rollen Log Analytics Contributor innehåller följande Azure åtgärder:
 
 | Behörighet | Beskrivning |
 | ---------- | ----------- |
-| `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser |
+| `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser |
 | `Microsoft.Automation/automationAccounts/*` | Kan skapa och konfigurera Azure Automation-konton, inklusive lägga till och redigera runbookflöden |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Lägga till, uppdatera och ta bort virtuella datortillägg, även Microsoft Monitoring Agent-tillägget och OMS Agent for Linux-tillägget |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visa lagringskontonyckeln. Krävs för att ställa in Log Analytics för läsning av loggar från Azure-lagringskonton |

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418065"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470074"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -65,8 +65,8 @@ När du inkluderar alternativet `--docker` skapas en Dockerfile för projektet. 
 
 Vid uppmaning väljer du en arbetskörning från följande språk:
 
-* `dotnet`: skapar ett .NET-klassbiblioteksprojekt (.csproj).
-* `node`: skapar ett JavaScript-projekt.
+* `dotnet`: skapar ett .NET klassbiblioteksprojektet (.csproj).
+* `node`: skapar en JavaScript-projektet.
 * `python`: skapar ett Python-projekt.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
@@ -255,6 +255,16 @@ AzureWebJobsStorage=$storageConnectionString
 Nu kan du testa dina funktioner som körs på Linux i Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-application-insights"></a>Aktivera Application Insights
+
+Det är det rekommenderade sättet att övervaka körning av dina funktioner genom att integrera din funktionsapp med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar din funktionsapp med hjälp av Azure CLI.
+
+Aktivera Application Insights för din funktionsapp:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 ## <a name="enable-continuous-deployment"></a>Aktivera kontinuerlig distribution
 

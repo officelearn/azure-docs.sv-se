@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040998"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469632"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla U-SQL-användardefinierade operatörer (UDO)
 Den här artikeln beskriver hur du utvecklar användardefinierade operatörer för att bearbeta data i ett U-SQL-jobb.
@@ -115,7 +115,7 @@ Den här artikeln beskriver hur du utvecklar användardefinierade operatörer f�
 8. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skapa skript**.
 9. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skicka skript**.
 10. Om du inte har anslutit till din Azure-prenumeration, uppmanas du att ange dina autentiseringsuppgifter för Azure-konto.
-11. Klicka på **skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret när överföringen är klar.
+11. Klicka på **Skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret när överföringen är klar.
 12. Klicka på den **uppdatera** för att se senaste jobbstatus och uppdatera skärmen.
 
 **Att se utdata**
@@ -124,5 +124,5 @@ Den här artikeln beskriver hur du utvecklar användardefinierade operatörer f�
 2. Expandera exempel utdata, och dubbelklicka sedan på **Drivers.csv**.
 
 ## <a name="see-also"></a>Se också
-* [Utöka U-SQL-uttryck med användar-kod](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [Utöka U-SQL-uttryck med användar-kod](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Använda Data Lake Tools för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)

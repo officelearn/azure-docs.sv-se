@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276532"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426451"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -85,7 +85,7 @@ Observera att den virtuella nätverksstacken inte sin natur ineffektiv eftersom 
 
 #### <a name="azure-and-fragmentation"></a>Azure och fragmentering
 
-Virtuella nätverksstacken har ställts in att släppa ”oordnade meningar”, det vill säga fragmenterade paket som inte tas emot i sin ursprungliga fragmenterade ordning. Främst på grund av ett säkerhetsproblem i nätverket tillkännagav i November 2018 kallas FragmentStack ignoreras dessa paket.
+Virtuella nätverksstacken har ställts in att släppa ”oordnade meningar”, det vill säga fragmenterade paket som inte tas emot i sin ursprungliga fragmenterade ordning. Främst på grund av ett säkerhetsproblem i nätverket tillkännagav i November 2018 kallas FragmentSmack ignoreras dessa paket.
 
 FragmentSmack är ett fel i hanteringen av sammansättning av fragmenterade IPv4 och IPv6-paket i Linux-kernel. En angripare kan använda felet till utlösaren dyra fragment sammansättning åtgärder, som kan leda till ökad processor- och DOS-attacker på målsystemet.
 

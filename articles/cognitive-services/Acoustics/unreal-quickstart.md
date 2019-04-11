@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313030"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470397"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Projektet Akustik Unreal/Wwise Snabbstart
 I den här snabbstarten ska du experimentera med projekt Akustik design kontroller med angivna exemplen för Unreal Engine och Wwise.
 
 Programvarukrav:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>Ladda ned exempelpaketet
 Ladda ned den [projekt Akustik Unreal + Wwise exempel paketet](https://www.microsoft.com/download/details.aspx?id=58090). Exempelpaketet innehåller ett projekt med Unreal Engine, Wwise projektet för Unreal projektet och projekt Akustik Wwise plugin-programmet.

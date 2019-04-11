@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225934"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470958"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -35,8 +35,8 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
-* Om du kör IoT Edge på Windows har IoT Edge version 1.0.5 inte stöd för Node.js-moduler. Mer information finns i [viktig information om 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Stegvisa instruktioner för hur du installerar en specifik version finns i avsnittet om att [uppdatera IoT Edge-säkerhetsdaemon och -körning](how-to-update-iot-edge.md).
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md).
+* Node.js-moduler för IoT Edge stöder inte Windows-behållare. 
 
 Molnresurser:
 
@@ -47,6 +47,7 @@ Utvecklingsresurser:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
+   * Om du utvecklar på en Windows-enhet ser du till att Docker har [konfigurerats för att använda Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js och npm](https://nodejs.org). npm-paketet distribueras med Node.js, vilket innebär att npm installeras automatiskt på din dator när du laddar ned Node.js.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
@@ -184,7 +185,7 @@ Exempelkod ingår i alla mallar. Koden simulerar sensordata från **tempSensor**
 
 10. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i detta fall **tempSensor** och **NodeModule**, och talar om för IoT Edge-hubben hur meddelanden ska dirigeras mellan dem. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
 
-   1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **NodeModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. 
+   1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **NodeModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** om det är arkitekturen för din IoT Edge-enhet. 
 
       ![Uppdatera modulavbildningsplattformen](./media/tutorial-node-module/image-platform.png)
 
@@ -229,8 +230,9 @@ Den fullständiga adressen med tagg för containeravbildningen i `docker build`-
 >[!TIP]
 >Om du får ett fel när du försöker skapa och överföra din modul gör du följande kontroller:
 >* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter är inte samma som uppgifterna du använder för att logga in i Azure Portal.
->* Stämmer containerlagringsplatsen? Öppna **moduler** > **cmodule** > **module.json** och leta upp **databasfältet**. Avbildningslagringsplatsen ska se ut så här: **\<registernamn\>.azurecr.io/nodemodule**. 
->* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder som standard Linux amd64-containrar. Om din utvecklingsdator kör Windows-containrar eller Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
+>* Stämmer containerlagringsplatsen? Öppna **moduler** > **nodemodule** > **module.json** och hitta den **databasen** fält. Avbildningslagringsplatsen ska se ut så här: **\<registernamn\>.azurecr.io/nodemodule**. 
+>* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder Linux amd64-containrar som standard. Om din utvecklingsdator kör Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
+>* Node.js-moduler för IoT Edge stöder inte Windows-behållare.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 

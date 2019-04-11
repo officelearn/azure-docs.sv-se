@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2019
+ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876814"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470006"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal
-Brandväggsregler på servernivå gör att administratörer kan komma åt en Azure-databas för MariaDB-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
+Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for MariaDB-Server från en angiven IP-adress eller ett intervall med IP-adresser.
+
+Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure-portalen](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
@@ -52,7 +54,6 @@ Upprepa stegen för att hantera brandväggsreglerna.
 * Om du vill ändra en befintlig regel klickar du på något av fälten i regeln och sedan ändra. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ta bort en befintlig regel, klicka på ellipsen [...] och klicka sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
 
-<!--
-## Next steps
- - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
-- For help in connecting to an Azure Database for MariaDB server, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md) -->
+## <a name="next-steps"></a>Nästa steg
+ - På samma sätt kan du skapa skript till [skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-cli.md).
+ - Ytterligare säker åtkomst till servern genom att [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure-portalen](howto-manage-vnet-portal.md).

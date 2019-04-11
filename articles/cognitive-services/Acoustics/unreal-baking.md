@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311578"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470380"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Projektet Akustik Unreal ändamålet självstudien
 Det här dokumentet beskriver processen för att skicka in en Akustik ändamålet med hjälp av Redigeraren för Unreal-tillägget.
@@ -40,6 +40,8 @@ Fliken objekt är den första fliken som visas när du öppnar Akustik-läge. An
 
 Välj ett eller flera objekt i världen Outliner eller Använd den **flera** avsnittet för att välja alla objekt i en specifik kategori. När objekt har markerats kan du använda den **taggning** avsnitt för att tillämpa den önskade taggen till de valda objekten.
 
+Om något har varken **AcousticsGeometry** eller **AcousticsNavigation** tagg, kommer att ignoreras i simuleringen. Endast statiska nät nav nät och landskap stöds. Om du tagga allt annat kommer att ignoreras.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Referens: Objekt fliken delar
 
 ![Skärmbild av Akustik objekt flik i Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Omfatta inte saker som inte ska påverka Akustik, till exempel osynligt kollisio
 
 Ett objekts transformeringen vid tidpunkten för avsökning beräkningen (via fliken avsökningar nedan) har lösts i resultaten för ändamålet. Flytta någon av de markerade objekten i scenen behöver göra om avsökningen beräkningen och rebaking scenen.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Skapa eller tagga ett navigering nät
+### <a name="create-or-tag-a-navigation-mesh"></a>Skapa eller tagga ett navigering nät
 
-Ett navigering-nät används för att placera avsökningen punkter för simulering. Du kan använda Unreal's [Nav nät gränser volym](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), eller ange din egen navigering nät. Du måste markera minst ett objekt som **Akustik navigering**.
+Ett navigering-nät används för att placera avsökningen punkter för simulering. Du kan använda Unreal's [Nav nät gränser volym](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), eller ange din egen navigering nät. Du måste markera minst ett objekt som **Akustik navigering**. Om du använder Unreals navigering nät kan du kontrollera att du har skapat först.
+
+### <a name="acoustics-volumes"></a>Acoustics Volumes ###
+
+Det finns ytterligare kan du använda avancerad anpassning som du kan göra på din navigeringsområden med **Akustik volymer**. **Akustik volymer** är aktörer som du kan lägga till din scen som du kan välja områden att inkludera och ignorera från navigering-nät. Aktören Exponerar en egenskap som du kan byta mellan ”inkludera” och ”exkludera”. ”Inkluderar” volymer säkerställer endast delar av nätet navigering i dem betraktas och ”exkludera” volymer Markera de områdena som ska ignoreras. ”Exkludera” volymer tillämpas alltid efter ”inkludera” volymer. Se till att lägga till taggen **Akustik volymer** som **Akustik navigering** genom vanliga processen i fliken objekt. Dessa aktörer är ***inte*** automatiskt taggade.
+
+![Skärmbild av Akustik volymegenskaper i Unreal](media/unreal-acoustics-volume-properties.png)
+
+”Exkludera” volymer är främst avsedda att ge detaljerad kontroll på var inte ska placeras avsökningar för att skärpa Resursanvändning.
+
+![Skärmbild av exkludera Akustik volym i Unreal](media/unreal-acoustics-volume-exclude.png)
+
+”Inkluderar” volymer är användbart för att skapa manuella delar av en scen till exempel om du vill dela upp din scen till flera akustiska zoner. Till exempel om du har en stor scen många kilometer direkt och du har två intresseområden som du vill skapa Akustik på. Du kan rita två stora ”inkludera” volymer i scenen och skapa ACE-filer för var och en av dem en i taget. Sedan i spelet, kan du använda utlösaren volymer i kombination med skissen anrop att läsa in filen ACE när spelaren närmar sig varje panel.
+
+**Akustik volymer** endast begränsar navigeringen och ***inte*** geometri. Varje avsökning i en ”inkludera” **Akustik volym** fortfarande dra in alla nödvändiga geometri utanför volymen när du utför wave simuleringar. Därför får inte det finnas några avbrott i ocklusion eller andra Akustik som härrör från spelaren korsa från ett avsnitt till en annan.
 
 ## <a name="select-acoustic-materials"></a>Välj akustiska material
 
@@ -87,6 +103,7 @@ Genljudet tidpunkten för ett visst material i ett rum är relaterat till dess a
 4. Visar det akustiska materialet att scen materialet har tilldelats. Klicka på en listruta för att tilldela en scen material till en annan akustiska material.
 5. Visar den akustiska absorptionskoefficienten material som valde i föregående kolumn. Värdet noll innebär perfekt reflekterande (inga absorption), samtidigt som värdet 1 innebär perfekt absorptive (inga reflektion). Ändra det här värdet kommer att uppdatera Akustik Material (steg #4) till **anpassad**.
 
+Om du gör ändringar i det. i din scen måste växla flikar i projektet Akustik plugin-programmet kan se dessa ändringar visas i den **material** fliken.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Beräkna och granska lyssnare avsökningen platser
 
@@ -98,7 +115,7 @@ När du har tilldelat material, växla till den **avsökningar** fliken.
 
 1. Den **avsökningar** fliken knapp som används för att få fram den här sidan
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan
-3. Används för att välja en grov eller bra simulering upplösning. Grov är snabbare, men har vissa kompromisser. Se [grov eller finjustera upplösning](#Coarse-vs-Fine-Resolution) nedan för information.
+3. Används för att välja en grov eller bra simulering upplösning. Grov är snabbare, men har vissa kompromisser. Se [skapa upplösning](bake-resolution.md) nedan för information.
 4. Välj platsen där Akustik datafiler ska placeras med hjälp av det här fältet. Klicka på knappen med ”...” för att använda en Mappväljare för. Läs mer om datafiler [datafiler](#Data-Files) nedan.
 5. Datafilerna för den här scen namnges med prefixet som anges här. Standardvärdet är ”[namn på] _AcousticsData”.
 6. Klicka på den **Calculate** knappen till voxelize scenen och beräkna avsökningen-objekt. Detta utförs lokalt på din dator och måste göras innan du gör en ändamålet. När avsökningar har beräknats kontroller ovan kommer att inaktiveras och den här knappen kommer att ändras för att säga **Rensa**. Klicka på den **Rensa** knappen för att radera beräkningar och aktivera kontroller så att du kan beräkna om med nya inställningarna.
@@ -147,21 +164,7 @@ Det är viktigt att kontrollera att avsökningen punkter finns var som helst spe
 
 ![Skärmbild av Akustik avsökningar förhandsversion i Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Grov vs bra lösning
-
-Den enda skillnaden mellan grov och bra lösning inställningar är den frekvens med vilken simuleringen utförs. Fine använder en frekvens som är dubbelt så mycket som grov.
-Även om det kan verka enkla, har ett antal effekter på akustiska simuleringen:
-
-* Våglängden för grov två gånger är så långa så bra och voxels är därför två gånger så stora.
-* Simulering tiden är direkt relaterad till den voxel storlek, vilket gör en grov ändamålet cirka 16 gånger snabbare än en bra ändamålet.
-* Vara det går inte att simuleras portaler (till exempel dörrar eller windows) och mindre än storleken voxel. Grov inställningen kan göra att vissa av dessa mindre portaler för inte simuleras; Därför kan skickar de inte ljud via vid körning. Du kan se om detta sker genom att visa voxels.
-* Lägre simulering frekvensen resulterar i mindre diffraction runt hörn och kanter.
-* Ljud källor får inte finnas inuti ”fyllts” voxels, som är voxels som innehåller geometri – detta resulterar i utan ljud. Det är svårare att placera ljud källor så att de inte är i större voxels av grov än när du använder inställningen bra.
-* Större voxels kommer intrude mer till portaler, enligt nedan. Den första bilden har skapats med hjälp av grov, medan andra är samma nyckeln med hjälp av bra lösning. Som anges med röd markeringar, är det mycket mindre intrång i nyckeln med hjälp av bra inställningen. Den blå linjen är nyckeln som definieras av geometri, medan den röda linjen är effektiva akustiska portalen definieras av voxel storlek. Hur den här intrång spelar i en viss situation beror helt på hur voxels stämmer överens med portalen, vilket avgörs av storlek och platserna för dina objekt i scenen geometri.
-
-![Skärmbild av grov voxels fylla något i Unreal](media/unreal-coarse-bake.png)
-
-![Skärmbild av bra voxels i något i Unreal](media/unreal-fine-bake.png)
+Se [skapa lösning](bake-resolution.md) för mer information om grov vs funkar lösning.
 
 ## <a name="bake-your-level-using-azure-batch"></a>Skapa din nivå med hjälp av Azure Batch
 

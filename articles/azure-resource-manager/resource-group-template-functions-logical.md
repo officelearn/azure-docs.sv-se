@@ -4,36 +4,33 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2018
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267877"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470159"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
 Resource Manager tillhandahåller flera funktioner för att göra jämförelser i dina mallar.
 
 * [och](#and)
-* [Bool](#bool)
+* [bool](#bool)
 * [if](#if)
-* [not](#not)
+* [inte](#not)
 * [eller](#or)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="and"></a>och
+
 `and(arg1, arg2, ...)`
 
 Kontrollerar om alla parametervärden är sant.
@@ -80,23 +77,12 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Booleskt | False |
+| orExampleOutput | Booleskt | True |
+| notExampleOutput | Booleskt | False |
 
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
+## <a name="bool"></a>bool
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-## <a name="bool"></a>Bool
 `bool(arg1)`
 
 Konverterar parametern till ett booleskt värde.
@@ -144,24 +130,13 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
-
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
+| trueString | Booleskt | True |
+| falseString | Booleskt | False |
+| trueInt | Booleskt | True |
+| falseInt | Booleskt | False |
 
 ## <a name="if"></a>if
+
 `if(condition, trueValue, falseValue)`
 
 Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
@@ -170,7 +145,7 @@ Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| villkor |Ja |boolesk |Värde att kontrollera om det är sant. |
+| villkor |Ja |boolesk |Värde att kontrollera om det är SANT eller FALSKT. |
 | trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
 | falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
 
@@ -180,49 +155,7 @@ Returnerar andra parameter när den första parametern är **SANT**, annars retu
 
 ### <a name="remarks"></a>Kommentarer
 
-Du kan använda den här funktionen för att villkorligt ange en resursegenskap. I följande exempel är inte en fullständig mall, men den visar de relevanta delarna för att villkorligt ange tillgänglighetsuppsättningen.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        ...
-        "availabilitySet": {
-            "type": "string",
-            "allowedValues": [
-                "yes",
-                "no"
-            ]
-        }
-    },
-    "variables": {
-        ...
-        "availabilitySetName": "availabilitySet1",
-        "availabilitySet": {
-            "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-        }
-    },
-    "resources": [
-        {
-            "condition": "[equals(parameters('availabilitySet'),'yes')]",
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            ...
-        },
-        {
-            "apiVersion": "2016-03-30",
-            "type": "Microsoft.Compute/virtualMachines",
-            "properties": {
-                "availabilitySet": "[if(equals(parameters('availabilitySet'),'yes'), variables('availabilitySet'), json('null'))]",
-                ...
-            }
-        },
-        ...
-    ],
-    ...
-}
-```
+När villkoret är **SANT**, endast true värde ska utvärderas. När villkoret är **FALSKT**, endast false-värde ska utvärderas. Med den **om** -funktion som du kan inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte under det andra villkoret. Ett exempel på villkorligt utvärdera uttryck visas i följande avsnitt.
 
 ### <a name="examples"></a>Exempel
 
@@ -259,19 +192,56 @@ Utdata från föregående exempel är:
 | noOutput | String | nej |
 | objectOutput | Objekt | {”test”: ”value1”} |
 
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
+Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visar hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "logAnalytics": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2017-03-30",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "mgmtStatus": {
+            "type": "string",
+            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+        }
+    }
+}
 ```
 
 ## <a name="not"></a>inte
+
 `not(arg1)`
 
 Konverterar booleskt värde till dess motsatt värde.
@@ -316,21 +286,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
-
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
+| andExampleOutput | Booleskt | False |
+| orExampleOutput | Booleskt | True |
+| notExampleOutput | Booleskt | False |
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** med [är lika med](resource-group-template-functions-comparison.md#equals).
 
@@ -352,21 +310,10 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
-
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
+| checkNotEquals | Booleskt | True |
 
 ## <a name="or"></a>eller
+
 `or(arg1, arg2, ...)`
 
 Kontrollerar om ett parametervärde är sant.
@@ -413,23 +360,12 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
-
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
+| andExampleOutput | Booleskt | False |
+| orExampleOutput | Booleskt | True |
+| notExampleOutput | Booleskt | False |
 
 ## <a name="next-steps"></a>Nästa steg
+
 * En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
 * Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).

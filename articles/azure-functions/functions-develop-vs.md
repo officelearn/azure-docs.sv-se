@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889812"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471043"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -80,7 +80,7 @@ Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Function
 
 * **host.json**: Kan du konfigurera Functions-värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [referens för host.json](functions-host-json.md).
 
-* **local.settings.json**: Sparar inställningarna som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
+* **local.settings.json**: Sparar inställningarna som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för miljövariabler som behövs i funktionerna. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
 
     >[!IMPORTANT]
     >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdatakatalog** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
@@ -207,15 +207,11 @@ Du kan också hantera programinställningar i någon av dessa andra sätt:
 
 ## <a name="monitoring-functions"></a>Övervakningsfunktioner
 
-Det är det rekommenderade sättet att övervaka körning av funktionen i Azure genom att integrera med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar funktionsappen vid publicering av Visual Studio. I stället får du inbyggd loggning, vilket inte rekommenderas.
+Det är det rekommenderade sättet att övervaka körning av dina funktioner genom att integrera din funktionsapp med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar funktionsappen vid publicering av Visual Studio.
 
-Aktivera Application Insights för din funktionsapp i Azure:
+Aktivera Application Insights för din funktionsapp:
 
-1. Skapa en Application Insights-instans i den [Azure-portalen](https://portal.azure.com) och kopiera dess instrumenteringsnyckeln. Läs hur genom att läsa [manuellt ansluta en App Insights-resurs](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Lägg till en app som inställning med namnet `APPINSIGHTS_INSTRUMENTATIONKEY` till funktionsappinställningarna i Azure, enligt beskrivningen i [fungera appinställningar](#function-app-settings). Den här appinställningen innehåller instrumenteringsnyckeln som du skapade i föregående steg.
-
-1. Ta bort den `AzureWebJobsDashboard` appinställningen från funktionsappen i Azure, vilket inaktiverar inbyggd loggning.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 

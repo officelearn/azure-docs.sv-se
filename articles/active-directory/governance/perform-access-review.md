@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579690"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470618"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i Azure AD-åtkomstgranskningar
 
@@ -46,7 +46,7 @@ Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om d
 
 1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
-1. Till höger på sidan klickar du på den **Åtkomstgranskningar** ikonen för att visa en lista över väntande åtkomstgranskningar.
+1. Klicka på den **Åtkomstgranskningar** ikonen för att visa en lista över väntande åtkomstgranskningar.
 
     Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
@@ -71,11 +71,13 @@ Det finns två sätt att du kan godkänna eller neka åtkomst:
 
 1. Granska listan över användare att bestämma om du vill godkänna eller neka fortsatt åtkomst.
 
-1. För att godkänna eller neka varje begäran, klickar du på raden för att öppna fönstret för att ange åtgärden som ska vidtas.
+1. För att godkänna eller neka varje begäran, klickar du på raden för att öppna ett fönster för att ange åtgärden som ska vidtas.
 
 1. Klicka på **godkänna** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta resulterar i att upprätthålla hans/hennes åtkomsten användaren, men markeringen visas i granskningsloggarna.
 
     ![Utför åtkomstgranskning](./media/perform-access-review/approve-deny.png)
+
+1. Om det behövs kan du ange en orsak i den **orsak** box.
 
     Administratören för åtkomstgranskningen kan kräva att du anger en orsak för godkännande av fortsatt åtkomst och gruppmedlemskap.
 

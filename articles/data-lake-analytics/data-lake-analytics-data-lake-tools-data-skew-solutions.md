@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: b3079a7f2e71e26164d96cf167b67f1a60f7a23b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046481"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469751"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lösa datasnedställning problem med hjälp av Azure Data Lake Tools för Visual Studio
 
@@ -38,19 +38,19 @@ Om den inte påverkar din affärslogik, kan du filtrera högre frekvens värdena
 
 I föregående exempel, om du vill bara kontrollera skatt granskning arbetsbelastningen över hela landet kan du förbättra Datadistribution genom att välja ID-numret som din nyckel. Välja en annan partition eller distributionsnyckeln kan ibland distribuera data jämnare, men du måste se till att det här valet inte påverkar din affärslogik. Till exempel för att beräkna moms summan för respektive tillstånd, kanske du vill ange _tillstånd_ som partitionsnyckel. Om du fortsätter att det här problemet uppstår kan du använda alternativ 3.
 
-### <a name="option-3-add-more-partition-or-distribution-keys"></a>Alternativ 3: Lägga till fler partition eller distribution nycklar
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Alternativ 3: Lägg till flera nycklar för partition eller distribution
 
 I stället för att endast använda _tillstånd_ som en partitionsnyckel, kan du använda fler än en nyckel för partitionering. Exempel: Överväg att lägga till _postnummer_ som en ytterligare partitionsnyckel för att minska data partitionsstorlekarna och distribuera data jämnare.
 
 ### <a name="option-4-use-round-robin-distribution"></a>Alternativ 4: Använd resursallokering
 
-Om du inte hittar en lämplig nyckel för partition och distribution, kan du försöka använda resursallokering. Resursallokering behandlas alla rader som likvärdiga och placerar slumpmässigt dem i motsvarande buckets. Data fördelas jämnt, men det förlorar även information, en nackdel som kan också minska jobbet prestanda för vissa åtgärder. Om du genomför aggregering för nyckeln skeva ändå, behålls dessutom datasnedställning problemet. Mer information om tekniken finns i avsnittet distributioner för U-SQL-tabell i [CREATE TABLE (U-SQL): skapa en tabell med schemat](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
+Om du inte hittar en lämplig nyckel för partition och distribution, kan du försöka använda resursallokering. Resursallokering behandlas alla rader som likvärdiga och placerar slumpmässigt dem i motsvarande buckets. Data fördelas jämnt, men det förlorar även information, en nackdel som kan också minska jobbet prestanda för vissa åtgärder. Om du genomför aggregering för nyckeln skeva ändå, behålls dessutom datasnedställning problemet. Mer information om tekniken finns i avsnittet distributioner för U-SQL-tabell i [CREATE TABLE (U-SQL): Skapa en tabell med schemat](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Lösning 2: Förbättra frågeplanen
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Alternativ 1: Använd instruktionen CREATE STATISTICS
 
-U-SQL innehåller instruktionen CREATE STATISTICS för tabeller. Den här instruktionen ger mer information till Frågeoptimeringen om, dataegenskaper, till exempel värdedistribution, som lagras i en tabell. För de flesta frågor genererar Frågeoptimeringen redan nödvändig statistik för en frågeplan med hög kvalitet. Ibland kan behöva du förbättra frågeprestanda genom att skapa ytterligare statistik med CREATE STATISTICS eller genom att ändra frågans design. Mer information finns i den [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) sidan.
+U-SQL innehåller instruktionen CREATE STATISTICS för tabeller. Den här instruktionen ger mer information till Frågeoptimeringen om, dataegenskaper, till exempel värdedistribution, som lagras i en tabell. För de flesta frågor genererar Frågeoptimeringen redan nödvändig statistik för en frågeplan med hög kvalitet. Ibland kan behöva du förbättra frågeprestanda genom att skapa ytterligare statistik med CREATE STATISTICS eller genom att ändra frågans design. Mer information finns i den [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) sidan.
 
 Kodexempel:
 
@@ -126,7 +126,7 @@ Kodexempel:
 
 Ibland kan du skriva en användardefinierad operator utan komplicerad logik och en välskriven reducer och combiner kan minska datasnedställning problem i vissa fall.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Alternativ 1: Använd en rekursiv reducer om möjligt
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Alternativ 1: Använda en rekursiv reducer om möjligt
 
 Som standard körs en användardefinierad reducer i icke-rekursiva läge, vilket innebär att minskar arbetet för en nyckel som ska distribueras till en enskild brytpunkt. Men om dina data är förvrängd enorma datauppsättningar kan bearbetas i en enskild brytpunkt och kör under en längre tid.
 
@@ -167,11 +167,11 @@ Attribut för combiner läge:
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Varje rad i utdata beror på en rad från vänster (och eventuellt alla rader från höger med samma nyckelvärde) som indata.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Varje rad i utdata är beroende av en rad från vänster (och eventuellt alla rader från höger med samma nyckelvärde) som indata.
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): varje rad i utdata är beroende av en rad från höger (och eventuellt alla rader från vänster med samma nyckelvärde) som indata.
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): Varje rad i utdata är beroende av en rad från höger (och eventuellt alla rader från vänster med samma nyckelvärde) som indata.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Varje rad i utdata beror på en rad från vänster och höger med samma värde som indata.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Varje rad i utdata är beroende av en rad från vänster och höger med samma värde som indata.
 
 Kodexempel:
 

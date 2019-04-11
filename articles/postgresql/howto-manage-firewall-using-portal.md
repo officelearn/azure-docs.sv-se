@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086640"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470805"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure-portalen
-Brandväggsregler på servernivå gör att administratörer kan få åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller IP-adressintervall. 
+Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller IP-adressintervall.
+
+Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure-portalen](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här guiden, måste du:
@@ -34,7 +36,7 @@ För att gå igenom den här guiden, måste du:
 
    ![Sökning i Bing nyheter Min IP-adress](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for PostgreSQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fältet för första IP- och slut-IP. Om du öppnar brandväggen kan administratörer, användare och program för att logga in i valfri databas på PostgreSQL-server som de har giltiga autentiseringsuppgifter.
+4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for PostgreSQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fältet för första IP- och slut-IP. Om du öppnar brandväggen kan administratörer och användare kan få åtkomst till valfri databas på PostgreSQL-servern som de har giltiga autentiseringsuppgifter.
 
    ![Azure portal – brandväggsregler](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ Upprepa stegen för att hantera brandväggsreglerna.
 
 ## <a name="next-steps"></a>Nästa steg
 - På samma sätt kan du skapa skript till [skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md).
+- Ytterligare säker åtkomst till servern genom att [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure-portalen](howto-manage-vnet-using-portal.md).
 - Hjälp med att ansluta till en Azure Database for PostgreSQL-server finns i [anslutningsbibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).

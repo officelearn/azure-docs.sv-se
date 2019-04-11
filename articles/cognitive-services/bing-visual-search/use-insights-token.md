@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 5/16/2018
+ms.date: 4/05/2019
 ms.author: scottwhi
-ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082737"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469122"
 ---
-# <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Använda en insights-token för att få insikter om en bild
+# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Använd en insights-token för att få insikter för en avbildning
 
-API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [vad är Bing Visual Search API?](overview.md). Den här artikeln visar hur du använder en token för insights. Exempel som visar hur du laddar upp en bild för att få insikter, finns Snabbstart ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
+API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [vad är Bing Visual Search API?](overview.md). Den här artikeln visar hur du använder en token för insights. Exempel som visar hur du kan ladda upp en bild för att få insikter, finns Snabbstart ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
-
-Om du skickar visuell sökning till en bildtoken eller webbadress visar följande de formulärdata som visas nedan i brödtexten i POST. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om den `imageInfo` objekt, finns i begäran.
+Om du skickar Bing Visual Search en bild-token eller URL visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla den `Content-Disposition` rubrik och du måste ställa in dess `name` parameter ”knowledgeRequest”. Mer information om den `imageInfo` objekt, finns i begäran:
 
 ```json
 {
@@ -44,7 +43,7 @@ Om du skickar visuell sökning till en bildtoken eller webbadress visar följand
 }
 ```
 
-Exemplen i den här artikeln visar hur du använder insights-token. Du får insikter-token från ett-objekt i ett /images/search API-svar. Information om hur du får insikter token finns i [bildsökning i Bing](../Bing-Image-Search/overview.md).
+Exemplen i den här artikeln visar hur du använder insights-token. Du får insikter-token från en `Image` objekt i en/images/Sök API-svar. Information om hur du får insikter token finns i [vad är den bildsökning i Bing?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -59,28 +58,24 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
+Exempel som använder token insights finns [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
 
-Exempel som använder token insights finns [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python).
+## <a name="use-with-c"></a>Använda medC#
 
-<a name="using-csharp" />
+### <a name="c-prerequisites"></a>C#nödvändiga komponenter
 
-## <a name="using-c"></a>Använd C#
+- En version av [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows.
+- En Azure-prenumeration. Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
-### <a name="prerequisites"></a>Förutsättningar
-
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
-
-I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
-
-## <a name="running-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra programmet
 
 Följ dessa steg om du vill köra programmet:
 
-1. Skapa en ny konsollösning i Visual Studio.
-1. Ersätt innehållet i `Program.cs` med den kod som visas i den här snabbstarten.
-2. Ersätt värdet `accessKey` med din prenumerationsnyckel.
-2. Ersätt den `insightsToken` värde med en insights-token från en/bilder/search-svar.
-3. Kör programmet.
+1. Skapa en konsol-lösning i Visual Studio.
+2. Ersätt innehållet i Program.cs med koden som visas i den här snabbstarten.
+3. Ersätt värdet `accessKey` med din prenumerationsnyckel.
+4. Ersätt den `insightsToken` värde med en insights-token från en/bilder/search-svar.
+5. Kör programmet.
 
 ```csharp
 using System;
@@ -238,22 +233,19 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-<a name="using-java" />
+## <a name="use-with-java"></a>Använd med Java
 
-## <a name="using-java"></a>Använda Java
+### <a name="java-prerequisites"></a>Java-krav
 
-### <a name="prerequisites"></a>Förutsättningar
+- Du måste använda [JDK 7 eller 8](https://aka.ms/azure-jdks) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
+- Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
-Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
-
-I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
-
-## <a name="running-the-application"></a>Köra programmet
+## <a name="run-the-java-application"></a>Kör Java-program
 
 Följ dessa steg om du vill köra programmet:
 
-1. Hämta eller installera [gson-biblioteket](https://github.com/google/gson). Du kan också hämta det via Maven.
-2. Skapa ett nytt Java-projekt i din favorit-IDE eller i ett redigeringsprogram.
+1. Hämta eller installera den [Gson Java-bibliotek](https://github.com/google/gson). Du kan också hämta Gson via Maven.
+2. Skapa ett nytt Java-projekt i den IDE eller redigerare du föredrar.
 3. Lägg till den angivna koden i en fil med namnet `VisualSearch.java`.
 4. Ersätt värdet `subscriptionKey` med din prenumerationsnyckel.
 5. Kör programmet.
@@ -351,38 +343,35 @@ public class InsightsToken {
         return gson.toJson(json);
     }
 
-    
+
 }
 ```
 
+## <a name="use-with-nodejs"></a>Använd med Node.js
 
-<a name="using-nodejs" />
+### <a name="nodejs-prerequisites"></a>Krav för node.js
 
-## <a name="using-nodejs"></a>Använda Node.js
+- Du måste ha [Node.js 6](https://nodejs.org/en/download/) att köra den här koden.
+- Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
-### <a name="prerequisites"></a>Förutsättningar
-
-Du behöver [Node.js 6](https://nodejs.org/en/download/) för att kunna köra den här koden.
-
-I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
-
-## <a name="running-the-application"></a>Köra programmet
+## <a name="run-the-javascript-application"></a>Köra JavaScript-programmet
 
 Följ dessa steg om du vill köra programmet:
 
 1. Skapa en mapp för ditt projekt (eller använd din favorit-IDE eller redigerare).
 2. Gå till mappen som du nyss skapade från en kommandotolk eller terminal.
-3. Installera de begärda modulerna:  
-   ```  
+3. Installera de begärda modulerna:
+  
+   ```
    npm install request  
-   ```  
-3. Installera modulerna för formulärdata:  
-   ```  
+   ```
+1. Installera modulerna för formulärdata:  
+   ```
    npm install form-data  
-   ```  
-4. Skapa en fil med namnet GetVisualInsights.js och lägg till nedanstående kod i den.
-5. Ersätt värdet `subscriptionKey` med din prenumerationsnyckel.
-7. Kör programmet.  
+   ```
+1. Skapa en fil med namnet GetVisualInsights.js och lägg till nedanstående kod i den.
+1. Ersätt värdet `subscriptionKey` med din prenumerationsnyckel.
+1. Kör programmet.  
    ```
    node GetVisualInsights.js
    ```
@@ -422,19 +411,14 @@ function requestCallback(err, res, body) {
 }
 ```
 
+## <a name="use-with-python"></a>Använd med Python
 
-<a name="using-python" />
+### <a name="python-prerequisites"></a>Python-krav
 
-## <a name="using-python"></a>Använda Python
+- Du måste ha [Python 3](https://www.python.org/) att köra den här koden.
+- I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
 
-
-### <a name="prerequisites"></a>Förutsättningar
-
-Du behöver [Python 3](https://www.python.org/) för att köra koden.
-
-I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
-
-## <a name="running-the-walkthrough"></a>Köra genomgången
+## <a name="run-the-python-application"></a>Kör Python-App
 
 Följ dessa steg om du vill köra programmet:
 
@@ -442,7 +426,6 @@ Följ dessa steg om du vill köra programmet:
 2. Skapa en fil med namnet visualsearch.py och lägg till den kod som visas i den här snabbstarten.
 3. Ersätt värdet `SUBSCRIPTION_KEY` med din prenumerationsnyckel.
 4. Kör programmet.
-
 
 ```python
 """Bing Visual Search example"""
@@ -492,8 +475,8 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Bing Visual Search-självstudiekursen som ensidesapp](tutorial-bing-visual-search-single-page-app.md)  
-[Översikt för Visuell sökning i Bing](overview.md)  
-[Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Skapa en enda sida i Visual Search webbapp](tutorial-bing-visual-search-single-page-app.md)  
+[Vad är API:et för visuell sökning i Bing?](overview.md)  
+[Testa Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
+[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bilder - Visual Search](https://aka.ms/bingvisualsearchreferencedoc)

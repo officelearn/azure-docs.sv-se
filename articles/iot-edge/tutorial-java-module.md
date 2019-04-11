@@ -9,16 +9,16 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e24894e088f443ca705163c353920e8dd3ff4ca
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266689"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470312"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en IoT Edge-modul i Java och distribuera till den simulerade enheten
 
-Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du kommer att använda den simulerade IoT Edge-enheten som du skapade i snabbstarterna Distribuera Azure IoT Edge på en simulerad enhet i [Windows](quickstart.md) eller [Linux](quickstart-linux.md). I den här guiden får du lära dig att:    
+Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du ska använda simulerade IoT Edge-enheten som du skapade i distribuera Azure IoT Edge på en simulerad enhet i [Linux](quickstart-linux.md) Snabbstart. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * använda Visual Studio Code för att skapa en IoT Edge-modul i Java som baseras på mallpaketet Maven i Azure IoT Edge och Java-SDK:et för Azure IoT-enheter.
@@ -36,8 +36,8 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda en Azure virtuell dator som en IoT Edge-enhet genom att följa stegen i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
-* För IoT Edge på Windows-enheter har version 1.0.5 inte stöd för Java-moduler. Mer information finns i [viktig information om 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Stegvisa instruktioner för hur du installerar en specifik version finns i avsnittet om att [uppdatera IoT Edge-säkerhetsdaemon och -körning](how-to-update-iot-edge.md).
+* Du kan använda en Azure virtuell dator som en IoT Edge-enhet genom att följa stegen i snabbstarten för [Linux](quickstart-linux.md). 
+* Java-moduler för IoT Edge stöder inte Windows-behållare. 
 
 Molnresurser:
 
@@ -51,7 +51,7 @@ Utvecklingsresurser:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Om du utvecklar på en Windows-enhet, se till att Docker är [konfigurerad för att använda Linux eller Windows-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers), beroende på din IoT Edge-enhetens operativsystem. 
+   * Om du utvecklar på en Windows-enhet ser du till att Docker har [konfigurerats för att använda Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
@@ -222,7 +222,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 12. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Filen uppmanar IoT Edge-agenten vilka moduler för att distribuera, och talar om hur du dirigerar meddelanden mellan dem för IoT Edge hub. I det här fallet två moduler är **tempSensor** och **JavaModule**. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
 
-   1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **JavaModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. 
+   1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **JavaModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** om det är arkitekturen för din IoT Edge-enhet. 
 
       ![Uppdatera modulavbildningsplattformen](./media/tutorial-java-module/image-platform.png)
 
@@ -267,7 +267,8 @@ Den fullständiga adressen med tagg för containeravbildningen finns i den integ
 >Om du får ett fel när du försöker skapa och överföra modulen gör du följande kontroller:
 >* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter är inte samma som uppgifterna du använder för att logga in i Azure Portal.
 >* Stämmer containerlagringsplatsen? Öppna **moduler** > **JavaModule** > **module.json** och hitta den **databasen** fält. Avbildningslagringsplatsen ska se ut så här: **\<registername\>.azurecr.io/javamodule**. 
->* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder som standard Linux amd64-containrar. Om din utvecklingsdator kör Windows-containrar eller Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
+>* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder Linux amd64-containrar som standard. Om din utvecklingsdator kör Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
+>* Java-moduler för IoT Edge stöder inte Windows-behållare.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895489"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470865"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera live-Azure Cloud Services med Programinsikter
 
@@ -33,7 +33,7 @@ Application Insights Profiler har installerats med Azure Diagnostics-tillägget.
 
 1. Lägg till [Application Insights SDK till Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler. Om du använder Visual Studio för att nedgradera versionen av SDK: N för App Insights, kan du få en bindning omdirigerings-fel vid körning. Det beror på att ”newVersion” i filen web.config för Microsoft.ApplicationInsights ska vara inställd på ”2.7.2.0” när nedgradering AI-SDK, men det inte uppdateras automatiskt.
+    **Fel i profiler som levereras i WAD för molntjänster har åtgärdats.** Den senaste versionen av WAD (1.12.2.0) för Cloud Services fungerar med alla de senaste versionerna av App Insights SDK. Cloud Service värdar uppgraderar WAD automatiskt, men det sker inte omedelbart. Du kan distribuera om din tjänst eller starta om noden om du vill framtvinga en uppgradering.
 
 1. Spåra begäranden med Application Insights:
 

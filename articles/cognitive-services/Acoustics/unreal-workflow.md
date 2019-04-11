@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316210"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470023"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Projektet Akustik Unreal/Wwise Design självstudien
 Den här självstudien beskriver design, installation och arbetsflöde för projektet Akustik i Unreal och Wwise.
@@ -62,11 +62,18 @@ Kom ihåg att nödvändiga aktör-mixer-installationsprogrammet utbyten vanligt 
 ![Skärmbild av Wwise redigerare som visar röst designriktlinjer för projektet Akustik](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Konfigurera avståndet dämpning kurvor
-Se till att alla dämpning kurva som används av aktör blandare, med hjälp av projektet Akustik har egna aux skicka inställd på ”utdata bus volym”. Wwise sker som standard för nya dämpning kurvor. Om du migrerar ett befintligt projekt, kontrollera inställningarna kurvan. 
+Se till att alla dämpning kurva som används av aktör blandare, med hjälp av projektet Akustik har egna aux skicka inställd på ”utdata bus volym”. Wwise sker som standard för nya dämpning kurvor. Om du migrerar ett befintligt projekt, kontrollera inställningarna kurvan.
 
 Projektet Akustik simulering har en radie av 45 taxor runt player-plats som standard. I allmänhet rekommenderar vi ställa in din dämpning kurvan-200 dB runt det avståndet. Den här avståndet är inte ett villkor. För vissa låter som förespråkar du en större radie. I sådana fall är villkor för att endast geometri inom 45 m för player-platsen ska delta. Om programmet är i ett rum och en bra källa är utanför utrymme och direkt 100 miljoner, ska det vara korrekt occluded. Om källan är i ett rum och spelaren är utanför och direkt 100 miljoner, vara det inte korrekt occluded.
 
 ![Skärmbild av Wwise dämpning kurvor](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>Publicera Mixer Utjämning ###
+ En annan sak du kanske vill göra är att lägga till en post mixer equalizer. Du kan hantera projekt Akustik bus som en typisk eko buss (i standardläget för eko) och placera ett filter på den för att göra utjämning. Du kan se ett exempel på detta i projektet Akustik Wwise exempelprojektet.
+
+![Skärmbild av Wwise efter mixer EQ](media/wwise-post-mixer-eq.png)
+
+Till exempel kan ett hög pass filter hantera bas från närfälts-inspelningar som returnerar boomy, orealistiskt eko. Du kan också få mer efter ändamålet kontroll genom att justera EQ via RTPCs, så att du kan ändra färg på eko på spel-tid.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Konfigurera scen hela projektet Akustik egenskaper
 
@@ -80,7 +87,7 @@ Akustik utrymme aktören visar många av kontrollerna som ändrar funktionssätt
 * **Cache-skala:** styr storleken på cacheminnet används för akustiska frågor. En mindre cache använder mindre minne men kan öka CPU-användning för varje fråga.
 * **Akustik aktiverat:** En debug-kontroll för att aktivera snabb A / B växla för Akustik simuleringen. Den här kontrollen ignoreras i levererade konfigurationer. Kontrollen är användbart för att söka efter om en viss ljud bugg har sitt ursprung på Akustik beräkningar eller några andra problem i Wwise-projektet.
 * **Uppdatera avstånd:** Använd det här alternativet om du vill använda i förväg bakade Akustik-information för avståndet frågor. De här frågorna liknar ray-sändningar, men de har förberäknade så ta mycket mindre CPU. Det är ett exempel på användning för diskreta reflektioner från närmaste ytan till lyssnaren. Om du vill utnyttja det här fullständigt måste du använder kod eller skisser för att fråga avstånd.
-* **Rita statistik:** Medan UE'S `stat Acoustics` får du med CPU-information, visa den här statusen visas som lästs in kartan, RAM-användning och annan statusinformation längst upp till vänster på skärmen.
+* **Rita statistik:** Medan UE'S `stat Acoustics` får du med CPU-information, visa den här statusen visas som lästs in ACE-filen, RAM-användning och annan statusinformation längst upp till vänster på skärmen.
 * **Rita Voxels:** Företagsdataskydd voxels Stäng om du vill som visar voxel rutnätet används under körning interpolering lyssnaren. Om underkänt finns i en runtime voxel, misslyckas den akustiska frågor.
 * **Rita avsökningar:** Visa alla avsökningar för den här scen. De kommer att olika färger beroende på deras tillstånd för inläsning.
 * **Rita avstånd:** Om uppdateringen avstånd är aktiverat, då visas en ruta närmaste yta till lyssnare i quantized riktningar runt lyssnaren.
@@ -96,6 +103,7 @@ Kontrollerna design är begränsade till en enskild ljud komponent i Unreal.
 * **Outdoorness justering:** Styr hur utomhus genljudet är. Värden närmare 0 är mer inne, närmare 1 är mer utomhus. Den här justeringen är additiva, så ange den till -1 framtvingar inne, ange värdet till + 1 framtvingar utomhus.
 * **Överföringen Db:** Rendera en ytterligare via vägg ljud med den här loudness kombineras med rad med för att se baserat avståndet dämpning.
 * **Våt förhållande avståndet otroligt:** Justerar genljudet egenskaper på källan som om det vore närmare/ytterligare direkt utan att påverka den direkta sökvägen.
+* **Spela upp vid Start:** Växla för att ange om ljudet ska spelas upp automatiskt på scen start. Aktiverad som standard.
 * **Visa akustiska parametrar:** Visa felsökningsinformation direkt ovanpå komponenten i spelet. (endast för icke-leveranser konfigurationer)
 
 ## <a name="blueprint-functionality"></a>Skissen funktioner

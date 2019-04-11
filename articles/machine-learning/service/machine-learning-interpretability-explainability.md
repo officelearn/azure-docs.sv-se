@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/04/2019
-ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/09/2019
+ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051809"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469785"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
@@ -34,7 +34,7 @@ Azure Machine Learning Interpretability SDK innehåller tekniker som utvecklats 
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Azure Machine Learning Interpretability kan användas för att förstå modellens globala beteende eller en specifik förutsägelse. Den tidigare versionen är globala förklaring och det senare kallas lokala förklaring.
+Azure Machine Learning Interpretability kan användas för att förstå modellen globala beteende eller specifika förutsägelser. Den tidigare versionen är globala förklaring och det senare kallas lokala förklaring.
 
 Azure Machine Learning Interpretability metoder kan kategoriseras även baserat på om metoden är oberoende av modellen eller specifika modellen. Vissa metoder rikta in vissa typer av modeller. Till exempel gäller Formdatas trädet förklaring endast för trädet-baserade modellen. Vissa metoder behandlar modellen som en svart ruta, till exempel mimic förklaring eller Formdatas kernel förklaring. Azure Machine Learning Interpretability SDK utnyttjar dessa olika sätt utifrån datauppsättningar, modelltyper och användningsfall.
 
@@ -42,7 +42,6 @@ Azure Machine Learning Interpretability returnerar en uppsättning information p
 
 * Global/lokal relativa funktionen prioritet
 * Global/lokal funktion och förutsägelser relation
-* Interaktiva visualiseringar som visar förutsägelser, funktionen funktion och förutsägelse relationen och relativt vikten värden globalt och lokalt
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -70,11 +69,10 @@ __Dirigera explainers__ kommer från integrerade bibliotek. SDK: N omsluter alla
 * **GRÖN förklaring**: Baserat på grön, används grön förklaring enligt modellen-oberoende förklaringar i den senaste lokala interpretable (grön) algoritmen för att skapa lokala surrogate modeller. Till skillnad från de globala surrogate modellerna fokuserar grön på utbildning modeller för lokala surrogate att förklara enskilda förutsägelser.
 * **HAN Text förklaring**: HAN Text förklaring använder ett hierarkisk uppmärksamhet nätverk för att hämta modellen förklaringar från textdata för en viss svart ruta text-modell. Vi tränar HAN surrogate på en viss lärare modell förväntade utdata. Vi har lagt till ett fine-tune steg för ett visst dokument för att kunna förbättra förklaringarna efter utbildning globalt över texten Kristi. HAN använder en dubbelriktad RNN med två uppmärksamhet lager för mening och word uppmärksamhet. När DNN har tränats på modellen för lärare och finjusterat på ett visst dokument, kan vi extrahera word importances från uppmärksamhet-lager. Vi har hittat HAN ska exaktare än grön eller FORMDATA för textdata men dyrare i villkoren i utbildning samt tid. Men har vi gjort förbättringar till dess att utbildning genom att ge användaren kan initiera nätverk med GloVe ordinbäddningar, även om det är fortfarande långsamt. Utbildningstid kan förbättras avsevärt genom att köra HAN på en fjärransluten Azure GPU VM. Implementeringen av HAN beskrivs i ”hierarkisk uppmärksamhet nätverk för Dokumentklassificering (Yang et al., 2016)” ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Meta explainers__ automatiskt välja en lämplig direkt förklaring och generera den bästa förklaring information baserat på den angivna modellen och datauppsättningar. Meta-explainers utnyttja alla bibliotek (FORMDATA, grön, GA2M, avbildningen osv.) som vi har integrerat eller utvecklas. Följande är de meta explainers som är tillgängliga i SDK:
+__Meta explainers__ automatiskt välja en lämplig direkt förklaring och generera den bästa förklaring information baserat på den angivna modellen och datauppsättningar. Meta-explainers utnyttja alla bibliotek (FORMDATA, grön, avbildningen osv.) som vi har integrerat eller utvecklas. Följande är de meta explainers som är tillgängliga i SDK:
 
 * **Tabular förklaring**: Använda med tabelldatauppsättningar.
 * **Text förklaring**: Används med text datauppsättningar.
-* **Bild förklaring** används med bild datauppsättningar.
 
 Dessutom till meta välja av direkt explainers, meta explainers utveckla ytterligare funktioner ovanpå de underliggande bibliotek och förbättras direkt explainers hastighet och skalbarhet.
 
@@ -90,7 +88,6 @@ Intelligens är inbyggt i `TabularExplainer` kommer allt mer sofistikerade som y
 
 * **Sammanfattning av datauppsättningen som initieringen**. I fall där hastigheten på förklaring är viktigast vi sammanfatta initieringen datauppsättningen och skapa en liten uppsättning representativa mängder som påskyndar både globala och lokala förklaring.
 * **Sampling datauppsättningen utvärdering**. Om användaren skickar i en stor uppsättning utvärdering exempel men inte verkligen behöver dem som ska utvärderas alla, kan parametern sampling anges som SANT för att snabba upp globala förklaring.
-* **KNN snabb förklaring**. En KNN-metoden kan användas i fall där förklaring måste vara lika snabbt som en enda bedömning/förutsägelse. Under global förklaring bevaras både initieringen exemplen och motsvarande funktioner som top k. För att generera en förklaring för varje utvärdering exempel KNN-metoden som används för att hitta mest liknande exemplet från initieringen exemplen och mest liknande exemplet top k funktioner returneras som top k-funktionerna för utvärdering.
 
 Följande diagram visar relationen mellan två uppsättningar med direct och meta explainers.
 
@@ -100,7 +97,7 @@ Följande diagram visar relationen mellan två uppsättningar med direct och met
 
 Alla modeller som är tränade på datauppsättningar i Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, eller `scipy.sparse.csr_matrix` format som stöds av Machine Learning Interpretability SDK.
 
-Förklaring-funktioner innehålla både modeller och pipelines som indata. Om en modell har angetts och modellen måste implementera förutsägelsefunktionen `predict` eller `predict_proba` som bekräftar att Scikit-konventionen. Om en pipeline (namnet på skriptet pipeline) tillhandahålls förutsätter funktionen förklaring att köra pipeline-skriptet returnerar en förutsägelse.
+Förklaring-funktioner innehålla både modeller och pipelines som indata. Om en modell har angetts och modellen måste implementera förutsägelsefunktionen `predict` eller `predict_proba` som överensstämmer med Scikit-konventionen. Om en pipeline (namnet på skriptet pipeline) tillhandahålls förutsätter funktionen förklaring att köra pipeline-skriptet returnerar en förutsägelse.
 
 ### <a name="local-and-remote-compute-target"></a>Lokal och fjärransluten beräkningsmål
 
@@ -129,13 +126,12 @@ Machine Learning Interpretability SDK är utformat för att arbeta med både lok
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
-    or
+    ```
+    eller
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. Hämta funktionen globala vikten värden.
@@ -154,9 +150,16 @@ Machine Learning Interpretability SDK är utformat för att arbeta med både lok
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
-    or
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
+    eller
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -172,21 +175,14 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -200,6 +196,8 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
 2. Följ anvisningarna på [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md#amlcompute) mer information om hur du konfigurerar en Azure Machine Learning Compute som din beräkningsmål och skicka in din utbildning-körning.
 
 3. Hämta förklaring i din lokal Jupyter-anteckningsbok. 
+    > [!IMPORTANT]
+    > Saker i contrib stöds inte fullt ut. När de experimentella funktionerna blir mogen, flyttas de gradvis till det huvudsakliga paketet.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient

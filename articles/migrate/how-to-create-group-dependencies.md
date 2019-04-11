@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274646"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357171"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -127,14 +127,14 @@ Köra Kusto-frågor:
 1. När du har installerat agenterna, gå till portalen och klicka på **översikt**.
 2. I **översikt**går du till **Essentials** delen av projektet och klicka på arbetsytans namn tillhandahålls bredvid **OMS-arbetsyta**.
 3. På sidan Log Analytics-arbetsytan **Allmänt** > **loggar**.
-4. Skriv din fråga för att samla in data för programberoende med Azure Monitor-loggar. Exempelfrågor för att samla in data för programberoende finns [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Skriv din fråga för att samla in data för programberoende med Azure Monitor-loggar. Hitta exempelfrågor i nästa avsnitt.
 5. Kör frågan genom att klicka på Kör. 
 
 [Läs mer](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) om hur du skriver Kusto-frågor. 
 
 ## <a name="sample-azure-monitor-logs-queries"></a>Exemplet Azure Monitor loggar frågor
 
-Följande är exempelfrågor som du kan använda för att extrahera data för programberoende. Du kan ändra frågor för att extrahera önskade datapunkterna. En fullständig förteckning av fälten i beroende dataposter är tillgänglig [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Följande är exempelfrågor som du kan använda för att extrahera data för programberoende. Du kan ändra frågor för att extrahera önskade datapunkterna. En fullständig förteckning av fälten i beroende dataposter är tillgänglig [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Hitta fler exempelfrågor [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Sammanfatta inkommande anslutningar på en uppsättning datorer
 

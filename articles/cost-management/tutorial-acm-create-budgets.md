@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273591"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469496"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera budgetar för Azure
 
@@ -63,9 +63,9 @@ Klicka på **Lägg till**.
 
 ![Cost Management budgetar visas i Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-I den **skapa budget** fönstret, ange ett budgetnamn och budgetbelopp. Välj antingen en månadsvis, Kvartalsvis eller årlig varaktigheten<sup>1</sup>. Välj sedan ett slutdatum. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett tröskelvärde för budget är uppfyllt, tas e-postmeddelanden emot på normalt inom mindre än åtta timmar. Mer information om meddelanden finns i [Använd kostnad aviseringar](cost-mgt-alerts-monitor-usage-spending.md).
+I den **skapa budget** fönstret, ange ett budgetnamn och budgetbelopp. Välj antingen en månadsvis, kvartalsvis, eller en årlig varaktigheten. Välj sedan ett slutdatum. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett tröskelvärde för budget är uppfyllt, tas e-postmeddelanden emot på normalt inom mindre än åtta timmar. Mer information om meddelanden finns i [Använd kostnad aviseringar](cost-mgt-alerts-monitor-usage-spending.md).
 
-<sup>1</sup> om du är en betala per användning, MSDN eller Visual Studio-kund din faktura faktureringsperiod för en prenumeration kanske inte justeras per kalendermånad. Du kan skapa en budget som justeras till din faktura eller kalendermånaderna för prenumerationer och resursgrupper i den här bucket. Om du vill skapa en budget som justeras till din faktura, väljer du en återställning viss Faktureringsmånad, fakturering kvartal eller år fakturering vid tidpunkten för skapandet. Välj en period för återställning av månadsvis, Kvartalsvis eller årligen vid skapandet för att skapa en budget som justerad per kalendermånad.
+Om du har en betala per användning, MSDN eller Visual Studio-prenumeration, kanske inte din faktura faktureringsperiod justeras per kalendermånad. Du kan skapa en budget som justeras till din faktureringsperiod eller kalendermånaderna för dessa typer av prenumerationer och resursgrupper. Välj en återställning viss Faktureringsmånad, fakturering kvartal eller år för fakturering om du vill skapa en budget som justeras till dina fakturaperioden. Om du vill skapa en budget som justerad per kalendermånad, väljer du en återställning tidsperiod månads-, Kvartalsvis eller årligen.
 
 Här är ett exempel på hur du skapar en månatlig budget för $ 4 500. En e-postavisering hämtar genereras när 90% av budgeten har uppnåtts.
 

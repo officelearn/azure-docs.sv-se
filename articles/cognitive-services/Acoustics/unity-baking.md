@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309650"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470346"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Projektet Akustik Unity ändamålet självstudien
 Den här självstudien beskrivs Akustik gräddning med projekt Akustik i Unity.
@@ -137,7 +137,7 @@ Scennamnet används för att ansluta scenen till lagring avsökningen punkt plac
 
 1. Den **avsökningar** fliken knapp som används för att få fram den här sidan
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan
-3. Du kan använda dessa för att välja en grov eller bra simulering upplösning. Grov är snabbare, men har vissa kompromisser. Se [och välja grov vs bra lösning](#Coarse-vs-Fine-Resolution) nedan för information.
+3. Du kan använda dessa för att välja en grov eller bra simulering upplösning. Grov är snabbare, men har vissa kompromisser. Se [skapa upplösning](bake-resolution.md) nedan för information.
 4. Välj platsen där Akustik datafiler ska placeras med hjälp av det här fältet. Klicka på knappen med ”...” för att använda en Mappväljare för. Standardvärdet är **tillgångar/AcousticsData**. En **redigeraren** undermapp skapas även under den här platsen. Läs mer om datafiler [datafiler](#Data-Files) nedan.
 5. Datafilerna för den här scen namnges med prefixet som anges här. Standardvärdet är ”Acoustics_ [scen Name]”.
 6. När avsökningar har beräknats, inaktiveras kontrollerna som ovan. Klicka på den **Rensa** knappen för att radera beräkningar och aktivera kontroller så att du kan beräkna om med nya inställningarna.
@@ -145,21 +145,7 @@ Scennamnet används för att ansluta scenen till lagring avsökningen punkt plac
 
 I den här versionen av projektet Akustik avsökningar kan inte placeras manuellt och måste placeras via den automatiska processen som anges i den **avsökningar** fliken.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Välja grov jämfört med bra lösning
-
-Den enda skillnaden mellan grov och bra lösning inställningar är den frekvens med vilken simuleringen utförs. Fine använder en frekvens som är dubbelt så mycket som grov.
-Även om det kan verka enkla, har ett antal effekter på akustiska simuleringen:
-
-* Våglängden för grov två gånger är så långa så bra och voxels är därför två gånger så stora.
-* Simulering tiden är direkt relaterad till den voxel storlek, vilket gör en grov ändamålet cirka 16 gånger snabbare än en bra ändamålet.
-* Vara det går inte att simuleras portaler (till exempel dörrar eller windows) och mindre än storleken voxel. Grov inställningen kan göra att vissa av dessa mindre portaler för inte simuleras; Därför kan skickar de inte ljud via vid körning. Du kan se om detta sker genom att visa voxels.
-* Lägre simulering frekvensen resulterar i mindre diffraction runt hörn och kanter.
-* Ljud källor får inte finnas inuti ”fyllts” voxels, som är voxels som innehåller geometri – detta resulterar i utan ljud. Det är svårare att hitta bra källor så att de inte är i större voxels av grov än den använder inställningen bra.
-* Större voxels kommer intrude mer till portaler, enligt nedan. Den första bilden har skapats med hjälp av grov, medan andra är samma nyckeln med hjälp av bra lösning. Som anges med röd markeringar, är det mycket mindre intrång i nyckeln med hjälp av bra inställningen. Den blå linjen är nyckeln som definieras av geometri, medan den röda linjen är effektiva akustiska portalen definieras av voxel storlek. Hur den här intrång spelar i en viss situation beror helt på hur voxels stämmer överens med portalen, vilket avgörs av storlek och platserna för dina objekt i scenen geometri.
-
-![Skärmbild av grov voxels i nyckeln](media/coarse-voxel-doorway.png)
-
-![Skärmbild av bra voxels i nyckeln](media/fine-voxel-doorway.png)
+Se [skapa lösning](bake-resolution.md) för mer information om grov vs funkar lösning.
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Skapa din scen med Azure Batch
 Du kan skapa din scen med ett beräkningskluster i molnet med Azure Batch-tjänsten. Projektet Akustik Unity-plugin-programmet ansluter direkt till Azure Batch för att skapa en instans av, hantera och plocka ner ett Azure Batch-kluster för varje ändamålet. På den **skapa** fliken, ange dina autentiseringsuppgifter för Azure, Välj en typ av kluster-dator och storlek och klicka på **skapa**.
@@ -210,7 +196,7 @@ Till exempel i våra tester på en dator 8 kärnor med Intel Xeon E5-1660 @ 3 GH
 Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
 1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
 2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser för att ha minst 8GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Skärmbild av exempel på Docker-inställningar](media/docker-settings.png)
-3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![Screnshot Docker delade Enhetsalternativ](media/docker-shared-drives.png)
+3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![Skärmbild av Docker delade Enhetsalternativ](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Kör lokala ändamålet
 1. Klicka på ”förbereda lokala skapa” på den **skapa** fliken och välj en mapp där indatafiler och köra skript kommer att sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.

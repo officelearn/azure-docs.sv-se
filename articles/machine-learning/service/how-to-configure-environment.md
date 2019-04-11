@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426383"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469904"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -320,8 +320,8 @@ När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide
       
    Även överväga:
    + I Automl konfigurationen när du använder Azure Databricks Lägg till följande parametrar:
-    1. ```max_concurrent_iterations``` baserat på antalet arbetarnoder i klustret. 
-    2. ```spark_context=sc``` #databricks/spark standard spark-kontext. 
+        1. ```max_concurrent_iterations``` baseras på antalet arbetarnoder i klustret. 
+        2. ```spark_context=sc``` baseras på spark standardkontexten. 
    + Eller, om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
 
 Om installationen slutfördes korrekt visas importerade biblioteket bör se ut som något av följande:

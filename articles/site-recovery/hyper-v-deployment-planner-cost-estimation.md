@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320298"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359024"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 
@@ -56,7 +56,7 @@ I det första avsnittet visas den sammanlagda kostnaden för haveriberedskap per
 
 **Nätverk**: ExpressRoute och plats-till-plats VPN-kostnaden för haveriberedskap. 
 
-**ASR-licens**: Licenskostnaden för den Site Recovery för samtliga kompatibla virtuella datorer. Om du angett en virtuell dator manuellt i tabellen med den detaljerade kostnadsanalysen ingår även licenskostnaden för Site Recovery för den virtuella datorn.
+**Azure Site Recovery-licensen**: Licenskostnaden för den Site Recovery för samtliga kompatibla virtuella datorer. Om du angett en virtuell dator manuellt i tabellen med den detaljerade kostnadsanalysen ingår även licenskostnaden för Site Recovery för den virtuella datorn.
 
 ### <a name="overall-dr-costs-by-states"></a>Övergripande kostnader för haveriberedskap per tillstånd
 Den totala kostnaden för haveriberedskap kategoriseras utifrån två olika tillstånd – replikering och DR-test.
@@ -107,11 +107,11 @@ Så här lägger du till virtuella datorer manuellt:
 
 1. Fyll i följande kolumner baserat på ungefärlig storlek och antalet virtuella datorer som matchar den här konfigurationen: 
 
-    a. **Antal virtuella datorer**
+    a. **Antalet virtuella datorer**
 
     b. **IaaS-storlek (dina val)**
 
-    c. **Lagringstyp Standard eller Premium**
+    c. **Lagringstyp Standard/Premium**
 
     d. **Totalt lagringsutrymme för virtuella datorer (GB)**
 
@@ -123,7 +123,7 @@ Så här lägger du till virtuella datorer manuellt:
 
     h. **Dataredundans**
 
-    i. **Azure Hybrid-förmån**
+    i. **Azure Hybrid-förmånen**
 
 1. Du kan använda samma värde för alla virtuella datorer i tabellen genom att välja **Använd för alla**, för kolumnerna **Antal DR-tester under ett år**, **Varaktighet för varje DR-test (dagar)**, **Dataredundans** och **Azure Hybrid-förmån**.
 
@@ -157,7 +157,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Total kostnad för DR-test (Genomsnittlig)**: Beräknings- och kostnaden för DR-test.
 
-**Kostnad för ASR-licens**: Site Recovery-licensen kostnad.
+**Licenskostnaden för Azure Site Recovery**: Site Recovery-licensen kostnad.
 
 ## <a name="supported-target-regions"></a>Målregioner som stöds
 Distributionshanteraren för Site Recovery kan ge kostnadsuppskattningar för följande Azure-regioner. Om din region inte visas kan du använda någon av följande regioner vars priser ligger närmast din region:

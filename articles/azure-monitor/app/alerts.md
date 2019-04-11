@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257169"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469805"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -144,6 +144,24 @@ I det här avsnittet lär du dig hur du ställer en fråga baserad undantagsavis
 10. Slutligen lägger du till din aviseringsinformation (Avisera namn, beskrivning, allvarlighetsgrad). När du är klar klickar du på **skapa varningsregel** längst ned på sidan.
 
     ![Under aviseringsinformation ange varningsregelns namn, Skriv en beskrivning och välj en allvarlighetsgrad](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Hur du slutar prenumerera på klassiska avisering e-postaviseringar
+
+Det här avsnittet gäller för **klassiska tillgänglighet aviseringar**, **Programinsikter måttaviseringar**, och **klassiska avvikelser aviseringar**.
+
+Du får e-postaviseringar för dessa klassiska aviseringar om något av följande gäller:
+
+* Din e-postadress visas i fältet meddelande e-postmottagare i inställningarna för varningsregeln.
+
+* Alternativet för att skicka e-postaviseringar till användare som innehåller vissa roller för prenumerationen har aktiverats och du håller en respektive roll för den specifika Azure-prenumerationen.
+
+![Avisering om skärmbild](./media/alerts/alert-notification.png)
+
+Att få bättre kontroll över din säkerhet och sekretess i allmänhet rekommenderar vi att du uttryckligen anger meddelandemottagare för klassiska varningar i den **meddelande e-postmottagare** fält. Alternativ för att meddela alla användare som innehåller vissa roller tillhandahålls för bakåtkompatibilitet.
+
+Om du vill avbryta prenumerationen på e-postmeddelanden som genereras av en viss aviseringsregel, tar du bort din e-postadress från den **meddelande e-postmottagare** fält.
+
+Om din e-postadress inte visas uttryckligen, rekommenderar vi att du inaktiverar alternativet att automatiskt meddela alla medlemmar i vissa roller och i stället lista över alla användare e-postmeddelanden som ska ta emot meddelanden för den varningsregeln i e-postmeddelande mottagare fält.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
 

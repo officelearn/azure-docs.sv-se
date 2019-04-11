@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361861"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469378"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildning fabrik i Azure DevTest Labs
 Den här artikeln beskriver ställa in en bevarandeprincip rensar fabriken och ta bort gamla avbildningar från alla andra labb i organisationen. 
@@ -75,5 +75,5 @@ Det är också enkelt att lägga till en ny avbildning till din datafabrik. När
 ## <a name="next-steps"></a>Nästa steg
 1. [Schemalägg din version och utgåva](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) att köra den avbildning fabriken med jämna mellanrum. Den uppdaterar din factory bilder med jämna mellanrum.
 2. Se fler gyllene bilder för din datafabrik. Du kan även försöka [skapa artefakter](devtest-lab-artifact-author.md) skript ytterligare delar av ditt VM-installationsåtgärder och ange artefakter i bilderna factory.
-4. Skapa en [avgränsa version och utgåva](/azure/devops/pipelines/overview.md?view=azure-devops-2019) att köra den **DistributeImages** skript separat. Du kan köra det här skriptet när du gör ändringar i Labs.json och hämta bilder som kopieras till målet labs utan att behöva återskapa alla bilder igen.
+4. Skapa en [avgränsa version och utgåva](/azure/devops/pipelines/overview?view=azure-devops-2019) att köra den **DistributeImages** skript separat. Du kan köra det här skriptet när du gör ändringar i Labs.json och hämta bilder som kopieras till målet labs utan att behöva återskapa alla bilder igen.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: e228c49d4ad8e691e59f76a9b6fb9013f7b1bb3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 68598d4bb7fb9fd928a7b664e6ce0c02220ca4bb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891103"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503176"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
@@ -124,19 +124,19 @@ if (!isIE) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-När en användare klickar på **logga In** knappen för första gången den `signIn` metodanrop `loginPopup` att logga in användaren. Den här metoden innebär att öppna ett popup-fönster med de *Microsoft Azure Active Directory v2.0-slutpunkten* att fråga efter och verifiera användarens autentiseringsuppgifter. Till följd av en lyckad inloggning, användaren omdirigeras tillbaka till ursprungligt *index.html* sidan och en token tas emot, bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas den *ID-token* och innehåller grundläggande information om användare, till exempel användarens visningsnamn. Om du planerar att använda några data som tillhandahålls av denna token ändamål, måste du kontrollera att denna token ska valideras av backend-servern för att garantera att token utfärdats till en giltig användare för ditt program.
+När en användare klickar på **logga In** knappen för första gången den `signIn` metodanrop `loginPopup` att logga in användaren. Den här metoden innebär att öppna ett popup-fönster med de *Microsoft identity-plattformen endpoint* att fråga efter och verifiera användarens autentiseringsuppgifter. Till följd av en lyckad inloggning, användaren omdirigeras tillbaka till ursprungligt *index.html* sidan och en token tas emot, bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas den *ID-token* och innehåller grundläggande information om användare, till exempel användarens visningsnamn. Om du planerar att använda några data som tillhandahålls av denna token ändamål, måste du kontrollera att denna token ska valideras av backend-servern för att garantera att token utfärdats till en giltig användare för ditt program.
 
 SPA som genereras av det här hjälper anrop `acquireTokenSilent` och/eller `acquireTokenPopup` att hämta en *åtkomsttoken* används för att fråga Microsoft Graph API för profilinformation för användaren. Om du behöver ett exempel som validerar ID-token kan ta en titt på [detta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 exempel") exempelprogrammet i GitHub – exemplet använder en ASP .NET webb-API för tokenvalidering.
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen, du inte vill be användare att autentiseras på nytt varje gång som de behöver för att begära en token till en resurs – så *acquireTokenSilent* bör användas för de flesta fall för att hämta token. Det finns dock situationer när måste du tvinga användare att interagera med Azure Active Directory v2.0-slutpunkten – några exempel är:
+Efter den första inloggningen, du inte vill be användare att autentiseras på nytt varje gång som de behöver för att begära en token till en resurs – så *acquireTokenSilent* bör användas för de flesta fall för att hämta token. Det finns dock situationer när måste du tvinga användare att interagera med Microsoft identity-plattformen endpoint – några exempel är:
 
 - Användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
 - Din app begär åtkomst till en resurs som användaren behöver ge sitt medgivande för
 - Tvåfaktorsautentisering krävs
 
-Anropa den *acquireTokenPopup(scope)* resulterar i ett popup-fönster (eller *acquireTokenRedirect(scope)* resulterar i att omdirigera användare till Azure Active Directory v2.0-slutpunkten) där användare måste interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge samtycke till den begärda resursen eller du har slutfört tvåfaktorautentisering.
+Anropa den *acquireTokenPopup(scope)* resulterar i ett popup-fönster (eller *acquireTokenRedirect(scope)* resulterar i att omdirigera användare till Microsoft identity-plattformen slutpunkten) där användare måste interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge samtycke till den begärda resursen eller du har slutfört tvåfaktorautentisering.
 
 #### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
 

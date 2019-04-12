@@ -5,6 +5,8 @@ items:
   items:
   - name: Vad är API för textanalys?
     href: overview.md
+  - name: Exempel på användarscenarier
+    href: text-analytics-user-scenarios.md
   expanded: true
 - name: Snabbstarter
   items:
@@ -24,13 +26,16 @@ items:
     href: quickstarts/ruby.md
 - name: Självstudier
   items:
-  - name: Sentimentanalys på strömmade data med hjälp av Azure Databricks
-    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-    maintainContext: true
-  - name: Textanalys med Power BI
+  - name: Integrera Power BI för att analysera kundfeedback
     href: Tutorials/tutorial-power-bi-key-phrases.md
   - name: Textanalys i PowerApps
     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+  - name: Sentimentanalys på strömmade data med hjälp av Azure Databricks
+    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    maintainContext: true
+  - name: Använda Flask till att översätta text, analysera sentiment och syntetisera tal
+    href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    maintainContext: true
 - name: Instruktionsguider
   items:
   - name: Registrera dig
@@ -79,6 +84,8 @@ items:
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: Resurser
   items:
+  - name: Identifiera sentiment i kommentarer i en Yammer-grupp med MS Flow
+    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
   - name: Externt innehåll och community-innehåll
     href: text-analytics-resource-external-community.md
   - name: VANLIGA FRÅGOR OCH SVAR
@@ -97,9 +104,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 1759bee73caeb18ac96a228bb3a81e697aa62089
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c25fe6b6fa10c592cb9462e9fb712575f61bdd1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475636"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500829"

@@ -286,11 +286,11 @@ items:
         href: quickstart-v2-uwp.md
       - name: .NET för Windows-skrivbordet
         href: quickstart-v2-windows-desktop.md
+    - name: Daemon-appar
+      items:
       - name: .NET Core-konsolen (daemon)
         href: quickstart-v2-netcore-daemon.md
-    - name: Tjänst-till-tjänst
-      items:
-      - name: ASP .NET
+      - name: ASP.NET-daemonwebbapp
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Självstudier
     items:
@@ -326,19 +326,20 @@ items:
         href: authentication-scenarios.md
       - name: OAuth 2.0- och OpenID Connect-protokoll
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect
-          href: v2-protocols-oidc.md
-        - name: Implicit flöde för beviljande av OAuth 2.0
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: Beviljande av OAuth 2.0-auktoriseringkod
-          href: v2-oauth2-auth-code-flow.md
-        - name: On-Behalf-Of-flöde för OAuth 2.0
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: Beviljande via resursägarens lösenordsautentiseringsuppgifter för OAuth 2.0
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: Implicit flöde för beviljande av OAuth 2.0
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: Beviljande av OAuth 2.0-auktoriseringkod
+        href: v2-oauth2-auth-code-flow.md
+      - name: On-Behalf-Of-flöde för OAuth 2.0
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: Kodflöde för OAuth 2.0-enhet
+        href: v2-oauth2-device-code.md
+      - name: Beviljande via resursägarens lösenordsautentiseringsuppgifter för OAuth 2.0
+        href: v2-oauth-ropc.md
       - name: Förnyelse av signeringsnyckel
         href: active-directory-signing-key-rollover.md
       - name: ID-tokens
@@ -394,12 +395,10 @@ items:
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Riktlinjer för anpassning
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Utgivardomän
+        href: howto-configure-publisher-domain.md
       - name: Användningsvillkor och sekretesspolicy
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: Skydda en Java-webbapp
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Arbeta med Visual Studio
       items:
       - name: Använda den Active Directory-anslutna tjänsten
@@ -419,8 +418,8 @@ items:
     - name: Autentiseringsbibliotek
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Azure AD API:er i Microsoft Graph
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: API:er för identitet och åtkomst i Microsoft Graph
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Programmanifest
       href: reference-app-manifest.md
     - name: Autentisering och felkoder vid autentisering
@@ -436,6 +435,8 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure AD-blogg
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Utvecklarblogg om Microsofts identitetsplattform
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Prova att logga in med Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Få hjälp
@@ -443,9 +444,9 @@ items:
     href: developer-support-help-options.md
   - name: Hanterade identiteter för Azure-resurser
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886615"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500438"

@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Azure AD v2 Android | Microsoft Docs'
-description: Lär dig hur Android-program kan anropa ett API som kräver åtkomsttoken genom Azure Active Directory v2.0-slutpunkten
+title: Microsoft identity-plattformen Android Snabbstart | Azure
+description: Lär dig hur Android-program kan anropa ett API som kräver åtkomst-token av Microsoft identity-plattformen slutpunkten.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862768"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495319"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -30,10 +30,10 @@ ms.locfileid: "58862768"
 
 Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-program kan logga in personliga konton eller arbets- och skolkonton, hämta en åtkomsttoken och anropa Microsoft Graph API.
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-android/android-intro-updated.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Förutsättningar**
+> **Nödvändiga komponenter**
 > * Android Studio 3+
 > * Android 21 + krävs 
 
@@ -47,7 +47,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Att registrera din app
-> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
+> 1. Gå till den nya [Azure portal – appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) fönstret.
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
@@ -58,7 +58,8 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)** > **Ny registrering**.
+> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+> 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `Android-Quickstart`.
 >      - Tryck på den `Register` knappen.
@@ -137,7 +138,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Ersätt * med *program-ID för ditt program. Om du behöver hitta *program-ID* går du till sidan *Översikt*.
+> 1. Ersätt `<ENTER_THE_APPLICATION_ID_HERE>` med *program-ID* för ditt program. Om du behöver hitta *program-ID* går du till sidan *Översikt*.
 
 ## <a name="more-information"></a>Mer information
 
@@ -145,7 +146,7 @@ Läs följande avsnitt för att få mer information om den här snabbstarten.
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för åtkomst till ett API som skyddas av Microsoft Azure Active Directory (Azure AD). Du kan använda Gradle för att installera det genom att lägga till följande i **Gradle-skript** > **build.gradle (modul: app)** under **Beroenden**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Du kan använda Gradle för att installera det genom att lägga till följande i **Gradle-skript** > **build.gradle (modul: app)** under **Beroenden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL har två metoder som används hämta token: `acquireToken` och `acquireToke
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Vissa situationer kräver att användare tvingas interagera med Azure AD v2.0-slutpunkten, vilket resulterar i ett kontextbyte till systemets webbläsare för att antingen verifiera användarnas autentiseringsuppgifter eller för medgivande. Några exempel är:
+Vissa situationer kräver att tvinga användare att interagera med Microsoft identity-plattformen slutpunkt, vilket resulterar i en kontext växla till webbläsaren system och antingen verifiera autentiseringsuppgifterna för den användare eller för medgivande. Några exempel är:
 
 * Första gången användaren loggar in på programmet
 * När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla

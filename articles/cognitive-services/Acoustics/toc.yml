@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: Självstudier
   items:
-  - name: Designarbetsflöde i Unity
-    href: unity-workflow.md
-  - name: Designarbetsflöde i Unreal/Wwise
-    href: unreal-workflow.md
-  - name: Ljudbearbetning med Unity
-    href: unity-baking.md
-  - name: Ljudbearbetning med Unreal/Wwise
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: Ljudbearbetning med Unity
+      href: unity-baking.md
+    - name: Designarbetsflöde i Unity
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: Ljudbearbetning med Unreal/Wwise
+      href: unreal-baking.md
+    - name: Designarbetsflöde i Unreal/Wwise
+      href: unreal-workflow.md
 - name: Begrepp
   items:
   - name: Designbegrepp för akustiksimulering
     href: design-process.md
+  - name: Bearbetningsupplösning
+    href: bake-resolution.md
 - name: Instruktioner
   items:
   - name: Skapa ett Azure Batch-konto
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: Kända problem
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138227"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495642"

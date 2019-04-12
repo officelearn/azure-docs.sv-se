@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051894"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491004"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -99,7 +99,7 @@ Log Analytics-arbetsytan måste finnas i följande regioner:
 * Östra Japan
 * Virginia (USA-förvaltad region)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="user-access-requirements"></a>Krav för åtkomst av användare
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Välj följande alternativ som visas på bild:
 
 1. Välj *på* för **Status**
-2. Välj ett befintligt lagringskonto för att lagra flödesloggar i. Om du vill lagra data alltid ange värdet till *0*. Du använder Azure Storage-avgifter för storage-konto.
-3. Ange **kvarhållning** för hur många dagar som du vill lagra data för.
-4. Välj *på* för **Traffic Analytics-Status**.
-5. Välj en befintlig Log Analytics-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta måste finnas i något av regionerna som stöds och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [Azure Monitor loggar uppgraderingen till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Välj *Version 2* för **Flow loggar version**. Version 2 innehåller flow-sessionen statistik (byte och paket)
+3. Välj ett befintligt lagringskonto för att lagra flödesloggar i. Om du vill lagra data alltid ange värdet till *0*. Du använder Azure Storage-avgifter för storage-konto.
+4. Ange **kvarhållning** för hur många dagar som du vill lagra data för.
+5. Välj *på* för **Traffic Analytics-Status**.
+6. Välj en befintlig Log Analytics (OMS)-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta, det måste finnas i något av de [regioner som stöds](#supported-regions) och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    Log Analytics-arbetsytan som är värd för analyslösning trafik och NSG: erna behöver inte finnas i samma region. Du kan till exempel ha trafikanalys i en arbetsyta i regionen Europa, västra, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras på samma arbetsyta.
-6. Välj **Spara**.
+    Log analytics-arbetsyta som är värd för analyslösning trafik och NSG: erna behöver inte finnas i samma region. Du kan till exempel ha trafikanalys i en arbetsyta i regionen Europa, västra, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras på samma arbetsyta.
+7. Välj **Spara**.
 
-    ![Valet av lagringskonto, Log Analytics-arbetsyta och aktivering av trafikanalys](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Valet av lagringskonto, Log Analytics-arbetsyta och aktivering av trafikanalys](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafikanalys för. Data från flödesloggar skickas till arbetsytan, så se till att lokala lagar och bestämmelser i ditt land tillåter lagring av data i den region där arbetsytan finns.
 
@@ -300,7 +301,7 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
     ![Instrumentpanelen visar fördelning i virtuella nätverk](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Den virtuella nätverkstopologin visar menyfliksområdet längst upp för val av parametrar som ett virtuellt nätverk (Inter vnet-anslutningar/Active/Inactive), externa anslutningar, aktiva flöden och skadliga flöden i det virtuella nätverket.
-- Du kan filtrera den virtuella nätverkstopologin baserat på prenumerationer, arbetsytor, resursgrupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flow typ (mellan virtuella nätverk, IntraVNET osv), Flow riktning (inkommande, utgående), Flow Status (tillåtna, blockerad) virtuella nätverk (målgrupper och ansluten), anslutningstyp (Peering eller Gateway - P2S och S2S) och NSG. Du kan använda dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
+- Du kan filtrera den virtuella nätverkstopologin baserat på prenumerationer, arbetsytor, resursgrupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flow typ (mellan virtuella nätverk, IntraVNET och så vidare), flödesriktning (inkommande, utgående), Flow Status (tillåtna, blockerad), virtuella nätverk (mål och ansluten), anslutningstyp (Peering eller Gateway - P2S och S2S), och NSG. Du kan använda dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
 - Den virtuella nätverkstopologin visar fördelning av trafik till ett virtuellt nätverk för flöden (tillåten/blockerad/inkommande/utgående/Benign/skadlig), protokoll och nätverkssäkerhetsgrupper, till exempel:
 
     ![Virtuella nätverkets topologi som visar information om distribution och flödet av trafik](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

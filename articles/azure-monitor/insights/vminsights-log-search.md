@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188976"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492096"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -50,7 +50,7 @@ Följande fält och konventioner gäller både VMConnection och VMBoundPort:
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett givet intervall för en minut, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |Riktning |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
 |Dator |Datorn FQDN |
@@ -99,7 +99,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
 |RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
@@ -115,7 +115,7 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 |Beskrivning |Beskrivning av observerade hotet. |
 |TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
 |Konfidensbedömning |Värden är *0 – 100*. |
-|Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
+|Allvarsgrad |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
 |LastReportedDateTime |Senast indikatorn har setts av Interflow. |
 |IsActive |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
@@ -125,7 +125,12 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 ### <a name="ports"></a>Portar 
 Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan acceptera trafik, men är inaktiva under tidsperioden för reporting skrivs till tabellen VMBoundPort.  
 
-Som standard skrivs data inte den här tabellen. Om du vill att data som skrivs till den här tabellen, skicka ett e- vminsights@microsoft.com tillsammans med ditt arbetsyte-ID och din region för arbetsyta.   
+>[!NOTE]
+>Azure Monitor för virtuella datorer stöder inte samla in och registrera portdata i Log Analytics-arbetsytan i följande regioner:  
+>- Östra USA  
+>- Västra Europa
+>
+> Data samlas in är aktiverad i den andra [regioner som stöds](vminsights-onboard.md#log-analytics) för Azure Monitor för virtuella datorer. 
 
 Varje post i VMBoundPort identifieras med följande fält: 
 
@@ -157,7 +162,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
@@ -182,7 +187,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|

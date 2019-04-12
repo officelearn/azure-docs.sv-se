@@ -1,5 +1,5 @@
 ---
-title: Samla in threat intelligence-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
+title: Ansluta threat intelligence-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
 description: Läs mer om hur du ansluter threat intelligence-data till Azure Sentinel.
 documentationcenter: na
 author: rkarlin
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400635"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494841"
 ---
-# <a name="collect-data-from-threat-intelligence-providers"></a>Samla in data från säkerhetsexperter 
+# <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från säkerhetsexperter 
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -34,7 +34,7 @@ Du kan strömma loggar från säkerhetsexperter till Sentinel-Azure med ett enda
 > [!NOTE]
 > Du kan ange anpassade threat indikatorer i Azure-Sentinel för användning i Varningsregler, instrumentpaneler och jakt scenarier genom att integrera med den [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entitet eller genom att använda en [Microsoft Graph-säkerheten integrerad plattform för Threat Intelligence](https://aka.ms/graphsecuritytips).
 
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Nödvändiga komponenter  
 
 - Användare med global administratör eller administratörsbehörighet för säkerhet 
 
@@ -44,7 +44,7 @@ Du kan strömma loggar från säkerhetsexperter till Sentinel-Azure med ett enda
 
 1. Om du redan använder en threat intelligence provider, måste du bläddra till programmets tips och ge behörighet att skicka indikatorer till Microsoft och ange tjänsten som Azure Sentinel.  
 
-2. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Hotinformation** panelen.
+2. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Hotinformation** panelen.
 
 3. Klicka på **Anslut**. 
 

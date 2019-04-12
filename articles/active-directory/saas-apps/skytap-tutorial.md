@@ -4,227 +4,206 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2018
+ms.topic: tutorial
+ms.date: 04-08-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec6d34ec82d5239af653e69532703a931f9cb12a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 762f5a5682f41577e26074fd459780a08ba95827
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182756"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Självstudier: Azure Active Directory-integrering med Skytap
 
 I den här självstudien får du lära dig hur du integrerar Skytap med Azure Active Directory (AD Azure).
-
 Integrera Skytap med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Skytap.
-- Du kan aktivera användarna att automatiskt få loggat in på Skytap (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Skytap.
+* Du kan aktivera användarna att vara automatiskt inloggad till Skytap (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Skytap, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Skytap enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Skytap enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Skytap från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Skytap **SP och IDP** -initierad SSO
 
 ## <a name="adding-skytap-from-the-gallery"></a>Att lägga till Skytap från galleriet
+
 För att konfigurera integrering av Skytap i Azure AD, som du behöver lägga till Skytap från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Skytap från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
 
-1. I sökrutan skriver **Skytap**väljer **Skytap** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skytap i resultatlistan](./media/skytap-tutorial/tutorial_skytap_addfromgallery.png)
+4. I sökrutan skriver **Skytap**väljer **Skytap** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
+
+    ![Skytap i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Skytap baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Skytap är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Skytap upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Skytap baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Skytap upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Skytap, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare Skytap](#create-a-skytap-test-user)**  – du har en motsvarighet för Britta Simon i Skytap som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera Skytap Single Sign-On](#configure-skytap-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare Skytap](#create-skytap-test-user)**  – du har en motsvarighet för Britta Simon i Skytap som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Skytap program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Skytap:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Skytap:
 
-1. I Azure-portalen på den **Skytap** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Skytap** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/skytap-tutorial/tutorial_skytap_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Skytap domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Skytap domän och URL: er med enkel inloggning för information](./media/skytap-tutorial/tutorial_skytap_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `http://pingone.com/<custom EntityID>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    ![Skytap domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    ![Skytap domän och URL: er med enkel inloggning för information](./media/skytap-tutorial/tutorial_skytap_url1.png)
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `http://pingone.com/<custom EntityID>`
 
-    c. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
-     
-    d. I den **Vidarebefordransstatus** textrutan anger du ett URL med hjälp av följande mönster: `https://pingone.com/1.0/<custom ID>`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk identifierare, inloggnings-URL och vidarebefordransstatus. Kontakta [Skytap klienten supportteamet](mailto:support@skytap.com) att hämta dessa värden. 
+5. Klicka på **Ange ytterligare URL:er** och utför följande steg om du vill konfigurera programmet i **SP**-initierat läge:
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![Skytap domän och URL: er med enkel inloggning för information](common/both-advanced-urls.png)
 
-    ![Länk för hämtning av certifikat](./media/skytap-tutorial/tutorial_skytap_certificate.png) 
+    d. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`
 
-1. Klicka på **spara** knappen.
+    e. I den **Vidarebefordransstatus** text skriver en URL med hjälp av följande mönster: `https://pingone.com/1.0/<custom ID>`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/skytap-tutorial/tutorial_general_400.png)
-    
-1. Att konfigurera enkel inloggning på **Skytap** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Skytap supportteamet](mailto:support@skytap.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL, inloggnings-URL och Vidarebefordransstatus. Kontakta [Skytap klienten supportteamet](mailto:support@skytap.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+7. På den **konfigurera Skytap** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    a. Inloggnings-URL
 
-    ![Azure Active Directory-knappen](./media/skytap-tutorial/create_aaduser_01.png)
+    b. Azure AD-identifierare
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    c. Utloggnings-URL
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/skytap-tutorial/create_aaduser_02.png)
+### <a name="configure-skytap-single-sign-on"></a>Konfigurera Skytap Single Sign-On
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+Att konfigurera enkel inloggning på **Skytap** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Skytap supportteamet](mailto:support@skytap.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![Knappen Lägg till](./media/skytap-tutorial/create_aaduser_03.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. I den **användaren** dialogrutan utför följande steg:
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Dialogrutan användare](./media/skytap-tutorial/create_aaduser_04.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+2. Välj **Ny användare** överst på skärmen.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-skytap-test-user"></a>Skapa en Skytap testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Skytap. Arbeta med [Skytap supportteamet](mailto:support@skytap.com) att lägga till användare i Skytap-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Skytap.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Skytap**.
 
-**Om du vill tilldela Britta Simon Skytap, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Skytap**.
 
-    ![Tilldela användare][201] 
+    ![Länken Skytap i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Skytap**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken Skytap i listan med program](./media/skytap-tutorial/tutorial_skytap_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-skytap-test-user"></a>Skapa Skytap testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Skytap. Arbeta med [Skytap supportteamet](mailto:support@skytap.com) att lägga till användare i Skytap-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Skytap i åtkomstpanelen du bör få automatiskt loggat in på ditt Skytap program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Skytap i åtkomstpanelen, bör det vara loggas in automatiskt till Skytap som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/skytap-tutorial/tutorial_general_01.png
-[2]: ./media/skytap-tutorial/tutorial_general_02.png
-[3]: ./media/skytap-tutorial/tutorial_general_03.png
-[4]: ./media/skytap-tutorial/tutorial_general_04.png
-
-[100]: ./media/skytap-tutorial/tutorial_general_100.png
-
-[200]: ./media/skytap-tutorial/tutorial_general_200.png
-[201]: ./media/skytap-tutorial/tutorial_general_201.png
-[202]: ./media/skytap-tutorial/tutorial_general_202.png
-[203]: ./media/skytap-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

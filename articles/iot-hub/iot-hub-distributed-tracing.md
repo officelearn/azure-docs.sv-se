@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439304"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501397"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spårningsmeddelanden Azure IoT-enhet till molnet med distribuerad spårning (förhandsversion)
 
@@ -30,13 +30,13 @@ Aktivera distribuerad spårning för IoT Hub ger dig möjlighet att:
 
 I den här artikeln använder du den [Azure IoT-enhetens SDK för C](./iot-hub-device-sdk-c-intro.md) med distribuerad spårning. Stöd för distribuerad spårning pågår fortfarande för de andra SDK: er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Förhandsgranskning av distribuerad spårning är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
 
-  - **Nordeuropa**
+  - **Norra Europa**
   - **Sydostasien**
-  - **USA, västra 2**
+  - **Västra USA 2**
 
 - Den här artikeln förutsätter att du är bekant med att skicka telemetrimeddelanden till IoT hub. Kontrollera att du har slutfört den [skicka telemetri C Snabbstart](./quickstart-send-telemetry-c.md).
 
@@ -98,7 +98,7 @@ Dessa instruktioner är för att skapa exemplet på Windows. Andra miljöer, se 
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
+    Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
 1. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: f9993058f93cf94ee468a92ac7cbb2d6881e61be
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7a6fa45d0f4ea09fbc84d3185aa0e58db165ac19
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214193"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503037"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 
@@ -35,7 +35,7 @@ Konfigurera den `Redirect URL` fältet med URL-Adressen för din index.html-sida
 > 2. Kopiera värdet från **URL** till Urklipp:<br/> ![Projektegenskaper](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3. Klistra in värdet som en **omdirigerings-URL** överst i den här sidan och välj sedan **uppdatering**.
 
-<p/>
+<p>
 
 > #### <a name="setting-redirect-url-for-node"></a>Inställningen omdirigerings-URL för nod
 > För Node.js, du kan ange webb-serverport i den *server.js* fil. Den här självstudien används port 30662 referens, men du kan använda någon annan port. Följ anvisningarna nedan för att ställa in en omdirigerings-URL i registreringsinformation för programmet:<br/>

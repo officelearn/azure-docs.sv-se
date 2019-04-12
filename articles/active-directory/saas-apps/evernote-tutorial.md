@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854712"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Självstudier: Azure Active Directory-integrering med Evernote
 
@@ -34,7 +34,7 @@ Integreringen av Evernote med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att konfigurera Azure AD-integrering med Evernote:
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Evernote i Azure AD behöver du lägga till 
 
 **Utför följande steg för att lägga till Evernote från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,11 +61,11 @@ För att konfigurera integrering av Evernote i Azure AD behöver du lägga till 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Evernote**, väljer **Evernote** från resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Evernote**väljer **Evernote** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
 
      ![Evernote i resultatlistan](common/search-new-app.png)
 
@@ -97,11 +97,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Evern
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen **Redigeringa** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
 
     ![Information om enkel inloggning med Evernote-domän och -URL:er](common/idp-identifier.png)
 
@@ -117,7 +117,17 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Evern
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-7. I avsnittet **Konfigurera Evernote** kopierar du lämpliga URL:er enligt dina behov.
+7. Att ändra den **signering** alternativ, klicka på den **redigera** knappen för att öppna den **SAML-signeringscertifikat** dialogrutan.
+
+    ![image](common/edit-certificate.png) 
+
+    ![image](./media/evernote-tutorial/samlassertion.png)
+
+    a. Välj den **inloggning SAML-svar och försäkran** för **signering alternativet**.
+
+    b. Klicka på **Spara**
+
+8. I avsnittet **Konfigurera Evernote** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -169,8 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -207,7 +216,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 För att Azure AD-användare ska kunna logga in i Evernote måste de etableras till Evernote.  
 När det gäller Evernote är etablering en manuell uppgift.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Utför följande steg för att tillhandahålla ett användarkonto:**
 
 1. Logga in på din Evernote-företagswebbplats som administratör.
 
@@ -233,7 +242,7 @@ När du klickar på Evernote-panelen på åtkomstpanelen bör du automatiskt log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

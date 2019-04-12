@@ -12,33 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842778"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501203"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Hur du använder Service Bus-köer med PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Den här guiden visar hur du använder Service Bus-köer. Exemplen är skrivna i PHP och Använd den [Azure SDK för PHP](../php-download-sdk.md). Scenarier som omfattas är **skapande av köer**, **skicka och ta emot meddelanden**, och **tar bort köer**.
+I de här självstudierna lär du dig att skapa PHP-program att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Om du inte har en kö för att arbeta med, Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln om du vill skapa en kö.
+    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
+    2. Skapa ett Service Bus **namnområde**. 
+    3. Hämta den **anslutningssträngen**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > Skapar du en **kö** i Service Bus-namnområde med hjälp av PHP i den här självstudien. 
+3. [Azure SDK för PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Skapa ett PHP-program
 Det enda kravet för att skapa en PHP-program som har åtkomst till Azure Blob-tjänsten är refererar till klasser i den [Azure SDK för PHP](../php-download-sdk.md) från i din kod. Du kan använda alla utvecklingsverktyg för att skapa ditt program eller anteckningar.
 
 > [!NOTE]
 > PHP-installationen måste också ha den [OpenSSL tillägget](https://php.net/openssl) installerat och aktiverat.
-> 
-> 
 
-I den här guiden använder du service-funktioner som kan anropas från inom ett PHP-program lokalt eller i koden som körs i en Azure-webbroll, arbetsroll eller en webbplats.
+I den här guiden använder tjänstfunktioner i som kan anropas från inom ett PHP-program lokalt eller i koden som körs i en Azure-webbroll, arbetsroll eller en webbplats.
 
 ## <a name="get-the-azure-client-libraries"></a>Hämta Azure libraries
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -72,7 +77,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 Där `Endpoint` har vanligtvis formatet `[yourNamespace].servicebus.windows.net`.
 
-Att skapa alla Azure-tjänst-klienter måste du använda den `ServicesBuilder` klass. Du kan:
+För att skapa alla Azure-tjänst-klienter, måste du använda den `ServicesBuilder` klass. Du kan:
 
 * Skicka anslutningssträngen till den direkt.
 * Använd den **CloudConfigurationManager (CCM)** att kontrollera flera externa källor för anslutningssträngen:

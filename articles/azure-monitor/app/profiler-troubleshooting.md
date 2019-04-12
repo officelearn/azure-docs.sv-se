@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471536"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495404"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -71,7 +71,7 @@ För Profiler ska fungera korrekt:
 
     |Programinställning    | Värde    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey du Application Insights-resurs    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för Application Insights-resursen    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ För Profiler ska fungera korrekt:
    
       ![profiler-webjob]   
    
-   1. Om du vill visa information om webbjobbet, inklusive loggen, Välj den **ApplicationInsightsProfiler2** länk.  
+   1. Om du vill visa information om webbjobbet, inklusive loggen, Välj den **ApplicationInsightsProfiler3** länk.  
      Den **kontinuerlig WebJob information** öppnas fönstret.
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Om du förstår inte varför Profiler inte fungerar för dig, kan du hämta logg
     
 ### <a name="manual-installation"></a>Manuell installation
 
-När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Om din miljö kräver det, kan du aktivera uppdateringar manuellt. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps. Om du vill installera uppdateringar manuellt gör du följande:
+När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Om din miljö kräver det, kan du aktivera uppdateringar manuellt. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps. Tillämpa uppdateringar manuellt:
 
 1. I den **Web App Control** rutan Öppna **inställningar**.
 
@@ -103,7 +103,7 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 
     |Programinställning    | Värde    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey du Application Insights-resurs    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för Application Insights-resursen    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105309"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489322"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
@@ -95,11 +95,10 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
-| Offentlig IP-adress | Välj **Skapa ny**. |
-    | Tilldelning av offentlig IP-adress              | Välj **Statisk**.   |
+    | IP-adresstilldelning              | Välj **Statisk**.   |
     | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
@@ -113,7 +112,7 @@ I det här avsnittet konfigurerar du inställningar för lastbalanseraren för e
 
 Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik till de virtuella datorerna. Serverdelsadresspoolen innehåller IP-adresserna för de gränssnitt för virtuella nätverk (NIC) som är anslutna till lastbalanseraren. 
 
-**Så här skapar du en serverdelsadresspool som innehåller VM1 och VM2:**
+**Om du vill skapa en backend-adresspool innehåller som VM1 och VM2:**
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
@@ -142,7 +141,7 @@ Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik t
 
 Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. 
 
-**Så här skapar du en hälsoavsökning för att övervaka de virtuella datorernas hälsa:**
+**Skapa en hälsoavsökning för att övervaka hälsotillståndet för de virtuella datorerna:**
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
@@ -167,7 +166,7 @@ En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtue
 
 Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
 
-**Så här skapar du belastningsutjämningsregeln:**
+**Skapa belastningsutjämningsregeln:**
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
@@ -200,7 +199,7 @@ Anslut först till alla tre virtuella datorer med Fjärrskrivbord (RDP).
 >[!NOTE]
 >Som standard har de virtuella datorerna redan porten för **RDP** (Fjärrskrivbord) öppen för att tillåta fjärrskrivbordsåtkomst. 
 
-**Så här ansluter du via fjärrskrivbord (RDP) till de virtuella datorerna:**
+**Till fjärrskrivbord (RDP) till de virtuella datorerna:**
 
 1. På portalen väljer du **Alla resurser** på menyn till vänster. I resurslistan väljer du varje virtuell dator i resursgruppen **MyResourceGroupLB**.
    
@@ -223,7 +222,7 @@ På varje serverdelsserver använder du PowerShell för att installera IIS och e
 >[!NOTE]
 >Du kan även använda **guiden Lägg till roller och funktioner** i **Serverhanteraren** för att installera IIS. 
 
-**Så här installerar du IIS och uppdaterar standardwebbplatsen med PowerShell:**
+**Installera IIS och uppdatera standardwebbsidan med PowerShell:**
 
 1. På MyVM1 och MyVM2 startar du **Windows PowerShell** från **Start-menyn**. 
 

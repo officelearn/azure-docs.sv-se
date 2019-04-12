@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576749"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488640"
 ---
 # <a name="start-using-pim"></a>Börja använda PIM
 
@@ -27,7 +27,7 @@ Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), som 
 
 Den här artikeln beskriver hur du aktiverar och börja använda PIM.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda PIM måste du ha en av följande licenser:
 
@@ -106,7 +106,7 @@ Du kan utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
 | --- | --- |
 | **Mina roller**  | Visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller. |
 | **Mina begäranden** | Visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar. |
-| **Godkänna förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
+| **Godkänn förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
 | **Granska åtkomst** | Visar en lista över aktiva åtkomstgranskningar som du har tilldelats slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
 | **Azure AD-roller** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure AD. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
 | **Azure-resurser** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure-resurs. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |

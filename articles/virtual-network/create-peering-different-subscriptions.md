@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Lär dig hur du skapar en virtuell nätverkspeering mellan virtuella nätverk som skapats via Resource Manager och som finns i olika Azure-prenumerationer.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403476"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492302"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa en virtuell nätverkspeering - resurshanteraren, olika prenumerationer
 
@@ -27,7 +27,7 @@ Stegen för att skapa en virtuell nätverkspeering är olika, beroende på om de
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
-|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
+|[Båda Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Annorlunda|
 
@@ -39,7 +39,9 @@ Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet]
 
 ## <a name="portal"></a>Skapa peering - Azure-portalen
 
-Om de virtuella nätverk som du vill peerkoppla finns i prenumerationer som är kopplade till olika Azure Active Directory-klienter, följer du stegen i avsnittet CLI och PowerShell i den här artikeln. Portalen har inte stöd för att peerkoppla virtuella nätverk som hör till prenumerationer från olika Active Directory-klienter.
+Om de virtuella nätverk som du vill peerkoppla finns i prenumerationer som är kopplade till olika Azure Active Directory-klienter, följer du stegen i avsnittet CLI och PowerShell i den här artikeln. Portalen har inte stöd för att peerkoppla virtuella nätverk som hör till prenumerationer från olika Active Directory-klienter. 
+
+Observera att Cloud Shell har begränsningar i prenumerationer och klienter på grund av som VNet-Peering eller Global VNet-Peering mellan virtuella nätverk som hör till prenumerationer i olika Azure Active Directory-klienter inte fungerar. Använd PowerShell eller CLI.
 
 Följande steg kan du använda olika konton för varje prenumeration. Om du använder ett konto som har behörighet till båda prenumerationerna kan du använda samma konto för alla steg, hoppa över stegen för att logga ut från portalen och hoppa över stegen för att tilldela en annan användarbehörigheter för de virtuella nätverken.
 

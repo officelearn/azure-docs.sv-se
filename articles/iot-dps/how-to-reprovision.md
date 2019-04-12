@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046845"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499860"
 ---
 # <a name="how-to-reprovision-devices"></a>Hur du etablera om enheter
 
@@ -27,7 +27,7 @@ Under livscykeln för en IoT-lösning är det vanligt att flytta enheter mellan 
 
 * **Karantän**: Liknar en ändring av lösningen. En enhet som är felaktig, komprometterade eller inaktuella får omtilldelas till en IoT hub där allt du kan göra är att uppdatera och få tillbaka efterlevnad. Den flyttas sedan tillbaka till dess huvudsakliga hub när enheten fungerar korrekt.
 
-Läs mer en mer detaljerad översikt över reprovisioning, [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md).
+Läs mer en mer detaljerad översikt över reprovisioning, [IoT Hub Device reprovisioning begrepp](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Konfigurera registrering allokeringsprincip
@@ -93,7 +93,7 @@ Till exempel kod för att skicka etablera begäranden från en enhet under en st
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer Reprovisioning i [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md) 
+- Läs mer Reprovisioning i [reprovisioning koncept för IoT Hub-enhet](concepts-device-reprovision.md) 
 - Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
 
 

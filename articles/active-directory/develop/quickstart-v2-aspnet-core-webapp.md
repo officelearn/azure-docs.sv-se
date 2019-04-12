@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Azure AD v2.0 ASP.NET Core-webbapp | Microsoft Docs'
+title: Microsoft identity-plattformen Snabbstart för ASP.NET Core-webbapp | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET Core-webbapp med OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005651"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505355"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005651"
 
 I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,17 @@ public void ConfigureServices(IServiceCollection services)
 
 Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-baserad autentisering, vilket används i webbläsarscenarier, samt ange frågan för OpenID Connect. 
 
-Den rad som innehåller `.AddAzureAd` lägger till Azure AD-autentisering för ditt program. Den konfigureras sedan för att logga in med Azure AD v2.0-slutpunkten.
+Den rad som innehåller `.AddAzureAd` lägger till Microsoft identity-plattformen autentisering i ditt program. Den konfigureras sedan för att logga in med Microsoft identity-plattformen slutpunkten.
 
 > |Var  |  |
 > |---------|---------|
 > | ClientId  | Program-ID (klient) från appen som registrerats i Azure-portalen. |
 > | Myndighet | STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}/v2.0> för offentligt moln, där {tenant} är namnet på din klientorganisation eller ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |
 > | TokenValidationParameters | En lista över parametrar för tokenvalidering. I det här fallet ställs `ValidateIssuer` in på `false` för att ange att den kan acceptera inloggningar från personliga konton eller arbets- eller skolkonton. |
+
+
+> [!NOTE]
+> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. I verkliga program som du måste verifiera utfärdaren Se exemplen för att förstå hur du gör.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Skydda en kontrollant eller en kontrollants metod
 
@@ -154,8 +158,7 @@ Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in GitHub-lagringsplatsen för den här ASP.NET Core-snabbstarten för mer information, inklusive anvisningar om hur du lägger till autentisering i ett helt nytt ASP.NET Core-webbprogram:
+Kolla in GitHub-lagringsplatsen för den här självstudiekursen för ASP.NET Core mer information och anvisningar om hur du lägger till autentisering till ett helt nytt ASP.NET Core webb-program, hur du anropar Microsoft Graph och andra Microsoft-APIs anropa dina egna API: er för hur du lägger till auktorisering, hur du loggar in användare i nationella moln, eller med sociala identiteter och mycket mer:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web App-kodexempel](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [Självstudie för ASP.NET Core-Webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

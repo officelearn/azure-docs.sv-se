@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 8eb569e628e598dbfd890c11656a23007f915b45
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670905"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491176"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.0.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 
@@ -145,7 +144,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Typ</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -651,13 +650,13 @@ För att träna en modell automatiskt gör du följande:
 Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med de här standardinställningarna tar cirka 10–15 minuter, men om du vill ha en kortare körtid kan du minska antingen `iterations` eller `iteration_timeout_minutes`.
 
 
-|Egenskap | Värde i den här självstudien |Beskrivning|
+|Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
-|**iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
+|**Iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
 |**preprocess**| True | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
-|**verbosity**| logging.INFO | Styr loggningsnivån.|
+|**Detaljnivå**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 
 
@@ -755,8 +754,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter Widget-körningsinformation](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter Widget-diagram](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter widget körningsinformation](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter widget diagram](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 
@@ -775,7 +774,8 @@ rundata
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped>
+.dataframe tbody tr th: endast-för-type {lodrät justering: mitt;}
 
     .dataframe tbody tr th {
         vertical-align: top;

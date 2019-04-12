@@ -1,5 +1,5 @@
 ---
-title: Så här distribuerar du Azure IoT OPC UA device management molnet beroenden | Microsoft Docs
+title: Så här distribuerar du OPC-Twin molnet beroenden i Azure | Microsoft Docs
 description: Så här distribuerar OPC Twin Azure beroenden.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759659"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491994"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Distribution av beroenden för lokal utveckling
 
@@ -52,7 +52,7 @@ Distributionsskriptet försöker registrera AAD-program i Azure Active Directory
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när OPC-enhetshantering tjänster har distribuerats till ett befintligt projekt, är här nästa föreslagna steg:
+Nu när OPC-Twin-tjänster har distribuerats till ett befintligt projekt, är här nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om hur du distribuerar OPC-enhetshantering moduler](howto-opc-twin-deploy-modules.md)
+> [Lär dig mer om hur du distribuerar OPC-Twin-moduler](howto-opc-twin-deploy-modules.md)

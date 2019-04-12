@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286439"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491525"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -51,7 +51,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Felkod**: UserErrorRpCollectionLimitReached <br>
 **Felmeddelande**: Har nått maxgränsen för återställningspunkt insamling. <br>
 * Det här problemet kan inträffa om det finns ett lås på recovery point resursgruppen förhindrar automatisk rensning av återställningspunkt.
-* Det här problemet kan också inträffa om flera säkerhetskopieringar utlöses per dag. För närvarande rekommenderar vi endast en säkerhetskopiering per dag som det ögonblick RPs bevaras i 7 dagar och bara 18 omedelbar RPs kan associeras med en virtuell dator vid en given tidpunkt. <br>
+* Det här problemet kan också inträffa om flera säkerhetskopieringar utlöses per dag. Vi rekommenderar för närvarande endast en säkerhetskopiering per dag som omedelbar återställningspunkterna behålls i 1-5 dagar enligt konfigurerade ögonblicksbild kvarhållning och endast 18 omedelbar RPs kan associeras med en virtuell dator vid en given tidpunkt. <br>
 
 Rekommenderad åtgärd:<br>
 Häv spärren för resursgruppen för den virtuella datorn för att lösa problemet och försök igen för att utlösa rensningen.

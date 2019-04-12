@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Anropa API: er med Cognitive Services i en pipeline för fulltextindexering – Azure Search'
-description: Gå igenom ett exempel på extrahering av data, naturligt språk och bilder AI bearbetning i Azure Search indexering för extrahering av data och transformering över JSON-blobar.
+title: 'Självstudier: Anropa Cognitive Services REST API: er i en pipeline för fulltextindexering – Azure Search'
+description: Gå igenom ett exempel på extrahering av data, naturligt språk och bilder AI bearbetning i Azure Search indexering för extrahering av data och transformering över JSON-blobar med hjälp av Postman och REST-API.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 088dcd366d526d08f236fb48340c6bbe18fe267c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261929"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501220"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Självstudier: Anropa API: er med Cognitive Services i ett Azure Search indexering pipeline (förhandsversion)
 
@@ -41,33 +41,39 @@ Den här självstudien körs på den kostnadsfria tjänsten, men antalet kostnad
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Följande tjänster, verktyg och data som används i den här självstudien. 
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
 
+[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempeldata.
+
 [Skrivbordsappen postman](https://www.getpostman.com/) används för att göra REST-anrop till Azure Search.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Hitta en Azure Search api-nyckel och slutpunkt
+[Exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) består av en liten uppsättning olika typer. 
+
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
 
 För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
 Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob Service och läsa in exempeldata
+## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
 Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). Observera att Azure Table Storage inte stöds för kognitiv sökning. I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
 
-1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
+1. [Logga in på Azure-portalen](https://portal.azure.com)navigerar du till ditt Azure storage-konto, klickar du på **Blobar**, och klicka sedan på **+ behållare**.
 
-1. [Registrera dig för Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), skapa ett lagringskonto, öppna Blob tjänster sidor och skapa en behållare. Skapa lagringskontot i samma region som Azure Search.
+1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Du kan ange offentlig åtkomstnivå till någon av dess giltiga värden.
 
-1. I den container du skapade klickar du på **Ladda upp** för att ladda upp de exempelfiler som du laddade ned i ett tidigare steg.
+1. När behållaren har skapats kan du öppna den och välj **överför** i kommandofältet för att ladda upp exempelfilerna som du hämtade i föregående steg.
 
    ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma
 
 Det finns andra sätt att ange anslutningssträngen, till exempel att ange en signatur för delad åtkomst. Om du vill veta mer om autentiseringsuppgifter för datakällor kan du läsa [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials) (Indexera Azure Blob Storage).
 
+## <a name="set-up-postman"></a>Konfigurera Postman
+
+Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med Postman](search-fiddler.md).
+
+Begäran-metoder som används i den här självstudien är **POST**, **PLACERA**, och **hämta**. Huvudnycklarna är ”Content-type” inställd på ”application/json” och en ”api-nyckel” inställd på en administratörsnyckel för Azure Search-tjänsten. Meddelandetexten är där du placerar det faktiska innehållet i anropet. 
+
+  ![Halvstrukturerad sökning](media/search-semi-structured-data/postmanoverview.png)
+
+Vi använder Postman för att göra fyra API-anrop till din söktjänst för att skapa en datakälla, en kompetens, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
+
+
 ## <a name="create-a-data-source"></a>Skapa en datakälla
 
 Nu när dina tjänster och källfiler är förberedda kan du börja samla in komponenterna för din indexeringspipeline. Börja med ett [datakällobjekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) som talar om för Azure Search hur externa källdata ska hämtas.
 
-För den här självstudien använder du REST API och ett verktyg som kan formulera och skicka HTTP-förfrågningar som PowerShell, Postman eller Fiddler. I begärandehuvudet anger du tjänstnamnet du använde när du skapade Azure Search-tjänsten, och API-nyckeln du genererade för din söktjänst. Ange blobcontainern och anslutningssträngen i frågans brödtext.
+I begärandehuvudet anger du tjänstnamnet du använde när du skapade Azure Search-tjänsten, och API-nyckeln du genererade för din söktjänst. Ange blobcontainern och anslutningssträngen i frågans brödtext.
 
 ### <a name="sample-request"></a>Exempelförfrågan
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 Skicka begäran. Webbtestverktyget bör returnera en statuskod på 201 vilket bekräftar att det lyckats. 
 
-Eftersom detta var din första begäran ska du kolla Azure-portalen för att bekräfta att datakällan skapades i Azure Search. På söktjänstens instrumentpanelsida verifierar du att panelen Datakällor har ett nytt objekt. Du kan behöva vänta några minuter medan portalsidan uppdateras. 
+Eftersom detta var din första begäran ska du kolla Azure-portalen för att bekräfta att datakällan skapades i Azure Search. Kontrollera listan över datakällor som har ett nytt objekt på instrumentpanelen söktjänstsidan. Du kan behöva vänta några minuter medan portalsidan uppdateras. 
 
   ![Datakällspanel i portalen](./media/cognitive-search-tutorial-blob/data-source-tile.png "Datakällspanel i portalen")
 
@@ -116,13 +133,13 @@ Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `
 
 ## <a name="create-a-skillset"></a>Skapa en kunskapsuppsättning
 
-I det här steget definierar du en uppsättning med berikningssteg som du vill använda för dina data. Du kallar varje berikande steg för en *kunskap*, och uppsättningen med berikande steg för en *kunskapsuppsättning*. Den här självstudien använder [fördefinierade kognitiva kunskaper](cognitive-search-predefined-skills.md) för kunskapsuppsättningen:
+I det här steget definierar du en uppsättning med berikningssteg som du vill använda för dina data. Du kallar varje berikande steg för en *kunskap*, och uppsättningen med berikande steg för en *kunskapsuppsättning*. Den här självstudien används [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) för gruppens kunskaper avgör:
 
 + [Språkidentifiering](cognitive-search-skill-language-detection.md) för att identifiera innehållets språk.
 
 + [Textuppdelning](cognitive-search-skill-textsplit.md) för att dela upp stort innehåll i mindre delar innan du anropar färdigheten extrahering av nyckelfraser. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen.
 
-+ [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blobcontainern.
++ [Entitetsidentifiering](cognitive-search-skill-entity-recognition.md) för att extrahera namnen på organisationer från innehållet i blob-behållaren.
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 Skicka begäran. Webbtestverktyget bör returnera en statuskod på 201 vilket bekräftar att det lyckats. 
 
-#### <a name="about-the-request"></a>Om begäran
+#### <a name="explore-the-request-body"></a>Utforska begärantexten
 
 Lägg märke till hur kunskapen för nyckelfrasextrahering används för varje sida. Genom att ange kontexten ```"document/pages/*"``` kör du den här berikaren för varje medlem i dokument-/sidmatrisen (för varje sida i dokumentet).
 
@@ -306,11 +323,13 @@ Om du vill veta mer om att definiera ett index kan du läsa [Create Index (Azure
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Skapa en indexerare, mappa fält och köra transformeringar
 
-Hittills har du skapat en datakälla, en kunskapsuppsättning och ett index. De här tre komponenterna blir en del av en [indexerare](search-indexer-overview.md) som sammanför varje del till en enda åtgärd i flera faser. Om du vill sammanfoga dem i en indexerare måste du definiera fältmappningar. Fältmappningar är en del av definitionen och kör transformationerna när du skickar förfrågan.
+Hittills har du skapat en datakälla, en kunskapsuppsättning och ett index. De här tre komponenterna blir en del av en [indexerare](search-indexer-overview.md) som sammanför varje del till en enda åtgärd i flera faser. Om du vill sammanfoga dem i en indexerare måste du definiera fältmappningar. 
 
-För icke-berikad indexering anger indexerardefinitionen ett valfritt *fieldMappings*-avsnitt om fältnamnen eller datatyperna inte matchar exakt, eller om du vill använda en funktion.
++ FieldMappings bearbetas före kompetens, mappar källfält från datakällan till målfält i ett index. Om fältnamn och typer är samma i båda ändar, krävs ingen mappning.
 
-För kognitiva sökarbetsbelastningar med en berikande pipeline kräver en indexerare *outputFieldMappings*. Dessa mappningar används när en intern process (berikande pipeline) är källan till fältvärden. Beteenden som är unika för *outputFieldMappings* inkluderar möjligheten att hantera komplexa typer som skapas som en del av berikningen (via formarkunskapen). Det kan även finnas många element per dokument (till exempel flera organisationer i ett dokument). Konstruktionen *outputFieldMappings* kan dirigera systemet för att ”platta ut” samlingar med element i en enskild post.
++ OutputFieldMappings bearbetas efter kompetens, refererar till sourceFieldNames som inte finns tills dokumentknäckning eller funktioner som de skapas. TargetFieldName är ett fält i ett index.
+
+Du kan också använda fältmappningar platta ut datastrukturer förutom anslutning upp indata till utdata. Mer information finns i [avancerad och mappning till ett sökbart index](cognitive-search-output-field-mapping.md).
 
 ### <a name="sample-request"></a>Exempelförfrågan
 
@@ -378,7 +397,7 @@ Förvänta dig att steget kan ta flera minuter att slutföra. Trots att dataupps
 > [!TIP]
 > När en indexerare skapas anropas pipelinen. Om det uppstår problem med att ansluta till data, mappningsindata eller -utdata eller ordningen på åtgärder visas dem i det här stadiet. Du kan behöva ta bort objekt först om du vill köra pipelinen med kod- eller skriptändringar. Mer information finns i [Reset and re-run](#reset) (Återställa och köra om).
 
-### <a name="explore-the-request-body"></a>Utforska begärantexten
+#### <a name="explore-the-request-body"></a>Utforska begärantexten
 
 Skriptet ställer in ```"maxFailedItems"```  på -1, vilket instruerar indexeringsmotorn att ignorera fel under dataimport. Detta är användbart eftersom det finns det så få dokument i demo-datakällan. För en större datakälla skulle du ställa in värdet på större än 0.
 

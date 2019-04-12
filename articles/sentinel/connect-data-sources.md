@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884803"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492370"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -34,9 +34,9 @@ Att integrera Azure Sentinel måste du först ansluta till dina datakällor. Azu
 
 ![Datainsamlare](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Metoder för insamling av data
+## <a name="data-connection-methods"></a>Data anslutningsmetoder
 
-Följande metoder för insamling av data stöds av Azure Sentinel:
+Följande data anslutningsmetoder stöds av Azure Sentinel:
 
 - **Microsoft-tjänster**:<br> Microsoft-tjänster är anslutna internt, att utnyttja Azure grunden för out-nyckelfärdig integrering, följande lösningar kan anslutas med några få klick:
     - [Office 365](connect-office-365.md)
@@ -47,12 +47,12 @@ Följande metoder för insamling av data stöds av Azure Sentinel:
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Cloud App Security](connect-cloud-app-security.md)
-    - [Säkerhetshändelser i Windows](connect-windows-security-events.md) 
+    - [Windows säkerhetshändelser](connect-windows-security-events.md) 
     - [Windows-brandväggen](connect-windows-firewall.md)
 
 - **Externa lösningar via API: et**: Vissa datakällor är anslutna med API: er som tillhandahålls av den anslutna datakällan. De flesta säkerhetstekniker ger vanligtvis en uppsättning API: er som händelseloggar kan hämtas. API: erna ansluta till Azure Sentinel och samla in specifika datatyper och skicka dem till Azure Log Analytics. Enheter som är anslutna via API: T är:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Externa lösningar via agent**: Azure Sentinel kan anslutas till andra datakällor som kan utföra i realtid loggströmningen med hjälp av protokollet Syslog via en agent. <br>De flesta installationer använda Syslog-protokollet för att skicka meddelanden om händelser som innehåller loggen själva och data om loggen. Formatet på loggarna varierar, men de flesta installationer stöder Common Event Format (CEF)-standarden. <br>Agenten Sentinel-Azure, som baseras på OMS-agenten, konverterar CEF formaterad loggar till ett format som kan matas in av Log Analytics. Beroende på typen av enhet installeras agenten direkt på installationen eller på en dedikerad server för Linux. Agenten för Linux tar emot händelser från Syslog-daemon över UDP, men i fall där en Linux-dator förväntas samla in en stor mängd Syslog-händelser, skickas de via TCP från Syslog-daemon till agenten och därifrån till Log Analytics.
     - Brandväggar, proxyservrar och slutpunkter:
         - [F5](connect-f5.md)

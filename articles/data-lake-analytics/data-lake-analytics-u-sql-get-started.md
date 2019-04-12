@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469615"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488719"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
 U-SQL är ett språk som kombinerar deklarativt Frågespråk med tvingande C# för så att du kan bearbeta data i valfri skala. Via funktionen skalbar och distribuerad fråga för U-SQL, kan du effektivt analysera data över relationella datalager som Azure SQL Database. Med U-SQL, kan du bearbeta Ostrukturerade data med hjälp av schema vid läsning och lägga till anpassad logik och UDF: er. Dessutom innehåller U-SQL utökningsbarhet som ger dig detaljerad kontroll över hur du kör i skala. 
@@ -25,7 +25,7 @@ U-SQL är ett språk som kombinerar deklarativt Frågespråk med tvingande C# f�
 * Detaljerad information om den **syntaxen för U-SQL**, finns i den [U-SQL-Språkreferens](https://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Att förstå den **U-SQL-designfilosofin**, finns i Visual Studio blogginlägget [introducerar U-SQL – ett språk som gör Big databehandling enkelt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du går igenom U-SQL-exemplen i det här dokumentet kan läsa och slutföra [självstudien: Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Självstudien förklaras säkerhetsnivån med U-SQL med Azure Data Lake Tools för Visual Studio.
 

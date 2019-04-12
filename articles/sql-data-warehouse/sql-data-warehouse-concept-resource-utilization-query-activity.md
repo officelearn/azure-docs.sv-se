@@ -10,21 +10,18 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337594"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492795"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka användning och fråga aktivitet för resurs i Azure SQL Data Warehouse
 Azure SQL Data Warehouse är en omfattande övervakning i Azure portal och ytinsikter till din arbetsbelastning i informationslager. Azure-portalen är det rekommendera verktyget när du övervakar ditt informationslager eftersom den innehåller konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer, och anpassningsbara diagram och instrumentpaneler för mått och loggar. På portalen kan du integrera med andra Azures övervakningstjänster, till exempel Operations Management Suite (OMS) och Azure Monitor (loggar) för att tillhandahålla en holistisk övervakningsupplevelse för inte bara din data warehouse utan även din hela Azure analytics plattform för en integrerad upplevelse för övervakning. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera dina analysplattform med SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Resursutnyttjande 
 Följande mått är tillgängliga i Azure-portalen för SQL Data Warehouse. De här måtten exponeras via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
-
-> [!NOTE]
-> Från och med November 2018 arbetar det tekniska teamet med ett problem med processor- och Data IO-procent till underreport. Detta leder till DWU används och procent samt underreport. 
 
 | Måttnamn                           | Beskrivning     | Sammansättningstyp: |
 | --------------------------------------- | ---------------- | --------------------------------------- |

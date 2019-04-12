@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203354"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502901"
 ---
 ## <a name="test-your-code"></a>Testa koden
 
@@ -35,7 +35,7 @@ Om du inte använder Visual Studio, kontrollera att servern har startats.
     ```
 1. Öppna webbläsaren och skriv http://<span></span>localhost:30662 eller http://<span></span>localhost: {port} där **port** är den port som servern lyssnar på. Du bör se innehållet i din index.html-fil och **logga In** knappen.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testa med Visual Studio
 
@@ -43,7 +43,7 @@ Om du använder Visual Studio, se till att välja den projektlösning och tryck 
 
 ## <a name="test-your-application"></a>Testa ditt program
 
-När webbläsaren har lästs in index.html-fil klickar du på **logga In**. Du uppmanas att logga in med Microsoft Azure Active Directory (Azure AD) v2.0-slutpunkten:
+När webbläsaren har lästs in index.html-fil klickar du på **logga In**. Du uppmanas att logga in med Microsoft identity-plattformen slutpunkten:
 
 ![Logga in på ditt konto för JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

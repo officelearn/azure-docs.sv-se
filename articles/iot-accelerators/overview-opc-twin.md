@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure IoT OPC UA-enhetshantering | Microsoft Docs
+title: What is OPC Twin - Azure | Microsoft Docs
 description: Översikt över OPC-Twin
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759304"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496820"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Vad är enhetshantering i Azure IoT öppen plattform kommunikation (OPC)?
-Azure IoT OPC UA-enhetshantering, även kallat OPC Twin består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin innehåller identifiering, registrering och fjärrstyrning av industriella enheter via REST API: er. OPC-Twin kräver inte en OPC Unified arkitektur (OPC UA) SDK, programmering språkoberoende och kan tas med i ett arbetsflöde för utan server. Den här artikeln beskriver flera OPC-Twin-användningsfall.
+
+OPC-Twin består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin innehåller identifiering, registrering och fjärrstyrning av industriella enheter via REST API: er. OPC-Twin kräver inte en OPC Unified arkitektur (OPC UA) SDK, programmering språkoberoende och kan tas med i ett arbetsflöde för utan server. Den här artikeln beskriver flera OPC-Twin-användningsfall.
 
 ## <a name="discovery-and-control"></a>Identifiering och kontroll
 Du kan använda OPC-Twin för enkel för identifiering och registrering.

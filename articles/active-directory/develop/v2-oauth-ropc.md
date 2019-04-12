@@ -1,5 +1,5 @@
 ---
-title: Använda Azure AD v2.0 för att logga in användare med hjälp av ROPC | Microsoft Docs
+title: Använd Microsoft identity-plattformen för att logga in användare med hjälp av ROPC | Azure
 description: Stöd för webbläsare utan autentisering flöden med resursen ägare lösenord credential grant.
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274202"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499945"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0- och OAuth 2.0-resurs för resursägarlösenord
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-plattformen och OAuth 2.0-resurs för resursägarlösenord
 
-Azure Active Directory (Azure AD) stöder den [resource resursägarlösenord (ROPC) ge](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Flödet ROPC kräver en hög grad av förtroende och användaren exponering och utvecklare ska bara använda det här flödet när de andra och säkrare, flödena inte kan användas.
+Microsoft identity-plattformen stöder den [resource resursägarlösenord (ROPC) ge](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Flödet ROPC kräver en hög grad av förtroende och användaren exponering och utvecklare ska bara använda det här flödet när de andra och säkrare, flödena inte kan användas.
 
-> [!Important]
-> * Azure AD v2.0-slutpunkten har endast stöd för ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klientspecifik slutpunkt (`https://login.microsoftonline.com/{TenantId_or_Name}`) eller `organizations` slutpunkt.
+> [!IMPORTANT]
+> * Microsoft identity-plattformen endpoint stöder bara ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klientspecifik slutpunkt (`https://login.microsoftonline.com/{TenantId_or_Name}`) eller `organizations` slutpunkt.
 > * Personliga konton som är välkomna till en Azure AD-klient kan inte använda ROPC.
 > * Konton som inte har lösenord kan inte logga in via ROPC. Det här scenariot rekommenderar vi att du använder ett annat flöde för din app i stället.
 > * Om användare vill använda multifaktorautentisering (MFA) för att logga in till programmet kan kommer de att blockeras istället.
@@ -44,10 +44,17 @@ Följande diagram visar ROPC flödet.
 
 ROPC flödet är en enskild begäran&mdash;den skickar klienten identifiering och användarens autentiseringsuppgifter till IDP: N och sedan ta emot tokens i utbyte. Klienten måste begära användarens e-postadress (UPN) och lösenord innan du gör det. Omedelbart efter en lyckad begäran bör klienten på ett säkert sätt att släppa användarens autentiseringsuppgifter från minnet. Du måste spara dem aldrig.
 
+> [!TIP]
+> Försök att köra den här begäran i Postman!
+> [![Kör i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -96,11 +103,11 @@ Om användaren inte har angett rätt användarnamn eller lösenord eller om klie
 
 | Fel | Beskrivning | Klientåtgärd |
 |------ | ----------- | -------------|
-| `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna är felaktiga eller klienten har inte medgivande för de begärda omfång. Om du inte beviljats scope, en `consent_required` suberror kommer att returneras. Om detta inträffar kan ska klienten skicka användaren till en interaktiv prompt med hjälp av en webbvy eller webbläsare. |
+| `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna är felaktiga eller klienten har inte medgivande för de begärda omfång. Om du inte beviljats scope, en `consent_required` fel returneras. Om detta inträffar kan ska klienten skicka användaren till en interaktiv prompt med hjälp av en webbvy eller webbläsare. |
 | `invalid_request` | Begäran konstruerades felaktigt | Beviljandetypen stöds inte på den `/common` eller `/consumers` kontexter för autentisering.  Använd `/organizations` i stället. |
-| `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen inte är inställt på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. Observera att ROPC stöds endast för offentliga klientappar. |
+| `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen är inte inställd på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. Observera att ROPC stöds endast för offentliga klientappar. |
 
 ## <a name="learn-more"></a>Läs mer
 
 * Prova att använda ROPC själv med hjälp av den [exempelprogrammet konsolen](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
+* Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).

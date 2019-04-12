@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262507"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489630"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 
-Aktivera övervakning på .NET och .NET Core-baserat webbprogram som körs på Azure App Services är nu enklare än någonsin. Tidigare nödvändigt att manuellt installera ett webbplatstillägg, är den senaste versionen tillägg/agenten inbyggt i app service-avbildning som standard. Den här artikeln kommer vägleder dig genom att aktivera Application Insights-övervakning samt ge preliminär vägledning för att automatisera processen för storskaliga distributioner.
+Aktivera övervakning på .NET och .NET Core baserade webbprogram som körs [Azure App Services](https://docs.microsoft.com/azure/app-service/) är nu enklare än någonsin. Tidigare nödvändigt att manuellt installera ett webbplatstillägg, är den senaste versionen tillägg/agenten inbyggt i app service-avbildning som standard. Den här artikeln kommer vägleder dig genom att aktivera Application Insights-övervakning samt ge preliminär vägledning för att automatisera processen för storskaliga distributioner.
 
 > [!NOTE]
 > Att manuellt lägga till en Application Insights-webbplatstillägg via **utvecklingsverktyg** > **tillägg** är inaktuell. Den här metoden för installation av tillägg var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget finns nu [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service-avbildning. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabila versionen. Om du följer anvisningarna för agenten baserat att aktivera övervakning nedan, raderas föråldrad tillägget automatiskt åt dig.
@@ -358,7 +358,7 @@ Den senaste informationen om Application Insights-agenten/tillägget finns i [vi
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – övervaka Azure Functions med Application Insights
-* [Aktivera Azure-diagnostik](../platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
+* [Aktivera Azure Diagnostics](../platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
 * [Övervaka mätvärden för tjänstens hälsotillstånd](../platform/data-platform.md) för att se till att tjänsten är tillgänglig och svarar.
 * [Få aviseringar](../platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
 * Använd [Application Insights för JavaScript-appar och webbsidor](javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.

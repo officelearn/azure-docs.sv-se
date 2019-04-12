@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862853"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505625"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en modul för maskinvarusäkerhet på din IoT Edge-enhet
 
@@ -37,7 +37,7 @@ I den här guiden lär du dig att distribuera en modul för maskinvarusäkerhet 
 
 Använd följande steg för att distribuera en ASC för IoT-säkerhetsmodul för IoT Edge.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Kontrollera att enheten är i din IoT-hubb [registrerad som en IoT Edge-enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
@@ -75,8 +75,25 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
 1. Från den **Lägg till moduler** fliken **distribution moduler** området klickar du på **AzureSecurityCenterforIoT**. 
    
 1. Ändra den **namn** till **azureiotsecurity**.
-1. Ändra namnet på **URI för avbildning** till **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Ändra den **bild-URI: N** till **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Kontrollera den **behållare skapa alternativ** har värdet:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Kontrollera att **önskade egenskaper för modultvilling Set** är markerad och ändra konfigurationsobjektet till:
       
     ``` json
@@ -89,12 +106,16 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
 1. Klicka på **Spara**.
 1. Bläddra till längst ned på fliken och välj **konfigurera avancerade Edge-körningsinställningar**.
    
-  >[!Note]
-  > Gör **inte** inaktivera AMQP kommunikation för IoT Edge-hubben.
-  > Azure Security Center för IoT-modulen kräver AMQP kommunikation med IoT Edge Hub.
+   >[!Note]
+   > Gör **inte** inaktivera AMQP kommunikation för IoT Edge-hubben.
+   > Azure Security Center för IoT-modulen kräver AMQP kommunikation med IoT Edge Hub.
    
-1. Ändra den **bild** under **Edge Hub** till **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Ändra den **bild** under **Edge Hub** till **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > Azure Security Center för IoT-modulen kräver en förgrenade versionen av IoT Edge Hub, baserat på SDK-version 1,20.
+   > Genom att ändra IoT Edge Hub-avbildning, ger du din IoT Edge-enhet att ersätta den senaste stabila versionen med den förgrenade versionen av IoT Edge Hub, vilket inte stöds officiellt av IoT Edge-tjänsten.
+
 1. Kontrollera **skapa alternativ** har angetts till: 
          
     ``` json
@@ -137,8 +158,8 @@ Om det uppstår ett problem, är container loggarna det bästa sättet att lära
    
    | Namn | BILD |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Om den begärda minimiversionen behållare inte finns, kontrollera om ditt manifest för IoT Edge-distribution är i linje med de rekommenderade inställningarna. Mer information finns i [distribuera IoT Edge-modul](#deployment-using-azure-portal).

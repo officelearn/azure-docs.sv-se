@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469105"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496564"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Skapa en enda sida i Visual Search webbapp
 
@@ -25,7 +25,7 @@ Den här självstudien beskrivs hur du utökar en enda sida webbapp för söknin
 
 Den fullständiga källkoden för det här programmet (när du utökar den för att använda Bing Visual Search API), är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

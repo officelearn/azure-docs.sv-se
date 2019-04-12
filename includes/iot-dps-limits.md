@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553813"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503277"
 ---
 I följande tabell visas de begränsningar som gäller för Azure IoT Hub Device Provisioning Service-resurser.
 
 | Resurs | Gräns |
 | --- | --- |
 | Maximal enhetsetableringstjänster per Azure-prenumeration | 10 |
-| Maximalt antal registreringar | 500,000 |
-| Maximalt antal registreringar | 500,000 |
+| Maximalt antal registreringar | 1,000,000 |
+| Maximalt antal registreringar | 1,000,000 |
 | Maximalt antal registreringsgrupper | 100 |
 | Maximalt antal CA: er | 25 |
 

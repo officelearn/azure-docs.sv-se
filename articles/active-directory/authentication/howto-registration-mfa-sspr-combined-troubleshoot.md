@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262575"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489201"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombineras security information registrering (förhandsversion)
 
@@ -73,7 +73,7 @@ Om du, som administratör vill du återställa en användares inställningar fö
 
 Stegen nedan hjälper dig att återställa en användare eller grupp av användare.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. Installera rätt Azure AD PowerShell-moduler. Kör dessa kommandon för att installera modulerna i ett PowerShell-fönster:
 
@@ -154,7 +154,7 @@ Kör följande kommando, att tillhandahålla skript och användaren sökvägar i
 
 Om du vill inaktivera förhandsgranskning upplevelse för användarna, gör du följande:
 
-1. Logga in på Azure-portalen som global administratör eller Användaradministratör.
+1. Logga in på Azure Portal som en användare med rollen.
 2. Gå till **Azure Active Directory** > **användarinställningar** > **hantera inställningar för åtkomst till panelen förhandsversionsfunktioner**.
 3. Under **användare kan använda förhandsversionsfunktioner för att registrera och hantera säkerhetsinformation**, inställd väljaren **ingen**, och välj sedan **spara**.
 

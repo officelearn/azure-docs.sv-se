@@ -1,10 +1,10 @@
 ---
-title: Prestandaräknare för karthanteraren för shard
+title: Skapa prestandaräknare för att spåra prestanda för karthanteraren för
 description: ShardMapManager klass- och beroende routning prestandaräknare
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,22 +12,23 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895184"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494926"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Prestandaräknare för karthanteraren för shard
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Skapa prestandaräknare för att spåra prestanda för karthanteraren för
+
+Prestandaräknare som används för att spåra prestanda för [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) åtgärder. Dessa räknare kan nås i Prestandaövervakaren, under den ”elastisk databas: Fragmenthanterings ”kategori.
 
 Du kan avbilda prestanda för en [karthanteraren](sql-database-elastic-scale-shard-map-management.md), särskilt när de använder [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Räknare som används för att spåra prestanda för [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) åtgärder. Dessa räknare kan nås i Prestandaövervakaren, under den ”elastisk databas: Fragmenthanterings ”kategori.
 
 **För den senaste versionen:** Gå till [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Se även [uppgradera en app för att använda det senaste klientbiblioteket för elastiska databaser](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du vill skapa kategori för prestanda och räknare, måste användaren vara en del av lokalt **administratörer** på den dator som är värd för programmet.  
 * Om du vill skapa en prestandaräknarinstans och uppdatera räknare, användaren måste vara medlem i den **administratörer** eller **användare av prestandaövervakning** grupp.
@@ -67,7 +68,7 @@ Prestandaräknare kommer att uppdateras av alla cacheåtgärder som utförs på 
 
 ### <a name="see-also"></a>Se också
 
-[Översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)  
+[Funktionsöversikt för elastisk databas](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

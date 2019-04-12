@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: fbdc6ca8a9d93c090c1cfda9dec41b948d95c6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904924"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495353"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
@@ -35,7 +35,7 @@ Letar du efter mer dokumentation?
 * [SDK referensdokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 * [Dokumentation för kognitiva tjänster för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Python 3.6+][python]
 * Kostnadsfria [visuellt nyckeln] [ computervision_resource] och associerade slutpunkten. Du behöver dessa värden när du skapar en instans av den [ComputerVisionClient] [ ref_computervisionclient] klientobjektet. Använd en av följande metoder för att hämta dessa värden.
@@ -216,12 +216,13 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Hämta text från bilden
 
-Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK:n: [`recognize_text`][ref_computervisionclient_recognize_text] och [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. Anropet till recognize_text är asynkront. I resultatet av anropet get_text_operation_result, måste du kontrollera om det första anropet slutfördes med [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] innan du extraherar textdatan. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält.
+Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK: [ `batch_read_file` ](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) och [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). Anropet till `batch_read_file` är asynkron. I resultatet av den `get_read_operation_result` anrop, måste du kontrollera om det första anropet slutfördes med [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] innan du extrahera textdata. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält.
 
 ```Python
 # import models
 from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
@@ -230,7 +231,7 @@ custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -239,16 +240,17 @@ operationId = operationLocation[idLocation:]
 
 # SDK call
 while True:
-    result = client.get_text_operation_result(operationId)
+    result = client.get_read_operation_result(operationId)
     if result.status not in ['NotStarted', 'Running']:
         break
     time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
+    for textResult in result.recognition_results:
+        for line in textResult.lines:
+            print(line.text)
+            print(line.bounding_box)
 ```
 
 ### <a name="generate-thumbnail"></a>Skapa en miniatyrbild
@@ -314,12 +316,6 @@ except HTTPFailure as e:
 
 När du arbetar med den [ComputerVisionClient] [ ref_computervisionclient] klienten, som kan uppstå tillfälliga fel som orsakas av [hastighetsbegränsningar] [ computervision_request_units] tvingande av tjänsten eller andra tillfälliga problem angående avbrott i nätverket. Information om hur du hanterar dessa typer av fel finns i [Återförsöksmönster][azure_pattern_retry] i guiden för molndesignmönster och relaterade [Kretsbrytarmönster][azure_pattern_circuit_breaker].
 
-### <a name="more-sample-code"></a>Mer exempelkod
-
-Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på GitHub-lagringsplatsen för SDK:er. De här exemplen innehåller exempelkod för fler scenarier som ofta inträffar när du arbetar med visuellt innehåll:
-
-* [recognize_text][recognize-text]
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
@@ -329,7 +325,7 @@ Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på 
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
+[azure_cli]: https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -350,7 +346,7 @@ Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på 
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
+[computervision_resource]: https://azure.microsoft.com/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 
@@ -364,8 +360,6 @@ Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på 
 
 [ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
-
 [ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
 [ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -376,6 +370,3 @@ Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på 
 [ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
 
 [computervision_request_units]:https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-

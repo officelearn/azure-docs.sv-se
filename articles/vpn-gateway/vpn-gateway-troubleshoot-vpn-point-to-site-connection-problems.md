@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630472"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492387"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller vanliga anslutningsproblem med punkt-till-plats-so
 
 När du försöker ansluta till ett Azure-nätverk med hjälp av VPN-klienten, visas följande felmeddelande visas:
 
-**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Error 798)**
+**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Fel 798)**
 
 ### <a name="cause"></a>Orsak
 
@@ -57,6 +57,35 @@ Läs mer om hur du installerar klientcertifikatet [generera och exportera certif
 
 > [!NOTE]
 > När du importerar klientcertifikatet inte väljer den **aktivera starkt skydd av den privata nyckeln** alternativet.
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Gick inte att upprätta nätverksanslutningen mellan datorn och VPN-servern eftersom fjärrservern inte svarar
+
+### <a name="symptom"></a>Symtom
+
+När du försöker och ansluta till en Azure-nätverk gteway som använder IKEv2 på Windows kan du få följande felmeddelande visas:
+
+**Gick inte att upprätta nätverksanslutningen mellan datorn och VPN-servern eftersom fjärrservern inte svarar**
+
+### <a name="cause"></a>Orsak
+ 
+ Problemet uppstår om versionen av Windows inte har stöd för IKE fragmentering
+ 
+### <a name="solution"></a>Lösning
+
+IKEv2 stöds på Windows 10 och Server 2016. Om du vill använda IKEv2 måste du installera uppdateringar och ange ett registreringsnyckelvärde lokalt. Operativsystemversioner före Windows 10 stöds inte och kan endast använda SSTP.
+
+Förbereda Windows 10 eller Server 2016 för IKEv2:
+
+1. Installera uppdateringen.
+
+   | Operativsystemversion | Date | Antal/länk |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Ange registernyckelvärdet. Skapa eller ange "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD-nyckeln i registret till 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Fel för VPN-klienten: Det mottagna meddelandet var oväntad eller felaktigt formaterat
 

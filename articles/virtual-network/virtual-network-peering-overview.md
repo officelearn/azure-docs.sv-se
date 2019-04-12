@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Lär dig mer om virtuell nätverkspeering i Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880431"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489989"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -80,7 +80,6 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 
 Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
 - Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för Global VNet-Peering.
-- Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk i förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen.
 
 Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

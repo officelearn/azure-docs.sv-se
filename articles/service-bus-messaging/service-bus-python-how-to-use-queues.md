@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242606"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500506"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Hur du använder Service Bus-köer med Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Den här artikeln beskriver hur du använder Service Bus-köer. Exemplen är skrivna i Python och Använd den [Python Azure Service Bus paket][Python Azure Service Bus package]. Scenarier som omfattas är **skapande av köer, skicka och ta emot meddelanden**, och **tar bort köer**.
+I de här självstudierna lär du dig att skapa Python-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln.
+    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
+    2. Skapa ett Service Bus **namnområde**. 
+    3. Hämta den **anslutningssträngen**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Installera Python eller [Python Azure Service Bus paket][Python Azure Service Bus package], finns i den [Python installationsguide](../python-how-to-install.md).
-> 
-> Se fullständig dokumentation för Service Bus Python SDK [här](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Skapar du en **kö** i Service Bus-namnområde med hjälp av Python i den här självstudien. 
+1. Installera Python eller [Python Azure Service Bus paket][Python Azure Service Bus package], finns i den [Python installationsguide](../python-how-to-install.md). Se fullständig dokumentation för Service Bus Python SDK [här](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Skapa en kö
 Den **ServiceBusClient** objekt kan du arbeta med köer. Lägg till följande kod i den övre delen av alla Python-fil som du vill komma åt Service Bus via programmering:

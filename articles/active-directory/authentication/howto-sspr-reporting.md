@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369538"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493067"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -118,7 +118,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en administratör har genomfört en å en användares från Azure-portalen.
-* **Aktivitet aktören**: Administratören som utförs åt en annan användare eller administratör om återställning av lösenord. Måste vara antingen en global administratör, lösenordsadministratör, administratören eller supportavdelningsadministratör.
+* **Aktivitet aktören**: Administratören som utförs åt en annan användare eller administratör om återställning av lösenord. Måste vara en lösenordsadministratör eller Användaradministratör supportavdelningens administratör.
 * **Mål för aktiviteten**: Den användare vars lösenord har återställts. Användaren kan vara en användare eller en annan administratör.
 * **Aktivitet statusar**:
   * _Success_: Anger att en administratör har återställts en användares lösenord.
@@ -176,14 +176,14 @@ I följande lista beskrivs den här aktiviteten i detalj:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
+* [Hur jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
 * [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md).
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
-* [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
-* [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
+* [Vilka data som används av SSPR och vilka data bör du fylla för dina användare?](howto-sspr-authenticationdata.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användare?](concept-sspr-howitworks.md#authentication-methods)
+* [Vad är principalternativ finns SSPR?](concept-sspr-policy.md)
+* [Vad är tillbakaskrivning av lösenord och varför behöver jag bry mig om det?](howto-sspr-writeback.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

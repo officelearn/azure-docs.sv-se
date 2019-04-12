@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics PowerShell-exempel | Microsoft Docs
-description: Azure Log Analytics PowerShell-exempel
+title: Azure Monitor PowerShell-exempel | Microsoft Docs
+description: Azure Monitor PowerShell-exempel
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 642aa385f52e3757f1f872d47d6dd2de80f36d2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5aac1f7e1ded700b9bec38c358ea0049df93fd3e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110229"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492625"
 ---
-# <a name="azure-log-analytics-powershell-samples"></a>Azure Log Analytics PowerShell-exempel
+# <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
 
-I följande tabell innehåller länkar till PowerShell-exempelskript för att utföra olika funktioner i Log Analytics.
+I följande tabell innehåller länkar till PowerShell-exempelskript för att utföra olika funktioner i Azure Monitor.
 
 | | |
 |---|---|
 |**Skapa arbetsyta**||
-| [Skapa en Log Analytics-arbetsyta](../scripts/powershell-sample-create-workspace.md) | Skapar en arbetsyta i Log Analytics.|
+| [Skapa en Log Analytics-arbetsyta](../scripts/powershell-sample-create-workspace.md) | Skapar en Log Analytics-arbetsyta i Azure Monitor.|
 | | |
 

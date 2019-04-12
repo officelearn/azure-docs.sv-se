@@ -1,6 +1,6 @@
 ---
 title: Skydda en enkel databas eller en pooldatabas i Azure SQL Database | Microsoft Docs
-description: Lär dig olika tekniker och funktioner för att skydda en enkel databas eller en pooldatabas i Azure SQL Database.
+description: En självstudie som Lär dig om tekniker och funktioner för att skydda en enskild eller grupperade databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893279"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496445"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
+
+I den här självstudiekursen får du lära du dig att:
+
+> [!div class="checklist"]
+> - Skapa brandväggsregler på servernivå och databasnivå
+> - Konfigurera en administratör för Azure Active Directory (AD Azure)
+> - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
+> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
 
 Med Azure SQL Database kan du skydda data i en enkel databas eller en pooldatabas genom att:
 
@@ -29,17 +38,9 @@ Med Azure SQL Database kan du skydda data i en enkel databas eller en pooldataba
 > [!NOTE]
 > En Azure SQL-databas på en hanterad instans skyddas med nätverkssäkerhetsregler och privata slutpunkter enligt beskrivningen i [Hanterad Azure SQL Database-instans](sql-database-managed-instance-index.yml) och [anslutningsarkitektur](sql-database-managed-instance-connectivity-architecture.md).
 
-Du kan förbättra din databassäkerhet med bara några få enkla steg. I den här självstudiekursen får du lära du dig att:
-
-> [!div class="checklist"]
-> - Skapa brandväggsregler på servernivå och databasnivå
-> - Konfigurera en administratör för Azure Active Directory (AD Azure)
-> - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
-> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
-
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](sql-database-security-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -349,4 +350,4 @@ I den här självstudien har du lärt dig att förbättra säkerheten för din d
 I nästa självstudie får du lära dig hur du implementerar en geo-distribution.
 
 > [!div class="nextstepaction"]
->[Implementera en geodistribuerad databas](sql-database-implement-geo-distributed-database.md)
+>[Implementera en geo-distribuerad databas](sql-database-implement-geo-distributed-database.md)

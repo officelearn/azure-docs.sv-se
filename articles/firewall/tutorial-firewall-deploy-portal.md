@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426417"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492322"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -43,6 +43,8 @@ I den här guiden får du lära dig att:
 > * Konfigurera en regel för programmet för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * Testa brandväggen
+
+Om du vill kan du utföra den här självstudien med [Azure PowerShell](deploy-ps.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

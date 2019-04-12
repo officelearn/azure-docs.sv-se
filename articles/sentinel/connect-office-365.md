@@ -1,6 +1,6 @@
 ---
-title: Samla in Office 365-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig hur du samlar in Office 365-data i Azure Sentinel.
+title: Ansluta Office 365-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
+description: Lär dig hur du ansluter Office 365-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574866"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495198"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Samla in data från Office 365-loggar
+# <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -30,14 +30,14 @@ ms.locfileid: "58574866"
 Du kan strömma granskningsloggar från [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) i Azure Sentinel-med ett enda klick. Du kan strömma granskningsloggar från flera innehavare till en enda arbetsyta i Azure Sentinel. Office 365-anslutning aktivitet log ger inblick i pågående användaraktiviteter. Du får information om olika användare, admin, system, och åtgärder och händelser från Office 365. Du kan använda dessa data att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen genom att ansluta Office 365-loggar i Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste vara en global administratör eller säkerhetsadministratör på din klient
-- På datorn varifrån loggade du in på Azure Sentinel för anslutningen är Kontrollera suretha porten 4433 öppen för webbtrafik.
+- Kontrollera att port 4433 är öppen för webbtrafik på datorn varifrån loggade du in på Azure Sentinel för anslutningen.
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Office 365** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Office 365** panelen.
 
 2. Om du inte redan har aktiverat den, under **anslutning** använder den **aktivera** knappen för att aktivera Office 365-lösningen. Om det redan har aktiverats identifieras på skärmen anslutning som redan har aktiverats.
 1. Office 365 kan du strömdata från flera klienter kan Azure Sentinel. För varje klient som du vill ansluta till, lägger du till klienten under **ansluta klienter till Azure Sentinel**. 

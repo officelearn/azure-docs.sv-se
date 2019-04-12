@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619806"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488413"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP- eller WAR-fil
 
@@ -31,7 +31,7 @@ Den här ZIP-filen distributionen använder samma Kudu-tjänsten som driver kont
 - Alternativet för att aktivera skapandeprocessen standard, vilket innefattar paketåterställning.
 - [Distributionsanpassning](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), inklusive distribution skriptkörning.  
 - Distributionsloggar. 
-- En fil storleksgräns på 512 MB.
+- Filen storleksgränsen på 2 048 MB.
 
 Mer information finns i [Kudu-dokumentationen](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -39,7 +39,7 @@ WAR-filen distributionen distribuerar din [WAR](https://wikipedia.org/wiki/WAR_(
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen i den här artikeln:
 

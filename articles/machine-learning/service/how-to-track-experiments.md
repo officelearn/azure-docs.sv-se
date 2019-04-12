@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652322"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494635"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
 
@@ -217,37 +217,9 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
    run = experiment.submit(src)
    ```
 
-## <a name="cancel-a-run"></a>Avbryt en körning
+## <a name="manage-a-run"></a>Hantera en körning
 
-ALTER en körning har skickats kan du avbryta den även om du har tappat bort objektreferensen, så länge som du känner till experimentnamnet och köra ID. 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-För närvarande bara ScriptRun och PipelineRun-typerna stöder Avbryt åtgärden.
-
-Du kan dessutom avbryta en körning via CLI med följande kommando:
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+Den [Start, övervaka och avbryta träningskörningar](how-to-manage-runs.md) artikeln lyfter fram specifika Azure Machine Learning-arbetsflöden för hur du hanterar dina experiment.
 
 ## <a name="view-run-details"></a>Visa körningsinformation
 
@@ -417,7 +389,7 @@ Exempel 2: En modell för över confident ![en överdrivet confident-modell](./m
 
 ### <a name="regression"></a>Regression
 För varje regressionsmodell du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning kan du se följande diagram: 
-+ [Förväntade vs. SANT](#pvt)
++ [Förväntade vs. True](#pvt)
 + [Histogram för restbelopp](#histo)
 
 <a name="pvt"></a>
@@ -450,9 +422,9 @@ Funktionen vikten ger ett värde som anger hur värdefull varje funktion befann 
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:
-* [How-to-use-azureml/Training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [How-to-use-azureml/Training/Train-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

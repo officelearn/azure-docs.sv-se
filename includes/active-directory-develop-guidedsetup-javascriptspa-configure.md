@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 1eaae979f030d3044b44c46bedee2bd9e3346784
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203361"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502938"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -39,7 +39,7 @@ ms.locfileid: "58203361"
 > För Node.js, du kan ange webb-serverport i den *server.js* fil. Den här självstudien används port 30662 referens, men du kan använda någon annan port. Följ anvisningarna nedan för att ställa in en omdirigerings-URL i registreringsinformation för programmet:<br/>
 > - Gå tillbaka till den *programregistrering* och ange `http://localhost:30662/` som en `Redirect URL`, eller Använd `http://localhost:[port]/` om du använder en anpassad TCP-port (där *[port]* är anpassade TCP-portnumret).
 
-<p/>
+<p>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Visual Studio-instruktionerna för att hämta omdirigerings-URL
 > Följ dessa steg för att hämta omdirigerings-URL:
@@ -54,14 +54,15 @@ ms.locfileid: "58203361"
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-Ersätt <code>Enter the application Id here</code> med program-ID som du just registrerade.
-</li>
-</ol>
+    Där:
+    - `Enter_the_Application_Id_here` -är den **(klient)-ID: T** för programmet som du har registrerat.
+    - `Enter_the_Tenant_Info_Here` -är inställd på något av följande alternativ:
+       - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
+       - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
+       - Om ditt program stöder **konton alla organisationskatalog och personliga Microsoft-konton**, Ersätt detta värde med `common`

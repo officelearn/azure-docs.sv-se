@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361469"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496103"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -41,8 +41,8 @@ Läs mer om backup [med hjälp av en reservserver](backup-architecture.md#archit
 **Åtgärd** | **Support**
 --- | ---
 Aktivera säkerhetskopiering när du skapar en Windows Azure VM | Stöd för:  Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM och SP1)
-Aktivera säkerhetskopiering när du skapar en Linux VM | Stöd för:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-Säkerhetskopiera en virtuell dator som är avstängning/offline/söker VM | Stöds.<br/><br/> Ögonblicksbilden är kraschkonsekventa, men inte appkonsekventa.
+Aktivera säkerhetskopiering när du skapar en Linux VM | Stöd för:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Säkerhetskopiera en virtuell dator som är avstängning/offline virtuell dator | Stöds.<br/><br/> Ögonblicksbilden är kraschkonsekventa, men inte appkonsekventa.
 Säkerhetskopiera diskar när du migrerar till hanterade diskar | Stöds.<br/><br/> Backup fortsätter att fungera. Ingen åtgärd krävs.
 Säkerhetskopiera hanterade diskar när du har aktiverat resurslås för grupp | Stöds ej.<br/><br/> Azure Backup kan inte ta bort äldre resource poäng och säkerhetskopior börjar misslyckas när den maximala gränsen på återställningspunkter har nåtts.
 Ändra princip för säkerhetskopiering för en virtuell dator | Stöds.<br/><br/> Den virtuella datorn kommer att säkerhetskopieras med hjälp av inställningarna schema och kvarhållning i ny princip. Om inställningarna för datakvarhållning är utökat, markeras befintliga återställningspunkter och förvaras. Om de är minskar rensad under nästa rensningsjobb befintliga återställningspunkter och slutligen bort.
@@ -149,8 +149,7 @@ Säkerhetskopiera virtuella datorer som distribueras i en [skalningsuppsättning
 Säkerhetskopiera virtuella datorer som distribueras från den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Som publicerats av Microsoft, tredje part) |  Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (från tredje part) |   Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> Vid återställning av filer på den virtuella datorn, kan du återställa endast till ett kompatibelt operativsystem (inte en tidigare eller senare-OS).
 Säkerhetskopiera virtuella datorer som migreras till Azure  | Stöds.<br/><br/> VM-agenten måste installeras på den migrerade datorn för att säkerhetskopiera den virtuella datorn.
-Säkerhetskopiera virtuella datorer konsekvens | som inte stöds. <br/><br/>Azure Backup stöder inte konsekvens.
-
+Säkerhetskopiera konsekvens | Azure Backup tillhandahåller inte data- och konsekvens mellan flera virtuella datorer.
 
 
 ## <a name="vm-storage-support"></a>Support för VM-lagring
@@ -166,7 +165,7 @@ Diskar med Write Accelerator-aktiverade | Stöds ej.<br/><br/> Om du kör den se
 Säkerhetskopiera deduplicerade diskar | Stöds ej.
 Lägg till disk till skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
-Delad lagring| Säkerhetskopiera virtuella datorer med CSV- eller Scale-Out File Server rekommenderas inte. CSV-skrivarna är sannolikt att misslyckas.
+Delad lagring| Det rekommenderas inte att säkerhetskopiera virtuella datorer med hjälp av klusterdelade volymer (CSV) eller skalbar filserver. CSV-skrivare har antagligen misslyckas under säkerhetskopieringen. Vid återställning, diskar som innehåller CSV-volymer kan inte komma upp.
 
 > [!NOTE]
 > Azure Backup stöder inte stripe diskar. Storleksändring av disk rekommenderas inte av Azure Backup.

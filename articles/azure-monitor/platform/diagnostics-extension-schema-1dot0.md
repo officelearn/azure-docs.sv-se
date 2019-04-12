@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811536"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492727"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema för Azure Diagnostics 1.0-konfiguration
 > [!NOTE]
 > Azure-diagnostik är den komponent som används för att samla in prestandaräknare och annan statistik från Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric och Cloud Services.  Den här sidan gäller endast om du använder någon av dessa tjänster.
 >
 
-Azure-diagnostik används med andra Microsoft-produkter för diagnostik som Azure Monitor, Application Insights och Log Analytics.
+Azure-diagnostik används med andra Microsoft-produkter för diagnostik som Azure Monitor, som innehåller Application Insights och Log Analytics.
 
 Azure Diagnostics-konfigurationsfilen definierar värden som används för att initiera diagnostik övervakaren. Den här filen används för att initiera diagnostiska inställningar när diagnostik monitor startar.  
 
@@ -101,7 +101,7 @@ Det översta elementet i konfigurationsfilen för diagnostik.
 
 Attribut:
 
-|Attribut  |Type   |Krävs| Standard | Beskrivning|  
+|Attribut  |Typ   |Krävs| Standard | Beskrivning|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|varaktighet|Valfri | PT1M| Anger intervall för diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
 |**overallQuotaInMB**|unsignedInt|Valfri| 4000 MB. Om du anger ett värde får inte överskrida den mängden |Den totala mängden lagringsutrymme för filsystem tilldelat för alla buffertar för loggning.|  
@@ -113,7 +113,7 @@ Definierar konfigurationen av buffert för loggarna som genereras av den underli
 
 Attribut:
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -126,7 +126,7 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -140,7 +140,7 @@ Definierar konfigurationen av buffert för filbaserade loggar som du kan definie
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
@@ -152,7 +152,7 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -164,7 +164,7 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -176,7 +176,7 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -193,7 +193,7 @@ Attribut:
 
 Attribut:
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -205,9 +205,9 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**path**|sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
+|**sökväg**|sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
 |**expandEnvironment**|boolesk|Krävs. Om inställd **SANT**, miljövariabler i sökvägen expanderas.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
@@ -217,9 +217,9 @@ Attribut:
 
 Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|sträng|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
+|**namn**|sträng|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
 |**relativePath**|sträng|Krävs. Sökväg i förhållande till den lokala resursen du övervakar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters Element  
@@ -230,7 +230,7 @@ Attribut:
 
  Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
@@ -242,7 +242,7 @@ Attribut:
 
  Attribut:  
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|sträng|Krävs. Sökvägen till prestandaräknaren för att samla in.|  
 |**sampleRate**|varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
@@ -254,7 +254,7 @@ Attribut:
 
   Attribut:
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -267,7 +267,7 @@ Attribut:
 
  Attribut:
 
-|Attribut|Type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|sträng|Krävs. Ett XPath-uttryck som anger att samla in loggen.|  
+|**namn**|sträng|Krävs. Ett XPath-uttryck som anger att samla in loggen.|  
 

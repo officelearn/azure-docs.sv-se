@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014129"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496802"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Skapa en daglig export
 > * Kontrollera att data samlas in
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Dataexport är tillgänglig för en mängd olika typer av Azure-konton, exempelvis för [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/). Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter eller scope, stöds per prenumeration för export av data för användare och grupp. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 - Ägare – kan skapa, ändra eller ta bort schemalagda exporter för en prenumeration.
@@ -63,7 +63,7 @@ Först kan det ta en till två timmar innan exporten körs. Dock kan det ta upp 
 
 ### <a name="export-schedule"></a>Exportera schema
 
-Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten samma tid på dagen för varje efterföljande export. Anta exempelvis att du skapar en daglig export klockan 13:00. Nästa export körs klockan 13:00 följande dag. Den aktuella tiden påverkar alla andra exporttyper på samma sätt – de körs alltid samma tid på dagen som då du först skapade exporten. I ett annat exempel skapar du en veckovis export kl. 16:00 på måndag. Nästa rapport körs kl. 16:00 följande måndag. *Exporterade data är tillgängliga inom fyra timmar efter körningstiden.*
+Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten samma tid på dagen för varje efterföljande export. Anta exempelvis att du skapar en daglig export klockan 13:00. Nästa export körs klockan 13:00 följande dag. Den aktuella tiden påverkar alla andra exporttyper på samma sätt – de körs alltid samma tid på dagen som då du först skapade exporten. I ett annat exempel skapar du en veckovis export kl. 16:00 på måndag. Nästa rapport körs kl. 16:00 följande måndag. *Exporterade data är tillgängliga inom fyra timmar efter körning.*
 
 Varje export skapar en ny fil, vilket betyder att äldre exporter inte skrivs över.
 
@@ -73,7 +73,11 @@ Det finns tre typer av exportalternativ:
 
 **Veckokostnader för export de senaste 7 dagarna** – Den första exporten körs direkt. Efterföljande exporter körs på samma dag i veckan och vid samma tid som den första exporten. Kostnaderna avser de senaste sju dagarna.
 
-**Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten körs direkt.*
+**Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten ska köras omedelbart.*
+
+Om du har en betala per användning, MSDN eller Visual Studio-prenumeration, kanske inte din faktura faktureringsperiod justeras per kalendermånad. Du kan skapa en export som justeras till din faktureringsperiod eller kalendermånaderna för dessa typer av prenumerationer och resursgrupper. Skapa en export justeras till din Fakturamånad, gå till **anpassade**och välj sedan **fakturering-punkt-till-date**.  Om du vill skapa en export justerad per kalendermånad, Välj **månad hittills**.
+>
+>
 
 ![Ny export – Fliken Grundläggande inställningar visar ett anpassat alternativ för ”hittills den här veckan” för varje vecka](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
@@ -93,6 +97,7 @@ Filen öppnas med det program eller den app som är inställt på att öppna CSV
 
 ![Exempel på exporterade CSV-data som visas i Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+
 ## <a name="access-exported-data-from-other-systems"></a>Komma åt exporterade data från andra system
 
 Ett av syftena med att exportera dina Cost Management-data är att komma åt data från externa system. Du använder kanske ett instrumentpanelssystem eller något annat ekonomisystem. Sådana system varierar mycket, så det vore inte praktiskt att visa ett exempel.  Dock kan du komma igång med att få åtkomst till data från dina program i [Introduktion till Azure Storage](../storage/common/storage-introduction.md).
@@ -108,4 +113,4 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att optimera och förbättra effektiviteten genom att identifiera inaktiva och underutnyttjade resurser.
 
 > [!div class="nextstepaction"]
-> [Granska och arbeta med optimeringsrekommendationer](tutorial-acm-opt-recommendations.md)
+> [Granska och vidta åtgärder för optimering rekommendationer](tutorial-acm-opt-recommendations.md)

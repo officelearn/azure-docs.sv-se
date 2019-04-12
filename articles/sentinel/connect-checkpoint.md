@@ -1,6 +1,6 @@
 ---
-title: Samla in Check Point data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in Check Point data i Azure Sentinel.
+title: Anslut Check Point data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Check Point data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876504"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489184"
 ---
 # <a name="connect-your-check-point-appliance"></a>Ansluta din Check Point-installation
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876504"
 Du kan ansluta Sentinel-Azure till någon Check Point-installation för genom att spara loggfilerna som Syslog CEF. Integrering med Azure Sentinel kan du enkelt köra analyser och frågor över loggfilsdata från Check Point. Mer information om hur Azure Sentinel matar in data som CEF Se [ansluta CEF installationer](connect-common-event-format.md).
 
 > [!NOTE]
-> - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Steg 1: Ansluta din Check Point-installation med hjälp av en agent
 
@@ -42,7 +42,7 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuera agenten i Azure
 
-1. Sentinel-Azure-portalen klickar du på **datainsamling** och väljer du typen av installation. 
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation. 
 
 1. Under **Linux Syslog-agentkonfiguration**:
    - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad virtuell dator som automatiskt ansluter till din arbetsyta. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.

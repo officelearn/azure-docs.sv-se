@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848588"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501645"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden
 
@@ -127,6 +127,19 @@ Förhämtar, meddelanden ökar det totala arbetsflödet för en kö eller prenum
 Egenskapen time to live (TTL) för ett meddelande som kontrolleras av servern när servern skickar meddelandet till klienten. Klienten kontrollerar inte meddelandets TTL-egenskap när meddelandet tas emot. I stället tas meddelandet emot även om meddelandets TTL har passerat när meddelandet har cachelagras av klienten.
 
 Förhämtar, påverkar inte antalet faktureringsbara meddelanden åtgärder och är endast tillgänglig för Service Bus-klientprotokollet. HTTP-protokollet stöder inte förhämtar. Förhämtar, är tillgänglig för både synkron och asynkron ta emot.
+
+## <a name="prefetching-and-receivebatch"></a>Förhämtar, och ReceiveBatch
+
+Begreppet förhämtar, flera meddelanden tillsammans har liknande semantisk struktur för bearbetning av meddelanden i en batch (ReceiveBatch), finns men det några mindre skillnader som måste finnas i åtanke när möjligheterna med dessa tillsammans.
+
+Prefetch är en konfiguration (eller läge) på klienten (QueueClient och SubscriptionClient) och ReceiveBatch är en åtgärd (som har semantik för begäranden och svar).
+
+När du använder dessa tillsammans att tänka på följande fall-
+
+* Prefetch ska vara större än eller lika med antalet meddelanden som du förväntar dig att ta emot från ReceiveBatch.
+* Prefetch kan vara upp till n/3 gånger antalet meddelanden som behandlas per sekund, där n är standardlängden för lås.
+
+Det finns några utmaningar med att ha en girig metod, (d.v.s. och antalet prefetch mycket hög), eftersom det innebär att meddelandet är låst till en viss mottagare. Rekommendationen är att försöka ut förhämtning av värden mellan de tröskelvärden som nämns ovan och empiriskt identifiera vad som passar.
 
 ## <a name="multiple-queues"></a>Flera köer
 

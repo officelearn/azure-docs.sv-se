@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553944"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502991"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | --- | --- |
 | Virtuella nätverk |1,000 |
 | Undernät per virtuellt nätverk |3 000 |
-| Vnet-peering per virtuellt nätverk |100 |
+| Vnet-peering per virtuellt nätverk |500 |
 | DNS-servrar per virtuellt nätverk |20 |
 | Privata IP-adresser per virtuellt nätverk |65,536 |
 | Privata IP-adresser per nätverksgränssnitt |256 |
@@ -68,7 +68,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Offentliga IP-adresser – dynamisk | 1 000 för Basic. |Kontakta supporten. |
-| Offentliga IP-adresser – statiska | 200 för Basic. |Kontakta supporten. |
+| Offentliga IP-adresser – statiska | 1 000 för Basic. |Kontakta supporten. |
 | Offentliga IP-adresser – statiska | 200 för Standard.|Kontakta supporten. |
 | Offentliga IP-prefixstorlek (förhandsversion) | /28 | /28 |
 

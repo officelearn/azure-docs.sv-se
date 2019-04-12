@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 451eeaf6b30c85371728968d834aa6e34092dbc3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043981"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491261"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "59043981"
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -79,7 +79,7 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
 1. Skapa databasen med hjälp av följande kommando:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
@@ -87,8 +87,8 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    | cluster-name | *azureclitest* | Namnet på det kluster där databasen ska skapas.|
    | namn | *clidatabase* | Namn på databasen.|
    | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
-   | soft-delete-period | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
-   | hot-cache-period | *3650:00:00:00* | Hur lång tid data ska behållas i cache. |
+   | soft-delete-period | *P365D* | Anger hur lång tid som data förblir tillgängliga för frågor. Se [bevarandeprincip](/azure/kusto/concepts/retentionpolicy) för mer information. |
+   | hot-cache-period | *P31D* | Anger hur lång tid som data sparas i cacheminnet. Se [cachelagra princip](/azure/kusto/concepts/cachepolicy) för mer information. |
 
 1. Kör följande kommando för att se den databas som du skapade:
 

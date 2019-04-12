@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895740"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490418"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -117,6 +117,8 @@ Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 Här är C#-skriptkoden som binder till `HttpRequest`:
 
 ```cs
+#r "Newtonsoft.Json"
+
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -559,10 +561,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 | **typ** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
 | **riktning** | Saknas| Krävs – måste vara inställd på `in`. |
-| **Namn** | Saknas| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. |
+| **namn** | Saknas| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. |
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Anger vad nycklar, om sådana finns, måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen har angetts.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktoriseringsregel nycklar](#authorization-keys). |
 | **Metoder** |**Metoder** | En matris med HTTP-metoder som funktionen svarar. Om inte anges svarar funktionen på alla HTTP-metoder. Se [anpassa http-slutpunkt](#customize-the-http-endpoint). |
-| **väg** | **väg** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
+| **route** | **Routa** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Stöds endast för version 1.x-körningen._<br/><br/>Konfigurerar HTTP-utlösare ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;Ett allmänt webhook-slutpunkt utan logik för en viss leverantör. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
@@ -798,11 +800,11 @@ Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindn
 
 I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 | **typ** |Måste anges till `http`. |
 | **riktning** | Måste anges till `out`. |
-|**Namn** | Variabelnamnet som används i Funktionskoden för svaret, eller `$return` att använda det returnera värdet. |
+|**namn** | Variabelnamnet som används i Funktionskoden för svaret, eller `$return` att använda det returnera värdet. |
 
 ## <a name="output---usage"></a>Utdata - användning
 

@@ -1,6 +1,6 @@
 ---
-title: Samla in data för Azure Information Protection i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Lär dig mer om att samla in data för Azure Information Protection i Azure Sentinel.
+title: Ansluta Azure Information Protection-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig mer om att ansluta Azure Information Protection i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2f970910e19b3c1ed9d262d356c49848f4248b09
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537175"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489836"
 ---
-# <a name="collect-data-from-azure-information-protection"></a>Samla in data från Azure Information Protection
+# <a name="connect-data-from-azure-information-protection"></a>Anslut data från Azure Information Protection
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -30,7 +30,7 @@ ms.locfileid: "57537175"
 Du kan strömma loggar från [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) i Azure Sentinel-med ett enda klick. Azure Information Protection hjälper dig att skydda dina data oavsett om de lagras i molnet eller i en lokal infrastruktur och kontroll och hjälper dig att skydda e-post, dokument och känsliga data som du delar utanför företaget. Förbättra dataskydd vid alla tidpunkter med Azure Information Protection enkel klassificering och inbäddade etiketter och behörigheter. När du ansluter Azure Information Protection till Azure Sentinel du stream alla aviseringar från Azure Information Protection i Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Användare med global administratör, säkerhetsadministratör eller information protection-behörigheter
 
@@ -41,7 +41,7 @@ Om du redan har Azure Information Protection garanterar att de är [aktiverat i 
 Om Azure Information Protection har distribuerats och hämtar data aviseringsdata kan enkelt strömmas till Sentinel-Azure.
 
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure Information Protection** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure Information Protection** panelen.
 
 2. Gå till den [Azure Information Protection-portalen](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

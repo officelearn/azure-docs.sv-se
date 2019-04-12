@@ -1,5 +1,5 @@
 ---
-title: Användningsvillkor och sekretesspolicy för Azure AD-appar | Microsoft Docs
+title: Användningsvillkor och sekretesspolicy för appar | Azure
 description: Lär dig hur du kan konfigurera användningsvillkor och sekretesspolicy för appar som har registrerats för användning av Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193517"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500311"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Användningsvillkor och sekretesspolicy för registrerade Azure Active Directory-appar
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Anvisningar: Konfigurera användningsvillkor och sekretesspolicy för en app
 
 Utvecklare som skapar och hanterar appar som integreras med Azure Active Directory (Azure AD) och Microsoft-konton bör innehålla länkar till appens användningsvillkor och sekretesspolicy. Användningsvillkor och sekretesspolicy exponeras för användare via medgivande användarupplevelsen. De hjälper dina användare veta att de kan lita på din app. Användningsvillkor och sekretesspolicy är särskilt viktigt på användarinriktade appar för flera appar – appar som används av flera kataloger eller som är tillgängliga för alla microsoftkonto.
 
@@ -47,7 +47,7 @@ Innan du lägger till länkar till appens användningsvillkor och sekretesspolic
 | Riktlinjer     | Beskrivning                           |
 |---------------|---------------------------------------|
 | Format        | Giltig URL                             |
-| Giltigt scheman | HTTP och HTTPS</br>Vi rekommenderar att HTTPS |
+| Giltigt scheman | HTTP och HTTPS<br/>Vi rekommenderar att HTTPS |
 | Maxlängd    | 2048 tecken                       |
 
 Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-statement`

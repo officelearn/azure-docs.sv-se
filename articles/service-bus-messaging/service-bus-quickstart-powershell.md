@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045249"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499809"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure PowerShell för att skapa en Service Bus-kö
-Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och absolut tillförlitlighet. Ett typiskt Service Bus-scenario innefattar vanligen frikoppling av två eller flera program, tjänster eller processer från varandra och överföring av status- eller dataförändringar. Sådana scenarier kan handla om schemaläggning av flera batchjobb i ett annat program eller tjänster eller att utlösa beställningsuppfyllelse. En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller regionalt distributionscenter för påfyllning och lageruppdateringar. I det här scenariot, skickar klientappen och tar emot meddelanden från en Service Bus-kö.
-
-![kö](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att skapa ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. I exemplet är att testa den kö som du skapade i portalen. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
-Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell][].
+Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell][]. Om du är bekant med Azure Cloud Shell, kan du använda den utan att installera Azure PowerShell på datorn. Mer information om Azure Cloud Shell finns [översikt av Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 1. Installera först Service Bus PowerShell-modulen, om du inte redan gjort det:
 
@@ -45,7 +43,7 @@ Den här snabbstarten kräver att du kör den senaste versionen av Azure PowerSh
    Install-Module Az.ServiceBus
    ```
 
-2. Kör följande kommando för att logga in i Azure:
+2. Kör följande kommandon för att logga in på Azure:
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -130,7 +128,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutningssträngen och könamnet skickas till `Main()`-metoden som kommandoradsargument. `Main()` deklarerar två strängvariabler för dessa värden:
+Anslutningsnamn för sträng- och kö har skickats till den `Main()` metod som kommandoradsargument. `Main()` deklarerar två strängvariabler för dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -167,7 +165,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>Meddelandeloop
 
-MainAsync()-metoden skapar en köklient med kommandoradsargumenten, anropar en mottagande meddelandehanteraren med namnet `RegisterOnMessageHandlerAndReceiveMessages()` och skickar meddelandeuppsättningen:
+Metoden MainAsync() skapar en kö-klient med kommandoradsargument, anropar en mottagande meddelandehanterare som heter `RegisterOnMessageHandlerAndReceiveMessages()`, och skickar uppsättningen av meddelanden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill läsa mer om att skriva kod för att skicka och ta emot meddelanden, fortsätter du till följande självstudier för Service Bus:
+I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Mer information om hur du skriver kod för att skicka och ta emot meddelanden, gå vidare till självstudiekurserna i den **skicka och ta emot meddelanden** avsnittet. 
 
 > [!div class="nextstepaction"]
-> [Uppdatera lagret med hjälp av Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
 [Azure-konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Installera och konfigurera Azure PowerShell]: /powershell/azure/install-Az-ps

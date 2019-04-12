@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576870"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492285"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Konfigurera inställningar för Azure AD-rollen i PIM
 
@@ -76,8 +76,8 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
   * Molnprogramadministratör
   * Efterlevnadsadministratör
   * Administratör för villkorsstyrd åtkomst
-  * CRM-tjänstadministratör
-  * Customer LockBox åtkomst godkännaren
+  * Tjänstadministratör för CRM
+  * Godkännare av åtkomst till Customer LockBox
   * Katalogskrivare
   * Exchange-administratör
   * Global administratör
@@ -87,12 +87,12 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
   * Privilegierad rolladministratör
   * Säkerhetsadministratör
   * SharePoint-tjänstadministratör
-  * Skype för Business Administrator
+  * Skype for Business-administratör
   * Användaradministratör
 
 Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 
-## <a name="require-approval"></a>Kräv godkännande
+## <a name="require-approval"></a>Godkännande krävs
 
 Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 

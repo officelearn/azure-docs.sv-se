@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 852d0874a91418bf28e674b02087aeb7edbdd833
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5fb8d4420c4d46bc8a4ffe80743578cea338dd8e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730519"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492557"
 ---
 # <a name="support-for-appsource"></a>Stöd för AppSource  
 Supportalternativ för AppSource.  
@@ -28,7 +28,7 @@ Supportalternativ för AppSource.
 
 | Supportkanal | Beskrivning |  
 |:--- |:--- |  
-| MSDN-formulär: Azure Active Directory finns på [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD i MSDN-forum") | Microsoft Developer Network-forum. |  
+| MSDN-forum: Azure Active Directory finns på [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD i MSDN-forum") | Microsoft Developer Network-forum. |  
 | StackOverflow: Azure Active Directory finns på [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD på stackoverflow") | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Active Directory (AD Azure). |  
 
 ## <a name="next-steps"></a>Nästa steg

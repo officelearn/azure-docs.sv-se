@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: zawad
+ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86424a7c797dfd7e73ad5f0e56929616d9653b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170983"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500489"
 ---
-# <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå Azure AD-programtillåtelser inträffar
+# <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
 Lär dig mer om Azure Active Directory (Azure AD)-programmet samtycker användarupplevelse. Så du kan smart hantera program för din organisation och/eller utveckla program med en mer sömlös upplevelse för medgivande.
 
@@ -85,4 +85,5 @@ Här följer medgivande-upplevelser som en användare kan se i de vanliga scenar
 
 ## <a name="next-steps"></a>Nästa steg
 - Få en stegvisa översikt över [hur Azure AD-ramverket för medgivande implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Mer information lär du dig [hur ett program med flera innehavare kan använda ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementerar ”användare” och ”admin” medgivande stöder mer avancerade mönster för flera nivåer.
+- Mer information lär du dig [hur ett program med flera innehavare kan använda ramverket för medgivande](active-directory-devhowto-multi-tenant-overview.md) implementerar ”användare” och ”admin” medgivande stöder mer avancerade mönster för flera nivåer.
+- Lär dig [så här konfigurerar du appens utgivardomän](howto-configure-publisher-domain.md).

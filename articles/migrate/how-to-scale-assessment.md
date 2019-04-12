@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265257"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490645"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -20,7 +20,7 @@ Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln besk
 > [!NOTE]
 > Vi har en preview-versionen som gör att identifiering av upp till 10 000 virtuella VMware-datorer i ett enda projekt med hjälp av en enda enhet, om du är intresserad av att testar lösningen kan du registrera dig [här.](https://aka.ms/migratefuture)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0, 6.5 eller 6.7. Du måste även en ESXi-värd som kör version 5.5 eller senare för att distribuera den Virtuella insamlardatorn.
 - **vCenter-kontot**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
@@ -39,20 +39,11 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 - Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
 - Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
-Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurera detta:
+Om du distribuerar i en miljö med flera innehavare och skulle vilja Sök efter mapp för virtuella datorer för en enda klient kan välja du inte direkt VM-mapp när du fastställer omfånget samling i Azure Migrate. Följande är anvisningar om hur du omfång identifiering av mapp för virtuella datorer:
 
-1. Skapa en användare per klient och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till alla de virtuella datorerna tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast klientspecifik virtuella datorer.
-2. Du konfigurerar RBAC för olika klientanvändare enligt beskrivningen i följande exempel för användaren nr 1 och 2 för användaren:
-
-    - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i
-    - Datacenter1 - ge läsbehörighet till 1 användare och användare #2. Inte Sprid dessa behörigheter till alla underordnade objekt eftersom du ska ange behörigheter för enskilda virtuella datorer.
-
-      - VM1 (klient #1) (skrivskyddad behörighet till användare #1)
-      - VM2 (klient #1) (skrivskyddad behörighet till användare #1)
-      - VM3 (klient #2) (skrivskyddad behörighet till användare #2)
-      - VM4 (klient #2) (skrivskyddad behörighet till användare #2)
-
-   - Om du utför identifieringen med autentiseringsuppgifter för användare #1 kan sedan identifieras endast VM1 och VM2.
+1. Skapa en användare per klient och tilldela läsbehörighet till alla de virtuella datorerna tillhör en viss klient. 
+2. Bevilja användaren skrivskyddad åtkomst till alla överordnade objekt där de virtuella datorerna finns. Alla överordnade objekt - host mappen för värdar, kluster, mapp av kluster - i hierarkin upp till datacentret är att ingå. Du behöver inte Sprid behörigheter till alla underordnade objekt.
+3. Använd autentiseringsuppgifter för identifiering av att välja datacenter som *samlingens omfattning*. RBAC konfigurera säkerställer att motsvarande vCenter-användaren har åtkomst till endast klientspecifik virtuella datorer.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planera ditt migreringsprojekt och identifieringar
 
@@ -97,7 +88,7 @@ Om du har flera vCenter-servrar med mindre än 1 500 virtuella datorer per vCent
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mer än 1500 datorer i en enda vCenter-Server
 
-Om du har fler än 1 500 virtuella datorer i en enda vCenter-Server, måste du dela upp identifieringen i flera migreringsprojekt. Om du vill dela identifieringar, kan du utnyttja fältet omfång i installationen och anger värden, kluster, mapp eller datacenter som du vill identifiera. Exempel: Om du har två mappar i vCenter Server, en med 1000 virtuella datorer (Mapp1) och andra med 800 virtuella datorer (mapp2) du kan använda fältet omfattning för att dela upptäckter mellan dessa mappar.
+Om du har fler än 1 500 virtuella datorer i en enda vCenter-Server, måste du dela upp identifieringen i flera migreringsprojekt. Om du vill dela upptäckter kan du utnyttja fältet omfång i installationen och ange värden, kluster, mapp för värdar, mapp av kluster- eller datacenter som du vill identifiera. Exempel: Om du har två mappar i vCenter Server, en med 1000 virtuella datorer (Mapp1) och andra med 800 virtuella datorer (mapp2) du kan använda fältet omfattning för att dela upptäckter mellan dessa mappar.
 
 **Kontinuerlig identifiering:** I det här fallet måste du skapa två insamlaren enheter, för den första insamlardatorn, ange omfång som mapp1 och ansluter den till det första migreringsprojektet. Du kan parallellt påbörja Upptäckten av Mapp2 med andra insamlingsprogrammet och ansluter den till andra migreringsprojekt.
 

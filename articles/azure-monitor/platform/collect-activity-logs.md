@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905995"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505642"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta i Azure Monitor
 
 ![Symbolen för Azure-aktivitetsloggar](./media/collect-activity-logs/activity-log-analytics.png)
 
-Activity Log Analytics-lösningen hjälper dig att analysera och söka i [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md) över alla dina Azure-prenumerationer. Azure-aktivitetsloggen är en logg som ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Aktivitetsloggen kallades tidigare *granskningsloggar* eller *Driftloggar* eftersom den rapporterar händelser för dina prenumerationer.
+Activity Log Analytics-lösningen hjälper dig att analysera och söka i [Azure-aktivitetsloggen](activity-logs-overview.md) över alla dina Azure-prenumerationer. Azure-aktivitetsloggen är en logg som ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Aktivitetsloggen kallades tidigare *granskningsloggar* eller *Driftloggar* eftersom den rapporterar händelser för dina prenumerationer.
 
 Med aktivitetsloggen kan du fastställa den *vad*, *som*, och *när* för alla skrivåtgärder (PUT, POST, ta bort) för resurser i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET) eller åtgärder för resurser som använder den klassiska distributionsmodellen.
 
@@ -52,28 +52,39 @@ Till skillnad från de flesta Azure Monitor-lösningar data samlas inte in aktiv
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
-| [SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
+| [Windows-agenter](agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
+| [System Center Operations Manager-hanteringsgrupp](om-agents.md) | Nej | Lösningen samlar inte in information från agenter som rapporterar till en Operations Manager-hanteringsgrupp. |
 | [Azure Storage-konto](collect-azure-metrics-logs.md) | Nej | Lösningen samlar inte in information från Azure storage. |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste ha en Azure-prenumeration för att komma åt information från Azure-aktivitetsloggen.
+Du måste ha en Azure-prenumeration för att komma åt information från Azure-aktivitetsloggen.
+
+Lösningen kräver också att följande två resursprovidrar registreras i din prenumeration:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Läs hur du registrerar eller kontrollera att de är registrerade i [Azure resursproviders och resurstyper](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Konfiguration
 
 Utför följande steg för att konfigurera Activity Log Analytics-lösningen för dina arbetsytor.
 
-1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+
+2. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](../insights/solutions.md).
+
 2. Konfigurera aktivitetsloggar för att gå till Log Analytics-arbetsytan.
     1. Välj din arbetsyta i Azure-portalen och klicka sedan på **Azure-aktivitetsloggen**.
     2. Klicka på prenumerationens namn för varje prenumeration.  
+        
         ![Lägg till prenumeration](./media/collect-activity-logs/add-subscription.png)
+    
     3. I den *SubscriptionName* bladet klickar du på **Connect**.  
+    
         ![Anslut prenumeration](./media/collect-activity-logs/subscription-connect.png)
-
-Logga in på Azure-portalen att ansluta en Azure-prenumeration till din arbetsyta.  
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
@@ -98,5 +109,5 @@ Aktivitetsloggdata visas bara *när* du har konfigurerat din aktivitetsloggar f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en [avisering](../../azure-monitor/platform/alerts-metric.md) när en specifik aktivitet inträffar.
-- Använd [Loggsökning](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad information från din aktivitetsloggar.
+- Skapa en [avisering](../platform/alerts-metric.md) när en specifik aktivitet inträffar.
+- Använd [Loggsökning](../log-query/log-query-overview.md) att visa detaljerad information från din aktivitetsloggar.

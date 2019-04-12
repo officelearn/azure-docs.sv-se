@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180610"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490367"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Ansluten fabrik
 
@@ -73,7 +73,7 @@ OPC Publisher-modulen ansluter till stationens OPC UA-servrar och prenumererar p
 
 1. Omvandlar noddata till JSON-format.
 1. Krypterar JSON.
-1. Skickar JSON till IoT Hub som OPC UA Pub/Sub-meddelanden.
+1. Skickar JSON till IoT Hub som OPC UA pub/sub-meddelanden.
 
 OPC Publisher-modulen kräver endast en utgående https-port (443) och kan arbeta med företagets befintliga infrastruktur.
 
@@ -230,7 +230,7 @@ Webbappen distribueras som en del av solution accelerator innehåller en integre
 Läs följande artiklar om du vill fortsätta och lära dig mer om lösningsacceleratorer i IoT:
 
 * [Behörigheter på webbplatsen azureiotsolutions.com][lnk-permissions]
-* [Distribuera en gateway på Windows eller Linux för lösningsacceleratorn Ansluten fabrik](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Distribuera en gateway på Windows eller Linux för ansluten fabrik lösningsaccelerator](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Referensimplementering för OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

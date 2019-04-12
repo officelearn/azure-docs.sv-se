@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rosh
 ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470788"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493953"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Hitta liknande bilder från tidigare sökningar med ImageInsightsToken
 
@@ -23,7 +23,7 @@ Visual Search SDK gör det möjligt för dig att hitta avbildningar online från
 
 Den fullständiga källkoden för den här självstudiekursen hittar med ytterligare felhantering och kommentarer på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS, kan du köra det här programmet med [Mono](https://www.mono-project.com/).

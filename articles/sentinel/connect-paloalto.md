@@ -1,6 +1,6 @@
 ---
-title: Samla in Palo Alto Networks-data i Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Lär dig mer om att samla in Palo Alto Networks-data i Azure Sentinel.
+title: Anslut Palo Alto Networks-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Palo Alto Networks-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 130982dc6adadd22037f395635a9525bf28bcedd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0e811fb8d084f90410d48124f488843daa31a5a5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877099"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489424"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Ansluta din Palo Alto Networks-installation
 
@@ -43,7 +43,7 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuera agenten i Azure
 
-1. Sentinel-Azure-portalen klickar du på **datainsamling** och väljer du typen av installation. 
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation. 
 
 1. Under **Linux Syslog-agentkonfiguration**:
    - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad virtuell dator som automatiskt ansluter till din arbetsyta, är. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
@@ -80,7 +80,7 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
 Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska köras på en dedikerad server för Linux.
 
 
-1. Sentinel-Azure-portalen klickar du på **datainsamling** och väljer du typen av installation.
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation.
 1. Skapa en dedikerad Linux VM under **Linux Syslog-agentkonfiguration** väljer **manuell distribution**.
    1. Under **ladda ned och installera agenten Syslog**väljer **icke-Azure Linux-dator**. 
    1. I den **direktagent** skärm som öppnas väljer du **agenten för Linux** att ladda ned agenten eller kör detta kommando för att hämta den på din Linux-dator:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

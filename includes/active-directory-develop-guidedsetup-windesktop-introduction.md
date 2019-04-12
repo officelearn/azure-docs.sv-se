@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: bb28862ad6452eab3130eeb2dc0b4c269839d306
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f0cc888eaf3724737e9c868c69a641094a19348c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203230"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498421"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows-skrivbordsapp
 
-Den här guiden visar hur ett internt Windows Desktop .NET (XAML)-program kan få en åtkomsttoken och anropa Microsoft Graph API eller andra API: er som kräver åtkomsttoken från en Azure Active Directory v2.0-slutpunkten.
+Den här guiden visar hur en intern Windows Desktop .NET (XAML) program kan hämta en åtkomsttoken och anropa Microsoft Graph API eller andra API: er som behöver komma åt tokens från en Microsoft identity-plattformen för utvecklare (tidigare kallad Azure AD) v2.0-slutpunkten.
 
 När du har slutfört guiden för kommer ditt program att kunna anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också använda arbets- och skolkonton från alla företag eller organisation som använder Azure Active Directory.  
 
@@ -32,13 +32,13 @@ När du har slutfört guiden för kommer ditt program att kunna anropa ett skydd
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 
-![Visar hur exempelappen genereras av den här självstudier fungerar](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks-updated.png)
+![Visar hur exempelappen genereras av den här självstudier fungerar](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
-Exempelprogrammet som du skapar med den här guiden gör det möjligt för en Windows Desktop-program som frågar Microsoft Graph API eller ett webb-API som accepterar token från en Azure Active Directory v2.0-slutpunkten. Det här scenariot kan du lägga till en token på HTTP-förfrågningar via auktoriseringsrubriken. Microsoft Authentication Library (MSAL) hanterar tokenförvärv och förnyelse.
+Exempelprogrammet som du skapar med den här guiden gör det möjligt för en Windows Desktop-program som frågar Microsoft Graph API eller ett webb-API som accepterar token från en slutpunkt för Microsoft identity-plattformen. Det här scenariot kan du lägga till en token på HTTP-förfrågningar via auktoriseringsrubriken. Microsoft Authentication Library (MSAL) hanterar tokenförvärv och förnyelse.
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Hantering av tokenförvärv för att komma åt skyddade webb-API: er
 
-När användaren har autentiserats får exempelprogrammet en token som kan användas för att fråga Microsoft Graph API eller ett webb-API som skyddas av Azure Active Directory v2.
+När användaren har autentiserats får exempelprogrammet en token som kan användas för att fråga Microsoft Graph API eller ett webb-API som skyddas av Microsoft identity-plattformen för utvecklare.
 
 API: er som Microsoft Graph kräver en token för att tillåta åtkomst till specifika resurser. Till exempel krävs en token för att läsa en användares profil, få åtkomst till en användares kalender eller skicka e-post. Ditt program kan begära en åtkomst-token med MSAL för att komma åt resurserna genom att ange API-omfång. Den här åtkomsttoken läggs sedan till HTTP-auktoriseringsrubriken för varje anrop som görs mot den skyddade resursen.
 
@@ -50,4 +50,4 @@ Den här guiden använder följande NuGet-paket:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL)|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|

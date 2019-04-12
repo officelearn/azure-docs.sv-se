@@ -1,6 +1,6 @@
 ---
-title: Samla in data i Azure Security Center i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Lär dig mer om att samla in Azure Security Center-data i Azure Sentinel.
+title: Ansluta Azure Security Center-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Azure Security Center-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242283"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490679"
 ---
-# <a name="collect-data-from-azure-security-center"></a>Samla in data från Azure Security Center
+# <a name="connect-data-from-azure-security-center"></a>Anslut data från Azure Security Center
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -29,9 +29,9 @@ ms.locfileid: "57242283"
 
 
 
-Azure Sentinel kan du samla in aviseringar från [Azure Security Center](../security-center/security-center-intro.md) och strömma dem till Azure Sentinel. 
+Azure Sentinel kan du ansluta aviseringar från [Azure Security Center](../security-center/security-center-intro.md) och strömma dem till Azure Sentinel. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du vill exportera aviseringar från Azure Security Center måste du vara deltagare för prenumerationen vars loggar strömmas.
 
@@ -42,7 +42,7 @@ Azure Sentinel kan du samla in aviseringar från [Azure Security Center](../secu
 
 ## <a name="connect-to-azure-security-center"></a>Ansluta till Azure Security Center
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure Security Center** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure Security Center** panelen.
 1. I högra hörnet, klickar du på **Connect** bredvid varje vars aviseringar du vill strömma till Sentinel-Azure-prenumeration. Se till att uppgradera varje prenumeration till Azure Security Center Standard-nivån till stream-aviseringar till Azure Sentinel.
 
 3. Klicka på **Anslut**.

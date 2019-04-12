@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101541"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494669"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -176,7 +176,7 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
 5. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. (Eller gå till ditt din apps namn med din domän.)
 
-6. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
+6. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
 
     IP-adressen för din ILB anges under **IP-adresser**. Den här listan innehåller även IP-adresserna som används av externa virtuella IP-adresser (VIP) och för inkommande hanteringstrafik.
 

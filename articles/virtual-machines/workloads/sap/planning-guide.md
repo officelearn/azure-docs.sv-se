@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886139"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501339"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -779,8 +779,6 @@ Azure-portalen är ett av tre gränssnitt för att hantera Virtuella Azure-distr
 
 ![Microsoft Azure portal – översikt över virtuella datorer][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Uppgifter för administration och konfiguration för den virtuella instansen är möjliga från Azure Portal.
 
@@ -791,9 +789,6 @@ Azure-portalen tillhandahåller grundläggande funktioner för att distribuera o
 * Ladda upp VHD till Azure
 * Kopiera virtuella datorer
 
-[comment]: <> (MShermannd TODO vad gäller för automation-tjänsten för SAP-datorer? )
-[comment]: <> (MSSedusch distribution av os under tiden möjligt på flera virtuella datorer)
-[comment]: <> (MSSedusch även alla typer av automation om distributionen är inte möjligt med Azure portal. Det går inte att uppgifter, till exempel skriptdistributionen av flera virtuella datorer via Azure portal.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Hantering via Microsoft Azure PowerShell-cmdlets
 
@@ -808,9 +803,8 @@ Kundupplevelsen har hittills varit att PowerShell (PS) är däremot mer kraftful
 Se exempel här:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO Beskriver nya CLI-kommando när testas )
-Distribution av Azure Monitoring-tillägg för SAP (finns i kapitlet [Övervakningslösningen för Azure för SAP] [ planning-guide-9.1] i det här dokumentet) är bara kan utföras via PowerShell eller CLI. Därför är det obligatoriskt att installera och konfigurera PowerShell eller CLI när du distribuerar eller administrera ett SAP NetWeaver-system i Azure.
-  
+
+Distribution av Azure Monitoring-tillägg för SAP (finns i kapitlet [Övervakningslösningen för Azure för SAP] [ planning-guide-9.1] i det här dokumentet) är bara kan utföras via PowerShell eller CLI. Därför är det obligatoriskt att installera och konfigurera PowerShell eller CLI när du distribuerar eller administrera ett SAP NetWeaver-system i Azure.  
 
 Azure ger fler funktioner, kommer nya PS-cmdletar som ska läggas till som kräver en uppdatering av cmdletar. Därför är det praktiskt att kontrollera webbplatsen Azure hämta minst en gång i månaden <https://azure.microsoft.com/downloads/> för en ny version av cmdletar. Den nya versionen installeras på den äldre versionen.
 
@@ -1587,7 +1581,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Mall
 
-Du kan använda exempelmallarna på azure-snabbstartsmallar-arkivet på github.
+Du kan använda exempelmallarna på azure-snabbstartsmallar-arkivet på GitHub.
 
 * [Enkel virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Enkla Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1632,13 +1626,13 @@ Flera platser eller hybrid scenario kan beskrivas ungefär som i bilderna nedan:
 
 ![Plats-till-plats-anslutning mellan lokala och Azure-tillgångar][planning-guide-figure-2100]
 
-I scenariot ovan beskriver ett scenario där lokalt AD/OpenLDAP och DNS har utökats till Azure. På den lokala sidan reserveras en viss IP-adressintervall per Azure-prenumeration. IP-adressintervallet kommer att tilldelas till ett virtuellt Azure-nätverk på Azure-sidan.
-
-#### <a name="security-considerations"></a>Säkerhetsöverväganden
+I scenariot ovan beskriver ett scenario där lokala
 
 Minimikravet är användningen av säker kommunikationsprotokoll, till exempel SSL/TLS för webbläsaråtkomst eller VPN-baserade anslutningar för systemåtkomst till Azure-tjänster. Antas att företag hantera VPN-anslutning mellan sina företagets nätverk och Azure på olika sätt. Vissa företag kan blankly öppna alla portar. Vissa andra företag kanske vill ha exakt vilka portar som de behöver för att öppna osv.
 
 I tabellen nedan vanliga SAP visas kommunikationsportar. Är tillräckliga för att öppna port för SAP-gateway.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervall (min – max) | Kommentar |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1828,7 @@ Installationen av en SAP-Portal i en Azure-dator skiljer sig inte från en på p
 
 En särskild distributionsscenariot av vissa kunder är direkt exponering av SAP Enterprise Portal till Internet när den virtuella värden är ansluten till företagets nätverk via plats-till-plats VPN-tunnel eller ExpressRoute. Du måste se till att specifika portar är öppna och inte blockeras av brandvägg eller nätverket säkerhetsgrupp för sådana situationer. 
 
-Den inledande URI är http (s):`<Portalserver`>: 5XX00/irj där porten som bildas av 50000 plus (Systemnumber rubrikrad? 100). Standard portal URI SAP systemet 00 är `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Mer information, har du en titt på <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+Den inledande URI är http (s):`<Portalserver`>: 5XX00/irj där porten som har formaterats som beskrivs av SAP i <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Konfiguration av tjänstslutpunkt][planning-guide-figure-2800]
 

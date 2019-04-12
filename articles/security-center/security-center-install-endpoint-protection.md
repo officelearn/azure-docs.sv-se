@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579333"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494038"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -47,7 +47,7 @@ I det här exemplet ska vi använda **Compute**.  Vi ska titta på hur du instal
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installera program mot skadlig kod på virtuella Azure-datorer
 
-1. Välj **Compute** huvudmenyn i Security Center eller **översikt**.
+1. Välj **Compute och appar** huvudmenyn i Security Center eller **översikt**.
 
    ![Välj Compute][1]
 

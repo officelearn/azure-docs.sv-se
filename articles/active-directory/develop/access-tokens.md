@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259872"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501152"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
 Åtkomst-token gör att klienterna kan på ett säkert sätt anropa API: er som skyddas av Azure. Azure Active Directory (Azure AD)-åtkomsttoken är [JWTs](https://tools.ietf.org/html/rfc7519), Base64-kodade JSON-objekt som signerats av Azure. Klienter bör hantera åtkomst som täckande strängar som innehållet i token är avsedda för resursen endast. För verifiering och felsökning kan utvecklare kan avkoda JWTs med hjälp av en plats som [jwt.ms](https://jwt.ms). Klienten kan hämta en åtkomsttoken från antingen slutpunkten (v1.0 eller v2.0) med olika protokoll.
 
-När du begär en åtkomsttoken returnerar Azure AD även vissa metadata om åtkomsttoken för användning av din app. Informationen omfattar förfallotiden för åtkomst-token och de omfattningar som den är giltig. Dessa data kan din app att utföra intelligent cachelagring av åtkomsttoken utan att parsa den åtkomst-token.
+När din klientbegäran en åtkomsttoken Azure AD även returnerar vissa metadata om åtkomsttoken för användning av din app. Informationen omfattar förfallotiden för åtkomst-token och de omfattningar som den är giltig. Dessa data kan din app att utföra intelligent cachelagring av åtkomsttoken utan att parsa den åtkomst-token.
 
 Om ditt program är en resurs (webb-API) som klienter kan begära åtkomst till, ange åtkomst-token användbar information för användning i autentisering och auktorisering, till exempel användaren, klient, utfärdare, behörigheter och mer. 
 
 Se följande avsnitt för att lära dig hur en resurs kan verifiera och använder anspråken i en åtkomsttoken.
 
-> [!NOTE]
-> När du testar ditt klientprogram med ett personligt konto (t.ex hotmail.com eller outlook.com) kan hända att den åtkomst-token som tas emot av din klient är en täckande sträng. Det beror på att resursen ifråga har begärt äldre MSA (Microsoft-konto) biljetter som är krypterade och kan inte tolkas av klienten.
+> [!Important]
+> Åtkomsttoken skapas baserat på den *målgrupp* av token, vilket innebär att det program som äger scope i token.  Detta är hur inställningen för en resurs `accessTokenAcceptedVersion` i den [appmanifestet](reference-app-manifest.md#manifest-reference) till `2` kan en klient anropar v1.0-slutpunkt att ta emot en v2.0-åtkomsttoken.  På samma sätt kan det här är anledningen till att ändra åtkomsttoken [valfria anspråk](active-directory-optional-claims.md) för din klient gör inte ändra den åtkomst-token tas emot när en token begärs för `user.read`, som ägs av MS Graph-resursen.  
+> Av samma orsak vid testning klientprogrammet med ett personligt konto (t.ex hotmail.com eller outlook.com) kan vara att den åtkomst-token som tas emot av din klient är en täckande sträng. Det beror på att resursen ifråga har begärt äldre MSA (Microsoft-konto) biljetter som är krypterade och kan inte tolkas av klienten.
 
 ## <a name="sample-tokens"></a>Exempel-token
 

@@ -1,5 +1,5 @@
 ---
-title: Så här distribuerar du Azure IoT OPC UA certifikatet management-modulen från grunden | Microsoft Docs
+title: Så här distribuerar du OPC Vault modul från grunden – Azure | Microsoft Docs
 description: Så här distribuerar OPC valvet från grunden.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759627"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496904"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Distribuera OPC-valvet från grunden
 
-Azure IoT OPC UA certifikathantering, även kallade OPC-valv är en mikrotjänst som kan konfigurera registreras, och hantera certifikatets livscykel för OPC UA-servern och klienten program i molnet. Den här artikeln visar hur du distribuerar OPC valvet från grunden.
+OPC-valv är en mikrotjänst som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. Den här artikeln visar hur du distribuerar OPC valvet från grunden.
 
 ## <a name="configuration-and-environment-variables"></a>Konfigurations- och variabler
 
@@ -133,7 +133,7 @@ Här är några av de IDE: er som du kan använda för att arbeta med Azure IoT-
 - [Visual Studio](https://www.visualstudio.com)
 - [Visual Studio för Mac](https://www.visualstudio.com/vs/visual-studio-mac)
 - [IntelliJ Rider](https://www.jetbrains.com/rider)
-- [Visual Studio Code](https://code.visualstudio.com)
+- [Visual Studio-koden](https://code.visualstudio.com)
 
 ### <a name="git-setup"></a>Git-installation
 

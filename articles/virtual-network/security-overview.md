@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262150"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501135"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -30,7 +30,7 @@ Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan a
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
-|Egenskap   |Förklaring  |
+|Egenskap  |Förklaring  |
 |---------|---------|
 |Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
@@ -80,6 +80,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 * **AzureMonitor** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureMonitor. Om du anger *AzureMonitor* för, trafik tillåts eller nekas till AzureMonitor. 
 * **Service fabric** (endast Resource Manager): Den här taggen anger adressprefix för Service fabric-tjänsten. Om du anger *ServiceFabric* för, trafik tillåts eller nekas åtkomst till Service fabric. 
 * **AzureMachineLearning** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureMachineLearning. Om du anger *AzureMachineLearning* för, trafik tillåts eller nekas till AzureMachineLearning. 
+* **BatchNodeManagement** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure BatchNodeManagement. Om du anger *BatchNodeManagement* för, trafik tillåts eller nekas från Batch-tjänsten till beräkningsnoder.
 
 > [!NOTE]
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 

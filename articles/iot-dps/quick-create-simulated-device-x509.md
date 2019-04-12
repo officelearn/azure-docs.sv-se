@@ -3,18 +3,18 @@ title: Den här snabbstarten visar du hur etablerar en simulerad X.509-enhet på
 description: Den här snabbstarten använder enskilda registreringar. I den här snabbstarten skapar och etablerar du en simulerad X.509-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/16/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f60cce99606b1a92cba62847b060c49cb0c2c0d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485263"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500591"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad X.509-enhet med Azure IoT C SDK
 
@@ -33,7 +33,7 @@ Den här artikeln visar enskilda registreringar.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
@@ -45,23 +45,7 @@ Den här artikeln visar enskilda registreringar.
 
 I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) som innehåller exempelkoden för X.509-startsekvensen.
 
-1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av kryptografisk hash-värdet som motsvarar den version som du har hämtat. Kryptografisk hash-värden finns också från CMake länken redan angetts.
-
-    I följande exempel används Windows PowerShell för att verifiera kryptografisk hash för version 3.13.4 av x64 MSI-distribution:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Följande hash-värden för version 3.13.4 visades på CMake-webbplatsen när detta skrevs:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
@@ -70,7 +54,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
+    Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
 
 3. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
@@ -143,7 +127,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
     - **Primär .pem- eller .cer-fil:** Klicka på **Välj en fil** för att välja certifikatfilen X509testcert.pem som du skapade tidigare.
     - **Enhets-ID för IoT Hub:** Ge enheten ett ID genom att ange **test-docs-cert-device**.
 
-      [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Add enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
       Om registreringen har lyckats visas din X.509-enhet som **riot-device-cert** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 
@@ -214,4 +198,4 @@ Om du vill fortsätta att arbeta med och utforska enhetsklientexemplet ska du in
 I den här snabbstarten har du skapat en X.509-simulerad enhet på Windows-datorn och etablerat den på IoT-hubben med hjälp av Azure IoT Hub Device Provisioning-tjänsten på portalen. Information om hur du registrerar X.509-enheten programmässigt får du om du fortsätter till snabbstarten för programmässig registrering av X.509-enheter. 
 
 > [!div class="nextstepaction"]
-> [Azure snabbstart – Registrera X.509-enheter på Azure IoT Hub Device Provisioning-tjänsten](quick-enroll-device-x509-java.md)
+> [Azure Snabbstart – registrera X.509-enheter till Azure IoT Hub Device Provisioning-tjänsten](quick-enroll-device-x509-java.md)

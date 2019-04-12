@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906080"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489390"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Säkerhetskopiera en virtuell dator med PowerShell
 
@@ -29,7 +29,7 @@ Den här snabbstarten kräver Azure PowerShell-AZ Modulversion 1.0.0 eller senar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Logga in och registrera
+## <a name="sign-in-and-register"></a>Logga in och registrera
 
 1. Logga in på Azure-prenumerationen med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
@@ -53,10 +53,10 @@ När du skapar valvet:
 - Om du har använt detta [exempel på skript](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) för att skapa den virtuella datorn, resursgruppen är **myResourceGroup**, den virtuella datorn är ***myVM**, och resurserna finns på den **WestEurope**  region.
 - Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Valvet använder som standard [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure region hundratals mil bort från den primära regionen.
 
-Nu ska du skapa ett valv.
+Nu ska du skapa ett valv:
 
 
-1. Använd den [New AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)att skapa valvet:
+1. Använd den [New AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) att skapa valvet:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -114,7 +114,7 @@ Säkerhetskopiering köras i enlighet med det schema som angetts i säkerhetskop
 - Efter den första säkerhetskopian skapas varje säkerhetskopiering inkrementella återställningspunkter.
 - Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
 
-Om du vill köra en ad hoc-säkerhetskopiering, som du använder den[Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Om du vill köra en ad hoc-säkerhetskopiering, som du använder den [Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
 - Anger du en behållare i valvet som innehåller dina säkerhetskopierade data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Varje virtuell dator som säkerhetskopieras hanteras som ett objekt. Om du vill starta ett säkerhetskopieringsjobb du få information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -162,7 +162,7 @@ Om du behöver inte längre att säkerhetskopiera den virtuella datorn kan rensa
 - Hoppa över den Rensa upp om du vill prova återställer den virtuella datorn.
 - Om du använde en befintlig virtuell dator kan du hoppa över sista [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdleten och ha kvar resursgruppen och den Virtuella datorn.
 
-Inaktivera skyddet, ta bort återställningspunkterna och valv. Du ta bort resursgruppen och de relaterade Virtuella datorresurserna på följande sätt:
+Inaktivera skyddet, ta bort återställningspunkterna och valv. Ta sedan bort resursgruppen och de relaterade Virtuella datorresurserna på följande sätt:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

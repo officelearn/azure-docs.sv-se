@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471468"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489235"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Självstudier: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
 
@@ -31,15 +31,15 @@ I den här självstudien använder den [Azure Search REST API: er](https://docs.
 > [!NOTE]
 > I den här kursen används JSON-matriser som för närvarande är en förhandsgranskningsfunktion i Azure Search. Den finns inte i portalen. Därför använder vi förhandsversionen av REST API som tillhandahåller den här funktionen och ett REST-klientverktyg för att anropa API:t.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster, verktyg och data som används i den här snabbstarten. 
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen. 
 
-[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) används för att lagra exempeldata.
+[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempeldata.
 
-[Skrivbordsappen postman](https://www.getpostman.com/) används för att skicka begäranden till Azure Search.
+[Skrivbordsappen postman](https://www.getpostman.com/) för att skicka begäranden till Azure Search.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Hämta och packa upp filen till sin egen mapp. Data samlas in från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konvertera till JSON för den här självstudiekursen.
 
@@ -295,7 +295,7 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan koppla AI-driven Cognitive Services-algoritmer till en indexerare-pipeline. I nästa steg fortsätter du med följande självstudie:
+Det finns flera metoder och flera olika sätt att indexera JSON-blobar. I nästa steg, granska och testa de olika alternativen för att se vad som fungerar bäst för ditt scenario.
 
 > [!div class="nextstepaction"]
-> [Indexering med AI](cognitive-search-tutorial-blob.md)
+> [Indexera JSON-blobar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)

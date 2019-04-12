@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260399"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496309"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -54,7 +54,7 @@ Ja. Gästen objekt visas inte i din organisations globala adresslistan (GAL) som
 Absolut. Mer information finns i [att lägga till gästanvändare till en roll](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Tillåter att Azure AD B2B-samarbete B2B-användare åtkomst till Azure-portalen?
-Om en användare har tilldelats rollen begränsad administratör eller global administratör, behöver inte användare i B2B-samarbetet någon åtkomst till Azure-portalen. B2B-samarbete användare som har tilldelats rollen begränsad administratör eller global administratör kan dock åtkomst till portalen. Även om en gästanvändare som inte tilldelats någon av dessa administrativa roller har åtkomst till portalen, kanske användaren kan komma åt vissa delar av upplevelsen. Gästrollen har vissa behörigheter i katalogen.
+Om en användare har tilldelats rollen för begränsad administratör, behöver inte användare i B2B-samarbetet någon åtkomst till Azure-portalen. B2B-samarbete användare som har tilldelats rollen begränsad administratör kan dock åtkomst till portalen. Även om en gästanvändare som inte tilldelats någon av dessa administrativa roller har åtkomst till portalen, kanske användaren kan komma åt vissa delar av upplevelsen. Gästrollen har vissa behörigheter i katalogen.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure-portalen för gästanvändare?
 Visst! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.

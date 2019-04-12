@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276056"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501611"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
 
@@ -55,7 +55,7 @@ De steg som följer utgör OBO-flödet och beskrivs med hjälp av följande diag
 
 ## <a name="service-to-service-access-token-request"></a>Tjänst-till-tjänst begäran om åtkomsttoken
 
-Skapa en HTTP POST till klientspecifik v2.0-slutpunkten med följande parametrar för token för att begära en åtkomst-token.
+Skapa en HTTP POST till klientspecifik Microsoft identity-plattformen tokenslutpunkten med följande parametrar om du vill begära en åtkomst-token.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Få ditt medgivande för mellannivå-programmet
 
-Beroende på målgruppen för ditt program, kan du olika strategier för att säkerställa att OBO-flödet har lyckats. I samtliga fall är målet att säkerställa rätt tillstånd ges. Hur detta sker dock beror på vilka användare ditt program har stöd för. 
+Beroende på målgruppen för ditt program, kan du olika strategier för att säkerställa att OBO-flödet har lyckats. I samtliga fall är målet att säkerställa rätt tillstånd ges. Hur detta sker dock beror på vilka användare ditt program har stöd för.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Medgivande för Azure endast AD-program
 
 #### <a name="default-and-combined-consent"></a>/.default och kombinerade medgivande
 
-Den traditionella metoden ”kända klientprogram” räcker för program som behöver bara logga in arbets- eller skolkonton. Mellannivå-programmet lägger till klienten i listan över kända klienter program i manifestet och sedan klienten kan utlösa en kombinerad godkännandeflöde för både själva och mellannivå-programmet. Detta görs på v2.0-slutpunkten med hjälp av den [ `/.default` omfång](v2-permissions-and-consent.md#the-default-scope). När du utlöser en godkännandeskärmen med kända klientprogram och `/.default`, godkännandeskärmen visas behörigheter för både klienten mellannivå-API, och också begära behörigheterna som krävs av mellannivå-API. Användaren anger medgivande för båda programmen och sedan OBO flödet fungerar.
+Den traditionella metoden ”kända klientprogram” räcker för program som behöver bara logga in arbets- eller skolkonton. Mellannivå-programmet lägger till klienten i listan över kända klienter program i manifestet och sedan klienten kan utlösa en kombinerad godkännandeflöde för både själva och mellannivå-programmet. Detta görs på Microsoft identity-plattformen slutpunkt med hjälp av den [ `/.default` omfång](v2-permissions-and-consent.md#the-default-scope). När du utlöser en godkännandeskärmen med kända klientprogram och `/.default`, godkännandeskärmen visas behörigheter för både klienten mellannivå-API, och också begära behörigheterna som krävs av mellannivå-API. Användaren anger medgivande för båda programmen och sedan OBO flödet fungerar.
 
 För tillfället har inte stöd för personliga Microsoft-kontosystemet kombinerade medgivande och så den här metoden fungerar inte för appar som vill speciellt logga in personliga konton. Personliga Microsoft-konton som används som gästkonton i en klient hanteras med hjälp av Azure AD-system och kan gå igenom kombinerade medgivande.
 

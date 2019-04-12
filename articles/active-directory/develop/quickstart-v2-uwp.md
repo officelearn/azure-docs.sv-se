@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Azure AD v2 Windows UWP | Microsoft Docs'
-description: Lär dig hur en app på universell Windows-plattform (XAML) kan hämta en åtkomsttoken och anropa ett API som skyddas av en Azure Active Directory v2.0-slutpunkt.
+title: Microsoft identity-plattformen Windows UWP Snabbstart | Azure
+description: Lär dig hur en Universal Windows Platform (XAML)-program kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft identity-plattformen slutpunkt.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 8c61da6a55b1f4502deee056b29fdbc22ef33514
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360112"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490626"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -30,7 +30,7 @@ ms.locfileid: "59360112"
 
 Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Universell Windows-plattform) kan logga in användare med ett personligt konto eller arbets- och skolkonto, hämta en åtkomsttoken samt anropa Microsoft Graph API.
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-uwp/uwp-intro-updated.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-uwp/uwp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -41,7 +41,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till [Azure-portalen – Programregistrering](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)
+> 1. Gå till den nya [Azure portal – appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) fönstret.
 > 1. Ange ett namn för programmet och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
@@ -51,7 +51,8 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen med hjälp av följande steg:
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)** > **Ny registrering**.
+> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+> 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `UWP-App-calling-MsGraph`.
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
@@ -71,29 +72,32 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
- - [Ladda ned Visual Studio 2017-projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Ladda ned Visual Studio 2017-projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Öppna projektet i Visual Studio.
-1. Redigera **App.Xaml.cs** och ersätt värdena för fälten `ClientId` och `Tenant` med:
+1. Öppna projektet i Visual Studio. Du kan uppmanas att installera en UWP-SDK. I så fall kan godkänna.
+1. Redigera **MainPage.Xaml.cs** och Ersätt värdena för den `ClientId` fält:
 
     ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    private const string ClientId = "Enter_the_Application_Id_here";
     ```
 
 > [!div renderon="docs"]
 > Där:
 > - `Enter_the_Application_Id_here` -är program-Id för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` -är ett av alternativen nedan:
->   - Om ditt program stöder **organisationen endast**, Ersätt detta värde med den **klient-Id** eller **klientnamn** (exempel: contoso.onmicrosoft.com)
->   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
->   - Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med `common`
 >
 > > [!TIP]
-> > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
+> > Att hitta värdena för *program-ID*går du till den **översikt** sidan
+
+#### <a name="step-4-run-your-application"></a>Steg 4: Köra ditt program
+
+Om du vill prova snabbstarten på din Windows-dator:
+
+1. I Visual Studio-verktygsfältet väljer du den rätta plattformen (förmodligen **x64** eller **x86**, inte ARM).
+   > Observera att målenheten ändras från *enhet* till *lokal dator*
+1. Välj Felsök | **Starta utan felsökning**
 
 ## <a name="more-information"></a>Mer information
 
@@ -101,7 +105,7 @@ Det här avsnittet innehåller mer information om snabbstarten.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för åtkomst till ett API som skyddas av Microsoft Azure Active Directory. Du kan installera MSAL genom att köra följande kommando i *Package Manager-konsolen* i Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är i biblioteket som används för att logga in användare och begär säkerhetstoken. Säkerhetstoken används för att få åtkomst till ett API som skyddas av Microsoft Identity-plattformen för utvecklare. Du kan installera MSAL genom att köra följande kommando i *Package Manager-konsolen* i Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -Pre
@@ -118,7 +122,9 @@ using Microsoft.Identity.Client;
 Initiera sedan MSAL med hjälp av följande kod:
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+                                                    .Build();
 ```
 
 > |Där: ||
@@ -127,38 +133,42 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### <a name="requesting-tokens"></a>Begära token
 
-MSAL har två metoder för hämtning av token: `AcquireTokenAsync` och `AcquireTokenSilentAsync`.
+MSAL har två metoder som används för att hämta token interaktivt: `AcquireTokenInteractive` och `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Vissa situationer kräver att användare tvingas interagera med Azure AD v2.0-slutpunkten via ett popup-fönster för att antingen verifiera sina autentiseringsuppgifter eller ge sitt medgivande. Några exempel är:
+Vissa situationer kräver framtvingar användare interagera med Microsoft identity-plattformen slutpunkten via ett popup-fönster för att antingen verifiera autentiseringsuppgifterna eller för att ge ditt medgivande. Några exempel är:
 
-- Första gången användaren loggar in på programmet
+- De första gången en användarna logga in till programmet
 - När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
-- När programmet begär åtkomst till en resurs som användaren behöver ge sitt medgivande för
+- När ditt program begär åtkomst till en resurs som användaren behöver för att godkänna
 - När tvåfaktorsautentisering krävs
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
+authResult = await App.PublicClientApp.AcquireToken(scopes, this)
+                       .ExecuteAsync();
 ```
 
 > |Där:||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `this`| Står för WPF-fönstret som ska användas för att centrera dialogrutan för inloggning
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilentAsync` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `AcquireTokenAsync`:
+Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilent` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `AcquireTokenAsync`:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |Där: ||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er |
-> | `accounts.FirstOrDefault()` | Anger den första användaren i cachen (MSAL stöder flera användare i en och samma app) |
+> | `firstAccount` | Anger det första användarkontot i cacheminnet (MSAL stöder flera användare i en enda app) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Så här distribuerar du Azure IoT OPC UA device management-modulen från grunden | Microsoft Docs
+title: Så här distribuerar du OPC-Twin-modulen för Azure från grunden | Microsoft Docs
 description: Så här distribuerar OPC-Twin från grunden.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759603"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491364"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC-Twin-modulen och beroenden från grunden
 
-Enhetstvillingen för OPC-modulen körs på IoT Edge och tillhandahåller flera edge-tjänster till OPC-Enhetstvillingen och registertjänster. 
+OPC-Twin-modulen körs på IoT Edge och tillhandahåller flera edge OPC enhetstvillingen och registret tjänsterna. 
 
 Det finns flera alternativ för att distribuera moduler till ditt [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway mellan dem.
 
@@ -107,9 +107,9 @@ Alla moduler som distribueras med hjälp av ett manifest för distribution.  Ett
 
 Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenhet är via Azure portal.  
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. Distribuera OPC UA enhetshantering [beroenden](howto-opc-twin-deploy-dependencies.md) och fick det resulterande `.env` fil. Observera den distribuerade `hub name` av den `PCS_IOTHUBREACT_HUB_NAME` variabel i den resulterande `.env` fil.
+1. Distribuera OPC-Twin [beroenden](howto-opc-twin-deploy-dependencies.md) och fick det resulterande `.env` fil. Observera den distribuerade `hub name` av den `PCS_IOTHUBREACT_HUB_NAME` variabel i den resulterande `.env` fil.
 
 2. Registrera dig och börja en [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) eller [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge-gateway och anteckna dess `device id`.
 
@@ -174,7 +174,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenh
 
 ## <a name="deploying-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. Installera den senaste versionen av den [Azure kommandoradsgränssnitt (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) från [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -203,9 +203,9 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge-gatewayenh
 
 För problem med att ta och felsökning är användbar för att köra Edge-moduler lokalt med hjälp av den [IoT Edge utveckling Simulator](https://github.com/Azure/iotedgehubdev).  Det ger en lokal utvecklingsmiljö en simulator för att skapa, utveckla, testa, kör och felsöka Azure IoT Edge-moduler och lösningar med hjälp av samma bits/kod som används i produktion.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. Distribuera OPC UA enhetshantering [beroenden](howto-opc-twin-deploy-dependencies.md).
+1. Distribuera OPC-Twin [beroenden](howto-opc-twin-deploy-dependencies.md).
 
 2. Installera [Docker CE (18.02.0+)](https://www.docker.com/community-edition) på [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) eller [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

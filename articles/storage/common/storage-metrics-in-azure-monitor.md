@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884371"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505778"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -393,7 +393,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
 | BlobType | Typen av blobb endast Blob-mått. Godkända värden är **BlockBlob** och **PageBlob**. Lägg till Blob som ingår i BlockBlob. |
-| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra fel på serversidan förutom de beskrivna </li> <li> ServerBusyError: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li> ServerTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li> AuthorizationError: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>    ClientThrottlingError: Nätverksbegränsningsfel på klientsidan. </li> <li> ClientTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li> ClientOtherError: Alla andra fel på klientsidan förutom de beskrivna. </li> <li> Klart: Förfrågan utfördes|
+| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra fel på serversidan förutom de beskrivna </li> <li> ServerBusyError: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li> ServerTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li> AuthorizationError: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>    ClientThrottlingError: Nätverksbegränsningsfel på klientsidan. </li> <li> ClientTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li> ClientOtherError: Alla andra fel på klientsidan förutom de beskrivna. </li> <li> Klart: Lyckad begäran. </li> <li> SuccessWithThrottling: Förfrågan klar när en SMB-klienten hämtar begränsas i den första försök men lyckas efter återförsök.|
 | GeoType | Transaktionen från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Den gäller Read Access Geo Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
 | ApiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokumentet](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Autentiseringstypen som används i transaktioner. Tillgängliga värden är: <br/> <li>AccountKey: Transaktionen har verifierats med din lagringskontonyckel.</li> <li>SAS: Transaktionen har verifierats med signaturer för delad åtkomst.</li> <li>OAuth: Transaktionen har verifierats med OAuth-åtkomsttoken.</li> <li>Anonym: Transaktionen har begärts anonymt. De omfattar inte preflight-begäranden.</li> <li>AnonymousPreflight: Transaktionen är preflight-begäran.</li> |

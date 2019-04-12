@@ -1,6 +1,6 @@
 ---
-title: Samla in CEF-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in CEF-data i Azure Sentinel.
+title: Ansluta CEF-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
+description: Lär dig hur du ansluter CEF-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005613"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489407"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av Common Event Format
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005613"
 
 Du kan ansluta Azure Sentinel med en extern lösning som hjälper dig att spara loggfiler i Syslog. Om din installation kan du spara loggarna som Syslog Common Event Format (CEF), kan integrering med Azure Sentinel du enkelt köra analyser och frågor över data.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="how-it-works"></a>Hur det fungerar
@@ -59,7 +58,7 @@ Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en v
 ### <a name="deploy-the-agent-in-azure"></a>Distribuera agenten i Azure
 
 
-1. Sentinel-Azure-portalen klickar du på **datainsamling** och väljer du typen av installation. 
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation. 
 
 1. Under **Linux Syslog-agentkonfiguration**:
    - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad Linux VM som automatiskt ansluter till din arbetsyta, är. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
@@ -96,7 +95,7 @@ Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en v
 Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska köras på en dedikerad server för Linux.
 
 
-1. Sentinel-Azure-portalen klickar du på **datainsamling** och väljer du typen av installation.
+1. Sentinel-Azure-portalen klickar du på **datakopplingar** och väljer du typen av installation.
 1. Skapa en dedikerad Linux VM under **Linux Syslog-agentkonfiguration** väljer **manuell distribution**.
    1. Under **ladda ned och installera agenten Syslog**väljer **icke-Azure Linux-dator**. 
    1. I den **direktagent** skärm som öppnas väljer du **agenten för Linux** att ladda ned agenten eller kör detta kommando för att hämta den på din Linux-dator:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

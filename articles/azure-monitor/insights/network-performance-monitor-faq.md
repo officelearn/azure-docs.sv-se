@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734563"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496972"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734563"
 
 Den här artikeln innehåller vanliga frågor (FAQ) om nätverket prestanda Övervakare (NPM) i Azure
 
-[Övervakaren av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverksövervakning](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) som hjälper dig att övervaka nätverksprestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till [slutpunkter för tjänsten och programmet](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) och [övervaka prestanda för Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Övervakaren av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverksövervakning](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) som hjälper dig att övervaka nätverksprestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till [slutpunkter för tjänsten och programmet](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka prestanda för Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 

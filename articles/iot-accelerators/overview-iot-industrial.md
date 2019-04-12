@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256387"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491756"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Vad är industriella IoT (IIoT)
 
@@ -23,7 +23,7 @@ IIoT är industriella Internet of Things. IIoT förbättrar industriella effekti
 
 Förbättra verksamhetens produktivitet och lönsamhet med en lösningsaccelerator för ansluten fabrik. Anslut och övervaka industriell utrustning och enheter i molnet, även maskiner som redan används på verkstadsgolvet. Analysera IoT-data och få insikter som kan hjälpa dig att förbättra produktiviteten på hela verkstadsgolvet.
 
-Minska tidskrävande process för att komma åt factory våning datorer med Azure IoT OPC UA-enhetshantering (OPC delad) och fokusera din tid på att skapa IIoT lösningar. Effektivisera certifikathantering och industriella tillgångar integrering med Azure IoT OPC UA-certifikathantering (OPC-valv) och är säker på att plats-anslutning är skyddad. Dessa mikrotjänster tillhandahåller en REST-liknande API ovanpå [Azure industriella IoT komponenter](https://github.com/Azure/azure-iiot-opc-ua). Tjänst-API ger dig kontroll över edge-modul-funktionerna. 
+Minska tidskrävande process för att komma åt factory våning datorer med OPC-Twin och fokusera din tid på att skapa IIoT lösningar. Effektivisera certifikathantering och industriella tillgångar integrering med OPC-valv och är säker på att plats-anslutning är skyddad. Dessa mikrotjänster tillhandahåller en REST-liknande API ovanpå [Azure industriella IoT komponenter](https://github.com/Azure/azure-iiot-opc-ua). Tjänst-API ger dig kontroll över edge-modul-funktionerna. 
 
 ![Industriella IoT-översikt](media/overview-iot-industrial/overview.png)
 
@@ -39,11 +39,11 @@ Om du är bekant med hur Azure IoT Edge-moduler fungerar kan du börja med följ
 
 ## <a name="factory-floor-connectivity"></a>Factory våning anslutning
 
-Azure IoT OPC UA-enhetshantering, även kallat OPC Twin, är en komponent med IIoT som automatiserar Enhetsidentifiering och registrering och erbjuder fjärrstyrning av industriella enheter via REST API: er. OPC-Twin använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin kan IIoT utvecklarna kan fokusera på att bygga IIoT program utan att behöva bekymra dig om hur säker åtkomst till lokala datorer.
+OPC-Twin är en komponent med IIoT som automatiserar Enhetsidentifiering och registrering och erbjuder fjärrstyrning av industriella enheter via REST API: er. OPC-Twin använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin kan IIoT utvecklarna kan fokusera på att bygga IIoT program utan att behöva bekymra dig om hur säker åtkomst till lokala datorer.
 
 ## <a name="security"></a>Säkerhet
 
-Azure IoT OPC UA-certifikathantering eller OPC-valv är en implementering av OPC UA globala identifiering Server (GDS) som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. OPC Vault förenklar implementering och underhåll av säker plats-anslutning i industriella utrymme. Genom att automatisera certifikathantering Frigör OPC Vault factory operatorerna från manuell och komplexa processer som är associerade med anslutning och certifikathantering.
+OPC-valv är en implementering av OPC UA globala identifiering Server (GDS) som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. OPC Vault förenklar implementering och underhåll av säker plats-anslutning i industriella utrymme. Genom att automatisera certifikathantering Frigör OPC Vault factory operatorerna från manuell och komplexa processer som är associerade med anslutning och certifikathantering.
 
 ## <a name="next-steps"></a>Nästa steg
 

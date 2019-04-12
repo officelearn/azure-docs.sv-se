@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f4caed1ea0490470009c21f22624861808cb2d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578687"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496086"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -42,7 +42,7 @@ PIM hjälper dig i princip att hantera ”vem, vad, när, var och varför” fö
 - Utför **åtkomstgranskningar** för att se till att användare fortfarande behöver ha vissa roller
 - Ladda ned **granskningshistorik** för intern eller extern granskning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha en av följande betal- eller utvärderingslicenser för att använda PIM. Mer information finns i [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md).
 
@@ -57,8 +57,8 @@ För att bättre förstå PIM och dess dokumentation bör du läsa om följande 
 
 | Term eller begrepp | Kategori för rolltilldelning | Beskrivning |
 | --- | --- | --- |
-| berättigad | Type | En rolltilldelning som kräver att en användare utför en eller flera åtgärder för att använda rollen. Om en användare har gjorts berättigad för en roll innebär det att användaren kan aktivera rollen när det finns behov av att utföra privilegierade åtgärder. Det finns ingen skillnad i den åtkomst som ges till någon med en permanent kontra berättigad rolltilldelning. Den enda skillnaden är att vissa användare inte behöver den åtkomsten hela tiden. |
-| aktiv | Type | En rolltilldelning som inte kräver att en användare utför några åtgärder för att använda rollen. Användare som är tilldelade som aktiva har de behörigheter som rollen har tilldelats. |
+| berättigad | Typ | En rolltilldelning som kräver att en användare utför en eller flera åtgärder för att använda rollen. Om en användare har gjorts berättigad för en roll innebär det att användaren kan aktivera rollen när det finns behov av att utföra privilegierade åtgärder. Det finns ingen skillnad i den åtkomst som ges till någon med en permanent kontra berättigad rolltilldelning. Den enda skillnaden är att vissa användare inte behöver den åtkomsten hela tiden. |
+| aktiv | Typ | En rolltilldelning som inte kräver att en användare utför några åtgärder för att använda rollen. Användare som är tilldelade som aktiva har de behörigheter som rollen har tilldelats. |
 | aktivera |  | Processen med att utföra en eller flera åtgärder för att använda en roll som en användare är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
 | tilldelad | Status | En användare som har en aktiv rolltilldelning. |
 | aktiverad | Status | En användare som har en berättigad rolltilldelning, utförde åtgärderna för att aktivera rollen och nu är aktiv.  När användaren är aktiverad kan han/hon använda rollen under en förinställd tidsperiod innan aktivering krävs igen. |
@@ -87,19 +87,19 @@ För Azure-resursroller kan endast prenumerationsadministratörer, resursägare 
 
 PIM stöder följande scenarier:
 
-**Som Privilegierad rolladministratör kan du:**
+**Som en privilegierad Rolladministratör kan du:**
 
 - aktivera godkännande för specifika roller
 - specificera godkända användare och grupper för att godkänna begäranden
 - visa historik för begäranden och godkännanden för alla privilegierade roller.
 
-**Som granskare kan du:**
+**Granskare kan du:**
 
 - visa väntande godkännanden (begäranden)
 - godkänna och avvisa begäranden om att upphöja roller (en i taget eller i grupp)
 - ange en motivering för godkännandet/avvisandet. 
 
-**Som berättigad rollanvändare kan du:**
+**Som en berättigad roll-användare kan du:**
 
 - begära aktivering av roller som kräver godkännande
 - visa status för begäran att aktivera
@@ -107,6 +107,6 @@ PIM stöder följande scenarier:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Licenskrav för användning av PIM](subscription-requirements.md)
-- [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Licenskrav gäller för att använda PIM](subscription-requirements.md)
+- [Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Distribuera PIM](pim-deployment-plan.md)

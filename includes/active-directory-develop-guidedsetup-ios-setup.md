@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203546"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503025"
 ---
 ## <a name="setting-up-your-ios-application"></a>Hur du konfigurerar ditt iOS-program
 
@@ -61,7 +61,7 @@ Kopiera och klistra in den nedan. Det här kommandot hämtar beroenden till en m
 carthage update
 ```
 
-> Processen ovan används för att ladda ned och skapa Microsoft Authentication Library (MSAL). MSAL hanterar införskaffa, cachelagring och uppdatera användartoken som används för åtkomst till API: er som skyddas av Azure Active Directory v2.0.
+> Processen ovan används för att ladda ned och skapa Microsoft Authentication Library (MSAL). MSAL hanterar införskaffa, cachelagring och uppdatera användartoken som används för åtkomst till API: er som skyddas av Microsoft identity-plattformen.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Ge MSAL framework till programmet.
 

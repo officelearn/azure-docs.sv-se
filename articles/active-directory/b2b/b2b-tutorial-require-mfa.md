@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294000"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496632"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Framtvinga multifaktorautentisering för B2B-gästanvändare
 
@@ -43,7 +43,7 @@ I den här kursen ska du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
@@ -72,7 +72,7 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 3.  Logga ut.
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Skapa en princip för villkorsstyrd åtkomst som kräver MFA
-1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1.  Logga in på din [Azure-portalen](https://portal.azure.com/) som säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 2.  Välj **Azure Active Directory** i Azure Portal. 
 3.  Välj **Villkorsstyrd åtkomst** i avsnittet **Säkerhet** på sidan **Azure Active Directory**.
 4.  Välj **Ny princip** i verktygsfältet högst upp på sidan **Villkorsstyrd åtkomst**.

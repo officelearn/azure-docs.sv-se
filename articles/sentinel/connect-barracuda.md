@@ -1,6 +1,6 @@
 ---
-title: Samla in Barracuda data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in Barracuda data i Azure Sentinel.
+title: Anslut Barracuda data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Barracuda data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574726"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492846"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ansluta din Barracuda-installation 
 
@@ -31,11 +31,10 @@ Barracuda Web Application Firewall (WAF)-anslutningsappen kan du enkelt ansluta 
 
 
 > [!NOTE]
-> 
-> - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Konfigurera och ansluta Barracuda WAF
-Barracuda Web Application Firewall kan integrera och exportloggar direkt till [ASI] via Azure OMS-servern.
+Barracuda Web Application Firewall kan integrera och exportloggar direkt till Azure Sentinel via Azure OMS-servern.
 1. Gå till [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), och följ anvisningarna för att upprätta anslutningen med hjälp av dessa parametrar:
     - **Arbetsyte-ID**: Kopiera värdet för arbetsyte-ID från sidan Azure Sentinel Barracuda connector.
     - **Primär nyckel**: Kopiera värdet för den primära nyckeln från sidan Azure Sentinel Barracuda connector.

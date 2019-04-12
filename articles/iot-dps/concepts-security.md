@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046908"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490280"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Säkerhetsbegrepp för IoT Hub Device Provisioning-tjänsten 
 
@@ -77,7 +77,11 @@ Ett mellanliggande certifikat är ett X.509-certifikat som har signerats av rotc
 
 ### <a name="end-entity-leaf-certificate"></a>”Löv”-certifikat
 
-Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedjan samt noll eller flera mellanliggande certifikat. Lövcertifikatet används inte för att signera andra certifikat. Den identifierar enheten till etableringstjänsten och ibland kallas enhetscertifikat. Enheten använder den privata nyckeln som är associerade med det här certifikatet för att svara på en proof of tillgång utmaning från tjänsten under autentiseringen. Mer information finns i [autentisera enheter signeras med X.509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedjan samt noll eller flera mellanliggande certifikat. Lövcertifikatet används inte för att signera andra certifikat. Den identifierar enheten till etableringstjänsten och ibland kallas enhetscertifikat. Enheten använder den privata nyckeln som är associerade med det här certifikatet för att svara på en proof of tillgång utmaning från tjänsten under autentiseringen.
+
+Löv certifikat som används med en [enskild registrering](./concepts-service.md#individual-enrollment) post har ett krav som den **ämnesnamn** måste vara inställt på registrerings-ID för posten för enskild registrering. Löv certifikat som används med en [registreringsgruppen](./concepts-service.md#enrollment-group) post ska ha den **ämnesnamn** inställd på önskat enhets-ID som visas i den **Registreringsposter** för den autentiserade enheten i registreringsgruppen.
+
+Mer information finns i [autentisera enheter signeras med X.509 CA-certifikat](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrollera Enhetsåtkomst till etableringstjänsten med X.509-certifikat
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 06fd659df1ec12bd6d5a7b8fb2ee94ca27d6a87c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834378"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492113"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool versioner
 
@@ -36,6 +36,7 @@ Microsoft Threat Modeling Tool för närvarande har lanserats som en kostnadsfri
 
 ## <a name="release-notes"></a>Viktig information
 
+- [Microsoft Threat modellering verktyget GA-versionen 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) – April 9 2019
 - [Microsoft Threat modellering verktyget GA-versionen 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) – januari 29 2019
 - [Microsoft Threat modellering verktyget GA-versionen 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) – November 1 2018
 - [Microsoft Threat modellering verktyget GA-versionen 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) – September 12 2018

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059591"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489819"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autentisering med X.509 CA-certifikat
 
@@ -40,7 +40,7 @@ För produktionsmiljö rekommenderar vi att du köper ett X.509 CA-certifikat fr
 
 Du kan också skapa ett självsignerat X.509 CA för experimentering eller för användning i stängda IoT-nätverk.
 
-Oavsett hur du skaffa X.509 CA-certifikat, se till att välja dess motsvarande privata nyckeln hemlig och skyddas tiden hela.  Detta är nödvändigt för förtroende för att skapa förtroendet i X.509 CA-autentisering. 
+Oavsett hur du skaffa X.509 CA-certifikat, se till att välja dess motsvarande privata nyckeln hemlig och skyddas tiden hela.  Detta är nödvändigt för förtroende för att skapa förtroendet i X.509 CA-autentisering.
 
 Lär dig hur du [skapa ett självsignerat certifikat](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), som du kan använda för experimentering i hela den här funktionen beskrivningen.
 
@@ -48,7 +48,9 @@ Lär dig hur du [skapa ett självsignerat certifikat](https://github.com/Azure/a
 
 Ägaren av ett X.509 CA-certifikat kan kryptografiskt logga en mellanliggande Certifikatutfärdare som i sin tur kan registrera en annan mellanliggande Certifikatutfärdare och så vidare, fram till den senaste mellanliggande CA avslutar den här processen genom att registrera en enhet. Resultatet är en sammanhängande kedja av certifikat som kallas en certifikatkedja med förtroenden. I verkligheten spelar det som delegering av förtroende för att registrera enheter. Den här delegeringen är viktigt eftersom den upprättar en kryptografiskt variabeln spårbarhet och på så sätt undviker delning av Signeringsnycklar.
 
-![img-Generic-CERT-chain-of-Trust](./media/generic-cert-chain-of-trust.png)
+![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+Enhetens certifikat (kallas även en lövcertifikat) måste ha den *ämnesnamn* inställd på den **enhets-ID** som användes när registrering av IoT-enhet i Azure IoT Hub. Den här inställningen krävs för autentisering.
 
 Läs här så [en certifikatkedja](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) som görs när du registrerar enheter.
 

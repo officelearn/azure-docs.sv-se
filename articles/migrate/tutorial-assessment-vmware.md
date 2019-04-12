@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313168"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490330"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0, 6.5 eller 6.7. Du måste dessutom ha en ESXi-värd som kör version 5.5 eller senare för att kunna distribuera den virtuella insamlardatorn.
 - **vCenter Server-konto**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter Server. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
@@ -105,7 +105,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA version 1.0.10.11
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
     --- | ---
     MD5 | 5f6b199d8272428ccfa23543b0b5f600
     SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
@@ -113,7 +113,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA-version 1.0.10.9
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
   --- | ---
   MD5 | 169f6449cc1955f1514059a4c30d138b
   SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
@@ -121,7 +121,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA-version 1.0.10.4
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
   --- | ---
   MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
   SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
@@ -134,7 +134,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.15
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
   --- | ---
   MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
   SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
@@ -142,7 +142,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.14
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
   --- | ---
   MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
   SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
@@ -150,7 +150,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.12
 
-  **Algoritm** | **Hash-värde**
+  **Algoritmen** | **Hash-värde**
   --- | ---
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
@@ -194,6 +194,9 @@ Importera den nedladdade filen till vCenter Server.
     - Ange namn (FQDN) eller IP-adress för vCenter-servern.
     - I **Användarnamn** och **Lösenord** anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer på vCenter-servern.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
+
+       > [!NOTE]
+       > **Samlingens omfattning** visar endast mappar av värdar och kluster. Mappar för virtuella datorer kan inte väljas direkt som samlingens omfattning. Du kan dock identifiera med hjälp av en vCenter-konto som har åtkomst till enskilda virtuella datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) om hur du omfång till en mapp för virtuella datorer.
 
 7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
 8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector) om vilka data som samlas in av Azure Migrate-insamlaren.
@@ -267,7 +270,7 @@ Varje prestandabaserade utvärdering i Azure Migrate är kopplad till ett säker
 
 För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
-   **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
+   **Tillgängligheten av datapunkter** | **Säkerhetsomdöme**
    --- | ---
    0 %–20 % | 1 stjärna
    21 %–40 % | 2 stjärnor

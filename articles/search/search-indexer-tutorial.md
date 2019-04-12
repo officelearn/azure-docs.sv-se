@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c2fc406fa864fe2f67ded4ea98ad14475944671a
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270477"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500353"
 ---
 # <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudiekurs i C#: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
@@ -35,7 +35,7 @@ I den här självstudien använder den [Azure Search .NET-klientbibliotek](https
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster, verktyg och data som används i den här snabbstarten. 
 
@@ -56,7 +56,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1.. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
@@ -87,7 +87,7 @@ I det här steget skapar du en extern datakälla som indexeraren kan crawla. Du 
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). 
+1. [Logga in på Azure-portalen](https://portal.azure.com/). 
 
 2. Hitta eller skapa en **Azure SQL Database** att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
@@ -99,7 +99,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
    ![SQL-databassida](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Klicka på **Verktyg** > **Frågeredigeraren**.
+4. I navigeringsfönstret klickar du på **frågeredigeraren (förhandsversion)**.
 
 5. Klicka på **Logga in** och ange användarnamnet och lösenordet för serveradministratören.
 
@@ -137,7 +137,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Nu kan du bygga och köra koden. Innan du gör det kan du ägna en stund åt att studera index- och indexerardefinitionerna för det här exemplet. Den relevanta koden finns i två filer:
+När inställningar och konfiguration är på plats kan exemplet programmet i **DotNetHowToIndexers.sln** är redo att skapa och köra. Innan du gör det kan du ägna en stund åt att studera index- och indexerardefinitionerna för det här exemplet. Den relevanta koden finns i två filer:
 
   + **hotel.cs**, som innehåller det schema som definierar indexet
   + **Program.cs**, som innehåller funktioner för att skapa och hantera strukturer i din tjänst
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 Ett schema kan även innehålla andra element, till exempel poängprofiler för att ge högre sökpoäng, anpassade analysverktyg och andra konstruktioner. Men för vårt ändamål har schemat en enkel definition med endast de fält som finns i exempeldatauppsättningarna.
 
-I den här kursen hämtar indexeraren data från en datakälla. Du kan koppla flera indexerare till samma index för att skapa ett konsoliderat sökbart index från flera datakällor och indexerare. Du kan använda samma index/indexerar-par, bara byta ut datakällorna, eller ett index med olika indexerare och kombinationer av datakällor, beroende på var du behöver flexibiliteten.
+I den här kursen hämtar indexeraren data från en datakälla. I praktiken, kan du koppla flera indexerare till samma index, skapa ett konsoliderat sökbart index från flera datakällor. Du kan använda samma index/indexerar-par, bara byta ut datakällorna, eller ett index med olika indexerare och kombinationer av datakällor, beroende på var du behöver flexibiliteten.
 
 ### <a name="in-programcs"></a>I Program.cs
 
-Huvudprogrammet innehåller funktioner för alla tre representativa datakällor. Om man bara ser på Azure SQL Database står följande objekt ut:
+Huvudprogrammet innehåller logik för att skapa en klient, ett index, en datakälla och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
+
+Datakällobjektet konfigureras med inställningar som är specifika för Azure SQL database-resurser, inklusive [inkrementella indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att använda inbyggt [ändra funktionerna](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Hotels demodatabasen i Azure SQL har en ”mjuk borttagning”-kolumn med namnet **IsDeleted**. När den här kolumnen anges som true i databasen, indexeraren tar bort motsvarande dokumentera från Azure Search-index.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Alla objekt som du kan visa, konfigurera och ta bort i Azure Search innehåller index, indexerare och datakällor (*hotels*, *azure-sql-indexer* och *azure-sql*). 
-
-Kolumnen *AzureSqlHighWaterMarkColumnName* är värd att nämna eftersom den visar information om identifiering av ändringar som används av indexeraren för att avgöra om en rad har ändrats sedan den senaste indexeringsarbetsbelastningen. [Principer för identifiering av ändringar](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) stöds endast i indexerare och varierar beroende på datakällan. För Azure SQL Database finns två principer att välja bland beroende på dina databaskrav.
-
-Följande kod visar de metoder i Program.cs som används för att skapa en datakälla och indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
+Ett indexer-objekt är plattformsagnostiska, där konfiguration, schemaläggning och anrop är detsamma oavsett källan. Det här exemplet indexeraren innehåller ett schema, ett återställningsalternativ som rensar indexeraren historik och anropar en metod för att skapa och köra indexeraren direkt.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Observera att anrop till indexerar-API:t är plattformsagnostiska med undantag för [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet), som anger vilken typ av crawler som ska anropas.
+
 
 ## <a name="run-the-indexer"></a>Köra indexeraren
 
@@ -236,12 +256,10 @@ På översiktssidan för söktjänsten i Azure Portal klickar du på **Sökutfor
 
 Alla indexerare, inklusive den som du just har skapat programmässigt, visas i portalen. Du kan öppna en indexerardefinition och visa dess datakälla, eller konfigurera ett uppdateringsschema för att hämta nya och ändrade rader.
 
-1. Öppna tjänstöversiktssidan för Azure Search-tjänsten.
-2. Rulla ned till panelerna för **indexerare** och **datakällor**.
-3. Klicka på en panel för att öppna en lista för varje resurs. Du kan välja enskilda indexerare eller datakällor om du vill visa eller ändra konfigurationsinställningarna.
+1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** klickar du på länkarna för **index**, **indexerare**, och **Data Källor**.
+3. Välj enskilda objekt att visa eller ändra konfigurationsinställningarna.
 
    ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

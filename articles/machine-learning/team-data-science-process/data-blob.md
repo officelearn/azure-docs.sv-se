@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c7d8414fdc1070204ef02cf6d88b238575d0817a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472430"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495625"
 ---
 # <a name="heading"></a>Bearbeta Azure-blobbdata med avancerade analyser
 Det här dokumentet beskriver utforska data och skapar funktioner från data lagrade i Azure Blob storage. 
@@ -75,11 +75,12 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
         print miss_num
 7. Om du har värden som saknas för en viss kolumn i data kan släppa du dem på följande sätt:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
    
    Ett annat sätt att ersätta värden som saknas är med funktionen läge:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< kolumnnamn >: dataframe_blobdata ['< kolumnnamn >'] .mode()[0]})        
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Skapa ett histogram diagram med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

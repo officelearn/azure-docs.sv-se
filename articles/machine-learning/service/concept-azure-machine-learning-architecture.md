@@ -1,29 +1,31 @@
 ---
-title: 'Maskininlärning i molnet: Arkitektur för Användarvillkor'
+title: Arkitektur och nyckelkoncept
 titleSuffix: Azure Machine Learning service
-description: Läs mer om arkitekturen, termer och begrepp som utgör Azure Machine Learning-tjänsten. Här beskrivs också hur det allmänna arbetsflödet för att använda tjänsten och Azure-tjänster som används av Azure Machine Learning-tjänsten.
+description: Läs mer om arkitekturen, villkor, begrepp och arbetsflöde som utgör Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269137"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489955"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
-Den här artikeln beskrivs arkitekturen och begrepp för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram:
+Läs mer om arkitekturen, begrepp och arbetsflöde för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram:
 
 [![Aarkitektur för zure Machine Learning-tjänsten och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-Arbetsflödet följer vanligtvis den här sekvensen:
+## <a name="workflow"></a>Arbetsflöde
+
+Machine learning-arbetsflöde Allmänt följer den här sekvensen:
 
 1. Utveckla maskininlärning utbildning skript i **Python**.
 1. Skapa och konfigurera en **beräkningsmålet**.

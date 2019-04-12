@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469649"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495045"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -52,6 +52,7 @@ I följande steg visas hur du skapar en hanterad instans.
    |**Sortering**|Den sortering som du vill använda för din hanterade instans|Om du migrerar databaser från SQL Server kontrollerar du källans sortering med hjälp av `SELECT SERVERPROPERTY(N'Collation')` och det värdet. Mer information om sorteringar finns i [sorteringar på servernivå](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Plats**|Den plats där du vill skapa den hanterade instansen|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
    |**Virtuellt nätverk**|Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om en nätverk/undernät är inte tillgänglig är det måste vara [ändras för att uppfylla nätverkskraven](sql-database-managed-instance-configure-vnet-subnet.md) innan du väljer den som mål för den nya hantera instansen. Information om kraven för att konfigurera nätverksmiljön för en hanterad instans finns i avsnittet om att [konfigurera ett virtuellt nätverk för en hanterad instans](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Anslutningstyp**|Välj mellan Proxy och omdirigerings-anslutningstyp|Mer information om anslutningstyper finns i [Azure SQL-anslutningsprincip](sql-database-connectivity-architecture.md#connection-policy).|
    |**Resursgrupp**|En ny eller befintlig resursgrupp|Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![formulär för hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9f80f1a8d02352daa663ee5ea4fa9287e0e8580e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893800"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490970"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hub-utdatabindning för Azure Functions
 
@@ -25,6 +25,9 @@ Den här artikeln beskrivs hur du skickar push-meddelanden med hjälp av [Azure 
 Azure Meddelandehubbar måste konfigureras för den plattformen meddelanden Service (PNS) du vill använda. Läs hur du hämtar push-meddelanden i klientappen från Meddelandehubbar i [komma igång med Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) och välj din mål-klientplattform från listrutan längst upp på sidan.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!IMPORTANT]
+> Google har [inaktuell Google Cloud Messaging (GCM) och ersatts med Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Den här utdatabindning stöder inte FCM. Använda för att skicka meddelanden med hjälp av FCM den [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) direkt i din funktion eller Använd [mallvarningar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
@@ -197,37 +200,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---gcm-native"></a>Exempel – interna GCM
-
-Det här Skriptexemplet för C# visar hur du skickar interna GCM-meddelanden. 
-
-```cs
-#r "Microsoft.Azure.NotificationHubs"
-#r "Newtonsoft.Json"
-
-using System;
-using Microsoft.Azure.NotificationHubs;
-using Newtonsoft.Json;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
-    // a "name" value.
-    //
-    // The JSON format for a native GCM notification is ...
-    // { "data": { "message": "notification message" }}  
-
-    log.Info($"Sending GCM notification of a new user");    
-    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
-                                        user.name + ")\" }}";
-    log.Info($"{gcmNotificationPayload}");
-    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
-}
-```
-
 ## <a name="example---wns-native"></a>Exempel – WNS interna
 
 Det här Skriptexemplet för C# visar hur du använder typer som definieras i den [Microsoft Azure Notification Hubs-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) att skicka en intern WNS popup-meddelande. 
@@ -289,7 +261,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**tagExpression** |**TagExpression** | Tagguttryck kan du ange att meddelanden ska levereras till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikettuttrycket.  Mer information finns i [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**HubName** | **HubName** | Namnet på notification hub-resurs i Azure-portalen. |
 |**anslutning** | **connectionStringSetting** | Namnet på en appinställning som innehåller en anslutningssträng för Meddelandehubbar.  Anslutningssträngen måste anges till den *DefaultFullSharedAccessSignature* värde för din meddelandehubb. Se [sträng anslutningsinställningar](#connection-string-setup) senare i den här artikeln.|
-|**Plattform** | **Plattform** | Egenskapen plattform anger klientplattform notification-mål. Som standard om egenskapen plattform utelämnas från utdata-bindning kan mallvarningar användas för att rikta vilken plattform som konfigurerats på Azure Notification Hub. Mer information om hur du använder mallar i allmänhet att skicka plattformsoberoende meddelanden plattformar med Azure Notification Hub finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När värdet **plattform** måste vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Läs mer på att konfigurera meddelandehubben för APNS och ta emot meddelandet i en klientapp [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Läs mer på att konfigurera meddelandehubben för ADM och ta emot meddelandet i en Kindle-app, [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging som är den nya versionen av GCM, stöds också. Mer information finns i [skicka push-meddelanden till Android med Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) utvecklar Windows-plattformen. Windows Phone 8.1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal-Plattformsappar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Den här plattformen har stöd för Windows Phone 8 och Windows Phone-plattformar som tidigare. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**Plattform** | **Plattform** | Egenskapen plattform anger klientplattform notification-mål. Som standard om egenskapen plattform utelämnas från utdata-bindning kan mallvarningar användas för att rikta vilken plattform som konfigurerats på Azure Notification Hub. Mer information om hur du använder mallar i allmänhet att skicka plattformsoberoende meddelanden plattformar med Azure Notification Hub finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När värdet **plattform** måste vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Läs mer på att konfigurera meddelandehubben för APNS och ta emot meddelandet i en klientapp [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Läs mer på att konfigurera meddelandehubben för ADM och ta emot meddelandet i en Kindle-app, [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) utvecklar Windows-plattformen. Windows Phone 8.1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal-Plattformsappar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Den här plattformen har stöd för Windows Phone 8 och Windows Phone-plattformar som tidigare. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -307,7 +279,7 @@ Här är ett exempel på en Notification Hub-bindning i en *function.json* fil.
       "tagExpression": "",
       "hubName": "my-notification-hub",
       "connection": "MyHubConnectionString",
-      "platform": "gcm"
+      "platform": "apns"
     }
   ],
   "disabled": false

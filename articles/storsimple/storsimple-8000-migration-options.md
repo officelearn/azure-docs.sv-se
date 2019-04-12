@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 04/10/2019
 ms.author: alkohli
-ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339461"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500914"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -49,15 +49,28 @@ Mer information om hur du migrerar data till Azure File Sync går du till [migre
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Migrera till Panzura frihet NAS
 
-StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
+StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. 
+
+Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
 
 #### <a name="migrate-to-cohesity"></a>Migrera till Cohesity
 
-Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. Läs mer på [migrering till Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. 
+
+Läs mer på [migrering till dataplattform Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 #### <a name="migrate-to-nasuni"></a>Migrera till Nasuni
 
-Nasuni gör det enkelt för StorSimple 5000-7000-kunder att migrera och behålla sina data i Azure.  Nasuni är en ledande lösning i Azure-baserade NAS lagring, vilket ger kunderna prestanda och säkerhet som de förväntar sig från en lokal lösningar med molnbaserad Ekonomihantering och skala.  Förutom högpresterande fillagring, Nasuni och Azure hantera säkerhetskopiering och Katastrofåterställning, samtidigt som du vill dela och samarbeta med dina data i hela världen med centraliserad hantering av lagring. Nasuni har erfarenhet av att göra din migrering enkelt – Kom igång idag: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni gör det enkelt för StorSimple 5000-7000-kunder att migrera och behålla sina data i Azure.  Nasuni är en ledande lösning i Azure-baserade NAS lagring, vilket ger kunderna prestanda och säkerhet som de förväntar sig från en lokal lösningar med molnbaserad Ekonomihantering och skala.  Förutom högpresterande fillagring, Nasuni och Azure hantera säkerhetskopiering och Katastrofåterställning, samtidigt som du vill dela och samarbeta med dina data i hela världen med centraliserad hantering av lagring. 
+
+Nasuni har erfarenhet av att göra din migrering enkelt – Kom igång idag: https://info.nasuni.com/nasuni-storsimple-migration
+
+#### <a name="migrate-to-talon-fast"></a>Migrera till Talon FAST
+
+Talon gör det enkelt för StorSimple 5000-7000-kunder kan fortsätta att utnyttja fördelarna de värden så mycket i StorSimple-plattformen (lokalt kompakta backas upp av ett obegränsat antal molnresurser) med ännu större funktion.  Kunder kan migrera och behålla sina data i Azure samtidigt som du nu har en mindre fotavtryck programvarubaserad på plats och lägga till fördelar som globala filen låsning, globalt namnområde och flera platser samarbete med Talon snabb lösning.  Talon är en ledande lösning i Azure-ekosystemet, arbetar med globala kunder att migrera sina lokala filen server-arbetsbelastningar i en konsoliderad, Azure-baserade fotavtryck utan att kompromissa användaren arbetsflöde eller upplevelse.  
+
+Mer information om hur du utvecklas till en cloud-konsoliderad enterprise på https://www.talonstorage.com/alliances/microsoft-storsimple.
+
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 

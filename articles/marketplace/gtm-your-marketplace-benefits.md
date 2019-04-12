@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887258"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489579"
 ---
 # <a name="your-marketplace-benefits"></a>Dina Marketplace-förmåner
 
@@ -73,7 +73,7 @@ Tabellen nedan sammanfattar krav för berättigande:
 
 \* Kräver silver eller gold kompetens. <br>
 \*\* Kräver guldkompetens. <br>
-\*\*\* Kräver guldkompetens och medförsäljning redo listning i OCP-katalogen. <br>
+\*\*\* Kräver guldkompetens och medförsäljning klart om partnerföretagen. <br>
 ^ Transact endast gäller för Azure Marketplace.
 
 ## <a name="next-steps"></a>Nästa steg

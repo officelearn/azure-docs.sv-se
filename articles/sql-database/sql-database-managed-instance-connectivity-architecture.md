@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358277"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497074"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
@@ -40,9 +40,9 @@ En hanterad instans är en plattform-tjänst (PaaS). Microsoft använder automat
 
 Vissa SQL-Server som är åtgärder som startas av användare eller program kan kräva hanterade instanser för att interagera med plattformen. Ett enda fall är att skapa en hanterad instans-databas. Den här resursen är tillgängliga via Azure portal, PowerShell, Azure CLI och REST-API.
 
-Hanterade instanser beror på Azure-tjänster som Azure Storage för säkerhetskopiering, Azure Service Bus för telemetri, Azure Active Directory för autentisering och Azure Key Vault för Transparent datakryptering (TDE). Hanterade instanser gör ansluta till dessa tjänster.
+Hanterade instanser beror på Azure-tjänster som Azure Storage för säkerhetskopiering, Azure Event Hubs för telemetri, Azure Active Directory för autentisering, Azure Key Vault för Transparent datakryptering (TDE) och ett par Azure plattformstjänster som tillhandahåller funktioner för säkerhet och support. Hanterade instanser är anslutningar till dessa tjänster.
 
-All kommunikation använda certifikat för kryptering och signering. Om du vill kontrollera trovärdigheten för kommunicerande enheterna, hanterade Kontrollera instanser ständigt dessa certifikat genom att kontakta en certifikatutfärdare. Om certifikaten har återkallats eller inte går att verifiera, stängs den hanterade instansen anslutningar för att skydda data.
+All kommunikation är krypterat och signerat med certifikat. Om du vill kontrollera trovärdigheten för kommunicerande enheterna som hanteras Kontrollera instanser ständigt dessa certifikat via listor över återkallade certifikat. Om certifikaten har återkallats, stängs den hanterade instansen anslutningar för att skydda data.
 
 ## <a name="high-level-connectivity-architecture"></a>Övergripande anslutningsarkitektur
 
@@ -50,7 +50,7 @@ På en hög nivå är en uppsättning tjänstkomponenter i en hanterad instans. 
 
 Ett virtuellt kluster kan ha flera hanterade instanser. Om det behövs kan klustret automatiskt att visas eller döljs när kunden ändras antalet instanser som etablerats i undernätet.
 
-Kundprogram kan ansluta till hanterade instanser och kan hämta och uppdatera databaser endast om de körs i det virtuella nätverket, peer-kopplat virtuellt nätverk eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slutpunkt och en privat IP-adress.  
+Kundprogram kan ansluta till hanterade instanser, och kan fråga efter och uppdatera databaserna på det virtuella nätverket, peer-kopplade virtuella nätverket, eller nätverk som är anslutna via VPN eller Azure ExpressRoute. Det här nätverket måste använda en slutpunkt och en privat IP-adress.  
 
 ![Arkitekturdiagram för anslutning](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
@@ -80,14 +80,14 @@ Microsoft hanterar den hanterade instansen med hjälp av en hanteringsslutpunkt.
 När anslutningar starta i den hanterade instansen (precis som med säkerhetskopior och granskningsloggar), visas trafik för att starta från den hanteringsslutpunkten offentlig IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från en hanterad instans genom att ställa in brandväggsregler som tillåter bara den hanterade instansen IP-adress. Mer information finns i [verifiera den hanterade instansen inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Till skillnad från brandväggen för anslutningar som startar i den hanterade instansen har en brandvägg som är optimerad för trafik som går mellan de här tjänsterna i Azure-tjänster som är i regionen för den hanterade instansen.
+> Traffice som leder till Azure-tjänster som är i regionen för den hanterade instansen är optimerad och anledning inte NATed till hanterade instans-hantering endpoint offentliga IP-adressen för den. Därför om du vill använda IP-baserade brandväggsregler, oftast för lagring, service måste vara i en annan region från hanterad instans.
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
 Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. Undernätet måste ha följande egenskaper:
 
 - **Dedikerat undernät:** Undernät för den hanterade instansen får inte innehålla andra molntjänst som är associerat med det och den kan inte vara ett gateway-undernät. Undernätet får inte innehålla någon resurs men den hanterade instansen och du senare lägga till inte resurser i undernätet.
-- **Nätverkssäkerhetsgrupp (NSG):** En NSG som är associerat med det virtuella nätverket måste definiera [ingående säkerhetsregler](#mandatory-inbound-security-rules) och [utgående säkerhetsregler](#mandatory-outbound-security-rules) innan andra regler. Du kan använda en NSG för att styra åtkomsten till slutpunkten för den hanterade instansen data genom att filtrera trafik på port 1433.
+- **Nätverkssäkerhetsgrupp (NSG):** En NSG som är associerat med det virtuella nätverket måste definiera [ingående säkerhetsregler](#mandatory-inbound-security-rules) och [utgående säkerhetsregler](#mandatory-outbound-security-rules) innan andra regler. Du kan använda en NSG för att styra åtkomsten till slutpunkten för den hanterade instansen data genom att filtrera trafik på port 1433 och portar 11000 11999 när hanterade instansen har konfigurerats för omdirigera anslutningar.
 - **Användartabell användardefinierad väg (UDR):** En UDR-tabell som är associerat med det virtuella nätverket måste innehålla specifika [poster](#user-defined-routes).
 - **Tjänsten har inga slutpunkter:** Ingen tjänstslutpunkt ska vara associerat med den hanterade instansen undernät. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
 - **Tillräckligt med IP-adresser:** Hanterad instans-undernätet måste ha minst 16 IP-adresser. Rekommenderad minsta är 32 IP-adresser. Mer information finns i [avgör storleken på undernätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](sql-database-managed-instance-configure-vnet-subnet.md) när du har konfigurerat den för att uppfylla [nätverkskrav för hanterade instanser](#network-requirements). Annars skapar du en [nya nätverk och undernät](sql-database-managed-instance-create-vnet-subnet.md).
@@ -99,19 +99,19 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 | Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |Alla        |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|Alla        |Tillåt |
+|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI – UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI – UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler
 
 | Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
-|hantering  |80, 443, 12000|TCP     |Alla              |AzureCloud  |Tillåt |
-|mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT *  |Tillåt |
+|hantering  |80, 443, 12000|TCP     |MI – UNDERNÄT        |AzureCloud |Tillåt |
+|mi_subnet   |Alla           |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
 
 > [!IMPORTANT]
-> Se till att det finns bara en inkommande regel för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterad instans etablering via ARM-distributioner kommer att misslyckas om inkommande och utgående regler konfigureras separat för varje port. Om dessa portar finns i separata regler kan misslyckas distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
+> Se till att det finns bara en inkommande regel för portar 9000, 9003, 1438, 1440, 1452 och en regel för utgående portarna 80, 443, 12000. Hanterade instans etablering via Azure Resource Manager distributioner kommer att misslyckas om inkommande och utgående regler konfigureras separat för varje port. Om dessa portar finns i separata regler kan misslyckas distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI – UNDERNÄT refererar till IP-adressintervall för undernätet i formuläret 10.x.x.x/y. Du hittar den här informationen i Azure-portalen i undernätsegenskaperna för.
 
@@ -124,43 +124,111 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 |Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
-|subnet_to_vnetlocal|[mi_subnet]|Virtuellt nätverk|
-|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
-|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
-|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
-|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
-|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
-|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
-|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
-|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
-|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
-|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
-|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
-|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
-|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
-|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
-|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
-|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
-|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
-|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
-|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
-|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
-|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+|subnet_to_vnetlocal|MI – UNDERNÄT|Virtuellt nätverk|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
 Dessutom kan du lägga till poster till i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål i vnet-gateway eller en virtuell nätverksinstallation (NVA).
 
-Om det virtuella nätverket innehåller en anpassad DNS kan du lägga till en post för Azures rekursiva matchare IP-adress (till exempel 168.63.129.16). Mer information finns i [ställa in en anpassad DNS](sql-database-managed-instance-custom-dns.md). Anpassad DNS-server måste kunna matcha värdnamn i dessa domäner och deras underdomäner: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, och *microsoftonline p.com*.
+Om det virtuella nätverket innehåller en anpassad DNS, anpassad DNS-server måste kunna matcha värdnamn i \*. core.windows.net zon. Med hjälp av ytterligare funktioner som Azure AD-autentisering kan behöva lösa ytterligare FQDN-namn. Mer information finns i [ställa in en anpassad DNS](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -171,4 +239,4 @@ Om det virtuella nätverket innehåller en anpassad DNS kan du lägga till en po
   - Från den [Azure-portalen](sql-database-managed-instance-get-started.md).
   - Med hjälp av [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Med hjälp av [en Azure Resource Manager-mall (med JumpBox, med SSMS som ingår)](https://portal.azure.com/).
+  - Med hjälp av [en Azure Resource Manager-mall (med JumpBox, med SSMS som ingår)](https://portal.azure.com/). 

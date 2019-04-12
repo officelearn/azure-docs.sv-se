@@ -8,18 +8,18 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471162"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495248"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure Database for MariaDB-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för MariaDB brandväggar, se [Azure Database for MariaDB serverbrandväggsregler](./concepts-firewall-rules.md).
 
 Virtuella nätverk (VNet)-regler kan också användas för att skydda åtkomsten till din server. Läs mer om [skapa och hantera Virtual Network service slutpunkter och regler med hjälp av Azure CLI](howto-manage-vnet-cli.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * En [Azure Database for MariaDB-servern och databasen](quickstart-create-mariadb-server-database-using-azure-cli.md).
 

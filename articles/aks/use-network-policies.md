@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181494"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494773"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Förhandsgranskning – säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
 När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett kluster i Azure Kubernetes Service (AKS). Vi antar att du förmodligen vill blockera trafik direkt till backend-program. Den *nätverkspolicy* funktionen i Kubernetes kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
 
-Calico, en öppen källkod nätverks- och säkerhetslösning för nätverk från Tigera, erbjuder en motor för nätverket som kan implementera principregler för Kubernetes-nätverk. Den här artikeln visar hur du installerar principmodulen Calico nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS.
+Den här artikeln visar hur du installerar principmodulen för nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS. Den här funktionen är för närvarande en förhandsversion.
 
 > [!IMPORTANT]
 > AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
@@ -27,7 +27,7 @@ Calico, en öppen källkod nätverks- och säkerhetslösning för nätverk från
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.56 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 Om du vill skapa ett AKS-kluster som kan använda nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Alla poddar i ett AKS-kluster kan skicka och ta emot trafik utan begränsningar, som standard. Du kan definiera regler som styr flödet av trafik för att förbättra säkerheten. Serverprogram exponeras ofta bara för nödvändiga frontend-tjänster, till exempel. Eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
 
-Nätverksprinciper är Kubernetes-resurser att reglera trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningarna som tilldelade etiketter, namnområde eller trafik port. Nätverksprinciper definieras som YAML-manifestet. Dessa principer kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
+Nätverksprincip är en Kubernetes-specifikation som definierar åtkomstprinciper för kommunikation mellan Poddar. Med principer för nätverk kan definiera du en ordnad uppsättning regler för att skicka och ta emot trafik och använda dem i en samling av poddar som matchar en eller flera väljare för etiketten.
+
+Principregler dessa nätverk definieras som YAML-manifestet. Nätverksprinciper kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
+
+### <a name="network-policy-options-in-aks"></a>Alternativ för nätverk i AKS
+
+Azure ger dig två sätt att implementera nätverksprincip. Du kan välja ett alternativ för principen när du skapar ett AKS-kluster. Alternativet kan inte ändras när klustret har skapats:
+
+* Implementering av azures egna kallas *Azure nätverksprinciper*.
+* *Calico nätverksprinciper*, ett nätverk för öppen källkod och network security-lösningen från [Tigera][tigera].
+
+Båda implementeringar använda Linux *IPTables* att angivna principerna. Principer har översatts till uppsättningar med tillåtna och inte IP-par. Dessa par är sedan programmerade som IPTable filterregler.
+
+Nätverksprincip fungerar bara med alternativet Azure CNI (Avancerat). Implementeringen är olika för de två alternativen:
+
+* *Azure nätverksprinciper* -Azure-CNI ställer in en brygga i VM-värden för nätverk för kommunikation mellan noder. Filtreringsregler tillämpas när paketen passera bryggan.
+* *Calico nätverksprinciper* -Azure-CNI ställer in lokal kernel vägar för kommunikation mellan noder-trafik. Principerna tillämpas i en pod-nätverksgränssnitt.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Skillnader mellan Azure och Calico principer och deras funktioner
+
+| Funktion                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Plattformar som stöds                      | Linux                      | Linux                       |
+| Alternativ för nätverksfunktioner som stöds             | Azure CNI                  | Azure CNI                   |
+| Kompatibilitet med Kubernetes-specifikation | Alla principtyper som stöds |  Alla principtyper som stöds |
+| Ytterligare funktioner                      | Ingen                       | Utökade modellen princip som består av globala nätverksprincip, globala nätverket inställt och värd-slutpunkten. Mer information om hur du använder den `calicoctl` CLI för att hantera dessa utökade funktioner, finns i [calicoctl användaren referens][calicoctl]. |
+| Support                                  | Stöds av Azure-supporten och teknikerteam | Calico community-support. Mer information om ytterligare betald support finns i [projekt Calico supportalternativ][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Skapa ett AKS-kluster och aktivera principen för nätverk
 
 Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princip som definierar trafikflödet:
 
@@ -59,9 +87,7 @@ Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princi
 * Tillåta trafik baserat på pod etiketter.
 * Tillåta trafik baserat på namnområdet.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Skapa ett AKS-kluster och aktivera principen för nätverk
-
-Principen för nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. 
+Först måste vi skapa ett AKS-kluster som har stöd för nätverksprincipen. Principfunktionen nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster.
 
 Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [Azure CNI plugin-programmet] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking].
 
@@ -71,6 +97,7 @@ Följande exempelskript:
 * Skapar ett Azure Active Directory (Azure AD) tjänstens huvudnamn för användning med AKS-klustret.
 * Tilldelar *deltagare* behörigheter för AKS-kluster tjänstens huvudnamn i det virtuella nätverket.
 * Skapar ett AKS-kluster i definierade virtuella nätverk och aktiverar nätverksprincip.
+    * Den *azure* nätverk princip alternativet används. Om du vill använda Calico som alternativet nätverk i stället använda den `--network-policy calico` parametern.
 
 Ange ditt eget säkra *SP_PASSWORD*. Du kan ersätta den *RESOURCE_GROUP_NAME* och *klusternamn* variabler:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 Det tar några minuter att skapa klustret. När klustret är klart, konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
@@ -454,6 +481,9 @@ Mer information om principer finns [Kubernetes nätverksprinciper][kubernetes-ne
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

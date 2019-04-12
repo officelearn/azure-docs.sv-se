@@ -3,19 +3,19 @@ title: Den här snabbstarten beskriver hur du registrerar X.509-enheter till Azu
 description: Den här snabbstarten använder gruppregistreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875008"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500880"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 
@@ -31,7 +31,7 @@ Den här snabbstarten förutsätter att du redan har skapat en IoT-hubb och en D
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * Installera [.NET Core SDK](https://www.microsoft.com/net/download/windows).
@@ -53,7 +53,7 @@ Om du vill använda det här testverktyget för att generera certifikat utför d
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
+   Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
    Testverktyget finns i den *azure-iot-sdk-c/tools/CACertificates* för den lagringsplats som du klonade.    
 
@@ -176,4 +176,4 @@ Om du tänker utforska C#-tjänstexemplet ska du inte rensa resurserna som har s
 I den här snabbstarten har du skapat en gruppregistrering för ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat med tjänsten Azure IoT Hub Device Provisioning. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
  
 > [!div class="nextstepaction"]
-> [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service-självstudier](./tutorial-set-up-cloud.md)

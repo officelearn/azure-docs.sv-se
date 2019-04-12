@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203742"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503267"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -29,7 +29,7 @@ När du har slutfört guiden för ditt program ska ta emot inloggningar för per
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 
-![Visar hur exempelappen genereras av den här självstudier fungerar](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
+![Visar hur exempelappen genereras av den här självstudier fungerar](media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
 Appen i det här exemplet ska logga in användare och hämta data å deras vägnar.  Dessa data kan nås via en fjärr-API (Microsoft Graph API i det här fallet) som kräver auktorisering och också skyddas av Microsoft identity-plattformen.
 
@@ -42,7 +42,7 @@ Mer specifikt:
 
 Det här exemplet använder Microsoft Authentication library för Android (MSAL) för att samordna och hjälper till med autentisering. MSAL kommer automatiskt förnya token, leverera enkel inloggning mellan andra appar på enheten, hjälper dig att hantera konton och hantera villkorlig åtkomst oftast.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Den här guidade konfigurationen använder Android Studio 3.0.
 * Android 21 eller senare krävs (25 + rekommenderas).

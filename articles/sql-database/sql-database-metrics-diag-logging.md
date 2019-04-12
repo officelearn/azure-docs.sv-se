@@ -1,10 +1,10 @@
 ---
 title: Azure SQL Database-mått och diagnostikloggning | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure SQL Database för att lagra användnings- och fråga körning Resursstatistik.
+description: Lär dig hur du aktiverar diagnostik i Azure SQL Database för att lagra information om resursutnyttjande och statistik för körning av frågan.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426518"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490076"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
+
+I det här avsnittet får du lära dig hur du konfigurerar loggning av diagnostiktelemetri för Azure SQL Database via Azure portal, PowerShell, Azure CLI, REST-API för Azure Monitor och Azure Resource Manager-mall. Dessa diagnostik kan användas för att mäta användning av resurser och statistik för körning av frågan. 
 
 Enkla databaser och databaser i pooler i elastiska pooler instansdatabaser i en hanterad instans kan strömma loggar för mått och diagnostik för lättare prestandaövervakning. Du kan konfigurera en databas för överföring av Resursanvändning, personal och sessioner och anslutning till en av följande Azure-resurser:
 
@@ -431,12 +433,12 @@ Information om telemetri som är tillgängliga för alla loggar är detta i tabe
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Resursen användning statistik för den hanterade instansen
 
-|Egenskap |Beskrivning|
+|Egenskap|Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: ResourceUsageStats |
 |Resurs|Namn på resursen |
@@ -461,7 +463,7 @@ Information om telemetri som är tillgängliga för alla loggar är detta i tabe
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent |
@@ -512,7 +514,7 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent |
@@ -550,7 +552,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQ |
 |Kategori|Namnet på kategorin. Alltid: Fel |
 |OperationName|Åtgärdens namn. Alltid: ErrorEvent |
@@ -565,7 +567,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |Meddelande|Felmeddelande i oformaterad text |
 |user_defined_b|Är fel användardefinierade-bitars |
 |error_number_d|Felkod |
-|Severity|Allvarlighetsgraden för felet |
+|Allvarsgrad|Allvarlighetsgraden för felet |
 |state_d|Tillståndet för felet |
 |query_hash_s|Fråge-hash för misslyckade frågan, om det är tillgängligt |
 |query_plan_hash_s|Fråga plan hash för misslyckade frågan, om det är tillgängligt |
@@ -579,7 +581,7 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: DatabaseWaitStatisticsEvent |
@@ -608,7 +610,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: Timeouter |
 |OperationName|Åtgärdens namn. Alltid: TimeoutEvent |
@@ -631,7 +633,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: block |
 |OperationName|Åtgärdens namn. Alltid: BlockEvent |
@@ -655,7 +657,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC] |Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: Dödlägen |
 |OperationName|Åtgärdens namn. Alltid: DeadlockEvent |
@@ -676,7 +678,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Type|Alltid: AzureDiagnostics |
+|Typ|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: AutomaticTuning |
 |Resurs|Namn på resursen |

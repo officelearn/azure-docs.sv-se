@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470865"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492523"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera live-Azure Cloud Services med Programinsikter
 
@@ -41,7 +41,7 @@ Application Insights Profiler har installerats med Azure Diagnostics-tillägget.
 
     * För arbetsroller, [lägger du till kod för att spåra begäranden](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Konfigurera Azure Diagnostics-tillägget för att aktivera Profiler genom att göra följande:
+1. Konfigurera Azure Diagnostics-tillägget för att aktivera Profiler:
 
     a. Leta upp den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* filen för din programroll som visas här:  
 

@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588355"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501118"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Hur du använder Service Bus-köer med Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Den här guiden beskriver hur du använder Service Bus-köer. Exemplen är skrivna i Ruby och använder Azure gem. Scenarier som omfattas är **skapande av köer, skicka och ta emot meddelanden**, och **tar bort köer**. Mer information om Service Bus-köer finns i den [nästa steg](#next-steps) avsnittet.
+I de här självstudierna lär du dig att skapa Ruby-program att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. Exemplen är skrivna i Ruby och använder Azure gem.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln.
+    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
+    2. Skapa ett Service Bus **namnområde**. 
+    3. Hämta den **anslutningssträngen**. 
 
-## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > Skapar du en **kö** i Service Bus-namnområde med hjälp av Ruby i den här självstudien. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Så här skapar du en kö

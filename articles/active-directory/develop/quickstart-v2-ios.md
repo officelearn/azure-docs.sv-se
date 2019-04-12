@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Azure AD v2 iOS | Microsoft Docs'
+title: Microsoft identity-plattformen iOS Snabbstart | Azure
 description: Lär dig hur du loggar in användare och kör frågor mot Microsoft Graph i ett internt iOS-program.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439270"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496137"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en intern iOS-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439270"
 
 Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-program kan logga in personliga konton eller arbets- och skolkonton, hämta en åtkomsttoken och anropa Microsoft Graph API.
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-ios/ios-intro-updated.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registrera och ladda ned
@@ -46,14 +46,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexempel för den här snabbstarten ska fungera måste du lägga till en svars-URL som `msal<AppId>://auth` (där msal\<AppId > är den här program-Id).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen åt mig]()
+> > [Gör den här ändringen för mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-ios/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerat](media/quickstart-v2-ios/green-check.png) ditt program har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Steg 2: Ladda ned webbservern eller projektet
 
-- [Ladda ned XCode-projektet](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Ladda ned XCode-projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
 
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |Där: ||
 > |---------|---------|
 > | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
-> | `authority` | Azure AD v2.0-slutpunkten. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Slutpunkt för Microsoft identity-plattformen. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>Begära token
 
@@ -155,7 +155,7 @@ MSAL har två metoder som används för att hämta token: `acquireToken` och `ac
 
 #### <a name="getting-an-access-token-interactively"></a>Hämta en åtkomsttoken interaktivt
 
-Vissa situationer kräver att användare tvingas interagera med Azure Active Directory (Azure AD) v2.0-slutpunkten, vilket resulterar i ett kontextbyte till systemets webbläsare för att antingen verifiera användarnas autentiseringsuppgifter eller för medgivande. Några exempel är:
+Vissa situationer kräver att användare interagerar med Microsoft identity-plattformen slutpunkt, vilket resulterar i en kontext-växel till webbläsaren system och antingen verifiera användarnas autentiseringsuppgifter eller för medgivande. Några exempel är:
 
 * Första gången användaren loggar in på programmet
 * När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
@@ -190,6 +190,6 @@ Prova att använda iOS-självstudien för en komplett stegvis guide till att ska
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
 
 > [!div class="nextstepaction"]
-> [Självstudie om att anropa Graph API för iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Anropa Graph API iOS-självstudier](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

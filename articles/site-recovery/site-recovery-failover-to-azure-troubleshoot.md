@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889700"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492863"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsök fel när redundansväxlingen VMware VM eller en fysisk dator till Azure
 
@@ -79,7 +79,7 @@ Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure ä
 1. Gå till **VM** > **nätverk**, klicka på namnet på nätverksgränssnittet som krävs.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Gå till **Ip-konfigurationer**, klicka sedan på namnfältet på IP-konfiguration som krävs. ![IP-konfigurationer](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Ange namnet på offentlig adress, välj sedan standardalternativen för **SKU** och **tilldelning**, klicka sedan på **OK**.
 6. Om du vill spara ändringarna, klicka på **spara**.
 7. Stäng panelerna och gå till **översikt** delen av virtuell dator för att ansluta/RDP.
@@ -132,8 +132,10 @@ Azure Site Recovery-huvudmål Target registreringen med konfigurationsservern mi
  
 Det här felet visas med följande strängar i installationsloggen: 
 
-RegisterHostStaticInfo påträffade undantaget config/talwrapper.cpp(107) [post] CurlWrapper Post misslyckades: server: 10.38.229.221 port: 443, phpUrl: request_handler.php, säker: SANT, ignoreCurlPartialError: false med fel: [på curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] Det gick inte att skicka begäran: (35) - anslutningsfel för SSL. 
- 
+```
+RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+```
+
 Att lösa problemet:
  
 1. Öppna en kommandotolk på konfigurationsservern VM och kontrollera proxy-inställningar med hjälp av följande kommandon:

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Azure AD v2.0 ASP.NET-webbserver | Microsoft Docs'
+title: Microsoft identity-plattformen ASP.NET web server Snabbstart | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200267"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505406"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -29,7 +29,7 @@ ms.locfileid: "58200267"
 
 I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
 
-![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -39,8 +39,8 @@ I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personli
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
-> 1. Ange ett namn för ditt program och klicka på **Registrera**.
+> 1. Gå till den nya [Azure portal – appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) fönstret.
+> 1. Ange ett namn för programmet och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
@@ -50,7 +50,8 @@ I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personli
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)** > **Ny registrering**.
+> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+> 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
 >      - Lägg till `https://localhost:44368/` i **Svars-URL** och klicka på **Registrera**.
@@ -60,10 +61,10 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera måste vi lägga till en svars-URL som `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen åt mig]()
+> > [Gör den här ändringen för mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerat](media/quickstart-v2-aspnet-webapp/green-check.png) ditt program har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
@@ -82,11 +83,11 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
+> - `Enter_the_Application_Id_here` -är program-Id för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` -är ett av alternativen nedan:
 >   - Om ditt program stöder **Endast min organisation** ska du ersätta värdet med **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
->   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
+>   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
+>   - Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
@@ -132,7 +133,7 @@ public void Configuration(IAppBuilder app)
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
-                ValidateIssuer = false
+                ValidateIssuer = false // Simplification (see note below)
             },
             // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
             Notifications = new OpenIdConnectAuthenticationNotifications
@@ -148,12 +149,16 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Program-ID från appen som registrerats i Azure-portalen |
 > | `Authority`    | STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}/v2.0> för offentligt moln, där {tenant} är namnet på din klientorganisation, ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |
-> | `RedirectUri`  | URL där användare skickas efter autentisering mot Azure AD v2.0-slutpunkt |
+> | `RedirectUri`  | URL: en där användare skickas efter autentisering mot slutpunkten för Microsoft identity-plattformen |
 > | `PostLogoutRedirectUri`     | URL där användare skickas efter utloggning |
 > | `Scope`     | Listan över omfång som begärs, avgränsade med blanksteg |
 > | `ResponseType`     | Begär att svaret från autentiseringen innehåller en ID-token |
 > | `TokenValidationParameters`     | En lista över parametrar för tokenvalidering. I det här fallet ställs `ValidateIssuer` in på `false` för att ange att den kan acceptera inloggningar från personliga konton eller arbets- eller skolkonton |
 > | `Notifications`     | En lista över ombud kan köra på olika *OpenIdConnect*-meddelanden |
+
+
+> [!NOTE]
+> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. I verkliga program som du måste verifiera utfärdaren Se exemplen för att förstå hur du gör.
 
 ### <a name="initiate-an-authentication-challenge"></a>Initiera en autentiseringsfråga
 
@@ -182,9 +187,9 @@ Du kan skydda en kontrollant eller kontrollantåtgärder med attributet `[Author
 
 Prova att använda ASP.NET-självstudien för en komplett steg för steg-guide till att skapa appar och nya funktioner, bland annat en fullständig förklaring av den här snabbstarten.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar appen som används i den här snabbstarten
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
 
 > [!div class="nextstepaction"]
-> [Självstudie om inloggning](./tutorial-v2-asp-webapp.md)
+> [Logga in självstudien](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

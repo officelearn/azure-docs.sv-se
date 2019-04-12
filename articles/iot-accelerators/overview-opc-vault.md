@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure IoT OPC UA-certifikathantering | Microsoft Docs
+title: Vad är OPC-valv – Azure | Microsoft Docs
 description: Översikt över OPC-valv
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759316"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490384"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>Vad är Azure IoT öppen plattform kommunikation (OPC) UA certifikathantering?
+# <a name="what-is-opc-vault"></a>Vad är OPC-valv?
 
-Azure IoT OPC UA certifikathantering, även kallade OPC-valv är en mikrotjänst som kan konfigurera registreras, och hantera certifikatets livscykel för OPC UA-servern och klienten program i molnet. Den här artikeln beskriver OPC-valvet enkel användningsfall.
+OPC-valv är en mikrotjänst som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. Den här artikeln beskriver OPC-valvet enkel användningsfall.
 
 ## <a name="certificate-management"></a>Certifikathantering
 

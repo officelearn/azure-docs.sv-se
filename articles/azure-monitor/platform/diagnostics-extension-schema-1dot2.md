@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486163"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496496"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema för Azure Diagnostics 1.2-konfiguration
 > [!NOTE]
 > Azure-diagnostik är den komponent som används för att samla in prestandaräknare och annan statistik från Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric och Cloud Services.  Den här sidan gäller endast om du använder någon av dessa tjänster.
 >
 
-Azure-diagnostik används med andra Microsoft-produkter för diagnostik som Azure Monitor, Application Insights och Log Analytics.
+Azure-diagnostik används med andra Microsoft-produkter för diagnostik som Azure Monitor, som innehåller Application Insights och Log Analytics.
 
 Det här schemat definierar de möjliga värdena som du kan använda för att initiera diagnostiska inställningar när diagnostik monitor startar.  
 
@@ -192,7 +192,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**annotation**|Obligatoriskt attribut:<br /><br /> **displayName** – visningsnamnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **nationella inställningar** -språket som används vid visning av räknarnamnet|  
+|**Anteckning**|Obligatoriskt attribut:<br /><br /> **displayName** – visningsnamnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **nationella inställningar** -språket som används vid visning av räknarnamnet|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  I följande tabell beskrivs underordnade element:  

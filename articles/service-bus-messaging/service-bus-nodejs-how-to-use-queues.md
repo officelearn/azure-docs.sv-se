@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587879"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500846"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Hur du använder Service Bus-köer med Node.js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Den här artikeln beskriver hur du använder Service Bus-köer med Node.js. Exemplen är skrivna i JavaScript och använder Azure för Node.js-modulen. Scenarier som omfattas är **skapande av köer**, **skicka och ta emot meddelanden**, och **tar bort köer**. Mer information om köer finns i den [nästa steg](#next-steps) avsnittet.
+I de här självstudierna lär du dig att skapa Node.js-program att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. Exemplen är skrivna i JavaScript och använder Azure för Node.js-modulen. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Om du inte har en kö för att arbeta med, Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln om du vill skapa en kö.
+    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
+    2. Skapa ett Service Bus **namnområde**. 
+    3. Hämta den **anslutningssträngen**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > Skapar du en **kö** i Service Bus-namnområde med hjälp av Node.js i den här självstudien. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 Skapa en tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera en Node.js-program till en Azure-webbplats][Create and deploy a Node.js application to an Azure Website], eller [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell.
@@ -114,7 +120,7 @@ När du har gjort dess förbearbetning på begäran-alternativ, metoden måste a
 function (returnObject, finalCallback, next)
 ```
 
-I den här motringning och efter bearbetning i `returnObject` (svaret från begäran till servern), återanropet som måste antingen anropa `next` om det finns för att fortsätta att bearbeta andra filter eller helt enkelt anropa `finalCallback`, som slutar tjänsten anrop.
+I den här motringning och efter bearbetning i `returnObject` (svaret från begäran till servern), återanropet som måste antingen anropa `next` om det finns för att fortsätta att bearbeta andra filter eller anropa `finalCallback`, som slutar tjänstanrop .
 
 Två filter som implementerar logik för omprövning ingår i Azure SDK för Node.js, `ExponentialRetryPolicyFilter` och `LinearRetryPolicyFilter`. Följande kod skapar en `ServiceBusService` objekt som använder den `ExponentialRetryPolicyFilter`:
 
@@ -173,7 +179,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
 Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram är det går inte att bearbeta meddelandet av någon anledning så kan det anropa den `unlockMessage` metoden på den **ServiceBusService** objekt. Detta gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
 
-Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i kön. Om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (t.ex. Om programmet kraschar), kommer Service Bus så låser upp meddelandet automatiskt och göra det tillgängligt att tas emot igen.
+Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i kön. Om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (till exempel om programmet kraschar), kommer Service Bus så låser upp meddelandet automatiskt och göra det tillgängligt att tas emot igen.
 
 I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `deleteMessage` metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här kallas ofta *minst Processing*, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av egenskapen **MessageId** för meddelandet. Detta är och förblir konstant under alla leveransförsök.
 

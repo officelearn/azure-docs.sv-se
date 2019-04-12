@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463515"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497091"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
@@ -31,7 +31,7 @@ Den här sidan är giltig för versioner 1.3 och senare (Azure SDK 2.4 och nyare
 
 Konfigurationsfilen som beskrivs här används för att ange inställningar för diagnostik när diagnostik monitor startar.  
 
-Tillägget används tillsammans med andra Microsoft-produkter för diagnostik som Azure Monitor, Application Insights och Log Analytics.
+Tillägget används tillsammans med andra produkter som Azure Monitor, som innehåller Application Insights och Log Analytics-diagnostik.
 
 
 
@@ -614,11 +614,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|**sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|**varaktighet**|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 |**mottagare** |**sträng**| Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  Har lagts till i 1.9.
 
@@ -627,16 +627,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Statistik**|Anger att samla in statistik för Docker-behållare|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  En lista över platser för att skicka diagnostikdata till och den konfiguration som associeras med dessa platser.  
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**mottagare**|Se beskrivning någon annanstans på den här sidan.|  
+|**Kanalmottagare**|Se beskrivning någon annanstans på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  Har lagts till i version 1.5.  
 
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|sträng|En sträng som identifierar sinkname.|  
+|**namn**|sträng|En sträng som identifierar sinkname.|  
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
+|**Kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
 ## <a name="channels-element"></a>Channels Element  
  *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -672,7 +672,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
 |**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**Namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
+|**namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element

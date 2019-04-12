@@ -1,6 +1,6 @@
 ---
-title: Samla in data i Azure AD Identity Protection i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Lär dig mer om att samla in Azure AD Identity Protection data i Azure Sentinel.
+title: Ansluta Azure AD Identity Protection-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Azure AD Identity Protection data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 609aced38b7e30f78d81934867196c568dcc85ca
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240006"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496171"
 ---
-# <a name="collect-data-from-azure-ad-identity-protection"></a>Samla in data från Azure AD Identity Protection
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Anslut data från Azure AD Identity Protection
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -30,7 +30,7 @@ ms.locfileid: "57240006"
 Du kan strömma loggar från [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) i Azure Sentinel-stream-aviseringar i Azure Sentinel att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Azure Active Directory Identity Protection ger en samlad vy användare i farozonen, riskhändelser och sårbarheter, med möjlighet att åtgärda risker omedelbart och ange principer för att automatiskt åtgärda framtida händelser. Tjänsten bygger på Microsofts erfarenhet av att skydda konsumentidentiteter och får enorm Precision från signalen via 13 miljarder log-moduler per dag. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha en [Azure Active Directory Premium P1 eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/)
 - Användare med global administratör eller administratörsbehörighet för säkerhet
@@ -42,7 +42,7 @@ Om du redan har Azure AD Identity Protection garanterar att de är [aktiverat i 
 Om Azure AD Identity Protection har distribuerats och hämtar data aviseringsdata kan enkelt strömmas till Sentinel-Azure.
 
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure AD Identity Protection** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure AD Identity Protection** panelen.
 
 2. Klicka på **Connect** att starta direktuppspelning av Azure AD Identity Protection-händelser till Azure Sentinel.
 

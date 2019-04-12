@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278878"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501475"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -649,7 +649,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Läs eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/read | Läs eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Hämta objekt-ID för Azure Blueprint-tjänstens huvudkonto. |
+> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Hämta objekt-ID för Azure Blueprints-tjänstens huvudkonto. |
 > | Åtgärd | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/delete | Ta bort eventuella skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/read | Läs eventuella skissartefakter |
@@ -661,7 +661,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/read | Läs eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/write | Skapa eller uppdatera eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/write | Skapa eller uppdatera eventuella skisser |
-> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar Azure Blueprint-resursprovider |
+> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar Azure Blueprints-resursprovider |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1107,7 +1107,7 @@ Lista ansikten persistedFaceId och userData i en angiven stora ansikts-lista. |
 Uppdatera ett angivna ansikte userData fält i en stor ansikte lista av dess persistedFaceId. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Hämta en stor ansikte lista largeFaceListId, namn, userData.
 Lista över stora ansikte visar information för largeFaceListId, namn och userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Skicka en stor ansikte lista utbildning uppgift. Utbildning är ett viktigt steg som endast en tränad stora ansikts-lista kan användas av |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Skicka en stor ansikte lista utbildning uppgift. Utbildning är ett viktigt steg som kan använda för endast en tränad stora ansikts-lista. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Kontrollera stora ansikte lista utbildning status slutförda eller fortfarande pågår. LargeFaceList utbildning är en asynkron åtgärd |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Skapa en tom stora ansikts-lista med användardefinierade largeFaceListId, namn och en valfri userData.
 Uppdatera information för en stor ansikts-lista, inklusive namn och userData. |
@@ -1123,7 +1123,7 @@ Lista alla personer informationen i den angivna stora persongrupp, inklusive per
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Uppdatera namn eller userData för en person. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Hämta information för stora person grupper, inklusive dess namn och userData. Den här API: et returnerar stora person gruppinformation
 Lista alla befintliga stora persongruppers largePesonGroupId, namn och userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Skicka en stor person grupp utbildning uppgift. Utbildning är ett viktigt steg att endast en utbildad stora persongrupp kan användas |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Skicka en stor person grupp utbildning uppgift. Utbildning är ett viktigt steg som kan användas i endast en utbildad stora person-grupp. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | För att kontrollera stora person utbildning Gruppstatus slutförda eller fortfarande pågår. LargePersonGroup utbildning är en asynkron åtgärd |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Skapa en ny persongrupp för stora med användardefinierade largePersonGroupId, namn och valfri userData.
 Uppdatera en befintlig stora person gruppens namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
@@ -1139,7 +1139,7 @@ Visa information om alla personer i gruppen angiven person, inklusive personId, 
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Uppdatera namn eller userData för en person. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Hämta person gruppnamn och userData. Hämta person information under den här personGroup
 Visa persongrupper pesonGroupId, namn och userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Skicka en person grupp utbildning uppgift. Utbildning är ett viktigt steg som endast en utbildad persongrupp kan användas av |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Skicka en person grupp utbildning uppgift. Utbildning är ett viktigt steg som kan använda för en tränad persongrupp. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | För att kontrollera person utbildning Gruppstatus slutförda eller fortfarande pågår. PersonGroup utbildning är en asynkron åtgärd som utlöste |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Skapa en ny persongrupp med angivna personGroupId, namn och användaren userData.
 Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |

@@ -1,6 +1,6 @@
 ---
-title: Samla in Azure AD-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in Azure Active Directory-data i Azure Sentinel.
+title: Ansluta Azure AD-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
+description: Lär dig hur du ansluter Azure Active Directory-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575138"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494892"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Samla in data från Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Anslut data från Azure Active Directory
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -29,7 +29,7 @@ ms.locfileid: "58575138"
 
 Azure Sentinel kan du samla in data från [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) och strömma det till Azure Sentinel. Du kan välja att strömma [inloggning loggar](../active-directory/reports-monitoring/concept-sign-ins.md) och [granskningsloggar](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du vill exportera inloggningsdata från Active Directory, måste du ha en Azure AD P1 eller P2-licens.
 
@@ -38,7 +38,7 @@ Azure Sentinel kan du samla in data från [Azure Active Directory](../active-dir
 
 ## <a name="connect-to-azure-ad"></a>Anslut till Azure AD
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure Active Directory** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure Active Directory** panelen.
 
 2. Bredvid loggarna som du vill spela in Azure Sentinel, klickar du på **Connect**.
 

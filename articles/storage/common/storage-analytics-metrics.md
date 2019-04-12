@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259762"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489297"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics-mått (klassisk)
 
@@ -75,7 +75,7 @@ Följ stegen nedan för att aktivera mätvärden i den [Azure-portalen](https://
 Den [Azure-portalen](https://portal.azure.com) för närvarande kan du inte konfigurera minutmått i ditt storage-konto, måste du aktivera minutmått med hjälp av PowerShell eller via programmering.
 
 > [!NOTE]
->  Observera att Azure-portalen för närvarande kan du inte konfigurera minutmått i ditt storage-konto. Du måste aktivera minutmått med hjälp av PowerShell eller via programmering.  
+>  Observera att Azure-portalen för närvarande kan du inte konfigurera minutmått i ditt storage-konto. Du måste aktivera minutmått med hjälp av PowerShell eller via programmering.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Aktivera mätvärden i Storage med hjälp av PowerShell  
 Du kan använda PowerShell på den lokala datorn för att konfigurera mätvärden i Storage i ditt storage-konto med hjälp av Azure PowerShell-cmdleten **Get-AzureStorageServiceMetricsProperty** att hämta de aktuella inställningarna och cmdleten  **Set-AzureStorageServiceMetricsProperty** att ändra de aktuella inställningarna.  
@@ -148,7 +148,7 @@ Du hittar fullständig information om scheman för dessa tabeller på [Schema ö
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**partitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|användaren. Alla|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

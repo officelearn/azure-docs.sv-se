@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227694"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501016"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 
@@ -83,7 +83,7 @@ För mer information om hur du skapar kluster med Resource Manager-mallar, se [s
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera automatisk skalning för ett kluster som körs
 
-Du kan aktivera eller inaktivera automatisk skalning för HDInsight-kluster som skapats efter 1 januari 2019 via Azure portal.
+Du kan bara aktivera eller inaktivera automatisk skalning för nya HDInsight-kluster.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -108,8 +108,8 @@ Mått som ovan kontrolleras var 60: e sekund. Skala upp och skala ned beslut bas
 
 När följande villkor har identifierats, utfärdar automatisk skalning en upp-begäran:
 
-* Totalt antal väntande CPU är större än totalt ledigt CPU i mer än 1 minut.
-* Totalt antal väntande minne är större än totala lediga minnet i mer än 1 minut.
+* Totalt antal väntande CPU är större än totalt ledigt CPU för mer än 3 minuter.
+* Totalt antal väntande minne är större än totala lediga minnet för mer än 3 minuter.
 
 Vi beräknar att ett visst antal nya arbetsnoderna behövs för att uppfylla kraven på aktuella CPU och minne och utfärda en upp-begäran som lägger till det antalet nya arbetsnoderna.
 
@@ -120,7 +120,7 @@ När följande villkor har identifierats, utfärdar automatisk skalning en begä
 * Totalt antal väntande CPU är mindre än totalt ledigt CPU i mer än 10 minuter.
 * Totalt antal väntande minne är mindre än totala lediga minnet i mer än 10 minuter.
 
-Baserat på antalet AM behållare per nod och aktuella CPU och minne, utfärdar automatisk skalning en begäran att ta bort ett visst antal noder, anger vilka noder som är möjliga kandidater för borttagning. Som standard tas två noder bort i en cykel.
+Baserat på antalet AM behållare per nod och aktuella CPU och minne, utfärdar automatisk skalning en begäran att ta bort ett visst antal noder, anger vilka noder som är möjliga kandidater för borttagning. Skala ned utlöser inaktivering av noder och när noderna är helt inaktiverade de tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

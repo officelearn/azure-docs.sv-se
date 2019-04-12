@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361555"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501305"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -403,10 +403,11 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 
 | **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan, standardvärdet är Common::TimeSpan::FromMinutes(5)|Dynamisk|Ange tidsintervall i sekunder. Rensningsintervall för tillåts för avregistrera programtypen under rensning av typen av automatisk tillämpning.|
 |AzureStorageMaxConnections | Int, standardvärdet är 5000 |Dynamisk|Det maximala antalet samtidiga anslutningar till azure storage. |
 |AzureStorageMaxWorkerThreads | int, standard är 25 |Dynamisk|Det maximala antalet trådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder, är standardvärdet 6000 |Dynamisk|Ange tidsintervall i sekunder. Tidsgräns för xstore åtgärden har slutförts. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, standard är FALSKT |Dynamisk|Den här konfigurationen aktiverar eller inaktiverar automatisk rensning av programpaket på lyckad etablering. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, standard är FALSKT |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaket på lyckad etablering. |
 |CleanupUnusedApplicationTypes|bool, standard är FALSKT |Dynamisk|Den här konfigurationen tillåts om aktiverad för att avregistrera oanvända programtypversioner hoppar över de senaste tre oanvända versionerna därmed trimmar diskutrymme upptas av avbildningsarkivet automatiskt. Automatisk rensning aktiveras i slutet av lyckade etablera för den specifika apptypen och körs även regelbundet en gång om dagen för alla programtyper av. Antal oanvända versioner att hoppa över kan konfigureras med hjälp av parametern ”MaxUnusedAppTypeVersionsToKeep”. |
 |DisableChecksumValidation | Bool, standard är FALSKT |Statisk| Den här konfigurationen gör att vi kan aktivera eller inaktivera validering av kontrollsumma vid etableringen av programmet. |
 |DisableServerSideCopy | Bool, standard är FALSKT |Statisk|Den här konfigurationen aktiverar eller inaktiverar serversidan kopia av programpaket på ImageStore vid etableringen av programmet. |
@@ -723,7 +724,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |PropertyWriteBatch |sträng, standard är ”Admin” |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskapen skrivåtgärder. |
 |ProvisionApplicationType |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för programetablering typen. |
 |ProvisionFabric |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för MSI och/eller kluster Manifest etablering. |
-|Söka i data |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för frågor. |
+|Fråga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för frågor. |
 |RecoverPartition |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att återställa tjänstpartitioner. |

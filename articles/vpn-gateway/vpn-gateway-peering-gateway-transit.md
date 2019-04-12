@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199638"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492353"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -37,9 +37,6 @@ Två scenarier beskrivs i det här dokumentet:
 1. Båda virtuella nätverken använder Resource Manager-distributionsmodellen
 2. Det virtuella ekernätverket bygger på den klassiska modellen och det virtuella navnätverket med gateway använder Resource Manager-modellen
 
-> [!IMPORTANT]  
-> Gatewayöverföring stöds för närvarande med global vnet-peering i en förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner, men inte mellan moln. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen. 
-
 ## <a name="requirements"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -54,8 +51,8 @@ Exemplet i det här dokumentet kräver att följande resurser skapas:
 Anvisningar finns i följande dokument:
 
 1. [Skapa en VPN-gateway i ett virtuellt nätverk](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Skapa peer-koppling av virtuella nätverk med samma distributionsmodell](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Skapa peer-koppling av virtuella nätverk med olika distributionsmodeller](../virtual-network/create-peering-different-deployment-models.md)
+2. [Skapa vnet-peering med samma distributionsmodell](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Skapa virtuell nätverkspeering med olika distributionsmodeller](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Behörigheter
 

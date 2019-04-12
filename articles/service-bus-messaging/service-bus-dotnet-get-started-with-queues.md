@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778016"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500693"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus-kö. 
 
-Den här självstudien omfattar följande steg:
-
-1. Skapa ett Service Bus-namnområde med Azure Portal.
-2. Skapa en Service Bus-kö med Azure Portal.
-3. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till kön.
-4. Skriva ett .NET Core-konsolprogram för att ta emot meddelandena från kön.
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
-2. En Azure-prenumeration.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Om du inte har en kö för att arbeta med, Följ stegen i den [Använd Azure portal för att skapa en Service Bus-kö](service-bus-quickstart-portal.md) artikeln om du vill skapa en kö.
+    1. Läsa snabbstartsidan **översikt** i Service Bus **köer**. 
+    2. Skapa ett Service Bus **namnområde**. 
+    3. Hämta den **anslutningssträngen**. 
+    4. Skapa ett Service Bus **kö**. 
 
 ## <a name="send-messages-to-the-queue"></a>Skicka meddelanden till kön
 
@@ -206,7 +197,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
 
 ## <a name="receive-messages-from-the-queue"></a>Ta emot meddelanden från kön
 
-För att ta emot de meddelanden som du just skickade skapar du ytterligare ett .NET Core-konsolprogram och installerar **Microsoft.Azure.ServiceBus** NuGet-paketet, på ungefär samma sätt som i det tidigare sändningsprogrammet.
+Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har skickat och installera den **Microsoft.Azure.ServiceBus** NuGet-paketet, ungefär som i det tidigare sändningsprogrammet.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Skriva kod för att ta emot meddelanden från kön
 

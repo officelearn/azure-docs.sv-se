@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0e07e371afaa239ca423f4266557cd2f55aa3a55
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403161"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495266"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -50,7 +50,7 @@ Konfigurera applikationsmanifestet:
 
 | Nyckel  | Värdetyp | Beskrivning  | Exempelvärde |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Kan ha värdet null Int32 | Anger vilken åtkomst-token version som förväntas av resursen. Detta ändrar versionen och formatet för JWT produceras oberoende av slutpunkten eller klienten för att begära åtkomst-token.<br/><br/>Den slutpunkt som används, v1.0 eller v2.0, väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste du uttryckligen konfigurera `accesstokenAcceptedVersion` att ange formatet stöds åtkomst-token.<br/><br/>Möjliga värden för `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null, standard detta 1, vilket motsvarar v1.0-slutpunkten. | `2` |
+| `accessTokenAcceptedVersion` | Kan ha värdet null Int32 | Anger vilken åtkomst-token version som förväntas av resursen. Detta ändrar versionen och formatet för JWT produceras oberoende av slutpunkten eller klienten för att begära åtkomst-token.<br/><br/>Den slutpunkt som används, v1.0 eller v2.0, väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste du uttryckligen konfigurera `accesstokenAcceptedVersion` att ange formatet stöds åtkomst-token.<br/><br/>Möjliga värden för `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null, standard detta 1, vilket motsvarar v1.0-slutpunkten. <br/><br/>Om `signInAudience` är `AzureADandPersonalMicrosoftAccount`, värdet måste vara `2` | `2` |
 | `allowPublicClient` | boolesk | Anger vilken typ av återställning program. Azure AD härleder programtypen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan fastställa typen av app klienten (t.ex. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flöde där HTTP-begäran sker utan en URL-omdirigering). I sådana fall tolkar Azure AD programtypen baserat på värdet för den här egenskapen. Om det här värdet anges till true återställningsplats programtypen har angetts som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är false, vilket innebär att återställningsplats programtypen är konfidentiell klient, till exempel webbapp. | `false` |
 | `appId` | Strängen för meddelandealternatividentifieraren | Anger den unika identifieraren för den app som har tilldelats en app av Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Typ av matris | Anger samlingen av roller som en app kan deklarera. Dessa roller kan tilldelas användare, grupper eller tjänstens huvudnamn. Fler exempel och information i [Lägg till roller i ditt program och tar emot dem i token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

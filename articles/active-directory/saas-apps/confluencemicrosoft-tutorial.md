@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c0a7ff6d06325a6e6f631b92335f9a41c2c8c06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854814"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med Confluence SAML SSO från Microsoft
 
@@ -36,9 +37,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="description"></a>Beskrivning:
 
-Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. Det gör att alla dina organisationsanvändare kan använda Azure AD-autentiseringsuppgifter för att logga in i Confluence-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
+Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. På så sätt alla organisationens användare kan använda Azure AD-autentiseringsuppgifter för att logga in i programmet växer samman. Det här plugin-programmet använder SAML 2.0 för federation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Confluence SAML SSO från Microsoft behöver du följande:
 
@@ -78,6 +79,9 @@ För närvarande stöds följande versioner av Confluence:
 - Confluence: 6.11.0
 - Confluence: 6.12.0
 
+> [!NOTE]
+> Observera att växer samman också stöder Linux Ubuntu version 16.04
+
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
@@ -88,7 +92,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Confluence SAML SSO från Microsoft till Azure AD behöver du lägga till Confluence SAML SSO från Microsoft från galleriet till listan över hanterade SaaS-appar.
 
-**Lägg till Confluence SAML SSO från Microsoft från galleriet genom att utföra följande steg:**
+**Utför följande steg för att lägga till antal samverkande SAML SSO av Microsoft från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -104,7 +108,7 @@ För att konfigurera integreringen av Confluence SAML SSO från Microsoft till A
 
 4. I sökrutan skriver du **Confluence SAML SSO från Microsoft**, väljer **Confluence SAML SSO från Microsoft** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![Confluence SAML SSO från Microsoft i resultatlistan](common/search-new-app.png)
+    ![Confluence SAML SSO från Microsoft i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
@@ -142,11 +146,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Confl
 
     ![Confluence SAML SSO från Microsoft-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<domain:port>/`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Porten är valfri ifall den är en namngiven URL. Dessa värden tas emot under konfigurationen av Confluence-pluginprogrammet, som beskrivs senare i självstudien.
@@ -157,7 +161,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Confl
 
 ### <a name="configure-confluence-saml-sso-by-microsoft-single-sign-on"></a>Konfigurera enkel inloggning för Confluence SAML SSO från Microsoft
 
-1. I ett annat webbläsarfönster loggar du in på din Confluence-instans som administratör.
+1. I ett annat webbläsarfönster, loggar du in din växer samman-instans som administratör.
 
 2. Hovra över kugghjulet och klicka på **Tillägg**.
 
@@ -184,18 +188,18 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Confl
 
     c. I **Login Button Name** (Namn på inloggningsknapp) skriver du namnet på den knapp som organisationen vill att användarna ser på inloggningsskärmen.
 
-    d. I **SAML User ID Locations** (Platser för SAML-användar-ID) väljer du antingen **User ID is in the NameIdentifier element of the Subject statement** (Användar-ID finns i elementet NameIdentifieri instruktionen Ämne) eller **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element).  Detta ID måste vara användar-ID för Confluence. Om användar-ID inte matchas tillåter systemet inte att användare loggar in. 
+    d. I **SAML User ID Locations** (Platser för SAML-användar-ID) väljer du antingen **User ID is in the NameIdentifier element of the Subject statement** (Användar-ID finns i elementet NameIdentifieri instruktionen Ämne) eller **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element).  Det här ID: T måste vara växer samman användar-ID. Om det användar-ID inte matchas sedan kan inte användare att logga in. 
 
     > [!Note]
     > Standardplatsen för SAML-användar-ID är Name Identifier (Namnidentifierare). Du kan ändra den till ett attributalternativ och ange lämpligt attributnamn.
     
-    e. Om du väljer alternativet **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element) skriver du i textrutan **Attribute name** (Attributnamn) namnet på det attribut där användar-ID förväntas. 
+    e. Om du väljer **användar-ID är i ett attributelement** alternativet i **attributnamnet** textrutan skriver du namnet på attributet som där användar-ID förväntas. 
 
     f. Om du använder den federerade domänen (till exempel ADFS osv) med Azure AD klickar du på alternativet **Enable Home Realm Discovery** (Aktivera identifiering av hemsfär) och konfigurerar **Domännamn**.
     
     g. I **Domännamn** anger du domännamnet för ADFS-baserad inloggning.
 
-    h. Markera **Enable Single Sign out** (Aktivera enkel inloggning) om du vill logga ut från Azure AD när en användare loggar ut från Confluence. 
+    h. Kontrollera **aktivera enkelinloggning ut** om du vill logga ut från Azure AD när en användare loggar ut från växer samman. 
 
     i. Klicka på knappen **Spara** för att spara inställningarna.
 
@@ -220,8 +224,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -255,11 +258,11 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-confluence-saml-sso-by-microsoft-test-user"></a>Skapa Confluence SAML SSO från Microsoft-testanvändare
 
-För att göra det möjligt för Azure AD-användare att logga in på lokala Confluence-servrar måste de etableras i Confluence SAML SSO från Microsoft. När det gäller Confluence SAML SSO från Microsoft är etablering en manuell aktivitet.
+Om du vill aktivera Azure AD-användare att logga in på växer samman den lokala servern, måste de etableras i antal samverkande SAML SSO av Microsoft. När det gäller Confluence SAML SSO från Microsoft är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på din lokala Confluence-server som administratör.
+1. Logga in på din växer samman den lokala servern som administratör.
 
 2. Hovra över kugghjulet och klicka på **Användarhantering**.
 
@@ -289,7 +292,7 @@ När du klickar på Confluence SAML SSO från Microsoft-panelen i åtkomstpanele
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

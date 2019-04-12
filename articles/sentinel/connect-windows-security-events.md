@@ -1,6 +1,6 @@
 ---
-title: Samla in händelsedata för Windows-säkerhet i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig hur du samlar in händelsedata för Windows-säkerhet i Azure Sentinel.
+title: Ansluta Windows security händelsedata till Sentinel-förhandsversion i Azure | Microsoft Docs
+description: Lär dig hur du ansluter Windows security händelsedata till Sentinel-Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576096"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491960"
 ---
 # <a name="connect-windows-security-events"></a>Ansluta till Windows säkerhetshändelser 
 
@@ -42,7 +42,7 @@ Du kan strömma alla säkerhetshändelser från Windows-servrar som ansluter til
 
 Att helt integrera dina säkerhetshändelser i Windows med Azure Sentinel:
 
-1. I Sentinel-Azure-portalen väljer **datainsamling** och klicka sedan på den **Windows säkerhetshändelser** panelen. 
+1. I Sentinel-Azure-portalen väljer **datakopplingar** och klicka sedan på den **Windows säkerhetshändelser** panelen. 
 1. Välj vilka datatyper som du vill spela.
 1. Klicka på **Uppdatera**.
 6. Om du vill använda relevanta schema i Log Analytics för Windows-säkerhetshändelser, Sök efter **SecurityEvent**.

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470737"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493033"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referensguide för Vydesigner visualisering delar i Azure Monitor
 Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
@@ -78,10 +78,10 @@ Rubriken visar ett tal som visar antalet poster från en loggfråga. I listan vi
 | Använd ikon |Välj länken visas ikonen. |
 | **Rubrik** | |
 | Teckenförklaring |Den text som visas överst i rubriken. |
-| Söka i data |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
+| Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -109,9 +109,9 @@ Rubriken har två siffror som visar antalet poster från separat logg-frågor. I
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Rubrik** | |
 | Teckenförklaring |Den text som visas överst i rubriken. |
-| Söka i data |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
+| Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -140,7 +140,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Toroid** | |
-| Söka i data |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
+| Fråga |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Toroid** |**> Center** |
 | Text |Den text som visas under värdet mellan ringen. |
@@ -152,7 +152,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Fältvärde |Skriv namnet på ett fält att visa den som en annan färg om den ingår i ringdiagrammet. |
 | Färg |Välj färg för unika fält. |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -182,10 +182,10 @@ Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagr
 | **Diagram 1<br>Diagram 2** | |
 | Teckenförklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färgen som ska användas för kolumnerna i serien. |
-| Söka i data |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
+| Fråga |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Sum: Summan av värdena från alla poster.</li><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Senaste exempel: Värde från det sista intervallet som ingår i diagrammet.</li><li>Det första exemplet: Värde från det första intervallet som ingår i diagrammet.</li><li>Antal: Antalet poster som returneras av frågan.</li></ul> |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -234,7 +234,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
-| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Bildtext** |
 | Bildtextrubrik |Den text som visas ovanför bildtextvärdet. |
@@ -245,7 +245,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -274,14 +274,14 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. 
 | Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
-| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
 | **Visa lista** | |
-| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -309,7 +309,7 @@ Stack med linjediagram visar tre separata linjediagram med flera serier från en
 | Rubrik |Den text som visas överst i diagrammet. |
 | Underrubrik |Den text som visas under rubriken överst i diagrammet. |
 | **Diagram 1<br>Diagram 2<br>Diagrammet 3** |**Linjediagram** |
-| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Diagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |

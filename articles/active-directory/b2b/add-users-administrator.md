@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173376"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490919"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
-Du kan använda Azure-portalen som global administratör eller en användare som har tilldelats någon av begränsad administratör-katalogroller, för att bjuda in användare i B2B-samarbetet. Du kan bjuda in gästanvändare till katalogen, en grupp eller ett program. När du bjuder in en användare via någon av dessa metoder inbjudna användarens konto läggs till i Azure Active Directory (Azure AD) med en användartyp med *gäst*. Gästanvändaren måste sedan lösa in sin inbjudan att komma åt resurser.
+Du kan använda Azure-portalen att bjuda in användare i B2B-samarbetet som en användare som har tilldelats någon av begränsad administratör-katalogroller. Du kan bjuda in gästanvändare till katalogen, en grupp eller ett program. När du bjuder in en användare via någon av dessa metoder inbjudna användarens konto läggs till i Azure Active Directory (Azure AD) med en användartyp med *gäst*. Gästanvändaren måste sedan lösa in sin inbjudan att komma åt resurser.
 
 När du lägger till en gästanvändare till katalogen du kan antingen skicka en direktlänk för gästanvändare till en delad app eller gästanvändaren kan klicka på URL-Adressen för inlösen i e-postinbjudan. Läs mer om processen för inlösen [inlösning av inbjudan för B2B-samarbete](redemption-experience.md).
 
@@ -31,7 +31,7 @@ När du lägger till en gästanvändare till katalogen du kan antingen skicka en
 
 Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som en användare som är tilldelade någon av begränsad administratör-katalogroller.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
 3. Under **Hantera** väljer du **Användare**.
 4. Välj **Ny gästanvändare**.

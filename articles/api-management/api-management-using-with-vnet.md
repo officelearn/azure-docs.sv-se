@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884523"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505676"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -32,7 +32,7 @@ Azure API Management kan distribueras i virtuella nätverk (VNET), så att den k
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
@@ -59,7 +59,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
    * **Interna**: portalen för API Management gateway och utvecklarportal är enbart tillgänglig från det virtuella nätverket via en intern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
 
-     ![Privat peering][api-management-vnet-private]`
+     ![Privat peering][api-management-vnet-private]
 
      Du kommer nu se en lista över alla regioner där API Management-tjänsten har etablerats. Välj ett virtuellt nätverk och undernät för varje region. I listan fylls med både klassiska och Resource Manager-nätverk som är tillgängliga i dina Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
 
@@ -154,7 +154,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * För andra API Management-tjänsten beroenden som dirigeras tvingande, deras ska vara sätt att lösa värdnamnet och nå ut till slutpunkten. Dessa inkluderar
+  * För andra API Management-tjänstberoenden som är tvingande dirigering, bör det finnas ett sätt att lösa värdnamnet och nå ut till slutpunkten. Dessa inkluderar
       - Mått och hälsoövervakning
       - Azure-portalen diagnostik
       - SMTP-relä

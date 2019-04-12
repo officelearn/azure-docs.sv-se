@@ -1,6 +1,6 @@
 ---
-title: Samla in data för Windows-brandväggen i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Lär dig mer om att samla in data för Windows-brandväggen i Azure Sentinel.
+title: Ansluta Windows-brandväggen data till Azure Sentinel-förhandsgranskning | Microsoft Docs
+description: Lär dig hur du ansluter Windows-brandväggen data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574848"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494232"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
@@ -31,12 +31,11 @@ Connector för Windows-brandväggen kan du enkelt ansluta dina brandväggar logg
 
 
 > [!NOTE]
-> 
-> - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="enable-the-connector"></a>Aktivera anslutningsprogrammet 
 
-1. I Sentinel-Azure-portalen väljer **datainsamling** och klicka sedan på den **Windows-brandväggen** panelen. 
+1. I Sentinel-Azure-portalen väljer **datakopplingar** och klicka sedan på den **Windows-brandväggen** panelen. 
 1. Välj vilka datatyper som du vill spela.
 1. Klicka på **Installera**.
 6. Om du vill använda relevanta schemat i Log Analytics för Windows-brandväggen, Sök efter **SecurityEvent**.

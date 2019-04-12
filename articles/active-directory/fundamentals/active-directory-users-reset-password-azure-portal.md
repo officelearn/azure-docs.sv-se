@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204907"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492710"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Återställa en användares lösenord med Azure Active Directory
+
 Som administratör kan återställa du en användares lösenord om du har glömt lösenordet, om användaren hämtar utelåst från en enhet, eller om du inte fått ett lösenord.
 
 >[!Note]
@@ -32,7 +33,7 @@ Som administratör kan återställa du en användares lösenord om du har glömt
 
 ## <a name="to-reset-a-password"></a>Lösenordsåterställning
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en global administratör eller Användaradministratör lösenordsadministratör. Läs mer om de tillgängliga rollerna [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en användare med rollen eller lösenordsadministratör. Läs mer om de tillgängliga rollerna [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Välj **Azure Active Directory**väljer **användare**, söka efter och välj den användare som behöver återställningen och välj sedan **Återställ lösenord**.
 
@@ -50,6 +51,7 @@ Som administratör kan återställa du en användares lösenord om du har glömt
     >Det tillfälliga lösenordet upphör aldrig att gälla. Nästa gång användaren loggar in, fungerar lösenordet fortfarande, oavsett hur lång tid har passerat sedan det tillfälliga lösenordet har genererats.
 
 ## <a name="next-steps"></a>Nästa steg
+
 När du har återställt dina användares lösenord, kan du utföra följande basic-processer:
 
 - [Lägga till eller ta bort användare](add-users-azure-active-directory.md)
@@ -58,6 +60,6 @@ När du har återställt dina användares lösenord, kan du utföra följande ba
 
 - [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
 
-- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+- [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
 Eller du kan utföra mer komplexa användarscenarier, till exempel tilldela ombud, med hjälp av principer och dela användarkonton. Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).

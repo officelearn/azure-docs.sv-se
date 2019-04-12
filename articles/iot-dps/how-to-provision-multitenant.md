@@ -3,17 +3,17 @@ title: Hur du etablerar enheter för flera innehavare i Azure IoT Hub Device Pro
 description: Hur du etablerar enheter för flera innehavare med din device provisioning-tjänstinstans
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544451"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500744"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -37,7 +37,7 @@ Den här artikeln använder en simulerad enhet exempel från den [Azure IoT C SD
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
 
@@ -208,7 +208,7 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK 
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
+    Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
 1. För båda virtuella datorerna, skapa en ny **cmake** mapp inuti lagringsplatsen och ändra till mappen.
 
@@ -420,7 +420,7 @@ Ta bort resursgruppen med namnet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer Reprovisioning i [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md) 
+- Läs mer Reprovisioning i [reprovisioning koncept för IoT Hub-enhet](concepts-device-reprovision.md) 
 - Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
 
 

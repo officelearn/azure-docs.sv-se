@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497847"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500149"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Meddelandet sessioner: först in först ut (FIFO) 
 
@@ -51,7 +51,7 @@ Sessioner ger samtidiga ta bort multiplexering av överlagrad meddelandeströmma
 
 En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) mottagare har skapats av klienten tar emot en session. Klienten anropar [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I modellen reaktiv återanrop registreras en hanterare för sessionen.
 
-När den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt accepteras och medan det lagras av en klient klienten innehåller ett exklusivt lås på alla meddelanden med den aktuella sessionen [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kö eller prenumeration, och även på alla meddelanden med som **SessionId** som fortfarande tas emot medan sessionen lagras.
+När den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt accepteras och medan det lagras av en klient klienten innehåller ett exklusivt lås på alla meddelanden med den aktuella sessionen [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kö eller prenumeration, och även på alla meddelanden med som **SessionId** som fortfarande tas emot medan sessionen lagras.
 
 Låset släpps när **Stäng** eller **CloseAsync** kallas, eller när låset upphör att gälla i fall där programmet kan inte utföra åtgärden Stäng. Låset för sessionen ska behandlas som ett exklusivt lås på en fil, vilket innebär att programmet bör stänga sessionen när den inte längre behöver den och/eller förväntar sig inte några ytterligare meddelanden.
 
@@ -84,9 +84,9 @@ Sessionens tillstånd lagras i en kö eller i en prenumeration räknas mot lagri
 
 Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
-* [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
+* [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-* [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/message-sessions/sessions.png
 [2]: ./media/message-sessions/queue-sessions.png

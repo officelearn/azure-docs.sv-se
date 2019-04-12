@@ -1,6 +1,6 @@
 ---
-title: Samla in Cloud App Security-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in Cloud App Security-data i Azure Sentinel.
+title: Anslut Cloud App Security-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Cloud App Security-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b0033f5f8636053f88825541b8b2cfcbf2fc9f8b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a7dfeed7b52453b38720c21c7d213679b8d2854
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245496"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496377"
 ---
-# <a name="collect-data-from-microsoft-cloud-app-security"></a>Samla in data från Microsoft Cloud App Security 
+# <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -29,7 +29,7 @@ ms.locfileid: "57245496"
 
 Du kan strömma loggar från [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) i Azure Sentinel-med ett enda klick. Den här anslutningen kan du strömma aviseringar från Cloud App Security till Sentinel-Azure. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Användare med global administratör eller administratörsbehörighet för säkerhet
 
@@ -39,7 +39,7 @@ Om du redan har Cloud App Security kan du se till att det är [aktiverat i nätv
 Om Cloud App Security distribueras och mata in dina data, aviseringsdata kan enkelt strömmas till Sentinel-Azure.
 
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Cloud App Security** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Cloud App Security** panelen.
 
 2. Klicka på **Anslut**.
 

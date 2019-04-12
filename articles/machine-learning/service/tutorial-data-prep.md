@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266281"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496222"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -33,7 +33,7 @@ I den här kursen för du göra följande:
 > * Transformera data med hjälp av intelligent transformering för att skapa nya funktioner.
 > * Spara dataflödesobjektet som ska användas i en regressionsmodell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
@@ -84,7 +84,7 @@ All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsb
 Använd följande för att installera nödvändiga paket om du inte redan har dem.
 
 ```shell
-pip install azureml-dataprep==1.0.17
+pip install "azureml-dataprep>=1.1.0,<1.2.0"
 ```
 
 Importera SDK:n.
@@ -94,7 +94,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Se till att du installerar version 1.0.17. Den här självstudien fungerar inte med den senaste versionen 1.1.0
+> Se till att du installerar den senaste versionen. Den här självstudien fungerar inte med versionsnummer som är lägre än 1.1.0
 
 ## <a name="load-data"></a>Läsa in data
 
@@ -323,7 +323,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Typ</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -475,7 +475,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Typ</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -609,7 +609,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Typ</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -1090,8 +1090,7 @@ Nu har du ett fullständigt transformerat och förberett dataflödesobjekt som s
 import os
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-package = dprep.Package([final_df])
-package.save(file_path)
+final_df.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
 ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471043"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489562"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions To
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utvecklingen i samma funktionsapp. När du publicerar från ett lokalt projekt till en funktionsapp skriver distributionsprocessen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Med Azure Functions Tools ingår i arbetsbelastningen Azure development av [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure development** arbetsbelastningen i Visual Studio 2017-installationen:
 

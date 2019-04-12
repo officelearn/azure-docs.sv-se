@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884315"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494756"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilera ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -29,7 +29,7 @@ När du har slutfört den här genomgången kommer din app kan samla in Profiler
 
 ![Profiler-spårningar](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Följande instruktioner gäller för alla miljöer för utveckling av Windows, Linux och Mac:
 
 * Installera den [.NET Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
@@ -39,21 +39,40 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
 
 1. Öppna ett kommandotolksfönster på din dator. Följande instruktioner fungerar för alla miljöer för utveckling av Windows, Linux och Mac.
 
-2. Skapa en ASP.NET Core MVC-webbprogram:
+1. Skapa en ASP.NET Core MVC-webbprogram:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Ändra arbetskatalogen till rotmappen för projektet.
+1. Ändra arbetskatalogen till rotmappen för projektet.
 
-4. Lägg till NuGet-paketet för att samla in Profiler-spårningar:
+1. Lägg till NuGet-paketet för att samla in Profiler-spårningar:
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Lägg till en rad med kod i den **HomeController.cs** avsnitt för att slumpmässigt fördröjning på några sekunder:
+1. Aktivera Application Insights i Program.cs:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Aktivera Profiler i Startup.cs:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. Lägg till en rad med kod i den **HomeController.cs** avsnitt för att slumpmässigt fördröjning på några sekunder:
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
             }
     ```
 
-6. Spara och genomföra ändringarna till den lokala lagringsplatsen:
+1. Spara och genomföra ändringarna till den lokala lagringsplatsen:
 
     ```
         git init
@@ -143,10 +162,7 @@ Du bör se utdata som liknar följande exempel:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![Konfigurera appinställningar](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     När appinställningar ändras, platsen startar om automatiskt. När de nya inställningarna tillämpas körs omedelbart Profiler för två minuter. Profiler körs sedan för varje timme med två minuter.
 
@@ -160,16 +176,8 @@ Du bör se utdata som liknar följande exempel:
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>Aktivera åtgärden i fönstret Profiler konfiguration fungerar inte
-
-> [!NOTE]
-> Om du vara värd för din app med App Service på Linux, behöver du inte aktivera Profiler i den **prestanda** fönstret i Application Insights-portalen. Du kan inkludera i NuGet-paketet i ditt projekt och ställa in Application Insights **iKey** värdet i inställningarna för din web app att aktivera Profiler.
-
-Om du följer aktivering av arbetsflödet för [Application Insights Profiler för Windows](./profiler.md) och välj **aktivera** i den **konfigurera Profiler** fönstret du får ett felmeddelande. Åtgärden Aktivera försöker installera Windows-versionen av Profiler-agent på Linux-miljön.
-
-Vi arbetar på en lösning på problemet.
-
-![Försök inte att återaktivera Profiler i fönstret prestanda](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Profilen nu knappen inte fungerar för Linux-Profiler
+App Insights-profileraren Linux-version stöder ännu inte på begäran profilering med profilen nu knappen.
 
 
 ## <a name="next-steps"></a>Nästa steg

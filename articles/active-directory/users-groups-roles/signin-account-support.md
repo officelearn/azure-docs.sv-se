@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62c4d56fbfca34ff6291863149b078f7ddc6680
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288598"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491603"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Inloggningsalternativ för Microsoft-konton i Azure Active Directory
 
-Microsoft 365 på inloggningssidan för Azure Active Directory (Azure AD) har stöd för en eller båda och Microsoft-konton, beroende på situationen för ditt arbete eller skola konton:
+Microsoft 365 på inloggningssidan för Azure Active Directory (Azure AD) stöder arbets- eller skolkonton och Microsoft-konton, men beroende på användarens situation kan det vara en eller den andra eller båda. Till exempel stöder inloggningssidan för Azure AD:
 
 * Appar som har stöd för inloggningar från båda typerna av konto
 * Organisationer som accepterar gäster
@@ -32,7 +32,7 @@ Berätta om din organisation använder på inloggningssidan stöder Microsoft-ko
 
 ![Skillnaden mellan inloggningssidorna för konto](./media/signin-account-support/ui-prompt.png)
 
-[Ytterligare inloggningsalternativ fungerar endast för personliga Microsoft-konton](index.yml) men kan inte användas för att logga in till arbetsplats eller skola resurser för kontot.
+[Ytterligare inloggningsalternativ fungerar endast för personliga Microsoft-konton](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) men kan inte användas för att logga in till arbetsplats eller skola resurser för kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 

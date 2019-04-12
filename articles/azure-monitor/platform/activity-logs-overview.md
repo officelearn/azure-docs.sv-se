@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650299"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496887"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -95,19 +95,11 @@ En **Loggprofil** styr hur din aktivitetslogg exporteras. Med en logg-profil kan
 * Vilka kategorier (skriva, ta bort, åtgärd) ska skickas. *Betydelsen av ”kategori” i Loggprofiler och aktivitetslogghändelser är olika. I profilen för den Log representerar ”kategori” åtgärdstypen (skriva, ta bort, åtgärd). I en aktivitetslogghändelse representerar egenskapen ”kategori” källan eller typen av händelse (till exempel Administration, ServiceHealth, avisering och mer).*
 * Vilka regioner (platser) ska exporteras. Se till att inkludera ”global”, eftersom många händelser i aktivitetsloggen är globala händelser.
 * Hur länge aktivitetsloggen ska behållas i ett Lagringskonto.
-    - En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
+    - En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 365.
     - Om principerna för kvarhållning har angetts men lagra loggar i ett Lagringskonto är inaktiverad (till exempel om det bara Event Hubs eller Log Analytics-alternativen är markerade), påverkar principerna för kvarhållning inte.
     - Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 
 Du kan använda ett lagring eller event hub-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
-
-> [!NOTE]
->  Du kan för närvarande inte arkivera data till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
-
-> [!WARNING]
-> Formatet på loggdata i storage-kontot ändras till JSON-rader från den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 De här inställningarna kan konfigureras via alternativet ”Export” i bladet aktivitetsloggen i portalen. De kan också konfigureras programmässigt [med hjälp av REST-API i Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell-cmdletar eller CLI. En prenumeration kan bara ha en loggprofil.
 
@@ -146,7 +138,7 @@ Get-AzLogProfile
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Egenskap  | Krävs | Beskrivning |
+| Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
 | Name |Ja |Namnet på din loggprofil. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto som aktivitetsloggen ska sparas. |

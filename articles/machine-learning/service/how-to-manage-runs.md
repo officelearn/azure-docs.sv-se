@@ -12,11 +12,11 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/05/2019
 ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471502"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494055"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta träningskörningar i Python
 
@@ -29,7 +29,7 @@ Den här anvisningen visar exempel på följande uppgifter:
 * [Skapa underordnade körningar](#children)
 * [Tagga och hitta körningar](#tag)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande:
 

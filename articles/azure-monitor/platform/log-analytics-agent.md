@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841114"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492812"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
 
@@ -41,8 +41,9 @@ Agenten för Linux och Windows är inte bara för att ansluta till Log Analytics
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:
 
-* Windows Server 2008 R2 eller senare
-* Windows 7 SP1 och senare.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 och 1803
+* Windows 7 SP1 och senare
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 Det här avsnittet innehåller information om Linux-distributioner som stöds.    
@@ -104,7 +105,8 @@ För Linux-agenten proxyservern har angetts under installationen eller [efter in
 |proxyhost | Adressen eller FQDN för proxy server/Log Analytics-gateway |
 |port | Valfritt portnumret för proxy server/Log Analytics-gateway |
 
-Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Exempel:
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Om du använder specialtecken som ”\@” i ditt lösenord kan du får ett anslutningsfel för proxy eftersom värdet tolkas felaktigt.  Undvik problemet genom att koda lösenordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  

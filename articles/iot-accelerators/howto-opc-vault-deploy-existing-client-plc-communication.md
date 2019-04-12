@@ -1,5 +1,5 @@
 ---
-title: Säker kommunikation för OPC-klienten och OPC PLC med hjälp av Azure IoT OPC UA-certifikathantering | Microsoft Docs
+title: Säker kommunikation för OPC-klienten och OPC PLC med OPC-valv – Azure | Microsoft Docs
 description: 'Skydda kommunikation för OPC-klienten och OPC PLC genom att registrera sina certifikat med hjälp av OPC Vault CA: N.'
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759670"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494021"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Säker kommunikation för OPC-klienten och OPC PLC
 
-Azure IoT OPC UA certifikathantering, även kallade OPC-valv är en micro tjänst som kan konfigurera registreras, och hantera certifikatlivscykeln för OPC UA-servern och klienten program i molnet. Den här artikeln visar hur du skyddar kommunikation för OPC-klienten och OPC PLC genom att registrera sina certifikat med hjälp av OPC Vault CA.
+OPC-valv är en mikrotjänst som kan konfigurera, registrera och hantera certifikat-livscykel för OPC UA-servern och klientprogram i molnet. Den här artikeln visar hur du skyddar kommunikation för OPC-klienten och OPC PLC genom att registrera sina certifikat med hjälp av OPC Vault CA.
 
 I följande inställningar OPC-klienten för att testa anslutningen till OPC-PLC. Som standard är anslutningen inte möjligt eftersom båda komponenterna inte har etablerats med rätt certifikat. Om en OPC UA-komponenten inte har etablerats med ett certifikat, skulle den generera ett självsignerat certifikat vid start. Certifikatet kan dock signerade av en certifikatutfärdare (CA) och installeras i OPC UA-komponenten. När det är klart för OPC-klienten och OPC PLC aktiveras anslutningen. Arbetsflödet nedan beskriver processen. Vissa grundläggande information om OPC UA-säkerhet finns i [det här dokumentet](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) white paper om. Fullständig information finns i OPC UA-specifikationen.
 
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 Om du ser certifikat som har rapporterats, följer du förberedelsestegen av ovan och ta bort volymerna som docker.
 
-Kontrollera att anslutningen till OPC-PLC misslyckades. Du bör se följande utdata i OPC-klienten logga utdata:
+Kontrollera att anslutningen till OPC-PLC misslyckades. Du bör se följande utdata i loggutdata för OPC-klienten:
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 Program-certifikatets utfärdare är CA: N `CN=Azure IoT OPC Vault CA, O=Microsoft Corp.` och OPC-PLC litar också alla certifikat som signerats av Certifikatutfärdaren.
 
 
-Kontrollera att anslutningen till OPC-PLC har skapats och OPC-klienten kan läsa data från OPC PLC. Du bör se följande utdata i OPC-klienten logga utdata:
+Kontrollera att anslutningen till OPC-PLC har skapats och OPC-klienten kan läsa data från OPC PLC. Du bör se följande utdata i loggutdata för OPC-klienten:
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,7 +189,7 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-Om dessa utdata visas sedan OPC-PLC är nu betrodda OPC-klienten och vice versa, eftersom båda har nu certifikat som signerats av en Certifikatutfärdare och båda betrodda certifikat som var signerad av denna Certifikatutfärdare.
+Om du ser dessa utdata OPC-PLC är nu betrodda OPC-klienten och tvärtom, eftersom båda har nu de certifikat som signerats av en Certifikatutfärdare och båda lita på certifikat som var signerad av denna Certifikatutfärdare.
 
 > [!NOTE] 
 > Även om vi visade första två verifieringssteg endast för OPC PLC, måste de också verifieras för OPC-klienten.

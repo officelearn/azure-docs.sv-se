@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260671"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505693"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definiera och tilldela en skiss i portalen
 
@@ -41,116 +41,117 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    ![Skapa en skiss från sidan skissen definitioner](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Ange en **skissnamn** som **MyBlueprint**. (Använd upp till 48 bokstäver och siffror, men inga blanksteg eller specialtecken). Lämna **skiss beskrivning** tomt tills vidare. 
-   
+1. Ange en **skissnamn** som **MyBlueprint**. (Använd upp till 48 bokstäver och siffror, men inga blanksteg eller specialtecken). Lämna **skiss beskrivning** tomt tills vidare.
+
 1. I den **definitionsplats** rutan väljer du de tre punkterna till höger, Välj den [hanteringsgruppen](../management-groups/overview.md) eller en prenumeration där du vill spara skissen och välj **Välj**.
 
 1. Kontrollera att informationen är korrekt. Den **skissnamn** och **definitionsplats** fält kan inte ändras senare. Välj sedan **nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
 
-1. Lägg till en rolltilldelning på prenumerationsnivå: 
+1. Lägg till en rolltilldelning på prenumerationsnivå:
 
-   a. Välj den **+ Lägg till artefakt** rad **prenumeration**. Den **Lägg till artefakt** öppnas på höger sida i webbläsaren. 
-   
-   b. Välj **rolltilldelning** för **artefakttypen**. 
-   
-   c. Under **rollen**väljer **deltagare**. Lämna den **Lägg till användare, app eller grupp** med kryssrutan som anger en dynamisk parameter. 
-   
-   d. Välj **Lägg till** att lägga till den här artefakten i skissen.
+   1. Välj den **+ Lägg till artefakt** rad **prenumeration**. Den **Lägg till artefakt** öppnas på höger sida i webbläsaren.
+
+   1. Välj **rolltilldelning** för **artefakttypen**.
+
+   1. Under **rollen**väljer **deltagare**. Lämna den **Lägg till användare, app eller grupp** med kryssrutan som anger en dynamisk parameter.
+
+   1. Välj **Lägg till** att lägga till den här artefakten i skissen.
 
    ![Rolltilldelning för en skissartefakten](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > De flesta artefakter stöder parametrar. En parameter som har tilldelats ett värde under skissen skapandet är en *Statiska parametern*. Om parametern har tilldelats under skisstilldelningen, det är en *dynamisk parameter*. Mer information finns [Skissparametrar](./concepts/parameters.md).
 
-1. Lägg till en principtilldelning på prenumerationsnivå: 
+1. Lägg till en principtilldelning på prenumerationsnivå:
 
-   a. Välj den **+ Lägg till artefakt** rad under rolltilldelningsartefakten. 
-   
-   b. Välj **principtilldelning** för **artefakttypen**. 
-   
-   c. Ändra **typ** till **inbyggda**. I **Search**, ange **taggen**. 
-   
-   d. Klicka på **Sök** om du vill genomföra filtrering. Välj **Lägg till tagg och dess standardvärde i resursgrupper**. 
-   
-   e. Välj **Lägg till** att lägga till den här artefakten i skissen.
+   1. Välj den **+ Lägg till artefakt** rad under rolltilldelningsartefakten.
 
-1. Välj raden i principtilldelningen **Lägg till tagg och dess standardvärde i resursgrupper**. 
+   1. Välj **principtilldelning** för **artefakttypen**.
+
+   1. Ändra **typ** till **inbyggda**. I **Search**, ange **taggen**.
+
+   1. Klicka på **Sök** om du vill genomföra filtrering. Välj **Lägg till tagg och dess standardvärde i resursgrupper**.
+
+   1. Välj **Lägg till** att lägga till den här artefakten i skissen.
+
+1. Välj raden i principtilldelningen **Lägg till tagg och dess standardvärde i resursgrupper**.
 
 1. Fönstret för att ange parametrar för att artefakten som en del av skissdefinitionen öppnas och kan använda för att ange parametrarna för alla tilldelningar (statisk parametrar) baserat på den här skissen i stället för under tilldelningen (dynamiska parametrar). Det här exemplet använder dynamiska parametrar under skisstilldelningen, så vi standardinställningar och välj **Avbryt**.
 
-1. Lägg till en resursgrupp på prenumerationsnivå: 
+1. Lägg till en resursgrupp på prenumerationsnivå:
 
-   a. Välj den **+ Lägg till artefakt** rad **prenumeration**. 
-   
-   b. Välj **resursgrupp** för **artefakttypen**. 
-   
-   c. Lämna den **artefakt visningsnamn**, **Resursgruppsnamn**, och **plats** rutorna tom, men se till att kryssrutan är markerad för varje parameter-egenskap så att de dynamiska parametrar. 
-   
-   d. Välj **Lägg till** att lägga till den här artefakten i skissen.
+   1. Välj den **+ Lägg till artefakt** rad **prenumeration**.
 
-1. Lägga till en mall under resursgrupp: 
+   1. Välj **resursgrupp** för **artefakttypen**.
 
-   a. Välj den **+ Lägg till artefakt** rad den **ResourceGroup** posten. 
-   
-   b. Välj **Azure Resource Manager-mall** för **artefakttypen**anger **artefakt visningsnamn** till **StorageAccount**, och lämna  **Beskrivning av** tom. 
-   
-   c. Klistra in följande Resource Manager-mall i redigeringsrutan på fliken **Mall**. När du klistrar in mallen, väljer du den **parametrar** fliken och Observera att mallparametrarna **storageAccountType** och **plats** upptäcktes. Varje parameter har automatiskt identifierade fylls i och konfigurerad som en dynamisk parameter. 
-   
-   > [!IMPORTANT]
-   > Om du importerar mallen, kontrollera att filen är endast JSON och innehåller inte HTML. När du är du pekar på en URL på GitHub, se till att du har valt **RAW** få ren JSON-filen och inte en paketerad HTML för visning på GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
+   1. Lämna den **artefakt visningsnamn**, **Resursgruppsnamn**, och **plats** rutorna tom, men se till att kryssrutan är markerad för varje parameter-egenskap så att de dynamiska parametrar.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Välj **Lägg till** att lägga till den här artefakten i skissen.
 
-   d. Rensa den **storageAccountType** kryssrutan och Observera att den nedrullningsbara listan innehåller endast de värden som ingår i Resource Manager-mallen under **allowedValues**. Markera kryssrutan om du vill ställa tillbaka till en dynamisk parameter. 
-   
-   e. Välj **Lägg till** att lägga till den här artefakten i skissen.
+1. Lägga till en mall under resursgrupp:
+
+   1. Välj den **+ Lägg till artefakt** rad den **ResourceGroup** posten.
+
+   1. Välj **Azure Resource Manager-mall** för **artefakttypen**anger **artefakt visningsnamn** till **StorageAccount**, och lämna  **Beskrivning av** tom.
+
+   1. Klistra in följande Resource Manager-mall i redigeringsrutan på fliken **Mall**.
+      När du klistrar in mallen, väljer du den **parametrar** fliken och Observera att mallparametrarna **storageAccountType** och **plats** upptäcktes. Varje parameter har automatiskt identifierade fylls i och konfigurerad som en dynamisk parameter.
+
+      > [!IMPORTANT]
+      > Om du importerar mallen, kontrollera att filen är endast JSON och innehåller inte HTML. När du är du pekar på en URL på GitHub, se till att du har valt **RAW** få ren JSON-filen och inte en paketerad HTML för visning på GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Rensa den **storageAccountType** kryssrutan och Observera att den nedrullningsbara listan innehåller endast de värden som ingår i Resource Manager-mallen under **allowedValues**. Markera kryssrutan om du vill ställa tillbaka till en dynamisk parameter.
+
+   1. Välj **Lägg till** att lägga till den här artefakten i skissen.
 
    ![Resource Manager-mall för skissartefakten](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ I [skapa en skiss](#create-a-blueprint), du inte ange en beskrivning eller lägg
 
 1. Välj **Nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
 
-1. Lägg till en rolltilldelning under resursgrupp: 
+1. Lägg till en rolltilldelning under resursgrupp:
 
-   a. Välj den **+ Lägg till artefakt** rad direkt under den **ResourceGroup** posten. 
-   
-   b. Välj **rolltilldelning** för **artefakttypen**. 
-   
-   c. Under **rollen**väljer **ägare**, och avmarkera kryssrutan under den **Lägg till användare, app eller grupp** box. 
-   
-   d. Sök efter och välj en användare, app eller grupp att lägga till. Den här artefakten använder en statisk parameteruppsättning samma i alla tilldelningar för skissen. 
-   
+   1. Välj den **+ Lägg till artefakt** rad direkt under den **ResourceGroup** posten.
+
+   1. Välj **rolltilldelning** för **artefakttypen**.
+
+   1. Under **rollen**väljer **ägare**, och avmarkera kryssrutan under den **Lägg till användare, app eller grupp** box.
+
+   1. Sök efter och välj en användare, app eller grupp att lägga till. Den här artefakten använder en statisk parameteruppsättning samma i alla tilldelningar för skissen.
+
    e. Välj **Lägg till** att lägga till den här artefakten i skissen.
 
    ![Andra rolltilldelningen för skissartefakten](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ När en skiss har publicerats kan kan den tilldelas till en prenumeration. Tilld
 
    Om det finns Enterprise-erbjudanden som stöds tillgängliga från [Azure-fakturering](../../billing/index.md) aktiveras länken **Skapa nytt** under rutan **Prenumeration**. Följ de här stegen:
 
-   a. Välj den **Skapa nytt** länken för att skapa en ny prenumeration i stället för att välja befintliga.
+   1. Välj länken **Skapa nytt** för att skapa en ny prenumeration i stället för att välja befintliga.
 
-   b. Ange ett **Visningsnamn** för den nya prenumerationen.
+   1. Ange ett **Visningsnamn** för den nya prenumerationen.
 
-   c. Välj de tillgängliga **erbjuder** från den nedrullningsbara listan.
+   1. Välj de tillgängliga **erbjuder** från den nedrullningsbara listan.
 
-   d. Använd de tre punkterna för att välja den [hanteringsgruppen](../management-groups/index.md) att prenumerationen är en underordnad.
+   1. Använd de tre punkterna för att välja den [hanteringsgruppen](../management-groups/index.md) att prenumerationen är en underordnad.
 
-   e. Välj **Skapa** längst ned på sidan.
+   1. Välj **Skapa** längst ned på sidan.
 
    ![Skapa en prenumeration för en prenumeration för tilldelning av skiss](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ När en skiss har publicerats kan kan den tilldelas till en prenumeration. Tilld
 1. För **ResourceGroup**, ange en **namn** av **StorageAccount** och en **plats** av **östra USA 2** från listrutan.
 
    > [!NOTE]
-   > För varje artefakt som du har lagt till under resursgrupp under skissdefinitionen dras in den artefakten så att den överensstämmer med den resursgrupp eller det objekt som du distribuerar den med. Artefakter som antingen inte parametrar eller har inga parametrar definieras vid tilldelning visas endast för kontextinformation.
+   > För varje artefakt som du har lagt till under resursgrupp under skissdefinitionen dras in den artefakten så att den överensstämmer med den resursgrupp eller det objekt som du distribuerar den med.
+   > Artefakter som antingen inte parametrar eller har inga parametrar definieras vid tilldelning visas endast för kontextinformation.
 
 1. På Azure Resource Manager-mallen **StorageAccount**väljer **Standard_GRS** för den **storageAccountType** parametern.
 
@@ -294,7 +296,8 @@ Om du inte längre behöver en skisstilldelningen kan du ta bort den från en pr
 1. Högerklicka på det som du vill ta bort och välj **ta bort skissen**. Välj sedan **Ja** i den bekräftande dialogrutan.
 
 > [!NOTE]
-> Tar bort en skiss i den här metoden tar även bort alla publicerade versioner av valda skissen. Ta bort en version genom att öppna skissen, Välj den **publicerade versioner** väljer du den version som du vill ta bort och välj sedan **ta bort den här versionen**. Dessutom kan du ta bort en skiss förrän du har tagit bort alla skisstilldelningen av den skissdefinitionen.
+> Tar bort en skiss i den här metoden tar även bort alla publicerade versioner av valda skissen.
+> Ta bort en version genom att öppna skissen, Välj den **publicerade versioner** väljer du den version som du vill ta bort och välj sedan **ta bort den här versionen**. Dessutom kan du ta bort en skiss förrän du har tagit bort alla skisstilldelningen av den skissdefinitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

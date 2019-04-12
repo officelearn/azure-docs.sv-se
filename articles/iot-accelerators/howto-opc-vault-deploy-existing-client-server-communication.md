@@ -1,6 +1,6 @@
 ---
-title: Säkra OPC UA-klient och OPC UA-Server-program med Azure IoT OPC UA-certifikathantering | Microsoft Docs
-description: Säkrare OPC UA-klient och OPC UA-serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
+title: Skydda OPC UA-klienten och OPC UA-serverprogram med hjälp av OPC-valv – Azure | Microsoft Docs
+description: Skydda OPC UA-klient och OPC UA serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759622"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495302"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Säkra OPC UA-klient och OPC UA serverprogram 
-Azure IoT OPC UA certifikathantering, även kallade OPC-valv är en mikrotjänst som kan konfigurera registreras, och hantera certifikatets livscykel för OPC UA-servern och klienten program i molnet. Den här artikeln visar hur du säkra OPC UA-klient och OPC UA-serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Skydda OPC UA-klienten och OPC UA-serverprogram 
+OPC-valv är en mikrotjänst som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. Den här artikeln visar hur du skyddar en OPC UA-klient och en OPC UA serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
 
 I följande inställningar OPC-klienten testar anslutningen till OPC-PLC. Som standard är anslutningen inte möjligt eftersom båda komponenterna ännu inte har tillhandahållits med rätt certifikat. I det här arbetsflödet, vi inte använder självsignerade certifikat för OPC UA-komponenter och signerar dem via OPC-valvet. Se föregående [Testbädd för](howto-opc-vault-deploy-existing-client-plc-communication.md). I stället etablerar den här Testbädd för komponenter med ett nytt certifikat samt med en ny privat nyckel som genereras både av OPC-valvet. Vissa grundläggande information om OPC UA-säkerhet finns i den här [White Paper](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Fullständig information finns i OPC UA-specifikationen.
 
 Testbädd för: Följande miljö konfigureras för att testa.
 
 OPC Vault skript:
-- Säkrare OPC UA-klient och OPC UA-serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
+- Skydda OPC UA-klient och OPC UA serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.
 
 > [!NOTE]
 > Mer information finns i GitHub [databasen](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 Programcertifikatet och den privata nyckeln är nu installerat i certifikatarkivet för program och används av OPC UA-programmet.
 
-Kontrollera att anslutningen mellan OPC-klienten och OPC PLC kan upprättas har och OPC-klienten kan läsa data från OPC PLC. Du bör se följande utdata i OPC-klienten logga utdata:
+Kontrollera att anslutningen mellan OPC-klienten och OPC PLC kan upprättas har och OPC-klienten kan läsa data från OPC PLC. Du bör se följande utdata i loggutdata för OPC-klienten:
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-Om du ser dessa utdata har OPC-PLC nu betrodda OPC-klienten och tvärtom, eftersom båda har nu de certifikat som signerats av en Certifikatutfärdare och båda ha förtroende för certifikat som har signerats av Certifikatutfärdaren.
+Om du ser dessa utdata kan sedan OPC-PLC nu betrodda OPC-klienten och tvärtom, eftersom båda har nu de certifikat som signerats av en Certifikatutfärdare och båda ha förtroende för certifikat som har signerats av Certifikatutfärdaren.
 
 ### <a name="a-testbed-for-opc-publisher"></a>En Testbädd för för OPC Publisher ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **Verifiering**
 - Kontrollera att data skickas till IOT Hub som du har konfigurerat genom att ange `_HUB_CS` med [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [iothub-explorer](https://github.com/Azure/iothub-explorer).
-- OPC testklienten kommer att använda IoTHub direkt metodanrop och OPC-metodanrop för att konfigurera OPC Publisher för att publicera/ta bort noder från OPC Testserver.
+- OPC testklienten kommer att använda IoTHub direkt metodanrop och OPC-metodanrop för att konfigurera OPC Publisher för att publicera/ta bort noder från testservern OPC.
 - Titta på resultatet för felmeddelanden.
 
 ## <a name="next-steps"></a>Nästa steg

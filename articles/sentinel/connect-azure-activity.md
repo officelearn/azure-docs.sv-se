@@ -1,6 +1,6 @@
 ---
-title: Samla in Azure-aktivitetsdata i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Lär dig hur du samlar in Azure-aktivitetsdata i Azure Sentinel.
+title: Ansluta Azure-aktivitetsdata till Sentinel-förhandsversion i Azure | Microsoft Docs
+description: Lär dig mer om att ansluta Azure-aktivitetsdata till Sentinel-Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 42ce8d06489cfacf7ba9bb3de1425224b5df95e7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240583"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494686"
 ---
-# <a name="collect-data-from-azure-activity-log"></a>Samla in data från Azure-aktivitetsloggen
+# <a name="connect-data-from-azure-activity-log"></a>Anslut data från Azure-aktivitetsloggen
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -30,14 +30,14 @@ ms.locfileid: "57240583"
 Du kan strömma loggar från [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md) i Azure Sentinel-med ett enda klick. Aktivitetsloggen är en prenumerationslogg som ger insikt i prenumerationsnivå händelser som inträffade i Azure. Detta omfattar en mängd data från Azure Resource Manager driftdata uppdateringar på Service Health-händelser. Med aktivitetsloggen kan du fastställa den ”vad, vem, och när” för någon skriva åtgärden (PUT, POST, DELETE) som vidtas på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE”-modellen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Användare med global administratör eller administratörsbehörighet för säkerhet
 
 
 ## <a name="connect-to-azure-activity-log"></a>Ansluta till Azure-aktivitetsloggen
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure-aktivitetsloggen** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure-aktivitetsloggen** panelen.
 
 2. Välj de prenumerationer som du vill spela in Azure Sentinel i loggfönstret aktivitet för Azure. 
 

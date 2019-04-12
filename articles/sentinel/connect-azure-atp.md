@@ -1,6 +1,6 @@
 ---
-title: Samla in Azure ATP-data i Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Lär dig mer om att samla in Azure ATP-data i Azure Sentinel.
+title: Anslut Azure ATP-data till Azure Sentinel-Preview | Microsoft Docs
+description: Lär dig hur du ansluter Azure ATP-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 153b6cb44cbcf5ecca9a4941c6bef7a8721dc56c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574951"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492659"
 ---
-# <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Samla in data från Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Anslut data från Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
@@ -30,7 +30,7 @@ ms.locfileid: "58574951"
 
 Du kan strömma loggar från [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) i Azure Sentinel-med ett enda klick.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Användare med global administratör eller administratörsbehörighet för säkerhet
 - Du måste vara en privat förhandsversionskund av Azure ATP
@@ -42,7 +42,7 @@ Om Azure ATP distribueras och mata in dina data, misstänkt aviseringarna kan en
 
 
 
-1. I Azure Sentinel väljer **datainsamling** och klicka sedan på den **Azure ATP** panelen.
+1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure ATP** panelen.
 
 2. Klicka på **Anslut**.
 

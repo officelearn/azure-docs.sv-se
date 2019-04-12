@@ -11,23 +11,31 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/27/2019
-ms.openlocfilehash: 6181183b1455d5ca38ab9bbd37102cb3bc091b3c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/09/2019
+ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622101"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496241"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Hantera Transparent datakryptering i en hanterad instans med din egen nyckel från Azure Key Vault
 
 Det här PowerShell-Skriptexemplet konfigurerar Transparent datakryptering (TDE) i scenario med Bring Your Own Key för Azure SQL Managed Instance, med hjälp av en nyckel från Azure Key Vault. Läs mer om transparent Datakryptering med stöd för ta med din egen nyckel (BYOK) i [TDE Bring Your Own Key till Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- En befintlig hanterad instans. Se [Använd PowerShell för att skapa en Azure SQL Database-hanterad instans](sql-database-create-configure-managed-instance-powershell.md).
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Med hjälp av både PowerShell lokalt eller med hjälp av Azure Cloud Shell kräver AZ PowerShell 1.1.1-preview eller en senare förhandsversion. Om du behöver uppgradera kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps), eller köra den nedan exempelskriptet för att installera modulen.
+
+`Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
+
+Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-scripts"></a>Exempelskript
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006194"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505608"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-Du kan inaktivera automatiska uppdateringar manuellt.
+### <a name="disable-automatic-updates"></a>Inaktivera automatiska uppdateringar
 
-Inaktivera automatiska uppdateringar:
+Inaktivera automatiska uppdateringar via lokal grupprincip:
 
-1. Installera Office 365 genom att följa instruktionerna i [förberedelse av programvara och installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Installera eventuell programvara genom att följa instruktionerna i [ställa in profilen användarbehållaren (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [konfigurera Windows Defender](set-up-customize-master-image.md#configure-windows-defender), och [andra program och registret konfiguration av](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Inaktivera Windows automatiskt Update-tjänsten på den lokala virtuella datorn.
-4. Öppna **Redigeraren för lokal grupprincip\\Administrationsmallar\\Windows-komponenter\\Windows Update**.
-5. Högerklicka på **konfigurera automatisk uppdatering** och ge den värdet **inaktiverad**.
+1. Öppna **Redigeraren för lokal grupprincip\\Administrationsmallar\\Windows-komponenter\\Windows Update**.
+2. Högerklicka på **konfigurera automatisk uppdatering** och ge den värdet **inaktiverad**.
 
 Du kan också köra följande kommando i Kommandotolken för att inaktivera automatiska uppdateringar.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Ange Start-layout för Windows 10-datorer (valfritt)
 
 Kör detta kommando för att ange en Start-layout för Windows 10-datorer.
 

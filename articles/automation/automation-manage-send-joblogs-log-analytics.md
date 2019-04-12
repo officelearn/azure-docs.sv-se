@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521677"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496598"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar
 
@@ -32,7 +32,7 @@ Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics
 
 Om du vill börja skicka dina Automation-loggar till Azure Monitor-loggar, behöver du:
 
-* November 2016 eller senare versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* Den senaste versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Azure Monitor-loggar](../log-analytics/log-analytics-get-started.md). 
 * Resurs-ID för ditt Azure Automation-konto.
 
@@ -40,14 +40,14 @@ Hitta resurs-ID för ditt Azure Automation-konto:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Du hittar resurs-ID för Log Analytics-arbetsytan genom att köra följande PowerShell:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Om du har fler än en Automation-konton, eller arbetsytor i utdata från föregående kommandon hittar den *namn* måste du konfigurera och kopiera värdet för *ResourceId*.
@@ -63,19 +63,20 @@ Om du behöver att hitta den *namn* ditt Automation-konto i Azure-portalen välj
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Det kan ta en timme innan du börjar Se poster i Azure Monitor-loggarna för nya JobLogs eller JobStreams skrivs när du har kört det här skriptet.
 
-Kör följande fråga i log analytics-loggsökning för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga i log analytics-loggsökning för att visa loggarna:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifiera konfigurationen
 
 För att bekräfta att ditt Automation-konto skickar loggar till Log Analytics-arbetsytan, kontrollerar du att diagnostik är korrekt konfigurerade på Automation-konto med hjälp av följande PowerShell:
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Se till att i utdata:
@@ -136,7 +137,8 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 Nu när du igång med att skicka dina loggar för Automation-jobb till Azure Monitor-loggar, låt oss se vad du kan göra med de här loggarna i Azure Monitor-loggar.
 
-Kör följande fråga för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga för att visa loggarna:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när ett runbook-jobb misslyckas eller pausar
 En av de viktiga kunden som ber avser möjligheten att skicka ett e-postmeddelande eller ett meddelande om något går fel med ett runbook-jobb.   
@@ -173,7 +175,7 @@ Om du vill ta bort diagnostikinställningen från Automation-kontot, kör du fö
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## <a name="summary"></a>Sammanfattning

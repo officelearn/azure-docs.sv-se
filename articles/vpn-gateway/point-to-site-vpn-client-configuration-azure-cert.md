@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313948"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525175"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för native Azure certificate authentication P2S-konfigurationer
 
@@ -174,7 +174,7 @@ Du kan använda följande CLI-kommandon eller använda strongSwan stegen i den [
 2. Extrahera filen.
 3. Från den **allmän** mapp, kopiera eller flytta VpnServerRoot.cer till /etc/ipsec.d/cacerts.
 4. Kopiera eller flytta cp client.p12 till /etc/ipsec.d/private/. Den här filen är certifikat för Azure VPN Gateway.
-5. Öppna VpnSettings.xml filen och kopiera den <VpnServer> värde. Du använder det här värdet i nästa steg.
+5. Öppna VpnSettings.xml filen och kopiera den `<VpnServer>` värde. Du använder det här värdet i nästa steg.
 6. Justerar du värdena i exemplet nedan, och sedan lägger du till exempel i /etc/ipsec.conf-konfigurationen.
   
    ```

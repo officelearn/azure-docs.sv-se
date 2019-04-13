@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283026"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525933"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -109,9 +109,9 @@ Alla resurser kan tillhandahålla upp till minst 100 IOPS och mål dataflöde p�
 >
 > Utöka gränsen = 3 * baslinje IOPS. (Upp till högst 100 000 IOPS).
 >
-> priset för utgående = 60 MiB/s + 0.06 etablerade GiB (upp till 6 GiB/s)
+> priset för utgående = 60 MiB/s + 0.06 * etablerats GiB
 >
-> ingångshändelser = 40 MiB/s + 0,04 etablerade GiB (upp till 4 GiB)
+> ingångshändelser = 40 MiB/s + 0.04 * etablerats GiB
 
 Filresursens storlek kan ökas vid all tid och minskad när som helst, men kan minskas en gång per dygn sedan den senaste ökningen. IOPS/dataflödet ändringar börjar gälla inom 24 timmar efter ändringen storlek.
 
@@ -128,9 +128,9 @@ I följande tabell visas några exempel på dessa produkter för de etablerade r
 |10,240 *     | 10,240  | Upp till 30 720  | 675 | 450   |
 |33,792 *     | 33,792  | Upp till 100 000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Upp till 100 000 | 3,132 | 2,088   |
-|100,000 *    | 100 000 | Upp till 100 000 | 6,204 | 4,136   |
+|102,400 *    | 100 000 | Upp till 100 000 | 6,204 | 4,136   |
 
-För närvarande filstorlekar dela upp till 5 TiB är i offentlig förhandsversion, upp till 102 TiB är begränsad offentlig förhandsversion, att begära åtkomst till den begränsade offentliga förhandsversionen som fullständig [undersökningen.](https://aka.ms/azurefilesatscalesurvey)
+För närvarande filstorlekar dela upp till 5 TiB är i offentlig förhandsversion, upp till 100 TiB är begränsad offentlig förhandsversion, att begära åtkomst till den begränsade offentliga förhandsversionen som fullständig [undersökningen.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Bursting
 

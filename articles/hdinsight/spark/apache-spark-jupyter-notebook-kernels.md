@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084106"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527480"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Apache Spark-kluster i Azure HDInsight 
 
@@ -27,7 +27,7 @@ HDInsight Spark-kluster tillhandahåller kernlar som du kan använda med Jupyter
 
 Lär dig hur du använder dessa kernlar och fördelarna med att använda dem i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -69,7 +69,7 @@ Här följer några fördelar med att använda de nya kernlar med Jupyter notebo
    
     Du kan i stället använda förinställda kontexter direkt i ditt program.
 
-- **Cell användbara**. PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%` (till exempel `%%MAGIC` <args>). Den magiska språkkommandot måste vara det första ordet i en kodcell och tillåter flera rader med innehåll. Magic ordet ska vara det första ordet i cellen. Att lägga till något innan magic, även kommentarer orsakar ett fel.     Mer information om användbara funktioner finns i [här](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Cell användbara**. PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%` (till exempel `%%MAGIC` `<args>`). Den magiska språkkommandot måste vara det första ordet i en kodcell och tillåter flera rader med innehåll. Magic ordet ska vara det första ordet i cellen. Att lägga till något innan magic, även kommentarer orsakar ett fel.     Mer information om användbara funktioner finns i [här](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     I följande tabell visas de olika användbara funktioner via dessa kernlar.
 

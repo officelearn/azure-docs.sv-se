@@ -1,7 +1,7 @@
 ---
 title: Extrahering av data
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lär dig vilka typer av data kan extraheras från Språkförståelse (LUIS)
+description: Extrahera data från uttryck text med avsikter och entiteter. Läs om vilken typ av data kan extraheras från Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893987"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526297"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Extrahering av data från avsikter och entiteter
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
 
 Den svåraste data att extrahera är datorn lärt dig data eftersom det inte är en exakt denna matchning. Extrahering av data för den datorn-lärt dig [entiteter](luis-concept-entity-types.md) måste vara en del av den [redigering cykel](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
@@ -170,9 +170,11 @@ De data som returneras från slutpunkten innehåller entitetsnamnet, identifiera
 
 |Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
-|Enkel enhet|”Kund”|”bob jones”|
+|Enkel enhet|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Hierarkisk entitetsdata
+
+**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
 
 [Hierarkisk](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Barn identifieras av kontext. Om du letar efter en överordnad-underordnad-relation med exakt denna matchning, använda en [lista](#list-entity-data) entitet.
 
@@ -432,13 +434,18 @@ Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara näs
 [PersonName](luis-reference-prebuilt-person.md) och [GeographyV2](luis-reference-prebuilt-geographyV2.md) entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Namnen på personer
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd antingen fördefinierade **[personName](luis-reference-prebuilt-person.md)** entitet eller en **[enkel enhet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) av första och efternamn. 
+
+Om du använder enkel enhet, se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="names-of-places"></a>Namnen på platser
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+
+Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Använda fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** att extrahera platsinformation.
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
-Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endpoint-utterances.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+
+Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typen av extrahering av data. Börja med en **[enkel enhet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [frasen lista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ## <a name="pattern-roles-data"></a>Mönstret roller data
 Roller är sammanhangsberoende skillnader med entiteter.

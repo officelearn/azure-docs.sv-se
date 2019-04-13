@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492302"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528271"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa en virtuell nätverkspeering - resurshanteraren, olika prenumerationer
 
@@ -27,7 +27,7 @@ Stegen för att skapa en virtuell nätverkspeering är olika, beroende på om de
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
-|[Båda Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Annorlunda|
 
@@ -61,7 +61,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 7. Välj **nätverksdeltagare** i den **rollen** box.
 8. I den **Välj** väljer *UserB*, eller ange användare BS e-postadress för att söka efter den.
 9. Välj **Spara**.
-10. Under **myVnetA - åtkomstkontroll (IAM)** väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Under **myVnetA - åtkomstkontroll (IAM)** väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Logga ut från portalen som UserA och sedan logga in som användare b.
 12. Slutför steg 2 – 3, att ange eller markera följande värden i steg 3:
 
@@ -74,7 +74,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
     - **Plats**: *USA, östra*
 
 13. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetB*. Välj **myVnetB** när den visas i sökresultaten.
-14. Under **myVnetB**väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Under **myVnetB**väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Välj **åtkomstkontroll (IAM)** under **myVnetB**, och utför steg 5 – 10 för myVnetB, att ange **UserA** i steg 8.
 16. Logga ut från portalen som UserB och logga in som UserA.
 17. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Välj **myVnetA** när den visas i sökresultaten.
@@ -111,7 +111,7 @@ Följande skript:
 Du kan använda Azure Cloud Shell istället för att installera CLI och dess beroenden. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj den **prova** knappen i skriptet som följer, som anropar ett gränssnitt för molnet som du kan logga in på Azure-kontot med.
 
 1. Öppna en CLI-session och logga in på Azure som användare a med hjälp av den `azure login` kommando. Det konto som du loggar in med måste ha tillräcklig behörighet för att skapa vnet-peering. En lista över behörigheter finns i [peeringbehörigheter i virtuella nätverk](virtual-network-manage-peering.md#permissions).
-2. Kopiera följande skript till en textredigerare på din dator, ersätter `<SubscriptionA-Id>` med ID Prenumerationa sedan kopiera det ändrade skriptet, klistra in den i din CLI-sessionen och tryck på `Enter`. Om du inte vet ditt prenumerations-Id, anger du 'az account show'-kommando. Värdet för **id** i utdata är ditt prenumerations-Id.
+2. Kopiera följande skript till en textredigerare på din dator, ersätter `<SubscriptionA-Id>` med ID Prenumerationa sedan kopiera det ändrade skriptet, klistra in den i din CLI-sessionen och tryck på `Enter`. Om du inte vet ditt prenumerations-Id, ange den `az account show` kommando. Värdet för **id** i utdata är ditt prenumerations-Id.
 
     ```azurecli-interactive
     # Create a resource group.

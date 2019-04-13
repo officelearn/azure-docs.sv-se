@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084149"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524896"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Hämta listan över providers som stöds, platser och bandbredder
 
-Innan du skapar en ExpressRoute-krets, behöver du lista över anslutningsleverantörer som stöds, platser och bandbreddsalternativ för. De CLI kommandot ”az network express-route lista tjänstleverantörer' returnerar den här informationen som du ska använda i senare steg:
+Innan du skapar en ExpressRoute-krets, behöver du lista över anslutningsleverantörer som stöds, platser och bandbreddsalternativ för. CLI-kommando `az network express-route list-service-providers` returnerar den här informationen som du ska använda i senare steg:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ Svaret innehåller tjänstnyckeln.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lista över alla ExpressRoute-kretsar
 
-Kör kommandot ”az network express-route list” om du vill hämta en lista över alla ExpressRoute-kretsar som du skapade. Du kan hämta den här informationen när som helst med hjälp av det här kommandot. Visa alla kretsar genom att göra anrop utan parametrar.
+Om du vill hämta en lista över alla ExpressRoute-kretsar som du skapade, kör den `az network express-route list` kommando. Du kan hämta den här informationen när som helst med hjälp av det här kommandot. Visa alla kretsar genom att göra anrop utan parametrar.
 
 ```azurecli-interactive
 az network express-route list

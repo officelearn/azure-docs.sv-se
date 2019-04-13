@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838892"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523604"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
 I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
@@ -77,7 +77,7 @@ Följ dessa steg om du vill konfigurera din Azure Data Science-miljö.
 **Etablera din Azure SQL DW-instans.**
 Dokumentationen på [skapa ett SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) att etablera en instans av SQL Data Warehouse. Kontrollera att du har ändrat beteckningar på följande SQL Data Warehouse-autentiseringsuppgifter som ska användas i senare steg.
 
-* **Servernamn**: <server Name>. database.windows.net
+* **Servernamn**: \<server Name >. database.windows.net
 * **Namn på SQLDW (databas)**
 * **Användarnamn**
 * **Lösenord**

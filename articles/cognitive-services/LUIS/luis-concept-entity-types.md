@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895553"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528041"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -24,7 +24,15 @@ Entiteter extrahera data från uttryck. Entitetstyper ger förutsägbar extraher
 
 ## <a name="entity-compared-to-intent"></a>Entiteten jämfört med avsikt
 
-Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. Ett uttryck kan innehålla många entiteter eller inga alls. En entitet representerar en klass, inklusive en samling liknande objekt (platser, saker, personer, händelser eller begrepp). Entiteter beskriver information som är relevanta för avsikten och ibland de är viktiga för din app för att utföra sitt uppdrag. En nyhetssökning app kan exempelvis innehålla entiteter, till exempel ”ämne”, ”källa”, ”nyckelordet” och ”publiceringsdatum”, som är viktiga data till Sök efter nyheter. Är viktig information för flygning bokning (relevant till avsikt ”boka flygning”) i en app för bokning av resor, ”plats”, ”datum”, ”flygbolag”, ”resa class” och ”biljetter”.
+Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. Ett uttryck kan innehålla många entiteter eller inga alls. Ett klientprogram behöva entiteten att utföra sitt uppdrag eller använda den som en av flera alternativ för att visa för användaren. 
+
+En entitet:
+
+* Representerar en klass, inklusive en samling liknande objekt (platser, saker, personer, händelser eller begrepp). 
+* Beskriver information som är relevanta för avsikten
+
+
+En nyhetssökning app kan exempelvis innehålla entiteter, till exempel ”ämne”, ”källa”, ”nyckelordet” och ”publiceringsdatum”, som är viktiga data till Sök efter nyheter. Är viktig information för flygning bokning (relevant till avsikt ”boka flygning”) i en app för bokning av resor, ”plats”, ”datum”, ”flygbolag”, ”resa class” och ”biljetter”.
 
 Jämförelsevis har representerar avsikten förutsägelser av hela uttryck. 
 
@@ -89,14 +97,14 @@ När entiteten har extraherat entitetsdata representeras som en enhet av informa
 |Machine-learned|Kan markera|Självstudier|Exempel<br>Svar|Entitetstyp|Syfte|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Sammansatta**](#composite-entity)|Gruppering av enheter, oavsett typ av enhet.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarkisk**](#hierarchical-entity)|Gruppering av enkla enheter.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Visa lista**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarkisk**](#hierarchical-entity)|Gruppering av enkla enheter.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista med objekt och deras synonymer extraheras med exakt denna matchning.|
 |Blandad||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Enheten där det är svårt att avgöra att slutet av entiteten.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Fördefinierade**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Redan tränats att extrahera olika typer av data.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Reguljärt uttryck**](#regular-expression-entity)|Använder reguljärt uttryck för att matcha texten.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Enkel**](#simple-entity)|Innehåller ett enda koncept i ord eller fraser.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Innehåller ett enda koncept i ord eller fraser.|
 
-Endast datorn lärt dig enheter måste markeras i exempel-uttryck för varje avsikt. Dator-lärt dig entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](luis-how-to-review-endpoint-utterances.md). 
+Endast datorn lärt dig enheter måste markeras i exempel-yttranden. Dator-lärt dig entiteter fungerar bäst när testas [endpoint frågor](luis-concept-test.md#endpoint-testing) och [granska endpoint yttranden](luis-how-to-review-endoint-utt.md). 
 
 Pattern.any entiteter måste markeras i den [mönstret](luis-how-to-model-intent-pattern.md) mallexempel, inte avsikt användaren exemplen. 
 
@@ -116,34 +124,20 @@ Den här entiteten är ett bra passar när data:
 
 ![Sammansatt entitet](./media/luis-concept-entities/composite-entity.png)
 
-[Självstudier](luis-tutorial-composite-entity.md)<br>
+[Självstudie](luis-tutorial-composite-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Hierarkisk entitet
 
+**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
+
 En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda enkla enheter som kallas underordnade.
-
-Den här entiteten är ett bra passar när data:
-
-* De är enkla entiteter.
-* De är relaterade till varandra i yttrandet.
-* Använd specifika ord val för att ange varje underordnad entitet. Exempel på sådana ord: från/till, lämnar/ska till, bort från/till.
-* Underordnade är ofta i samma uttryck. 
-* Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
-
-Använd inte om:
-
-* Du behöver en entitet som har exakt denna matchningar för underordnade oavsett kontexten. Använd en [lista entitet](#list-entity) i stället. 
-* Du behöver en entitet för en överordnad-underordnad-relation med andra typer av enheter. Använd den [sammansatt entitet](#composite-entity).
 
 ![hierarkisk entitet](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Självstudier](luis-quickstart-intent-and-hier-entity.md)<br>
-[Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Roller jämfört med hierarkisk entiteter
 
-[Roller](luis-concept-roles.md#roles-versus-hierarchical-entities) lösa samma problem för ett mönster som hierarkisk entiteter men gäller för alla typer av enheter. Roller är för närvarande endast tillgängliga i ett mönster. Roller är inte tillgängliga i avsikter exempel yttranden.  
+[Roller](luis-concept-roles.md) lösa samma problem som hierarkisk entiteter men gäller för alla typer av enheter.  
 
 ## <a name="list-entity"></a>Lista entitet
 
@@ -157,7 +151,7 @@ Entiteten är ett bra passar när textdata:
 
 ![lista entitet](./media/luis-concept-entities/list-entity.png)
 
-[Självstudier](luis-quickstart-intent-and-list-entity.md)<br>
+[Självstudie](luis-quickstart-intent-and-list-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entiteten Pattern.any
@@ -167,7 +161,7 @@ Pattern.any är en platshållare för variabel längd som används endast i ett 
 Entiteten är ett bra passar när:
 
 * Slut på entiteten kan blandas ihop med återstående texten för uttryck. 
-[Självstudier](luis-tutorial-pattern.md)<br>
+[Självstudie](luis-tutorial-pattern.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Exempel**  
@@ -194,7 +188,7 @@ Fördefinierade entiteter kan har lagts till och tas bort när som helst.
 
 ![Antal fördefinierade entitet](./media/luis-concept-entities/number-entity.png)
 
-[Självstudier](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Självstudie](luis-tutorial-prebuilt-intents-entities.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Några av de här fördefinierade entiteter har definierats i öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Om din specifika kultur eller entitet inte stöds för närvarande, bidra till projektet. 
@@ -242,7 +236,7 @@ Entiteten är ett bra passar när:
 
 ![Entitet för reguljära uttryck](./media/luis-concept-entities/regex-entity.png)
 
-[Självstudier](luis-quickstart-intents-regex-entity.md)<br>
+[Självstudie](luis-quickstart-intents-regex-entity.md)<br>
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Enkel entitet 
@@ -255,31 +249,22 @@ Entiteten är ett bra passar när:
 
 ![enkel enhet](./media/luis-concept-entities/simple-entity.png)
 
-[Självstudier](luis-quickstart-primary-and-secondary-data.md)<br/>
+[Självstudie](luis-quickstart-primary-and-secondary-data.md)<br/>
 [Exempel på ett svar för entitet](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Entiteten gränser
 
 Granska [gränser](luis-boundaries.md#model-boundaries) att förstå hur många av varje typ av enhet du kan lägga till en modell.
 
-## <a name="composite-vs-hierarchical-entities"></a>Sammansatta vs hierarkisk entiteter
-
-Sammansatta entiteter och hierarkisk entiteter både har överordnade och underordnade relationer och är datorn lärt dig. Machine learning kan LUIS för att förstå entiteter baserat på olika kontexter (placering av ord). Sammansatta entiteter är mer flexibla eftersom de låter olika enhetstyper som underordnade. En hierarkisk entitet underordnade är bara enkla enheter. 
-
-|Typ|Syfte|Exempel|
-|--|--|--|
-|Hierarkisk|Överordnad-underordnad av enkla enheter|Location.Origin=New York<br>Location.Destination=London|
-|Sammansatta|Överordnade-underordnade entiteter: fördefinierade, lista, enkel, hierarkisk| Antal = 3<br>lista = första klass<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Om du behöver mer än det maximala antalet enheter 
 
-Du kan behöva använda hierarkisk och sammansatta entiteter. Hierarkisk entiteter visas relation mellan entiteter som har egenskaper eller som är medlemmar i en kategori. Underordnade entiteter är alla medlemmar i deras överordnade kategorin. En hierarkisk entitet med namnet PlaneTicketClass kan till exempel ha underordnade entiteter EconomyClass och bästa. Hierarkin omfattar endast en nivå med djup.  
+Du kan behöva använda sammansatta entiteter i kombination med entiteten roller.
 
-Sammansatta entiteter representerar delar av en helhet. En sammansatt entitet med namnet PlaneTicketOrder kan till exempel ha underordnade entiteter flygbolag, mål, DepartureCity, DepartureDate och PlaneTicketClass. Du skapar en sammansatt entitet från befintliga enkla enheter, underordnade hierarkisk entiteter eller fördefinierade entiteter.  
+Sammansatta entiteter representerar delar av en helhet. En sammansatt entitet med namnet PlaneTicketOrder kan till exempel ha underordnade entiteter flygbolag, mål, DepartureCity, DepartureDate och PlaneTicketClass.
 
 LUIS innehåller också listtypen för entiteten som inte datorn lärt dig men kan din LUIS-app att ange en fast lista med värden. Se [LUIS gränser](luis-boundaries.md) referens till granska gränserna för listtypen för entiteten. 
 
-Om du har tänkt hierarkisk, sammansatta, och lista över entiteter och behöver mer än gränsen, kontakta supporten. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS](luis-reference-regions.md#luis-website) webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
+Kontakta supporten om du har tänkt entiteterna och behöver mer än gränsen. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS](luis-reference-regions.md#luis-website) webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Nästa steg
 

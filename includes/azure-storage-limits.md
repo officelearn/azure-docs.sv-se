@@ -8,29 +8,24 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291704"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532465"
 ---
-I följande tabell beskrivs standardgränser för Azure Storage. Den *ingående* gränsen syftar på alla data från förfrågningar som skickas till ett lagringskonto. Den *utgående* gränsen syftar på alla data från svar som tas emot från ett lagringskonto.
+I följande tabell beskrivs standardgränser för Azure general-purpose v1, v2 och Blob storage-konton. Den *ingående* gränsen syftar på alla data från förfrågningar som skickas till ett lagringskonto. Den *utgående* gränsen syftar på alla data från svar som tas emot från ett lagringskonto.
 
 | Resurs | Standardgräns |
 | --- | --- |
 | Antal lagringskonton per region per prenumeration, inklusive konton för standard- och premium | 250 |
 | Maximal lagringskapacitet för konto | 2 PB för USA och Europa, 500 TB för alla andra regioner, vilket innefattar Storbritannien |
 | Maximalt antal blob-behållare, blobar, filresurser, tabeller, köer, enheter eller meddelanden per lagringskonto | Obegränsad |
-| Maximal storlek på ett lagringskonto för FileStorage (förhandsversion) | 100 000 giB |
-| Högsta IOPS för ett lagringskonto för FileStorage (förhandsversion) | 100 000 |
-| Maximal bandbredd för ett lagringskonto för FileStorage (förhandsversion) | 5 GB/s |
 | Maximala hastigheten<sup>1</sup> per lagringskonto | 20 000 begäranden per sekund |
 | Största ingående<sup>1</sup> per lagringskonto (USA-regioner) | 10 Gbit/s om RA-GRS/GRS är aktiverad, 20 Gbit/s för LRS/ZRS<sup>2</sup> |
 | Största ingående<sup>1</sup> per lagringskonto (icke-amerikanska regioner) | 5 Gbit/s om RA-GRS/GRS är aktiverad, 10 Gbit/s för LRS/ZRS<sup>2</sup> |
-| Maximal ingångshändelser per FileStorage (förhandsversion) storage-konto (USA-regioner) | 20 Gbit/s (LRS) |
-| Maximal ingångshändelser per FileStorage (förhandsversion) storage-konto (icke-amerikanska regioner) | 10 Gbit/s (LRS)|
-| Maximalt utgående för generell användning v2, FileStorage (förhandsversion) och Blob storage-konton (alla regioner) | 50 Gbit/s |
+| Maximalt utgående för generell användning v2 och Blob storage-konton (alla regioner) | 50 Gbit/s |
 | Maximalt utgående general-purpose v1-lagringskonton (USA-regioner) | 20 Gbit/s om RA-GRS/GRS är aktiverad, 30 Gbit/s för LRS/ZRS<sup>2</sup> |
 | Maximalt utgående general-purpose v1-lagringskonton (icke-amerikanska regioner) | 10 Gbit/s om RA-GRS/GRS är aktiverad, 15 Gbit/s för LRS/ZRS<sup>2</sup> |
 

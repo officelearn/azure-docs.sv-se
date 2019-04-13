@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547426"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523111"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
@@ -41,7 +41,7 @@ Mönster lösa följande situationer:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte en garanti för avsikt
 Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte med en mall för uttryck i ett mönster är ingen garanti för avsiktlig förutsägelser men det är en stark signal. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster förbättras inte datorn lärt dig entitet identifiering
 
@@ -50,7 +50,7 @@ Ett mönster är främst avsett att hjälpa förutsägelser av avsikter och roll
 Inte räknar med att se förbättrad entitet förutsägelse när du minimerar flera uttryck i ett enda mönster. För enkla enheter innan behöver du lägga till yttranden eller Använd listan över entiteter annan mönstret inte utlöses.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
-Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter. Detta motsvarar hierarkisk entitet barn, men är **endast** tillgängliga i ett mönster. 
+Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Förutsägelse poäng med och utan mönster
 Med tillräckligt med exempel yttranden kan skulle LUIS kunna öka förutsägelsen utan mönster. Mönster öka förtroendepoäng utan att behöva tillhandahålla så många yttranden.  
@@ -83,7 +83,7 @@ Den **valfritt** syntax, med hakparenteser och kan vara två nivåer. Till exemp
 |är ett nytt formulär|matchar yttre valfritt word och icke-valfritt ord i mönstret|
 |ett nytt formulär|matchningar krävs ord|
 
-Den **gruppering** syntax, med parenteser kan vara två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. På så sätt kan någon av de tre enheterna som ska matchas. 
+Den **gruppering** syntax, med parenteser kan vara två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Den här funktionen kan någon av de tre enheterna som ska matchas. 
 
 Om Entity1 är en plats med roller som ursprung (Seattle) och mål (Kairo) och entiteten 2 är ett känt att skapa namn från en lista över entitet (RedWest-C), skulle följande talade mappa till det här mönstret:
 
@@ -170,7 +170,7 @@ Markera valfri text i uttryck som använder syntax för reguljära uttryck hakpa
 |Mönstret med valfri text|Betydelse|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
-|”Kan du hjälpa mig [?]|Skiljetecknet är valfritt|
+|”Kan du hjälpa mig [?] | Skiljetecknet är valfritt|
 
 Skiljetecken (`?`, `!`, `.`) ska ignoreras och du behöver att ignorera dem med hjälp av hakparentes-syntax i ett mönster. 
 

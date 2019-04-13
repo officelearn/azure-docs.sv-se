@@ -11,12 +11,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 8ab647a7d97ace0d0f67fa462ada06901184933f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1905174eea9c765f52a9a89015a9a573048b15a9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103000"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523587"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
@@ -32,7 +32,7 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -222,7 +222,7 @@ Uppdatera värden för följande egenskaper i definitionen för den länkade tj�
 
 - **userName**. Namnet på användaren för klusterinloggningen som du angav när du skapade klustret. 
 - **password**. Ange lösenordet för användaren.
-- **clusterUri**. Ange URL:en till ditt HDInsight-kluster i formatet https://<clustername>.azurehdinsight.net.  Den här artikeln förutsätter att du har åtkomst till klustret via internet. Du kan till exempel ansluta till klustret på `https://clustername.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt nätverkssäkerhetsgrupper (NSG:er) eller användardefinierade vägar (UDR:er) för att begränsa åtkomst från internet. För att Data Factory ska kunna skicka jobb till HDInsight-kluster i Azure Virtual Network, måste du konfigurera ditt Azure Virtual Network så att URL:en kan matchas med gatewayens privata IP-adress som används av HDInsight.
+- **clusterUri**. Ange URL: en för ditt HDInsight-kluster i följande format: `https://<clustername>.azurehdinsight.net`.  Den här artikeln förutsätter att du har åtkomst till klustret via internet. Du kan till exempel ansluta till klustret på `https://clustername.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt nätverkssäkerhetsgrupper (NSG:er) eller användardefinierade vägar (UDR:er) för att begränsa åtkomst från internet. För att Data Factory ska kunna skicka jobb till HDInsight-kluster i Azure Virtual Network, måste du konfigurera ditt Azure Virtual Network så att URL:en kan matchas med gatewayens privata IP-adress som används av HDInsight.
 
   1. Från Azure-portalen öppnar du det virtuella nätverket som HDInsight finns i. Öppna nätverksgränssnittet med namnet som börjar med `nic-gateway-0`. Skriv ned dess privata IP-adress. Till exempel 10.6.0.15. 
   2. Om din Azure Virtual Network har en DNS-server uppdaterar du DNS-posten så HDInsight-klustrets URL `https://<clustername>.azurehdinsight.net` kan matchas mot `10.6.0.15`. Detta är den rekommenderade metoden. Om du inte har någon DNS-server i Azure Virtual Network kan du tillfälligt lösa detta genom att redigera värdfilen (C:\Windows\System32\drivers\etc) för alla virtuella datorer som är registrerade som noder för lokal installation av Integration Runtime genom att lägga till en post så här: 

@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312214"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521445"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudie: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -24,7 +24,7 @@ Den här självstudien vägleder dig genom processen att skapa din egen ensidiga
 > * Registrera ditt program med Azure Active Directory (AD)
 > * Hur du skapar, publicerar och testar ditt webbprogram 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/). 
 
@@ -179,7 +179,7 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
 Felkod/-villkor | Beskrivning
 ---------------------| -----------
 *AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar egenskapen ”Svars-URL”. Gå till sidan **Inställningar** / **Svars-URL: er** för din Azure AD-appregistrering. Kontrollera att den **inloggning**-URL som anges i steg 3 av [Registrera apen med Azure AD](#register-the-application-with-azure-ad) finns. 
-*AADSTS50011: Svars-URL:en som angetts i begäran matchar inte de svars-URL:er som har konfigurerats för appen: <Application ID GUID>.* | `postLogoutRedirectUri` som angavs i steg 4.b av [Bygga och publicera webbappen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under egenskapen **Inställningar** / **Svars-URL** i Azure AD-appregistrering. Se till att även ändra din **mål-URL** så att du använder `https`, per steg 5.e i [Bygg och publicera webbappen](#build-and-publish-the-web-application).
+*AADSTS50011: Svaret från den url som anges i begäran matchar inte svars-URL som konfigurerats för programmet: '\<GUID för program-ID >'.* | `postLogoutRedirectUri` som angavs i steg 4.b av [Bygga och publicera webbappen](#build-and-publish-the-web-application) måste överensstämma med värdet som anges under egenskapen **Inställningar** / **Svars-URL** i Azure AD-appregistrering. Se till att även ändra din **mål-URL** så att du använder `https`, per steg 5.e i [Bygg och publicera webbappen](#build-and-publish-the-web-application).
 Webbappen har lästs in, men inloggningssidan har endast oformaterad text med en vit bakgrund. | Kontrollera att de sökvägar som beskrivs i steg 4.a i [Bygg och publicera webbappen](#build-and-publish-the-web-application) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

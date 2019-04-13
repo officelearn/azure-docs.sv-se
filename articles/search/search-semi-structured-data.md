@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Indexering halvstrukturerade strutured data i JSON-blobar – Azure Search'
-description: Lär dig mer om att indexera och söka efter halvstrukturerade Azure JSON-blobar med hjälp av Azure Search och Postman.
+description: 'Lär dig mer om att indexera och söka efter halvstrukturerade Azure JSON-blobar med hjälp av Azure Search REST API: er och Postman.'
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489235"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525355"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Självstudier: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-självstudiekurs: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
 
 Azure Search kan indexera JSON-dokument och matriser i Azure blob storage med en [indexeraren](search-indexer-overview.md) som vet hur du läser halvstrukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Skillnaden mellan Ostrukturerade data, som måste indexeras fullständigt och formellt strukturerade data som följer en datamodell, till exempel en relationsdatabas-schema, som kan indexeras på basis av per fält delas.
 
@@ -59,9 +59,7 @@ Alla begäranden som kräver en api-nyckel för varje begäran som skickas till 
 
 1. [Logga in på Azure-portalen](https://portal.azure.com)navigerar du till ditt Azure storage-konto, klickar du på **Blobar**, och klicka sedan på **+ behållare**.
 
-1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Eftersom du kommer att använda en nyckel och storage-kontonamnet för anslutningen, kontrollera att behållarens offentlig åtkomstnivå är inställt på ”behållare (anonym läsåtkomst för behållare)”.
-
-   ![Ange offentlig åtkomstnivå](media/search-semi-structured-data/container-public-access-level.png "ange offentlig åtkomstnivå")
+1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Du kan ange offentlig åtkomstnivå till någon av dess giltiga värden.
 
 1. När behållaren har skapats kan du öppna den och välj **överför** i kommandofältet.
 

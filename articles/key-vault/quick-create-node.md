@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882758"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522312"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en nod-webbapp 
 
@@ -36,7 +36,7 @@ Innan du fortsätter, kontrollera att du är bekant med den [grundläggande begr
 >
 > Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) får program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
@@ -150,7 +150,7 @@ Bläddra till den nya webbappen och bör du se att den fungerar. Ersätt `<app_n
     ```
     http://<app name>.azurewebsites.net
     ```
-Det föregående kommandot skapar även en Git-aktiverad app som hjälper dig att distribuera till Azure från din lokala Git-lagringsplats. Den lokala Git-lagringsplatsen är konfigurerad med denna URL: https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > .git.
+Det föregående kommandot skapar även en Git-aktiverad app som hjälper dig att distribuera till Azure från din lokala Git-lagringsplats. Den lokala Git-lagringsplatsen är konfigurerad med denna URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 När du har slutfört föregående kommando kan du lägga till en Azure-fjärrdatabas till din lokala Git-lagringsplats. Ersätt `<url>` med URL: en för Git-lagringsplats.
 
@@ -194,7 +194,7 @@ Kör följande kommando för att distribuera appen till Azure:
 git push azure master
 ```
 
-Senare, när du bläddrar till https://<app_name>.azurewebsites.net, kan du se det hemliga värdet. Se till att du ersatte namnet <YourKeyVaultName> med vault-namn.
+Senare, när du bläddrar till `https://<app_name>.azurewebsites.net`, du kan se det hemliga värdet. Se till att du ersatte namnet `<YourKeyVaultName>` med vault-namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840655"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522511"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -112,7 +112,7 @@ Om du öppnar standardbehållaren för Hadoop-kluster med Azure Storage Explorer
 ![Azure Storage Explorer visar utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Skicka Hive-frågor med Hive-redigeraren
-Du kan också använda Frågekonsolen (Hive-redigeraren) genom att ange en URL i formatet *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i ser den här konsolen och du måste ha autentiseringsuppgifter här dina Hadoop-kluster.
+Du kan också använda Frågekonsolen (Hive-redigeraren) genom att ange en URL i formatet *https:\//\<Hadoop-klusternamn >.azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i ser den här konsolen och du måste ha autentiseringsuppgifter här dina Hadoop-kluster.
 
 ### <a name="ps"></a> 3. Skicka Hive-frågor med Azure PowerShell-kommandon
 Du kan också använda PowerShell för att skicka Hive-frågor. Anvisningar finns i [skicka Hive-jobb med hjälp av PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Här är Hive-frågan som läser in data i en Hive-tabell.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<sökvägen till blob-data\>**: Om blobbfilen som ska överföras till Hive-tabellen i standardbehållaren för HDInsight Hadoop-kluster i *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / / /<directory in this container> /<blob file name>'*. Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<sökvägen till blob-data\>**: Om blobbfilen som ska överföras till Hive-tabellen i standardbehållaren för HDInsight Hadoop-kluster i *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\< katalogen i den här behållaren > /\<blob filnamn >'*. Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet *\<sökvägen till blob-data\>* ska vara i formatet *' wasb: / /\<behållarens namn >\<lagringskontonamn >.blob.core.windows.net/\<blob filnamn >'*.
 
   > [!NOTE]
   > Blob-data som ska överföras till Hive-tabell måste vara i standard eller ytterligare en behållare för storage-konto för Hadoop-kluster. I annat fall den *Läs in DATA* frågan inte kunde köras klagar på att den inte kan komma åt data.

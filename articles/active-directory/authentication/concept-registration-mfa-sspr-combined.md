@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280017"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521449"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -25,6 +25,8 @@ Innan du kombinerade registrerings registrerad användare autentiseringsmetoder 
 ![Min profil som visar registrerade säkerhetsinformation för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Granska den här administratören designmiljöer dokumentationen och fokus på användaren dokumentationen så att du förstår funktioner och effekten av den här funktionen innan du aktiverar den nya upplevelsen. Basera din utbildning om användardokumentation för att förbereda dina användare för den nya upplevelsen och bidra till att säkerställa en lyckad distribution.
+
+Azure AD kombineras säkerhetsinformation registrering inte är tillgänglig till nationella moln som Azure US Government, Azure Tyskland och Azure Kina 21Vianet.
 
 |     |
 | --- |

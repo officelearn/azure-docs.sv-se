@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a88ff7c7b889d197e78dddfbb498b7150e08d5ed
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669012"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526817"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
@@ -65,4 +65,4 @@ Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod på f�
 
 * [Använd Microsoft Cognitive Toolkit deep learning-modell med Azure HDInsight Spark-kluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](spark/apache-spark-deep-learning-caffe.md)
-* [Ramverk för Djupinlärning och AI på Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)
+* [Ramverk för Djupinlärning och AI på Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

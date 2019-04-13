@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 123a2ece06cb58ce6dbb35a914a87eb45fbcf5be
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505825"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528544"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -38,17 +38,17 @@ Du kan snabbt registrera ditt program genom att göra följande:
 Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 
 1. Gå till Visual Studio och:
-   - Välj projektet i Solution Explorer och titta på fönstret Egenskaper (om du inte ser en egenskapsfönstret trycker på F4)
-   - Ändra SSL aktiverat till `True`.
-   - Högerklicka på projektet i Visual Studio och välj sedan **egenskaper**, och **Web** fliken. I den *servrar* avsnittet Ändra den *Url för Project* vara SSL-URL.
-   - Kopiera URL: en för SSL. Du lägger till denna URL i listan över omdirigerings-URL: er i portalen för registrering lista över omdirigerings-URL: er i nästa steg:<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. Välj projektet i Solution Explorer och titta på fönstret Egenskaper (om du inte ser en egenskapsfönstret trycker på F4).
+   1. Ändra SSL aktiverat till `True`.
+   1. Högerklicka på projektet i Visual Studio och välj sedan **egenskaper**, och **Web** fliken. I den *servrar* avsnittet Ändra den *Url för Project* vara SSL-URL.
+   1. Kopiera URL: en för SSL. Du lägger till denna URL i listan över omdirigerings-URL: er i portalen för registrering lista över omdirigerings-URL: er i nästa steg:<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
 1. Välj **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Tutorial`.
-   - Lägg till SSL-URL som du har kopierat från Visual Studio i steg 1 (till exempel `https://localhost:44368/`) i **svars-URL**, och klicka på **registrera**.
+   1. I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Tutorial`.
+   1. Lägg till SSL-URL som du har kopierat från Visual Studio i steg 1 (till exempel `https://localhost:44368/`) i **svars-URL**, och klicka på **registrera**.
 1. Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande** och välj sedan **Spara**.
 1. Lägg till följande i `web.config` finns i rotmappen i avsnittet `configuration\appSettings`:
 

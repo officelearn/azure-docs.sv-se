@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090983"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521483"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Vanliga problem i Stream Analytics och steg för att felsöka
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090983"
 
 ![Indata-panelen på instrumentpanelen för Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Aktivera diagnostikloggar att visa information om varningen om du vill se mer information. För felaktig inmatningshändelser loggarna för jobbkörning innehåller en post med meddelandet som ser ut som ”: meddelande: Det gick inte att deserialisera indatahändelserna från resursen <blob URI> som json”. 
+Aktivera diagnostikloggar att visa information om varningen om du vill se mer information. Felaktig inmatningshändelser innehålla loggarna för jobbkörning en post med meddelandet som ser ut som: ”Meddelande: Det gick inte att deserialisera indatahändelserna från resursen \<blob-URI > som json ”. 
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 

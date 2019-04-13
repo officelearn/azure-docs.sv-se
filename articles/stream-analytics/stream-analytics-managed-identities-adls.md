@@ -1,19 +1,18 @@
 ---
 title: Autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att autentisera ditt Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257985"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522069"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter
 
@@ -100,33 +99,37 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
    Azure Resource Manager för att skapa och hantera identitet för Azure Stream Analytics-jobb anger den här egenskapen.
 
    **Exempeljobb**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **Jobbet exempelsvar**
@@ -145,7 +148,8 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Anteckna huvudkontots ID från svaret som jobbet att bevilja åtkomst till ADLS-resurser som krävs.
@@ -169,15 +173,14 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Mer information om kommandot ovan PowerShell avser den [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) dokumentation.
+   Mer information om kommandot ovan PowerShell avser den [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) dokumentation.
 
 ## <a name="limitations"></a>Begränsningar
 Den här funktionen stöder inte följande:
 
-1.  **Flera innehavare åtkomst**: Tjänstens huvudnamn som skapats för en viss Stream Analytics-jobbet kommer att finnas på Azure Active Directory-klient som jobbet har skapats och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Du kan därför bara använda MSI på ADLS Gen 1-resurser som ligger inom samma Azure Active Directory-klient som din Azure Stream Analytics-jobb. 
+1. **Flera innehavare åtkomst**: Tjänstens huvudnamn som skapats för en viss Stream Analytics-jobbet kommer att finnas på Azure Active Directory-klient som jobbet har skapats och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Du kan därför bara använda MSI på ADLS Gen 1-resurser som ligger inom samma Azure Active Directory-klient som din Azure Stream Analytics-jobb. 
 
-2.  **[Tilldelade användaridentitet](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: stöds inte detta innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics. 
-
+2. **[Tilldelade användaridentitet](../active-directory/managed-identities-azure-resources/overview.md)**: stöds inte. Det innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

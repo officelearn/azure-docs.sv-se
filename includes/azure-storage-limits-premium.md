@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287110"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528500"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestanda block blob-lagring
 
@@ -25,10 +25,11 @@ Premium-filerna använder ett unikt lagringskonto med namnet **FileStorage (för
 
 |Område  |Mål  |
 |---------|---------|
-|Maxstorlek     |5 TiB (offentlig förhandsversion), 100 TiB (begränsad offentlig förhandsversion)     |
+|Max etablerad storlek     |5 TiB (offentlig förhandsversion), 100 TiB (begränsad offentlig förhandsversion)     |
 |Resurser   |Obegränsat  |
 |IOPS     |100 000 (begränsad offentlig förhandsversion)    |
-|Bandbredd|5 GB/s     |
+|Ingress|4,136 MiB/s     |
+|Egress|6,204 MiB/s |
 
  Dela skala mål för premium-fil, se den [Premium-filer skala mål](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) avsnittet.
 

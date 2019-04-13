@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
-ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488466"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528109"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 Du kan använda Azure Backup Server för att återställa data som du har säkerhetskopierat till ett Recovery Services-valv. Processen för att göra så är integrerad i Azure Backup Server-hanteringskonsolen och liknar återställningsarbetsflöde för andra Azure Backup-komponenter.
@@ -85,7 +85,7 @@ Du kan använda Azure Backup Server för att återställa data som du har säker
 | 1. |Den här servern är inte registrerad för valvet som är angivet av valvautentiseringen. |**Orsak:** Det här felet visas när valvautentiseringsfilen valt inte hör till Recovery Services-valvet som är associerade med Azure Backup Server där återställningen utförs. <br> **Lösning:** Hämta valvautentiseringsfilen från Recovery Services-valvet som Azure Backup Server har registrerats. |
 | 2. |Antingen är återställningsbara data är inte tillgänglig eller den valda servern är inte en DPM-server. |**Orsak:** Det finns inga andra Azure Backup-servrar har registrerats till Recovery Services-valv eller servrar har ännu inte har överfört metadata eller den valda servern är inte en Azure Backup Server (även kallat Windows Server eller Windows-klient). <br> **Lösning:** Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet kan du kontrollera att den senaste Azure Backup-agenten är installerad. <br>Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet, vänta på en dag efter installationen för att starta återställningsprocessen. Nattetid kommer att överföra metadata för alla skyddade säkerhetskopior till molnet. Data blir tillgängliga för återställning. |
 | 3. |Ingen annan DPM-server är registrerad i valvet. |**Orsak:** Det finns inga andra Azure Backup-servrar som är registrerade för valvet som återställningen görs.<br>**Lösning:** Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet kan du kontrollera att den senaste Azure Backup-agenten är installerad.<br>Om det finns andra Azure Backup-servrar har registrerats Recovery Services-valvet, vänta på en dag efter installationen för att starta återställningsprocessen. Nattetid Överför metadata för alla skyddade säkerhetskopior till molnet. Data blir tillgängliga för återställning. |
-| 4. |Den angivna krypteringslösenfrasen matchar inte lösenfrasen som associeras med följande server: **<server name>** |**Orsak:** Den angivna krypteringslösenfrasen matchar inte i den krypterade lösenfrasen som används vid kryptering av data från Azure Backup Server-data som återställs. Agenten kan inte dekryptera data. Därför misslyckas återställningen.<br>**Lösning:** Ange exakt samma krypteringslösenfrasen som är associerade med Azure Backup Server vars data återställs. |
+| 4. |Den angivna krypteringslösenfrasen matchar inte lösenfrasen som associeras med följande server:  **\<servernamn >** |**Orsak:** Den angivna krypteringslösenfrasen matchar inte i den krypterade lösenfrasen som används vid kryptering av data från Azure Backup Server-data som återställs. Agenten kan inte dekryptera data. Därför misslyckas återställningen.<br>**Lösning:** Ange exakt samma krypteringslösenfrasen som är associerade med Azure Backup Server vars data återställs. |
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267709"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521758"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-skalbarhets- och prestandamål för storage-konton
 
@@ -58,13 +58,13 @@ Exempel: En enda resurs kan uppnå 100 000 IOPS och en enskild fil kan skala upp
 
 |Område  |Mål  |
 |---------|---------|
-|Minstorlek                        |100 giB      |
-|Maxstorlek                        |100 TiB      |
+|Etablerade minstorlek                        |100 giB      |
+|Max etablerad storlek                        |100 TiB      |
 |Minimistorlek öka/minska    |1 GiB      |
 |Baslinjen IOPS    |1 IOPS per GiB upp till 100 000|
 |IOPS bursting    |3 x IOPS per GiB upp till 100 000|
-|Minsta bandbredd                     |100        |
-|Bandbredd |0,1 MB/s per GiB upp till 5 GiB/s     |
+|Priset för utgående trafik         |60 MiB/s + 0.06 * etablerats GiB        |
+|Ingångshändelser| 40 MiB/s + 0.04 * etablerats GiB |
 |Högsta antalet ögonblicksbilder        |200       |
 
 #### <a name="premium-file-limits"></a>Gränser för Premium-fil
@@ -89,9 +89,9 @@ Azure File Sync har utformats med målet att obegränsad användning, men obegr�
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
-- [Prisinformation om Lagring](https://azure.microsoft.com/pricing/details/storage/)
+- [Prisinformation om lagring](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md)
 - [Azure Storage Replication](../storage-redundancy.md)
 - [Prestanda och skalbarhetschecklista för Microsoft Azure Storage](../storage-performance-checklist.md)

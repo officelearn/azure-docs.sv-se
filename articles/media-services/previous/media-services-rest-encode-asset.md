@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293081"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521636"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ I följande exempel visas hur du ställer in attributet assetName:
 
 ## <a name="considerations"></a>Överväganden
 * TaskBody egenskaper måste använda literal XML för att ange hur många indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
-* I definitionen av TaskBody varje inre värde för <inputAsset> och <outputAsset> måste anges som JobInputAsset(value) eller JobOutputAsset(value).
+* I definitionen av TaskBody varje inre värde för `<inputAsset>` och `<outputAsset>` måste anges som JobInputAsset(value) eller JobOutputAsset(value).
 * En aktivitet kan ha flera utdataresultat. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
 * Du kan ange JobInputAsset eller JobOutputAsset som en indatatillgången för en aktivitet.
 * Uppgifter måste inte utgör en cykel.
 * Värdeparametern som du skickar till JobInputAsset eller JobOutputAsset representerar index för en tillgång. De faktiska resurser har definierats i navigeringsegenskaper InputMediaAssets och OutputMediaAssets på entiteten jobbdefinitionen.
 * Eftersom Media Services bygger på OData v3, enskilda tillgångar i InputMediaAssets och OutputMediaAssets navigering egenskapsuppsättningar refereras via en ”__metadata: uri” namn / värde-par.
 * InputMediaAssets mappas till en eller flera resurser som du skapade i Media Services. OutputMediaAssets skapas av systemet. De refererar inte till en befintlig tillgång.
-* OutputMediaAssets kan namnges med hjälp av attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den <outputAsset> elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan anges sedan OutputMediaAsset namnegenskapen till ”exempel”. Men om du inte ange ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
+* OutputMediaAssets kan namnges med hjälp av attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den `<outputAsset>` elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan anges sedan OutputMediaAsset namnegenskapen till ”exempel”. Men om du inte ange ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
 
 ## <a name="create-a-job-with-chained-tasks"></a>Skapa ett jobb med länkade uppgifter
 I många Programscenarier utvecklare som vill skapa en serie bearbetningsåtgärder. Du kan skapa en serie med länkade uppgifter i Media Services. Varje aktivitet utför olika bearbetningssteg och kan använda olika mediebearbetare. Länkade uppgifter kan lämnar in en tillgång från en aktivitet till en annan, utför en linjär aktivitetssekvensen på tillgången. Uppgifter som utförs i ett jobb måste dock inte vara i en sekvens. När du skapar en länkad aktivitet med den länkade **ITask** objekt skapas i en enda **IJob** objekt.

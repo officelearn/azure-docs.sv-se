@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076810"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524182"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökat Apache Spark-Historikserver att felsöka och diagnostisera Apache Spark-program
 
@@ -32,7 +32,7 @@ Apache Spark-Historikserver är webbgränssnittet för slutförda och körs Spar
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna Spark historik Server webbgränssnittet efter URL
-Öppna Spark-Historikserver genom att bläddra till följande URL ersätter <ClusterName> med Apache Spark-klusternamn av kunden.
+Öppna Spark-Historikserver genom att bläddra till följande URL ersätter `<ClusterName>` med Apache Spark-klusternamn av kunden.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

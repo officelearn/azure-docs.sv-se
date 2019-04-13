@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf5215ff5acaf08125cf280103ba8ff0123dc116
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175107"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523825"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för MySQL
 
@@ -30,7 +30,7 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
 - Samma Versionsmigrering. Migrera MySQL 5.6 till Azure Database för MySQL 5.7 stöds inte.
 - Aktivera binär loggning i my.ini (Windows) eller my.cnf (Unix)
     - Som Server_id till ett tal som är större eller lika med 1, till exempel Server_id = 1 (endast för MySQL 5.6)
-    - Ange log-bin = <path> (endast för MySQL 5.6)
+    - Ange log-bin = \<sökväg > (endast för MySQL 5.6)
     - Ange binlog_format = rad
     - Expire_logs_days = 5 (rekommenderas - endast för MySQL 5.6)
 - Användare måste ha ReplicationAdmin-rollen.

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994941"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523332"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten för kunskapsutveckling
 
@@ -252,7 +252,7 @@ När du har skapat molntjänsten kan du använda [`kes.exe deploy_service`](Comm
 
 [Växla](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) innehållet i mellanlagringsfacket med produktionsplatsen så att live-trafik omdirigeras till den nyligen distribuerade tjänsten. Du kan upprepa den här processen när du distribuerar en uppdaterad version av tjänsten med nya data. Som med alla andra Azure-molntjänster kan du också använda Azure-portalen för att konfigurera [autoskalning](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-I det här exemplet distribuerar du indexet *Akademisk* till en mellanlagringsplats för en befintlig molntjänst med *< vm_size >* virtuella datorer. Ange följande kommando:
+I det här exemplet distribuerar du den *akademiska* index till en mellanlagringsplats för en befintlig molntjänst med  *\<vm_size >* virtuella datorer. Ange följande kommando:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

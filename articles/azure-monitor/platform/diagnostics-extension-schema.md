@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493322"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526355"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
 Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
@@ -187,7 +187,7 @@ Det finns några viktiga skillnader mellan hur anslutningssträngen fungerade i 
 
 * I Azure SDK 2.4 och tidigare användes anslutningssträngen vid körning av diagnostik-plugin-programmet att hämta information om storage-konto för att överföra diagnostikloggar.
 * I Azure SDK 2.6 och senare, använder Visual Studio anslutningssträngen diagnostik för att konfigurera diagnostiktillägget med lämpliga lagringskontoinformation under publiceringen. Anslutningssträngen kan du definiera olika lagringskonton för olika konfigurationer som Visual Studio ska använda när du publicerar. Eftersom diagnostik plugin-programmet inte längre är tillgängliga (efter Azure SDK 2.5) kan inte .cscfg-filen påverkar i sig aktivera Diagnostiktillägget. Du måste aktivera tillägget separat via verktyg som Visual Studio eller PowerShell.
-* Paketet utdata från Visual Studio innehåller också den offentliga konfigurationen-XML för diagnostics-tillägg för varje roll för att förenkla konfigureringen av diagnostiktillägget med PowerShell. Visual Studio använder anslutningssträngen diagnostik för att fylla i informationen om lagring finns i den offentliga konfigurationen. De offentliga konfigurationsfilerna skapas i mappen tillägg och följer mönstret PaaSDiagnostics. <RoleName>. PubConfig.xml. PowerShell-baserade distributioner kan använda det här mönstret för att mappa varje konfiguration tilldelas en roll.
+* Paketet utdata från Visual Studio innehåller också den offentliga konfigurationen-XML för diagnostics-tillägg för varje roll för att förenkla konfigureringen av diagnostiktillägget med PowerShell. Visual Studio använder anslutningssträngen diagnostik för att fylla i informationen om lagring finns i den offentliga konfigurationen. De offentliga konfigurationsfilerna skapas i mappen tillägg och följer mönstret `PaaSDiagnostics.<RoleName>.PubConfig.xml`. PowerShell-baserade distributioner kan använda det här mönstret för att mappa varje konfiguration tilldelas en roll.
 * Anslutningssträngen i .cscfg-filen används också av Azure portal på dataåtkomst diagnostik så visas den i den **övervakning** fliken. Strängen som behövs för att konfigurera tjänsten för att visa utförlig övervakningsdata i portalen.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrerar projekt till Azure SDK 2.6 och senare

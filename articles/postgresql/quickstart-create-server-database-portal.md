@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856217"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524216"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
@@ -141,7 +141,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
     > [!TIP]
     > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
     > 
-    > ”psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL-anslutning krävs. Specify SSL options and retry.
+    > ”psql: Oåterkalleligt fel: ingen pg_hba.conf post för värd `<IP address>`, användaren ”myadmin” databas ”postgres”, SSL på oåterkalleligt fel: SSL-anslutning krävs. Specify SSL options and retry.
     > 
     > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet ”Konfigurera en brandväggsregel på servernivå” i artikeln.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010625"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523961"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -266,7 +266,7 @@ Det finns ett antal slutpunkter/frågealternativ som inte stöds av Azure Cosmos
 | REST-metoder | REST-slutpunkt/frågealternativet | URL: er för dokument | Förklaring |
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA, PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabell](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, lagringskonfiguration för analys och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
-| ALTERNATIV | / < table-resource-name > | [Tabell före flygning CORS-förfrågan](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Det här är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
+| ALTERNATIV | /\<resurs-tabellnamn > | [Tabell före flygning CORS-förfrågan](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Det här är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
 | HÄMTA | /? restype =service@comp= stats | [Hämta statistik för tjänsten i tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära databaser. Detta är inte nödvändigt i Cosmos DB som replikeringen är en del av skrivningar. |
 | HÄMTA, PLACERA | /mytable? comp = acl | [Hämta ACL-tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera signaturer för delad åtkomst (SAS). Även om SAS stöds kan de ställs och hanteras annorlunda. |
 
@@ -293,7 +293,7 @@ Om något av dessa skillnader är ett problem för ditt projekt, kontakta [ askc
 
 Du kan dela din feedback i något av följande sätt:
 
-* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stackspill](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för frågor om programmering. Kontrollera att din fråga är [på avsnittet](https://stackoverflow.com/help/on-topic) och [innehåller samma information som möjligt, vilket gör frågan tydlig och besvaras](https://stackoverflow.com/help/how-to-ask).
 

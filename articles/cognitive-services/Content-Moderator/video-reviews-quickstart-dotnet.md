@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758246"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527378"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med hjälp av .NET
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att sn
 - Hämta status och information om granskningen
 - Publicera granskningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 - Den här artikeln förutsätter att du har [modereras videon (se snabbstarten)](video-moderation-api.md) och har svarsdata. Du behöver den för att skapa ram-baserade granskningar för mänskliga moderatorer.
@@ -166,7 +166,7 @@ Skapa en video granskning med **ContentModeratorClient.Reviews.CreateVideoReview
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”. 
 1. Din Content Moderator-Teamnamn.
-1. En **IList<CreateVideoReviewsBodyItem>**  objekt. Varje **CreateVideoReviewsBodyItem** -objektet representerar en video granskning. Den här snabbstarten skapar en granskning i taget.
+1. En **IList\<CreateVideoReviewsBodyItem >** objekt. Varje **CreateVideoReviewsBodyItem** -objektet representerar en video granskning. Den här snabbstarten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Som ett minimum kan du ange följande egenskaper:
 - **Innehåll**. URL till videoklippet som ska granskas.
@@ -224,18 +224,18 @@ Du kan lägga till bildrutor i en video granskning med **ContentModeratorClient.
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”.
 1. Din Content Moderator-Teamnamn.
 1. Granska video-ID som returneras av **CreateVideoReviews**.
-1. En **IList<VideoFrameBodyItem>**  objekt. Varje **VideoFrameBodyItem** -objektet representerar en bildruta.
+1. En **IList\<VideoFrameBodyItem >** objekt. Varje **VideoFrameBodyItem** -objektet representerar en bildruta.
 
 **VideoFrameBodyItem** har följande egenskaper:
 - **Tidsstämpel**. En sträng som innehåller, i sekunder, tiden i videon som video ramen togs.
 - **FrameImage**. URL för video ramen.
-- **Metadata**. En IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** är helt enkelt ett nyckel/värde-par. Giltiga nycklar är:
+- **Metadata**. En IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** är helt enkelt ett nyckel/värde-par. Giltiga nycklar är:
 - **reviewRecommended**. SANT om en mänsklig granskning för video ramen rekommenderas.
 - **adultScore**. Ett värde mellan 0 och 1 som bedömer allvarlighetsgraden för vuxet innehåll i video ramen.
 - **a**. SANT om videon innehåller vuxet innehåll.
 - **racyScore**. Ett värde mellan 0 och 1 som bedömer allvarlighetsgraden för olämpligt innehåll i video ramen.
 - **r**. SANT om video ramen innehåller olämpligt innehåll.
-- **ReviewerResultTags**. En IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** är helt enkelt ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera bildrutor.
+- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** är helt enkelt ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera bildrutor.
 
 > [!NOTE]
 > Den här snabbstarten genererar slumpmässiga värden för den **adultScore** och **racyScore** egenskaper. I ett produktionsprogram du hämtar dessa värden från den [videomodereringen](video-moderation-api.md)distribuerade som en tjänst för Azure Media.

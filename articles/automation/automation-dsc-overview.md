@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822829"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524949"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration-översikt
 
@@ -41,7 +41,7 @@ Från Azure portal eller PowerShell, kan du hantera alla dina DSC-konfiguratione
 
 Noder som hanteras med Azure Automation-Tillståndskonfiguration Skicka detaljerad status för rapporteringsdata till inbyggda hämtningsservern. Du kan konfigurera Azure Automation State Configuration för att skicka dessa data till Log Analytics-arbetsytan. Läs hur du skickar Tillståndskonfiguration statusdata till Log Analytics-arbetsytan i [vidarebefordra Azure Automation Tillståndskonfiguration rapporterar data till Azure Monitor-loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Överväg följande krav när du använder Azure Automation tillstånd Configuration (DSC).
 
@@ -117,7 +117,7 @@ Föredrar du att titta eller läsa? Ta en titt på följande videoklipp från ma
 > [!NOTE]
 > Koncept och livscykel som beskrivs i den här videon är korrekta, har Azure Automation-Tillståndskonfiguration utvecklats mycket sedan videon spelades. Det är nu allmänt tillgänglig, har ett mycket mer omfattande användargränssnitt i Azure-portalen och har stöd för många ytterligare funktioner.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Nästa steg
 

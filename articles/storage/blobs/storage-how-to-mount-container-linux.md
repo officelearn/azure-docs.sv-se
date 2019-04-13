@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698015"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521661"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
 
@@ -29,7 +29,7 @@ Den här guiden visar hur du använder blobfuse och montera Blob storage-behåll
 ## <a name="install-blobfuse-on-linux"></a>Installera blobfuse på Linux
 Blobfuse binärfiler finns på [lagringsplatser för Microsoft-programvara för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för distributioner som Ubuntu och RHEL. Konfigurera en databaser i listan om du vill installera blobfuse på dessa distributioner. Du kan också skapa binärfiler från källan koden efter den [Azure Storage installationsstegen](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det finns inga binärfiler för din distribution.
 
-Blobfuse har stöd för installation på Ubuntu 14.04 och 16.04. Kör följande kommando för att se till att du har något av dessa versioner distribueras:
+Blobfuse har stöd för installation på Ubuntu 14.04, 16.04 och 18.04. Kör följande kommando för att se till att du har något av dessa versioner distribueras:
 ```
 lsb_release -a
 ```
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-På samma sätt kan ändra Webbadressen till `.../ubuntu/16.04/...` att den pekar på en distribution i Ubuntu 16.04.
+På samma sätt kan ändra Webbadressen till `.../ubuntu/16.04/...` eller `.../ubuntu/18.04/...` att referera till en annan Ubuntu-version.
 
 ### <a name="install-blobfuse"></a>Installera blobfuse
 
@@ -85,7 +85,7 @@ I Azure, kan du använda de differentierande diskarna (SSD) som är tillgänglig
 
 Kontrollera att dina användare har åtkomst till den tillfälliga sökvägen:
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+Den `accountName` är prefixet för ditt lagringskonto – inte en fullständig URL.
 
-När du har skapat den här filen kan du se till att begränsa åtkomst så att ingen annan användare kan läsa den.
+Skapa den här filen med hjälp av:
+
+```
+touch ~/fuse_connection.cfg
+```
+
+När du har skapat och redigera den här filen kan du se till att begränsa åtkomst så att inga andra användare kan läsa den.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

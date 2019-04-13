@@ -1,7 +1,7 @@
 ---
 title: Mönsterroller
 titleSuffix: Azure Cognitive Services
-description: Använd ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
+description: Mönster extrahera data från välutformat mall yttranden. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106601"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523282"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsbaserade mönster med hjälp av roller
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsmässigt relaterade mönster med hjälp av roller
 
-I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
+I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Uttryck för mallen använder en [enkel enhet](luis-concept-entity-types.md#simple-entity) och [roller](luis-concept-roles.md) att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
 
 
 **I den här självstudiekursen får du lära du dig att:**
@@ -40,7 +40,7 @@ I den här självstudien använder du ett mönster för att extrahera data från
 
 ## <a name="using-roles-in-patterns"></a>Med roller i mönster
 
-Syftet med roller är att extrahera kontextrelaterade entiteter i ett yttrande. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
+Syftet med roller är att extrahera sammanhangsmässigt relaterade entiteter i ett uttryck. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
 
 
 Namnet på den nya medarbetaren Billy Patterson finns inte på listentiteten för **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system för att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas läggs medarbetarens autentiseringsuppgifter till i listentiteten **medarbetare**.
@@ -373,19 +373,6 @@ Städer, precis som namn på personer, är svåra på så sätt att de kan vara 
     ```
 
 Avsiktspoängen är nu mycket högre och rollnamnen är en del av entitetssvaret.
-
-## <a name="hierarchical-entities-versus-roles"></a>Hierarkiska entiteter jämfört med roller
-
-I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md) identifieras avsikten **MoveEmployee** när du ska flytta en befintlig medarbetare från en kontorsbyggnad till en annan. Exempelyttrandena hade ursprungs- och destinationsplatserna men använde inte roller. I stället var ursprung och destination underordnade den hierarkiska entiteten. 
-
-I den här självstudien identifierar appen Human Resources yttranden om att flytta nya medarbetare från en stad till en annan. Dessa två typer av yttranden är desamma men löses med olika LUIS-funktioner.
-
-|Självstudier|Exempel på yttrande|Ursprungs- och destinationsplatser|
-|--|--|--|
-|[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|flytta Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
-|Den här självstudien (med roller)|Flytta Billy Patterson från **Yuma** till **Denver**.|Yuma, Denver|
-
-Mer information finns i [Roller jämfört med hierarkiska entiteter](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001273"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526749"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du använder Yeoman-modulgeneratorn f�
 - Kör Terraform-modulen med hjälp av en Docker-fil som du skapar i den här artikeln.
 - Kör Terraform-modulen internt i Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - **Visual Studio Code**: Vi kommer att använda [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.
@@ -73,8 +73,8 @@ Från en kommandotolk:
 1. Navigera till den överordnade katalogen där du vill spara den nya tomma katalog som vi håller på att skapa.
 1. Ange `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Ersätt <new-directory-name> med namnet på den nya katalogen. I det här exemplet döpte vi den nya katalogen till `GeneratorDocSample`.
+    > [!NOTE]
+    > Ersätt `<new-directory-name>` med namnet på den nya katalogen. I det här exemplet döpte vi den nya katalogen till `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 1. Skapa $GOPATH-mappen om det inte redan finns en sådan: Ange `mkdir ~/go`.
 
-1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen används för att lagra och organisera olika projektmappar du skapar, till exempel mappen <namn_på_modulen> som vi skapar i nästa steg.
+1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen som används för att lagra och organisera olika projekt mappar som du kan skapa, till exempel den `<your-module-name>` mapp som vi skapar i nästa steg.
 
 1. Skapa en mapp som ska innehålla Terraform-modulen: Ange `mkdir ~/go/src/<your-module-name>`.
 

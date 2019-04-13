@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106941"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522358"
 ---
 # <a name="create-entities-without-utterances"></a>Skapa entiteter utan yttranden
 
-Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. En entitet representerar en klass, inklusive en samling liknande objekt (platser, saker, personer, händelser eller begrepp). Entiteter beskriver information som är relevanta för avsikten och ibland de är viktiga för din app för att utföra sitt uppdrag. Du kan skapa enheter när du lägger till ett uttryck till en avsikt eller från varandra från (före eller efter) att lägga till ett uttryck i en avsikt.
+Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. En entitet representerar en klass, inklusive en samling liknande objekt (platser, saker, personer, evenemang eller begrepp). Entiteter beskriver information som är relevanta för avsikten och ibland de är viktiga för din app för att utföra sitt uppdrag. Du kan skapa enheter när du lägger till ett uttryck till en avsikt eller från varandra från (före eller efter) att lägga till ett uttryck i en avsikt.
 
 Du kan lägga till, redigera eller ta bort entiteter i din LUIS-app via den **entitetslistan** på den **entiteter** sidan. LUIS erbjuder två typer av entiteter: [förskapade entiteter](luis-reference-prebuilt-entities.md), och dina egna [anpassade entiteter](luis-concept-entity-types.md#types-of-entities).
 
@@ -56,7 +56,7 @@ En enkel enhet beskriver ett enda koncept. Använd följande procedur för att s
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Lägg till entiteter för reguljärt uttryck för mycket strukturerade begrepp
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Lägg till entiteter för reguljärt uttryck för kraftigt strukturerad begrepp
 
 Ett reguljärt uttryck entiteten används för att hämta data från uttryck baserat på ett reguljärt uttryck som du anger. 
 
@@ -135,7 +135,7 @@ I uttryck `Where is Request relocation from employee new to the company on the s
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Lägg till en roll för att skilja olika kontexter
 
-En roll är en namngiven undertyp till en entitet baserat på kontext. Det kan jämföras med en [hierarkiska](#add-hierarchical-entities) entiteten men roller som endast används i [mönster](luis-how-to-model-intent-pattern.md). 
+En roll är en namngiven undertyp baserat på kontext. Det är tillgängligt i alla entiteter, inklusive fördefinierade och icke-machine-lärt dig entiteter. 
 
 Om du använder samma exempel som hierarkisk entiteten av ursprung och mål städer, skillnaden är att en roll har namnet ursprung i stället för en hierarkisk underordnad. 
 

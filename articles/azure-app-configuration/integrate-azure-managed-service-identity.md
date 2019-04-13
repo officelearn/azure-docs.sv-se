@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6e161bcf2c38db0fd614eac1a211218785179ec3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c0d5c2903cc61841d2868d676194e7584da48635
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620792"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522426"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Självstudier: Integrera med Azure hanterade identiteter
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Ge en hanterad identitet tillgång till Appkonfiguration.
 > * Konfigurera din app om du vill använda en hanterad identitet när du ansluter till Appkonfiguration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
@@ -75,7 +75,7 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
-1. Öppna *appsettings.json*, och Lägg till följande skript. Ersätt *< service_endpoint >*, inklusive parenteser med URL-Adressen till din app konfiguration av lagring:
+1. Öppna *appsettings.json*, och Lägg till följande skript. Ersätt  *\<service_endpoint >*, inklusive parenteser med URL-Adressen till din app konfiguration av lagring:
 
     ```json
     "AppConfig": {

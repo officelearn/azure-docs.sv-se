@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369147"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524382"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din enhet för arbete till din organisations nätverk
 Anslut Windows 10-enheten ägs av arbetet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -62,7 +62,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 
     ![Konton på skärmen inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Välj **åtkomst till arbete eller skola**, och se till att du ser texten som säger något som, **är anslutna till *< your_organization >* Azure AD**.
+2. Välj **åtkomst till arbete eller skola**, och se till att du ser texten som säger något som, **är anslutna till  *\<your_organization >* Azure AD**.
 
     ![Få åtkomst till arbets- eller skolkonto skärmen med anslutna contoso-konto](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 
     ![Konton på skärmen inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Välj **åtkomst till arbete eller skola**, och se till att du ser texten som säger något som, **är anslutna till *< your_organization >* Azure AD**.
+2. Välj **åtkomst till arbete eller skola**, och se till att du ser texten som säger något som, **är anslutna till  *\<your_organization >* Azure AD**.
 
     ![Få åtkomst till arbets- eller skolkonto skärmen med anslutna contoso-konto](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

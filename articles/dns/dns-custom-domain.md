@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111420"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521860"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst
 
 Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser att stöd för anpassade domäner eller som har ett fullständigt kvalificerat domännamn (FQDN). Ett exempel är du har en Azure webbapp och du vill att användarna ska komma åt den genom att antingen med hjälp av contoso.com eller www\.contoso.com som ett fullständigt domännamn. Den här artikeln beskriver hur du konfigurerar din Azure-tjänst med Azure DNS för att använda anpassade domäner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna använda Azure DNS för din anpassade domän, måste du först Delegera din domän till Azure DNS. Besök [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) anvisningar om hur du konfigurerar dina namnservrar för delegering. När din domän har delegerats till Azure DNS-zon kan kan du konfigurera DNS-poster som behövs.
 
@@ -41,7 +41,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | myfunctionapp        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | adatumfunction.azurewebsites.net        | DNS-namn du skapar aliaset som, i det här exemplet är det adatumfunction.azurewebsites.net DNS-namn som tillhandahålls som standard i funktionsappen.        |
@@ -66,10 +66,10 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | mywebserver        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Type     | A        | Använd en A-post som resursen är en IP-adress.        |
+|Typ     | A        | Använd en A-post som resursen är en IP-adress.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
-|IP-adress     | <your ip address>       | Offentliga IP-adress.|
+|IP-adress     | `<your ip address>`       | Offentliga IP-adress.|
 
 ![Skapa en A-post](./media/dns-custom-domain/arecord.png)
 
@@ -93,7 +93,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | mywebserver        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Type     | CNAME        | Använd en CNAME-post använder ett alias. Om resursen används en IP-adress, används en A-post.        |
+|Typ     | CNAME        | Använd en CNAME-post använder ett alias. Om resursen används en IP-adress, används en A-post.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | webserver.azurewebsites.net        | DNS-namn du skapar aliaset som, i det här exemplet är det webserver.azurewebsites.net DNS-namn som tillhandahålls som standard till webbappen.        |
@@ -124,10 +124,10 @@ Gå till **Storage** > **Lagringskonton**, Välj ditt lagringskonto och på **Cu
 Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande information på den **lägga till en postuppsättning** bladet och klickar på **OK** att skapa den.
 
 
-|Egenskap   |Värde  |Beskrivning  |
+|Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | asverify.mystorageaccount        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS-namn du skapar aliaset som, i det här exemplet är det asverify.adatumfunctiona9ed.blob.core.windows.net DNS-namn som tillhandahålls som standard till lagringskontot.        |
@@ -152,10 +152,10 @@ Välj vilken slutpunkt du arbetar med och klicka på **+ anpassad domän**. Obs 
 
 Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande information på den **lägga till en postuppsättning** bladet och klickar på **OK** att skapa den.
 
-|Egenskap   |Värde  |Beskrivning  |
+|Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | cdnverify.mycdnendpoint        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS-namn du skapar aliaset som, i det här exemplet är det cdnverify.adatumcdnendpoint.azureedge.net DNS-namn som tillhandahålls som standard till lagringskontot.        |

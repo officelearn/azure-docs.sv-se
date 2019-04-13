@@ -1,7 +1,7 @@
 ---
 title: Mönster öka noggrannheten
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lär dig hur du lägger till mönstret mallar i program för Språkförståelse (LUIS) att förbättra förutsägelsefunktionen.
+description: Lägga till mönstret mallar för att förbättra förutsägelsefunktionen i Språkförståelse (LUIS) program.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195055"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521262"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
-När en LUIS-app tar emot endpoint yttranden måste använda en [mönstret](luis-concept-patterns.md) förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster som använder specifika [syntax](luis-concept-patterns.md#pattern-syntax) att ange platsen för: [entiteter](luis-concept-entity-types.md), entiteten roller och valfri text.
+När en LUIS-app tar emot endpoint yttranden måste använda en [mönstret](luis-concept-patterns.md) förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster som använder specifika [syntax](luis-concept-patterns.md#pattern-syntax) att ange platsen för: [entiteter](luis-concept-entity-types.md), entiteten [roller](luis-concept-roles.md), och valfria text.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
 1. Öppna din app genom att välja dess namn på **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra apprestanda**.
@@ -34,7 +34,7 @@ När en LUIS-app tar emot endpoint yttranden måste använda en [mönstret](luis
 
     ![Skärmbild av entitet för mönstret](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om din entitet innehåller en roll kan indikera vilken roll med ett enda kolon `:`efter att entiteten namnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
+    Om din entitet innehåller en [rollen](luis-concept-roles.md), indikera vilken roll med ett enda kolon `:`efter att entiteten namnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
 
     ![Skärmbild av entiteten med rollen](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

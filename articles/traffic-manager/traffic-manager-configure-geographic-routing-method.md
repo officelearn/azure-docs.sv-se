@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010079"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524318"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Konfigurera geografisk routningsmetod som med Traffic Manager
 
@@ -26,7 +26,7 @@ Geografisk trafikroutningsmetod kan du dirigera trafik till specifika slutpunkte
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/).
 2. Klicka på **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
 4. I den **skapa Traffic Manager-profil**:
-    1. Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. Om du vill komma åt din Traffic Manager-profil kan du använda DNS-namnet <profilename>. trafficmanager.net.
+    1. Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. Om du vill komma åt din Traffic Manager-profil kan du använda DNS-namnet `<profilename>.trafficmanager.net`.
     2. Välj den **geografisk** routningsmetod.
     3. Välj den prenumeration som du vill skapa profilen under.
     4. Använd en befintlig resursgrupp eller skapa en ny resursgrupp att placera profilen under. Om du vill skapa en ny resursgrupp använder den **plats för resursgruppen** listrutan och ange platsen för resursgruppen. Den här inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.

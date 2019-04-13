@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189792"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523842"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Avancerade självstudier för Media Encoder Premium Workflow
 ## <a name="overview"></a>Översikt
@@ -760,7 +760,7 @@ Detta gjordes via normal manipulering av strängåtgärder. Den resulterande än
 
 *Loggning av den resulterande clip-listan*
 
-Gör en testkörning om du vill se hur klipps strömmar video och ljud. När du ska göra mer än en testkörning med olika värden för ta bort punkter, ser du att de inte kommer beaktas men! Anledningen är att designern, till skillnad från Azure-körning, inte åsidosätter cliplist xml varje körning. Det innebär att endast första gången du har angett start- och slutpunkter, leder till XML-filen att omvandla, de andra tider vår guard-satsen (om (clipListXML.indexOf (”<trim>”) == -1)) förhindrar att arbetsflödet lägger till ett annat trim element om det finns redan finns en.
+Gör en testkörning om du vill se hur klipps strömmar video och ljud. När du ska göra mer än en testkörning med olika värden för ta bort punkter, ser du att de inte kommer beaktas men! Anledningen är att designern, till skillnad från Azure-körning, inte åsidosätter cliplist xml varje körning. Det innebär att endast första gången du har angett start- och slutpunkter, leder till XML-filen att omvandla, de andra tider vår guard-satsen (om (`clipListXML.indexOf("<trim>") == -1`)) förhindrar att arbetsflödet lägger till en annan trim elementet när det redan finns en.
 
 Vårt arbetsflöde praktiskt att testa lokalt vi bästa lägger du till kod dagliga rutiner som kontrollerar om ett trim element redan finns. I så fall kan vi ta bort den innan du fortsätter genom att ändra XML-filen med de nya värdena. I stället för vanlig strängändringar, är det förmodligen säkrast att göra detta via objektmodellen för verkliga xml-parsning.
 
@@ -949,7 +949,7 @@ Med den nedan enkla guard-satsen, kan vi kontrollera om trimning krävs och best
 
 [Exempelfilerna för arbetsflöde](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Explorer-verktyget](https://aka.ms/amse)
+[Azure Media Services Explorer-verktyg](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

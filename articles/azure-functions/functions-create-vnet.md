@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894214"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523740"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrera en funktionsapp med en Azure-nätverk
 
@@ -111,13 +111,14 @@ Funktionsappen är ansluten till både Internet och det virtuella nätverket. Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Funktioner som körs i en premiumplan delar samma underliggande App Service-infrastruktur som Web Apps. Det innebär att all dokumentation för Web Apps gäller för dina funktioner för Premium-plan.
+Funktioner som körs i en premiumplan delar samma underliggande App Service-infrastruktur som Web Apps på PV2 planer. Det innebär att all dokumentation för Web Apps gäller för dina funktioner för Premium-plan.
 
-1. [Läs mer om VNET-integrering med App Service / fungerar här](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Mer information om virtuella nätverk i Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [Aktivera för nätverksfunktioner och kontrollera med App Service-miljöer](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [Ansluta till enskilda lokala resurser utan ändringar av brandvägg med hjälp av Hybridanslutningar](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [Mer information om funktionen proxyservrar](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [Mer information om Nätverksalternativ i functions här](./functions-networking-options.md)
+1. [Läsa funktionerna här nätverk vanliga frågor och svar](./functions-networking-faq.md)
+1. [Mer information om virtuella nätverk i Azure](../virtual-network/virtual-networks-overview.md)
+1. [Aktivera flera nätverk funktioner och kontroll med App Service-miljöer](../app-service/environment/intro.md)
+1. [Ansluta till enskilda lokala resurser utan ändringar av brandvägg med hjälp av Hybridanslutningar](../app-service/app-service-hybrid-connections.md)
+1. [Mer information om funktionen proxyservrar](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

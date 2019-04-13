@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854797"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527018"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Uppgifter för projektet leda i Team Data Science Process
 
@@ -150,7 +150,7 @@ Om du använder Azure DevOps som värd för koden-plattformen, vanligtvis den _H
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Om du använder Azure DevOps som värd för koden-plattformen, vanligtvis den _SSH URL: en för på projektets lagringsplats_ är _ssh: / / < tjänstnamn för Azure DevOps\>@< tjänstnamn för Azure DevOps\>. visualstudio.com:22/<Your Project Name>/\_git / < lagringsplats projektnamnet\>. I det här exemplet har vi ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Om du använder Azure DevOps som värd för koden-plattformen, vanligtvis den _SSH URL: en för på projektets lagringsplats_ är _ssh: / / < tjänstnamn för Azure DevOps\>@< tjänstnamn för Azure DevOps\>.visualstudio.com:22/ < Your projektnamn\>/\_git / < lagringsplats projektnamnet\>. I det här exemplet har vi ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Kopiera innehållet i D3 till D5 
 

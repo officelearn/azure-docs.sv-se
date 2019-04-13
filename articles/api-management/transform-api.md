@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084988"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521945"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 ![Principer](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 -   Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 -   Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -81,7 +81,7 @@ Det ursprungliga svaret ska se ut så här:
 
    ![Principer](./media/transform-api/transform-api.png)
 
-7. Ändra din **<outbound>**-kod så att den ser ut så här:
+7. Ändra din  **\<utgående >** kod för att se ut så här:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />

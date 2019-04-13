@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a066e6b75d527dcdf1b211c0ebb76a2d4520eb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104122"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528220"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller och -prenumerationer
 
@@ -71,7 +71,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
     - **Plats**: *USA, östra*
 
 14. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetB*. Klicka på **myVnetB** när den visas i sökresultaten. Ett blad som visas för den **myVnetB** virtuellt nätverk.
-15. I den **myVnetB** bladet som visas, klickar du på **egenskaper** i lodräta listan med alternativ på vänster sida av bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. I den **myVnetB** bladet som visas, klickar du på **egenskaper** i lodräta listan med alternativ på vänster sida av bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID är ungefär som i följande exempel: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Slutför steg 5 – 9 för myVnetB, att ange **UserA** i steg 8.
 17. Logga ut från portalen som UserB och logga in som UserA.
 18. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Klicka på **myVnetA** när den visas i sökresultaten. Ett blad som visas för den **myVnet** virtuellt nätverk.

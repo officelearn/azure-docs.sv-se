@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787911"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523978"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight 
 
@@ -37,7 +37,7 @@ Spark-Historikserver är webbgränssnittet för slutförda och körs Spark-progr
 1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Från **snabblänkar**, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**
 
-    ![Spark-Historikserver](./media/apache-spark-resource-manager/launch-history-server.png "Spark-Historikserver")
+    ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
 
     När du uppmanas, anger du autentiseringsuppgifter som administratör för Spark-klustret. Du kan också öppna Spark-Historikserver genom att bläddra till följande URL:
 
@@ -45,7 +45,7 @@ Spark-Historikserver är webbgränssnittet för slutförda och körs Spark-progr
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Ersätt <ClusterName> med Apache Spark-klusternamn.
+    Ersätt `<ClusterName>` med Apache Spark-klusternamn.
 
 Spark-Historikserver web UI som ser ut som:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731481"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523451"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -58,7 +58,7 @@ App Service stöder både FTP och FTPS för att distribuera dina filer. Dock ska
 
 App Service-appen tar emot förfrågningar från alla IP-adresser från internet som standard, men du kan begränsa den åtkomsten till en liten del av IP-adresser. App Service i Windows kan du definiera en lista över IP-adresser som ska kunna komma åt din app. Listan över tillåtna kan inkludera enskilda IP-adresser eller ett intervall med IP-adresser som definieras av en nätmask. Mer information finns i [Azure App Service statiska IP-begränsningar](app-service-ip-restrictions.md).
 
-För App Service i Windows, du kan också begränsa IP-adresser dynamiskt genom att konfigurera den _web.config_. Mer information finns i [dynamisk IP-säkerhet <dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+För App Service i Windows, du kan också begränsa IP-adresser dynamiskt genom att konfigurera den _web.config_. Mer information finns i [dynamisk IP-säkerhet \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Klientautentisering och auktorisering
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: db0b1cd9d61e498430bff417573b63f99c0ae7e4
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: aa7f77299750a969bf936a3ed9b6ae76653a90c4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301738"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526698"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudier: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 
@@ -171,7 +171,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Din SAS URL för EventHubs följer strukturen: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Till exempel, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    Din SAS URL: en för EventHubs följer strukturen: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg. [SAS-URL-STORAGE-ACCOUNT] beskrevs i steg 8. [SAS-URL-EVENT-HUBS] beskrevs i steg 11.
 

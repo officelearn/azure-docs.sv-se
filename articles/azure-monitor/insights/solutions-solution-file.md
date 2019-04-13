@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776656"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526375"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
 > [!NOTE]
@@ -83,9 +83,9 @@ I följande tabell visas standardparametrar för alla lösningar för hantering.
 >
 >
 
-| Parameter | Type | Beskrivning |
+| Parameter | Typ | Beskrivning |
 |:--- |:--- |:--- |
-| Kontonamn |sträng |Azure Automation-kontonamn. |
+| accountName |sträng |Azure Automation-kontonamn. |
 | pricingTier |sträng |Prisnivån för både Log Analytics-arbetsytan och Azure Automation-konto. |
 | regionId |sträng |Region för Azure Automation-kontot. |
 | solutionName |sträng |Namnet på lösningen.  Om du distribuerar din lösning med Quickstart-mallar, bör sedan du definiera solutionName som en parameter så att du kan definiera en sträng i stället eftersom användaren måste ange en. |
@@ -213,7 +213,7 @@ Lösningen-resursen har egenskaperna i följande tabell.  Detta omfattar de resu
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| workspaceResourceId |ID för Log Analytics-arbetsytan i formuläret  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Arbetsytenamn\>*. |
+| workspaceResourceId |ID för Log Analytics-arbetsytan i formuläret  *\<resursgrupps-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Arbetsytenamn\>*. |
 | referencedResources |Listan över resurser i den lösning som inte ska tas bort när lösningen har tagits bort. |
 | containedResources |Lista över resurser i lösningen som ska tas bort när lösningen har tagits bort. |
 

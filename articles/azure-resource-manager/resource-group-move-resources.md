@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272299"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528245"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
-Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser. Om du vill gå igenom en självstudiekurs, se [självstudien: Flytta Azure-resurser till en annan resursgrupp eller prenumeration](./resource-manager-tutorial-move-resources.md).
+Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser.
 
 Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen.
 
@@ -361,7 +361,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
    Om klient-ID: N för käll- och målprenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
 
-   * [Överföra ägarskapet för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
+   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
    * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan se det här felet när du flyttar en resurs till en ny prenumeration, men att prenumerationen aldrig har använts med den resurstypen.

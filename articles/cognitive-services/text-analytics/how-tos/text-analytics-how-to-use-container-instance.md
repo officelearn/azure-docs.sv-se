@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868352"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526512"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuera språk identifiering av behållare till Azure Kubernetes Service
 
 Lär dig hur du distribuerar du behållaren för identifiering av språk. Den här proceduren visar dig hur skapa lokala Docker-behållare, överför behållarna till ditt eget privata behållarregister, köra behållaren i ett Kubernetes-kluster och testa den i en webbläsare. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud shell. 
 
@@ -206,7 +206,7 @@ Följande steg krävs för att hämta nödvändig information för att ansluta d
 
     Spara hela värdet för steg 3 i det här avsnittet. 
 
-1. Skapa en rolltilldelning för att ge rätt åtkomsten för AKS-klustret ska använda avbildningar som lagras i ditt behållarregister. Ersätt <appId> och <acrId> med de värden som samlats in i de föregående två stegen.
+1. Skapa en rolltilldelning för att ge rätt åtkomsten för AKS-klustret ska använda avbildningar som lagras i ditt behållarregister. Ersätt `<appId>` och `<acrId>` med de värden som samlats in i de föregående två stegen.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

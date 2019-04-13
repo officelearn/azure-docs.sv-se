@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001127"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522718"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-händelseloggen datakällor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [datakällor](agent-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggarna, t.ex System- och förutom att ange några anpassade loggar som skapats av program som du behöver övervaka.
@@ -44,7 +44,7 @@ Azure Monitor samlar in varje händelse som matchar en vald allvarlighetsgrad fr
 ## <a name="windows-event-records-properties"></a>Egenskaper för Windows händelse-poster
 Windows-händelseposter har en typ av **händelse** och har egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Dator |Namnet på den dator som händelsen har samlats in från. |
 | EventCategory |Händelsens kategori. |
@@ -54,7 +54,7 @@ Windows-händelseposter har en typ av **händelse** och har egenskaperna i följ
 | EventLevelName |Allvarlighetsgrad för händelsen i textformat. |
 | Händelseloggen |Namnet på händelseloggen som händelsen har samlats in från. |
 | ParameterXml |Händelsen parametervärden i XML-format. |
-| ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations Manager-agenter.  För övriga agenter är är det här värdet AOI-<workspace ID> |
+| ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations Manager-agenter.  För övriga agenter är är det här värdet `AOI-<workspace ID>` |
 | RenderedDescription |Händelsebeskrivning med parametervärden |
 | Källa |Källa för händelsen. |
 | SourceSystem |Typ av händelsen har samlats in från agenten. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller Operations Manager-hanterad <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure Diagnostics |
@@ -64,7 +64,7 @@ Windows-händelseposter har en typ av **händelse** och har egenskaperna i följ
 ## <a name="log-queries-with-windows-events"></a>Loggfrågor med Windows-händelser
 I följande tabell innehåller olika exempel på loggfrågor som hämtar Windows händelseposter.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:---|:---|
 | Händelse |Alla Windows-händelser. |
 | Händelsen &#124; där EventLevelName == ”error” |Alla Windows-händelser med allvarlighetsgrad för fel. |

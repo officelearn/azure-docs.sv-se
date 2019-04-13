@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360761"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523009"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 
@@ -26,7 +26,7 @@ Om du vill upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett t
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje objekt i matrisen kan du *debatch* matrisen med den [ **SplitOn** utlösa egenskapen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -196,7 +196,7 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
    | Egenskap  | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Ditt namn | 
-   | **Type** | Integer | Data variabeltyp | 
+   | **Typ** | Integer | Data variabeltyp | 
    | **Värde** | 0 | Startvärde för variabeln | 
    |||| 
 
@@ -236,9 +236,9 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
       | Egenskap  | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Till** | *<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
-      | **Subjekt** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
-      | **Innehåll** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
+      | **Till** | *\<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
+      | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
+      | **Brödtext** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
       |||| 
 
 1. Spara din logikapp. För att manuellt testa din logikapp på verktygsfältet för appdesignern väljer **kör**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054519"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523515"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Skapa prenumerationer i Azure API Management
 
@@ -26,7 +26,7 @@ När du publicera API: er via Azure API Management är det enkelt och gemensamma
 
 Den här artikeln beskriver stegen för att skapa prenumerationer i Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill vidta åtgärder i den här artikeln är kraven på följande sätt:
 
@@ -38,7 +38,8 @@ Om du vill vidta åtgärder i den här artikeln är kraven på följande sätt:
 1. Välj **prenumerationer** i menyn till vänster.
 2. Välj **Lägg till prenumeration**.
 3. Ange ett namn för prenumerationen och välj omfattningen.
-4. Välj **Spara**.
+4. Du kan också välja om prenumerationen som ska associeras med en användare.
+5. Välj **Spara**.
 
 ![Flexibla prenumerationer](./media/api-management-subscriptions/flexible-subscription.png)
 

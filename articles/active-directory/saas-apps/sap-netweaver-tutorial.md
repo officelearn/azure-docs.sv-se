@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855647"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory-integration med SAP NetWeaver
 
@@ -34,7 +34,7 @@ När du integrerar SAP NetWeaver med Azure Active Directory innebär det följan
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure Active Directory-integrering med SAP NetWeaver behöver du följande objekt:
 
@@ -135,7 +135,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
 
     > [!NOTE]
-    > Som standard är providernamnet enligt formatet <sid><client>, men Azure AD förväntar sig namnet i formatet <protocol>://<name>, och rekommenderar att underhålla providernamn som https://<sid> <client> så att flera SAP NetWeaver ABAP-motorer kan konfigureras i Azure AD.
+    > Som standard providernamn medföljer som `<sid><client>` formatet, men Azure AD förväntar sig namnet i formatet `<protocol>://<name>`rekommendationer att underhålla providernamn som `https://<sid><client>` så att flera SAP NetWeaver ABAP-motorer att konfigurera i Azure AD.
 
     ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 

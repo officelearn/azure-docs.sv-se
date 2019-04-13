@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491295"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524059"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -50,7 +50,7 @@ Innan du skapar en peering måste du bekanta dig med kraven och begränsningarna
 5. <a name="add-peering"></a>Ange eller Välj värden för följande inställningar:
     - **Namn:** Namnet för peering måste vara unikt inom det virtuella nätverket.
     - **Distributionsmodell för virtuellt nätverk:** Välj vilken distributionsmodell som det virtuella nätverket som du vill peerkoppla till har distribuerats via.
-    - **Jag vet mitt resurs-ID:** Om du har läsbehörighet till det virtuella nätverket som du vill peerkoppla till lämnar du den här kryssrutan avmarkerad. Markera den här kryssrutan om du inte har läsbehörighet till det virtuella nätverket eller en prenumeration som du vill peerkoppla till. Ange fullständigt resurs-ID för det virtuella nätverket som du vill peerkoppla till i den **resurs-ID** rutan som visades när du har markerat kryssrutan. Resurs-ID du anger måste vara för ett virtuellt nätverk som finns i samma, eller [stöds olika](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) som den här virtuella nätverket. Fullständigt resurs-ID som liknar /subscriptions/<Id>/resourceGroups/ < resource-group-name > /providers/Microsoft.Network/virtualNetworks/ < virtual-network-name >. Du kan hämta resurs-ID för ett virtuellt nätverk genom att visa egenskaperna för ett virtuellt nätverk. Läs hur du visar egenskaperna för ett virtuellt nätverk i [hantera virtuella nätverk](manage-virtual-network.md#view-virtual-networks-and-settings). Om prenumerationen är kopplad till en annan Azure Active Directory-klient än prenumerationen med det virtuella nätverket som du skapar peer-kopplingen från först lägga till en användare från varje klient som en [gästanvändare](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) i motsatt klienten.
+    - **Jag vet mitt resurs-ID:** Om du har läsbehörighet till det virtuella nätverket som du vill peerkoppla till lämnar du den här kryssrutan avmarkerad. Markera den här kryssrutan om du inte har läsbehörighet till det virtuella nätverket eller en prenumeration som du vill peerkoppla till. Ange fullständigt resurs-ID för det virtuella nätverket som du vill peerkoppla till i den **resurs-ID** rutan som visades när du har markerat kryssrutan. Resurs-ID du anger måste vara för ett virtuellt nätverk som finns i samma, eller [stöds olika](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) som den här virtuella nätverket. Den fullständiga resource ID ska se ut ungefär så `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. Du kan hämta resurs-ID för ett virtuellt nätverk genom att visa egenskaperna för ett virtuellt nätverk. Läs hur du visar egenskaperna för ett virtuellt nätverk i [hantera virtuella nätverk](manage-virtual-network.md#view-virtual-networks-and-settings). Om prenumerationen är kopplad till en annan Azure Active Directory-klient än prenumerationen med det virtuella nätverket som du skapar peer-kopplingen från först lägga till en användare från varje klient som en [gästanvändare](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) i motsatt klienten.
     - **Prenumeration:** Välj den [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) för det virtuella nätverket som du vill peerkoppla till. En eller flera prenumerationer visas, beroende på hur många prenumerationer ditt konto har läsbehörighet till. När du har markerat den **resurs-ID** markerar du kryssrutan den här inställningen är inte tillgänglig.
     - **Virtuellt nätverk:** Välj det virtuella nätverket som du vill peerkoppla till. Du kan välja ett virtuellt nätverk som skapats via antingen Azure-distributionsmodellen. Om du vill välja ett virtuellt nätverk i en annan region måste du välja ett virtuellt nätverk i en [region som stöds](#cross-region). Du måste ha läsbehörighet till det virtuella nätverket att vara synliga i listan. Om ett virtuellt nätverk i listan, men nedtonade, kan det vara eftersom adressutrymmet för det virtuella nätverket överlappar adressutrymmet för det här virtuella nätverket. Om virtuellt nätverk adressutrymmen överlappar varandra, kan de inte peerkopplas. När du har markerat den **resurs-ID** markerar du kryssrutan den här inställningen är inte tillgänglig.
     - **Tillåt åtkomst till virtuellt nätverk:** Välj **aktiverad** (standard) om du vill aktivera kommunikation mellan de två virtuella nätverken. Om du aktiverar kommunikation mellan virtuella nätverk kan resurser som är anslutna till virtuella nätverken kan kommunicera med varandra med samma bandbredd och latens som om de var anslutna till samma virtuella nätverk. All kommunikation mellan resurser i de två virtuella nätverken är via Azure privat nätverk. Den **VirtualNetwork** tjänsttagg för nätverkssäkerhetsgrupper omfattar det virtuella nätverket och peer-kopplade virtuella nätverket. Läs mer om network security group tjänsttaggar i [nätverkssäkerhetsöversikt](security-overview.md#service-tags). Välj **inaktiverad** om du inte vill att trafik kan flöda till peerkopplade virtuella nätverk. Du kan välja **inaktiverad** om du har peer-kopplade ett virtuellt nätverk med ett annat virtuellt nätverk, men ibland vill du inaktivera trafikflödet mellan de två virtuella nätverken. Du kan hitta aktivering/inaktivering är mycket enklare än att ta bort och återskapa peer-kopplingar. När den här inställningen inaktiveras trafiken inte mellan peerkopplade virtuella nätverk.
@@ -157,9 +157,9 @@ Om ditt konto inte har tilldelats till en av rollerna som tidigare, så måste d
   |Azure-distributionsmodell             | Prenumeration  |
   |---------                          |---------|
   |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Annorlunda](create-peering-different-subscriptions.md)|
+  |                                   |[Olika](create-peering-different-subscriptions.md)|
   |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
-  |                                   |[Annorlunda](create-peering-different-deployment-models-subscriptions.md)|
+  |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
 
 - Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Skapa en virtuell nätverkspeering med hjälp av [PowerShell](powershell-samples.md) eller [Azure CLI](cli-samples.md) exempel på skript eller genom att använda Azure [Resource Manager-mallar](template-samples.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f749a04b569d183589fba8c788ce48f29358b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295563"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525797"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagringskryptering 
 
@@ -111,7 +111,7 @@ Nedan följer allmänna steg för att generera nycklar som du associerar med res
 
     Brödtext egenskap för ansökan    | Beskrivning
     ---|---
-    Id | ContentKey-ID: T genereras med följande format ”, nb:kid:UUID:<NEW GUID>”.
+    Id | ContentKey-ID: T genereras med följande format ”, nb:kid:UUID:\<nytt GUID >”.
     ContentKeyType | Viktiga innehållstypen är ett heltal som definierar nyckeln. Formatet på storage kryptering är värdet 1.
     EncryptedContentKey | Vi skapar ett nytt innehåll nyckelvärde som är en 256-bitars (32 byte)-värde. Nyckeln är krypterad med storage kryptering X.509-certifikatet som vi hämtar från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId och GetProtectionKey metoder. Till exempel finns i följande kod i .NET: den **EncryptSymmetricKeyData** metod som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Det här är skyddet nyckel ID för storage kryptering X.509-certifikatet som används för att kryptera vår innehållsnyckeln.

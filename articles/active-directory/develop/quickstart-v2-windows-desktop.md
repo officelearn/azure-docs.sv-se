@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e5124d466c4294d83bbfa0b7ca15ff6f98e9ec
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505389"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520769"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -64,14 +64,14 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en svars-URL som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-windows-desktop/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-windows-desktop/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
-[Ladda ned Visual Studio 2017-projekt](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Ladda ned Visual Studio 2017-projektet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -86,11 +86,11 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` -är den **(klient)-ID: T** för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` -är inställd på något av följande alternativ:
+> - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
 >   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
->   - Om ditt program stöder **konton alla organisationskatalog och personliga Microsoft-konton**, Ersätt detta värde med `common`
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
@@ -128,7 +128,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Begära token
 
-MSAL har två metoder för hämtning av token: `AcquireToken` och `AcquireTokenSilent`.
+MSAL har två metoder för hämtning av token: `AcquireTokenInteractive` och `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
@@ -140,7 +140,7 @@ Vissa situationer kräver framtvingar användare interagera med Microsoft identi
 - När tvåfaktorsautentisering krävs
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(_scopes)
+authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
@@ -150,7 +150,7 @@ authResult = await App.PublicClientApp.AcquireToken(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilentAsync` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `AcquireTokenAsync`:
+Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilentAsync` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `AcquireTokenInteractive`:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -171,5 +171,5 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Prova att använda självstudien om Windows-skrivbordet för en komplett stegvis guide till att skapa appar och nya funktioner, däribland en fullständig förklaring av den här snabbstarten.
 
 > [!div class="nextstepaction"]
-> [Anropa Graph API-självstudien](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
+> [Självstudie om att anropa Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 

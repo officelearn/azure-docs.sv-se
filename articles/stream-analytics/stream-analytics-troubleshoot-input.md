@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164389"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526412"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsök inkommande anslutningar
 
@@ -39,7 +39,9 @@ När ett Stream Analytics-jobb tar emot ett felaktigt meddelande från indata, i
 ![Azure Stream Analytics-indata panelen](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Aktivera diagnostikloggar att visa information om varningen. Felaktig inmatningshändelser innehålla loggarna för jobbkörning en post med meddelandet som ser ut som: 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>Vad som orsakade felet deserialisering
 Du kan vidta följande steg för att analysera de inkommande händelserna i detalj för att få en förståelse för vad som orsakade felet deserialisering. Du kan sedan åtgärda händelsekällan för att generera händelser i rätt format så att du inte stöter på problemet igen.

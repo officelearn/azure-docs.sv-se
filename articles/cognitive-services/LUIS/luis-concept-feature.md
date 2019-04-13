@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882462"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522861"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras funktioner i din LUIS-app
 
@@ -93,7 +93,7 @@ Att lägga till en fras lista är ett alternativ till att lägga till fler exemp
 ### <a name="use-a-phrase-list"></a>Använd en fras-lista
 Med en fras lista LUIS fortfarande ta hänsyn till kontext och generalisera för att identifiera objekt som liknar, men inte en exakt matchning som objekt i en lista. Om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt i en kategori kan du använda en fras-lista. 
 
-När du vill identifiera nya instanser av en entitet, som ett möte scheduler som ska identifiera namnen på nya kontakter eller en inventering-app som ska identifiera nya produkter, använda en annan typ av dator lärt dig entiteten, till exempel en enkel eller hierarkisk entitet. Skapa sedan en lista över ord och fraser fras som hjälper dig att hitta andra ord liknar entiteten LUIS. Den här listan visar LUIS för att identifiera exempel på entiteten genom att lägga till ytterligare multipel till värdet för orden. 
+När du vill identifiera nya instanser av en entitet, som ett möte scheduler som ska identifiera namnen på nya kontakter eller en inventering-app som ska identifiera nya produkter, kan du använda en annan typ av dator lärt dig entiteten, till exempel en enkel enhet. Skapa sedan en lista över ord och fraser fras som hjälper dig att hitta andra ord liknar entiteten LUIS. Den här listan visar LUIS för att identifiera exempel på entiteten genom att lägga till ytterligare multipel till värdet för orden. 
 
 Fras listor liknar domänspecifika ordförråd hjälp med att förbättra kvaliteten på förståelse för både avsikter och entiteter. En gemensam användning av en fras lista är egennamn, till exempel stadsnamn. Namnet på en stad kan vara flera ord, inklusive bindestreck eller apostrofer.
  

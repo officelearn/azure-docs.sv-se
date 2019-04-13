@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916826"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525117"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
 Den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network (CDN)](cdn-overview.md) slutpunkt i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan börja du leverera innehåll till dina kunder. En Snabbstart om hur du skapar en profil och slutpunkt finns [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du kan skapa en CDN-slutpunkt, måste du ha skapat minst en CDN-profil som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-priserna tillämpas på CDN-profilnivå, måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN-prisnivåer. Om du vill skapa en CDN-profil, [skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
@@ -44,7 +44,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    
     ![Lägg till slutpunkt-sida](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser i domänen _<endpointname>_. azureedge.net.
+3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser i domänen  _\<endpointname >_. azureedge.net.
 
 4. För **ursprungstyp**, väljer du något av följande typer av ursprung: 
    - **Storage** för Azure Storage
@@ -62,7 +62,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
     
-8. För **protokollet** och **ursprungsport**, ange protokoll och portar du använder för att komma åt resurser i den ursprungliga servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-definierade domänen (_<endpointname>_. azureedge.net) att komma åt HTTPS-innehåll. 
+8. För **protokollet** och **ursprungsport**, ange protokoll och portar du använder för att komma åt resurser i den ursprungliga servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-definierade domänen (_\<endpointname >_. azureedge.net) att komma åt HTTPS-innehåll. 
    
    > [!NOTE]
    > Den **ursprungsport** värdet påverkar bara vilken port slutpunkten använder för att hämta information från den ursprungliga servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  
@@ -84,7 +84,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
     - **Azure CDN Standard från Akamai** profiler:
        - [**Allmän webbleverans**](cdn-optimization-overview.md#general-web-delivery)
        - [**Allmän mediedirektuppspelning**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Mediedirektuppspelning av video på begäran**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Video på begäran**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Nedladdning av stora filer**](cdn-optimization-overview.md#large-file-download)
        - [**Acceleration av dynamisk webbplats**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

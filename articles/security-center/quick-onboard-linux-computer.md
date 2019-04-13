@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104683"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521928"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
@@ -57,7 +57,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
    ![Installera agenten][5]
 
-Loggarna för Security Center-agenten för Linux finns på: */var/opt/microsoft/omsagent/<workspace id>/log/*
+Loggar för Security Center-agenten för Linux finns på: */var/opt/microsoft/omsagent/\<arbetsyte-id > /log/*
 
   ![Loggar för agent][6]
 

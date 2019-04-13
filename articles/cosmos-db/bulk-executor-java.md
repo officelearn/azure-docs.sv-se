@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863363"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524029"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använd bulk executor Java-bibliotek för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -118,8 +118,8 @@ Den klonade lagringsplatsen innehåller två exempel ”bulkimport” och ”bul
    |int getNumberOfDocumentsImported()  |   Det totala antalet dokument som importerades från de dokument som angetts för stora importera API-anrop.      |
    |dubbla getTotalRequestUnitsConsumed()   |  De totala begäransenheter (RU) som används av stora importera API-anrop.       |
    |Varaktighet getTotalTimeTaken()   |    Den totala tid som massimporten API-anrop för att slutföra körning.     |
-   |Lista<Exception> getErrors() |  Hämtar lista över fel om vissa dokumenten batch som angetts för stora importera API-anrop som det gick inte att hämta infogas.       |
-   |Lista<Object> getBadInputDocuments()  |    Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).     |
+   |Lista\<undantag > getErrors() |  Hämtar lista över fel om vissa dokumenten batch som angetts för stora importera API-anrop som det gick inte att hämta infogas.       |
+   |List\<Object> getBadInputDocuments()  |    Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).     |
 
 5. När du har den stora importera program är klara kan du skapa kommandoradsverktyget från källan med hjälp av kommandot mvn ren paketet. Det här kommandot genererar en jar-filen i målmappen:  
 
@@ -182,7 +182,7 @@ Du kan uppdatera befintliga dokument med hjälp av BulkUpdateAsync-API. I det h�
    |int getNumberOfDocumentsUpdated()  |   Det totala antalet dokument som har uppdaterats av dokumenten som angetts för massuppdatering API-anrop.      |
    |dubbla getTotalRequestUnitsConsumed() |  Totalt antal begäransenheter (RU) används av Massuppdatering API-anrop.       |
    |Varaktighet getTotalTimeTaken()  |   Den totala tid som stora uppdatera API-anrop för att slutföra körning.      |
-   |Lista<Exception> getErrors()   |     Hämtar lista över fel om vissa dokumenten batch kan du API-anrop samtidigt uppdateringen kunde inte hämta infogas.      |
+   |Lista\<undantag > getErrors()   |    Hämtar lista över fel om vissa dokumenten batch kan du API-anrop samtidigt uppdateringen kunde inte hämta infogas.      |
 
 3. När du har den stora uppdatera programmet är klara kan skapa kommandoradsverktyget från källan med hjälp av kommandot mvn ren paketet. Det här kommandot genererar en jar-filen i målmappen:  
 

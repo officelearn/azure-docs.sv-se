@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758581"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524505"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa videoavskriften granskningar med hjälp av .NET
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att sn
 - Lägg till en kontrollerad avskrift till granskningen
 - Publicera granskningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) om du inte gjort det redan.
 - Den här artikeln förutsätter att du har [modereras videon](video-moderation-api.md) och [skapade video granskningen](video-reviews-quickstart-dotnet.md) i granskningsverktyg för mänskliga beslutsfattande. Du nu vill lägga till kontrollerad video betyg i granskningsverktyget.
@@ -154,7 +154,7 @@ Skapa en video granskning med **ContentModeratorClient.Reviews.CreateVideoReview
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”. 
 1. Din Content Moderator-Teamnamn.
-1. En **IList<CreateVideoReviewsBodyItem>**  objekt. Varje **CreateVideoReviewsBodyItem** -objektet representerar en video granskning. Den här snabbstarten skapar en granskning i taget.
+1. En **IList\<CreateVideoReviewsBodyItem >** objekt. Varje **CreateVideoReviewsBodyItem** -objektet representerar en video granskning. Den här snabbstarten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Som ett minimum kan du ange följande egenskaper:
 - **Innehåll**. URL till videoklippet som ska granskas.
@@ -244,15 +244,15 @@ Förutom att lägga till en avskrift till en video granska du också lägga till
 1. En sträng som innehåller en mimetyp som ska vara ”application/json”. 
 1. Din Content Moderator-Teamnamn.
 1. Granska video-ID som returneras av **CreateVideoReviews**.
-1. En IList<TranscriptModerationBodyItem>. En **TranscriptModerationBodyItem** har följande egenskaper:
-1. **Allmänna**. En IList<TranscriptModerationBodyItemTermsItem>. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. En IList\<TranscriptModerationBodyItem >. En **TranscriptModerationBodyItem** har följande egenskaper:
+1. **Allmänna**. An IList\<TranscriptModerationBodyItemTermsItem>. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
 1. **Index**. Det nollbaserade indexet har löpt ut.
 1. **Termen**. En sträng som innehåller termen.
 1. **Tidsstämpel**. En sträng som innehåller, i sekunder, tiden i avskriften som villkoren påträffas.
 
 Avskriften måste vara i formatet WebVTT. Mer information finns i [WebVTT: Web Video texten spårar Format](https://www.w3.org/TR/webvtt1/).
 
-Lägg till följande metoddefinitionen i namnområdet VideoTranscriptReviews, klassen Program. Den här metoden skickar en avskrift för att den **ContentModeratorClient.TextModeration.ScreenText** metod. Översätter också resultatet i en IList<TranscriptModerationBodyItem>, och skickar till **AddVideoTranscriptModerationResult**.
+Lägg till följande metoddefinitionen i namnområdet VideoTranscriptReviews, klassen Program. Den här metoden skickar en avskrift för att den **ContentModeratorClient.TextModeration.ScreenText** metod. Översätter också resultatet i en IList\<TranscriptModerationBodyItem >, och skickar till **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

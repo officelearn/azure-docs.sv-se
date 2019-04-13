@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877310"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527429"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Security ram: Hantering av undantag | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -201,7 +201,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [ASP.NET-fel sidor dialogrutan Redigera inställningar](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Steg** | <p>När ett ASP.NET-program misslyckas och gör ett HTTP/1.x 500 Internt serverfel, eller en funktionskonfiguration (till exempel begäransfiltrering) som förhindrar att en sida visas, genereras ett felmeddelande. Administratörer kan välja huruvida programmet ska visa ett meddelande till klienten, detaljerat felmeddelande till klienten eller detaljerat felmeddelande till localhost endast. Den <customErrors> tagg i web.config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel är aktiverade. Om inget defaultRedirect attribut anges ser användarna ett allmänt fel. Anpassade fel visas för fjärranslutna klienter och den lokala värden</li><li>**Av:** Anger att anpassade fel är inaktiverat. Detaljerade ASP.NET-fel visas för fjärranslutna klienter och den lokala värden</li><li>**RemoteOnly:** Anger att anpassade fel visas endast för fjärranslutna klienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna den `web.config` för programmet/webbplatsen och kontrollera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
+| **Steg** | <p>När ett ASP.NET-program misslyckas och gör ett HTTP/1.x 500 Internt serverfel, eller en funktionskonfiguration (till exempel begäransfiltrering) som förhindrar att en sida visas, genereras ett felmeddelande. Administratörer kan välja huruvida programmet ska visa ett meddelande till klienten, detaljerat felmeddelande till klienten eller detaljerat felmeddelande till localhost endast. Den `<customErrors>` tagg i web.config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel är aktiverade. Om inget defaultRedirect attribut anges ser användarna ett allmänt fel. Anpassade fel visas för fjärranslutna klienter och den lokala värden</li><li>**Av:** Anger att anpassade fel är inaktiverat. Detaljerade ASP.NET-fel visas för fjärranslutna klienter och den lokala värden</li><li>**RemoteOnly:** Anger att anpassade fel visas endast för fjärranslutna klienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna den `web.config` för programmet/webbplatsen och kontrollera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
 
 ## <a id="deployment"></a>Ange metod för distribution till fullversion i IIS
 

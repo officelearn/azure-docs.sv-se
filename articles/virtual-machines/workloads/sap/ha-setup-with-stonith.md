@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011847"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525474"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hög tillgänglighet i SUSE med hjälp av STONITH
 Det här dokumentet innehåller detaljerade steg för steg-instruktionerna för konfiguration av hög tillgänglighet på SUSE-operativsystem med STONITH enheten.
@@ -258,7 +258,7 @@ Kör kommandot *crm_mon* så **både** noderna är online. Du kan köra den **n�
 ```
 crm_mon
 ```
-![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) du kan också logga in till hawk för att kontrollera klusterstatusen *https://<node IP>: 7630*. Standardanvändaren är hacluster och lösenordet är linux. Om det behövs kan du ändra lösenordet med *passwd* kommando.
+![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) du kan också logga in till hawk för att kontrollera klusterstatusen *https://\<IP för Källnoden >: 7630*. Standardanvändaren är hacluster och lösenordet är linux. Om det behövs kan du ändra lösenordet med *passwd* kommando.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Konfigurera egenskaper för klustret och -resurser 
 Det här avsnittet beskrivs hur du konfigurerar klusterresurserna.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 När du kör kommandot *crm_mon*, du kan se de två resurserna.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Dessutom kan du se statusen på *https://<node IP address>: 7630/cib/live/tillstånd*
+Dessutom kan du se statusen på *https://\<noden IP-adress >: 7630/cib/live/tillstånd*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

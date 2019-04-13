@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886731"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525644"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändringsflödet i Azure Cosmos DB - översikt
 
@@ -58,7 +58,7 @@ Om en egenskap för TTL (Time to Live) har angetts för ett objekt till-1, behå
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Ändringsfeed och _etag, _lsn eller _ts
 
-Formatet _etag är intern och du bör inte koppla beroende på det, eftersom den kan ändras när som helst. _ts är en ändring av eller en tidsstämpel vid skapande. Du kan använda _ts kronologisk jämförelse. _lsn är ett batch-id som har lagts till för ändringsflödet. transaktions-id representerar. Många objekt som kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som du ser på objektet. _etag är en intern identifierare och används för samtidighet kontroll meddelar om versionen av objektet medan ETag används för ordningsföljd feeden.
+Formatet _etag är intern och du bör inte koppla beroende på det, eftersom den kan ändras när som helst. _ts är en ändring av eller en tidsstämpel vid skapande. Du kan använda _ts kronologisk jämförelse. _lsn är ett batch-ID som har lagts till för ändringsflödet. representerar transaktions-ID. Många objekt som kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som du ser på objektet. _etag är en intern identifierare och används för samtidighet kontroll meddelar om versionen av objektet medan ETag används för ordningsföljd feeden.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Ändringsfeed användningsområden och scenarier
 
@@ -84,7 +84,7 @@ Till exempel med ändringsflödet utföra du följande uppgifter effektivt:
 
 Här följer några scenarier som du enkelt kan implementera med ändringsfeed:
 
-* I din [serverlös](https://azure.microsoft.com/en-us/solutions/serverless/) webb- eller mobilappar, kan du spåra händelser, t.ex alla ändringar till din kunds profil, inställningar eller deras plats och aktivera vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
+* I din [serverlös](https://azure.microsoft.com/solutions/serverless/) webb- eller mobilappar, kan du spåra händelser, t.ex alla ändringar till din kunds profil, inställningar eller deras plats och aktivera vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
 
 * Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändringsflödet att implementera i realtid rankningslistor baserat på poäng från färdiga spel.
 

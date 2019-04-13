@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505676"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527956"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -106,9 +106,9 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 * **Portar som krävs för API Management**: Inkommande och utgående trafik till undernätet där API Management har distribuerats kan kontrolleras med hjälp av [Nätverkssäkerhetsgrupp][Network Security Group]. Om någon av de här portarna är otillgängliga API Management kanske inte fungerar korrekt och kan bli otillgängliga. Med en eller flera av de här portarna blockerad är ett annat vanligt felkonfiguration problem när du använder API Management med ett virtuellt nätverk.
 
-När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
+<a name="required-ports"> </a> När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källa / målportar | Riktning          | Transport-protokoll |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
+| Källa / målportar | Riktning          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
@@ -197,7 +197,7 @@ Beräkningen ovan minimistorleken på undernätet, där du kan distribuera API M
 * [Anslut ett virtuellt nätverk till serverdelen med Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Hur du använder API: et Inspector att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
-* [Virtuellt nätverk vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
+* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
 * [Tjänsttaggar](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

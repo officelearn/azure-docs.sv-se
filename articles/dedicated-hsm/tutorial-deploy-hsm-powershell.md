@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904856"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521670"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -78,12 +78,12 @@ En HSM-enhet etableras till en kunds virtuella nätverk. Detta förutsätter kra
 
 När du har filerna behöver du redigera parameterfilen om du vill infoga dina önskade namn för resurser. Det innebär att redigera rader med ”value”: ””.
 
-- `namingInfix` Prefix för filnamn HSM-resurser
-- `ExistingVirtualNetworkName` Namnet på det virtuella nätverket som används för HSM: erna
-- `DedicatedHsmResourceName1` Namnet på HSM-resurs i datacenterstämpeln 1
-- `DedicatedHsmResourceName2` Namnet på HSM-resurs i datacenterstämpeln 2
-- `hsmSubnetRange` Undernät IP-adressintervall för HSM: er
-- `ERSubnetRange` Undernät IP-adressintervall för gateway för virtuellt nätverk
+- `namingInfix` Prefix för namn på HSM-resurser
+- `ExistingVirtualNetworkName` Namn på det virtuella nätverk som används för HSM:erna
+- `DedicatedHsmResourceName1` Namnet på HSM-resursen i datacenterstämpel 1
+- `DedicatedHsmResourceName2` Namnet på HSM-resursen i datacenterstämpel 2
+- `hsmSubnetRange` Undernätets IP-adressintervall för HSM:er
+- `ERSubnetRange` Undernätets IP-adressintervall för VNET-gateway
 
 Ett exempel på dessa ändringar är följande:
 
@@ -217,7 +217,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När du har loggat in på den virtuella Linux-datorn kan du logga in till HSM med hjälp av den privata IP-adress som finns i portalen för resursen <prefix>hsm_vnic.
+När loggade in på Linux VM du kan logga in till HSM med hjälp av privata IP-adress som finns i portalen för resursen \<prefix > hsm_vnic.
 
 ```powershell
 

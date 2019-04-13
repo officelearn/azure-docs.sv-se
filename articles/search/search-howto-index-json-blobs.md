@@ -1,7 +1,7 @@
 ---
 title: Indexera JSON-blobar från Azure Blob-indexeraren för fulltextsökning – Azure Search
 description: Crawla Azure JSON-blobar för textinnehåll med Azure Search Blob-indexeraren. Indexerare automatisera datainmatning för valda datakällor som Azure Blob storage.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518753"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527361"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -40,14 +40,15 @@ Vi rekommenderar att du använder samma Azure-prenumeration för Azure Search oc
 
 ### <a name="1---prepare-source-data"></a>1 – förbereda källdata
 
-Du bör ha ett Azure storage-konto med Blob storage och en behållare för JSON-dokument. Om du är bekant med någon av dessa krav kan granska ”ställa in Azure Blob-tjänsten och Läs in exempeldata” i den [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Logga in på Azure-portalen](https://portal.azure.com/).
 
-> [!Important]
-> På behållare, så kontrollera att **offentlig åtkomstnivå** är inställd på ”behållare (anonym läsåtkomst för behållare och blobbar)”. Azure storage och Azure Search ska vara under samma prenumeration och om möjligt i samma region. 
+1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller dina data. Offentlig åtkomstnivå kan ställas in till någon av dess giltiga värden.
+
+Behöver du lagringskontonamn, behållarnamn och en åtkomstnyckel för att hämta dina data i den **dataimport** guiden.
 
 ### <a name="2---start-import-data-wizard"></a>2 – starta guiden Importera data
 
-Du kan [starta guiden](search-import-data-portal.md) från kommandofältet på sidan för Azure Search-tjänsten eller genom att klicka på **Lägg till Azure Search** i den **Blob service** i ditt storage-konto vänstra navigeringsfönstret.
+I översiktssidan för Azure Search-tjänsten, kan du [starta guiden](search-import-data-portal.md) från kommandofältet eller genom att klicka på **Lägg till Azure Search** i den **Blobtjänst** delen av din Storage-konto vänstra navigeringsfönstret.
 
    ![Kommandot Importera data i portalen](./media/search-import-data-portal/import-data-cmd2.png "starta guiden Importera data")
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541221"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523723"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
@@ -321,7 +321,7 @@ I vissa fall kanske du upptäcker att aspekten antalet inte matchar resultatupps
 
 Aspekten antalet kan vara felaktigt på grund av arkitekturen för horisontell partitionering. Varje search-index har flera shards och varje shard rapporterar övre N fasetterna av dokumentantal som sedan kombineras till ett enskilt resultat. Om vissa fragment har många matchande värden, medan andra har färre, kanske att vissa aspekten värden saknas eller är under-räknas i resultaten.
 
-Men det här beteendet kan ändra när som helst om du får det här beteendet i dag, du kan kringgå det genom inflating artificiellt antalet:<number> till många att framtvinga fullständig rapportering från varje shard. Om värdet för antal: är större än eller lika med antalet unika värden i fältet du garanterat får korrekta resultat. Dock när antalet dokument är högt, det finns en prestandaförsämring, så Använd det här alternativet sparsamt.
+Men det här beteendet kan ändra när som helst om du får det här beteendet i dag, du kan kringgå det genom inflating artificiellt antalet:\<number > till ett stort antal att framtvinga fullständig rapportering från varje shard. Om värdet för antal: är större än eller lika med antalet unika värden i fältet du garanterat får korrekta resultat. Dock när antalet dokument är högt, det finns en prestandaförsämring, så Använd det här alternativet sparsamt.
 
 ### <a name="user-interface-tips"></a>Användaren gränssnittet tips
 **Lägga till etiketter för varje fält i aspekten navigering**

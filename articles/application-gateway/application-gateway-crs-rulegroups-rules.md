@@ -4,22 +4,24 @@ description: Den här sidan innehåller information om web application firewall 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279711"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523927"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista med web application firewall tillhandahållna CRS-regelgrupper och -regler
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web application firewall tillhandahållna CRS-regelgrupper och -regler
 
-Application Gateway waf (WAF) skyddar webbprogram mot vanliga säkerhetsproblem och hot på Internet. Detta görs via regler som har definierats utifrån OWASP core rule sets 2.2.9 eller 3.0. Dessa regler kan inaktiveras på basis av regeln av regeln. Den här artikeln innehåller de aktuella regler och regeluppsättningar som erbjuds.
+Application Gateway waf (WAF) skyddar webbprogram mot vanliga säkerhetsproblem och hot på Internet. Detta görs via regler som har definierats utifrån OWASP core rule sets 3.0 eller 2.2.9. Dessa regler kan inaktiveras på basis av regeln av regeln. Den här artikeln innehåller de aktuella regler och regeluppsättningar som erbjuds.
 
-Följande tabeller är regelgrupper och -regler som är tillgängliga när du använder Application Gateway med brandväggen för webbaserade program.  Varje tabell representerar de regler som finns i en regelgrupp för en specifik CRS-version.
+Följande regelgrupper och regler är tillgängliga när du använder Application Gateway med brandväggen för webbaserade program.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Regeluppsättningar
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Allmänt</p>
 
@@ -50,7 +52,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |---|---|
 |920100|Ogiltig HTTP-begäran-rad|
 |920130|Det gick inte att parsa begärandetexten.|
-|920140|Flera delar begäran brödtext misslyckades strikt verifiering = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Flera delar begärandetexten misslyckades strikt verifiering|
 |920160|Content-Length-HTTP-huvud är inte numeriskt.|
 |920170|GET eller HEAD-begäran med innehåll i Begärandetexten.|
 |920180|POST-begäran saknas Content-Length-huvud.|
@@ -216,7 +218,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |943110|En Session upptagningen Attack = SessionID parameternamn med av domän referent|
 |943120|En Session upptagningen Attack = SessionID parameternamn med inga referent|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Regeluppsättningar
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |960911|Ogiltig HTTP-begäran-rad|
 |981227|Apache fel = ogiltig URI i begäran.|
 |960912|Det gick inte att parsa begärandetexten.|
-|960914|Flera delar begäran brödtext misslyckades strikt verifiering = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Flera delar begärandetexten misslyckades strikt verifiering|
 |960915|Flera delar parser har upptäckt en oöverträffad gräns som möjligt.|
 |960016|Content-Length-HTTP-huvud är inte numeriskt.|
 |960011|GET eller HEAD-begäran med innehåll i Begärandetexten.|
@@ -472,6 +476,8 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |950921|Bakdörrsåtkomst|
 |950922|Bakdörrsåtkomst|
 
+---
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du inaktiverar WAF-regler genom att besöka: [Anpassa WAF-regler](application-gateway-customize-waf-rules-portal.md)
+Lär dig hur du inaktiverar WAF-regler: [Anpassa WAF-regler](application-gateway-customize-waf-rules-portal.md)

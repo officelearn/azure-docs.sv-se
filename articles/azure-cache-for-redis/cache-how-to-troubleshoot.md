@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482614"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527174"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Felsökning av Azure Cache för Redis
 
@@ -250,6 +250,7 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
 1. Var det en stor begäran föregående flera små begäranden till cachen som gjort timeout? Parametern `qs` i felet meddelande som anger hur många förfrågningar skickades från klienten till servern, men har inte bearbetats ett svar. Det här värdet kan hålla växer eftersom StackExchange.Redis använder en enda TCP-anslutning och endast kan läsa ett svar i taget. Även om den första tidsgränsen uppnåddes, slutar den inte mer data skickas till eller från servern. Andra begäranden blockeras tills stora begäran har slutförts och kan orsaka timeout. En lösning är att minimera risken för tidsgränser genom att säkerställa att din cache är tillräckligt stort för din arbetsbelastning och dela upp stora värden i mindre segment. En annan möjlig lösning är att använda en pool med `ConnectionMultiplexer` objekt i din klient och Välj minst inlästa `ConnectionMultiplexer` när du skickar en ny begäran. Läser in över flera anslutningsobjekt bör förhindra att en enda tidsgräns orsakar övriga förfrågningar till också timeout.
 1. Om du använder `RedisSessionStateProvider`, kontrollerar du har angett tidsgräns för återförsök på rätt sätt. `retryTimeoutInMilliseconds` bör vara högre än `operationTimeoutInMilliseconds`, annars Inga återförsök sker. I följande exempel `retryTimeoutInMilliseconds` är inställd på 3000. Mer information finns i [ASP.NET-Sessionstillståndsprovider för Azure Cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurationsparametrarna för Sessionstillståndsprovider och Utdatacacheprovider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Kontrollera minnesanvändning på Azure-Cache för Redis-servern genom att [övervakning](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` och `Used Memory`. Om en Borttagningsprincip är på plats, Redis startar avlägsna nycklar när `Used_Memory` når cachestorleken. Vi rekommenderar `Used Memory RSS` bör endast vara något högre än `Used memory`. En stor skillnad betyder minnesfragmentering (interna eller externa). När `Used Memory RSS` är mindre än `Used Memory`, innebär det en del av cache-minne har bytts av operativsystemet. Om det här växlar inträffar kan du förvänta dig några betydande fördröjning. Eftersom Redis inte har kontroll över hur dess allokeringar mappas till minnessidor som hög `Used Memory RSS` är ofta resultatet av en topp i minnesanvändning. När Redis-servern Frigör minne, allokeraren tar minnet men den kan eller kan inte ge minnet tillbaka till systemet. Det kan finnas en avvikelse mellan det `Used Memory` värde och minnesförbrukningen som rapporteras av operativsystemet. Minne kan ha används och getts ut av Redis men inte gett tillbaka till systemet. För att minska minnesproblem, kan du göra följande:
 

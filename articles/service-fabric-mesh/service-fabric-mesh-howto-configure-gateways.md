@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532090"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528126"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurera en resurs för gatewayen för begäranden
 
@@ -228,8 +228,8 @@ Här är en fullständig Gateway resurskonfiguration ser det ut (detta har anpas
 ```
 
 Den här gatewayen har konfigurerats för ett program för Linux, ”meshAppLinux”, som består av minst två tjänster, ”helloWorldService” och ”counterService” som lyssnar på port 80. Beroende på URL-struktur för inkommande begäran dirigerar den begäran till någon av dessa tjänster. 
-* ”<IPAddress>: 80/helloWorld/\<begäran\>” skulle resultera i en begäran dirigeras till ”helloWorldListener” i helloWorldService. 
-* ”<IPAddress>: 80/räknare/\<begäran\>” skulle resultera i en begäran dirigeras till ”counterListener” i counterService. 
+* ”\<IP-adress >: 80/helloWorld/\<begäran\>” skulle resultera i en begäran dirigeras till ”helloWorldListener” i helloWorldService. 
+* ”\<IP-adress >: 80/räknare/\<begäran\>” skulle resultera i en begäran dirigeras till ”counterListener” i counterService. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Distribuera den [ingående exempel](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) att se gateways fungerar i praktiken

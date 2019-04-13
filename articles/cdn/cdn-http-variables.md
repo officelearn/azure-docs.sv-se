@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013557"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528177"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN regelmotor
 HTTP-variabler innehåller innebär genom vilka du kan hämta metadata för HTTP-begäranden och svar. Dessa metadata kan sedan användas för att ändra dynamiskt en begäran eller ett svar. Användning av HTTP-variabler är begränsat till följande regler motorn funktioner:
@@ -38,7 +38,7 @@ I följande tabell beskrivs de HTTP-variablerna. Ett tomt värde returneras när
 | ---- | -------- | ----------- | ------------ |
 | ASN (begär) | %{geo_asnum} | Anger den som begär som tal. <br /><br />**Inaktuella:** % {virt_dst_asnum}. <br />Den här variabeln är inaktuell och ersatts med % {geo_asnum}. Även om en regel som använder den här föråldrad variabeln fortsätter att fungera, bör du uppdatera den om du vill använda den nya variabeln. | AS15133 |
 | Stad (begär) | %{geo_city} | Anger den som begär stad. | Los Angeles |
-| Kontinent (begär) | %{geo_continent} | Anger den som begär kontinent via en förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />PRECIS SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: Sydamerika<br /><br />**Inaktuella:** % {virt_dst_continent}. <ber />Den här variabeln är inaktuell och ersatts med % {geo_continent}. <br />Även om en regel som använder den här föråldrad variabeln fortsätter att fungera, bör du uppdatera den om du vill använda den nya variabeln.| Gäller inte |
+| Kontinent (begär) | %{geo_continent} | Anger den som begär kontinent via en förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />PRECIS SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: Sydamerika<br /><br />**Inaktuella:** % {virt_dst_continent}. <br />Den här variabeln är inaktuell och ersatts med % {geo_continent}. <br />Även om en regel som använder den här föråldrad variabeln fortsätter att fungera, bör du uppdatera den om du vill använda den nya variabeln.| Gäller inte |
 | Cookie-värde | %{cookie_Cookie} | Returnerar värdet för cookie-nyckeln som identifieras av Cookie-perioden. | Exempel: <br />%{cookie__utma}<br /><br />Exempelvärde:<br />111662281.2.10.1222100123 |
 | Land (begär) | %{geo_country} | Anger den som begär ursprungslandet via dess landskod. <br />**Inaktuella:** % {virt_dst_country}. <br /><br />Den här variabeln är inaktuell och ersatts med % {geo_country}. Även om en regel som använder den här föråldrad variabeln fortsätter att fungera, bör du uppdatera den om du vill använda den nya variabeln. | USA |
 | Avsedda marknadsområde (begär) | %{geo_dma_code} |Anger den som begär media marknaden genom dess regionskod. <br /><br />Det här fältet används endast på förfrågningar som kommer från USA.| 745 |

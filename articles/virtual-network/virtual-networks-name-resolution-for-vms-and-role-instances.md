@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426434"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527191"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -147,7 +147,7 @@ Vidarebefordran av DNS kan du även gör DNS-matchning mellan virtuella nätverk
 
 > [!NOTE]
 > En rollinstans kan utföra namnmatchning för virtuella datorer i samma virtuella nätverk. Detta sker med hjälp av FQDN som består av den Virtuella datorns värdnamn och **internal.cloudapp.net** DNS-suffix. Men i det här fallet namnmatchning lyckas bara om rollinstansen har VM-namn som definierats i den [Rollschema (.cscfg-fil)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Rollinstanser som måste utföra namnmatchning för virtuella datorer i ett annat virtuellt nätverk (FQDN med hjälp av den **internal.cloudapp.net** suffix) har att göra detta med hjälp av den metod som beskrivs i det här avsnittet (anpassade DNS-servrar som vidarebefordrar mellan de två virtuella nätverk).
 >

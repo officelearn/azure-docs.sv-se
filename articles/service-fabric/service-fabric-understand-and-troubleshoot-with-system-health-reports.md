@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4ece2dc1df3d29a3024c7efe15dd8cecfd9666db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663867"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528194"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -640,7 +640,7 @@ Andra API-anrop som kan fastna finns på den **IReplicator** gränssnitt. Exempe
 
 - **IReplicator.CatchupReplicaSet**: Den här varningen anger att en av två saker. Det finns inte tillräckligt med repliker. För att se om så är fallet, visa replikens status repliker i partitionen eller System.FM hälsorapport för en har fastnat omkonfiguration. Eller replikerna bekräfta inte åtgärder. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att fastställa förloppet för alla repliker. Problemet har med repliker vars `LastAppliedReplicationSequenceNumber` värdet ligger bakom primärt `CommittedSequenceNumber` värde.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: Den här varningen anger ett problem i skapandeprocessen. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: Den här varningen anger ett problem i skapandeprocessen. Mer information finns i [livscykel för replik](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
 
 ### <a name="replicator-system-health-reports"></a>Replikator systemhälsorapporter
 **Replikeringskön är full:**

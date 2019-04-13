@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621506"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523774"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -193,7 +193,7 @@ I följande exempel skapas ett nytt jobb för att samla in prestandadata från f
 Som standard söker jobbagenten för att skapa tabell för att lagra de returnerade resultaten i. Därmed måste inloggningen som är associerade med de autentiseringsuppgifter som används för utdata-autentiseringsuppgifter ha tillräcklig behörighet att utföra detta. Om du vill skapa manuellt i tabellen i tid sedan måste den ha följande egenskaper:
 1. Kolumner med rätt namn och datatyper för resultatuppsättningen.
 2. Ytterligare en kolumn för internal_execution_id med datatypen uniqueidentifier.
-3. Icke-grupperat index med namnet ”IX_<TableName>_Internal_Execution_ID” i kolumnen internal_execution_id.
+3. Icke-grupperat index med namnet `IX_<TableName>_Internal_Execution_ID` för internal_execution_id-kolumnen.
 
 Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommandon:
 

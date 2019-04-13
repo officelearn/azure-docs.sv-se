@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279626"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528143"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -29,6 +29,8 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 + **Nya funktioner**
   + Azure Machine Learning SDK har nu stöd för Python 3.7.
+  + Azure Machine Learning DNN Estimators ger nu inbyggt stöd för flera versioner. Till exempel `TensorFlow`  kostnadsuppskattning accepterar nu ett `framework_version` parameter och användarna kan ange version ”1.10' eller '1.12'. En lista över de versioner som stöds av din aktuella SDK-version, anropa `get_supported_versions()` på den önskade framework-klassen (t.ex. `TensorFlow.get_supported_versions()`).
+  En lista över versioner som stöds av den senaste versionen av SDK finns i den [DNN kostnadsuppskattning dokumentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning Data Förbered SDK v1.1.1
 
@@ -57,7 +59,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 ### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning Data Prep SDK v1.1.0
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Större ändringar**
   + Begreppet Prep datapaketet är inaktuell och längre stöds inte. I stället för att spara flera dataflöden i ett paket kan du behålla dataflöden individuellt.
     + Här guiden: [Anteckningsboken för att öppna och spara dataflöden](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
 
@@ -242,7 +244,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 > Vi rekommenderar att du skapar en ny arbetsyta om du vill använda beräkning av Azure Machine Learning. Det finns en fjärransluten risk att användare som försöker skapa beräkning av Azure Machine Learning från en befintlig arbetsyta kan se ett fel. Befintliga beräkning i din arbetsyta bör fortsätta att fungera påverkas inte.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK för Python v1.0.2
-+ **Icke-bakåtkompatibla ändringar**
++ **Större ändringar**
   + Den här versionen har bort vi stöd för att skapa en virtuell dator från Azure Machine Learning. Du kan fortfarande koppla ett befintligt moln virtuell dator eller en fjärransluten lokal server. 
   + Vi också tar bort sitt stöd för BatchAI, som ska ha stöd via Azure Machine Learning Compute nu.
 
@@ -253,7 +255,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
     + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 
 
-+ **Uppdaterad**
++ **uppdaterad**
   + För machine learning pipelines:
     + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) accepterar nu runconfig
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) nu kopieras till och från en SQL-datakälla
@@ -262,7 +264,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Förbered SDK v0.5.2
-+ **Icke-bakåtkompatibla ändringar** 
++ **Större ändringar** 
   * `SummaryFunction.N` har bytt namn till `SummaryFunction.Count`.
   
 + **Felkorrigeringar**
@@ -273,7 +275,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
   * Slumpmässig dela misslyckas inte längre om det ursprungliga dataflödet saknar ett namn  
 
 + **Mer information**
-  * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+  * [Azure Machine Learning-SDK för dataförberedelse](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>Docs och bärbara datorer
 + ML-Pipelines
@@ -300,7 +302,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning-SDK för Python v0.1.80
 
-+ **Icke-bakåtkompatibla ändringar** 
++ **Större ändringar** 
   * *azureml.Train.widgets* namnområde har flyttats till *azureml.widgets*.
   * *azureml.core.compute.AmlCompute* gör blir föråldrat följande klasser - *azureml.core.compute.BatchAICompute* och *azureml.core.compute.DSVMCompute*. Klassen senare tas bort i kommande versioner. Klassen AmlCompute har nu en enklare definition bara behöver en vm_size och max_nodes och skalar automatiskt ditt kluster från 0 till max_nodes när ett jobb skickas. Vår [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) har uppdaterats med den här informationen och bör ge dig användningsexempel. Vi hoppas att du som den här förenkling av distribution och mycket mer spännande funktioner kommer i en senare version!
 
@@ -341,7 +343,7 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
 
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK för Python v0.1.74
 
-+ **Icke-bakåtkompatibla ändringar** 
++ **Större ändringar** 
   * * Workspace.compute_targets, datalager, experiment, bilder, modeller och *webservices* egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
   * *Run.get_context* gör blir föråldrat *Run.get_submitted_run*. Den andra metoden tas bort i kommande versioner.
   * *PipelineData* klass nu förväntar sig ett datalager-objekt som en parameter i stället för datastore_name. På samma sätt *Pipeline* accepterar default_datastore snarare än default_datastore_name.
@@ -391,7 +393,7 @@ Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Större ändringar**
   * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images Workspace.web_services returnerade ordlista, som tidigare returnerats lista. Se [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-dokumentationen.
 
   * Automatiserade Machine Learning bort normaliserade medelvärdet kvadrat fel från den primära måtten.
@@ -413,7 +415,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
   * log_table() och log_row() stöds i informationen om körningen. 
   * Automatiskt skapa diagram för tabeller och rader med 1, 2 eller 3 numeriska kolumner och en valfri kategoriska kolumn.
 
-+ **Automatiserad maskininlärning**
++ **Automatiserad Machine Learning**
   * Förbättrad felhantering och dokumentation 
   * Fasta kör egenskapshämtning prestandaproblem. 
   * Fast fortsätta köra problemet. 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 24e12184070909943c5660d94d8e19ce9df1de30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111131"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526154"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -299,7 +299,7 @@ När du skapar ytterligare anslutningar är det viktigt att se till att IP-adres
 
 ### <a name="TestVNet5"></a>Steg 7 – Skapa och konfigurera TestVNet5
 
-Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. För att växla mellan prenumerationer använder du ' az account list --all' för att visa en lista över prenumerationer som är tillgängliga för ditt konto. Använd sedan ' az account set--subscription <subscriptionID>' för att växla till den prenumeration som du vill använda.
+Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Växla mellan prenumerationer använder `az account list --all` om du vill visa prenumerationerna som är tillgängliga för ditt konto sedan använda `az account set --subscription <subscriptionID>` att växla till den prenumeration som du vill använda.
 
 1. Kontrollera att du är ansluten till prenumeration 5 och sedan skapa en resursgrupp.
 
@@ -338,7 +338,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
 
 ### <a name="connections5"></a>Steg 8 – Skapa anslutningarna
 
-Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. För att växla mellan prenumerationer använder du ' az account list --all' för att visa en lista över prenumerationer som är tillgängliga för ditt konto. Använd sedan ' az account set--subscription <subscriptionID>' för att växla till den prenumeration som du vill använda.
+Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Växla mellan prenumerationer använder `az account list --all` om du vill visa prenumerationerna som är tillgängliga för ditt konto sedan använda `az account set --subscription <subscriptionID>` att växla till den prenumeration som du vill använda.
 
 1. **[Prenumeration 1]** Logga in och anslut till Prenumeration 1. Kör följande kommando för att hämta namn och ID för gatewayen från utdata:
 

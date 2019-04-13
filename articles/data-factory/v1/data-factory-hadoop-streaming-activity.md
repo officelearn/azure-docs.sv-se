@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025181"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523230"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med Hadoop Streaming Activity i Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ Observera följande punkter:
 2. Ange typ av aktiviteten **HDInsightStreaming**.
 3. För den **mapper** egenskapen, ange namnet på mapper körbara. I det här exemplet är cat.exe mapper körbara.
 4. För den **reducer** egenskapen, ange namnet på reducer körbara. I det här exemplet är wc.exe reducer körbara.
-5. För den **inkommande** typegenskapen, ange indatafilen (inklusive platsen) för mappningen. I det här exemplet ”: wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt”: adfsample är blob-behållaren, exempel/data/Gutenberg är mappen och davinci.txt är blob.
+5. För den **inkommande** typegenskapen, ange indatafilen (inklusive platsen) för mappningen. I det här exemplet: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample är blob-behållaren, exempel/data/Gutenberg är mappen och davinci.txt är blob.
 6. För den **utdata** typegenskapen, ange utdatafilen (inklusive platsen) för reducer. Utdata från Hadoop Streaming-jobbet skrivs till den angivna platsen för den här egenskapen.
 7. I den **filePaths** anger sökvägar för mapper och reducer körbara filer. I det här exemplet: ”adfsample/example/apps/wc.exe” adfsample är blobbehållaren exempelappar/är mappen och wc.exe är den körbara filen.
 8. För den **fileLinkedService** egenskapen, ange den länkade Azure Storage-tjänst som representerar Azure-lagring som innehåller de filer som anges i avsnittet filePaths.

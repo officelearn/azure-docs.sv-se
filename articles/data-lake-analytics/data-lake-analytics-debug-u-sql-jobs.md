@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229483"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526460"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsöka en användardefinierad C#-kod för misslyckade U-SQL-jobb
 
@@ -28,7 +28,7 @@ Följande videoklipp visar misslyckades hörn felsökning i Azure Data Lake Tool
 >
 
 > [!IMPORTANT]
-> Visual Studio krävs följande två uppdateringar för att använda den här funktionen: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) och [Universal C Runtime för Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio krävs följande två uppdateringar för att använda den här funktionen: [Microsoft Visual C++ 2015 Redistributable uppdatering 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) och [Universal C Runtime för Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Hämtning misslyckades hörn till lokal dator
@@ -80,7 +80,7 @@ Om användarkoden ingår inte i koden bakom filen eller registrerades inte samma
 
 2. Hämta projektet mappsökvägen för **FailedVertexDebugHost** projekt. 
 
-3. Högerklicka på **har lagts till sammansättningen kod projekt > Egenskaper**väljer den **skapa** fliken till vänster och klistra in den kopierade sökvägen som slutar med \bin\debug som **utdata > Utdatasökvägen**. Sökvägen för slutgiltiga utdata som liknar ”<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Högerklicka på **har lagts till sammansättningen kod projekt > Egenskaper**väljer den **skapa** fliken till vänster och klistra in den kopierade sökvägen som slutar med \bin\debug som **utdata > Utdatasökvägen**. Sökvägen för slutgiltiga utdata som liknar `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Azure Data Lake Analytics U-SQL-debug ange pdb-sökväg](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104445"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523179"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägga U-SQL-jobb med hjälp av SQL Server Integration Services (SSIS)
 
 Du lär dig hur du dirigera och skapa U-SQL-jobb med hjälp av SQL Server Integration Service (SSIS) i det här dokumentet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Azure Feature Pack för Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) ger den [Azure Data Lake Analytics-aktivitet](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) och [Anslutningshanteraren för Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) att hjälper dig att ansluta till Azure Data Lake Analytics-tjänsten. Om du vill använda den här uppgiften, måste du installera:
 
@@ -93,7 +93,7 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
     
     Skapa den här filen-anslutningen:
 
-   1. Välj **<New Connection...>** i FileConnection inställningen.
+   1. Välj  **\<ny anslutning... >** i FileConnection inställningen.
    2. Ange **användningstyp** till **befintlig fil**, och ange den **filen** till en befintlig fil filsökväg.
 
        ![Konfigurera Foreach-Loop-behållaren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)

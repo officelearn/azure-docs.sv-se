@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079304"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527973"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera routningsfilter för Microsoft-peering: Azure CLI
 
@@ -109,7 +109,7 @@ Ett flödesfilter kan ha endast en regel och regeln måste vara av typen 'Tillå
 
 ### <a name="1-create-a-route-filter"></a>1. Skapa ett flödesfilter
 
-Skapa först flödesfiltret. Kommandot ”az network route-filter create” skapar bara en resurs för route-filter. När du skapar resursen kan du sedan skapa en regel och koppla den till objektet route-filter. Kör följande kommando för att skapa en resurs för route-filter:
+Skapa först flödesfiltret. Kommandot `az network route-filter create` bara skapar en resurs för route-filter. När du skapar resursen kan du sedan skapa en regel och koppla den till objektet route-filter. Kör följande kommando för att skapa en resurs för route-filter:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c61da6a55b1f4502deee056b29fdbc22ef33514
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490626"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526392"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -65,14 +65,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-uwp/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
- - [Ladda ned Visual Studio 2017-projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Ladda ned Visual Studio 2017-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -86,7 +86,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` -är program-Id för programmet som du har registrerat.
+> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
 > > [!TIP]
 > > Att hitta värdena för *program-ID*går du till den **översikt** sidan
@@ -108,7 +108,7 @@ Det här avsnittet innehåller mer information om snabbstarten.
 MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är i biblioteket som används för att logga in användare och begär säkerhetstoken. Säkerhetstoken används för att få åtkomst till ett API som skyddas av Microsoft Identity-plattformen för utvecklare. Du kan installera MSAL genom att köra följande kommando i *Package Manager-konsolen* i Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering
@@ -145,14 +145,13 @@ Vissa situationer kräver framtvingar användare interagera med Microsoft identi
 - När tvåfaktorsautentisering krävs
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(scopes, this)
-                       .ExecuteAsync();
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+                      .ExecuteAsync();
 ```
 
 > |Där:||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
-> | `this`| Står för WPF-fönstret som ska användas för att centrera dialogrutan för inloggning
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -177,4 +176,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Prova att använda självstudien om Windows-skrivbordet för en komplett stegvis guide till att skapa appar och nya funktioner, däribland en fullständig förklaring av den här snabbstarten.
 
 > [!div class="nextstepaction"]
-> [UWP - anropet Graph API-självstudier](tutorial-v2-windows-uwp.md)
+> [UWP – Självstudie om att anropa Graph API](tutorial-v2-windows-uwp.md)

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338470"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526630"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Använd en Azure-hanterad identitet för att autentisera till Azure container registry 
 
@@ -164,7 +164,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH till den Docker-dator som har konfigurerats med identiteten. Kör följande Azure CLI-kommandon, med hjälp av Azure CLI installerat på den virtuella datorn.
 
-Först måste autentisera till Azure CLI med [az-inloggning][az-login], med det identitet som du har konfigurerat på den virtuella datorn. För <userID>, Ersätt ID för den identitet som du hämtade i föregående steg. 
+Först måste autentisera till Azure CLI med [az-inloggning][az-login], med det identitet som du har konfigurerat på den virtuella datorn. För `<userID>`, Ersätt ID för den identitet som du hämtade i föregående steg. 
 
 ```azurecli
 az login --identity --username <userID>

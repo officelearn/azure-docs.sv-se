@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917761"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526189"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Begränsa Azure CDN-innehåll efter land
 
@@ -48,7 +48,7 @@ Till exempel är alla följande directory sökväg filter giltiga:
 */*                                 
 */Photos/*     
 */Photos/Strasbourg /*     
-*/Photos/Strasbourg/city.png*
+*/Photos/Strasbourg/City.PNG*
 
 ### <a name="define-the-type-of-action"></a>Definiera typ av åtgärd
 
@@ -59,8 +59,8 @@ Från den **åtgärd** väljer **Tillåt** eller **blockera**:
 - **Blockera**: Användare från de angivna länderna nekas åtkomst till resurser som begärs från den rekursiva sökvägen. Om inga andra land filtreringsalternativ har konfigurerats för den platsen, kommer sedan alla andra användare att ges tillgång.
 
 Till exempel en geo-filtrering regel för blockering av sökvägen */foton/Strasbourg/* filtrerar följande filer:     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>Definiera de länder/regioner
 Från den **LANDSKODER** väljer du de länder/regioner som du vill blockera eller tillåta för sökvägen. 

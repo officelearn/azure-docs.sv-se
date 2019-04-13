@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916894"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525569"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Spåra flödet för en Cloud Services-program med Azure Diagnostics
 Spårning är ett sätt för dig att övervaka körning av ditt program när den körs. Du kan använda den [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), och [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) klasser för att samla in information om fel och program som körs i loggar, textfiler och andra enheter för senare analys. Läs mer om spårning av [spårning och instrumentering av program](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Läs mer om lyssnare [Trace lyssnare](/dotnet/framework/debug-trace-profile/trac
 När du har slutfört stegen för att lägga till lyssnaren kan du lägga till spårningsinstruktioner som din kod.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Att lägga till spårningsinstruktionen i din kod
-1. Öppna en källfil för programmet. Till exempel den <RoleName>.cs fil för web-roll eller worker-roll.
+1. Öppna en källfil för programmet. Till exempel den \<RoleName > .cs fil för web-roll eller worker-roll.
 2. Lägg till följande med instruktionen om den inte redan har lagts:
     ```
         using System.Diagnostics;

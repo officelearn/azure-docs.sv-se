@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120524"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526358"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -165,7 +165,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
 
 1. Gå tillbaka till lagringsplatsen i Utforskaren och högerklicka på **ChangeFeedFunction.sln** att öppna den i ett nytt Visual Studio-fönster.  
 
-2. Navigera till den **App.config** fil. I den <appSettings> blockera, lägga till slutpunkten och unikt **PRIMÄRNYCKEL** som Azure Cosmos DB-kontot som du hämtade tidigare.  
+2. Navigera till den **App.config** fil. I den `<appSettings>` blockera, lägga till slutpunkten och unikt **PRIMÄRNYCKEL** som Azure Cosmos DB-kontot som du hämtade tidigare.  
 
 3. Lägg till i den **samling** och **databasen** namn. (Dessa namn bör vara **changefeedlabcollection** och **changefeedlabdatabase** om du inte väljer att namnge din på olika sätt.)
 

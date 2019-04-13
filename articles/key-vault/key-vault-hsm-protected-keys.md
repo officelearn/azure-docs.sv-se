@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630619"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522736"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -445,7 +445,7 @@ När du kör det här kommandot ersätter *contosokey* med samma värde som du a
 
 Du uppmanas att plugin-säkerhet världen admin kort.
 
-När kommandot har slutförts visas **resultat: LYCKADE** och kopia av din nyckel med minskade behörigheter finns i filen key_xferacid_<contosokey>.
+När kommandot har slutförts visas **resultat: LYCKADE** och kopia av din nyckel med minskade behörigheter finns i filen key_xferacid_\<contosokey >.
 
 Du kan inspekterar ACL: er med följande kommandon med hjälp av Thales-verktygen:
 

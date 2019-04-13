@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258470"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523349"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Den här självstudiekursen innehåller anvisningar om hur du använder Azure Co
 
 Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos DB SQL API och Gremlin-API-konton. Den här artikeln beskriver hur du använder bulk executor-biblioteket för .NET med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du inte redan har Visual Studio 2017 installerat, kan du hämta och använda den [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar Azure-utveckling under installationen av Visual Studio.
 
@@ -115,7 +115,7 @@ Den klonade lagringsplatsen innehåller två exempel ”BulkImportSample” och 
    |NumberOfDocumentsImported (long)   |  Det totala antalet dokument som importerades från de dokument som angetts för stora importera API-anrop.       |
    |TotalRequestUnitsConsumed (double)   |   De totala begäransenheter (RU) som används av stora importera API-anrop.      |
    |TotalTimeTaken (TimeSpan)    |   Den totala tid som massimporten API-anrop för att slutföra körning.      |
-   |BadInputDocuments (List<object>)   |     Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).    |
+   |BadInputDocuments (List\<object>)   |     Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Uppdatera stora mängder data i Azure Cosmos DB
 

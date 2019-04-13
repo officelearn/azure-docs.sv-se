@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649661"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522992"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
@@ -96,7 +96,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
 
 6. Definiera den primära IP-konfigurationen för nätverkskortet. Ändra 10.0.0.4 till en giltig adress i undernätet som du skapade, om du inte använder värdet som definierats tidigare. Innan du tilldelar en statisk IP-adress, rekommenderar vi att du först bekräfta att det inte är redan används. Ange kommandot `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Om adressen är tillgänglig, utdata returnerar *SANT*. Om den inte är tillgänglig utdata returnerar *FALSKT* och en lista med adresser som är tillgängliga. 
 
-    I följande kommandon och **Ersätt < Ersätt-med-your-unika-name > med unikt DNS-namn du använder.** Namnet måste vara unikt över alla offentliga IP-adresser inom en Azure-region. Det här är en valfri parameter. Det kan tas bort om du vill ansluta till den virtuella datorn med offentliga IP-adress.
+    I följande kommandon och **Ersätt \<Ersätt-med-your-unika-name > med unika DNS-namnet för att använda.** Namnet måste vara unikt över alla offentliga IP-adresser inom en Azure-region. Det här är en valfri parameter. Det kan tas bort om du vill ansluta till den virtuella datorn med offentliga IP-adress.
 
     ```powershell
     

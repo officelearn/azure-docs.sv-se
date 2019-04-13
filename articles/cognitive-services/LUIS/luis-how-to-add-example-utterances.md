@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524267"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -91,6 +91,8 @@ Om vi antar att uttryck, `Does John Smith work in Seattle?`, ett sammansatt uttr
 
 ## <a name="add-hierarchical-entity"></a>Lägg till hierarkisk entitet
 
+**Hierarkisk entiteter gälla så småningom upphör att. Använd [entitet roller](luis-concept-roles.md) fastställa entitet underordnade typer, i stället för hierarkisk entiteter.**
+
 En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda och begreppsmässigt relaterade entiteter. I följande exempel innehåller entiteten ursprung- och målplatserna. 
 
 I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen och Kairo är målplatsen. Varje plats är sammanhangsmässigt annan, inlärda från ordföljden och word valet i uttryck.
@@ -105,6 +107,12 @@ I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen 
 
     >[!CAUTION]
     >Namn på underordnade entiteter måste vara unikt inom alla entiteter i samma app. Två olika hierarkiska entiteter får inte innehålla underordnade entiteter med samma namn. 
+
+## <a name="add-entitys-role-to-utterance"></a>Lägga till enhetens roll till uttryck
+
+En roll är en namngiven undertyp till en entitet, bestäms av kontexten för uttryck. Du kan markera en entitet i ett uttryck som entiteten eller välj en roll i entiteten. En person kan ha roller, inklusive anpassade entiteter som är datorn lärt dig (enkla enheter och sammansatta entiteter), är inte datorn lärt dig (fördefinierade entiteter, reguljärt uttryck entiteter, lista över entiteter). 
+
+Lär dig [så Markera ett uttryck med entiteten roller](tutorial-entity-roles.md) från en praktisk vägledning. 
 
 ## <a name="entity-status-predictions"></a>Entiteten status förutsägelser
 
@@ -151,11 +159,11 @@ Om du vill ta bort en etikett för datorn lärt dig entitet från ett uttryck, v
 
 ### <a name="add-prebuilt-entity-label"></a>Lägg till fördefinierade entitet etikett
 
-När du lägger till de fördefinierade entiteterna LUIS-appen, behöver du inte taggen yttranden med dessa entiteter. Läs mer om fördefinierade entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-prebuilt-entity).
+När du lägger till de fördefinierade entiteterna LUIS-appen, behöver du inte taggen yttranden med dessa entiteter. Läs mer om fördefinierade entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Lägg till reguljärt uttryck entitet etikett
 
-Om du lägger till entiteterna reguljärt uttryck LUIS-appen, behöver du inte att tagga yttranden med dessa entiteter. Läs mer om reguljärt uttryck entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-regular-expression-entities).
+Om du lägger till entiteterna reguljärt uttryck LUIS-appen, behöver du inte att tagga yttranden med dessa entiteter. Läs mer om reguljärt uttryck entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Skapa ett mönster från ett uttryck

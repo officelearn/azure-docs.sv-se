@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359047"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523706"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -107,7 +107,7 @@ Som bästa praxis rekommenderar att i ditt programs anslutning sträng som du an
 Till exempel när du använder ADO.NET-drivrutinen detta görs **Encrypt = True** och **TrustServerCertificate = False**. Om du har fått anslutningssträngen från Azure portal, har de korrekta inställningarna.
 
 > [!IMPORTANT]
-> Observera att vissa icke-Microsoft drivrutiner inte kan använda TLS som standard eller förlitar sig på en äldre version av TLS (< 2.0) för att kunna fungera. I det här fallet möjligt SQL Server fortfarande att ansluta till databasen. Vi rekommenderar dock att du utvärderar säkerhetsriskerna med att tillåta sådana drivrutiner och program för att ansluta till SQL-databas, särskilt om du lagrar känsliga data. 
+> Observera att vissa icke-Microsoft drivrutiner inte kan använda TLS som standard eller förlitar sig på en äldre version av TLS (< 1.2) för att kunna fungera. I det här fallet möjligt SQL Server fortfarande att ansluta till databasen. Vi rekommenderar dock att du utvärderar säkerhetsriskerna med att tillåta sådana drivrutiner och program för att ansluta till SQL-databas, särskilt om du lagrar känsliga data. 
 >
 > Mer information om TLS och anslutning finns [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

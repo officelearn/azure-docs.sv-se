@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650486"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524063"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -227,7 +227,7 @@ Tekniska specifikationer utrustning, till exempel datum till tillverkning, model
 
 På arbetet för förberedelse av data beskrivs hittills ska leda till de data som är ordnade enligt nedan. Utbildning, testning och validering data bör ha det här logiska schemat (det här exemplet visar tid i antal dagar).
 
-| Tillgångs-ID | Tid | <Feature Columns> | Etikett |
+| Tillgångs-ID | Tid | \<Funktionen kolumner > | Label (Etikett) |
 | ---- | ---- | --- | --- |
 | A123 |Dag 1 | . . . | . |
 | A123 |Dag 2 | . . . | . |

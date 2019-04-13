@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097948"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523553"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande innan du börjar:
 
@@ -96,7 +96,7 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
 1. Extrahera innehållet i filen [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).
 2. Öppna filen `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` i en valfri textredigerare (Det finns mer än en .config-fil, så se till att öppna rätt fil.)
 
-3. Uppdatera elementet <appSettings> i config-filen med följande information:
+3. Uppdatera elementet `<appSettings>` i config-filen med följande information:
 
    * Ange värdet för nyckeln *EventHubName* till värdet för EntityPath i anslutningssträngen.
    * Ställ in värdet för nyckeln *Microsoft.ServiceBus.ConnectionString* till anslutningssträngen utan EntityPath-värdet.

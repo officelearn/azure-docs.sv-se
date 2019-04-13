@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999986"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527259"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Skapa en Programgateway med URL-sökvägsbaserad routning regler med hjälp av Azure CLI
 
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Ändra URL: en till http://<ip-address>:8080/video/test.html i slutet av den grundläggande Webbadressen och du bör se ut ungefär som i följande exempel:
+Ändra Webbadressen till `http://<ip-address>:8080/video/test.html` i slutet av den grundläggande Webbadressen och du bör se ut ungefär som i följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Ändra URL: en till http://<ip-address>:8080/video/test.html och du bör se ut ungefär som i följande exempel.
+Ändra Webbadressen till `http://<ip-address>:8080/video/test.html` och du bör se ut ungefär som i följande exempel.
 
 ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

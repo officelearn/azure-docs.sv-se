@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049766"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526596"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Prenumerationer i Azure API Management
 
@@ -50,9 +50,6 @@ Traditionellt har prenumerationer i API Management har alltid är associerade me
 > I vissa fall kanske API-utgivare vill publicera en API-produkt för allmänheten utan krav på prenumerationer. De kan avmarkera den **kräver prenumeration** alternativet på den **inställningar** för produkten i Azure-portalen. Därför kan kan alla API: er under produkten användas utan en API-nyckel.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Prenumerationer för alla API: er eller en enskild API
-
-> [!NOTE]
-> Den här funktionen är för närvarande tillgängliga i den API Management-användningen nivån.
 
 När vi har infört de [förbrukning](https://aka.ms/apimconsumptionblog) nivå av API Management kan vi gjort några ändringar för att hantera nycklar:
 - Först måste vi har lagt till två fler prenumeration omfång: alla API: er och ett enda API. Omfånget för prenumerationer är inte längre begränsad till en API-produkt. Nu är det möjligt att skapa nycklar som beviljar åtkomst till ett API eller alla API: er i en API Management-instans, utan att behöva skapa en produkt och lägga till API: erna i den först. Varje API Management-instans kommer dessutom nu med en prenumeration som inte kan ändras, alla API: er. Den här prenumerationen gör det enklare och enklare att testa och felsöka API: er i test-konsolen.

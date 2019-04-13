@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847808"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528279"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -40,6 +40,12 @@ Följande procedurer bör endast göras i extrema fall eller i miljöer för tes
 Om en nyckel är någonsin misstänkt äventyras, så att en tjänst eller en användare hade obehörig åtkomst till nyckeln, är det bäst att ta bort nyckeln.
 
 Tänk på att om TDE-skyddet tas bort i Key Vault **blockeras alla anslutningar till krypterade databaser under servern och databaserna hamnar i offlineläge och tas bort inom 24 timmar**. Gamla säkerhetskopior som krypterats med den komprometterade nyckeln är inte längre tillgängliga.
+
+Följande steg beskriver hur du kontrollerar TDE-skyddet tumavtrycken fortfarande som används av virtuella Log filer (VLF) för en viss databas. Tumavtrycket för det aktuella TDE-skyddet av databasen och databas-ID kan hittas genom att köra: Välj [database_id]       [encryption_state], [encryptor_type] /*asymmetrisk nyckel innebär AKV, certifikat: tjänst-hanterade nycklar*/ [encryptor_thumbprint] från [sys]. [ dm_database_encryption_keys] 
+ 
+Följande fråga returnerar VLFs och encryptor respektive tumavtryck används. Varje annat tumavtryck refererar till andra nyckel i Azure Key Vault (AKV): Välj * från sys.dm_db_log_info (database_id) 
+
+PowerShell-kommandot Get-AzureRmSqlServerKeyVaultKey ger tumavtrycket för TDE-skyddet används i frågan, så att du kan se vilka att hålla och vilka nycklar för borttagning i AKV. Endast de nycklar som inte längre används av databasen kan tas bort från Azure Key Vault.
 
 Den här guiden går via två sätt beroende på det önskade resultatet efter incident svaret:
 

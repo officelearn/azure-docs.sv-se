@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314458"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525541"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda StorSimple Device Manager-tjänsten för att visa och hantera aviseringar för StorSimple
 
@@ -160,7 +160,7 @@ Om molnanslutning misslyckas på din StorSimple-enhet för produktion, kan sedan
 | Enheten redundansväxlades till <*enhetsnamn*>. |Andra/okänd orsak. |Om du ser ett stort antal dessa aviseringar kan du kontakta Microsoft Support. Radera aviseringen från aviseringssidan när problemet är löst. |
 | En tjänst för kritiska enheter rapporterar status som misslyckad. |DataPath tjänstfel. |Kontakta Microsoft Support för hjälp. |
 | Virtuella IP-adressen för nätverksgränssnittet <*DATA #*> rapporterar status som misslyckad. |Andra/okänd orsak. |Ibland kan tillfälliga förhållanden utlösa dessa aviseringar. Om så är fallet, sedan rensas den här aviseringen automatiskt efter en stund. Kontakta Microsoft-supporten om problemet kvarstår. |
-| Virtuella IP-adressen för nätverksgränssnittet <*DATA #*> rapporterar status som misslyckad. |Namnet på nätverksgränssnittet som: <*DATA #*> IP-adress <IP address> kunde inte försättas online eftersom en duplicerad IP-adress har identifierats i nätverket. |Se till att IP-adressdubblett tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
+| Virtuella IP-adressen för nätverksgränssnittet <*DATA #*> rapporterar status som misslyckad. |Namnet på nätverksgränssnittet som: <*DATA #*> IP-adress `<IP address>` kunde inte försättas online eftersom en duplicerad IP-adress har identifierats i nätverket. |Se till att IP-adressdubblett tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
 
 ### <a name="disaster-recovery-alerts"></a>Disaster recovery aviseringar
 
@@ -200,8 +200,8 @@ Om molnanslutning misslyckas på din StorSimple-enhet för produktion, kan sedan
 | Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Det gick inte att starta StorSimple-tjänst(er). |DataPath fel |Kontakta Microsoft-supporten om problemet kvarstår. |
-| Duplicerad IP-adress har identifierats för 'Data0'. | |Systemet har upptäckt en konflikt för IP-adress ”10.0.0.1”. Nätverksresursen 'Data0' på enheten *<device1>* är offline. Se till att den här IP-adressen inte används av någon annan enhet i det här nätverket. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta administratören för hjälp med att lösa problemet. Kontakta Microsoft-supporten om problemet kvarstår. |
-| IPv4 (eller IPv6)-adress för 'Data0' är offline. | |Nätverksresursen 'Data0 ”med IP-adressen 10.0.0.1. och prefixlängden ”22” på enheten *<device1>* är offline. Säkerställa att växelportarna som gränssnittet är anslutet till fungerar. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Duplicerad IP-adress har identifierats för 'Data0'. | |Systemet har upptäckt en konflikt för IP-adress ”10.0.0.1”. Nätverksresursen 'Data0' på enheten  *\<device1 >* är offline. Se till att den här IP-adressen inte används av någon annan enhet i det här nätverket. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta administratören för hjälp med att lösa problemet. Kontakta Microsoft-supporten om problemet kvarstår. |
+| IPv4 (eller IPv6)-adress för 'Data0' är offline. | |Nätverksresursen 'Data0 ”med IP-adressen 10.0.0.1. och prefixlängden ”22” på enheten  *\<device1 >* är offline. Säkerställa att växelportarna som gränssnittet är anslutet till fungerar. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |URLthat används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till https:\//aka.ms/ss-8000-network-reqs. Om du använder Azure Government-molnet, gå till URL-mönster i https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Aviseringar om programprestanda

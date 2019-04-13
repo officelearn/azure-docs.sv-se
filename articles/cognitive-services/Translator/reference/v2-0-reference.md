@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918016"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527293"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -45,7 +45,7 @@ Om du vill undvika svordomar i översättning, oavsett förekomsten av svordomar
 |ProfanityAction    |Åtgärd |Exempel källan (japanska)  |Exempel Translation (på engelska)  |
 |:--|:--|:--|:--|
 |NoAction   |Standard. Samma som inte ange alternativet. Svordomar skickas från källan till målet.        |彼はジャッカスです。     |Han är en jackass.   |
-|Markerad     |Olämpliga ord. ska omges av XML-taggar <profanity> och </profanity>.     |彼はジャッカスです。 |Han är en <profanity>jackass</profanity>.    |
+|Markerad     |Olämpliga ord. ska omges av XML-taggar \<svordomar > och \</profanity >.       |彼はジャッカスです。 |Han är en \<svordomar > jackass\</profanity >.  |
 |Borttagen    |Olämpliga ord. tas bort från utdata utan ersättning.     |彼はジャッカスです。 |Han är en.   |
 
     

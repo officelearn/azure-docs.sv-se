@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd026c9be2b1519d473ba02811d9e1ee90fe7a3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839533"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526222"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Hantera en Azure Traffic Manager-profil
 
@@ -32,7 +32,7 @@ Du kan skapa en Traffic Manager-profil med Azure Portal. När du har skapat din 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
 2. Klicka på **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
 4. I **Skapa Traffic Manager-profil** gör du följande:
-    1. Ge profilen ett namn i **Namn**. Namnet måste var unikt inom trafficmanager.net-zonen och genererar DNS-namnet <name>, trafficmanager.net, som används för att öppna din Traffic Manager-profil.
+    1. Ge profilen ett namn i **Namn**. Namnet måste var unikt inom trafficmanager.net-zonen och genererar DNS-namnet `<name>`, trafficmanager.net, som används för att öppna din Traffic Manager-profil.
     2. I **Routningsmetod** väljer du routningsmetoden **Priority** (Prioritet).
     3. I **Prenumeration** väljer du den prenumeration du vill skapa profilen under
     4. I **Resursgrupp** skapar du en ny resursgrupp att placera profilen under.

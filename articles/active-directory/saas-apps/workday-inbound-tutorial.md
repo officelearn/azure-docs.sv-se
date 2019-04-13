@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897630"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524641"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -50,7 +50,7 @@ Workday användaren etablering arbetsflöden stöds av etableringstjänsten för
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användaren etablering lösning som bäst passar för?
 
-Den här lösningen för Workday av användaretablering finns för närvarande i offentlig förhandsversion och är idealisk för:
+Den här lösningen för Workday av användaretablering är idealisk för:
 
 * Organisationer som vill ha en färdiga, Microsofts molnbaserade lösning för Workday användaretablering
 
@@ -93,7 +93,7 @@ Det här avsnittet beskriver följande aspekter av Planering:
 * [Integrera med flera Active Directory-domäner](#integrating-with-multiple-active-directory-domains)
 * [Planera Workday attributmappning för Active Directory-användare och omvandlingar](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -460,7 +460,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
 2. I den **omfång för källobjekt** fältet, kan du välja vilka uppsättningar med användare i Workday ska vara i omfånget för etablering i AD, genom att definiera en uppsättning attributbaserade filter. Standardvärde är ”alla användare i Workday”. Exempel filter:
 
-   * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000
+   * Exempel: Omfång för användare med Worker-ID: N mellan 1000000 och 2000000 (exklusive 2000000)
 
       * Attribut: WorkerID
 
@@ -1165,7 +1165,7 @@ Det här avsnittet beskrivs ofta upptäckta fel med Workday användaretablering 
 |--|---|---|---|
 |1.| Det gick inte att installera etableringsagenten med felmeddelandet:  *Tjänsten ”Microsoft Azure AD Connect etablering Agent” (AADConnectProvisioningAgent) kunde inte starta. Kontrollera att du har behörighet att starta systemet.* | Det här felet visas vanligtvis om du försöker installera etableringsagenten på en domänkontrollant och grupprinciper som förhindrar att tjänsten startar.  Den visas också om du har en tidigare version av agenten som körs och du inte har avinstallerat den innan du startar en ny installation.| Installera etableringsagenten på en icke-DC-servern. Se till att tidigare versioner av agenten avinstalleras innan du installerar den nya agenten.|
 |2.| Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent” är i *startar* tillstånd och växlar inte till *kör* tillstånd. | Som en del av installationen, agenten guiden skapar ett lokalt konto (**NT-tjänst\\AADConnectProvisioningAgent**) på servern och detta är den **logga in** konto som används för att starta den tjänsten. Om en säkerhetsprincip på din Windows server förhindrar att lokala konton som kör tjänsterna, kommer du får det här felet. | Öppna den *tjänstekonsolen*. Högerklicka på Windows-tjänsten ”Microsoft Azure AD Connect etablering Agent' och fliken inloggning ange kontot för en domänadministratör att köra tjänsten. Starta om tjänsten. |
-|3.| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det går inte att kontakta AD domain controller-servern på grund av brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
+|3.| När du konfigurerar etableringsagenten med din AD-domän i steget *Anslut Active Directory*, guiden tar lång tid vid inläsning av AD-schemat och slutligen når sin tidsgräns. | Det här felet visas vanligtvis om det inte går att kontakta AD-domänkontrollantservern på grund av problem med brandväggen. | På den *Anslut Active Directory* guiden kan du få tillgång till autentiseringsuppgifterna för din AD-domän, det finns ett alternativ som heter *Välj domain controller prioritet*. Använd det här alternativet för att välja en domänkontrollant som är på samma plats som agent-servern och se till att det finns inga brandväggsregler som blockerar kommunikationen. |
 
 #### <a name="connectivity-errors"></a>Anslutningsfel
 
@@ -1174,14 +1174,14 @@ Om etableringstjänsten kan inte ansluta till Workday eller Active Directory, ka
 |#|Error Scenario |Troliga orsaker|Rekommenderad upplösning|
 |--|---|---|---|
 |1.| När du klickar på **Testanslutningen**, du får felmeddelandet: *Det uppstod ett fel vid anslutning till Active Directory. Kontrollera att den lokala etablering agenten körs och den är konfigurerad med rätt Active Directory-domän.* | Det här felet vanligtvis visas om etableringen agent inte körs eller om det finns en brandvägg som blockerar kommunikation mellan Azure AD och etableringsagenten. Du kan också se det här felet om domänen inte har konfigurerats i guiden Agent. | Öppna den *Services* konsolen på Windows-server för att kontrollera att agenten körs. Öppna guiden etablering agent och bekräfta att rätt domän är registrerat med agenten.  |
-|2.| Etableringsjobbet för den försätts i karantän tillstånd under helger (fre Sat) och vi får ett e-postmeddelande som att det finns ett fel med synkroniseringen. | En av de vanligaste orsakerna till felet är planerade Workday driftstopp. Om du använder en klient för implementering av Workday, Observera att Workday har schemalagts driftstopp för dess implementering klienter över helger (vanligtvis från fredag kväll till lördag morgon) och under den perioden arbetsdagen tillhandahållning av appar kan gå in i karantän tillstånd som det går inte att ansluta till Workday. Hämtar tillbaka till normala tillstånd när Workday implementering klienten är online igen. I sällsynta fall kan se du också det här felet om lösenordet för systemanvändare Integration ändras på grund av klienten uppdatering eller om kontot är i låst eller upphört att gälla tillstånd. | Kontrollera med din Workday-administratör eller integrering partner att se när Workday schemalägger avbrott på Ignorera varningsmeddelanden under driftstopp och bekräfta tillgänglighet när Workday-instans är online igen.  |
+|2.| Etableringsjobbet för den försätts i karantän tillstånd under helger (fre Sat) och vi får ett e-postmeddelande som att det finns ett fel med synkroniseringen. | En av de vanligaste orsakerna till felet är planerade Workday-driftstopp. Om du använder en klient för implementering av Workday ska du notera att Workday har schemalagt driftstopp för sina implementeringsklienter under helger (vanligtvis från fredag kväll till lördag morgon). Under den perioden kan Workday-etableringsappar försättas i karantäntillstånd eftersom det inte går att ansluta till Workday. Workday återfår sitt normala tillstånd när Workday-implementeringsklienten är online igen. I sällsynta fall kan du också se det här felet om lösenordet för integreringssystemanvändaren har ändrats på grund av uppdatering av klienten eller om kontot är låst eller har upphört att gälla. | Kontakta din Workday-administratör eller integreringspartner för att höra efter när Workday schemalägger driftstopp. Sedan kan du ignorera varningsmeddelanden under driftstoppsperioden och få en bekräftelse om tillgänglighet när Workday-instansen är online igen.  |
 
 
 #### <a name="ad-user-account-creation-errors"></a>AD användarfel konto skapas
 
 |#|Error Scenario |Troliga orsaker|Rekommenderad upplösning|
 |--|---|---|---|
-|1.| Exportera åtgärden fel i granskningsloggen med meddelandet *fel: OperationsError-SvcErr: Åtgärden fel. Ingen överordnad referens har konfigurerats för katalogtjänsten. Katalogtjänsten är därför det gick inte att utfärda hänvisningar till objekt utanför den här skogen.* | Det här felet visas vanligtvis om den *Active Directory-behållare* Organisationsenheten är inte korrekt eller om det finns problem med mappning av uttryck som används för *parentDistinguishedName*. | Kontrollera den *Active Directory-behållare* OU-parametern för stavfel. Om du använder *parentDistinguishedName* i attributet mappningen kontrollerar du att det alltid utvärderas till en känd behållare i AD-domän. Kontrollera den *exportera* händelse i granskningen loggar finns i det genererade värdet. |
+|1.| Exportera åtgärden fel i granskningsloggen med meddelandet *fel: OperationsError-SvcErr: Ett åtgärdsfel inträffade. Ingen överordnad referens har konfigurerats för katalogtjänsten. Katalogtjänsten är därför det gick inte att utfärda hänvisningar till objekt utanför den här skogen.* | Det här felet visas vanligtvis om den *Active Directory-behållare* Organisationsenheten är inte korrekt eller om det finns problem med mappning av uttryck som används för *parentDistinguishedName*. | Kontrollera den *Active Directory-behållare* OU-parametern för stavfel. Om du använder *parentDistinguishedName* i attributmappningen kontrollerar du att det alltid utvärderas till en känd container i AD-domänen. Kontrollera den *exportera* händelse i granskningen loggar finns i det genererade värdet. |
 |2.| Exportera åtgärden fel i granskningsloggen med felkoden: *SystemForCrossDomainIdentityManagementBadResponse* och meddelandet *fel: ConstraintViolation-AtrErr: Ett värde i begäran är ogiltig. Ett värde för attributet var inte inom det godkända intervallet för värden. \nError information: CONSTRAINT_ATT_TYPE - företagets*. | Även om det här felet är specifik för den *företagets* attribut, kanske du ser detta fel för andra attribut som *CN* samt. Det här felet visas på grund av AD tvingande schema-begränsning. Som standard attribut som *företagets* och *CN* i AD har en övre gräns på 64 tecken. Om värdet kommer från Workday är fler än 64 tecken, ser du det här felmeddelandet. | Kontrollera den *exportera* händelsen i granskningsloggarna vill visa värdet för attributet som rapporterats i felmeddelandet. Överväg att trunkera värdet kommer från Workday med hjälp av den [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) funktionen eller ändra mappningarna till ett AD-attribut som inte har liknande längdkravet.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD användarfel konto update

@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 766ceb0bc6f1eb3da9129f2359f6e2be7363dd23
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531138"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527327"
 ---
 # <a name="project-answer-search-v7-reference"></a>Projektet svar Search v7-referens
 
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 Begäran måste använda HTTPS-protokollet och omfattar följande Frågeparametern:
--  q =<URL> -frågan som identifierar objektet för sökning
+-  `q=<URL>` -Frågan som identifierar objekt i sökning
 
 Exempel som visar hur du begär finns [C# Snabbstart](c-sharp-quickstart.md) eller [Java-quickstart](java-quickstart.md). 
 
@@ -56,7 +56,7 @@ Information om tillåtna användning och visning av resultat finns i [använder 
 > - Pragma – anroparen har ingen kontroll över om URL-förhandsgranskning använder cache
 > - Cache-Control – anroparen har ingen kontroll över om URL-förhandsgranskning använder cache
 > - Användaragent
-
+> 
 > Dessutom vissa parametrar är inte för närvarande beskrivande för URL: en förhandsversion API, men kan användas i framtiden för förbättrad globalisering. 
  
 ## <a name="headers"></a>Rubriker  
@@ -83,7 +83,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Type|Krävs|  
+|Namn|Värde|Typ|Krävs|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|String|Ja|  
 |<a name="query" />q|URL: en för att förhandsgranska|String|Ja|  
@@ -106,7 +106,7 @@ Svarsschemat är antingen en [webbsida] eller ErrorResponse, som i API för webb
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|  
@@ -119,7 +119,7 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)|  
@@ -129,7 +129,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |namn|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
@@ -138,7 +138,7 @@ Definierar den licens som text eller foto kan användas.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Definierar en avtalsenliga regel för licens attribution.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till LicenseAttribution.|String|  
 |licens|Licensen som innehållet kan användas.|[Licens](#license)|  
@@ -150,7 +150,7 @@ Definierar en avtalsenliga regel för licens attribution.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |text|Texten som visas.|String|  
@@ -160,7 +160,7 @@ Definierar komponenterna i en hyperlänk.
 ### <a name="linkattribution"></a>LinkAttribution  
 Definierar en avtalsenliga regel för länken attribution.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till LinkAttribution.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
@@ -172,7 +172,7 @@ Definierar en avtalsenliga regel för länken attribution.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Definierar en avtalsenliga regel för media attribution.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till MediaAttribution.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
@@ -186,7 +186,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |namn|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
@@ -196,7 +196,7 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="webpage"></a>Webbsida  
 Definierar informationen om en webbsida i förhandsversion.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|
 |namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|  
@@ -208,7 +208,7 @@ Definierar informationen om en webbsida i förhandsversion.
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolesk|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
@@ -217,19 +217,22 @@ Definierar frågekontexten som Bing används för begäran.
 |originalQuery|Frågesträngen som anges i begäran.|String|  
 
 ### <a name="identifiable"></a>Identifierbar
-|Namn|Värde|Type|  
+
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
-|Namn|Värde|Type|  
+
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
-|Namn|Värde|Type|  
+
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
@@ -251,7 +254,7 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Webbsida|Ett JSON-objekt som definierar förhandsversionen|sträng|  
@@ -260,7 +263,7 @@ Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-st
 ### <a name="textattribution"></a>TextAttribution  
 Definierar en avtalsenliga regel för oformaterad text attribution.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till TextAttribution.|String|  
 |text|Attribution-text.<br /><br /> Text attribution gäller för entitet som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text eller länkar attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett.|String| 

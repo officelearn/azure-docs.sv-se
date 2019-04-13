@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802838"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526834"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Du kan använda [Azure Media Services Player](https://amsplayer.azurewebsites.ne
 I föregående steg skapas den URL som pekar på en manifestfil. Klienten måste extrahera den nödvändiga informationen från strömmande manifestfiler och gör en begäran till nyckelleveranstjänst.
 
 ### <a name="manifest-files"></a>Manifestfiler
-Klienten måste extrahera URL: en (som också innehåller innehåll nyckeln ID [barn]) värdet från manifestfilen. Klienten försöker hämta krypteringsnyckeln från nyckelleveranstjänst. Klienten måste också extrahera IV värdet och använda den för att dekryptera dataströmmen. I följande fragment visas den <Protection> element av Smooth Streaming-manifest:
+Klienten måste extrahera URL: en (som också innehåller innehåll nyckeln ID [barn]) värdet från manifestfilen. Klienten försöker hämta krypteringsnyckeln från nyckelleveranstjänst. Klienten måste också extrahera IV värdet och använda den för att dekryptera dataströmmen. I följande fragment visas den `<Protection>` element av Smooth Streaming-manifest:
 
 ```xml
     <Protection>

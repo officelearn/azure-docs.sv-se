@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336328"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527344"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudier: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -351,8 +351,8 @@ Uppdatera följande parametervärden i parameterfilen:
 |registryPassword|Lösenordet som du fick tidigare i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry). Den här parametern i mallen är en säker sträng och visas inte i distributionens status eller `az mesh service show`-kommandon.|
 |registryUserName|Användarnamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
 |registryServer|Registerservernamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
-|frontEndImage|Containeravbildning för klientdelstjänsten.  Till exempel ”<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709”.|
-|serviceImage|Containeravbildning för serverdelstjänsten.  For example, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|Containeravbildning för klientdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Containeravbildning för serverdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Om du vill distribuera programmet kör du följande:
 

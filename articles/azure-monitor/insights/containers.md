@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905763"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524284"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -236,7 +236,7 @@ I det här avsnittet beskriver vi de steg som krävs för att installera Log Ana
 Utför följande steg om du vill använda hemligheter för att skydda din Log Analytics arbetsyte-ID och den primärnyckeln när du använder Log Analytics-agenten daemon-set yaml-fil.
 
 1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) och hemlighet som genererar skript [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) från GitHub.  Det här skriptet genererar hemligheter yaml-fil för Log Analytics arbetsyte-ID och primärnyckel att skydda din secrete information.  
-2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användarkontot. Hemligheten som genererar skript frågar för Log Analytics arbetsyte-ID <WSID> och den primärnyckeln <KEY> och när åtgärden har slutförts skapas filen ocp-secret.yaml.  
+2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användarkontot. Hemligheten som genererar skript frågar för Log Analytics arbetsyte-ID `<WSID>` och den primärnyckeln `<KEY>` och när åtgärden har slutförts skapas filen ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  

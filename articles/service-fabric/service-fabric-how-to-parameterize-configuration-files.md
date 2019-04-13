@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102677"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524522"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Så här Parameterisera konfigurationsfiler i Service Fabric
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du Parameterisera en konfigurationsfil i Service Fab
 
 I det här exemplet kan du åsidosätta ett konfigurationsvärde med parametrar i programdistributionen.
 
-1. Öppna den  *<MyService>\PackageRoot\Config\Settings.xml* filen i ditt tjänstprojekt.
+1. Öppna den  *\<MyService > \PackageRoot\Config\Settings.xml* filen i ditt tjänstprojekt.
 1. Ställ in parameternamn och värde, till exempel cachestorleken som är lika med 25, genom att lägga till följande XML:
 
    ```xml
@@ -37,7 +37,7 @@ I det här exemplet kan du åsidosätta ett konfigurationsvärde med parametrar 
    ```
 
 1. Spara och stäng filen.
-1. Öppna den  *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* fil.
+1. Öppna den  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* fil.
 1. I filen applicationmanifest.XML deklarera ett värde för parametern och standard i den `Parameters` element.  Vi rekommenderar att parametern innehåller namnet på tjänsten (till exempel ”Mintjänst”).
 
    ```xml

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664123"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527058"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Azure Service Fabric tillståndskänslig Reliable Services StatefulServiceBase klassen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser som kan användas för att felsöka tjänsten, som ger insikt i hur körningen operativsystem och underlätta felsökningen.
@@ -106,7 +106,7 @@ Reliable Services-runtime genererar följande händelser under den `Service Fabr
 | --- | --- |
 | Påbörja transaktion-åtgärder/sek | Antal nya skrivtransaktioner som skapats per sekund.|
 | Transaktionsåtgärder/sek | Antalet Lägg till/Uppdatera/ta bort åtgärder som utförs på tillförlitliga samlingar per sekund.|
-| Genomsn. Svarstid för tömning (ms) | Antalet byte som replikatorn tömmer till disken av Transaktionsreplikering i per sekund |
+| Tömda logg-byte/sek | Antalet byte som replikatorn tömmer till disken av Transaktionsreplikering i per sekund |
 | Begränsade åtgärder/sek | Antal åtgärder per sekund av Transaktionsreplikering i på grund av begränsningar som avvisas. |
 | Genomsn. Transaktionen ms/incheckning | Genomsnittlig incheckning svarstider per transaktion i millisekunder |
 | Genomsn. Svarstid för tömning (ms) | Genomsnittlig varaktighet för tömning diskåtgärder initieras av Transaktionsreplikering i i millisekunder |

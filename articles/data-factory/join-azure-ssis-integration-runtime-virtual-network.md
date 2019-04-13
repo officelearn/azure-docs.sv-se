@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107805"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526681"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -135,9 +135,9 @@ Se [den här PowerShell.skript](https://gallery.technet.microsoft.com/scriptcent
 
 ### <a name="resource-group"></a> Krav för resursgrupp
 -   Azure-SSIS IR måste skapa vissa nätverksresurser under samma resursgrupp som det virtuella nätverket. Dessa resurser inkluderar följande:
-    -   En Azure belastningsutjämnare med namnet  *<Guid>- azurebatch cloudserviceloadbalancer*.
-    -   En Azure offentlig IP-adress med namnet  *<Guid>- azurebatch cloudservicepublicip*.
-    -   En work nätverkssäkerhetsgrupp, med namnet  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
+    -   En Azure belastningsutjämnare med namnet  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   En Azure offentlig IP-adress med namnet  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   En work nätverkssäkerhetsgrupp, med namnet  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Se till att du inte har någon lås på den resursgrupp eller prenumeration som det virtuella nätverket tillhör. Om du konfigurerar ett skrivskyddat Lås eller ett borttagningsskydd, kan starta och stoppa IR misslyckas eller låser sig. 
 

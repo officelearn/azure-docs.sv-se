@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917965"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525678"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hanterar du förfallodatum för webbinnehåll i Azure CDN
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ I följande XML-konfiguration-filen exempel visar hur du ställer in den `<clien
 </configuration>
 ```
 
-Du använder den **cacheControlMaxAge** attribut, måste du ange värdet för den **cacheControlMode** attributet `UseMaxAge`. Den här inställningen orsakade HTTP-huvud och direktiv, `Cache-Control: max-age=<nnn>`, som ska läggas till svaret. Formatet för timespan-värde för den **cacheControlMaxAge** attributet är `<days>.<hours>:<min>:<sec>`. Värdet som konverteras till sekunder och används som värde för den `Cache-Control` `max-age` direktiv. Mer information om den `<clientCache>` element, se [klientcachen <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Du använder den **cacheControlMaxAge** attribut, måste du ange värdet för den **cacheControlMode** attributet `UseMaxAge`. Den här inställningen orsakade HTTP-huvud och direktiv, `Cache-Control: max-age=<nnn>`, som ska läggas till svaret. Formatet för timespan-värde för den **cacheControlMaxAge** attributet är `<days>.<hours>:<min>:<sec>`. Värdet som konverteras till sekunder och används som värde för den `Cache-Control` `max-age` direktiv. Mer information om den `<clientCache>` element, se [klientcachen \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Ange Cache-Control-huvuden programmässigt
 För ASP.NET-program kan du styra CDN-nätverkets funktionssätt programmässigt genom att ange den **HttpResponse.Cache** egenskapen för .NET-API. Information om den **HttpResponse.Cache** egenskap, finns i [HttpResponse.Cache egenskapen](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) och [HttpCachePolicy klass](/dotnet/api/system.web.httpcachepolicy).  

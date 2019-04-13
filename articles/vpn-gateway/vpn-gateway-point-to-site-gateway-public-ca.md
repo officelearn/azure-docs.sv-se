@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848940"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521602"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Övergång till ett offentligt CA-gatewaycertifikat för P2S
 
@@ -56,7 +56,7 @@ Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-cer
 
 ### <a name="classic"></a>Klassisk
 
-1. På en klientdator, navigera till sökvägen %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Du kan visa certifikatet i Gateway-ID-mappen.
+1. Navigera till sökväg på en klientdator `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Du kan visa certifikatet i Gateway-ID-mappen.
 2. Kontrollera att certifikatutfärdaren är ”DigiCert globala Rotcertifikatutfärdare” på fliken Allmänt för certifikatet. Om du har något annat än denna utfärdande myndighet, gateway-certifikatet är en del av uppdateringen och kommer att överföras.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Kontrollera certifikatet övergången schema

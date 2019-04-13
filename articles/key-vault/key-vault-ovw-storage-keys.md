@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370575"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526280"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
@@ -49,7 +49,7 @@ I följande exempel visar hur du kan låta Key Vault för att hantera dina lagri
 > - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
-<a name="prerequisites"></a>Förutsättningar
+<a name="prerequisites"></a>Nödvändiga komponenter
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installera Azure CLI   
 2. [Skapa ett Lagringskonto](https://azure.microsoft.com/services/storage/)
@@ -109,7 +109,7 @@ Du kan även ställa Key Vault för att generera SAS (Shared Access Signature)-t
 När du har slutfört köra stegen ovan kan du följande kommandon för att be Key Vault för att generera SAS-token åt dig. 
 
 Lista över saker som kan uppnås på den nedanstående steg är
-- Anger ett konto med SAS-definition med namnet '<YourSASDefinitionName>”på en hanterad KeyVault storage-konto'<YourStorageAccountName>” i ditt valv'<VaultName>'. 
+- Anger ett konto med namnet SAS-definitionen `<YourSASDefinitionName>` ett KeyVault-hanterade lagringskonto `<YourStorageAccountName>` i ditt valv `<VaultName>`. 
 - Skapar en SAS-token för kontot för tjänsterna Blob, fil, tabell och kö för resurstyperna Service, behållare och objekt, med alla behörigheter över https och med de angivna start- och slutdatumen
 - Anger en hanterad KeyVault-lagring SAS-definitionen i valvet med mall-uri som SAS-token som skapade ovan, för SAS-typ 'account' och giltig för N dagar
 - Hämtar den faktiska åtkomst-token från KeyVault-hemligheten som motsvarar den SAS-definitionen

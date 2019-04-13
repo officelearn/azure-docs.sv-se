@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008701"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526885"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa ett webbprogram i Java med Azure Cosmos DB och SQL API
 
@@ -71,7 +71,7 @@ Så här skapar du JSP-appen:
    
     ![Skapa en ny JSP-fil – självstudie om Java-webbapp](./media/sql-api-java-application/image11.png)
 5. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
-6. Lägg till en text som visar **Hello World!** i det befintliga <body>-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade <body>-innehållet bör likna följande kod:
+6. Lägg till en text som visar **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -99,8 +99,13 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
    ![Installera SQL Java Application SDK](./media/sql-api-java-application/image13.png)
      
    * Du kan även lägga till XML-beroendefilen för Grupp-ID och Artefakt-ID direkt i pom.xml via en textredigerare:
-     
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. Klicka på **OK** så installerar Maven SQL Java SDK.
 7. Spara filen pom.xml.
 

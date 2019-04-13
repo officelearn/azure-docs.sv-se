@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881154"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524012"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
@@ -88,11 +88,11 @@ Kopiera den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) dat
 
 Här beskrivs hur du använder AzCopy för att överföra filer som innehåller data. Om du vill hämta och installera AzCopy, följer du anvisningarna [komma igång med kommandoradsverktyget azcopy](../../storage/common/storage-use-azcopy.md).
 
-1. Från Kommandotolken, kör du följande AzCopy-kommandon och Ersätt *< path_to_data_folder >* med önskat mål:
+1. Från Kommandotolken, kör du följande AzCopy-kommandon och Ersätt  *\<path_to_data_folder >* med önskat mål:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. När kopieringen är klar visas totalt av 24 komprimerade filer i datamappen valt. Packa upp de hämtade filerna till samma katalog på den lokala datorn. Anteckna den mapp där de okomprimerade filerna finns. Den här mappen kallas den *< sökväg\_till\_unzipped_data\_filer\>*  i vilka sätt.
+1. När kopieringen är klar visas totalt av 24 komprimerade filer i datamappen valt. Packa upp de hämtade filerna till samma katalog på den lokala datorn. Anteckna den mapp där de okomprimerade filerna finns. Den här mappen kallas den *\<sökväg\_till\_unzipped_data\_filer\>* i vilka sätt.
 
 ## <a name="upload"></a>Ladda upp data till standardbehållaren för HDInsight Hadoop-kluster
 > [!NOTE]
@@ -102,10 +102,10 @@ Här beskrivs hur du använder AzCopy för att överföra filer som innehåller 
 
 I följande AzCopy-kommandon och Ersätt följande parametrar med de faktiska värdena som du angav när du skapar Hadoop-kluster och packat upp datafilerna.
 
-* ***< Path_to_data_folder >*** katalogen (tillsammans med sökväg) på datorn som innehåller de uppzippade datafilerna.  
-* ***<storage account name of Hadoop cluster>*** Storage-konto som är associerade med ditt HDInsight-kluster.
-* ***<default container of Hadoop cluster>*** Standardbehållaren som används av klustret. Observera att namnet på behållaren som standard är vanligtvis samma namn som själva klustret. Om klustret har anropats ”abc123.azurehdinsight.net” är standardbehållaren abc123.
-* ***<storage account key>*** Nyckel för lagringskontot som används av ditt kluster.
+* ***\<path_to_data_folder >*** katalogen (tillsammans med sökväg) på datorn som innehåller de uppzippade datafilerna.  
+* ***\<lagringskontonamn för Hadoop-kluster >*** storage-konto som är associerade med ditt HDInsight-kluster.
+* ***\<standardbehållaren för Hadoop-kluster >*** behållare som standard används av klustret. Observera att namnet på behållaren som standard är vanligtvis samma namn som själva klustret. Om klustret har anropats ”abc123.azurehdinsight.net” är standardbehållaren abc123.
+* ***\<lagringskontonyckel >*** nyckeln för lagringskontot som används av ditt kluster.
 
 Kör följande två AzCopy-kommandon från en kommandotolk eller ett Windows PowerShell-fönster.
 

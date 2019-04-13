@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 Series uppdatering 2.2 viktig information | Microsoft Docs
-description: Beskriver nya funktioner, problem och lösningar för StorSimple 8000 Series uppdatering 2.2.
+title: StorSimple 8000-serien uppdatering 2.2 viktig information | Microsoft Docs
+description: Beskriver de nya funktionerna, problem och lösningar för StorSimple 8000-serien uppdatering 2.2.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,87 +14,87 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 78be340b4a47fed88f5e8c3f5741ae7024124bd5
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057850"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527123"
 ---
-# <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 Series uppdatering 2.2 viktig information
+# <a name="storsimple-8000-series-update-22-release-notes"></a>Viktig information om StorSimple 8000-serien uppdatering 2.2
 
 ## <a name="overview"></a>Översikt
-Följande information beskriver de nya funktionerna och identifiera kritiska öppna problem för StorSimple 8000 Series uppdatering 2.2. De innehåller också en lista över StorSimple-programuppdateringar som ingår i den här versionen.
+Följande viktiga information beskriver de nya funktionerna och identifiera kritiska öppna ärenden för StorSimple 8000-serien uppdatering 2.2. De innehåller också en lista över de StorSimple-programuppdateringar som ingår i denna version.
 
-Uppdatera 2.2 kan tillämpas på alla StorSimple-enhet som kör versionen (GA) eller uppdatering 0.1 via uppdatering 2.1. Enheten-version som är associerade med uppdatering 2.2 är 6.3.9600.17708.
+Uppdatering 2.2 kan tillämpas på alla StorSimple-enhet som kör versionen (GA) eller uppdatering 0.1 via uppdatering 2.1. Enhetsversion som är associerade med uppdatering 2.2 är 6.3.9600.17708.
 
-Granska informationen som finns i viktig information innan du distribuerar uppdateringen i din StorSimple-lösning.
+Granska informationen i den viktiga informationen innan du distribuerar uppdateringen i din StorSimple-lösning.
 
 > [!IMPORTANT]
-> * 2.2 har endast programuppdateringar. Det tar cirka 1,5-2 timmar att installera uppdateringen. 
-> * Om du kör uppdatering 2.1, rekommenderar vi att du installerar uppdateringen 2.2 så snart som möjligt.
-> * För nya versioner, kan du inte se uppdateringar omedelbart eftersom vi gör en stegvis distribution av uppdateringar. Vänta några dagar och sedan söka efter uppdateringar igen som dessa är snart tillgängligt.
+> * Uppdatering 2.2 har endast programuppdateringar. Det tar cirka 1,5-2 timmar att installera uppdateringen. 
+> * Om du kör uppdatering 2.1, rekommenderar vi att du tillämpar uppdatering 2.2 så snart som möjligt.
+> * För nya versioner, kan du inte se uppdateringar direkt, eftersom vi gör en stegvis distribution av uppdateringar. Vänta några få dagar och sedan söker efter uppdateringar igen som dessa är snart tillgängligt.
 > 
 > 
 
-## <a name="whats-new-in-update-22"></a>Vad är nytt i uppdateringen 2.2
-Följande viktiga förbättringar har gjorts i uppdateringen 2.2.
+## <a name="whats-new-in-update-22"></a>Vad är nytt i uppdatering 2.2
+Följande viktiga förbättringar har gjorts i uppdatering 2.2.
 
-* **Automatisk optimering för frigöring av utrymme** – när data tas bort på tunt allokerade volymer, oanvända lagring block behovet av att frigöras. Den här versionen har förbättrats utrymme frigöring processen från molnet, vilket resulterar i outnyttjat utrymme blir tillgängliga snabbare jämfört med tidigare versioner.
-* **Ögonblicksbild prestandaförbättringar** – uppdatering 2.2 har förbättrats tid för att behandla ett moln som en ögonblicksbild i vissa scenarier där stora volymer som används och det finns minimalt att ingen dataomsättningen. Ett scenario som vill dra nytta av den här förbättringen är Arkiv-volymer.
-* **Härdning av supportpaket samla in** – det har gjorts förbättringar i hur Support paketet samlas in och överföra i den här versionen. 
+* **Automatiserad optimering för frigöring av utrymme** – när data raderas på tunt allokerade volymer, oanvända storage block behovet av att vara frigöras. Den här versionen har förbättrat utrymme frigöring processen från molnet, vilket resulterar i det oanvända utrymmet som blir tillgängliga snabbare jämfört med tidigare versioner.
+* **Ta en ögonblicksbild prestandaförbättringar** – uppdatering 2.2 har förbättrat tid att bearbeta en av ögonblicksbild av molndata i vissa scenarier där det är stora volymer som används och det finns minimalt att inga dataomsättning. Ett scenario som skulle ha nytta av den här förbättringen är arkivvolymer.
+* **Härdning av supportpaket samla in** – det har förbättringar i hur supportpaketet är samlas in och laddades upp i den här versionen. 
 * **Uppdatera förbättrad tillförlitlighet** – den här versionen har felkorrigeringar som resulterar i en förbättrad tillförlitlighet för uppdateringen.
 
-## <a name="issues-fixed-in-update-22"></a>Problem som åtgärdas i uppdateringen 2.2
+## <a name="issues-fixed-in-update-22"></a>Problem som åtgärdas i uppdatering 2.2
 Följande tabeller innehåller en översikt över problem som har korrigerats i uppdateringar 2.2 och 2.1.    
 
-| Nej | Funktion | Problem | Gäller för fysiska enheter | Gäller för den virtuella enheten |
+| Nej | Funktion | Problem | Gäller för fysisk enhet | Gäller för virtuella enheten |
 | --- | --- | --- | --- | --- |
-| 1 |Värd-prestanda |I den tidigare versionen observerades värden på klientsidan prestandaproblem under genereringen av en lokalt Fäst volym och under konverteringen av en nivåindelad volym till en lokalt Fäst volym. De här problemen har lösts i den här versionen vilket ledde till en förbättring av prestanda värden under konvertering och skapa procedurer för volymen. |Ja |Nej |
-| 2 |Lokalt fästa volymer |I sällsynta fall kan skulle systemet krascha när du skapar en lokalt Fäst volym. Det här felet har korrigerats i den här versionen. |Ja |Nej |
-| 3 |Skiktning |Det fanns sporadiska kraschar när metadata för StorSimple moln installationer (8010 och 8020) nivåer till molnet. Det här problemet löses i den här versionen. |Nej |Ja |
-| 4 |Skapa en ögonblicksbild |Det uppstod problem relaterade till att skapa inkrementell ögonblicksbilder i scenarier med stora volymer och minimal att inga dataomsättningen. De här problemen har lösts i den här versionen. |Ja |Ja |
-| 5 |Openstack autentisering |När du använder Openstack som molntjänstleverantören kan körs användaren i ett ovanligt fel som rör autentiseringen där JSON-parsern resulterade i en krasch. Det här felet är åtgärdat i den här versionen. |Ja |Nej |
-| 6 |Kopiera värden på klientsidan |Ett ovanligt fel som rör ODX tidsinställning påträffades i tidigare versioner av programvaran när du kopierar data från en volym till en annan volym. Detta leder till en domänkontrollant och växling vid fel och systemet kan potentiellt gå i återställningsläge. Det här felet är åtgärdat i den här versionen. |Ja |Nej |
-| 7 |Windows Management Instrumentation (WMI) |I tidigare versioner av programvaran har flera instanser av web proxy misslyckades med undantaget ”<ManagementException> providern kunde inte läsas in”. Det här programfelet har tilldelats en WMI-minnesläcka och nu har åtgärdats. |Ja |Nej |
-| 8 |Uppdatering |I vissa sällsynta fall kan i tidigare versioner av programvaran, emot användaren ”CisPowershellHcsscripterror” när du försöker skanna eller installera uppdateringar. Det här problemet löses i den här versionen. |Ja |Ja |
-| 9 |Supportpaket |I den här versionen har till de stöd paketet samlas in och överföra förbättringar. |Ja |Ja |
+| 1 |Värdprestanda |I den tidigare versionen observerades värden sida prestandaproblem när du skapar en lokalt Fäst volym och under konverteringen av en nivåindelad volym till en lokalt Fäst volym. De här problemen åtgärdas i den här versionen därmed vilket resulterar i en förbättring av värdprestanda under volym skapandet och konvertering procedurer. |Ja |Nej |
+| 2 |Lokalt fixerade volymer |I sällsynta fall kan skulle systemet krascha när du skapar en lokalt Fäst volym. Det här felet har åtgärdats i den här versionen. |Ja |Nej |
+| 3 |lagringsnivåer |Det fanns sporadiska krascher när metadata för StorSimple Cloud Appliances (8010 och 8020) nivåer till molnet. Det här problemet löses i den här versionen. |Nej |Ja |
+| 4 |Skapa en ögonblicksbild |Det uppstod problem relaterade till skapandet av inkrementella ögonblicksbilder i scenarier med stora volymer och minimal att inga dataomsättning. De här problemen åtgärdas i den här versionen. |Ja |Ja |
+| 5 |Openstack-autentisering |När du använder Openstack som molntjänstleverantören kan skulle användaren stöter på ett ovanligt fel som rör autentiseringen där JSON-parsern resulterade i en krasch. Det här felet åtgärdas i den här versionen. |Ja |Nej |
+| 6 |Värd-kopia |I tidigare versioner av programvaran påträffades ett ovanligt fel som rör ODX tidtagningen när du kopierar data från en volym till en annan volym. Detta resulterar i en kontrollenhetsredundans och systemet kan potentiellt styrenheterna i återställningsläge. Det här felet åtgärdas i den här versionen. |Ja |Nej |
+| 7 |Windows Management Instrumentation (WMI) |I tidigare versioner av programvaran, det fanns flera instanser av web proxy misslyckades med undantaget ”\<ManagementException > providern kunde inte läsas in”. Den här buggen har tilldelats en WMI-minnesläcka och nu har lösts. |Ja |Nej |
+| 8 |Uppdatering |I vissa sällsynta fall kan i tidigare versioner av programvara, emot ”CisPowershellHcsscripterror” av användaren att skanna eller installera uppdateringar. Det här problemet löses i den här versionen. |Ja |Ja |
+| 9 |Supportpaket |I den här versionen har förbättringar i hur supportpaketet samlas in och laddat upp. |Ja |Ja |
 
 ## <a name="known-issues-in-update-22"></a>Kända problem i uppdatering 2.2
-Följande tabell innehåller en översikt över kända problem i den här versionen.
+Följande tabell innehåller en sammanfattning av kända problem i den här versionen.
 
-| Nej. | Funktion | Problem | Kommentarer / lösning | Gäller för fysiska enheter | Gäller för den virtuella enheten |
+| Nej. | Funktion | Problem | Kommentarer / lösning | Gäller för fysisk enhet | Gäller för virtuella enheten |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Disk kvorum |I sällsynta fall om merparten av diskar i EBOD höljet av en 8600-enhet är frånkopplad ledde till Ingen disk i kvorum kommer lagringspoolen går offline. Den förblir offline även om diskarna återansluts. |Du måste starta om enheten. Om problemet kvarstår, kontakta Microsoft Support för nästa steg. |Ja |Nej |
-| 2 |Felaktig styrenhets-ID |När en domänkontrollant ersättning utförs kan styrenhet 0 visas som kontrollant 1. Under controller ersättning, när avbildningen har lästs in från peer-noden kan styrenhets-ID visas först som peer-styrenhet-ID. I sällsynta fall kan problemet visas efter en omstart. |Ingen användaråtgärd krävs. Den här situationen ska lösas av sig självt när domänkontrollanten ersättningen är klar. |Ja |Nej |
-| 3 |Lagringskonton |Använder Storage-tjänsten för att ta bort lagringskontot är ett scenario som inte stöds. Detta leder till en situation där användardata inte kan hämtas. | |Ja |Ja |
-| 4 |Enheten växling vid fel |Flera redundans av en volymbehållare från samma källa enheten till olika målenheter stöds inte. Växling från en inaktiv enhet till flera enheter gör volymbehållarna på den första redundansväxlats enhet förlorar dataägarskap. Efter en växling, ska behållarna volymen visas eller fungera annorlunda när de visas i den klassiska Azure-portalen. | |Ja |Nej |
-| 5 |Installation |Under StorSimple-kort för SharePoint-installation måste du ange en IP-adress för enheten för att slutföra installationen. | |Ja |Nej |
-| 6 |Webbproxy |Om din webbproxykonfigurationen har det angivna protokollet HTTPS, enhet-till-tjänst-kommunikation kommer att påverkas och enheten ska försättas i offlineläge. Stöd för paket skapas också i process förbrukar betydande resurser på enheten. |Kontrollera att URL: en för web proxy har det angivna protokollet HTTP. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
-| 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva styrenheten på enheten. | |Ja |Nej |
-| 8 |Hög molnet latens och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet latens (ordning sekunder) och höga i/o-arbetsbelastning, enheten volymer som ingår i ett degraderat tillstånd och I/o kan misslyckas med felet ”enheten är inte klar”. |Du måste starta om styrenheterna eller utför en växling vid fel med enheten för att återställa från den här situationen manuellt. |Ja |Nej |
-| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objektet, cmdlet returnerar alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - första 1 - vänta** |Ja |Ja |
-| 10 |Migrering |När flera volymbehållare skickas för migrering är ETA för senaste säkerhetskopian exakt endast för den första volymbehållaren. Dessutom startas parallella migrering efter de första 4 säkerhetskopiorna i första volymbehållare migreras. |Vi rekommenderar att du migrerar en volymbehållare i taget. |Ja |Nej |
-| 11 |Migrering |Efter återställningen läggs inte volymer till principen för säkerhetskopiering eller gruppen virtuell disk. |Du behöver lägga till dessa volymer till en princip för säkerhetskopiering för att skapa säkerhetskopior. |Ja |Ja |
-| 12 |Migrering |När migreringen är klar, måste enheten 5000/7000-serien inte komma åt behållarna migrerade data. |Vi rekommenderar att du tar bort migrerade databehållare när migreringen har slutförts och bekräftats. |Ja |Nej |
-| 13 |Klona och Katastrofåterställning |En StorSimple-enhet som kör uppdatering 1 kan inte klona eller utföra en återställning till en enhet med före uppdateringen 1 programvara. |Du behöver uppdatera målenheten uppdatering 1 för att tillåta dessa åtgärder |Ja |Ja |
-| 14 |Migrering |Konfigurationssäkerhetskopia för migrering kan misslyckas på en serieenhet för 5000 7000-när volymen grupper med inga associerade volymer. |Ta bort alla tomma volym grupper med inga associerade volymer och försök sedan säkerhetskopian av konfigurationen. |Ja |Nej |
-| 15 |Azure PowerShell-cmdlets och lokalt fästa volymer |Du kan inte skapa en lokalt Fäst volym via Azure PowerShell-cmdlets. (Alla volymer som du skapar via Azure PowerShell kommer att skikt.) |Använd alltid StorSimple Manager-tjänsten för att konfigurera lokalt fästa volymer. |Ja |Nej |
-| 16 |Diskutrymme för lokalt fästa volymer |Om du tar bort en lokalt Fäst volym kan det tillgängliga utrymmet för nya volymer inte uppdateras omedelbart. StorSimple Manager-tjänsten uppdaterar lokalt tillgängligt utrymme cirka varje timme. |Vänta tills en timme innan du försöker skapa den nya volymen. |Ja |Nej |
-| 17 |Lokalt fästa volymer |Din återställningsjobbet exponerar tillfälliga ögonblicksbilden säkerhetskopieringen i katalogen för säkerhetskopiering, men bara för återställningsjobbet varaktighet. Dessutom det visar att en virtuell diskgrupp med prefixet **tmpCollection** på den **Säkerhetskopieringsprinciper** sidan, men endast för återställningsjobbet varaktighet. |Detta kan inträffa om din Återställningsjobbet har bara lokalt Fäst volymer eller en blandning av lokalt Fäst och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, sker inte det här beteendet. Inga användaråtgärder krävs. |Ja |Nej |
-| 18 |Lokalt fästa volymer |Om du avbryter en återställningsjobbet och det uppstår redundans controller omedelbart efteråt återställningsjobbet visas **misslyckades** i stället för **avbruten**. Om en återställningsjobbet misslyckas och det uppstår redundans controller omedelbart efteråt återställningsjobbet visas **avbruten** i stället för **misslyckades**. |Detta kan inträffa om din Återställningsjobbet har bara lokalt Fäst volymer eller en blandning av lokalt Fäst och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, sker inte det här beteendet. Inga användaråtgärder krävs. |Ja |Nej |
-| 19 |Lokalt fästa volymer |Om du avbryter en återställningsjobbet eller om en återställning misslyckas och sedan en domänkontrollant växling vid fel, en ytterligare återställningsjobbet visas på den **jobb** sidan. |Detta kan inträffa om din Återställningsjobbet har bara lokalt Fäst volymer eller en blandning av lokalt Fäst och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, sker inte det här beteendet. Inga användaråtgärder krävs. |Ja |Nej |
-| 20 |Lokalt fästa volymer |Om du försöker konvertera en nivåindelad volym (skapats och klonade med Update 1.2 eller tidigare) till en lokalt Fäst volym och enheten få slut på utrymme eller om ett avbrott i molnet, kan sedan clone(s) vara skadad. |Det här problemet uppstår bara med volymer som har skapats och klonade med före uppdateringen 2.1 programvara. Detta bör vara ett ovanligt scenario. | | |
-| 21 |Volymkonvertering |Uppdatera inte ACRs kopplade till en volym när en Volymkonvertering pågår (nivåer att lokalt Fäst eller vice versa). Uppdaterar ACRs kan resultera i skadade data. |Om det behövs, uppdatera ACRs innan konverteringen volym och gör inte ytterligare uppdateringar ACR medan konverteringen pågår. | | |
+| 1 |Disk kvorum |I sällsynta fall om merparten av diskar i EBOD-höljet av en 8600-enhet är frånkopplade vilket resulterar i ingen disk kvorum kommer lagringspoolen går offline. Den förblir offline även om diskarna återansluts. |Du måste starta om enheten. Om problemet kvarstår, kontakta Microsoft Support angående nästa steg. |Ja |Nej |
+| 2 |Felaktig controller-ID |När en domänkontrollant ersättning utförs kan kontrollenhet 0 visas som kontrollenhet 1. Under controller ersättning när avbildningen har lästs in från peer-noden kan controller-ID visas inledningsvis som kontrollanten peer-ID. I sällsynta fall kan ses detta även efter en omstart av systemet. |Ingen användaråtgärd krävs. Det här fallet kommer att åtgärdas automatiskt när domänkontrollanten ersättningen är klar. |Ja |Nej |
+| 3 |Lagringskonton |Med Storage-tjänsten för att ta bort lagringskontot är ett scenario som inte stöds. Detta leder till en situation där användardata inte kan hämtas. | |Ja |Ja |
+| 4 |Redundansväxling av enhet |Flera redundans av en volymbehållare från samma källenheten till olika målenheter stöds inte. Redundansväxling från en enskild döda enhet till flera enheter blir volymbehållare på den första redundansväxlas enheten förlora dataägarskap. Efter en redundansväxling, ska dessa volymbehållare visas eller fungerar annorlunda mot när du visar dem i den klassiska Azure-portalen. | |Ja |Nej |
+| 5 |Installation |Under StorSimple Adapter för SharePoint-installation måste du ange en IP-adress för enheten för att installationen ska slutföras. | |Ja |Nej |
+| 6 |Webbproxy |Om din webbproxykonfigurationen har HTTPS som det angivna protokollet, din enhet-till-tjänst-kommunikation kommer att påverkas och enheten försätts offline. Supportpaket genereras även i den processen och förbruka avsevärda resurser på din enhet. |Se till att Webbadressen till webbproxy har HTTP som det angivna protokollet. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
+| 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva kontrollenheten på din enhet. | |Ja |Nej |
+| 8 |Hög molnet fördröjning och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet fördröjning (efter några sekunder) och hög i/o-arbetsbelastning, går du till enhetens volymer i ett degraderat tillstånd och I/o kan misslyckas med ett ”enheten är inte klar”-fel. |Du behöver att manuellt starta om styrenheterna eller utföra en redundansväxling av enhet att återställa från den här situationen. |Ja |Nej |
+| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** att välja det första objektet så att du kan skapa en ny **VolumeContainer** objekt, cmdleten returnerar alla objekt. |Innesluta cmdleten inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - först 1 - vänta** |Ja |Ja |
+| 10 |Migrering |När flera volymbehållare skickas för migrering, stämmer ETA för senaste säkerhetskopiering endast för den första volymbehållaren. Dessutom startar parallella migreringen efter de första 4 säkerhetskopiorna i första volymcontainern har migrerats. |Vi rekommenderar att du migrerar en volymbehållare i taget. |Ja |Nej |
+| 11 |Migrering |Efter återställningen läggs inte volymer till principen för säkerhetskopiering eller gruppen virtuell disk. |Du behöver att lägga till dessa volymer i en princip för säkerhetskopiering för att skapa säkerhetskopior. |Ja |Ja |
+| 12 |Migrering |När migreringen är klar måste 5000/7000-serien enheten inte att komma åt de migrerade data-behållarna. |Vi rekommenderar att du tar bort behållare för migrerade data när migreringen är klar och Skickat. |Ja |Nej |
+| 13 |Klona och DR |En StorSimple-enhet som kör uppdatering 1 kan inte klona eller utföra haveriberedskap till en enhet som kör föruppdatering 1-programvara. |Behöver du uppdatera målenheten till uppdatering 1 för att tillåta dessa åtgärder |Ja |Ja |
+| 14 |Migrering |Skapa säkerhetskopia för migrering kan misslyckas på en enhet i 5000-7000-serien när det finns volymgrupper med några associerade volymer. |Ta bort alla tomma volymgrupper med ingen tillhörande volymerna och försök sedan configuration-säkerhetskopiering. |Ja |Nej |
+| 15 |Azure PowerShell-cmdlets och lokalt fixerade volymer |Du kan inte skapa en lokalt Fäst volym via Azure PowerShell-cmdlets. (Alla volymer som du skapar via Azure PowerShell kommer att vara nivåindelad.) |Använd alltid StorSimple Manager-tjänsten för att konfigurera lokalt fixerade volymer. |Ja |Nej |
+| 16 |Tillgängliga utrymmet för lokalt fixerade volymer |Om du tar bort en lokalt Fäst volym kan det tillgängliga utrymmet för nya volymer inte uppdateras direkt. StorSimple Manager-tjänsten uppdaterar lokalt tillgängligt utrymme ungefär varje timme. |Vänta en timme innan du försöker skapa den nya volymen. |Ja |Nej |
+| 17 |Lokalt fixerade volymer |Din återställningsjobbet exponerar den tillfälliga ögonblicksbildsäkerhetskopia i säkerhetskopieringskatalogen, men endast för varaktigheten för återställningsjobbet. Dessutom kan det visar att en virtuell disk-grupp med prefixet **tmpCollection** på den **principer för säkerhetskopiering** sidan, men endast för varaktigheten för återställningsjobbet. |Detta kan inträffa om din Återställningsjobbet har endast lokalt fixerade volymer eller en blandning av lokalt fixerade och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, utförs inte det här beteendet. Ingen åtgärd från användaren krävs. |Ja |Nej |
+| 18 |Lokalt fixerade volymer |Om du avbryter ett återställningsjobb och en kontrollenhetsredundans sker omedelbart efteråt återställningsjobbet visas **misslyckades** i stället för **avbruten**. Om en återställningsjobbet misslyckas och det uppstår redundans controller omedelbart efteråt återställningsjobbet visas **avbruten** i stället för **misslyckades**. |Detta kan inträffa om din Återställningsjobbet har endast lokalt fixerade volymer eller en blandning av lokalt fixerade och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, utförs inte det här beteendet. Ingen åtgärd från användaren krävs. |Ja |Nej |
+| 19 |Lokalt fixerade volymer |Om du avbryter ett återställningsjobb eller om en återställning misslyckas och sedan en kontrollenhetsredundans inträffar, en ytterligare återställningsjobbet visas på den **jobb** sidan. |Detta kan inträffa om din Återställningsjobbet har endast lokalt fixerade volymer eller en blandning av lokalt fixerade och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, utförs inte det här beteendet. Ingen åtgärd från användaren krävs. |Ja |Nej |
+| 20 |Lokalt fixerade volymer |Om du försöker konvertera en nivåindelad volym (skapade och klonade med uppdatering 1.2 eller tidigare) till en lokalt Fäst volym och din enhet slut på utrymme eller om det sker ett avbrott i molnet, kan clone(s) skadas. |Det här problemet uppstår endast med volymer som har skapats och klonade med före uppdatering 2.1-programvara. Det bör vara ett ovanligt scenario. | | |
+| 21 |Volymkonvertering |Uppdaterar inte åtkomstkontrollposter som är kopplade till en volym när en Volymkonvertering pågår (nivåindelade lokalt fixerade eller vice versa). Uppdaterar åtkomstkontrollposter kan resultera i skadade data. |Om det behövs, uppdatera åtkomstkontrollposter innan konverteringen volym och gör inte ytterligare ACR uppdateringar när konverteringen pågår. | | |
 
-## <a name="controller-and-firmware-updates-in-update-22"></a>Domänkontrollanten och firmware-uppdateringar i uppdateringen 2.2
-Den här versionen har endast är programvarubaserad uppdateringar. Men om du uppdaterar från en tidigare version än uppdatering 2, behöver du installera drivrutinen Storport, Spaceport, och (i vissa fall) disk uppdateringar av inbyggd programvara på din enhet.
+## <a name="controller-and-firmware-updates-in-update-22"></a>Styrenhet och firmware-uppdateringar i uppdatering 2.2
+Den här versionen har programvarubaserad uppdateringar. Men om du uppdaterar från en version före uppdatering 2, du måste installera drivrutinen Storport, Spaceport, och (i vissa fall) disk uppdateringar av inbyggd programvara på din enhet.
 
-Mer information om hur du installerar drivrutiner, Storport, Spaceport och uppdateringar av inbyggd disk finns [installera uppdateringen 2.2](storsimple-install-update-21.md) på StorSimple-enheten.
+Läs mer om hur du installerar drivrutiner, Storport, Spaceport och uppdateringar av inbyggd programvara för disk [installera uppdatering 2.2](storsimple-install-update-21.md) på StorSimple-enheten.
 
-## <a name="virtual-device-updates-in-update-22"></a>Virtuell enhetsuppdateringar i uppdateringen 2.2
+## <a name="virtual-device-updates-in-update-22"></a>Uppdateringar av virtuell enhet i uppdatering 2.2
 Den här uppdateringen kan inte tillämpas på den virtuella enheten. Nya virtuella enheter måste skapas. 
 
 ## <a name="next-step"></a>Nästa steg
-Lär dig hur du [installera uppdateringen 2.2](storsimple-install-update-21.md) på StorSimple-enheten.
+Lär dig hur du [installera uppdatering 2.2](storsimple-install-update-21.md) på StorSimple-enheten.
 

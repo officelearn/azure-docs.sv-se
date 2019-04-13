@@ -1,18 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2d1c2aaa47d056a56d6fb0fc09f4de8072258c9a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242149"
 documentType: LandingData
 title: Dokumentation om Azure Logic Apps
 metadata:
-  title: Dokumentation om Azure Logic Apps – Självstudier, API-referens | Microsoft Docs
+  title: 'Dokumentation om Azure Logic Apps – Självstudier, API-referens | Microsoft Docs'
   description: 'Azure Logic Apps förenklar processen att skapa automatiska skalbara arbetsflöden som integrerar appar och data i molntjänster och lokala system. Lär dig mer om att skapa, utforma och distribuera logikappar som automatiserar affärsprocesser med våra snabbstarter, självstudier, mallar och API: er.'
   services: logic-apps
-  author: czeumault
-  manager: estfan
+  author: ecfan
+  manager: carmonm
   ms.service: logic-apps
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -22,34 +16,34 @@ metadata:
 abstract:
   description: 'Azure Logic Apps förenklar processen att skapa automatiska skalbara arbetsflöden som integrerar appar och data i molntjänster och lokala system. Lär dig mer om att skapa, utforma och distribuera logikappar som automatiserar affärsprocesser med våra snabbstarter, självstudier, mallar och API: er.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar en logikapp i Azure.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-- title: Stegvisa självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar logikappar som körs enligt ett schema och integrerar data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst).
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Lär dig hur du skapar en logikapp i Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - title: Stegvisa självstudier
     items:
-    - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Kontrollera trafik med en schemabaserad logikapp</a>
-    - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Hantera begäranden om distributionslistor med en logikapp</a>
-    - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Bearbeta e-postmeddelanden och bilagor med en logikapp</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Lär dig hur du skapar logikappar som körs enligt ett schema och integrerar data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst).'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">Kontrollera trafik med en schemabaserad logikapp</a>
+          - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">Hantera begäranden om distributionslistor med en logikapp</a>
+          - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">Bearbeta e-postmeddelanden och bilagor med en logikapp</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/logic/">REST API-referens</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/logic/">REST API-referens</a></p>

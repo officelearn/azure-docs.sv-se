@@ -26,7 +26,7 @@ sections:
           - title: Läs mer om koncept
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uppladdning till och lagring i molnet</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Övervakning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medieanalys</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketering</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Skydd</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Liveuppspelning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player-klienter</a></p>'
           - title: Utveckla med API för v3
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Börja utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Börja utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Ansluta med Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Ansluta med .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Ansluta med .Node.js</a></p>'
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
@@ -122,7 +122,7 @@ sections:
         items:
           - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
           - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST</a>'
-          - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
+          - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">NET</a>'
           - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
           - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
           - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'

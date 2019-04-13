@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2f5b530ea469e0e0755e4416fda1e0863614a059
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478839"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551508"
 ---
 > [!IMPORTANT]
 > **Aktivera lösenordshashsynkronisering till Azure AD Domain Services innan du utför uppgifterna i den här artikeln.**
 >
-> Följ anvisningarna nedan, beroende på vilken typ av användare i Azure AD-katalogen. Slutför båda uppsättningarna instruktioner om du har en blandning av endast molnbaserade och synkroniserade användarkonton i Azure AD-katalogen.
+> Följ anvisningarna nedan, beroende på vilken typ av användare i Azure AD-katalogen. Slutför båda uppsättningarna instruktioner om du har en blandning av endast molnbaserade och synkroniserade användarkonton i Azure AD-katalogen. Du kanske inte kan utföra följande åtgärder om du vill använda ett B2B gästkonto (exempel ditt gmail eller MSA från en annan identitetsprovider som tillåter vi) eftersom vi inte har lösenordet för dessa användare som synkroniseras till hanterad domän som dessa är gästkonton i katalogen. Fullständig information om dessa konton, inklusive deras lösenord skulle vara utanför Azure AD och eftersom den här informationen inte är i Azure AD kan därför det även synkroniseras inte med den hanterade domänen. 
 > - [Instruktioner för endast molnbaserade användarkonton](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Anvisningar för användarkonton som synkroniseras från en lokal katalog](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

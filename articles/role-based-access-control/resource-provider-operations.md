@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501475"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549547"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -1092,57 +1092,43 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Ta bort en angiven ansikts-lista. Ansikts-relaterade bilder i listan över ansikte tas bort, för. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Ta bort ett ansikte från en lista med face genom angivna faceListId och persisitedFaceId. Relaterade ansiktsbilden tas bort, för. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Lägg till ett ansikte i en angiven ansikts-lista, upp till 1 000 ansikten. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Hämta en ansikte lista faceListId, namn, userData och ansikten i listan över ansikte.
-Lista ansikte listor faceListId, namn och userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Skapa en tom ansikts-lista med användardefinierade faceListId, namn och en valfri userData. Upp till 64 ansikte tillåts listor
-Uppdatera information för en ansikts-lista, inklusive namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Hämta en ansikte lista faceListId, namn, userData och ansikten i listan över ansikte. Lista ansikte listor faceListId, namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Skapa en tom ansikts-lista med användardefinierade faceListId, namn och en valfri userData. Upp till 64 ansikte tillåts listor uppdateringsinformation för en ansikts-lista, inklusive namn och userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Den angivna förfrågat ansikte faceId att söka i liknande ansikten från en matris med faceId, en ansikts-lista eller en stor ansikts-lista. faceId |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | Dela upp kandidat ansikten i grupper baserat på likheter ansikte. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | 1-till-många-identifiering för att hitta de närmaste matchningarna av specifika fråga person ansikte från en persongrupp eller stora persongrupp. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Ta bort en angiven stora ansikts-lista. Ansikts-relaterade bilder i listan över stora ansikte tas bort, för. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Ta bort ett ansikte från en stor ansikts-lista med angivna largeFaceListId och persisitedFaceId. Relaterade ansiktsbilden tas bort, för. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Hämta beständiga ansikte i stora ansikte lista med largeFaceListId och persistedFaceId.
-Lista ansikten persistedFaceId och userData i en angiven stora ansikts-lista. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Lägg till ett ansikte i en angiven stora ansikts-lista, upp till 1 000 000 ansikten.
-Uppdatera ett angivna ansikte userData fält i en stor ansikte lista av dess persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Hämta en stor ansikte lista largeFaceListId, namn, userData.
-Lista över stora ansikte visar information för largeFaceListId, namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Hämta beständiga ansikte i stora ansikte lista med largeFaceListId och persistedFaceId. Lista ansikten persistedFaceId och userData i en angiven stora ansikts-lista. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Lägg till ett ansikte i en angiven stora ansikts-lista, upp till 1 000 000 ansikten. Uppdatera ett angivna ansikte userData fält i en stor ansikte lista av dess persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Hämta en stor ansikte lista largeFaceListId, namn, userData. Lista över stora ansikte visar information för largeFaceListId, namn och userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Skicka en stor ansikte lista utbildning uppgift. Utbildning är ett viktigt steg som kan använda för endast en tränad stora ansikts-lista. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Kontrollera stora ansikte lista utbildning status slutförda eller fortfarande pågår. LargeFaceList utbildning är en asynkron åtgärd |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Skapa en tom stora ansikts-lista med användardefinierade largeFaceListId, namn och en valfri userData.
-Uppdatera information för en stor ansikts-lista, inklusive namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Skapa en tom stora ansikts-lista med användardefinierade largeFaceListId, namn och en valfri userData. Uppdatera information för en stor ansikts-lista, inklusive namn och userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Ta bort en befintlig persongrupp för stora med angivna personGroupId. Beständiga data i den här stora person gruppen tas bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Skapa en ny person i en angiven stora person-grupp. Om du vill lägga till ansiktsigenkänning i den här personen Ring |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Ta bort en befintlig person från en stor persongrupp. Alla lagrade personliga data och ansikts-avbildningar i posten person kommer att tas bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Ta bort ett ansikte från en person i en stor persongrupp. Ansikts-data och avbildning som är relaterade till den här ansikts-posten tas också bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | Hämta information om personen ansikte. Beständiga person ansiktet anges av dess largePersonGroupId, personId och persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Lägg till en ansiktsbilden till en person i en persongrupp med stora ansiktsidentifiering eller verifieringen. Utan avbildningen av
-Uppdatera en person beständiga ansiktes userData fält. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Hämta ett namn och userData och beständiga faceIds som representerar ansiktsbilden registrerade person.
-Lista alla personer informationen i den angivna stora persongrupp, inklusive personId, namn, userData och persistedFaceIds. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Lägg till en ansiktsbilden till en person i en persongrupp med stora ansiktsidentifiering eller verifieringen. Beständiga ansiktes userData fält för att klara av avbildningen av uppdatering av en person. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Hämta ett namn och userData och beständiga faceIds som representerar ansiktsbilden registrerade person. Lista alla personer informationen i den angivna stora persongrupp, inklusive personId, namn, userData och persistedFaceIds. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Uppdatera namn eller userData för en person. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Hämta information för stora person grupper, inklusive dess namn och userData. Den här API: et returnerar stora person gruppinformation
-Lista alla befintliga stora persongruppers largePesonGroupId, namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Hämta information för stora person grupper, inklusive dess namn och userData. Den här API: et returnerar stora person gruppinformation lista över alla befintliga stora persongrupper largePesonGroupId, namn och userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Skicka en stor person grupp utbildning uppgift. Utbildning är ett viktigt steg som kan användas i endast en utbildad stora person-grupp. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | För att kontrollera stora person utbildning Gruppstatus slutförda eller fortfarande pågår. LargePersonGroup utbildning är en asynkron åtgärd |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Skapa en ny persongrupp för stora med användardefinierade largePersonGroupId, namn och valfri userData.
-Uppdatera en befintlig stora person gruppens namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Skapa en ny persongrupp för stora med användardefinierade largePersonGroupId, namn och valfri userData. Uppdatera en befintlig stora person gruppens namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Ta bort en befintlig persongrupp med angivna personGroupId. Beständiga data i den här personen gruppen tas bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Skapa en ny person i en angiven person-grupp. Om du vill lägga till ansiktsigenkänning i den här personen Ring |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Ta bort en befintlig person från en persongrupp. Alla lagrade personliga data och ansikts-avbildningar i posten person kommer att tas bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Ta bort ett ansikte från en person i en persongrupp. Ansikts-data och avbildning som är relaterade till den här ansikts-posten tas också bort. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Hämta information om personen ansikte. Beständiga person ansiktet anges av dess personGroupId, personId och persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Lägg till en ansiktsbilden till en person i en persongrupp med ansiktsidentifiering eller verifieringen. Utan avbildningen av flera
-Uppdatera en person beständiga ansiktes userData fält. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Hämta ett namn och userData och beständiga faceIds som representerar ansiktsbilden registrerade person.
-Visa information om alla personer i gruppen angiven person, inklusive personId, namn, userData och persistedFaceIds av registrerad. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Lägg till en ansiktsbilden till en person i en persongrupp med ansiktsidentifiering eller verifieringen. Beständiga ansiktes userData fält för att klara av avbildningen av flera uppdatering en person. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Hämta ett namn och userData och beständiga faceIds som representerar ansiktsbilden registrerade person. Visa information om alla personer i gruppen angiven person, inklusive personId, namn, userData och persistedFaceIds av registrerad. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Uppdatera namn eller userData för en person. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Hämta person gruppnamn och userData. Hämta person information under den här personGroup
-Visa persongrupper pesonGroupId, namn och userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Hämta person gruppnamn och userData. Om du vill hämta information om personen under den här personGroup, Använd lista persongrupper pesonGroupId, namn och userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Skicka en person grupp utbildning uppgift. Utbildning är ett viktigt steg som kan använda för en tränad persongrupp. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | För att kontrollera person utbildning Gruppstatus slutförda eller fortfarande pågår. PersonGroup utbildning är en asynkron åtgärd som utlöste |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Skapa en ny persongrupp med angivna personGroupId, namn och användaren userData.
-Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Skapa en ny persongrupp med angivna personGroupId, namn och användaren userData. Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om de inte är i begärandetexten. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Kontrollera om två ansikten tillhör samma person eller om ett ansikte tillhör en person. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/listKeys/action | Visa nyckellista |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Hämtar förutsägelsen publicerade slutpunkten för den givna frågan. |

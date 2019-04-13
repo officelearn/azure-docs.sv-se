@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285385"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547716"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -32,7 +32,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -109,7 +109,7 @@ Checking connectivity... done.
 
 Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-Ersätt < appnamn > i följande exempel med ett unikt appnamn.
+I följande exempel ersätter `<app-name>` med ett unikt appnamn.
 
 ```bash
 cd python-docs-hello-world
@@ -205,13 +205,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
-> [Python med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera ett anpassat startkommando](how-to-configure-python.md#customize-startup-command)
+> [Konfigurera Python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Felsökning](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Använda anpassade avbildningar](tutorial-custom-docker-image.md)
+> [Självstudier: Köra Python-app i anpassad behållare](tutorial-custom-docker-image.md)

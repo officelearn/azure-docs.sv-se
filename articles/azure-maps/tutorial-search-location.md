@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260853"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549396"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 
@@ -280,13 +280,13 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa ny webbsida med API:et Kartkontroll
 > * Använda Search Service för att hitta orienteringspunkter i närheten
 
-Du kan komma åt kodexemplet för den här självstudien här:
+> [!div class="nextstepaction"]
+> [Visa fullständiga källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Sökplats med Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[Se exemplet finnas här](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [Se live-exempel](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Nästa självstudie demonstrerar hur du visar en väg mellan två platser.
 
 > [!div class="nextstepaction"]
-> [Dirigera till ett mål](./tutorial-route-location.md)
+> [Dirigera mot ett mål](./tutorial-route-location.md)

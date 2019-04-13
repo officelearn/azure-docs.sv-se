@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490057"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549873"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälsotillståndet för virtuella datorer i Azure
 
@@ -235,7 +235,9 @@ Om du vill se det uppdaterade hälsotillståndet, kan du uppdatera sidan diagnos
 
 ## <a name="alerts"></a>Aviseringar
 
-Azure Monitor för virtuella datorer Health-funktionen kan integreras med [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och aktiverar en avisering när fördefinierade health-villkor ändras från felfri till feltillstånd när villkoret har identifierats. Aviseringar kategoriserade efter allvarlighetsgrad - allvarlighetsgrad 0 och 4, med allvarlighetsgrad 0 som representerar den högsta allvarlighetsgraden.  
+Azure Monitor för virtuella datorer Health-funktionen kan integreras med [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och aktiverar en avisering när fördefinierade health-villkor ändras från felfri till feltillstånd när villkoret har identifierats. Aviseringar kategoriserade efter allvarlighetsgrad - allvarlighetsgrad 0 och 4, med allvarlighetsgrad 0 som representerar den högsta allvarlighetsgraden. 
+
+Aviseringar är inte associerad med en åtgärdsgrupp att meddela dig när aviseringen har aktiverats. Prenumerationens ägare måste konfigurera meddelanden att följa [senare i det här avsnittet](#configure-alerts).   
 
 Totalt antal VM-hälsa aviseringar kategoriserade efter allvarlighetsgrad är tillgänglig på den **hälsotillstånd** instrumentpanelen under avsnittet **aviseringar**. När du väljer antingen det totala antalet aviseringar eller talet som motsvarar en allvarlighetsgrad den **aviseringar** sidan öppnas och visar en lista över alla aviseringar som matchar ditt val.  Exempel: Om du har valt den raden motsvarar **allvarlighetsgrad nivå 1**, kan du se följande vy:
 

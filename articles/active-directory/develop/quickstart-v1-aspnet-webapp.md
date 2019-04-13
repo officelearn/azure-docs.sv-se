@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007622"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548567"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -32,9 +32,9 @@ I den här snabbstarten lär du dig hur du implementerar inloggning med Microsof
 När du är klar med den här snabbstarten kommer ditt program att acceptera inloggningar med arbets- och skolkonton från organisationer som är integrerade med Azure Active Directory (AD Azure).
 
 > [!NOTE]
-> Om du vill lägga till inloggning för personliga konton förutom arbets- och skolkonton, kan du använda [v2.0-slutpunkten](azure-ad-endpoint-comparison.md). Mer information finns i [den här ASP.NET-självstudien om v2.0-slutpunkten](tutorial-v2-asp-webapp.md) samt [i den här artikeln](active-directory-v2-limitations.md) som förklarar de aktuella begränsningarna i v2.0-slutpunkten.
+> Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton kan du använda den  *[Microsoft identity-plattformen endpoint](azure-ad-endpoint-comparison.md)*. Mer information finns i [självstudien ASP.NET](tutorial-v2-asp-webapp.md) samt [i den här artikeln](active-directory-v2-limitations.md) förklarar den *Microsoft identity-plattformen endpoint*.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -288,7 +288,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap  | Värde | Beskrivning |
+| Egenskap | Värde | Beskrivning |
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |

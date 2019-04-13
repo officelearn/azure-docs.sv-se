@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095678"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545102"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce, streaming på Apache Hadoop i HDInsight
 
@@ -27,7 +27,7 @@ Direktuppspelning av Apache Hadoop är ett verktyg som låter dig köra MapReduc
 
 ## <a name="net-on-hdinsight"></a>.NET on HDInsight
 
-__Linux-baserade HDInsight__ kluster Använd [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](../hdinsight-component-versioning.md). Om du vill använda en specifik version av Mono se den [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
+__Linux-baserade HDInsight__ kluster Använd [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](../hdinsight-component-versioning.md). 
 
 Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -43,7 +43,7 @@ Den grundläggande processen som används för direktuppspelning i det här doku
 
 Läs mer på strömmande [Hadoop Streaming](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Tidigare erfarenhet av att skriva och att skapa C#-kod som riktas mot .NET Framework 4.5. Stegen i det här dokumentet använder Visual Studio 2017.
 
@@ -143,7 +143,7 @@ namespace reducer
 
 När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.exe` filen i projektkatalogen.
 
-## <a name="upload-to-storage"></a>Ladda upp till storage
+## <a name="upload-to-storage"></a>Ladda upp till lagring
 
 1. Öppna i Visual Studio **Server Explorer**.
 

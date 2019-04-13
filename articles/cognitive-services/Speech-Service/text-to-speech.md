@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263119"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549513"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
@@ -56,7 +56,7 @@ Den här tabellen anger de grundläggande funktionerna för text till tal:
 \* *De här tjänsterna är tillgängliga med hjälp av cris.ai-slutpunkt. Se [Swagger referens](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> Text till tal slutpunkten implementerar begränsning som begränsar begäranden till 25 per 5 sekunder. När begränsning inträffar, kommer du att meddelas via meddelandehuvudena.
+> Anpassade voice-slutpunkter implementera begränsning som begränsar begäranden till 25 per 5 sekunder. När begränsning inträffar, kommer du att meddelas via meddelandehuvudena.
 
 ## <a name="get-started-with-text-to-speech"></a>Kom igång med text till tal
 
@@ -88,8 +88,8 @@ Exempelkod för text till tal är tillgänglig på GitHub. De här exemplen omfa
 ## <a name="reference-docs"></a>Referensdokument
 
 * [Speech SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [REST-API: Tal till text](rest-speech-to-text.md)
+* [Tal enheter SDK](speech-devices-sdk.md)
+* [REST-API: Speech-to-text](rest-speech-to-text.md)
 * [REST-API: Text till tal](rest-text-to-speech.md)
 * [REST-API: Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
 

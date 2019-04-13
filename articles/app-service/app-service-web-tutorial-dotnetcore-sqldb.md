@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET Core-app med SQL Database – Azure App Service | Microsoft Docs
+title: ASP.NET Core med SQL-databas – Azure Apptjänst | Microsoft Docs
 description: Lär dig hur du får igång en .NET Core-app som fungerar i Azure App Service med anslutning till en SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510705"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548875"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Självstudier: Skapa en .NET Core- och SQL Database-app i Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Självstudier: Skapa en ASP.NET Core och SQL Database-app i Azure App Service
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -396,7 +396,7 @@ Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen 
 
 Skriv när som helst `Ctrl`+`C` om du vill stoppa loggströmningen.
 
-Mer information om hur du anpassar ASP.NET Core-loggar finns i avsnittet om [loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 

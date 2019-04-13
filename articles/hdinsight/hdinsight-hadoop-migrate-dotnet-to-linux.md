@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: adab50b7325be96830ee937153d110754cc0b552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714669"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549805"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET-lösningar för Windows-baserade HDInsight till Linux-baserat HDInsight
 
@@ -22,7 +22,7 @@ Linux-baserade HDInsight-kluster används [Mono (https://mono-project.com) ](htt
 
 ## <a name="mono-compatibility-with-net"></a>Mono-kompatibilitet med .NET
 
-Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](hdinsight-component-versioning.md). Om du vill installera en specifik version av Mono se den [installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md) dokumentet.
+Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](hdinsight-component-versioning.md).
 
 Mer information om kompatibilitet mellan Mono och .NET finns i den [Mono-kompatibilitet (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
 

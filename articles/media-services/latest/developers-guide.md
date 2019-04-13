@@ -13,26 +13,28 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044414"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543644"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg
 
 Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
 
-Det här avsnittet innehåller länkar till SDK:er, verktyg och dokumentation. Där finns även användbar information för olika utvecklarmiljöer.
+Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md).
 
 > [!NOTE]
 > SDK: er för Azure Media Services v3 garanteras vara trådsäkra. När du utvecklar ett flertrådiga program, bör du lägga till en egen logik för synkronisering av tråd för att skydda den eller använda ett nytt AzureMediaServicesClient objekt per tråd. Du bör också vara försiktig flertrådsteknik problem som introducerades av valfritt objekt som tillhandahålls av din kod till klienten (t.ex. en HttpClient-instans i .NET).
 
-## <a name="prerequisites"></a>Förutsättningar
+Det här avsnittet innehåller länkar till SDK: er, verktyg, andra documentaion.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att börja utveckla mot Media Services behöver du:
 
@@ -40,7 +42,7 @@ För att börja utveckla mot Media Services behöver du:
 - [Lär dig mer om grundläggande begrepp](concepts-overview.md)
 - [Skapa ett Media Services-konto – CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Börja utveckla med SDK: er
+## <a name="start-developing-with-sdks"></a>Börja utveckla med SDK:er
 
 ### <a name="net"></a>.NET
 

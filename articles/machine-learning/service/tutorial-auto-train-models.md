@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8eb569e628e598dbfd890c11656a23007f915b45
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491176"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545237"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -103,7 +103,7 @@ import os
 
 Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbetsytan](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som accepterar dina Azure-prenumeration och resursgrupp information. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
-`Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
+`Workspace.from_config()` läser filen **config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
 
 När du har ett objekt på arbetsytan kan du ange ett namn för experimentet. Skapa och registrera en lokal katalog med arbetsytan. Historiken över alla körningar registreras under det angivna experimentet och i [Azure Portal](https://portal.azure.com).
 
@@ -650,13 +650,13 @@ För att träna en modell automatiskt gör du följande:
 Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med de här standardinställningarna tar cirka 10–15 minuter, men om du vill ha en kortare körtid kan du minska antingen `iterations` eller `iteration_timeout_minutes`.
 
 
-|Egenskap| Värde i den här självstudien |Beskrivning|
+|Egenskap | Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
-|**Iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
+|**iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
 |**preprocess**| True | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
-|**Detaljnivå**| logging.INFO | Styr loggningsnivån.|
+|**verbosity**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 
 
@@ -754,8 +754,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter widget körningsinformation](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter widget diagram](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter Widget-körningsinformation](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter Widget-diagram](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 
@@ -774,8 +774,7 @@ rundata
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: endast-för-type {lodrät justering: mitt;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;

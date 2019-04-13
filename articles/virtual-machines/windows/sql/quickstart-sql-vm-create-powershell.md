@@ -14,22 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c533f4671411412f223fb1c67f1b310ee19bcf23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485942"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547565"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
 Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator med Azure PowerShell.
 
 > [!TIP]
-> I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra Azure PowerShell-alternativ för att skapa virtuella SQL-datorer finns i [Etableringsguide för virtuella SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
-
-> [!TIP]
-> Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
+> - I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra Azure PowerShell-alternativ för att skapa virtuella SQL-datorer finns i [Etableringsguide för virtuella SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+> - Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Skaffa en Azure-prenumeration
 

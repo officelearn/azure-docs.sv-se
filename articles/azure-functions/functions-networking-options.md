@@ -3,17 +3,17 @@ title: Nätverksalternativ för Azure Functions
 description: En översikt över alla Nätverksalternativ som är tillgängliga i Azure Functions
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358148"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545513"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -32,14 +32,14 @@ Funktionsappar kan finnas på flera olika sätt.
 |                |[Förbrukningsplan](functions-scale.md#consumption-plan)|⚠ [Premium-abonnemang](functions-scale.md##premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inkommande IP-restriktioner**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET-integrering**](#vnet-integration)|❌NO|⚠ Ja|✅Yes|✅Yes|
-|[**Förhandsversion av VNET-Integration (Express Route & Tjänsteslutpunkter)**](#preview-vnet-integration)|❌NO|⚠ Ja|⚠ Ja|✅Yes|
+|[**VNET Integration**](#vnet-integration)|❌NO|❌NO|✅Yes|✅Yes|
+|[**Förhandsversion av VNET-Integration (Express Route & Tjänsteslutpunkter)**](#preview-vnet-integration)|❌NO|⚠Ja|⚠Ja|✅Yes|
 |[**Hybridanslutningar**](#hybrid-connections)|❌NO|❌NO|✅Yes|✅Yes|
 |[**Privat åtkomst till webbplatsen**](#private-site-access)|❌NO| ❌NO|❌NO|✅Yes|
 
 ⚠ Förhandsversion av funktionen, inte för användning i produktion
 
-## <a name="inbound-ip-restrictions"></a>Inkommande IP-restriktioner
+## <a name="inbound-ip-restrictions"></a>Inkommande IP-adressbegränsningar
 
 IP-restriktioner kan du definiera en prioritet sorterade tillåta/Neka lista med IP-adresser som ska kunna komma åt din app. Listan över tillåtna kan innehålla IPv4 och IPv6-adresser. När det finns en eller flera poster, är det en implicit neka allt som finns i slutet av listan. Begränsningar för IP-funktionen fungerar med alla funktionen som är värd för alternativ.
 
@@ -48,7 +48,7 @@ IP-restriktioner kan du definiera en prioritet sorterade tillåta/Neka lista med
 
 [Läs mer här](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## <a name="vnet-integration"></a>VNET-integrering
+## <a name="vnet-integration"></a>VNet-integrering
 
 VNET-integrering kan funktionsappen att komma åt resurser i ett virtuellt nätverk. VNET-integrering är tillgängligt i både premiumplan och App Service-plan. Om din app finns i en App Service Environment, sedan den redan i ett virtuellt nätverk och kräver inte användning av funktionen VNet-integrering för att nå resurser i samma virtuella nätverk.
 
@@ -84,8 +84,18 @@ Som används i funktionerna analyseras motsvarar varje Hybridanslutning en enski
 
 Mer information finns i den [dokumentation om App Service för Hybridanslutningar](../app-service/app-service-hybrid-connections.md), som stöder både Functions och Webbappar.
 
-## <a name="private-site-access"></a>Privat åtkomst till webbplatsen
+## <a name="private-site-access"></a>Åtkomst till privat plats
 
 Åtkomst till privata webbplatsen refererar till att appen endast kan nås från ett privat nätverk som från inom en Azure-nätverk. Privat plats åtkomsten är endast tillgänglig med en ASE som konfigurerats med en intern belastningsutjämnaren (ILB). Mer information om hur du använder en ILB ASE finns i [skapa och använda en ILB ASE](../app-service/environment/create-ilb-ase.md).
 
 Det finns många sätt att få åtkomst till VNET-resurser i andra värdalternativ, men en ASE är det enda sättet att tillåta utlösare för en funktion ska ske via ett virtuellt nätverk.
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om nätverk och funktioner: 
+
+* [Följ våra komma igång VNET-integrering-självstudiekursen](./functions-create-vnet.md)
+* [Läsa funktionerna här nätverk vanliga frågor och svar](./functions-networking-faq.md)
+* [Läs mer om VNET-integrering med App Service / fungerar här](../app-service/web-sites-integrate-with-vnet.md)
+* [Mer information om virtuella nätverk i Azure](../virtual-network/virtual-networks-overview.md)
+* [Aktivera flera nätverk funktioner och kontroll med App Service-miljöer](../app-service/environment/intro.md)
+* [Ansluta till enskilda lokala resurser utan ändringar av brandvägg med hjälp av Hybridanslutningar](../app-service/app-service-hybrid-connections.md)

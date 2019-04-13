@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270811"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545305"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -33,7 +33,7 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att följa stegen i den här självstudien måste du först [skapa ditt Azure Maps-konto](./tutorial-search-location.md#createaccount) och [hämta prenumerationsnyckeln för ditt konto](./tutorial-search-location.md#getkey).
 
@@ -569,7 +569,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -955,21 +955,21 @@ I den här självstudien får lära du att skapa en grundläggande butikslokalis
 > * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 > * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (Fråga rumsliga data efter den närmaste grannen).
 
-Du kan komma åt kodexemplet för den här självstudien här:
+> [!div class="nextstepaction"]
+> [Visa fullständiga källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Skapa en butikslokaliserare med hjälp av Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[Se exemplet finnas här](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [Se live-exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Mer information om täckning och funktionerna i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md)
+> [Zoomningsnivåer och vanliga rutnät](zoom-levels-and-tile-grid.md)
 
 Fler kodexempel och en interaktiv kodupplevelse:
 
 > [!div class="nextstepaction"]
-> [Så här använder du kartkontroll](how-to-use-map-control.md)
+> [Så här använder du Kartkontroll](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
 > [Använda datadrivna style uttryck](data-driven-style-expressions-web-sdk.md)

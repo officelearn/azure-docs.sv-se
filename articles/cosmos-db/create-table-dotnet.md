@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 7ca51b176c17f33b4779a0129c5dc57b220c0097
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877640"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544202"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med .NET SDK och Azure Cosmos DB 
 
@@ -26,7 +26,7 @@ ms.locfileid: "57877640"
 
 Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i .NET och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -65,9 +65,6 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
-   > [!NOTE]
-   > .NET standard exemplet som beskrivs i det här dokumentet fungerar med både Azure Cosmos DB Table API och Azure Table Storage. Om du vill köra exemplet som fungerar med .NET Framework 4.5, finns i den [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) exemplet. 
-
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Öppna exempelappen i Visual Studio
 
@@ -94,7 +91,6 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   Om du använder den [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) exemplet bör du uppdatera den anslutningssträng som finns i den **App.config** fil.
 
 4. Tryck på CTRL + S för att spara den **Settings.json** fil.
 
@@ -107,9 +103,6 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
    ![Hantera NuGet-paket](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. I NuGet **Bläddra** skriver Microsoft.Azure.Cosmos.Table. Därmed hittas klientbiblioteket Cosmos DB Table API. Observera att det här biblioteket är för närvarande tillgängligt för .NET Framework och .NET Standard. 
-
-   > [!NOTE]
-   > Om du använder de exempel som använder .NET Framework kan du installera den *Microsoft.Azure.CosmosDB.Table*, NuGet-paketet. Om du använder .NET Framework-exempel med Azure Table Storage, förutom Cosmos DB specifika NuGet-paketet du även kräva den *Microsoft.Azure.Storage.Common* NuGet-paketet. 
    
    ![Fliken Bläddra i NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

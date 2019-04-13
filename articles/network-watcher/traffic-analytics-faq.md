@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046998"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549379"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Hur prissätts trafikanalys?
 
 Trafikanalys mäts. Den Avläsning av programvara baseras på bearbetningen av loggdata för flödet av tjänsten och lagra den resulterande förbättrad loggar i Log Analytics-arbetsytan. 
 
 Till exempel enligt den [prisavtal](https://azure.microsoft.com/pricing/details/network-watcher/), överväger USA, västra centrala regionen, om flödesloggarna data som lagras i ett lagringskonto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics-arbetsyta är 1 GB används tillämpliga kostnader är: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta bearbetar trafikanalys data?
+
+Referera till den [aggregering dataavsnittet](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) i Traffic Analytics schemat och Data aggregering dokumentet
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hur trafikanalys till besluta att en IP-adress är skadliga? 
+
+Trafikanalys förlitar sig på Microsoft interna threat intelligence system, vilket anser en IP-adress som skadlig. Dessa system utnyttja olika telemetri källor som Microsoft-produkter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa informationskällor och skapa en massa intelligence ovanpå den. Vissa av dessa data är tack internt. Om en känd IP-adress flaggas om som malicios, skapar du ett supportärende för att känna till.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Hur kan jag för att ställa in aviseringar på trafikanalys data?
+
+Trafikanalys har inte inbyggt stöd för aviseringar. Eftersom trafikanalys data lagras i Log Analytics du dock skriva anpassade frågor och ställa in aviseringar på dem. Steg:
+- Du kan använda kortlänks-URL för Log Analytics i trafikanalys. 
+- Använd den [schemat dokumenteras här](traffic-analytics-schema.md) att skriva dina frågor 
+- Klicka på ”ny aviseringsregel” att skapa aviseringen
+- Referera till [log aviseringar dokumentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) att skapa aviseringen
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan navigera genom att använda tangentbordet i kartvyn geo?
 

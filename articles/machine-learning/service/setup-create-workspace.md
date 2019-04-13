@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879292"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547956"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Skapa en arbetsyta för Azure Machine Learning-tjänsten
 
@@ -40,7 +40,7 @@ När du skapar en arbetsyta läggs följande Azure-resurser automatiskt (om de �
 >Precis som med andra Azure-tjänster finns det vissa begränsningar och kvoter som är associerade med Machine Learning. [Läs mer om kvoter och hur du begär mer.](how-to-manage-quotas.md)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 ## <a name="portal"></a> Azure-portalen
@@ -160,7 +160,7 @@ Skapa din arbetsyta i en Jupyter Notebook med hjälp av Python-SDK.
 
 ### <a name="write-a-configuration-file"></a>Skriva en konfigurationsfil
 
-Spara informationen om arbetsytan i en konfigurationsfil i den aktuella katalogen. Den här filen kallas *aml_config/config.json*.  
+Spara informationen om arbetsytan i en konfigurationsfil i den aktuella katalogen. Den här filen kallas *.azureml/config.json*.  
 
 Den här konfigurationsfilen för arbetsyta gör det enkelt att läsa in samma arbetsyta senare. Du kan läsa in den med andra bärbara datorer och skript i samma katalog eller en underkatalog med hjälp av kod `ws=Workspace.from_config()` . 
 
@@ -177,13 +177,14 @@ API-anropet `write_config()` skapar konfigurationsfilen i den aktuella katalogen
 ```
 
 > [!TIP]
-> Om du vill använda din arbetsyta i Python-skript eller Jupyter-anteckningsböcker som finns i andra kataloger, kopiera den här filen till katalogen. Filen kan vara i samma katalog, en undermapp som heter *aml_config*, eller i en överordnad katalog.
+> Om du vill använda din arbetsyta i Python-skript eller Jupyter-anteckningsböcker som finns i andra kataloger, kopiera den här filen till katalogen. Filen kan vara i samma katalog, en undermapp som heter *.azureml*, eller i en överordnad katalog.
 
 ## <a name="resource-manager-template"></a>Resource manager-mall
 
 För att skapa en arbetsyta med en mall, se [skapa en arbetsyta för Azure Machine Learning-tjänsten med hjälp av en mall](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>Kommandoradsgränssnitt
 
 För att skapa en arbetsyta med CLI, se [använder CLI-tillägget för Azure Machine Learning-tjänsten](reference-azure-machine-learning-cli.md).
 

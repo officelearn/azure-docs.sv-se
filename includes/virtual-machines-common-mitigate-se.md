@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105514"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551611"
 ---
 **Senast dokumentera uppdatering**: 14 augusti 2018 10:00 FM PST.
 
@@ -21,7 +21,7 @@ Utlämnande av en [ny klass av processorsäkerhetsproblem](https://portal.msrc.m
 
 Microsoft har distribuerat åtgärder i alla våra molntjänster. Den infrastruktur som kör Azure och isolerar slutkundsarbetsbelastningar från varandra är skyddad. Det innebär att potentiella angripare med hjälp av samma infrastruktur inte kan attacker ditt program med dessa problem.
 
-Med hjälp av Azure [minne bevarande Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) när det är möjligt att minimera påverkan för kunden och eliminera behovet av omstarter. Azure kommer fortsätta utnyttja dessa metoder när du gör systemomfattande uppdateringar till värden och skydda våra kunder.
+Med hjälp av Azure [minne bevarande Underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) när det är möjligt att minimera påverkan för kunden och eliminera behovet av omstarter. Azure kommer fortsätta utnyttja dessa metoder när du gör systemomfattande uppdateringar till värden och skydda våra kunder.
 
 Mer information om hur säkerheten är integrerad i alla aspekter av Azure är tillgängligt på den [dokumentation om Azure Security](https://docs.microsoft.com/azure/security/) plats. 
 
@@ -70,11 +70,11 @@ Du kan aktivera ytterligare säkerhetsfunktioner inuti den virtuella datorn elle
 
 Måloperativsystemets måste vara uppdaterade för att aktivera de här ytterligare säkerhetsfunktioner. Även om ett stort antal spekulativ körning sida kanal åtgärder är aktiverade som standard, ytterligare funktioner som beskrivs här måste vara aktiverat manuellt och kan orsaka en prestandapåverkan. 
 
-**Steg 1**: [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer. 
+**Steg 1**: [Kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer. 
 
-**Steg 2**: aktivera Kernel virtuella adress skuggning (KVAS) och OS gren Target inmatning (BTI). Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd via den `Session Manager` registernycklar. En omstart krävs. 
+**Steg 2**: Aktivera stöd för Kernel virtuella adress skuggning (KVAS) och grenen Target inmatning (BTI) OS. Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd via den `Session Manager` registernycklar. En omstart krävs. 
 
-**Steg 3**: för distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och endast E3): dessa anvisningar gäller inuti den virtuella datorn som du använder som en Hyper-V-värd. 
+**Steg 3**: För distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och endast E3): Dessa anvisningar gäller inuti den virtuella datorn som du använder som en Hyper-V-värd. 
 
 1. Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) att aktivera skydd via den `MinVmVersionForCpuBasedMitigations` registernycklar.  
  
@@ -101,11 +101,11 @@ L1TFWindowsSupportEnabled: True
 
 <a name="linux"></a>Aktivera ytterligare säkerhetsfunktioner i uppsättningen kräver att måloperativsystemet är fullständigt uppdaterad. Vissa åtgärder kommer att aktiveras som standard. I följande avsnitt beskrivs de funktioner som är inaktiverade som standard och/eller beroende maskinvarustöd (microcode). Aktivera dessa funktioner kan det orsaka en prestandapåverkan. Referera till ditt operativsystem leverantörens dokumentation för ytterligare instruktioner
  
-**Steg 1**: [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer.
+**Steg 1**: [Kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) till exponerar uppdaterad inbyggd programvara (microcode) till dina virtuella datorer.
  
-**Steg 2**: aktivera gren Target inmatning (BTI) OS-stöd för att minimera CVE 2017 5715 (Spectre Variant 2) genom att följa operativsystemet leverantörens dokumentation. 
+**Steg 2**: Aktivera stöd för grenen Target inmatning (BTI) OS minimera CVE 2017 5715 (Spectre Variant 2) genom att följa operativsystemet leverantörens dokumentation. 
  
-**Steg 3**: aktivera Kernel sidan tabell isolering (KPTI) att minimera CVE 2017 5754 (Meltdown Variant 3) genom att följa operativsystemet leverantörens dokumentation. 
+**Steg 3**: Aktivera Kernel sidan tabell isolering (KPTI) för att minimera CVE 2017 5754 (Meltdown Variant 3) genom att följa operativsystemet leverantörens dokumentation. 
  
 Mer information finns tillgängliga från providern för ditt operativsystem:  
  

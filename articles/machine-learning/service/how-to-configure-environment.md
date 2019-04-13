@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489509"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548894"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -350,7 +350,7 @@ Konfigurationsfilen för arbetsytan är en JSON-fil som talar om för SDK kommun
 }
 ```
 
-Det här JSON-filen måste vara i mappstrukturen som innehåller ett Python-skript- eller Jupyter-anteckningsböcker. Det kan vara i samma katalog, en undermapp som heter *aml_config*, eller i en överordnad katalog.
+Det här JSON-filen måste vara i mappstrukturen som innehåller ett Python-skript- eller Jupyter-anteckningsböcker. Det kan vara i samma katalog, en undermapp som heter *.azureml*, eller i en överordnad katalog.
 
 Om du vill använda den här filen från din kod använder `ws=Workspace.from_config()`. Den här koden läser in informationen från filen och ansluter till din arbetsyta.
 
@@ -379,7 +379,7 @@ Du kan skapa konfigurationsfilen på tre sätt:
         print('Workspace not found')
     ```
 
-    Den här koden skriver konfigurationsfilen för att den *aml_config/config.json* fil.
+    Den här koden skriver konfigurationsfilen för att den *.azureml/config.json* fil.
 
 
 ## <a name="next-steps"></a>Nästa steg

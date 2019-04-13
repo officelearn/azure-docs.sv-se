@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891109"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551628"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd verktyg för automatisering av infrastruktur med virtuella datorer i Azure
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
@@ -57,17 +57,7 @@ Lär dig att:
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
- Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. Dessa avbildningar gör dina cloud-init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och VM-skalningsuppsättningar. I följande tabell beskrivs de aktuella cloud-init aktiverat avbildningar tillgängligheten på Azure-plattformen:
-
-| Utgivare | Erbjudande | SKU | Version | cloud-init är klara
-|:--- |:--- |:--- |:--- |:--- 
-|Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
-|Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
-|CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic |CentOS |7-CI |senaste |förhandsversion |
-|Redhat |RHEL |7-RAW-CI |senaste |förhandsversion |
-
-Lär dig mer om cloud-init på Azure:
+Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. Dessa avbildningar gör dina cloud-init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och VM-skalningsuppsättningar. Lär dig mer om cloud-init på Azure:
 
 - [Cloud-init-stöd för Linux-datorer i Azure](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Prova en självstudie om automatisk konfiguration av virtuell dator med cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).

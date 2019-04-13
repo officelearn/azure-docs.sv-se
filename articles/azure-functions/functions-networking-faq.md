@@ -3,17 +3,17 @@ title: Vanliga frågor och svar om nätverk i Azure Functions
 description: Svar på några av de vanligaste frågorna och scenarier för nätverk med Azure Functions.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896490"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548659"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor och svar om nätverk i Azure Functions
 
@@ -23,7 +23,7 @@ Nedan visas en lista med vanliga frågor för nätverk. En mer omfattande övers
 
 Distribuera en funktion i en App Service Environment (ASE) är för närvarande det enda sättet att ha en statisk inkommande och utgående IP-adress för din funktion. Mer information om hur du använder en ASE börjar du med den här artikeln: [Skapa och använda en ILB ASE](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Hur begränsar Internet-åtkomst till min funktion?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Hur begränsar internet-åtkomst till min funktion?
 
 Du kan begränsa Internetåtkomst på flera olika sätt som anges nedan.
 
@@ -54,3 +54,13 @@ Du kan endast utlösa en funktion från en resurs i ett virtuellt nätverk genom
 Distribuera till en App Service Environment är det enda sättet att skapa en funktionsapp som är helt inne i ett virtuellt nätverk för information om hur du använder en ILB ASE, börja med den här artikeln: [Skapa och använda en ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Scenarier där du behöver bara enkelriktad åtkomst till VNET-resurser eller mindre omfattande nätverksisolering kan se den [fungerar Nätverksöversikt](functions-networking-options.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om nätverk och funktioner: 
+
+* [Följ våra komma igång VNET-integrering-självstudiekursen](./functions-create-vnet.md)
+* [Mer information om Nätverksalternativ i functions här](./functions-networking-options.md)
+* [Läs mer om VNET-integrering med App Service / fungerar här](../app-service/web-sites-integrate-with-vnet.md)
+* [Mer information om virtuella nätverk i Azure](../virtual-network/virtual-networks-overview.md)
+* [Aktivera flera nätverk funktioner och kontroll med App Service-miljöer](../app-service/environment/intro.md)

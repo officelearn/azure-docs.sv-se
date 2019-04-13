@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490783"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548533"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Rollbaserad åtkomstkontroll (RBAC) för Media Services-konton
 
@@ -43,8 +43,8 @@ Se följande artiklar för mer information:
 - [Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Vad är RBAC för Azure-resurser?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Använd RBAC för att hantera åtkomst](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Hämta innehåll viktiga princip med hjälp av Media Services .NET](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Utveckla med Media Services v3-API: er](media-services-apis-overview.md)
+- [Utveckla med Media Services v3-API: er](media-services-apis-overview.md)
+- [Hämta innehåll viktiga princip med hjälp av Media Services .NET](get-content-key-policy-dotnet-howto.md)

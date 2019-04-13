@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225543"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546858"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -118,9 +118,12 @@ Mer information finns i [WebSocket-stöd](https://docs.microsoft.com/azure/appli
 
 ## <a name="rewrite-http-headers-public-preview"></a>Skriva om HTTP-huvuden (offentlig förhandsversion)
 
-Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Genom att skriva om dessa HTTP-huvuden kan du åstadkomma flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade rubrikfält som HSTS/X-XSS skydd eller ta bort svarshuvudfält som kan visa känslig information som backend-serverns namn. 
+HTTP-huvuden kan klienten och servern att skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden hjälper dig att utföra flera viktiga scenarier, till exempel:
+- Lägger till säkerhetsrelaterat namn på huvudfält som HSTS / X-XSS-skydd.
+- Ta bort svar huvudfält som kan röja känslig information.
+- Tar bort specifika konfigurationer portinformationen från X-vidarebefordrade-för-huvuden.
 
-Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkommande HTTP-begäran samt utgående HTTP-svar. Du kommer att kunna lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar när begäran-/svarspaketen flyttas mellan klientens och serverdelens pooler. Du kan skriva om både standardmässiga huvudfält (definieras i [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) och ej standardmässiga huvudfält.  
+Application Gateway stöder möjligheten att lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden, medan begäran och svar paketen flytta mellan klienten och backend-adresspooler. Det ger dig också möjlighet att lägga till villkor för att se till att de angivna sidhuvudena omskrivningar bara när vissa villkor uppfylls.
 
 Läs mer om den här offentliga förhandsgranskningsfunktionen i [Skriva om HTTP-huvuden](rewrite-http-headers.md).
 

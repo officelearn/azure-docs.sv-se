@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490076"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548653"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -76,14 +76,14 @@ Du kan ställa in Azure SQL-databaser och instansdatabaser att samla in följand
 | [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda för en databas. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
-> Elastiska pooler och hanterade instanser har en egen separat diagnostiktelemetri från databaser som de innehåller. Detta är viktigt att notera som diagnostiktelemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
+> Elastiska pooler och hanterade instanser har sina egna separata diagnostiktelemetri från databaser som de innehåller. Detta är viktigt att notera som diagnostiktelemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
 
 > [!NOTE]
 > Kan inte aktiveras säkerhetsgranskning och SQLSecurityAuditEvents loggar från diagnostikinställningar för databasen (även om visar på skärmen). För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Du kan använda **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri. Dessutom diagnostiktelemetri kan också konfigureras separat för databas-behållare: elastiska pooler och hanterade instanser. Du kan ange följande mål att strömma diagnostiktelemetri: Azure Storage, Azure Event Hubs och Azure Monitor-loggar.
+Du kan använda den **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri. Dessutom diagnostiktelemetri kan också konfigureras separat för databas-behållare: elastiska pooler och hanterade instanser. Du kan ange följande mål att strömma diagnostiktelemetri: Azure Storage, Azure Event Hubs och Azure Monitor-loggar.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Konfigurera strömning av diagnostiktelemetri för elastiska pooler
 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 1. Dessutom konfigurera strömning av diagnostiktelemetri för varje databas i den elastiska poolen som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
-> Utöver att konfigurera diagnostiktelemetri för elastisk pool behöver du även konfigurera diagnostiktelemetri för varje databas i elastisk pool, enligt beskrivningen nedan. 
+> Utöver att konfigurera diagnostiktelemetri för elastisk pool, måste du också konfigurera diagnostiktelemetri för varje databas i en elastisk pool, enligt beskrivningen nedan. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel databas eller databas i en elastisk pool
 
@@ -143,7 +143,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för enke
 1. Upprepa dessa steg för varje databas som du vill övervaka.
 
 > [!NOTE]
-> Kan inte aktiveras säkerhetsgranskning och SQLSecurityAuditEvents loggar från diagnostikinställningar för databasen (även om visar på skärmen). För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Kan inte aktiveras säkerhetsgranskning och SQLSecurityAuditEvents loggar från diagnostikinställningar för databasen (även om det visas på skärmen). För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
 
@@ -162,7 +162,7 @@ Om du vill konfigurera strömning av diagnostiktelemetri för hanterad instans o
 - Aktivera strömning av diagnostiktelemetri för den hanterade instansen **och**
 - Aktivera strömning av diagnostiktelemetri för varje instans-databas
 
-Det beror på att managed instance är en databasbehållare med sin egen telemetri som är separat från en enskild instans databastelemetri.
+Det beror på att managed instance är en databasbehållare med sin egen telemetri, separat från en enskild instans databastelemetri.
 
 Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en hanterad instans-resurs:
 
@@ -357,7 +357,7 @@ Du kan strömma SQL Database mått och diagnostik för loggar till Event Hubs me
 När valda data strömmas i Event Hubs, är ett steg närmare att aktivera avancerade scenarier för övervakning. Händelsehubbar fungerar som åtkomsten för en händelsepipeline. När data har samlats in i en händelsehubb, kan de omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller en lagringsadapter. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser. På så sätt kan händelsekonsumenterna kan komma åt händelser på sitt eget schema. Mer information om Händelsehubbar finns:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Du kan använda strömmas mått i Event Hubs till:
 
@@ -429,11 +429,11 @@ Avse följande tabell innehåller information om alla mått per resurs.
 
 ## <a name="all-logs"></a>Alla loggar
 
-Information om telemetri som är tillgängliga för alla loggar är detta i tabellerna nedan. Se [stöds diagnostikloggning](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) förstå vilka loggar som stöds för en viss databas smak – Azure SQL enkel, tilldelade i poler, eller database-instans.
+Information om telemetri som är tillgängliga för alla loggar dokumenteras i tabellerna nedan. Se [stöds diagnostikloggning](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) förstå vilka loggar som stöds för en viss databas smak – Azure SQL enkel, tilldelade i poler, eller database-instans.
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Resursen användning statistik för den hanterade instansen
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure|
@@ -458,7 +458,7 @@ Information om telemetri som är tillgängliga för alla loggar är detta i tabe
 
 ### <a name="query-store-runtime-statistics"></a>Query Store-körningsstatistik
 
-|Egenskap |Beskrivning|
+|Egenskap|Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
@@ -605,7 +605,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 
 ### <a name="time-outs-dataset"></a>Timeout-datauppsättning
 
-|Egenskap |Beskrivning|
+|Egenskap|Beskrivning|
 |---|---|
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
@@ -715,6 +715,6 @@ Lär dig hur du aktiverar loggning och för att förstå mått och loggar katego
 Läs mer om Event Hubs finns:
 
 - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Läs mer om Azure Storage i [hur du laddar ned mått och diagnostik för loggar från Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

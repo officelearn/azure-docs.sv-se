@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805763"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551578"
 ---
 Azure uppdaterar regelbundet plattform för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar sträcker sig från korrigeringar programvarukomponenter i värdmiljön, uppgradera nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar har ingen inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka och Azure väljer minst påverkar metoden efter uppdateringar:
 
@@ -27,9 +27,9 @@ Du kan hämta i VM-meddelande om kommande Underhåll med schemalagda händelser 
 
 ”” Instruktioner om hur du hanterar planerat underhåll, finns i ”Hantera meddelanden planerat underhåll” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Minne bevarande Underhåll
+## <a name="maintenance-not-requiring-a-reboot"></a>Underhåll som inte kräver en omstart
 
-Målet för de flesta icke rebootful uppdateringar är mindre än 10 sekunder pausa för den virtuella datorn. I vissa fall minnet bevarande Underhåll används mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Den virtuella datorn sedan återupptas och synkroniseras klockan på den virtuella datorn automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.
+Målet för de flesta underhåll som inte kräver en omstart är mindre än 10 sekunder pausa för den virtuella datorn. I vissa fall minnet bevarande Underhåll används mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Den virtuella datorn sedan återupptas och synkroniseras klockan på den virtuella datorn automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.
 
 Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 

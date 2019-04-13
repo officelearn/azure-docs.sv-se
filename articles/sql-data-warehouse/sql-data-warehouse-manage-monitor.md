@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189554"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546904"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (DMV) för att övervaka din arbetsbelastning. Detta inkluderar att undersöka Frågekörningen i Azure SQL Data Warehouse.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Om frågan är aktivt väntar på resurser från en annan fråga så kommer att vara i tillståndet **AcquireResources**.  Om frågan har alla nödvändiga resurser så kommer att vara i tillståndet **beviljas**.
 
 ## <a name="monitor-tempdb"></a>Övervaka tempdb
-Hög tempdb-användning kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar tempdb når gränsen under Frågekörningen. Följande information beskriver hur du identifierar tempdb-användningen per fråga på varje nod. 
+TempDB är används för att lagra mellanresultat under Frågekörningen. Hög användning av tempdb-databasen kan leda till långsamma prestanda för frågor. Varje nod i Azure SQL Data Warehouse har cirka 1 TB rå utrymme för tempdb. Nedan finns tips för att övervaka tempdb-användningen och för att minska tempdb-användningen i dina frågor. 
 
-Skapa följande vy för att associera lämplig nod-ID för sys.dm_pdw_sql_requests. Med nod-ID kan du använda andra direkt DMV: er och delta i dessa tabeller med sys.dm_pdw_sql_requests.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-För att övervaka tempdb, kör du följande fråga:
+### <a name="monitoring-tempdb-with-views"></a>Övervaka tempdb med vyer
+Om du vill övervaka tempdb-användningen, först installera den [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) visa från den [Microsoft Toolkit för SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Du kan sedan kör du följande fråga om du vill se tempdb-användningen per nod för alla utförda frågor:
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+Om du har en fråga som förbrukar en stor mängd minne eller har fått ett felmeddelande som rör allokering av tempdb är det ofta på grund av en mycket stor [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instruktionen som körs som misslyckas i sista dataförflyttningen. Detta kan vanligtvis identifieras som en ShuffleMove åtgärd i den distribuerade frågeplanen precis före den INSERT SELECT sista.
+
+De vanligaste minskningen är att dela din CTAS eller INSERT SELECT-instruktion i flera belastningen instruktioner så datavolymen inte ska överstiga 1TB per nodgräns för tempdb. Du kan även skala ditt kluster till en större storlek som tempdb-storleken sprids över flera noder som minskar tempdb på varje enskild nod. 
+
 ## <a name="monitor-memory"></a>Övervaka minne
 
 Minne kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar minnesanvändning på SQL Server når gränsen under Frågekörningen.

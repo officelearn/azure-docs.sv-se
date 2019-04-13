@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ff89e12a1011c0a16644324584eb1610302b1b3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500482"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544301"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -176,5 +176,5 @@ För att samla in loggar från alla noder till en central plats, kan du skapa et
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervakning och loggning för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Åtkomst Apache Hadoop YARN-program för inloggning i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Åtkomst Apache Hadoop YARN-programloggar i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Så här kontrollerar du storleken på loggfiler för olika Apache Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105173"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545424"
 ---
-> [!NOTE]
-> Varje App Service-miljön har en virtuell IP (VIP), som kan användas för att kontakta App Service Environment.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment #
+# <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment
 
-Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet). Det går att distribuera en App Service-miljö (ASE) på två sätt:
+Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet).
+
+> [!NOTE]
+> Varje App Service Environment har en virtuell IP (VIP), som kan användas för att kontakta App Service Environment.
+
+Det går att distribuera en App Service-miljö (ASE) på två sätt:
 
 - Med en VIP på en extern IP-adress som ofta kallas för en extern ASE.
 - Med VIP på en intern IP-adress, ofta kallad en ILB ASE eftersom den interna slutpunkten är en intern belastningsutjämnaren (ILB).
 
 Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns i [en introduktion till App Service Environment][Intro]. Information om hur du skapar en ILB ASE finns i [skapa och använda en ILB ASE][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>Innan du skapar din ASE ##
+## <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 
 När du har skapat din ASE kan ändra du inte följande:
 
@@ -48,7 +50,7 @@ När du har skapat din ASE kan ändra du inte följande:
 > När du väljer ett virtuellt nätverk och ange ett undernät, se till att det är tillräckligt stor för att hantera framtida tillväxt och skalningsbehov. Vi rekommenderar en storlek på `/24` med 256-adresser.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Tre sätt att skapa en Apptjänstmiljö ##
+## <a name="three-ways-to-create-an-ase"></a>Tre sätt att skapa en Apptjänstmiljö
 
 Det finns tre sätt att skapa en Apptjänstmiljö:
 
@@ -58,7 +60,7 @@ Det finns tre sätt att skapa en Apptjänstmiljö:
 
 En extern ASE har en offentlig VIP, vilket innebär att alla HTTP/HTTPS-trafik till appar i ASE når en internet-tillgänglig IP-adress. En ASE med en ILB har en IP-adress från det undernät som används av ASE. Appar i en ILB ASE visas inte direkt till internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Skapa en ase-miljö och en App Service plan tillsammans ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Skapa en ase-miljö och en App Service plan tillsammans
 
 App Service-planen är en behållare för appar. När du skapar en app i App Service kan du välja eller skapa en App Service-plan. App Service-miljöer Håll App Service-planer, App Service-planer och håll och appar.
 
@@ -142,7 +144,7 @@ Skapa en ASE när du skapar en App Service plan:
 1. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
 
 
-## <a name="create-an-ase-by-itself"></a>Skapa en Apptjänstmiljö ensamt ##
+## <a name="create-an-ase-by-itself"></a>Skapa en Apptjänstmiljö ensamt
 
 Om du skapar en ASE-fristående har ingenting i den. En tom ASE fortfarande medför en månatlig avgift för infrastrukturen. Följ dessa steg för att skapa en ASE med en ILB eller skapa en ase-miljö i en egen resursgrupp. När du har skapat din ASE kan skapa du appar i den med hjälp av den normala processen. Välj din nya ASE som plats.
 
@@ -170,7 +172,7 @@ Om du skapar en ASE-fristående har ingenting i den. En tom ASE fortfarande medf
     
     * Om du väljer ett befintligt virtuellt nätverk skapas ett nytt undernät när ASE har skapats. *Du kan inte använda ett undernät som skapats i förväg i portalen. Du kan skapa en ASE med ett befintligt undernät om du använder Resource Manager-mall.* För att skapa en ASE från en mall, se [skapa en App Service Environment från en mall][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
+## <a name="app-service-environment-v1"></a>App Service Environment v1
 
 Du kan fortfarande skapa instanser av den första versionen av App Service Environment (ASEv1). Den här processen Sök på Marketplace efter **App Service Environment v1**. Du kan skapa ASE på samma sätt som du skapar fristående ASE. När det är klart, har din ASEv1 två klientdelar och två arbetsroller. Med ASEv1, måste du hantera klientdelar och arbetare. De läggs inte automatiskt när du skapar din App Service-planer. Frontend-datorer fungerar som HTTP/HTTPS-slutpunkter och skicka trafik till anställda. Arbetare är roller som värd för dina appar. Du kan justera antalet klientdelar och arbetare när du har skapat din ASE. 
 

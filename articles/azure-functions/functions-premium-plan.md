@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918713"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543771"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-prenumeration (förhandsversion)
 
@@ -42,7 +42,7 @@ Följande funktioner är tillgängliga för funktionsappar som distribueras till
 
 Om inga händelser och körningar genomförs idag i förbrukningsplanen kan din app skala till noll instanser. När nya händelser finns, måste en ny instans anpassas med din app som körs på den.  Specialiserar sig nya instanser kan ta lite tid beroende på vilken app.  Den här ytterligare fördröjning vid första anropet kallas ofta appen startar.
 
-Du kan ha en app i förväg värmas på ett angivet antal instanser i Premium-planen.  Före uppvärmning instanser kan du skala före en app innan hög belastning. När appen skalas ut, skalas den först i förväg uppvärmning instanser. Ytterligare instanser fortsätta att buffra ut och varma omedelbart som förberedelse inför nästa skalningsåtgärden. Genom att ha en buffert med förväg uppvärmning instanser undviker effektivt kallstart svarstider.  Före uppvärmning instanser är en funktion i Premium-plan och du behöver minst en instans som körs och tillgänglig hela tiden planen för är aktiv.
+Du kan ha en app i förväg värmas på ett angivet antal instanser, upp till storleken på din minsta plan i Premium-plan.  Före uppvärmning instanser kan du skala före en app innan hög belastning. När appen skalas ut, skalas den först i förväg uppvärmning instanser. Ytterligare instanser fortsätta att buffra ut och varma omedelbart som förberedelse inför nästa skalningsåtgärden. Genom att ha en buffert med förväg uppvärmning instanser undviker effektivt kallstart svarstider.  Före uppvärmning instanser är en funktion i Premium-plan och du behöver minst en instans som körs och tillgänglig hela tiden planen för är aktiv.
 
 Du kan konfigurera antalet förväg uppvärmning instanser i Azure portal genom att välja **skala ut** i den **plattformsfunktioner** fliken.
 
@@ -69,6 +69,8 @@ Ytterligare instanser läggs automatiskt för din app med samma snabb skalning l
 ### <a name="unbounded-run-duration"></a>Ramavgränsare körningens varaktighet
 
 Azure Functions i en användningsplan är begränsad till 10 minuter för körning av en enda.  I Premium-planen, varaktighet för körning som standard 30 minuter att förhindra skenande körningar. Du kan dock [modifiera host.json](./functions-host-json.md#functiontimeout) att göra det här obundna för Premium-plan-appar.
+
+I förhandsversion, varaktigheten garanteras inte de senaste 12 minuter och har bästa möjliga chans som körs efter 30 minuter om din app inte skalas utöver minsta worker antalet.
 
 ## <a name="plan-and-sku-settings"></a>Planerings- och SKU-inställningar
 
@@ -104,9 +106,8 @@ Nedan visas regionerna som stöds för tillfället för den offentliga förhands
 |Region|
 |--|
 |Östra Australien|
-|Australien Souteast|
+|Sydöstra Australien|
 |Centrala Kanada|
-|Indien, centrala|
 |Centrala USA|
 |Östasien|
 |USA, östra 2|

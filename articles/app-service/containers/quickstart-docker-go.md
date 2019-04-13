@@ -9,17 +9,17 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3335163c15319e39858003032ae7113c9c26a3fd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438588"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547312"
 ---
-# <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Distribuera en Docker-/Go-webbapp i Web App for Containers
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Kör en anpassad Linux-behållare i Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) tillhandahåller fördefinierade programstackar i Linux med stöd för språk som .NET, PHP, Node.js med flera. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. I den här snabbstarten får du lära dig hur man skapar en webbapp och distribuerar en Go-avbildning från Docker Hub. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -75,4 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda anpassad Docker-avbildning](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera en anpassad behållare](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Självstudier: Flera behållare WordPress-appen](tutorial-multi-container-app.md)

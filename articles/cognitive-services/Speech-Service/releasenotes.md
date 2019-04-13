@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359739"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549413"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -30,7 +30,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 
 **Nya funktioner** 
 
-* SDK: N stöder nu tjänsten text till tal som en beta-versionen. Den stöds på Windows och Linux-Desktop från C++, C#, och Java. Mer information finns i [text till tal översikt](text-to-speech.md#get-started-with-text-to-speech).
+* SDK: N stöder nu tjänsten text till tal som en beta-versionen. Den stöds på Windows och Linux-Desktop från C++ och C#. Mer information finns i [text till tal översikt](text-to-speech.md#get-started-with-text-to-speech).
 * SDK stöder nu MP3- och Opus/Ogg ljudfiler som stream indatafiler. Den här funktionen är bara tillgängliga på Linux från C++ och C# och håller på att beta (Mer information om [här](how-to-use-compressed-audio-input-streams.md)).
 * Tal-SDK för Java, .NET core, C++ och Objective-C fått macOS support. Objective-C-stöd för macOS är för närvarande i beta.
 * iOS: Tal-SDK för iOS (Objective-C) är nu också att publiceras som en CocoaPod.
@@ -211,7 +211,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för Objective-C på iOS. Kolla in våra [Objective-C-Snabbstart för iOS](quickstart-objectivec-ios.md).
 * Stöd för JavaScript i webbläsaren. Kolla in våra [JavaScript Snabbstart](quickstart-js-browser.md).
 
-**Icke-bakåtkompatibla ändringar**
+**Större ändringar**
 
 * Den här versionen erbjuder införs ett antal icke-bakåtkompatibla ändringar.
   Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) mer information.
@@ -230,7 +230,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 * Exponera ytterligare detaljerad information om hur anslutningsfel.
 
-**Icke-bakåtkompatibla ändringar**
+**Större ändringar**
 
 * Java (Android), den `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` funktionen kräver inte längre en sökvägsparameter. Sökvägen identifieras nu automatiskt på alla plattformar som stöds.
 * Läsaccessor för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -259,7 +259,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Att igenkänningsresultatet innehåller fler fält. De är förskjutning från ljud början och varaktigheten (både i ticken) för den tolkade texten och ytterligare värden som representerar igenkänning av status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout`.
 * Stöd AuthorizationToken för att skapa factory-instanser.
 
-**Icke-bakåtkompatibla ändringar**
+**Större ändringar**
 
 * Igenkänning av händelser: NoMatch händelsetyp skulle samman i felhändelsen.
 * SpeechOutputFormat i C# har bytt namn till OutputFormat vara justerade med C++.

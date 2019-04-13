@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 1eaae979f030d3044b44c46bedee2bd9e3346784
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502938"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551511"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) för att registrera ett program.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion) > Ny registrering**.
+1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 1. Under den **omdirigerings-URI** väljer den **Web** plattform och ange värdet till programmets URL baserat på din webbserver. Se avsnitten nedan för instruktioner om hur du anger och hämtar omdirigerings-URL i Visual Studio och nod.
@@ -61,8 +61,8 @@ ms.locfileid: "59502938"
     ```
 
     Där:
-    - `Enter_the_Application_Id_here` -är den **(klient)-ID: T** för programmet som du har registrerat.
-    - `Enter_the_Tenant_Info_Here` -är inställd på något av följande alternativ:
+    - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
+    - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
        - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
-       - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
-       - Om ditt program stöder **konton alla organisationskatalog och personliga Microsoft-konton**, Ersätt detta värde med `common`
+       - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+       - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`

@@ -11,85 +11,123 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 04/04/2019
 ms.author: celested
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9c6f197f98eda5a71cefd3f4a0c71709a4f51b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203139"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547852"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
-Den här artikeln innehåller vanliga frågor och information som rör de certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till dina SaaS-program. Lägg till program från Azure AD-appgalleri eller genom att använda en mall för icke-galleriprogram. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
 
-Den här artikeln gäller enbart för appar som är konfigurerade för att använda enkel inloggning för Azure AD via SAML-federation, som visas i följande exempel:
+I den här artikeln beskriver vi vanliga frågor och information som rör certifikat som Azure Active Directory (Azure AD) skapar för att upprätta federerad enkel inloggning (SSO) med din programvara som en tjänst (SaaS)-program. Lägg till program från Azure AD-appgalleri eller genom att använda en mall för icke-galleriprogram. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
 
-![Azure AD enkel inloggning](./media/manage-certificates-for-federated-single-sign-on/saml_sso.PNG)
+Den här artikeln gäller enbart för appar som är konfigurerade för att använda Azure AD SSO via [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) federation.
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram
-När du lägger till ett nytt program från galleriet och konfigurera en SAML-baserad inloggning, genereras ett certifikat för programmet som är giltig i tre år i Azure AD. Du kan ladda ned det här certifikatet bland de **SAML-signeringscertifikat** avsnittet. För galleriprogram, kan det här avsnittet visar ett alternativ för att hämta certifikat eller metadata, beroende på krav för programmet.
 
-![Azure AD enkel inloggning](./media/manage-certificates-for-federated-single-sign-on/saml_certificate_download.png)
+När du lägger till ett nytt program från galleriet och konfigurera en SAML-baserad inloggning (genom att välja **enkel inloggning** > **SAML** från översiktssidan program), genererar Azure AD en certifikat för det program som är giltig i tre år. Att hämta det aktiva certifikatet som säkerhetscertifikat (**.cer**) filen, gå tillbaka till sidan (**SAML-baserad inloggning**) och välj en nedladdningslänk i den **SAML-signeringscertifikat** rubrik. Du kan välja mellan raw (binära) certifikatet eller Base64-(base 64-kodad text)-certifikat. För galleriprogram, i det här avsnittet kan visar också en länk för att hämta certifikatet som federationsmetadata XML (en **.xml** fil), beroende på krav för programmet.
+
+![SAML active signeringscertifikat certifikatalternativ för nedladdning](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
+
+Du kan också hämta ett aktiva eller inaktiva certifikat genom att välja den **SAML-signeringscertifikat** rubrikens **redigera** ikon (en penna), som visar den **SAML-signeringscertifikat** sidan. Välj ellipsen (**...** ) bredvid det certifikat som du vill ladda ned och väljer sedan vilken certifikatformatet du vill. Du har ytterligare alternativet att hämta certifikatet i utökad sekretess e-(PEM)-postformat. Det här formatet är identisk med Base64 men med en **.pem** filnamnstillägget, som inte känns igen i Windows som en certifikat-format.
+
+![SAML-signeringscertifikat certifikat hämtningsalternativ (aktiv och inaktiv)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
 ## <a name="customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate"></a>Anpassa ett sista giltighetsdatum för federation-certifikat och förnyar till ett nytt certifikat
-Som standard konfigurerade certifikat som upphör att gälla efter tre år. Du kan välja ett annat utgångsdatum för certifikatet genom att utföra följande steg.
-Skärmbilderna använder Salesforce för exemplet, men de här stegen kan kopplas till alla federerade SaaS-appar.
 
-1. I den [Azure-portalen](https://aad.portal.azure.com), klickar du på **företagsprogram** i den vänstra rutan och klicka sedan på **nytt program** på den **översikt** sidan:
+Som standard konfigurerar Azure ett certifikat upphör att gälla efter tre år när den skapas automatiskt under SAML enkel inloggning för konfigurationen. Eftersom du inte kan ändra datumet då ett certifikat när du har sparat den, behöver du:
 
-   ![Öppna guiden för konfiguration av enkel inloggning](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
+1. Skapa ett nytt certifikat med önskat.
+2. Spara det nya certifikatet.
+3. Ladda ned det nya certifikatet i rätt format.
+4. Ladda upp det nya certifikatet till programmet.
+5. Aktivera det nya certifikatet i Azure Active Directory-portalen.
 
-2. Sök efter galleri-programmet och välj sedan det program som du vill lägga till. Om du inte hittar programmet som krävs kan du lägga till programmet genom att använda den **icke-galleriprogram** alternativet. Den här funktionen är endast tillgänglig i Azure AD Premium (P1 och P2) SKU: N.
+Följande två avsnitt hjälpa dig att utföra dessa steg.
 
-    ![Azure AD enkel inloggning](./media/manage-certificates-for-federated-single-sign-on/add_gallery_application.png)
+### <a name="create-a-new-certificate"></a>Skapa ett nytt certifikat
 
-3. Klicka på den **enkel inloggning** länken i den vänstra rutan och ändra **läge för enkel inloggning** till **SAML-baserad inloggning**. Det här steget genererar ett certifikat för tre år för ditt program.
+Först måste du skapa och spara nytt certifikat med ett annat utgångsdatum:
 
-4. Om du vill skapa ett nytt certifikat klickar du på den **Skapa nytt certifikat** länken i den **SAML-signeringscertifikat** avsnittet.
+1. Logga in på den [Azure Active Directory-portalen](https://aad.portal.azure.com/). Den **Azure Active Directory Administrationscenter** visas.
 
-    ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+2. I den vänstra rutan väljer du **Företagsprogram**. En lista över enterprise-program i ditt konto visas.
 
-5. Den **skapa ett nytt certifikat** länken öppnar kalenderkontrollen. Du kan ange valfritt datum och tid upp till tre år från dagens datum. Valda datum och tid är nytt utgångsdatum och tid för det nya certifikatet. Klicka på **Spara**.
+3. Välj ett program. En översiktssida för programmet visas.
 
-    ![Ladda ned och sedan ladda upp certifikatet](./media/manage-certificates-for-federated-single-sign-on/certifcate_date_selection.PNG)
+4. I den vänstra rutan på översiktssidan för program, Välj **enkel inloggning**.
 
-6. Det nya certifikatet är nu tillgänglig för nedladdning. Klicka på den **certifikat** länken för att hämta den. Certifikatet är nu inte aktiv. Om du vill ska rullas över till det här certifikatet kan du välja den **gör nytt certifikat aktivt** markerar du kryssrutan och klicka på **spara**. Från den tidpunkten börjar Azure AD med hjälp av det nya certifikatet för signering av svaret.
+5. Om den **väljer du en metod för enkel inloggning** visas, väljer du **SAML**.
 
-7.  Information om hur du överför certifikatet till din visst SaaS-program, klickar du på den **visa självstudierna för konfiguration av programmet** länk.
+6. I den **ange in enkel inloggning med SAML - förhandsversion** sidan, hitta den **SAML-signeringscertifikat** rubrik- och väljer den **redigera** ikon (en penna). Den **SAML-signeringscertifikat** visas, som visar status (**Active** eller **inaktiv**), utgångsdatum och varje certifikatets tumavtryck (en hash-sträng).
 
-## <a name="certificate-expiration-notification-email"></a>E-postmeddelande för certifikatet upphör att gälla
+7. Välj **nytt certifikat**. En ny rad visas under listan över certifikat där förfallodatumet som standard exakt tre år efter det aktuella datumet. (Ändringarna inte har sparats ännu, så du kan fortfarande ändra utgångsdatumet.)
 
-Azure AD skickar ett e-post-meddelande 60, 30 och 7 dagar innan SAML-certifikatet upphör att gälla. Ange den e-postadressen att skicka meddelandet:
+8. Hovra över datumkolumnen upphör att gälla i den nya certifikatraden och välj den **Välj datum** ikon (en kalender). En kalenderkontroll visas dagar i en månad med den nya raden aktuella förfallodatum.
 
-- Gå till fältet e-postmeddelande på Azure Active Directory enkel inloggning på programsidan.
-- Ange den e-postadress som ska ta emot e-postmeddelande certifikatet upphör att gälla. Som standard använder det här fältet e-postadressen till den administratör som har lagts till programmet.
+9. Använd kalenderkontrollen för att ange ett nytt datum. Du kan ange valfritt datum från aktuellt datum och tre år efter det aktuella datumet.
 
-Du får e-postmeddelandet från aadnotification@microsoft.com. Om du vill undvika e-postmeddelandet kommer att din skräppost plats, måste du lägga till den här e-post till dina kontakter. 
+10. Välj **Spara**. Det nya certifikatet visas nu med statusen **inaktiv**, utgångsdatumet som du valt och ett tumavtryck.
+
+11. Välj den **X** att återgå till den **ange in enkel inloggning med SAML - förhandsversion** sidan.
+
+### <a name="upload-and-activate-a-certificate"></a>Ladda upp och aktivera ett certifikat
+
+Ladda ned det nya certifikatet i rätt format, överför den till programmet och göra den aktiv i Azure Active Directory:
+
+1. Visa instruktioner för programmets ytterligare SAML inloggnings-konfiguration genom att antingen:
+   - att välja den **konfigurationsguide** länken för att visa i en separat webbläsarfönster eller flikar, eller
+   - Gå till den **konfigurera** rubrik och välja **visa stegvisa instruktioner** att visa i en sidopanelen.
+
+2. Observera Kodningsformatet som krävs för att ladda upp certifikatet i anvisningarna.
+
+3. Följ instruktionerna i den [automatiskt genererade certifikatet för galleriet och inte är ett galleriprogram](#auto-generated-certificate-for-gallery-and-non-gallery-applications) ovan. Det här steget hämtar certifikatet i Kodningsformatet som krävs för överföring av programmet.
+
+4. När du vill förnya till det nya certifikatet går du tillbaka till den **SAML-signeringscertifikat** och välj de tre punkterna i certifikatraden sparade (**...** ) och välj **aktivera certifikatet**. Status för det nya certifikatet ändras till **Active**, och det tidigare aktiva certifikatet ändras till statusen **inaktiv**.
+
+5. Vill du fortsätta följande programmets SAML inloggnings-instruktioner för konfiguration som du visade tidigare, så att du kan ladda upp SAML-signering av certifikat i rätt kodningsformat.
+
+## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Lägg till meddelande e-postadresser för förfallodatum för certifikat
+
+Azure AD skickar ett e-post-meddelande 60, 30 och 7 dagar innan SAML-certifikatet upphör att gälla. Du kan lägga till fler än en e-postadress för att ta emot meddelanden. Om du vill ange de e-postadresser vill du att meddelanden skickas till:
+
+1. I den **SAML-signeringscertifikat** går du till den **meddelande e-postadresser** rubrik. Som standard använder den här rubriken endast e-postadressen till den administratör som har lagts till programmet.
+
+2. Under den sista e-postadressen, skriver du den e-postadress som ska ta emot certifikatets utgångsdatum och tryck sedan på RETUR.
+
+3. Upprepa föregående steg för varje e-postadress som du vill lägga till.
+
+4. För varje e-postadress som du vill ta bort, väljer du den **ta bort** (en Papperskorgen) intill den e-postadressen.
+
+5. Välj **Spara**.
+
+Du får e-postmeddelandet från aadnotification@microsoft.com. Undvik e-postmeddelandet kommer att din skräppost plats genom att lägga till e-postmeddelandet till dina kontakter.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Förnya ett certifikat som snart upphör att gälla
-Följande steg för förnyelse resulterar i utan betydande driftavbrott för dina användare. Skärmbilderna i det här avsnittet funktionen Salesforce som ett exempel, men de här stegen kan använda för valfri federerade SaaS-app.
 
-1. På den **Azure Active Directory** programmet **enkel inloggning** sidan, skapa ett nytt certifikat för ditt program. Du kan göra detta genom att klicka på den **Skapa nytt certifikat** länken i den **SAML-signeringscertifikat** avsnittet.
+Om det är ett certifikat upphör snart att gälla, kan du förnya den med hjälp av en procedur som resulterar i utan betydande driftavbrott för dina användare. Förnya ett certifikat som går ut:
 
-    ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+1. Följ instruktionerna i den [skapa ett nytt certifikat](#create-a-new-certificate) avsnittet ovan, med ett datum som överlappar med det befintliga certifikatet. Detta datum begränsar stilleståndstiden som orsakats av förfallodatum för certifikat.
 
-2. Välj önskad datum och tid för det nya certifikatet och klicka på **spara**. Att välja ett datum som överlappar med det befintliga certifikatet säkerställer att driftavbrott på grund av förfallodatum för certifikat är begränsad. 
+2. Om programmet kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv genom att följa dessa steg:
+   1. Gå tillbaka till den **SAML-signeringscertifikat** sidan.
+   2. Välj ellipsen i certifikatraden sparade (**...** ) och välj sedan **aktivera certifikatet**.
+   3. Hoppa över de kommande två stegen.
 
-3. Om appen kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv.  Logga in på appen för att kontrollera att den fungerar.
+3. Om appen kan endast hantera ett certifikat i taget, Välj ett driftstopp intervall att utföra nästa steg. (Annars om programmet automatiskt hämtar inte det nya certifikatet men kan hantera flera signeringscertifikat, du kan utföra nästa steg när som helst.)
 
-4. Om appen inte automatiskt upphämtning nytt certifikat, men kan hantera mer än ett signeringscertifikat certifikat innan gamla upphör att gälla, ladda upp den nya servern till appen, och sedan gå tillbaka till portalen och blir det aktiva certifikatet. 
+4. Innan det gamla certifikatet upphör att gälla, följer du anvisningarna i den [ladda upp och aktivera ett certifikat](#upload-and-activate-a-certificate) ovan.
 
-5. Om appen kan endast hantera ett certifikat i taget, Välj en driftstörningen, ladda ned det nya certifikatet, överföra den till programmet, gå tillbaka till Azure-portalen och ange det nya certifikatet som aktiv. 
-   
-6. Om du vill aktivera det nya certifikatet i Azure AD, Välj den **gör nytt certifikat aktivt** markerar du kryssrutan och klicka på den **spara** längst upp på sidan. Detta samlar via det nya certifikatet på Azure AD-sida. Status för certifikatet ändras från **New** till **Active**. Från den tidpunkten börjar Azure AD med hjälp av det nya certifikatet för signering av svaret. 
-   
-    ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
+5. Logga in på programmet för att se till att certifikatet fungerar korrekt.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Programhantering i Azure Active Directory](what-is-application-management.md)
-* [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
-* [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
+
+* [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Hantering av program med Azure Active Directory](what-is-application-management.md)
+* [Enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md)
+* [Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

@@ -115,7 +115,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/'
+              - href: null
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment'
           - title: Återställning till tidpunkt
             values:
@@ -127,7 +127,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/'
+              - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
               - href: null
   - title: Stegvisa självstudier och material
     items:
@@ -140,11 +140,11 @@ sections:
           - html: 'Lär dig mer om <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">maskinvaruegenskaper och begränsningar</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">skillnader i Transact-SQL-språket</a>, och <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI-API för att konfigurera hanterad instans<a/>.'
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Konfigurera</a> virtuella Azure-nätverket där den hanterade instansen ska distribueras.'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Verifiera</a> att dina befintliga virtuella Azure-nätverket kan användas för att distribuera hanterade instanser.'
-          - html: 'Ansluta till din instans med hjälp av <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure-dator</a> eller <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punkt-till-plats-anslutning</a>, eller <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">program</a>.'
+          - html: 'Ansluta till din instans med hjälp av <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure-dator</a> eller <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punkt-till-plats-anslutning</a>, eller <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">program</a>.'
           - html: 'Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.'
           - html: Ta med dina databaser till hanterad instans med hjälp av <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">interna återställning</a> eller <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Datamigreringstjänst</a>.
           - html: 'Flytta SSIS-paketen till <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellmodeller för SSAS att <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, och rapporter för SSRS att <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.'
-          - html: 'Lär dig mer om storage-skiktet i <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivån generell användning</a> och tillämpa <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">bästa praxis för prestanda för lagring och överväganden för generell användning tjänstnivå</a>.'
+          - html: 'Lär dig mer om storage-skiktet i <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivån generell användning</a> och tillämpa <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">bästa praxis för prestanda för lagring och överväganden för generell användning tjänstnivå</a>.'
           - html: 'Hitta de bästa praxis och rekommendationer för <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">skydda din instans</a>.'
           - html: Hitta mer <a href="sql-database-howto-managed-instance.md">anvisningar hjälper</a> som hjälper dig att konfigurera din hanterade instans.
   - title: Referens
@@ -154,8 +154,10 @@ sections:
         className: cardsD
         items:
           - title: Bloggar
-            html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Medel</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Medel</a></p>'
           - title: Vanliga frågor och svar
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
+          - title: Community-kanal
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">SQL-Community (hanterade instans)</a></p>'
           - title: Utbildningsmaterial
-            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Praktiska labbövningar</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruktion som leds labs</a></p>'
+            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Praktiska övningar</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruktion som leds labs</a></p>'

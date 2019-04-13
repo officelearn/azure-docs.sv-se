@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494669"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546550"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -170,7 +170,7 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
 4. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på appen till VIP IP-adressen:
 
-    a. Om din ASE har domännamnet _.ilbase.com_ och du skapar en app med namnet _mytestapp_ så hanteras den på _mytestapp.ilbase.com_. Sedan ställer du in _mytestapp.ilbase.com_ för att lösa ILB-adressen. (I Windows finns värdfilen på _C:\Windows\System32\drivers\etc\_.)
+    a. Om din ASE har domännamnet _.ilbase.com_ och du skapar en app med namnet _mytestapp_ så hanteras den på _mytestapp.ilbase.com_. Sedan ställer du in _mytestapp.ilbase.com_ för att lösa ILB-adressen. (På Windows, i värdfilen på _c _C:\Windows\System32\drivers\etc\\_.)
 
     b. Om du vill test webbdistributionens publicering eller åtkomst till den avancerade konsolen skapar du en post för _mytestapp.scm.ilbase.com_.
 

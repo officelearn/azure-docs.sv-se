@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448789"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548412"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts-data till en annan Ansikts-prenumeration
 
@@ -23,7 +23,7 @@ Den här guiden visar hur du flyttar ansikte data (till exempel en sparad **Pers
 
 Det här samma migreringsstrategi gäller även för **LargePersonGroup** och **LargeFaceList** objekt. Om du inte är bekant med principerna i den här guiden finns i deras definitioner i den [ordlista](../Glossary.md). Den här guiden använder klientbiblioteket för .NET för Ansikts-API med C#.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Två Ansikts-API prenumerationsnycklar (med befintliga data och en för att migrera till). Följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på Ansikts-API-tjänst och få din nyckel.
 - Ansikts-API-prenumeration ID-sträng för målprenumerationen (finns i den **översikt** bladet på Azure portal). 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Processen för att utföra och tillämpa ögonblicksbilder inte kommer att störa något regelbundna anrop till käll- eller **PersonGroup**s (eller **FaceList**s). Men vi rekommenderar inte samtidiga anrop som ändrar källobjektet ([ansikte lista hanteringsanrop](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) eller [Persongrupp – träna](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) anropar, till exempel), eftersom ögonblicksbildsåtgärden kan Kör före eller efter dessa åtgärder eller kan det uppstå fel. 
+> Processen för att utföra och tillämpa ögonblicksbilder inte kommer att störa något regelbundna anrop till käll- eller **PersonGroup**s (eller **FaceList**s). Men vi rekommenderar inte samtidiga anrop som ändrar källobjektet ([FaceList hanteringsanrop](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) eller [PersonGroup träna](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) anropar, till exempel), eftersom ögonblicksbildsåtgärden kan Kör före eller efter dessa åtgärder eller kan det uppstå fel.
 
 ## <a name="retrieve-the-snapshot-id"></a>Hämta ögonblicksbild-ID
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358308"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548841"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -173,7 +173,7 @@ Därefter fastställer där modellen ska tränas. En automatiserad machine learn
 *   Den lokala datorn, till exempel en lokal stationär eller bärbar dator – Allmänt när du har liten datamängd och du fortfarande är i fasen utforskning.
 *   En fjärrdator i molnet – [Azure Machine Learning-hanterade Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) är en hanterad tjänst som gör möjligheten att träna maskininlärningsmodeller på kluster av virtuella Azure-datorer.
 
-Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) till exempel bärbara datorer med lokal och fjärransluten beräkningsmål.
+Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) till exempel bärbara datorer med lokal och fjärransluten beräkningsmål.
 
 <a name='configure-experiment'></a>
 
@@ -238,6 +238,9 @@ Om du använder `preprocess=True`, följande data Förbearbeta stegen utförs au
     * Numeriska funktioner med mycket få unika värden som omvandlas till kategoriska funktioner.
     * Beroende på Kardinaliteten för kategoriska funktioner, utföra etikett kodning eller (hash) en frekvent kodning.
 
+## <a name="ensemble-models"></a>Ensemble modeller
+Ensemble learning förbättrar machine learning resultat och förutsägbar prestanda genom att nyhetsnotiser genomsöks många modeller till skillnad från med enkel modeller. När du använder automatisk maskininlärning, kan du träna ensemble modeller med hjälp av den [Caruana ensemble val av algoritmen med sorterade Ensemble initieringen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Ensemble iteration visas som den senaste iterationen av din körning.
+
 ## <a name="time-series-forecasting"></a>Time Series prognoser
 Time series prognosmodellen Uppgiftstyp har ytterligare parametrar för att definiera.
 1. time_column_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i din utbildning som innehåller datum/tid dataserien. 
@@ -270,7 +273,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

@@ -4,7 +4,7 @@ description: I den här snabbstarten distribuerar du din första Java Hello Worl
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 12/10/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999112"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544746"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -99,17 +99,15 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 **Grattis!** Du har distribuerat din första Java-app till App Service på Linux.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Maven för att skapa en Java-app, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
+> [!div class="nextstepaction"]
+> [Självstudier: Java Enterprise-app med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
-- [Självstudier: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#tomcat)
-- [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
-- [Konfigurera verktyg för övervakning av programprestanda](how-to-java-apm-monitoring.md)
-- [Java developer's guide för App Service på Linux](app-service-linux-java.md)
+> [!div class="nextstepaction"]
+> [Konfigurera Java-app](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

@@ -2,20 +2,20 @@
 title: I stället för ETL, designa ELT för Azure SQL Data Warehouse | Microsoft Docs
 description: I stället för ETL, utforma en process för extrahering, inläsning och transformering (ELT) för att läsa in data eller Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/12/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308490"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548672"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
 
@@ -99,7 +99,7 @@ Du kan använda något av dessa inläsning av alternativ för att läsa in data 
 - [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när data kommer från Azure Blob storage eller Azure Data Lake Store. Det ger dig de flesta kontroll över inläsningen, men kräver också att definiera externa dataobjekt. De andra metoderna definiera objekten i bakgrunden som du mappa källtabellerna till måltabellerna.  Du kan använda Azure Data Factory, SSIS eller Azure functions för att dirigera T-SQL-belastning. 
 - [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när dina källdata är i SQL Server, SQL Server lokalt eller i molnet. SSIS definierar källan till målet tabellkopplingar och också styr belastningen. Du kan ändra de paket som du arbetar med den nya data warehouse mål om du redan har SSIS-paket. 
 - [PolyBase med Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) är ett annat verktyg för dirigering.  Den definierar en pipeline och schemalägger jobb. 
-- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse-tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en SQL Data Warehouse-tabell.
+- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse-tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en SQL Data Warehouse-tabell med PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Alternativ för icke-PolyBase-inläsning
 

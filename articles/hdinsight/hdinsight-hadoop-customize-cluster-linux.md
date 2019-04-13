@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885578"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545339"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med skriptåtgärder
 
@@ -152,7 +152,6 @@ HDInsight tillhandahåller skript för att installera följande komponenter i HD
 | Installera Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Se [installera och använda Presto på Hadoop-baserade HDInsight-kluster](hdinsight-hadoop-install-presto.md). |
 | Installera Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Se [installera Apache Giraph på HDInsight Hadoop-kluster](hdinsight-hadoop-giraph-install-linux.md). |
 | Förhandsladda Hive-bibliotek |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Se [lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
-| Installera eller uppdatera Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Se [installera eller uppdatera Mono på HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Använda en skriptåtgärd när klustret skapas
 

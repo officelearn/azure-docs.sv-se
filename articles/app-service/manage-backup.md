@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417524"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549496"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen för säkerhetskopiering och återställning i [Azure App Service](overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -121,6 +121,9 @@ Ibland vill du inte säkerhetskopiera allt på din app. Några exempel:
 * Du vill inte säkerhetskopiera filerna.
 
 Partiella säkerhetskopior kan du välja exakt vilka filer som du vill säkerhetskopiera.
+
+> [!NOTE]
+> Individuella databaser i säkerhetskopian kan vara 4GB maximal men totala maxstorleken för säkerhetskopian är 10GB
 
 ### <a name="exclude-files-from-your-backup"></a>Undanta filer från säkerhetskopian
 Anta att du har en app som innehåller loggfiler och statiska bilder som har varit säkerhetskopierade en gång och inte kommer att ändras. I sådana fall kan undanta du dessa mappar och filer som lagras i dina framtida säkerhetskopieringar. Om du vill undanta filer och mappar från dina säkerhetskopior, skapa en `_backup.filter` fil i den `D:\home\site\wwwroot` -mappen i appen. Ange en lista över filer och mappar som ska läggas till i den här filen. 

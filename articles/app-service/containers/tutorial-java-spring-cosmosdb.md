@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 792346edf1d2b2326f7f5f5f53304ceca347508d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901125"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545792"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Självstudie: Skapa ett Java-webbprogram med Spring och Azure Cosmos DB
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/overview) installerat på din egen dator. 
 * [Git](https://git-scm.com/)
@@ -265,55 +265,10 @@ Du bör se när appen körs med fjärrwebbadressen i adressfältet:
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
-## <a name="view-logs-to-troubleshoot-the-app"></a>Visa loggar för att felsöka appen
+## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
-Aktivera loggning för den distribuerade Java-webbappen i App Service i Linux:
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-```bash
-az webapp log config --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME} \
-  --web-server-logging filesystem
-```
-
-Sedan strömmas webbapploggarna till terminalen:
-
-```bash
-az webapp log tail --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME}
-```
-
-Du ser de senaste raderna med utdata och när nya begäranden görs för TODO-appen strömmas de på konsolen. Använd CTRL + C om du vill avsluta konsolen.
-
-```bash
-bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
-2018-10-28T22:50:17  Welcome, you are now connected to log-streaming service.
-2018-10-28T22:44:56.265890407Z   _____                               
-2018-10-28T22:44:56.265930308Z   /  _  \ __________ _________   ____  
-2018-10-28T22:44:56.265936008Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
-2018-10-28T22:44:56.265940308Z /    |    \/    /|  |  /|  | \/\  ___/ 
-2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
-2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
-2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
-2018-10-28T22:44:56.266260910Z Setup openrc ...
-2018-10-28T22:44:57.396926506Z Service `hwdrivers' needs non existent service `dev'
-2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
-2018-10-28T22:44:57.474152273Z Starting ssh service...
-...
-...
-2018-10-28T22:46:13.432160734Z [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-2018-10-28T22:46:13.744859424Z [INFO] TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
-2018-10-28T22:46:13.783230205Z [INFO] TodoApplication - Started TodoApplication in 57.209 seconds (JVM running for 70.815)
-2018-10-28T22:46:14.887366993Z 2018-10-28 22:46:14.887  INFO 198 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-10-28T22:46:14.887637695Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-2018-10-28T22:46:14.998479907Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 111 ms
-
-2018-10-28T22:49:20.572059062Z Sun Oct 28 22:49:20 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:25.850543080Z Sun Oct 28 22:49:25 GMT 2018 DELETE ======= /api/todolist/{4f41ab03-1b12-4131-a920-fe5dfec106ca} ======= 
-2018-10-28T22:49:26.047126614Z Sun Oct 28 22:49:26 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:30.201740227Z Sun Oct 28 22:49:30 GMT 2018 POST ======= /api/todolist ======= Milk
-2018-10-28T22:49:30.413468872Z Sun Oct 28 22:49:30 GMT 2018 GET ======= /api/todolist =======
-```
 
 ## <a name="scale-out-the-todo-app"></a>Skala ut TODO-appen
 
@@ -330,7 +285,7 @@ az appservice plan update --number-of-workers 2 \
 Om du inte behöver de här resurserna för en annan självstudie (se [Nästa steg](#next)) kan du ta bort dem genom att köra följande kommando i Cloud Shell: 
   
 ```bash
-az group delete --name your-azure-group-name
+az group delete --name <your-azure-group-name>
 ```
 
 <a name="next"></a>
@@ -338,9 +293,9 @@ az group delete --name your-azure-group-name
 ## <a name="next-steps"></a>Nästa steg
 
 [Azure för Java-utvecklare](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot), [Spring Data för Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) och [App Service Linux ](/azure/app-service/containers/app-service-linux-intro).
+[Spring Boot](https://spring.io/projects/spring-boot), [Spring Data för Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) och [App Service Linux ](app-service-linux-intro.md).
 
 Läs mer om hur du kör Java-appar i App Service på Linux i utvecklarhandboken.
 
 > [!div class="nextstepaction"] 
-> [Guide för App Service Linux-utvecklare](/azure/app-service/containers/app-service-linux-java)
+> [Guide för App Service Linux-utvecklare](configure-language-java.md)

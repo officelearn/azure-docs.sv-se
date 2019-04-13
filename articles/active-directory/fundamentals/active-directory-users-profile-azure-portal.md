@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11c71f7f5a329a836d379a16afe66c08572ccde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177996"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548057"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Lägg till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory
 Lägg till information om användarprofiler, inklusive en profilbild, projektspecifika information och vissa inställningar med hjälp av Azure Active Directory (AD Azure). Läs mer om att lägga till nya användare, [lägga till eller ta bort användare i Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,7 +26,7 @@ Lägg till information om användarprofiler, inklusive en profilbild, projektspe
 Som du ser finns det mer information i en användares profil än vad du kan lägga till när användarens skapas. Alla ytterligare information är valfri och kan läggas till efter behov av din organisation.
 
 ## <a name="to-add-or-change-profile-information"></a>Lägga till eller ändra profilinformation
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en Global administratör eller Användaradministratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en användare med rollen för organisationen.
 
 2. Välj **Azure Active Directory**väljer **användare**, och sedan välja en användare. Till exempel _Alain Charon_.
 
@@ -40,7 +40,7 @@ Som du ser finns det mer information i en användares profil än vad du kan läg
 
     - **Profilbild.** Välj en miniatyrbild för användarens konto. Den här bilden visas i Azure Active Directory och på användarens personliga sidor, till exempel myapps.microsoft.com-sidan.
 
-    - **Identitet.** Lägg till alla konto-relaterad information, till exempel ett gift efternamn eller ett ändrade användarnamn. 
+    - **Identitet.** Lägg till eller uppdatera en ytterligare identitetsvärdet för användare, till exempel ett gift efternamn. Du kan ange det här namnet oberoende från värden för förnamn och efternamn. Du kan till exempel använda det att inkludera initialer, ett företagsnamn eller ändra de namn som visas. Ett annat exempel är två användare vars namn är ”Chris Green” kan du använda ID-sträng för att ange deras namn till ”Chris B. Green” ”Chris R. Green (Contoso)”.
 
     - **Jobbinformation.** Lägg till alla jobbrelaterade information, till exempel användarens befattning, avdelning eller manager.
 

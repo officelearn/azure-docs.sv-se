@@ -4,232 +4,209 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5f4b7830-6186-4d17-b77b-504d4192bfde
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/24/2018
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9ead44ae25ca2d45d517557ee90ef8459308bd31
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449231"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Självstudier: Azure Active Directory-integrering med förutser CX Suite
 
 I den här självstudien får du lära dig hur du integrerar förutser CX Suite med Azure Active Directory (AD Azure).
-
 Integrera förutser CX Suite med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till förutser CX Suite.
-- Du kan aktivera användarna att automatiskt få loggat in på förutser CX Suite (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till förutser CX Suite.
+* Du kan aktivera användarna att vara automatiskt inloggad till förutser CX-paket (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med förutser CX Suite, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En förutser CX Suite enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Förutse CX Suite enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till förutser CX Suite från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Förutser CX Suite stöder **SP** -initierad SSO
+
+* Förutser CX Suite stöder **Just In Time** etableringen av användare
 
 ## <a name="adding-foresee-cx-suite-from-the-gallery"></a>Att lägga till förutser CX Suite från galleriet
+
 Om du vill konfigurera integreringen av förutser CX Suite till Azure AD, som du behöver lägga till förutser CX Suite från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till förutser CX Suite från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. I sökrutan skriver **förutser CX Suite**väljer **förutser CX Suite** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **förutser CX Suite**väljer **förutser CX Suite** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Förutse CX Suite i resultatlistan](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_addfromgallery.png)
+     ![Förutse CX Suite i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med förutser CX Suite baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i förutser CX Suite är en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i förutser CX Suite upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med förutser CX Suite baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i förutser CX Suite upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med förutser CX Suite, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare förutser CX Suite](#create-a-foresee-cx-suite-test-user)**  – du har en motsvarighet för Britta Simon i förutser CX Suite som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera förutser CX Suite enkel inloggning](#configure-foresee-cx-suite-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa förutser CX Suite testanvändare](#create-foresee-cx-suite-test-user)**  – du har en motsvarighet för Britta Simon i förutser CX Suite som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt förutser CX Suite-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med förutser CX Suite:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med förutser CX Suite:
 
-1. I Azure-portalen på den **förutser CX Suite** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **förutser CX Suite** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **förutser CX Suite-domän och URL: er** om du har **tjänstleverantör metadatafil**, utför följande steg:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Förutse CX Suite domän och URL: er enkel inloggning för information](./media/foreseecxsuite-tutorial/upload.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du har **metadatafilen för tjänstleverantör**:
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![Förutse CX Suite domän och URL: er enkel inloggning för information](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
+    ![Ladda upp metadatafil](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    c. När installationen har slutförts överför **tjänstleverantör metadatafil** den **identifierare** värdet get automatiskt ifylld i **förutser CX Suite-domän och URL: er** avsnittet textrutan som visas nedan:
+    ![välj metadatafil](common/browse-upload-metadata.png)
 
-    ![Förutse CX Suite domän och URL: er enkel inloggning för information](./media/foreseecxsuite-tutorial/urlupload.png)
+    c. När metadatafilen har överförts den **identifierare** värdet hämtar automatiskt ifylld i avsnittet grundläggande SAML-konfiguration.
 
-1. Om du inte har **tjänstleverantör metadatafil**, utför följande steg:
+    ![Förutse CX Suite domän och URL: er enkel inloggning för information](common/sp-identifier.png)
 
-    ![Förutse CX Suite domän och URL: er enkel inloggning för information](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
+    a. I rutan **Inloggnings-URL** anger du en URL: `https://cxsuite.foresee.com/`
 
-    a. I den **inloggnings-URL** textrutan anger du URL: `https://cxsuite.foresee.com/`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: https://www.okta.com/saml2/service-provider/<UniqueID>
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.okta.com/saml2/service-provider/<UniqueID>`
+    > [!Note]
+    > Om den **identifierare** värde får inte automatisk polulated, sedan fyller du i värdet manuellt enligt ovan mönster. Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [förutser CX Suite klienten supportteamet](mailto:support@foresee.com) att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [förutser CX Suite klienten supportteamet](mailto:support@foresee.com) att hämta det här värdet.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Länk för hämtning av certifikat](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_certificate.png)
+6. På den **konfigurera förutser CX Suite** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-1. Klicka på **spara** knappen.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/foreseecxsuite-tutorial/tutorial_general_400.png)
+    a. Inloggnings-URL
 
-1. Att konfigurera enkel inloggning på **förutser CX Suite** sida, som du behöver skicka de hämtade **XML-Metadata för** till [förutser CX Suite supportteamet](mailto:support@foresee.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    b. Azure AD-identifierare
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    c. Utloggnings-URL
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="configure-foresee-cx-suite-single-sign-on"></a>Konfigurera förutser CX Suite enkel inloggning
 
-   ![Skapa en Azure AD-testanvändare][100]
+Att konfigurera enkel inloggning på **förutser CX Suite** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [förutser CX stöd team](mailto:support@foresee.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Azure Active Directory-knappen](./media/foreseecxsuite-tutorial/create_aaduser_01.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/foreseecxsuite-tutorial/create_aaduser_02.png)
+2. Välj **Ny användare** överst på skärmen.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Knappen Lägg till](./media/foreseecxsuite-tutorial/create_aaduser_03.png)
+3. Genomför följande steg i Användaregenskaper.
 
-1. I den **användaren** dialogrutan utför följande steg:
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![Dialogrutan användare](./media/foreseecxsuite-tutorial/create_aaduser_04.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-
-### <a name="create-a-foresee-cx-suite-test-user"></a>Skapa en testanvändare förutser CX Suite
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i förutser CX Suite. Arbeta med [förutser CX Suite supportteamet](mailto:support@foresee.com) att lägga till användare eller domän som behövs för att bli godkänd i plattformen förutser CX Suite. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas till plattformen förutser CX Suite. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till förutser CX Suite.
 
-![Tilldela rollen][200]
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **förutser CX Suite**.
 
-**Om du vill tilldela Britta Simon förutser CX Suite, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **förutser CX Suite**.
 
-    ![Tilldela användare][201]
+    ![Länken förutser CX Suite i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **förutser CX Suite**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken förutser CX Suite i listan med program](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_app.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-foresee-cx-suite-test-user"></a>Skapa förutser CX Suite testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet skapar du en användare som kallas Britta Simon i förutser CX Suite. Arbeta med [förutser CX Suite supportteamet](mailto:support@foresee.com) att lägga till användare eller domän som behövs för att bli godkänd i plattformen förutser CX Suite. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas till plattformen förutser CX Suite. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen förutser CX Suite i åtkomstpanelen du bör få automatiskt loggat in på ditt förutser CX Suite-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen förutser CX Suite i åtkomstpanelen, bör det vara loggas in automatiskt till förutser CX Suite som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/foreseecxsuite-tutorial/tutorial_general_01.png
-[2]: ./media/foreseecxsuite-tutorial/tutorial_general_02.png
-[3]: ./media/foreseecxsuite-tutorial/tutorial_general_03.png
-[4]: ./media/foreseecxsuite-tutorial/tutorial_general_04.png
-
-[100]: ./media/foreseecxsuite-tutorial/tutorial_general_100.png
-
-[200]: ./media/foreseecxsuite-tutorial/tutorial_general_200.png
-[201]: ./media/foreseecxsuite-tutorial/tutorial_general_201.png
-[202]: ./media/foreseecxsuite-tutorial/tutorial_general_202.png
-[203]: ./media/foreseecxsuite-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

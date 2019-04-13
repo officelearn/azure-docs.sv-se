@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451798"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548596"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
 
@@ -50,50 +50,6 @@ Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 Anvisningarna i den här snabbstarten kommer att installera de paket som du behöver för köra anteckningsböckerna för snabbstart och självstudier.  Andra exempelanteckningsböcker kan kräva installation av ytterligare komponenter.  Mer information om dessa komponenter finns i avsnittet om att [installera Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>Konfigurera automatiserad maskininlärning 
-
-_De här stegen gäller endast för notebook-filerna i mappen **how-to-use-azureml/automated-machine-learning**._
-
-Du kan använda något av ovanstående alternativ, men du kan också installera miljön och skapa en arbetsyta på samma gång med följande instruktioner. 
-
-1. Installera [Mini-conda](https://conda.io/miniconda.html). Välj 3.7 eller senare. Installera enligt anvisningarna. 
-   >[!NOTE]
-   >Du kan använda en befintlig conda om det är version 4.4.10 eller senare. Använd `conda -V` för att visa versionen. Du kan uppdatera en conda-version med kommandot: `conda update conda`. Du behöver inte installera just mini-conda.
-
-1. Ladda ned exempelanteckningsböckerna från [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) som en ZIP-fil och extrahera innehållet till en lokal katalog. Anteckningsböckerna för automatiserad maskininlärning finns i mappen `how-to-use-azureml/automated-machine-learning`.
-
-1. Konfigurera en ny Conda-miljö. 
-   1. Öppna en Conda-prompt på den lokala datorn.
-   
-   1. Navigera till de filer du extraherade till den lokala datorn.
-   
-   1. Öppna mappen **automated-machine-learning**.
-   
-   1. Kör `automl_setup.cmd` i conda-prompten för Windows eller `.sh`-filen för ditt operativsystem. Det kan ta cirka 10 minuter att köra det.
-
-      Konfigurationsskriptet:
-      + Skapar en ny conda-miljö
-      + Installerar nödvändiga paket
-      + Konfigurerar widgeten
-      + Startar en Jupyter-anteckningsbok
-      
-   >[!NOTE]
-   > Skriptet tar conda-miljönamnet som en valfri parameter. Standardinställningen för conda-miljönamnet är `azure_automl`. Det exakta kommandot beror på operativsystemet. Detta är användbart om du skapar en ny miljö eller uppgraderar till en ny version. Du kan till exempel använda 'automl_setup.cmd azure_automl_sandbox' för att skapa en miljö namn azure_automl_sandbox. 
-      
-1. När skriptet har slutförts visas en Jupyter Notebook-startsida i webbläsaren.
-
-1. Navigera till sökvägen där du sparade anteckningsböckerna. 
-
-1. Öppna mappen automated-machine-learning och öppna sedan notebook-filen **configuration.ipynb**. 
-
-1. Kör cellerna i anteckningsboken för att registrera Machine Learning Services-resursprovider och skapa en arbetsyta.
-
-Nu är du redo att öppna och köra anteckningsböckerna som sparats på den lokala datorn.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

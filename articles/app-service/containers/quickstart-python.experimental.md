@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d0c51f5d4757c35319cc3f80d09c9fb1a0e1cf69
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314069"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546339"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -168,13 +168,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
-> [Python med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera ett anpassat startkommando](how-to-configure-python.md#customize-startup-command)
+> [Konfigurera Python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Felsökning](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Använda anpassade avbildningar](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)

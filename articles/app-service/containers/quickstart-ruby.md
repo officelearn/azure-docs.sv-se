@@ -4,8 +4,8 @@ description: Lär dig att skapa en Ruby on Rails-app med App Service i Linux.
 keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: cfowler
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870443"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545153"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Skapa en Ruby on Rails-app med App Service i Linux
 
 Med [Azure App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du skapar en grundläggande [Ruby on Rails](https://rubyonrails.org/)-app som sedan kan distribueras till Azure som en Web App on Linux.
 
 > [!NOTE]
-> Ruby-utvecklingsstacken har bara stöd för Ruby on Rails just nu. Om du vill använda en annan plattform, till exempel Sinatra, eller om du vill använda en [Ruby-version som inte stöds](app-service-linux-intro.md), bör du gå igenom snabbstarten för [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/).
+> Ruby-utvecklingsstacken har bara stöd för Ruby on Rails just nu. Om du vill använda en annan plattform, till exempel Sinatra, eller om du vill använda en [Ruby-versionen stöds inte](app-service-linux-intro.md), måste du [kör det i en anpassad behållare](quickstart-docker-go.md).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -139,4 +139,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails med Postgres](tutorial-ruby-postgres-app.md)
+> [Självstudier: Ruby on Rails med Postgres](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera Ruby-app](configure-language-ruby.md)

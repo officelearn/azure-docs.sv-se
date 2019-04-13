@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489596"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544931"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -85,16 +85,18 @@ Förbereda AKS-kluster omfattar:
 * Att aktivera Azure Dev blanksteg på ditt kluster med hjälp av `az aks use-dev-spaces`
 
 Mer information om hur du skapar och konfigurerar ett AKS-kluster för Azure Dev blanksteg finns i komma igång-guider:
-* [Komma igång med Azure Dev Spaces med Java](get-started-java.md)
-* [Komma igång med Azure Dev Spaces med .NET Core och Visual Studio](get-started-netcore-visualstudio.md)
-* [Komma igång med Azure Dev Spaces med .NET Core](get-started-netcore.md)
-* [Komma igång med Azure Dev Spaces med Node.js](get-started-nodejs.md)
+* [Kom igång med Azure Dev blankstegen med Java](get-started-java.md)
+* [Kom igång med Azure Dev blankstegen med .NET Core och Visual Studio](get-started-netcore-visualstudio.md)
+* [Kom igång med Azure Dev blanksteg med .NET Core](get-started-netcore.md)
+* [Kom igång med Azure Dev blankstegen med Node.js](get-started-nodejs.md)
 
 När Azure Dev blanksteg är aktiverat på AKS-klustret, installerar kontrollanten för klustret. Styrenheten är en separat Azure-resurs utanför klustret och gör följande för att resurser i klustret:
 
 * Skapar eller anger en Kubernetes-namnområde som ska användas som en dev-utrymme.
 * Tar bort alla Kubernetes namnområdes med namnet *azds*, om den finns, och skapar en ny.
-* Distribuerar ett Kubernetes-initierare-objekt.
+* Distribuerar en konfiguration för Kubernetes-webhook.
+* Distribuerar en webhook åtkomst-server.
+    
 
 Den använder även samma tjänstens huvudnamn som AKS-klustret använder för att göra de tjänstanrop till andra Azure Dev blanksteg-komponenter.
 
@@ -104,9 +106,9 @@ För att kunna använda Azure Dev blanksteg, måste det finnas minst en dev-utry
 
 Som standard skapar kontrollanten kan utveckling med namnet *standard* genom att uppgradera den befintliga *standard* Kubernetes namnområdes. Du kan använda klientsidan-verktyg för att skapa nya sidor för utveckling och ta bort den befintliga dev blanksteg. På grund av en begränsning i Kubernetes, den *standard* dev utrymme kan inte tas bort. Kontrollanten tar också bort alla befintliga Kubernetes-namnområden med namnet *azds* att undvika konflikter med den `azds` kommando som används av verktyg för klientsidan.
 
-Kubernetes initieraren objektet används för att mata in poddar med tre behållare under distributionen för instrumentation: en devspaces-proxy-behållare, en devspaces-proxy-init-behållare och en devspaces-build-behållare. **Alla tre av de här behållarna kör med rotåtkomst AKS-klustret.** De kan också använda samma tjänstens huvudnamn som AKS-klustret använder för att göra de tjänstanrop till andra Azure Dev blanksteg-komponenter.
+Kubernetes webhook åtkomst server används för att mata in poddar med tre behållare under distributionen för instrumentation: en devspaces-proxy-behållare, en devspaces-proxy-init-behållare och en devspaces-build-behållare. **Alla tre av de här behållarna kör med rotåtkomst AKS-klustret.** De kan också använda samma tjänstens huvudnamn som AKS-klustret använder för att göra de tjänstanrop till andra Azure Dev blanksteg-komponenter.
 
-![Azure Dev blanksteg Kubernetes initieraren](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure Dev blanksteg Kubernetes webhook åtkomst-server](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 Behållaren devspaces-proxy är en sidovagnsbehållare som hanterar alla TCP-trafik till och från behållaren program och hjälper dig att utföra routning. Behållaren devspaces-proxy ska dras om HTTP-meddelanden om vissa blanksteg används. Det kan till exempel dirigera HTTP-meddelanden mellan program i överordnade och underordnade blanksteg. Alla icke-HTTP-trafik passerar genom devspaces-proxy ska ändras. Behållaren devspaces proxy också loggas alla inkommande och utgående HTTP-meddelanden och skickar dem till klientsidan verktyg som spårningar. De kan sedan visas av utvecklaren att inspektera programmets beteende.
 
@@ -117,7 +119,7 @@ Devspaces-build-behållaren är en init-behållare och har projekt källkod och 
 > [!NOTE]
 > Azure Dev blanksteg använder samma nod för att skapa dina programbehållare och kör den. Azure Dev blanksteg behöver därför inte en extern container registry för att skapa och kör ditt program.
 
-Objektet Kubernetes initieraren lyssnar efter eventuella nya pod som skapats i AKS-klustret. Om den poden distribueras till alla namnområden med den *azds.io/space=true* etikett, det lägger in den pod med ytterligare behållare. Devspaces-build-behållaren är endast matas in om programmets behållaren ska köras med hjälp av verktyg för klientsidan.
+Kubernetes webhook åtkomst servern lyssnar efter eventuella nya pod som skapats i AKS-klustret. Om den poden distribueras till alla namnområden med den *azds.io/space=true* etikett, det lägger in den pod med ytterligare behållare. Devspaces-build-behållaren är endast matas in om programmets behållaren ska köras med hjälp av verktyg för klientsidan.
 
 När du har förberett din AKS-kluster, kan du kan använda klientsidan-verktyg för att förbereda och köra din kod i ditt dev-adressutrymme.
 
@@ -221,7 +223,7 @@ På en mer detaljerad nivå, här är vad som händer när du kör `azds up`:
 1. Filer synkroniseras från användarens dator till en Azure file storage som är unik för användarens AKS-kluster. Laddas källkoden-, Helm-diagram- och konfigurationsfiler. Mer information om synkroniseringsprocessen finns i nästa avsnitt.
 1. Kontrollanten skapar en begäran om att starta en ny session. Den här begäran innehåller flera egenskaper, inklusive ett unikt ID, utrymme namnet, sökvägen till källkoden och en flagga för felsökning.
 1. Domänkontrollanter ersätter den *$(tag)* platshållare i Helm-diagrammet med unikt sessions-ID och installerar Helm-diagram för din tjänst. Att lägga till en referens till unikt sessions-ID i Helm-diagrammet gör att behållaren distribueras till AKS-klustret för den här specifika sessionen kan kopplas till sessionen begäran och tillhörande information.
-1. Lägger till ytterligare behållare i ditt programs pod för instrumentation och tillgång till källkoden för ditt projekt under installationen av Helm-diagrammet Kubernetes initieraren objektet. Devspaces-proxy och devspaces proxy initiering behållare läggs för att tillhandahålla HTTP-spårning och utrymme routning. Behållaren devspaces-build läggs till för poden med åtkomst till Docker-instansen och projekt källkoden för att skapa dina programbehållare.
+1. Lägger till ytterligare behållare i programpodden för instrumentation och åtkomst till ditt projekt källkod under installationen av Helm-diagrammet, Kubernetes webhook åtkomst server. Devspaces-proxy och devspaces proxy initiering behållare läggs för att tillhandahålla HTTP-spårning och utrymme routning. Behållaren devspaces-build läggs till för poden med åtkomst till Docker-instansen och projekt källkoden för att skapa dina programbehållare.
 1. När programmets pod startas, används devspaces-build-behållaren och devspaces proxy initiering behållaren att skapa behållaren program. Programbehållare och devspaces proxy behållare startas sedan.
 1. När behållaren program har startat funktionen på klientsidan används Kubernetes *port och tydlig* funktioner för att ge HTTP-åtkomst till ditt program via http://localhost. Den här portvidarebefordran ansluter utvecklingsdatorn till tjänsten i ditt dev-adressutrymme.
 1. När alla behållare i en pod har startat kan körs tjänsten. Funktionen för klientsidan börjar nu att strömma HTTP-spårningar, stdout och stderr. Den här informationen visas som funktionen på klientsidan för utvecklare.

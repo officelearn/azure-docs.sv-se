@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63827c74d584053b5131fbc602a04d4d24338f47
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500336"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547406"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript ensidesapplikation (SPA)
 
@@ -61,7 +61,6 @@ Du behöver följande inställningar för den här snabbstarten:
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
 > 1. Välj **ny registrering**.
-> 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 > 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Välj **Webb**-plattformen i avsnittet **Omdirigerings-URI** och ange värdet till `http://localhost:30662/`.
@@ -74,16 +73,16 @@ Du behöver följande inställningar för den här snabbstarten:
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera ditt program i Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en omdirigerings-URI som `http://localhost:30662/` och aktivera **Implicit beviljande**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör dessa ändringar för mig]()
+> > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-javascript/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-javascript/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
 Du kan välja något av följande alternativ som är lämpliga för utvecklingsmiljön.
-* [Hämta projektfilerna core - för en webbserver, till exempel Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Ladda ned Visual Studio-projekt](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Ladda ned viktiga projektfiler – för en webbserver, till exempel Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
+* [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extrahera zip-filen i en lokal mapp, till exempel **C:\Azure-Samples**.
 Öppna filerna i mappen genom att använda en redigerare som [Visual Studio Code](https://code.visualstudio.com/).
@@ -107,11 +106,11 @@ var applicationConfig = {
 > [!div renderon="docs"]
 >
 > Där:
-> - `Enter_the_Application_Id_here` -är den **(klient)-ID: T** för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` -är inställd på något av följande alternativ:
+> - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
 >   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
->   - Om ditt program stöder **konton alla organisationskatalog och personliga Microsoft-konton**, Ersätt detta värde med `common`
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
@@ -137,7 +136,7 @@ När webbläsaren läser in programmet, klickar du på **logga In**.  Första g�
 
 ## <a name="more-information"></a>Mer information
 
-### *<a name="msaljs"></a>msal.js*
+### <a name="msaljs"></a>*msal.js*
 
 MSAL finns i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Snabbstartens *index.html* innehåller en referens till biblioteket:
 
@@ -162,7 +161,7 @@ var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applic
 > |Var  |  |
 > |---------|---------|
 > |`ClientId`     |Program-ID från appen som registrerats i Azure-portalen|
-> |`authority`    |Det är utfärdar-URL:en. När *null*-uppsättningar skickas anges standardbehörigheten till `https://login.microsoftonline.com/common`. Om din app är en enda klient (Sök mål konton i en katalog), anger ett värde och `https://login.microsoftonline.com/<tenant name or ID>`|
+> |`authority`    |Det är utfärdar-URL:en. När *null*-uppsättningar skickas anges standardbehörigheten till `https://login.microsoftonline.com/common`. Om din app är till för en enskild klientorganisation (med konton i endast en katalog som mål) anger du det här värde till `https://login.microsoftonline.com/<tenant name or ID>`|
 > |`tokenReceivedCallback`| Motringningsmetoden anropas när autentiseringen har omdirigerat tillbaka till appen. Här skickas `acquireTokenRedirectCallBack`. Det här är null om loginPopup används.|
 > |`options`  |En samling med valfria parametrar. I det här fallet är `storeAuthStateInCookie` och `cacheLocation` valfri konfiguration. Se [wikin](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) för mer information om alternativen. |
 

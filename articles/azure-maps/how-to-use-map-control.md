@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256098"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549226"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
 
@@ -166,8 +166,7 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 
 8. Öppna filen i din webbläsare och visa renderade kartan. Det bör se ut som följande kod:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Så här använder du kartkontroll" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>så här använder du kartkontroll</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Så här använder du kartkontroll" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Se pennan <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>så här använder du kartkontroll</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -180,4 +179,4 @@ Lär dig hur du skapar och interagera med en karta:
 Lär dig mer om att redigera en karta:
 
 > [!div class="nextstepaction"]
-> [Välj ett kartformat](choose-map-style.md)
+> [Välj kartan format](choose-map-style.md)

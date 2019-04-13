@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124294"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544826"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -66,7 +66,7 @@ U-SQL-skript i ett U-SQL-projekt kan ha fråga-uttryck för U-SQL database-objek
 Läs mer om [U-SQL database-projekt](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->U-SQL database-projekt är för närvarande i offentlig förhandsversion. Om du har DROP-uttryck i projektet, misslyckas versionen. Släpp-instruktionen får snart.
+>DROP-uttryck kan orsaka problem med borttagning av misstag. Om du vill aktivera DROP-uttryck måste du uttryckligen ange MSBuild-argument. **AllowDropStatement** aktiverar utan data relaterade släppa som släppa sammansättning och släpp-tabellvärdesfunktion. **AllowDataDropStatement** gör att data som är relaterade släppa som drop table- och släpp-schema. Du måste aktivera AllowDropStatement innan du använder AllowDataDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Skapa ett U-SQL-projekt med MSBuild-kommandorad
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 Definition av argument och värden är följande:
 
-* **USQLSDKPath = < U-SQL-Nuget-paketet > \build\runtime**. Den här parametern refererar till installationssökvägen för NuGet-paketet för tjänsten U-SQL-språk.
+* **USQLSDKPath =\<U-SQL-Nuget-paketet > \build\runtime**. Den här parametern refererar till installationssökvägen för NuGet-paketet för tjänsten U-SQL-språk.
 * **USQLTargetType = Merge eller SyntaxCheck**:
     * **Sammanfoga**. Sammanfoga kompilerar bakomliggande kod filer. Exempel är **.cs**, **.py**, och **.r** filer. Den inlines resulterande biblioteket användardefinierad kod i U-SQL-skript. Exempel är en dll-binär, Python eller R kod.
     * **SyntaxCheck**. SyntaxCheck läge sammanfogar först filer med bakomliggande kod i U-SQL-skriptet. Den kompilerar sedan U-SQL-skript för att verifiera din kod.
-* **DataRoot=<DataRoot path>**. DataRoot krävs endast för SyntaxCheck läge. När den bygger skriptet med SyntaxCheck läge kontrollerar MSBuild referenser till databasobjekt i skriptet. Innan du bygga, ställa in en matchande lokal miljö som innehåller de refererade objekt i U-SQL-databas i build-datorns DataRoot mapp. Du kan också hantera dessa databasen beroenden av [refererar till ett U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databasen objektreferenser, inte filer.
+* **DataRoot =\<DataRoot-sökvägen >**. DataRoot krävs endast för SyntaxCheck läge. När den bygger skriptet med SyntaxCheck läge kontrollerar MSBuild referenser till databasobjekt i skriptet. Innan du bygga, ställa in en matchande lokal miljö som innehåller de refererade objekt i U-SQL-databas i build-datorns DataRoot mapp. Du kan också hantera dessa databasen beroenden av [refererar till ett U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databasen objektreferenser, inte filer.
 * **EnableDeployment = true** eller **FALSKT**. EnableDeployment anger om det har rätt för att distribuera refererade U-SQL-databaser under skapandeprocessen. Om du refererar till ett projekt för U-SQL-databas och använder databasobjekt i U-SQL-skript, ange den här parametern **SANT**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Kontinuerlig integrering via Azure-Pipelines

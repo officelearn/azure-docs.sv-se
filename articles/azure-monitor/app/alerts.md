@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491550"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548727"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -147,7 +147,7 @@ I det här avsnittet lär du dig hur du ställer en fråga baserad undantagsavis
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Hur du slutar prenumerera på klassiska avisering e-postaviseringar
 
-Det här avsnittet gäller för **klassiska tillgänglighet aviseringar**, **Programinsikter måttaviseringar**, och **klassiska avvikelser aviseringar**.
+Det här avsnittet gäller för **klassiska tillgänglighet aviseringar**, **klassiska måttaviseringar för Application Insights**, och **klassiska avvikelser aviseringar**.
 
 Du får e-postaviseringar för dessa klassiska aviseringar om något av följande gäller:
 

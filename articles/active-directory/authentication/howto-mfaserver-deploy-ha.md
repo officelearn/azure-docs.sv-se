@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370082"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547013"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurera Azure Multi-Factor Authentication-servern för hög tillgänglighet
 
@@ -36,7 +36,7 @@ Både MFA huvudservrar och underordnade MFA-servrar kommunicerar med MFA-tjänst
 
 Efter en lyckad autentisering med AD kommunicerar MFA-servern med MFA-tjänsten. MFA-servern väntar på meddelanden från MFA-tjänsten för att tillåta eller neka användaråtkomst till programmet.
 
-Om MFA-huvudserver kopplas från, autentiseringar kan bearbetas fortfarande, men åtgärder som kräver ändringar i MFA-databasen kan inte bearbetas. (Exempel: tillägg av användare, självbetjäning pinkodsändringar och ändra information om användare)
+Om MFA-huvudserver kopplas från, autentiseringar kan bearbetas fortfarande, men åtgärder som kräver ändringar i MFA-databasen kan inte bearbetas. (Exempel: tillägg av användare, självbetjäning PIN-koden ändras, ändras användarinformation eller åtkomst till användarportalen)
 
 ## <a name="deployment"></a>Distribution
 

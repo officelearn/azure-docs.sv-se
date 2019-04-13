@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234688"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547351"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
@@ -29,7 +29,7 @@ S0 och S1 prisnivåer hantera olika mängder data dataflöde. Innan du väljer e
 
 | Funktion                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Search                                  |        ✓           |     ✓    |
+| Search (fwd/rev geokodning, Orienteringspunkter)  |        ✓           |     ✓    |
 | Batch-geokodning (förhandsversion)              |                   |     ✓    |
 | Polygoner från sökning          |                   |     ✓    |
 | Routning                                 |        ✓           |     ✓    |

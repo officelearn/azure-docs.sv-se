@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359806"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549058"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
 Den här artikeln beskrivs hur du mappar två instanser av virtuella Azure-nätverk (Vnet) finns i olika Azure-regioner och hur du ställer in IP-adressering mellan nätverk. Nätverksmappning innehåller en standardmetod för val av mål-nätverk baserat på källnätverket vid tidpunkten för att aktivera replikering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du mappa nätverk måste du ha [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) i källan och rikta in Azure-regioner. 
 
@@ -73,7 +73,7 @@ IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på 
 
 ## <a name="ip-address-assignment-during-failover"></a>Tilldelning av IP-adress under redundansväxling
 
-**Käll- och undernät** | **Information**
+**Käll- och undernät** | **Detaljer**
 --- | ---
 Samma adressutrymme | IP-adressen för källan VM NIC har angetts som mål VM NIC IP-adress.<br/><br/> Om adressen inte är tillgängligt, har nästa tillgängliga IP-adress angetts som mål.
 
@@ -83,10 +83,10 @@ Olika adressutrymmen<br/><br/> Nästa tillgängliga IP-adress i målundernätet 
 
 ## <a name="ip-address-assignment-during-test-failover"></a>IP-adresstilldelning under redundanstest
 
-**Målnätverk** | **Information**
+**Målnätverk** | **Detaljer**
 --- | ---
 Målnätverket är redundans virtuellt nätverk | / Mål-IP-adressen är statisk men inte samma IP-adress som reserverats för redundans.<br/><br/>  -Tilldelade adressen är nästa tillgängliga adress från slutet av undernätsintervallet.<br/><br/> Exempel: Om källans IP-adress är 10.0.0.19 och redundansnätverk använder adressintervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den Virtuella måldatorn 10.0.0.254.
-Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  – Om samma IP-adress har redan tilldelats, är det nästa tillgänglig för varje undernätsintervallet med IP-adressen.<br/><br/> Exempel: Om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är nätverket för redundanstestet, med adressintervallet 10.0.0.0/24, kommer den statiska IP-adressen för målet vara 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.
+Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  – Om samma IP-adress har redan tilldelats, är det nästa tillgängliga i slutet av undernätsintervallet med IP-adressen.<br/><br/> Exempel: Om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är nätverket för redundanstestet, med adressintervallet 10.0.0.0/24, kommer den statiska IP-adressen för målet vara 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.
 
 - Redundansväxlingen VNet är målnätverket som du väljer när du konfigurerar haveriberedskap.
 - Vi rekommenderar att du alltid använder en icke-produktion-nätverk för redundanstestning.

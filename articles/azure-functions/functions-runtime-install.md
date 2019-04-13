@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093676"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547571"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installera Azure Functions Runtime preview 2
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Om du vill installera Azure Functions Runtime preview 2 följer du dessa steg:
 
@@ -28,7 +30,7 @@ Om du vill installera Azure Functions Runtime preview 2 följer du dessa steg:
 1. Slutför konfigurationen av Azure Functions Runtime preview 2.
 1. Skapa din första funktion i förhandsversionen av Azure Functions Runtime
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du installerar förhandsversionen av Azure Functions-körning måste du ha följande resurser som är tillgängliga:
 
@@ -102,36 +104,37 @@ Azure Functions Runtime-installationen ska slutföras måste du slutföra konfig
 
 Skapa din första funktion i Azure Functions Runtime preview
 
-1. Bläddra till den **Azure Functions Runtime Portal** som https://<machinename>.<domain> Till exempel https://mycomputer.mydomain.com
+1. Bläddra till den **Azure Functions Runtime-portalen** som `https://<machinename>.<domain>` till exempel `https://mycomputer.mydomain.com`.
+
 1. Du uppmanas att **logga in**, om de har distribuerats i en domän använder ditt konto domänanvändarnamn och lösenord, annars använder du ditt lokalt Kontoanvändarnamn och lösenord för inloggning på portalen.
 
-![Azure Functions Runtime preview portal inloggning][14]
+    ![Azure Functions Runtime preview portal inloggning][14]
 
-1. För att skapa funktionsappar, måste du skapa en prenumeration.  I det övre vänstra hörnet i portalen klickar du på den **+** alternativet bredvid prenumerationerna
+1. För att skapa funktionsappar, måste du skapa en prenumeration.  I det övre vänstra hörnet i portalen klickar du på den **+** alternativet bredvid prenumerationerna.
 
-![Azure Functions Runtime preview portal-prenumerationer][15]
+    ![Azure Functions Runtime preview portal-prenumerationer][15]
 
 1. Välj **DefaultPlan**, ange ett namn för din prenumeration och på **skapa**.
 
-![Azure Functions Runtime preview portal prenumerationsavtal och namn][16]
+    ![Azure Functions Runtime preview portal prenumerationsavtal och namn][16]
 
 1. Alla dina funktionsappar visas i den vänstra rutan i portalen.  Om du vill skapa en ny Funktionsapp, Välj rubriken **Funktionsappar** och klicka på den **+** alternativet.
 
 1. Ange ett namn för din funktionsapp, Välj rätt prenumeration, Välj vilken version av Azure Functions-runtime som du vill att programmera mot och klicka på **skapa**
 
-![Azure Functions Runtime preview portal ny funktionsapp][17]
+    ![Azure Functions Runtime preview portal ny funktionsapp][17]
 
 1. Din nya funktionsapp visas i det vänstra fönstret i portalen.  Välja funktioner och klicka sedan på **ny funktion** överst i den mittersta rutan i portalen.
 
-![Azure Functions Runtime preview-mallar][18]
+    ![Azure Functions Runtime preview-mallar][18]
 
 1. Välj Timer som utlösare-funktion, i den högra utfällt namnge din funktion och ändra schemat till `*/5 * * * * *` (den här cron-uttryck gör din timerfunktion som ska köras var femte sekund), och klicka på **skapa**
 
-![Azure Functions Runtime preview nya timer funktionen konfigurationen][19]
+    ![Azure Functions Runtime preview nya timer funktionen konfigurationen][19]
 
 1. Din funktion har skapats.  Du kan visa körningsloggen på din funktionsapp genom att expandera den **log** rutan längst ned i portalen.
 
-![Azure Functions Runtime preview funktionen körs][20]
+    ![Azure Functions Runtime preview funktionen körs][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

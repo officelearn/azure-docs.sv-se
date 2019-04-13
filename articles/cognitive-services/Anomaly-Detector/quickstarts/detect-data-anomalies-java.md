@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619523"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547047"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av REST-API för Avvikelseidentifiering detektor och Java
 
@@ -27,7 +27,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
  Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Den [Java&trade; utveckling Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 
@@ -82,7 +82,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 3. Läs i JSON-datafilen
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begäranden
@@ -93,9 +93,9 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
 3. Använd en förfrågan `setHeader()` funktionen för att ange den `Content-Type` sidhuvud till `application/json`, och Lägg till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik.
 
-4. Använd en förfrågan `setEntity()` att data skickas.   
+4. Använd en förfrågan `setEntity()` att data skickas.
 
-5. Använda klientens `execute()` för att skicka begäran och spara den i en `CloseableHttpResponse` objekt. 
+5. Använda klientens `execute()` för att skicka begäran och spara den i en `CloseableHttpResponse` objekt.
 
 6. Skapa en `HttpEntity` objekt för att lagra svarsinnehållet. Hämta innehåll med `getEntity()`. Om svaret är inte tom, returnera den.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. Skapa en metod som kallas `detectAnomaliesBatch()` att identifiera avvikelser i hela datamängden som en batch. Anropa den `sendRequest()` metod som skapades ovan med din slutpunkt, URL: en, prenumerationsnyckel och json-data. Få resultat och skriva ut den till konsolen.
 
-2. Hitta positioner av avvikelser i datauppsättningen. Svarets `isAnomaly` fält innehåller ett booleskt värde som är relaterade till om en viss datapunkt är en avvikelse. Hämta JSON-matris och gå igenom den, skriva ut index för någon `true` värden. Dessa värden motsvarar index för avvikande datapunkter, om några.
+2. Om svaret innehåller `code` fältet, skriva ut felkod och ett felmeddelande.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. Annars kan hitta positioner av avvikelser i datauppsättningen. Svarets `isAnomaly` fält innehåller ett booleskt värde som är relaterade till om en viss datapunkt är en avvikelse. Hämta JSON-matris och gå igenom den, skriva ut index för någon `true` värden. Dessa värden motsvarar index för avvikande datapunkter, om några.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelser status för senaste datapunkt
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. Läs i JSON-fil som innehåller de data som kommer att läggas till begäranden i ditt program main-metoden.
 
 2. Anropa två avvikelseidentifiering identifiering av funktioner som skapades ovan.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>Exempelsvar
 

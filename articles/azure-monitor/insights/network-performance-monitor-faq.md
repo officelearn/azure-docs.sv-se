@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496972"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546257"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -40,7 +40,7 @@ Nedan visas Plattformskrav för NPM-olika funktioner:
 - NPM-ExpressRoute-övervakning funktionen stöder endast Windows server (2008 SP1 eller senare) operativsystem.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan jag använda Linux-datorer som övervakning av noder i NPM?
-Möjlighet att övervaka nätverk med hjälp av Linux-baserade noder är för tillfället i privat förhandsversion. Nå till din Kontoansvariga för vill veta mer. När du har angett arbetsyte-ID ska vi gå vidare och aktivera funktionen. Linux-agenter anger övervakningsfunktionen endast för NPM-Prestandaövervakaren kapaciteten och är inte tillgängliga för funktioner för övervakning av tjänstens anslutning och ExpressRoute-övervakning
+Möjlighet att övervaka nätverk med hjälp av Linux-baserade noder förhandsvisas just nu. Nå till din Kontoansvariga för vill veta mer. När du har angett arbetsyte-ID ska vi gå vidare och aktivera funktionen. Linux-agenter anger övervakningsfunktionen endast för NPM-Prestandaövervakaren kapaciteten och är inte tillgängliga för funktioner för övervakning av tjänstens anslutning och ExpressRoute-övervakning
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vad är storlekskraven noder som ska användas för övervakning av NPM?
 För att köra NPM-lösningen på noden virtuella datorer för att övervaka nätverk, bör du vara minst 500 MB minne och kärna noder. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbetsbelastningar som körs på den. Lösningen har möjlighet att stoppa övervakningsprocessen om det använder mer än 5% CPU.

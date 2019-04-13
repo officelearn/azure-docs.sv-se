@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/11/2019
+ms.openlocfilehash: a5fbc58feea8779ba8a7a61dfc89158e20bd2c92
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075193"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544304"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -34,51 +34,62 @@ En enkel databas har en definierad uppsättning resurser för beräkning, minne,
 Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-2. Välj **Databaser** och välj sedan **SQL Database**.
-3. I formuläret **Skapa SQL-databas** skriver eller väljer du följande värden:
+2. Välj **databaser** och välj sedan **SQL Database** att öppna den **skapa SQL-databas** sidan. 
 
-   - **Databasnamn**: Ange *mySampleDatabase*.
-   - **Prenumeration**: Välj rätt prenumeration i den nedrullningsbara listrutan om den inte visas.
-   - **Resursgrupp**: Välj **Skapa ny**, skriv *myResourceGroup* och välj **OK**.
-   - **Välj källa**: Välj **Sample (AdventureWorksLT)** i den nedrullningsbara listrutan.
-
-     > [!IMPORTANT]
-     > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
-  
    ![Skapa en enkel databas](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. Under **Server** väljer du **Skapa ny**.
-5. I formuläret **Ny server** anger eller väljer du följande värden:
+1. På den **grunderna** fliken den **projektinformation** avsnittet, skriver eller Välj följande värden:
 
-   - **Servernamn**: Ange *mysqlserver*.
-   - **Inloggning för serveradministratör**: Skriv *azureuser*.
-   - **Lösenord**: Ange *Azure1234567*.
-   - **Bekräfta lösenord**: Skriv lösenordet igen.
-   - **Plats**: Välj valfri giltig plats i den nedrullningsbara listrutan.  
+   - **Prenumeration**: Välj rätt prenumeration i den nedrullningsbara listrutan om den inte visas.
+   - **Resursgrupp**: Välj **Skapa nytt**, typ `myResourceGroup`, och välj **OK**.
+
+   ![Ny SQL database - fliken Grundläggande](media/sql-database-get-started-portal/new-sql-database-basics.png)
+
+
+1. I den **databasinformation** avsnittet, skriver eller Välj följande värden: 
+
+   - **Databasnamn**: Ange `mySampleDatabase`.
+   - **Server**: Välj **Skapa nytt** och ange följande värden och välj sedan **Välj**. 
+       - **Servernamn**: Typ `mysqlserver`; tillsammans med vissa nummer för unikhet. 
+       - **Inloggning för serveradministratör**: Skriv `azureuser`.
+       - **Lösenord**: Ange ett komplext lösenord som uppfyller lösenordskraven för. 
+       - **Plats**: Välj en plats i listrutan, till exempel `West US 2`. 
+
+       ![Ny server](media/sql-database-get-started-portal/new-server.png)
+
+        > [!IMPORTANT]
+        > Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
+
+      ![Information om SQL-databas](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
+   - **Vill du använda SQL-databaspool**: Välj den **nr** alternativet. 
+   - **Beräkning + lagring**: Välj **konfigurera databasen** och för den här snabbstarten väljer du den **Standard** tjänstnivån och använder sedan skjutreglaget för att välja **10 dtu: er (S0)** och **1** GB lagring. Välj **Använd**. 
+
+    ![Konfigurera nivå](media/sql-database-get-started-portal/create-database-s1.png) 
+
+
+      > [!NOTE]
+      > I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
+      > [!IMPORTANT]
+      > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
+    
+
+
+
+1. Välj den **ytterligare inställningar** fliken. 
+1. I den **datakälla** under avsnittet **använda befintliga data**väljer `Sample`. 
+
+   ![Ytterligare SQL DB-inställningar](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
-   > Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
+   > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
 
-    ![Skapa server](./media/sql-database-get-started-portal/create-database-server.png)
+1. Lämna resten av värdena som standard och välj **granska + skapa** längst ned i formuläret. 
+1. Granska de slutliga inställningarna och välj **skapa**. 
 
-6. Välj **Välj**.
-7. I formuläret **SQL Database** väljer du **Prisnivå**. Undersök mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå.
+8. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
 
-   > [!NOTE]
-   > I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
-   > [!IMPORTANT]
-   > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
-8. För den här snabbstarten väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
-9. Välj **Använd**.  
-
-   ![Välj prisnivå](./media/sql-database-get-started-portal/create-database-s1.png)
-
-10. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
-
-    Distributionen tar några minuter. Du kan välja **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
-
-    ![Avisering](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Fråga databasen
 
@@ -120,5 +131,5 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
   - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Information om hur du skapar enkla databaser med hjälp av Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
-- Information om hur du skapar enkla databaser med hjälp av Azure PowerShell finns i [Azure PowerShell-exempel](sql-database-powershell-samples.md).
+- För att skapa en enskild databas med Azure CLI, se [Azure CLI-exempel](sql-database-cli-samples.md).
+- För att skapa en enskild databas med Azure PowerShell, se [Azure PowerShell-exempel](sql-database-powershell-samples.md).

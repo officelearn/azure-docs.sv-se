@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492149"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546406"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
 Den här artikeln beskrivs regler som gäller för entiteter och API: er när du utvecklar med Media Services v3.
+
+## <a name="accessing-the-azure-media-services-api"></a>Åtkomst till Azure Media Services API
+
+Om du vill få åtkomst till Azure Media Services-resurserna, bör du använda tjänstobjektautentisering för Azure Active Directory (AD). Azure Media Services-API kräver att användaren eller programmet som gör REST API-förfrågningar har åtkomst till resursen i Azure Media Services-konto (vanligtvis antingen den **deltagare** eller **ägare** rollen). Mer information finns i [rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
+
+Överväg att använda hanterade identiteter för Azure-resurser för att få åtkomst till Media Services-API via Azure Resource Manager istället för att skapa ett huvudnamn för tjänsten. Läs mer om hanterade identiteter för Azure-resurser i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### <a name="azure-ad-service-principal"></a>Azure AD-tjänstens huvudnamn 
+
+Om du skapar en Azure AD-program och tjänstens huvudnamn kan måste programmet vara i sin egen klient. När du har skapat programmet kan ge appen **deltagare** eller **ägare** platssystemrollens åtkomst till Media Services-kontot. 
+
+Om du inte är säker på om du har behörighet att skapa ett Azure AD-program, se [behörigheter som krävs för](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+I följande bild representerar talen flödet av begäranden i kronologisk ordning:
+
+![Mellannivå appar](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. En mellannivå appen begär en åtkomsttoken för Azure AD som har följande parametrar:  
+
+   * Azure AD tenant-slutpunkten.
+   * Media Services resurs-URI.
+   * Resurs-URI för REST Media Services.
+   * Azure AD application värden: klient-ID och klienthemlighet.
+   
+   Om du vill hämta värdena som behövs, se [åtkomst till Azure Media Services-API med Azure CLI](access-api-cli-how-to.md)
+
+2. Azure AD-åtkomsttoken skickas till mellannivån.
+4. På mellannivå skickar begäran till Azure Media REST-API med Azure AD-token.
+5. Mellannivån får tillbaka data från Media Services.
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
@@ -30,17 +59,6 @@ Azure Media Services v3-resursnamn (till exempel tillgångar, jobb, transformeri
 Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', apostrof eller några andra kontrolltecken. Alla andra tecken tillåts. Maxlängden för ett resursnamn är 260 tecken. 
 
 Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## <a name="v3-api-design-principles-and-rbac"></a>designprinciper för v3-API och RBAC
-
-En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er inte returnerar hemligheter eller autentiseringsuppgifter på **hämta** eller **lista** åtgärder. Nycklarna är alltid null, tomma eller oberoende av svaret. Användaren måste anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter. Den **läsare** rollen kan inte anropa åtgärder så att det går inte att anropa åtgärder som Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Med separata åtgärder kan du ange mer detaljerade RBAC-säkerhetsbehörighet i en anpassad roll om du vill.
-
-Mer information finns i:
-
-- [Inbyggda rolldefinitioner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [Använd RBAC för att hantera åtkomst](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md)
-- [Hämta innehåll viktiga princip – .NET](get-content-key-policy-dotnet-howto.md).
 
 ## <a name="long-running-operations"></a>Långvariga åtgärder
 
@@ -71,4 +89,4 @@ Se [filtrering, sortering, växling av Azure Media Services-entiteter](entities-
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg](developers-guide.md)
+[Börja utveckla med Media Services v3-API med hjälp av SDK: er/verktyg](developers-guide.md)

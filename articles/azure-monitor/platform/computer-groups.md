@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444131"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549311"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Datorgrupper i Azure Monitor log-frågor
 Datorgrupper i Azure Monitor kan du även agera omfång [logga frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggfråga, är resultat begränsade till poster som matchar datorerna i gruppen.
@@ -125,17 +125,17 @@ Följande fråga returnerar UpdateSummary-poster för endast datorer i Domändat
 ## <a name="computer-group-records"></a>Datorn gruppera poster
 En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och har egenskaperna i följande tabell.  Poster skapas inte för datorgrupper baserat på loggfrågor.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Typ |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Dator |Namnet på datorn som är medlem. |
-| Grupp |Namnet på gruppen. |
-| GroupFullName |Fullständig sökväg till gruppen, inklusive käll- och namn på datakälla. |
-| GroupSource |Käll-gruppen har samlats in från. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Namnet på källan som gruppen har samlats in från.  Detta är domännamnet för Active Directory. |
-| ManagementGroupName |Namnet på hanteringsgruppen för SCOM-agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
-| TimeGenerated |Datum och tid i datorgruppen skapades eller uppdaterades. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Namnet på datorn som är medlem. |
+| `Group` |Namnet på gruppen. |
+| `GroupFullName` |Fullständig sökväg till gruppen, inklusive käll- och namn på datakälla. |
+| `GroupSource` |Käll-gruppen har samlats in från. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Namnet på källan som gruppen har samlats in från.  Detta är domännamnet för Active Directory. |
+| `ManagementGroupName` |Namnet på hanteringsgruppen för SCOM-agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
+| `TimeGenerated` |Datum och tid i datorgruppen skapades eller uppdaterades. |
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  

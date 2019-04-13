@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bd535aeb034a17f1844c1d19379c1811b43d27e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260246"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549277"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -29,11 +29,10 @@ ms.locfileid: "59260246"
 
 Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator i Azure Portal.
 
-> [!TIP]
-> I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra etableringsalternativ för SQL-VM finns i [Etableringsguide för Windows SQL Server-datorer i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md).
 
-> [!TIP]
-> Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
+  > [!TIP]
+  > - I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra etableringsalternativ för SQL-VM finns i [Etableringsguide för Windows SQL Server-datorer i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md).
+  > - Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Skaffa en Azure-prenumeration
 
@@ -47,12 +46,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. I sökfältet skriver `SQL Server 2017 Developer on Windows Server 2016`, och tryck på RETUR.
 
-1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer i Windows Server 2016**.
+1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer i Windows Server 2016**. Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
    ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-   > [!TIP]
-   > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
 1. Välj **Skapa**.
 
@@ -99,19 +96,14 @@ På den **SQL Server-inställningar** konfigurerar följande alternativ:
 
 På den **granska + skapa** , granskar du sammanfattningen och sedan **skapa** att skapa SQL Server, resursgrupp och resurser som angetts för den här virtuella datorn.
 
-Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
-
-> [!TIP]
-> Det kan ta flera minuter att distribuera en virtuell Windows SQL Server-dator.
+Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen. Distributionen kan ta flera minuter. 
 
 ## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
 
 1. I portalen, hitta den **offentliga IP-adressen** av SQL Server-VM i den **översikt** delen av den virtuella datorns egenskaper.
 
-1. Öppna SQL Server Management Studio (SSMS) från en annan dator som är ansluten till Internet.
+1. Öppna på en annan dator som är ansluten till Internet, [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-   > [!TIP]
-   > Om du inte har SQL Server Management Studio kan du hämta det från [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange den virtuella datorns offentliga IP-adress. Sedan lägger du till ett kommatecken och den anpassade porten **1401** som angavs när du konfigurerade den nya virtuella datorn. Till exempel `11.22.33.444,1401`.
 
@@ -145,4 +137,4 @@ Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika 
 I den här snabbstarten har skapat du en virtuell dator i SQL Server 2017 i Azure-portalen. Mer information om hur du migrerar data till den nya SQL-servern finns i följande artikel.
 
 > [!div class="nextstepaction"]
-> [Migrera en databas till en SQL-VM](virtual-machines-windows-migrate-sql.md)
+> [Migrera en databas till en virtuell SQL-dator](virtual-machines-windows-migrate-sql.md)

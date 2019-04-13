@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017165"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545441"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -70,7 +70,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte en integration runtime |
 
 >[!IMPORTANT]
->När du kopierar data till Dynamics kan standard Azure Integration Runtime inte användas till att köra kopia. Med andra ord om källan länkade tjänsten har inte en angiven integreringskörning uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics-instans. Koppla den i den länkade tjänsten Dynamics som i följande exempel.
+>När du kopierar data till Dynamics kan standard Azure Integration Runtime inte användas till att köra kopia. Med andra ord om källan länkade tjänsten har inte en angiven integreringskörning uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics-instans. Hitta var din Dynamics-instans finns genom att referera till den [regionlista för Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Koppla den i den länkade tjänsten Dynamics som i följande exempel.
 
 >[!NOTE]
 >Dynamics-koppling som används för att använda valfritt ”företagsnamn”-egenskapen för att identifiera din Dynamics CRM/365 Online-instans. Medan det håller fungerar behöver föreslås du för att ange egenskapen ”serviceUri” i stället för att få bättre prestanda, till exempel identifiering.
@@ -105,11 +105,11 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 *Ytterligare egenskaper som jämför till Dynamics online är ”värdnamnet” och ”port”.*
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
-| Värdnamn | Värdnamnet för den lokala Dynamics-servern. | Ja |
+| hostName | Värdnamnet för den lokala Dynamics-servern. | Ja |
 | port | Porten för den lokala Dynamics-servern. | Nej, standard är 443 |
 | Organisationsnamn | Organisationens namn på Dynamics-instans. | Ja |
 | authenticationType | Autentiseringstyp för anslutning till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
@@ -157,7 +157,7 @@ För att kopiera data från och till Dynamics, ange typegenskapen på datauppsä
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till **DynamicsEntity**. |Ja |
-| EntityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
+| entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
 
 > [!IMPORTANT]
 >- När du kopierar data från Dynamics är ”struktur”-avsnittet valfritt men rekommenderat i Dynamics datauppsättningen så att en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
@@ -277,7 +277,7 @@ För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten ti
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
 | WriteBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”**. | Ja |
 | WriteBatchSize | Antal rader för data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
-| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
 >[!NOTE]
 >Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ”**[parallelCopies](copy-activity-performance.md#parallel-copy)**” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
@@ -330,20 +330,20 @@ Konfigurera den motsvarande datatypen för Data Factory i en dataset-struktur ba
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolesk | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double-värde | ✓ | ✓ |
-| AttributeType.EntityName | Sträng | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | ✓ (med enda mål som är associerade) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (med enda mål som är associerade) |
 | AttributeType.ManagedProperty | Boolesk | ✓ | |
-| AttributeType.Memo | Sträng | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Sträng | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

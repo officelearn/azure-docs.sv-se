@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281139"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549143"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd din egen notebook-server för att komma igång med Azure Machine Learning
 
@@ -29,11 +29,11 @@ Visa en videoversion av den här snabbstarten:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Python 3.6 notebook-server med Azure Machine Learning SDK installerad
 * En arbetsyta för Azure Machine Learning-tjänsten
-* En konfigurationsfil för arbetsytan (**aml_config/config.json** ).
+* En konfigurationsfil för arbetsytan (**.azureml/config.json** ).
 
 Hämta alla dessa krav från [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#portal).
 
@@ -74,6 +74,6 @@ Om du inte planerar att använda de resurser som du skapade i den här artikeln 
 I den här artikeln har du lärt dig att skapa de resurser som du behöver för att experimentera med och distribuera modeller. Du har kört kod i en notebook och du har utforskat körningshistoriken eller koden på arbetsytan i molnet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Träna en modell för klassificering av avbildning](tutorial-train-models-with-aml.md)
+> [Självstudier: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)
 
 Du kan även utforska [mer avancerade exempel på GitHub](https://aka.ms/aml-notebooks) eller visa den [SDK användarhandboken](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

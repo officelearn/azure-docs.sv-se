@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445355"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549049"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrera stora mängder data till Azure File Sync
 Du kan migrera stora mängder data till Azure File Sync på två sätt:
@@ -36,13 +36,13 @@ Här är de främsta fördelarna med att använda ett verktyg för överföring 
 - Data Box och Azure File Sync kräver inget avbrott. När du använder Data Box för att överföra data till Azure, använda bandbredd i nätverket effektivt och bevara filen återgivningen. Du också hålla ditt namnområde uppdaterade genom att ladda upp endast de filer som ändras när du flyttar data till Azure.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Krav för överföringen offlinedata
-Innan du börjar din offline dataöverföring:
+Du bör inte aktivera synkronisering på den server som du migrerar innan du slutför din överföring av data offline. Andra saker att tänka på innan du börjar är följande:
 
-- Migrera stora mängder data till en eller flera Azure-filresurser innan du aktiverar synkronisering med Azure File Sync.
-- Om du planerar att använda Data Box för bulk-migreringen, granska de [distributionskraven för Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planera din slutliga Azure File Sync-topologi. Mer information finns i [planera för distribution av Azure File Sync](storage-sync-files-planning.md).
-- Välj den Azure Storage-konto eller konton som ska innehålla de filresurser som du vill synkronisera med. Migrera stora mängder data till tillfällig mellanlagring resurser i samma lagringskonto eller konton. Du kan använda endast en slutlig resurs och en mellanlagrings-resurs som finns i samma lagringskonto.
-- Skapa en ny synkroniseringsrelation med en plats på servern. Du kan inte använda en befintlig synkronisering för att migrera stora mängder data.
+- Om du planerar att använda Data Box för bulk-migrering: Granska den [distributionskraven för Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planera din slutliga Azure File Sync-topologi: [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
+- Välj Azure storage-konton som ska innehålla de filresurser som du vill synkronisera med. Se till att migreringen bulk händer med tillfällig mellanlagring resurser i samma lagringskonton. Massinläsning migrering kan bara aktiveras genom att använda ett sista- och en mellanlagrings-resurs som finns i samma lagringskonto.
+- En bulk-migrering kan endast användas när du skapar en ny synkroniseringsrelation med en plats på servern. Du kan inte aktivera en bulk-migrering med en befintlig synkronisering.
+
 
 ## <a name="process-for-offline-data-transfer"></a>Processen för att överföra data offline
 Här är hur du konfigurerar Azure File Sync på ett sätt som är kompatibel med bulk Migreringsverktyg, till exempel Azure Data Box:
@@ -51,7 +51,7 @@ Här är hur du konfigurerar Azure File Sync på ett sätt som är kompatibel me
 
 | Steg | Information |
 |---|---------------------------------------------------------------------------------------|
-| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Data Box family erbjudanden [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som uppfyller dina behov. När du får din Data box-enhet kan du följa dess [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till UNC-sökvägen på Data Box: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. Här kan *ShareName* är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
+| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Data Box family erbjudanden [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som uppfyller dina behov. När du får din Data box-enhet kan du följa dess [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till UNC-sökvägen på Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. Här kan *ShareName* är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
 | ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna som visas i Azure-filresurser som du har valt som tillfällig mellanlagring resurser. *Aktivera inte synkroniseras till dessa resurser.* |
 | ![Steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Skapa en ny tom resurs för varje resurs som Data Box har skapat för dig. Den här nya resursen måste vara i samma lagringskonto som Data Box-resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md). |
 | ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Skapa en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en lagringssynkroniseringstjänst. Referens till tom resursen som en molnslutpunkt. Upprepa det här steget för varje Data Box-filresurs. [Konfigurera Azure File Sync](storage-sync-files-deployment-guide.md). |

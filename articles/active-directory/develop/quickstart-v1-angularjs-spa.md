@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194690"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544948"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -46,6 +46,9 @@ Om du vill skapa ett komplett, fungerande program måste du:
 2. Installera ADAL och konfigurera ensidesappen.
 3. Använd ADAL för att säkra sidor i ensidesappen.
 
+> [!NOTE]
+> Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton kan du använda den  *[Microsoft identity-plattformen endpoint](azure-ad-endpoint-comparison.md)*. Mer information finns i [självstudien JavaScript SPA](tutorial-v2-javascript-spa.md) samt [i den här artikeln](active-directory-v2-limitations.md) förklarar den *Microsoft identity-plattformen endpoint*. 
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kom igång genom att slutföra följande krav:
@@ -57,7 +60,7 @@ Kom igång genom att slutföra följande krav:
 
 Om du vill göra så att appen kan autentisera användare och hämta token behöver du först registrera den i din Azure AD-klientorganisation:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
 1. Klicka på **Appregistreringar** och välj sedan **Lägg till**.

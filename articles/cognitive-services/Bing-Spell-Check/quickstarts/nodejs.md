@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
-ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: aahill
+ms.openlocfilehash: 0a1260de6428f6ebc70757261cdcc3002820ec7b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885915"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547772"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Den här enkla noden programmet skickar en begäran till API: et och returnerar en lista med ord som inte känner till, följt av föreslagna ändringar. Det här programmet är skriven i Node.js är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,18 +30,18 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och kräv https. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange Skyddstyperna och kräver `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
 
     ```javascript
     'use strict';
     let https = require ('https');
-    
+
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/spellcheck';
-    let key = 'ENTER KEY HERE';
+    let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Skapa variabler för marknad, stavningskontrolläge och den text som du vill kontrollera. Skapa en sträng som lägger till parametern `?mkt=` i din marknad och `&mode=` i ditt läge.
+2. Skapa variabler för sökparametrarna och den text som du vill kontrollera. Lägg till marknaden koden efter `mkt=`. Koden marknad är det land som du gör begäran från. Dessutom lägga till din stavningskontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta/stavning och grammatik-fel) eller `spell` (fångar de flesta stavning men inte så många grammatikfel).
 
     ```javascript
     let mkt = "en-US";
@@ -78,7 +78,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-        console.log (body);
+        let body_ = JSON.parse (body);
+        console.log (body_);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -98,7 +99,7 @@ req.end ();
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -143,5 +144,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API för stavningskontroll i Bing?](../overview.md)
+- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

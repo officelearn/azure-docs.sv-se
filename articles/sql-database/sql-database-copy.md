@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486826"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549703"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -90,10 +90,16 @@ Det här kommandot kopierar Databas1 på server1 till en ny databas med namnet D
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Båda servrarna brandväggar måste konfigureras för att tillåta inkommande anslutningar från IP-Adressen för klienten att kopiera med T-SQL-kommando.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Du flyttar en databas mellan prenumerationer
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Kopiera en SQL-databas till en annan prenumeration
 
-I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-servrar** och välj sedan den server som är värd för databasen i listan. Klicka på **flytta**, och sedan välja resurser att flytta och prenumeration för att flytta till.
+Du kan använda descrbed för stegen i föregående avsnitt för att kopiera databasen till en SQL Database-server i en annan prenumeration. Kontrollera att du använder en inloggning som har samma namn och lösenord som databasens ägare av källdatabasen och den är medlem i rollen dbmanager eller är den primära inloggningen på servernivå. 
+
+> [!NOTE]
+> Den [Azure-portalen](https://portal.azure.com) stöder inte kopiering till en annan prenumeration eftersom Portal anropar ARM-API och prenumerationscertifikat används för åtkomst båda servrarna i geo-replikering.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för åtgärden kopiering
 

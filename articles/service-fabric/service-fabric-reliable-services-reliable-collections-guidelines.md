@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667114"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549050"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Riktlinjer och rekommendationer för tillförlitliga samlingar i Azure Service Fabric
 Det här avsnittet innehåller riktlinjer för användning av Reliable State Manager och tillförlitliga samlingar. Målet är att hjälpa användarna att undvika vanliga fallgropar.
@@ -32,6 +32,7 @@ Riktlinjerna är ordnade som enkel rekommendationer som föregås av villkoren *
 * Använd inte en transaktion när den har allokerat, avbröts eller tagits bort.
 * Använd inte en uppräkning utanför omfattningen för transaktionen som den skapades i.
 * Skapa inte en transaktion i en annan transaktion `using` instruktionen eftersom det kan orsaka låsningar.
+* Skapa inte tillförlitlig tillstånd med `IReliableStateManager.GetOrAddAsync` och använda tillförlitlig tillståndet i samma transaktion. Detta resulterar i en InvalidOperationException.
 * Att din `IComparable<TKey>` implementering är korrekt. Systemet tar beroende på `IComparable<TKey>` för sammanslagning kontrollpunkter och rader.
 * Använd uppdateringslåset vid läsning av ett objekt med avsikt för att uppdatera den för att förhindra att en viss klass av låsningar.
 * Överväg att se till att antalet Reliable Collections per partition ska vara mindre än 1 000. Föredra tillförlitliga samlingar med fler objekt över mer tillförlitliga samlingar med färre objekt.

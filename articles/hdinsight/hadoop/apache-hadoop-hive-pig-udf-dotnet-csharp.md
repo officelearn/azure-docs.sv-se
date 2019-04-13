@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202715"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545581"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop i HDInsight
 
@@ -25,7 +25,7 @@ Lär dig hur du använder C# användardefinierade funktioner (UDF) med Apache Hi
 
 Både Hive och Pig kan överföra data till externa program för bearbetning. Den här processen kallas _streaming_. När du använder ett .NET-program, data skickas till programmet på STDIN och programmet returnerar resultat i STDOUT. Du kan använda för att läsa och skriva från STDIN och STDOUT `Console.ReadLine()` och `Console.WriteLine()` från ett konsolprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Tidigare erfarenhet av att skriva och att skapa C#-kod som riktas mot .NET Framework 4.5.
 
@@ -46,8 +46,6 @@ Både Hive och Pig kan överföra data till externa program för bearbetning. De
 * __Linux-baserade HDInsight__ kluster med hjälp av [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6.
 
     Läs mer om Mono kompatibilitet med .NET Framework-versioner, [Mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    Om du vill använda en specifik version av Mono se den [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
 
 * __Windows-baserade HDInsight__ kluster använder Microsoft .NET CLR för att köra .NET-program.
 
@@ -154,7 +152,7 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 3. Spara **Program.cs**, och skapa projektet.
 
-## <a name="upload-to-storage"></a>Ladda upp till storage
+## <a name="upload-to-storage"></a>Ladda upp till lagring
 
 1. Öppna i Visual Studio **Server Explorer**.
 

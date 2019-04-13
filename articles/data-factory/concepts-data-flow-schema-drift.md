@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729363"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547152"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mappningen Data Flow schemat Drift
 
@@ -26,7 +26,7 @@ För att skydda mot schemat Drift, är det viktigt att ha anläggningarna i ett 
 * Definiera omvandling parametrar som fungerar med datamönster i stället för hårdkodade fält och värden
 * Definiera uttryck som förstår för mönster så att de matchar inkommande fält, istället för att använda med namnet fält
 
-I Azure Data Factory dataflöde exponeras dessa anläggningar via det här arbetsflödet:
+## <a name="how-to-implement-schema-drift"></a>Hur du implementerar schemat drift
 
 * Välj ”Tillåt schemat Drift” i käll-transformering
 
@@ -67,3 +67,10 @@ Du kan testa den här ut med Azure Data Factory-dataflöde exemplet ”Taxi Demo
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Åtkomst nedströms nya kolumner
+
+När du skapar nya kolumner med kolumnen mönster du kan komma åt dessa nya kolumner senare i ditt flöde Datatransformationer med hjälp av funktionen ”byName”-uttryck.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den [Data flöda Uttrycksspråk](data-flow-expression-functions.md) du hittar ytterligare resurser för kolumnen mönster och schemat drift, inklusive ”byName” och ”byPosition”.

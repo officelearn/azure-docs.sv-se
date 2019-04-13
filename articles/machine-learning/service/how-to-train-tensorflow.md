@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/21/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338560"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548362"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Skapa TensorFlow och Keras modeller med Azure Machine Learning-tjänsten
 
@@ -48,7 +48,7 @@ Här anger vi följande parametrar till TensorFlow-konstruktorn:
 Parameter | Beskrivning
 --|--
 `source_directory` | Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
-`script_params` | Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
+`script_params` | Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par.  Ange en utförlig flagga i `script_params`, använda `<command-line argument, "">`.
 `compute_target` | Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
 `entry_script` | FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages` | Lista över Python-paket installeras via conda som krävs för dina utbildningsskript. I det här fallet inlärningsskript använder `sklearn` för att läsa in data, så ange det här paketet installeras.  Konstruktorn har en annan parameter med namnet `pip_packages` som du kan använda några pip-paket som behövs

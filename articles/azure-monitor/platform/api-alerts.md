@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895897"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549720"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -94,9 +94,9 @@ Alla åtgärder har egenskaper i följande tabell.  Olika typer av aviseringar h
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Typ |Typ av åtgärd.  Möjliga värden är för närvarande aviseringen och Webhook. |
-| Namn |Visningsnamn för aviseringen. |
-| Version |API-version som används.  För närvarande ska detta alltid vara inställd på 1. |
+| `Type` |Typ av åtgärd.  Möjliga värden är för närvarande aviseringen och Webhook. |
+| `Name` |Visningsnamn för aviseringen. |
+| `Version` |API-version som används.  För närvarande ska detta alltid vara inställd på 1. |
 
 ### <a name="retrieving-actions"></a>Hämta åtgärder
 
@@ -154,8 +154,8 @@ Tröskelvärden har egenskaper i följande tabell.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Operator |Operator för tröskelvärde för jämförelse. <br> gt = större än <br> lt = mindre än |
-| Värde |Värde för tröskelvärdet. |
+| `Operator` |Operator för tröskelvärde för jämförelse. <br> gt = större än <br> lt = mindre än |
+| `Value` |Värde för tröskelvärdet. |
 
 Anta exempelvis att en fråga med ett intervall på 15 minuter, Timespan 30 minuter och ett tröskelvärde för större än 10. I det här fallet frågan skulle köras var 15: e minut och en avisering ska utlösas om 10 händelser som har skapats under en 30-minuters returnerades.
 
@@ -187,9 +187,9 @@ Log Analytics kan du klassificera aviseringar i kategorier så att enklare hante
 
 |Allvarlighetsgrad för log Analytics  |Allvarlighetsgrad för Azure-aviseringar  |
 |---------|---------|
-|kritisk |Sev 0|
-|varning |Sev 1|
-|Informationsmeddelande | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 Följande är ett exempelsvar för en åtgärd med ett tröskelvärde och allvarlighetsgrad. 
 
@@ -284,7 +284,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
 Följ standardmall och format för meddelanden av standardåtgärder. Men användaren kan anpassa vissa åtgärder, även om de styrs av åtgärdsgrupper. För närvarande är det möjligt för e-postmeddelandets ämne och Webhook-nyttolasten med anpassning.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Anpassa e-postämne för åtgärdsgrupp
-Som standard är e-postämnet för aviseringar Varningsavisering <AlertName> för <WorkspaceName>. Men detta kan anpassas, så att du kan vissa specifika ord eller taggar – så att du kan enkelt använda filterregler i din inkorg. Anpassa e-huvudet information behöver skicka tillsammans med ActionGroup information, som i exemplet nedan.
+Som standard är e-postämnet för aviseringar Varningsavisering `<AlertName>` för `<WorkspaceName>`. Men detta kan anpassas, så att du kan vissa specifika ord eller taggar – så att du kan enkelt använda filterregler i din inkorg. Anpassa e-huvudet information behöver skicka tillsammans med ActionGroup information, som i exemplet nedan.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

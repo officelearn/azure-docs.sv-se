@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900615"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545136"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Azure SQL data warehouse med Azure PowerShell
 
@@ -103,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>Skapa ett data warehouse med exempeldata
-Det här exemplet skapar ett data warehouse med hjälp av tidigare definierade variablerna.  Den anger tjänstmålet som DW400, vilket är en lägre kostnad startpunkt för ditt informationslager. 
+## <a name="create-a-data-warehouse"></a>Skapa ett datalager
+Det här exemplet skapar ett data warehouse med hjälp av tidigare definierade variablerna.  Den anger tjänstmålet som DW100c, vilket är en lägre kostnad startpunkt för ditt informationslager. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -112,7 +112,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -128,7 +128,7 @@ Erfordrade parametrar är:
 Valfria parametrar är:
 
 - **Sorteringsnamnet**: Standardsortering om inte anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras på en databas.
-- **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
+- **MaxSizeBytes**: Maximal standardstorlek för en databas är 240TB. Max storlek begränsar rowstore data. Det finns obegränsad lagring för petabyteskalade kolumndata.
 
 Mer information om parameteralternativen finns i [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

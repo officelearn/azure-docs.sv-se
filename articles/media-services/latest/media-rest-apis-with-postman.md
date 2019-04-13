@@ -11,20 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758206"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543884"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
 
 Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services (AMS) REST API: er. Artikeln beskriver hur du importerar miljö och samling filerna till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST API: er. Miljö-filen innehåller variabler som används av samlingen.
 
-## <a name="prerequisites"></a>Förutsättningar
+Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md).
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
 - Få information som behövs för att [åtkomst API: er](access-api-cli-how-to.md)

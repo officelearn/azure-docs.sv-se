@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875194"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549737"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse IP-brandväggsregler
 
@@ -249,6 +249,7 @@ Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten in
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Bekräfta nätverksmiljön företagets tillåter inkommande kommunikation från Compute IP-adressintervall (inklusive SQL-intervall) som används av Microsoft Azure-datacenter. Det kan vara nödvändigt att listan över godkända IP-adresserna finns i [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)  
 - En Snabbstart om hur du skapar en IP-brandväggsregel på servernivå finns [skapa en Azure SQL database](sql-database-single-database-get-started.md).
 - Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller program från tredje part finns i [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snabbstart med kodexempel för att ansluta klienter till SQL Database).
 - Information om ytterligare portar som du kan behöva öppna finns i den **SQL-databas: Utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL-databas](sql-database-develop-direct-route-ports-adonet-v12.md)

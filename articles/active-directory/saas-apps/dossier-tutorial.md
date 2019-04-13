@@ -4,57 +4,48 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7a5fec92-9c01-4ced-99b2-a10e28fc028e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: tutorial
+ms.date: 04/04/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a3567387db7abd1462063894fdbaa4edb757b6cf
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217538"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Självstudier: Azure Active Directory-integrering med dokumentation
 
 I den här självstudien får du lära dig hur du integrerar dokumentation med Azure Active Directory (AD Azure).
-
 Integrera dokumentation med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till dokumentationen.
-- Du kan aktivera användarna att automatiskt få loggat in på dokumentation (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till dokumentationen.
+* Du kan aktivera användarna att vara automatiskt inloggad till dokumentationen (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med dokumentation, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En dokumentation enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Dokumentation enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till dokumentation från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Dokumentation som stöder **SP** -initierad SSO
 
 ## <a name="adding-dossier-from-the-gallery"></a>Att lägga till dokumentation från galleriet
 
@@ -64,174 +55,164 @@ Om du vill konfigurera integreringen av dokumentationen till Azure AD, som du be
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **dokumentation**väljer **dokumentation** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Dokumentation i resultatlistan](./media/dossier-tutorial/tutorial_dossier_addfromgallery.png)
+     ![Dokumentation i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med dokumentation baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användaren i dokumentationen till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i dokumentationen upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med dokumentation baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i dokumentationen upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med dokumentation, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare dokumentation](#create-a-dossier-test-user)**  – du har en motsvarighet för Britta Simon i dokumentationen som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera dokumentation Single Sign-On](#configure-dossier-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa dokumentationen testanvändare](#create-dossier-test-user)**  – du har en motsvarighet för Britta Simon i dokumentationen som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för dokumentation.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med dokumentation:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med dokumentation:
 
-1. I Azure-portalen på den **dokumentation** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **dokumentation** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/dossier-tutorial/tutorial_dossier_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **dokumentation domän och URL: er** avsnittet, utför följande steg:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Dokumentation domän och URL: er med enkel inloggning för information](./media/dossier-tutorial/tutorial_dossier_url1.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
-    
-    | | |
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Dokumentation domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
+
+    | |
     |-|-|
     | `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
     | `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
     | |
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `Dossier/<CLIENTNAME>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `Dossier/<CLIENTNAME>`
 
     > [!NOTE]
     > För ID-värde som det ska vara i formatet `Dossier/<CLIENTNAME>` eller alla användare anpassade värde.
 
     c. I textrutan **Svars-URL** anger du en URL med följande mönster:
-    | | |
+    
+    | |
     |-|-|
     |  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
     | `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
     | |
 
+
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [dokumentation klienten supportteamet](mailto:support@intellimedia.ca) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [dokumentation klienten supportteamet](mailto:support@intellimedia.ca) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+4. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** från de angivna alternativen som per dina behov och spara den på din dator.
 
-    ![Länk för nedladdning av certifikatet](./media/dossier-tutorial/tutorial_dossier_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-6. Klicka på **spara** knappen.
+6. På den **konfigurera dokumentation** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/dossier-tutorial/tutorial_general_400.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-7. Att konfigurera enkel inloggning på **dokumentation** sida, som du behöver skicka den **Appfederationsmetadata** till [dokumentation supportteamet](mailto:support@intellimedia.ca). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    a. Inloggnings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    b. Azure AD-identifierare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    c. Utloggnings-URL
 
-   ![Skapa en Azure AD-testanvändare][100]
+### <a name="configure-dossier-single-sign-on"></a>Konfigurera dokumentation enkel inloggning
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+Att konfigurera enkel inloggning på **dokumentation** sida, som du behöver skicka den **Appfederationsmetadata** till [dokumentation supportteamet](mailto:support@intellimedia.ca). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Azure Active Directory-knappen](./media/dossier-tutorial/create_aaduser_01.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/dossier-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Knappen Lägg till](./media/dossier-tutorial/create_aaduser_03.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Dialogrutan användare](./media/dossier-tutorial/create_aaduser_04.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-
-### <a name="create-a-dossier-test-user"></a>Skapa en testanvändare för dokumentation
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i dokumentationen. Arbeta med [dokumentation supportteamet](mailto:support@intellimedia.ca) att lägga till användare i dokumentationen-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till dokumentationen.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **dokumentation**.
 
-**Om du vill tilldela Britta Simon dokumentation, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **dokumentation**.
 
-    ![Länken dokumentation i listan med program](./media/dossier-tutorial/tutorial_dossier_app.png)  
+    ![Länken dokumentation i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="create-dossier-test-user"></a>Skapa testanvändare för dokumentation
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i dokumentationen. Arbeta med [dokumentation supportteamet](mailto:support@intellimedia.ca) att lägga till användare i dokumentationen-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen dokumentation i åtkomstpanelen du bör få automatiskt loggat in på programmets dokumentation.
-Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen dokumentation i åtkomstpanelen, bör det vara loggas in automatiskt till den dokumentation som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/dossier-tutorial/tutorial_general_01.png
-[2]: ./media/dossier-tutorial/tutorial_general_02.png
-[3]: ./media/dossier-tutorial/tutorial_general_03.png
-[4]: ./media/dossier-tutorial/tutorial_general_04.png
-
-[100]: ./media/dossier-tutorial/tutorial_general_100.png
-
-[200]: ./media/dossier-tutorial/tutorial_general_200.png
-[201]: ./media/dossier-tutorial/tutorial_general_201.png
-[202]: ./media/dossier-tutorial/tutorial_general_202.png
-[203]: ./media/dossier-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

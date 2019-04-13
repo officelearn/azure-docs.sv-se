@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7aa171a49ea03769c3ecbb5d35ae31ac6fae052e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473263"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544120"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API ochC# 
 
@@ -27,7 +27,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
  Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
@@ -81,24 +81,19 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 1. Skapa en ny async-funktion som kallas `Request` som tar de variabler som skapades ovan.
 
 2. Ange klientens protokoll för säkerhet och rubrik informationen med hjälp av en `HttpClient` objekt. Se till att lägga till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik. Skapa sedan en `StringContent` objekt för begäran.
- 
-3. Skicka begäran med `PostAsync()`. Om begäran lyckas returnera svaret.  
+
+3. Skicka begäran med `PostAsync()`, och returnerar svaret.
 
 ```csharp
-static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
-    using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
+static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
+    using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
         var content = new StringContent(requestData, Encoding.UTF8, "application/json");
         var res = await client.PostAsync(endpoint, content);
-        if (res.IsSuccessStatusCode){
-            return await res.Content.ReadAsStringAsync();
-        }
-        else{
-            return $"ErrorCode: {res.StatusCode}";
-        }
+        return await res.Content.ReadAsStringAsync();
     }
 }
 ```
@@ -109,9 +104,9 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 2. Deserialisera JSON-objekt och skriva den till konsolen.
 
-3. Hitta positioner av avvikelser i datauppsättningen. Svarets `isAnomaly` fältet innehåller en matris med booleska värden som anger om en datapunkt är en avvikelse. Konvertera det till en sträng med objektet response `ToObject<bool[]>()` funktion.
+3. Om svaret innehåller `code` fältet, skriva ut felkod och ett felmeddelande. 
 
-4. Gå igenom matrisen och skriva ut index för någon `true` värden. Dessa värden motsvarar index för avvikande datapunkter, om några.
+4. Annars kan hitta positioner av avvikelser i datauppsättningen. Svarets `isAnomaly` fältet innehåller en matris med booleska värden som anger om en datapunkt är en avvikelse. Konvertera det till en sträng med objektet response `ToObject<bool[]>()` funktion. Gå igenom matrisen och skriva ut index för någon `true` värden. Dessa värden motsvarar index för avvikande datapunkter, om några.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -126,11 +121,17 @@ static void detectAnomaliesBatch(string requestData){
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
     System.Console.WriteLine(jsonObj);
 
-    bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
-    System.Console.WriteLine("\n Anomalies detected in the following data positions:");
-    for (var i = 0; i < anomalies.Length; i++) {
-        if (anomalies[i]) {
-            System.Console.Write(i + ", ");
+    if (jsonObj["code"] != null){
+        System.Console.WriteLine($"Detection failed. ErrorCode:{jsonObj["code"]}, ErrorMessage:{jsonObj["message"]}");
+    }
+    else{
+        bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
+        System.Console.WriteLine("\nAnomalies detected in the following data positions:");
+        for (var i = 0; i < anomalies.Length; i++){
+            if (anomalies[i])
+            {
+                System.Console.Write(i + ", ");
+            }
         }
     }
 }
@@ -140,11 +141,11 @@ static void detectAnomaliesBatch(string requestData){
 
 1. Skapa en ny funktion som kallas `detectAnomaliesLatest()`. Skapa begäran och skicka den genom att anropa den `Request()` funktion med din slutpunkt, prenumerationsnyckel, URL-Adressen för senaste återställningspunkt avvikelseidentifiering och time series-data.
 
-2. Deserialisera JSON-objekt och skriva den till konsolen. 
+2. Deserialisera JSON-objekt och skriva den till konsolen.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
-    System.Console.WriteLine("\n\n Determining if latest data point is an anomaly");
+    System.Console.WriteLine("\n\nDetermining if latest data point is an anomaly");
     var result = Request(
         endpoint,
         latestPointDetectionUrl,

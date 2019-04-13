@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426468"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549362"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -487,36 +487,7 @@ Flera av de alias som är tillgängliga har en version som visas som ett ”norm
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-'Normal' alias representerar fältet som ett enda värde. Det här fältet är exakt matchning jämförelse scenarier när samtliga värden måste vara exakt som de definierats några och inte mindre. Med hjälp av **ipRules**, ett exempel skulle verifiera att det finns en exakt uppsättning regler, inklusive antalet regler och för varje regel. Regeln exempel söker efter exakt både **192.168.1.1** och **10.0.4.1** med _åtgärd_ av **Tillåt** i **ipRules** att tillämpa den **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+'Normal' alias representerar fältet som ett enda värde. Det här fältet är exakt matchning jämförelse scenarier när samtliga värden måste vara exakt som de definierats några och inte mindre.
 
 Den **[\*]** alias gör det möjligt att jämföra med värdet för varje element i matrisen och specifika egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaperna för ”om inget av”, ”om någon av”, eller ”om alla av ' scenarier. Med hjälp av **ipRules [\*]**, ett exempel skulle verifierar som varje _åtgärd_ är _neka_, men inte oroa dig över hur många regler finns, eller vilka IP-Adressen _värdet_ är. Regeln exempel söker efter alla matchningar av **ipRules [\*] .value** till **10.0.4.1** och tillämpar den **effectType** endast om det inte finns minst en matchning:
 

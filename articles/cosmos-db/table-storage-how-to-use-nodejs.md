@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510960"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546695"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -364,6 +364,8 @@ dc.table.queryEntities(tableName,
 ```
 
 Om du granskar `continuationToken`-objektet hittar du egenskaper som `nextPartitionKey`, `nextRowKey` och `targetLocation`, som du kan använda för att gå igenom alla resultat.
+
+Du kan också använda `top` tillsammans med `continuationToken` att ställa in sidstorleken. 
 
 ## <a name="work-with-shared-access-signatures"></a>Arbeta med signaturer för delad åtkomst
 Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till tabeller utan att ange namnet på eller nycklarna för ditt lagringskontot. SAS används ofta för att ge begränsad åtkomst till data, till exempel om du vill tillåta att en mobilapp frågar efter poster.

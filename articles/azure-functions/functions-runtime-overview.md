@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091925"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546841"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Azure Functions Runtime-översikt (förhandsversion)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Azure Functions-körning (förhandsversion) är en ny metod som du kan dra nytta av enkelheten och flexibilitet i Azure Functions programming modellen lokalt. Bygger på öppen källkod samma rot som Azure Functions och är Azure Functions Runtime distribuerade på plats att tillhandahålla en nästan identiska utvecklingsupplevelse som Molntjänsten.
 
@@ -30,7 +32,7 @@ Azure Functions Runtime består av två delar:
 * Azure Functions Runtime Hanteringsroll
 * Azure Functions Runtime Worker-roll
 
-## <a name="azure-functions-management-role"></a>Azure Functions Hanteringsroll
+## <a name="azure-functions-management-role"></a>Azure Functions Management Role
 
 Hanteringsroll för Azure Functions tillhandahåller en värd för hantering av funktioner på plats. Den här rollen utför följande uppgifter:
 

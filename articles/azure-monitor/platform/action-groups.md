@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/26/2019
+ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 695a2ff827fc5514c3a32364026bc9d47c8a2121
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500327"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549669"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -90,7 +90,7 @@ Du kan ha ett begränsat antal e poståtgärder i en åtgärdsgrupp. Se den [beg
 
 **Röst** – du kan ha ett begränsat antal röst åtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikeln.
 
-**Webhook** – du kan ha ett begränsat antal Webhook-åtgärder i en åtgärdsgrupp. Webhooks görs med hjälp av följande regler. Webhook-anrop görs ett nytt högst 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket görs efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel anropar inga åtgärdsgrupp slutpunkten i 30 minuter. 
+**Webhook** – du kan ha ett begränsat antal Webhook-åtgärder i en åtgärdsgrupp. Webhooks görs med hjälp av följande regler. Webhook-anrop görs ett nytt högst 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504, eller om HTTP-slutpunkten inte svarar. Det första återförsöket görs efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel anropar inga åtgärdsgrupp slutpunkten i 30 minuter. 
 
 Käll-IP-adressintervall
  - 13.72.19.232
@@ -103,6 +103,7 @@ Käll-IP-adressintervall
  - 52.244.68.117
  - 51.4.138.199
  - 51.5.148.86
+ - 51.5.149.19
 
 För att ta emot konfigurerar uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du en [Tjänstehälsa för avisering, som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
 

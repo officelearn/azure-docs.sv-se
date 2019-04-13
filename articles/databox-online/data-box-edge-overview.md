@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 04/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521779"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544576"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
@@ -93,7 +93,7 @@ Den fysiska Data Box Edge-enheten, Azure-resursen och mållagringskontot som du 
     - **EU** – Europa, västra
     - **Asien och stillahavsområdet** – Sydostasien
     
-    Data Box-Gateway kan också distribueras i Azure Government-molnet. Mer information finns i [vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    Data Box Edge kan också distribueras i Azure Government-molnet. Mer information finns i [vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. 
 

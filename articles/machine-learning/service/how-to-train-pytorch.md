@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004068"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548559"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Skapa PyTorch-modeller med Azure Machine Learning-tjänsten
 
@@ -46,7 +46,7 @@ Här anger vi följande parametrar för PyTorch-konstruktorn:
 Parameter | Beskrivning
 --|--
 `source_directory` |  Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
-`script_params` |  Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
+`script_params` |  Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par.  Ange en utförlig flagga i `script_params`, använda `<command-line argument, "">`.
 `compute_target` |  Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
 `entry_script` |  FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages` |  Lista över Python-paket installeras via conda som krävs för dina utbildningsskript. Konstruktorn har en annan parameter med namnet `pip_packages` som du kan använda några pip-paket som behövs

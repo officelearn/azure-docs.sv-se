@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b2eee0bfd32b58cd751f8bf70aff1d4f460a353
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340146"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546599"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från en annan labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du importerar virtuella datorer från en annan lab till labbet. 
@@ -47,7 +47,7 @@ Det finns två viktiga begränsningar vara medvetna om när du planerar att impo
 - Den här funktionen stöds för närvarande endast via Powershell och REST API.
 
 ## <a name="use-powershell"></a>Använd PowerShell
-Ladda ned ImportVirtualMachines.ps1 filen från den [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i labbet källa till mål-labbet. 
+Ladda ned ImportVirtualMachines.ps1 filen från den [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i labbet källa till mål-labbet. 
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Använd PowerShell för att importera en enskild virtuell dator
 Kör det här powershell-skriptet måste identifiera den Virtuella källdatorn och målet labbet och du kan också ange ett nytt namn för måldatorn:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917778"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547605"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -32,7 +32,7 @@ Det finns två typer av CORS-förfrågningar, *enkla begäranden* och *komplexa 
 
 1. Webbläsaren skickar en begäran om CORS med ytterligare **ursprung** HTTP-frågehuvudet. Värdet för den här rubriken är ursprunget som användes för överordnade-sidan, vilket definieras som en kombination av *-protokollet,* *domän,* och *port.*  När en sida från https://www.contoso.com försöker komma åt en användares data i fabrikam.com ursprung, följande begärandehuvudet skulle skickas till fabrikam.com:
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. Servern svarar med något av följande:
 

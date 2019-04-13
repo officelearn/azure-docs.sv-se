@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106907"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548754"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudier: Kopiera data till Azure Data Box Disk och verifiera
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Kopiera data till en Data Box-disk
 > * Verifiera data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 - Du har slutfört självstudien [: Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
@@ -44,14 +44,15 @@ Granska följande innan du kopierar data till diskar:
 - När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Disk-gränser](data-box-disk-limits.md).
 - Om data som laddas upp av Data Box Disk samtidigt överförs av andra program utanför Data Box Disk, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 
-Om du har angett hanterade diskar i ordningen kan du läsa följande ytterligare överväganden:
+   > [!IMPORTANT]
+   >  Om du har angett hanterade diskar som en av lagringsmål under skapande, gäller följande avsnitt.
 
 - Du kan bara ha en hanterad disk med ett givet namn i en resursgrupp olika alla införande mappar och i alla de Data Box-Disk. Detta innebär att de virtuella hårddiskarna som överförts till mapparna införande bör ha unika namn. Kontrollera att det angivna namnet inte matchar en redan befintlig hanterad disk i en resursgrupp. Om virtuella hårddiskar har samma namn kan konverteras bara en virtuell Hårddisk till hanterade diskar med samma namn. De andra virtuella hårddiskarna laddas upp mellanlagringskontot som sidblobar.
 - Kopiera alltid de virtuella hårddiskarna till någon av mapparna införande. Om du kopierar de virtuella hårddiskarna utanför dessa mappar eller i en mapp som du skapade de virtuella hårddiskarna överförs till Azure Storage-konto som sidblobar och hanterade inte diskar.
 - Endast de fasta virtuella hårddiskarna kan laddas upp för att skapa hanterade diskar. Dynamiska virtuella hårddiskar, Differentierande virtuella hårddiskar eller VHDX-filer stöds inte.
 
 
-Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
 
 1. Visa innehållet på den upplåsta enheten. Listan över införande mappar och undermappar i enheten skiljer sig beroende på de alternativ som valdes när placera Data Box-diskbeställning.
 
@@ -91,12 +92,12 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     |Mål       | Anger sökvägen till målkatalogen.        |
     |/E                  | Kopierar underkataloger, inklusive tomma kataloger. |
     |/MT[:N]             | Skapar flertrådiga kopior med N trådar, där N är ett heltal mellan 1 och 128. <br>Standardvärdet för N är 8.        |
-    |/R: <N>             | Anger antalet återförsök vid misslyckade kopieringar. Standardvärdet för N är 1 000 000 (en miljon nya försök).        |
-    |/W: <N>             | Anger väntetiden mellan återförsök i sekunder. Standardvärdet för N är 30 (väntetid på 30 sekunder).        |
+    |/R: \<N>             | Anger antalet återförsök vid misslyckade kopieringar. Standardvärdet för N är 1 000 000 (en miljon nya försök).        |
+    |/W: \<N>             | Anger väntetiden mellan återförsök i sekunder. Standardvärdet för N är 30 (väntetid på 30 sekunder).        |
     |/NFL                | Anger att filnamn inte ska loggas.        |
     |/NDL                | Anger att katalognamn inte ska loggas.        |
     |/FFT                | Förutsätter FAT-filtider (två sekunders precision).        |
-    |/Log:<Log File>     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
+    |/ Log:\<loggfil >     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
 
     Flera diskar kan användas parallellt med flera jobb som körs på varje disk.
 
@@ -222,7 +223,7 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
  
 7. Öppna ett kommandotolksfönster. 
 
-8. Kör `DataBoxDiskSplitCopy.exe`. Type
+8. Kör `DataBoxDiskSplitCopy.exe`. Typ
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 

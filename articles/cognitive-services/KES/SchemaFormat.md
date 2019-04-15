@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860719"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549695"
 ---
 # <a name="schema-format"></a>Schema Format
 
@@ -41,16 +41,16 @@ Attributnamn är skiftlägeskänsliga identifierare som börjar med en bokstav o
 
 Nedan visas en lista över attribut som stöds datatyper:
 
-| Type | Beskrivning | Åtgärder | Exempel |
+| Typ | Beskrivning | Åtgärder | Exempel |
 |------|-------------|------------|---------|
-| String | Sträng (1 – 1024 tecken) | lika med, starts_with | ”hello world” |
-| Int32 | Ett signerat 32-bitars heltal | är lika med, starts_with, is_between | 2016 |
-| Int64 | Ett signerat 64-bitars heltal | är lika med, starts_with, is_between | 9876543210 |
-| Double | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
-| Date | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
-| Guid | Globalt unik identifierare | lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Internt komprimerade data som inte är indexerade | *Ingen* | ”Hjälpa människor och organisationer i världen för att uppnå mer” |
-| Sammansatta | Sammansättning av flera underordnade attribut| *Saknas* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | Sträng (1 – 1024 tecken) | lika med, starts_with | ”hello world” |
+| `Int32` | Ett signerat 32-bitars heltal | är lika med, starts_with, is_between | 2016 |
+| `Int64` | Ett signerat 64-bitars heltal | är lika med, starts_with, is_between | 9876543210 |
+| `Double` | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
+| `Date` | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
+| `Guid` | Globalt unik identifierare | lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Internt komprimerade data som inte är indexerade | *Ingen* | ”Hjälpa människor och organisationer i världen för att uppnå mer” |
+| `Composite` | Sammansättning av flera underordnade attribut| *Saknas* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Strängattribut används för att representera strängvärden som kan visas som en del av användarfrågan.  De stöder den exakt matchningen *är lika med* åtgärd, samt de *starts_with* åtgärden för frågan slutförande scenarier, till exempel matchar ”micros” med ”microsoft”.  Skiftlägeskänsliga och fuzzy matchning för att hantera stavfel kommer att stödjas i framtida versioner.
 

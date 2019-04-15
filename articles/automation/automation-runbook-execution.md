@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268508"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544763"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -46,7 +46,7 @@ Runbooks i Azure Automation kan köras i vilketdera en sandbox i Azure eller en 
 |Installera modulen som kräver installationsprogram|Hybrid Runbook Worker|Moduler för begränsat läge måste vara copiable|
 |Med hjälp av runbooks eller moduler som kräver .NET Framework skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation-sandboxar har .NET Framework 4.7.2 Det går inte att uppgradera den|
 |Skript som kräver utökade privilegier|Hybrid Runbook Worker|Sandbox-miljöer tillåter inte utökade privilegier. Använda en Hybrid Runbook Worker för att lösa detta problem och du kan inaktivera kontroll av Användarkonto och använda `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
-|Skript som behöver åtkomst till WMI|Hybrid Runbook Worker|Jobb som körs i sandbox-miljöer molnet [har inte åtkomst till WMI](#device-and-application-characteristics)|
+|Skript som behöver åtkomst till WMI|Hybrid Runbook Worker|Jobb som körs i sandbox-miljöer i molnet [har inte åtkomst till WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook-beteende
 
@@ -192,7 +192,7 @@ Runbooks som körs i Azure sandboxar stöder inte anropande processer (till exem
 
 ### <a name="device-and-application-characteristics"></a>Egenskaper för enheter och program
 
-Runbook-jobb som körs i Azure sandbox-miljöer har inte åtkomst till alla egenskaper för enhet eller ett program. Den vanligaste API som används för att fråga prestandamått på Windows är WMI. Vissa av dessa vanliga mått är minne och CPU-användning. Men det spelar ingen roll vad API används. Jobb som körs i molnet har inte behörighet Microsofts implementering av Web baserat företagshantering (WBEM), som bygger på Common Information Model (CIM), som är branschstandarder för att definiera egenskaperna för enheter och program.
+Runbook-jobb som körs i Azure sandbox-miljöer har inte åtkomst till alla egenskaper för enhet eller ett program. Den vanligaste API som används för att fråga prestandamått på Windows är WMI. Vissa av dessa vanliga mått är minne och CPU-användning. Men det spelar ingen roll vad API används. Jobb som körs i molnet har inte åtkomst till Microsofts implementering av Web baserat företagshantering (WBEM), som bygger på Common Information Model (CIM), som är branschstandarder för att definiera egenskaperna för enheter och program.
 
 ## <a name="job-statuses"></a>Jobbstatus
 

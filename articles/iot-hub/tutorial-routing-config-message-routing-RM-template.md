@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663034"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543770"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudier: Använda en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
 
@@ -54,7 +54,7 @@ De flesta av dessa parametrar har standardvärden. De som slutar med **_in** sam
 
 **Plats**: Det här fältet är den Azure-region dit du distribuerar, till exempel ”westus”.
 
-**consumer_group**: Det här fältet är konsumentgruppen för meddelanden som skickas routning slutpunkten. Den används för att filtrera resultat i Azure Steam Analytics. Det är exempelvis hela stream där får du allt, eller om du har data som skickas med consumer_group inställd **Contoso**, och du kan ställa in ett Azure Stream Analytics stream och Power BI-rapport som visar bara de posterna. Det här fältet används i del 2 av den här självstudien.
+**consumer_group**: Det här fältet är konsumentgruppen för meddelanden som skickas routning slutpunkten. Den används för att filtrera resultat i Azure Stream Analytics. Det är exempelvis hela stream där får du allt, eller om du har data som skickas med consumer_group inställd **Contoso**, och du kan ställa in ett Azure Stream Analytics stream och Power BI-rapport som visar bara de posterna. Det här fältet används i del 2 av den här självstudien.
 
 **sku_name**: Det här fältet är skalning för IoT-hubben. Det här värdet måste vara S1 eller senare; en kostnadsfri nivå fungerar inte för den här självstudiekursen eftersom det inte tillåter flera slutpunkter.
 

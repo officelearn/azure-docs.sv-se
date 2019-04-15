@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440038"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523026"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Kör en datafabrik avbildning från Azure DevOps
+# <a name="run-an-image-factory-from-azure-devops"></a>Köra en avbildningsfabrik från Azure DevOps
 Den här artikeln beskriver alla produkter som behövs för att köra fabriken avbildning från Azure DevOps (tidigare Visual Studio Team Services).
 
 > [!NOTE]
@@ -44,12 +44,12 @@ Azure DevOps kan du lagra källkoden genom att köra Azure PowerShell på samma 
 
 Om du har ett befintligt DevOps konto eller projekt som du vill använda i stället kan du hoppa över det här steget.
 
-Kom igång genom att skapa ett kostnadsfritt konto i Azure DevOps. Besök https://www.visualstudio.com/ och välj **Kom igång kostnadsfritt** direkt under **Azure DevOps** (tidigare VSTS). Du måste välja ett unikt kontonamn och se till att välja att hantera kod med Git. Spara URL: en till ditt teamprojekt när den har skapats. Här är en exempel-URL: https://<accountname>.visualstudio.com/MyFirstProject.
+Kom igång genom att skapa ett kostnadsfritt konto i Azure DevOps. Besök https://www.visualstudio.com/ och välj **Kom igång kostnadsfritt** direkt under **Azure DevOps** (tidigare VSTS). Du måste välja ett unikt kontonamn och se till att välja att hantera kod med Git. Spara URL: en till ditt teamprojekt när den har skapats. Här är en exempel-URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Kontrollera i avbildningen factory Git
 Alla PowerShell, mallar och konfiguration för avbildning factory finns i den [offentliga DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). Det snabbaste sättet att få koden i det nya teamprojektet är att importera en databas. Detta hämtar hela DevTest Labs-databasen (så här får du extra docs och exempel). 
 
-1. Besök Azure DevOps-projektet som du skapade i föregående steg (URL-Adressen liknar **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Besök Azure DevOps-projektet som du skapade i föregående steg (URL-Adressen liknar **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Välj **importera en databas**.
 3. Ange den **klona URL** för DevTest Labs lagringsplats: `https://github.com/Azure/azure-devtestlab`.
 4. Välj **Import**.

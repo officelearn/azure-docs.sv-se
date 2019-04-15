@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995901"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524114"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -280,7 +280,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
    * **folderPath** är inställd på **adftutorial/outfromonpremdf** där outfromonpremdf är mappen i behållaren adftutorial. Skapa den **adftutorial** behållaren om den inte redan finns.
    * **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factory-tjänsten genererar en utdatasektor varje timme i den **emp** tabell i Azure SQL-databasen.
 
-   Om du inte anger en **fileName** för en **utdatatabellen**, genereras filerna i den **folderPath** namnges i följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Om du inte anger en **fileName** för en **utdatatabellen**, genereras filerna i den **folderPath** namnges i följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Ange **folderPath** och **fileName** dynamiskt utifrån den **SliceStart** tid, Använd egenskapen partitionedBy. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv.
 

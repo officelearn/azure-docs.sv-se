@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure NetApp Files
+metadata:
+  title: Dokumentation om Azure NetApp Files
+  description: 'Lär dig att konfigurera, få åtkomst till och hantera volymer med hjälp av tjänsten Azure NetApp Files.'
+  author: b-juche
+  ms.author: b-juche
+  ms.service: azure-netapp-files
+  ms.topic: landing-page
+  ms.date: 04/10/2019
+abstract:
+  description: 'Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder. <p>För att kunna använda Azure NetApp Files måste du delta i programmet för den allmänt tillgängliga förhandsversionen. Du måste även vara godkänd för att få åtkomst till Microsoft.NetApp Azure Resource Provider. Om du vill gå med i programmet för den allmänt tillgängliga förhandsversionen kan du <a href="azure-netapp-files-register">registrera dig för Azure NetApp Files</a>.</p>'
+sections:
+  - title: Snabbstarter på fem minuter
+    items:
+      - type: paragraph
+        text: 'Lär dig hur du konfigurerar Azure NetApp Files och skapar en volym med hjälp av:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
+            text: Azure Portal
+            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">REST-API</a></p>'
+          - title: Azure Resource Manager
+            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Resource Manager-mallar</a></p>'

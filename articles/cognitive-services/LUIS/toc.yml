@@ -62,11 +62,14 @@ items:
       href: luis-quickstart-intents-regex-entity.md
     - name: Extrahera exakta textmatchningar med listor
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Extrahera sammanhangsbaserade data med hierarkiska entiteter
-      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Hämta relaterade data med entitetsroller
+      displayName: roles, geographyV2, context
+      href: tutorial-entity-roles.md
     - name: Gruppera och extrahera relaterade data med sammansatta entiteter
+      displayName: roles
       href: luis-tutorial-composite-entity.md
     - name: Extrahera namn med enkla entiteter
+      displayName: roles
       href: luis-quickstart-primary-and-secondary-data.md
   - name: Förbättra appen
     items:
@@ -77,6 +80,7 @@ items:
     - name: Lägg till vanliga yttrandeformat
       href: luis-tutorial-pattern.md
     - name: Extrahera sammanhangsbaserade mönster
+      displayName: roles
       href: luis-tutorial-pattern-roles.md
     - name: Extrahera friformsdata
       href: luis-tutorial-pattern-any.md
@@ -113,7 +117,7 @@ items:
     - name: Avsikter
       href: luis-concept-intent.md
     - name: Entiteter
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Yttranden
       href: luis-concept-utterance.md
@@ -130,6 +134,7 @@ items:
     - name: Fraslistor
       href: luis-concept-feature.md
     - name: Mönster
+      displayName: roles
       href: luis-concept-patterns.md
   - name: Datahantering
     items:
@@ -138,6 +143,7 @@ items:
     - name: Konvertera data
       href: luis-concept-data-conversion.md
     - name: Extrahera data
+      displayName: roles
       href: luis-concept-data-extraction.md
     - name: Datalagring
       href: luis-concept-data-storage.md
@@ -171,7 +177,7 @@ items:
     - name: Lägga till entitet i yttrande
       href: luis-how-to-add-example-utterances.md
     - name: Lägga till entitet utan yttrande
-      displayName: import
+      displayName: roles, import
       href: luis-how-to-add-entities.md
     - name: Använd fördefinierade modeller
       items:
@@ -220,7 +226,7 @@ items:
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Lägg till mönster
-      displayName: syntax, template
+      displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
   - name: Träna
     href: luis-how-to-train.md
@@ -410,9 +416,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Kunskapsbas
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: db4e3cf9cad70556b057645dec52c9705fb29079
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1a35c8befbffae02a169e87390677c547aec833c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896116"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523692"

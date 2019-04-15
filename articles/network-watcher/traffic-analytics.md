@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491004"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545407"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -369,3 +369,8 @@ Har du skadlig trafik i din miljö? Där den härstammar från? Där är den är
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 Om du vill få svar på vanliga frågor och svar, se [Traffic analytics vanliga frågor och svar](traffic-analytics-faq.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
+- Information om schemat och bearbetning av information om trafikanalys finns i [schema för Traffic analytics](traffic-analytics-schema.md).

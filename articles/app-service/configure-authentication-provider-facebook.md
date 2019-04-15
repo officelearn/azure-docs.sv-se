@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411050"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522899"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Så här konfigurerar du App Service-programmet för att använda Facebook-inloggning
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -48,7 +48,7 @@ För att slutföra den här proceduren i det här avsnittet måste du ha en Face
    > Apphemligheten är en viktig säkerhetsuppgift för autentisering. Inte dela den här hemligheten med vem som helst och distribuera det i ett klientprogram.
    > 
    > 
-9. Facebook-konto som användes för att registrera programmet är en administratör av appen. Endast administratörer kan nu logga in på det här programmet. För att autentisera andra Facebook-konton, klickar du på **App granska** och aktivera **Kontrollera < your-app-name > offentliga** att aktivera den allmänna offentlig åtkomst med hjälp av Facebook-autentisering.
+9. Facebook-konto som användes för att registrera programmet är en administratör av appen. Endast administratörer kan nu logga in på det här programmet. För att autentisera andra Facebook-konton, klickar du på **App granska** och aktivera **gör \<your app name > offentliga** att aktivera den allmänna offentlig åtkomst med hjälp av Facebook-autentisering.
 
 ## <a name="secrets"> </a>Lägga till Facebook-information i ditt program
 1. I den [Azure Portal], navigera till ditt program. Klicka på **inställningar** > **autentisering / auktorisering**, och se till att **Apptjänstautentisering** är **på**.
@@ -70,6 +70,6 @@ Du är nu redo att använda Facebook för autentisering i din app.
 
 <!-- URLs. -->
 [Facebook-utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268286
-[Facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
+[facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Portal]: https://portal.azure.com/

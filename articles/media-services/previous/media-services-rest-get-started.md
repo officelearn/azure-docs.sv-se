@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295138"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523995"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
@@ -35,7 +35,7 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Följande krävs för att börja utveckla med Media Services med REST API: er.
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -560,7 +560,7 @@ Om detta lyckas, returneras följande svar:
 Det finns några viktiga saker att tänka på varje jobb begäran:
 
 * TaskBody egenskaper måste använda literal XML för att ange hur många indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
-* I definitionen av TaskBody varje inre värde för <inputAsset> och <outputAsset> måste anges som JobInputAsset(value) eller JobOutputAsset(value).
+* I definitionen av TaskBody varje inre värde för `<inputAsset>` och `<outputAsset>` måste anges som JobInputAsset(value) eller JobOutputAsset(value).
 * En aktivitet kan ha flera utdataresultat. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
 * Du kan ange JobInputAsset eller JobOutputAsset som en indatatillgången för en aktivitet.
 * Uppgifter måste inte utgör en cykel.
@@ -572,7 +572,7 @@ Det finns några viktiga saker att tänka på varje jobb begäran:
 >
 
 * InputMediaAssets mappas till en eller flera resurser som du har skapat i Media Services. OutputMediaAssets skapas av systemet. De hänvisar inte till en befintlig tillgång.
-* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den <outputAsset> elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan skulle sedan OutputMediaAsset namnegenskapen anges till ”exempel”. Men om du inte har angett ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
+* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den `<outputAsset>` elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan skulle sedan OutputMediaAsset namnegenskapen anges till ”exempel”. Men om du inte har angett ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
 
     I följande exempel visas hur du ställer in attributet assetName:
 

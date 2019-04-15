@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736557"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523417"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -86,7 +86,7 @@ Om du vill skapa ÖSTRA Traffic Manager-profilen, det finns flera steg: skapa pr
     |-RelativeDnsName|Luis-dns-eastus|Det här är underdomänen för tjänsten: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Avsökningsintervall 30 sekunder|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port och protokoll för LUIS är HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Ersätt <appIdLuis> och <subscriptionKeyLuis> med dina egna värden.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Ersätt `<appIdLuis>` och `<subscriptionKeyLuis>` med dina egna värden.|
     
     En lyckad begäran har inget svar.
 
@@ -154,7 +154,7 @@ Följ samma steg för att skapa västra USA Traffic Manager-profilen: skapa prof
     |-RelativeDnsName|Luis-dns-westus|Det här är underdomänen för tjänsten: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Avsökningsintervall 30 sekunder|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port och protokoll för LUIS är HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Ersätt <appId> och <subscriptionKey> med dina egna värden. Kom ihåg det här slutpunktsnyckeln skiljer sig från slutpunktsnyckeln östra|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Ersätt `<appId>` och `<subscriptionKey>` med dina egna värden. Kom ihåg det här slutpunktsnyckeln skiljer sig från slutpunktsnyckeln östra|
     
     En lyckad begäran har inget svar.
 

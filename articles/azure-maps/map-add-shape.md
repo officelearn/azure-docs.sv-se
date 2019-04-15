@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282397"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547993"
 ---
 # <a name="add-a-shape-to-a-map"></a>Lägga till formen på en karta
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du kan visa geometrier på kartan med rad och polygo
 
 `LineString` och `MultiLineString` funktioner används för att representera sökvägar och beskrivs på kartan.
 
-## <a name="use-a-line"></a>Använda en rad
+### <a name="add-a-line"></a>Lägg till en rad
 
 <iframe height='500' scrolling='no' title='Lägg till en rad i en karta' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qomaKv/'>till en rad i en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -53,7 +53,7 @@ Förutom att använda en enda linjefärg på en rad kan du också fylla en rad m
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Linje med linje toning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Linje med linje toning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se pennan <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>raden med linje toning</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -171,7 +171,7 @@ Det tredje kodblocket skapar en funktion som tar värdet från HTML-element inte
 
 I det fjärde kodblocket, ett datakällobjekt skapas med hjälp av den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klass. Punkten läggs sedan till datakällan.
 
-En [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) återger data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) på kartan. Det tredje kodblocket skapar en polygonskikt. Se egenskaperna för en polygonskikt på [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Datakällan och klicka på händelsen hanlder polygonskikt skapas och läggs till kartan inom den [händelsehanteraren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) så att punkten visas när kartan har lästs in helt.
+En [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) återger data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) på kartan. Det tredje kodblocket skapar en polygonskikt. Se egenskaperna för en polygonskikt på [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Datakällan och händelsehanteraren klickar du på polygonskikt skapas och läggs till kartan inom den [händelsehanteraren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) så att punkten visas när kartan har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2bc4d4034d63ed190f6964caa2bccf1ad8590a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833823"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549255"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "57833823"
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) i Azure Automation. Du börjar med en enkel runbook som du testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Till sist göra du runbooken mer robust genom att lägga till runbook-parametrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -138,7 +138,7 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
@@ -167,7 +167,7 @@ Nu när din runbook autentiseras med din Azure-prenumeration, kan du hantera res
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
 
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
    }

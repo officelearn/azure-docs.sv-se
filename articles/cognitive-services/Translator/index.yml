@@ -93,7 +93,7 @@ sections:
       - type: paragraph
         text: 'Lär dig att utveckla program med hjälp av Translator Text API:'
       - type: paragraph
-        text: '<a href="tutorial-wpf-translation-csharp.md">Skriva ett WPF-program för Translator Text med C#</a>'
+        text: '<li><a href="tutorial-wpf-translation-csharp.md">Skapa en WPF-app för Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Skapa en Flask-översättningsapp, Python</a></li>'
   - title: Referens
     items:
       - type: paragraph

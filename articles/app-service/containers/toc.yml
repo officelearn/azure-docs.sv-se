@@ -23,7 +23,7 @@ items:
     href: quickstart-python.md
   - name: Skapa Ruby-app
     href: quickstart-ruby.md
-  - name: Skapa Docker-/Go-app
+  - name: Köra en anpassad container
     href: quickstart-docker-go.md
   - name: Skapa en app med flera behållare
     href: quickstart-multi-container.md
@@ -48,7 +48,7 @@ items:
       href: tutorial-java-enterprise-postgresql-app.md
   - name: App med flera behållare
     href: tutorial-multi-container-app.md
-  - name: Anpassad Docker-avbildning
+  - name: Köra en container från ACR
     href: tutorial-custom-docker-image.md
   - name: Mappa anpassad domän
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -72,10 +72,6 @@ items:
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
     href: ../environment/intro.md
-  - name: Utvecklarguide för Java
-    href: app-service-linux-java.md
-  - name: Guide för Java Enterprise
-    href: app-service-java-enterprise.md
   - name: Inkommande och utgående IP-adresser
     href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Autentisering och auktorisering
@@ -88,10 +84,22 @@ items:
   items:
   - name: Konfigurera app
     items:
-    - name: Python-avbildning
-      href: how-to-configure-python.md
     - name: Använda appinställningar
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Konfigurera ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Konfigurera Node.js
+      href: configure-language-nodejs.md
+    - name: Konfigurera PHP
+      href: configure-language-php.md
+    - name: Konfigurera Java
+      href: configure-language-java.md
+    - name: Konfigurera Python
+      href: how-to-configure-python.md
+    - name: Konfigurera Ruby
+      href: configure-language-ruby.md
+    - name: Konfigurera en anpassad container
+      href: configure-custom-container.md
     - name: Leverera innehåll med Storage
       href: how-to-serve-content-from-azure-storage.md
   - name: Distribuera till Azure
@@ -158,8 +166,6 @@ items:
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Aktivera loggar
       href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Integreringar i Java APM
-      href: how-to-java-apm-monitoring.md
   - name: Hantera app
     items:
     - name: Säkerhetskopiera en app
@@ -222,9 +228,9 @@ items:
         href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Vanliga frågor och svar om konfiguration och hantering
         href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: f29fa4901e2eb8e3a6bcabcc72e4dba37041186a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 250501832c3daaeee9935c2796e6da9df3483e35
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719531"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544880"

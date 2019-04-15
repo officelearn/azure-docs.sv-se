@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Självstudier
   items:
-  - name: 1 – Använd Apache Spark-strukturuppspelning
+  - name: Använda Apache Spark-strukturuppspelning
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 – Skriv/läs från Apache Kafka med Apache Storm
+  - name: Skriva/läsa från Apache Kafka med Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 – Använd Apache Kafka-producenten och konsument-API:et
+  - name: Använda Apache Kafka-producenten och konsument-API:et
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 – Utveckla en app med Apache Kafka Streams-API:et
+  - name: Utveckla en app med Apache Kafka Streams-API:et
     href: apache-kafka-streams-api.md
-  - name: Övervaka klustertillgänglighet med Ambari och Azure Monitor-loggar
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Begrepp
   items:
   - name: Kapacitetsplanering
@@ -159,6 +156,9 @@ items:
       - name: Använda Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Övervaka klustertillgänglighet med Azure Monitor-loggar
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: Hantera loggar för ett HDInsight-kluster
       href: ../hdinsight-log-management.md
@@ -271,9 +271,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668151"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565106"

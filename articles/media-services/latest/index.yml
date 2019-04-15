@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: 'Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare. <br/> SDK:erna är baserade på <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI-specifikation (Swagger)</a>.'
@@ -26,7 +26,7 @@ sections:
           - title: Läs mer om koncept
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Uppladdning till och lagring i molnet</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Kodning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Övervakning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Medieanalys</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Paketering</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Skydd</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Liveuppspelning</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player-klienter</a></p>'
           - title: Utveckla med API för v3
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Börja utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Ansluta med Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Ansluta med .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Ansluta med .Node.js</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Utveckla med REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Utveckla med SDK:er</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Ansluta med Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Ansluta med .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Ansluta med .Node.js</a></p>'
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

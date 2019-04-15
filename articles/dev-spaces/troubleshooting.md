@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357856"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548788"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -325,3 +325,35 @@ Noden som kör en pod med Node.js-program som du försöker ansluta till med en 
 
 ### <a name="try"></a>Testa
 En tillfällig lösning för det här problemet är att öka värdet för *fs.inotify.max_user_watches* på varje nod i klustret och starta om noden för att ändringarna ska börja gälla.
+
+## <a name="new-pods-are-not-starting"></a>Nya poddarna startar inte
+
+### <a name="reason"></a>Orsak
+
+Kubernetes-initieraren kan inte använda PodSpec för nya poddarna på grund av ändringar av RBAC-behörighet till den *kluster admin* roll i klustret. De nya pod även har en ogiltig PodSpec, till exempel kontot som är associerade med en pod finns inte längre. Se poddarna som finns i en *väntande* tillstånd på grund av initieraren problemet, Använd den `kubectl get pods` kommando:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Det här problemet kan påverka poddar i *alla namnområden* i klustret, inklusive där Azure Dev blanksteg inte är aktiverade namnområden.
+
+### <a name="try"></a>Testa
+
+[Uppdaterar Dev blanksteg CLI till den senaste versionen](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) och sedan ta bort den *azds InitializerConfiguration* från kontrollanten Azure Dev blanksteg:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+När du har tagit bort den *azds InitializerConfiguration* från kontrollanten Azure Dev blanksteg använder `kubectl delete` att ta bort alla poddar i en *väntande* tillstånd. När alla väntande poddar har tagits bort, distribuera om poddarna.
+
+Om nya poddarna fortfarande har fastnat i en *väntande* tillstånd efter en omdistribution, Använd `kubectl delete` att ta bort alla poddar i en *väntande* tillstånd. När alla väntande poddar har tagits bort, ta bort kontrollanten från klustret och installera det på nytt:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+När din kontrollant har installerats om måste du distribuera om poddarna.

@@ -1,25 +1,25 @@
 ---
 title: Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure | Microsoft Docs
 description: Den här artikeln beskriver hur du kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361992"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565435"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Lägen för att köra distributionshanteraren
-Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följande tre lägen:
+Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i någon av följande tre lägen:
 
 1.  [Profilering](#profile-vmware-vms)
 2.  [Rapportgenerering](#generate-report)
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generera en rapport
-Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_<unique numeric identifier>.xlsm och placeras i den angivna katalogen.
+Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet `DeploymentPlannerReport_<unique numeric identifier>.xlsm` och placeras i den angivna katalogen.
 
 >[!NOTE]
->Decimaltecken som konfigurerats som krävs för rapporten ””. att producera kostnadsuppskattningar för den server där du kör Distributionshanteraren. I fall har du konfigurera ””, som decimaltecken i en Windows-dator, gå till ”ändra datum, tid eller talformat” på Kontrollpanelen och gå till ”ytterligare inställningar” så här ändrar decimaltecken till ””.
+>Rapporten kräver en Windows-dator eller Windows Server med Excel 2013 eller senare. Decimaltecken i den här datorn ska konfigureras som ””. att producera kostnadsuppskattningarna. Om du har konfigurerat ”,” som decimaltecken, går du till ”ändra datum, tid eller talformat” på Kontrollpanelen och gå till ”ytterligare inställningar” ändra decimaltecken till ””.
 
 När profileringen är färdig kan köra du verktyget i läget för rapportgenerering. Följande tabell innehåller en lista med obligatoriska och valfria verktygsparametrar som ska köras i läget för rapportgenerering.
 
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Percentilvärdet som används för beräkningen
-**Vilket standardvärde för percentilen för prestandavärden som samlas in under Profileringen använder verktyget när den skapar en rapport?**
+**Vilket standardvärde för percentilen för resultatmåtten som samlas in under profileringen använder verktyget när en rapport genereras?**
 
 Standardvärdet i verktyget är den 95:e percentilen för läs/skriv-IOPS och dataomsättningar som samlas in när alla de virtuella datorerna profileras. Det här måttet garanterar att den topp vid den 100:e percentilen som de virtuella datorerna kan nå eftersom de tillfälliga händelserna inte används för att fastställa mållagringskontot och kraven på källbandbredd. Till exempel kan en tillfällig händelse vara ett säkerhetskopieringsjobb som körs en gång om dagen, periodisk databasindexering eller en analysrapportgenereringsaktivitet eller andra liknande kortvariga händelser vid vissa tidpunkter.
 
@@ -242,9 +242,9 @@ Den genererade rapporten i Microsoft Excel innehåller följande information:
 
 * [Lokal sammanfattning](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Placering av VM <> – lagring](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
-* [Compatible VMs (Kompatibla virtuella datorer)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs (Inkompatibla virtuella datorer)](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
+* [VM<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement) (VM<->lagringsplacering)
+* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms) (Kompatibla virtuella datorer)
+* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms) (Inkompatibla virtuella datorer)
 * [Kostnadsuppskattning](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)

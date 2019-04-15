@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3-SDK:er – Azure
-description: Den här artikeln innehåller en översikt över hur du börjar utveckla med Media Services v3 API med hjälp av SDK:er/verktyg.
+description: 'Den här artikeln innehåller en översikt över hur du börja utveckla med Media Services v3-API med SDK: er.'
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -16,63 +16,62 @@ ms.workload: media
 ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9fb4d1561a661387f759aada9e776d43a95aa5c7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543644"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564517"
 ---
-# <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg
+# <a name="develop-against-media-services-v3-api-using-sdks"></a>Utveckla mot Media Services v3 API: et med SDK: er
 
 Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
-
-Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md).
 
 > [!NOTE]
 > SDK: er för Azure Media Services v3 garanteras vara trådsäkra. När du utvecklar ett flertrådiga program, bör du lägga till en egen logik för synkronisering av tråd för att skydda den eller använda ett nytt AzureMediaServicesClient objekt per tråd. Du bör också vara försiktig flertrådsteknik problem som introducerades av valfritt objekt som tillhandahålls av din kod till klienten (t.ex. en HttpClient-instans i .NET).
 
-Det här avsnittet innehåller länkar till SDK: er, verktyg, andra documentaion.
+Det här avsnittet innehåller länkar till SDK: er, verktyg, instruktionsguider.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att börja utveckla mot Media Services behöver du:
 
 - En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Lär dig mer om grundläggande begrepp](concepts-overview.md)
+- Granska [utveckla med Media Services v3-API: er](media-services-apis-overview.md)
 - [Skapa ett Media Services-konto – CLI](create-account-cli-how-to.md)
 
 ## <a name="start-developing-with-sdks"></a>Börja utveckla med SDK:er
 
 ### <a name="net"></a>.NET
 
-Använd [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk).
+Använd [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk) till [ansluta till Media Services](configure-connect-dotnet-howto.md).
 
-Utforska Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) dokumentation.
+Utforska Media Services [.NET-referens](https://aka.ms/ams-v3-dotnet-ref) dokumentation.
 
 ### <a name="java"></a>Java
 
-Använd [Java SDK](https://aka.ms/ams-v3-java-sdk).
+Använd [Java SDK](https://aka.ms/ams-v3-java-sdk) till [ansluta till Media Services](configure-connect-java-howto.md).
 
-Granska Media Services [Java-referensdokumentationen](https://aka.ms/ams-v3-java-ref).
+Granska de tjänster som Media [Java-Referens](https://aka.ms/ams-v3-java-ref) dokumentation.
 
 ### <a name="nodejs"></a>Node.js
 
-Använd [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk).
+Använd [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) till [ansluta till Media Services](configure-connect-nodejs-howto.md).
 
-Utforska Media Services [Node.js-referensdokumentationen](https://aka.ms/ams-v3-nodejs-ref) och titta på de [exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials) som visar hur du använder Media Services API med node.js.
+Utforska Media Services [Node.js-referens](https://aka.ms/ams-v3-nodejs-ref) dokumentation och kolla in [exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials) som visar hur du använder Media Services-API med node.js.
 
 ### <a name="python"></a>Python
 
 Använd [Python SDK](https://aka.ms/ams-v3-python-sdk).
 
-Granska Media Services [Python-referensdokumentationen](https://aka.ms/ams-v3-python-ref).
+Granska de tjänster som Media [Python-referens](https://aka.ms/ams-v3-python-ref) dokumentation.
 
 ### <a name="go"></a>Go
 
 Använd [Go SDK](https://aka.ms/ams-v3-go-sdk).
 
-Granska Media Services [Go-referensdokumentationen](https://aka.ms/ams-v3-go-ref).
+Granska de tjänster som Media [gå referens](https://aka.ms/ams-v3-go-ref) dokumentation.
 
 ### <a name="ruby"></a>Ruby
 

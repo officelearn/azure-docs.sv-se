@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e0a0bd0e630281d2218c74050e810fe73361c6be
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578551"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565911"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -120,7 +120,7 @@ Att gå över dessa gränser i normala bearbetningen eller köra belastningstest
 
 Här följer begränsningarna för en HTTP-begäran eller synkron anslutning anrop:
 
-#### <a name="timeout"></a>Tidsgräns
+#### <a name="timeout"></a>Timeout
 
 Vissa åtgärder för anslutningsappen göra asynkrona anrop eller lyssna efter begäranden som webhook, så att tidsgränsen för de här åtgärderna kan vara längre än dessa gränser. Mer information finns i de tekniska detaljerna för specifika anslutningen och även [utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
@@ -212,12 +212,12 @@ Använd den kostnadsfria nivån enbart för undersökande scenarier, inte produk
 | Artefakt | Gräns | Anteckningar |
 |----------|-------|-------|
 | Sammansättningar | 50 | |
-| Batchkonfigurationer | 5 |
-| Certifikat | 50 | |
+| Batchkonfigurationer | 50 |
+| Certifikat | 500 | |
 | Handel EDI-avtal | 500 | |
 | EDI-affärspartner | 500 | |
-| Kartor | 500 | |
-| Scheman | 500 |
+| Kartor | 1,000 | |
+| Scheman | 1,000 |
 ||||
 
 <a name="artifact-capacity-limits"></a>

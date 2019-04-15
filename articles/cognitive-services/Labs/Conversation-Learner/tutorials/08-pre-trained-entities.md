@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163794"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565418"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Hur du lägger till Pre-trained entiteter
 Den här självstudien visar hur du lägger till Pre-Trained entiteter i konversationen Learner-modellen.
@@ -62,7 +62,7 @@ Starta på startsidan i Webbgränssnittet.
 
 1. Välj **åtgärder** i den vänstra panelen, sedan **ny åtgärd**.
 2. Ange **datum?** för **Robotens svar...** . Förtränade entiteter kan inte vara **krävs entiteter** när de identifieras som standard för alla yttranden.
-3. Ange **builtin datetimev2** för **diskvalificera berättigar**.
+3. Ange **builtin datetimev2** för **diskvalificera entiteter**.
 4. Välj **Skapa**.
 
 ![](../media/T08_action_create_2.png)

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358484"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565843"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -70,10 +70,10 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 Lokala datorer replikeras till Azure hanterade diskar. Vid redundans virtuella Azure-datorer skapas från dessa hanterade diskar, och ansluten till Azure-nätverket du anger i den här proceduren.
 
 1. I [Azure Portal](https://portal.azure.com) markerar du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-2. Låt **Resource Manager** vara valt som distributionsmodell.
+2. Behåll **Resource Manager** valt som distributionsmodell.
 3. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Vi använder **ContosASRnet** i den här självinlärningskursen.
 4. Ange resursgruppen där nätverket kommer att skapas. Vi använder den befintliga resursgruppen **contosoRG**.
-5. I **adressintervall**, ange intervallet för det virtuella nätverket. Vi använder **10.0.0.0/24**, och inte använder ett undernät.
+5. I **adressintervall**, ange intervallet för det virtuella nätverket. Vi använder **10.1.0.0/24**, och inte använder ett undernät.
 6. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
 7. I **plats**, Välj samma region som Recovery Services-valvet har skapats. I våra självstudier har **Västeuropa**. Nätverket måste finnas i samma region som valvet.
 8. Vi lämnar standardalternativen för grundläggande DDoS-skydd utan tjänstslutpunkten i nätverket.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef3c9d1fdbf030a820f2a3a1724bd18a4b0cedb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501169"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Självstudier: Azure Active Directory-integrering med 10 000 fot planer
 
@@ -35,7 +35,7 @@ Integrera 10 000 fot planer med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med 10 000 fot planer, behöver du följande objekt:
 
@@ -107,9 +107,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med 10 000 
 
     ![10 000 fot planer domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I den **inloggnings-URL** text skriver du URL: en: `https://app.10000ft.com`
+    a. I rutan **Inloggnings-URL** anger du följande URL: `https://app.10000ft.com`
 
-    b. I den **identifierare (entitets-ID)** text skriver du URL: en: `https://app.10000ft.com/saml/metadata`
+    b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE]
     > Värdet för **identifierare** ser annorlunda ut om du har en anpassad domän. Kontakta [10 000 fot planer klienten supportteamet](https://www.10000ft.com/plans/support) att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -197,8 +197,8 @@ När du klickar på panelen 10 000 fot planer i åtkomstpanelen, bör det vara l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

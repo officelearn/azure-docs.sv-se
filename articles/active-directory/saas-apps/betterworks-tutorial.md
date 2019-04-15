@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e67fefc5492f1acebeb56d350a0d651877149a1f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: e9a20ed50db0e7bc71da559163181619ba35f881
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500319"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Självstudier: Azure Active Directory-integrering med BetterWorks
 
@@ -35,7 +35,7 @@ Integrera BetterWorks med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med BetterWorks, behöver du följande objekt:
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterW
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://app.betterworks.com/saml2/metadata/`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://app.betterworks.com/saml2/acs/`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.betterworks.com/saml2/acs/`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -227,8 +227,8 @@ När du klickar på panelen BetterWorks i åtkomstpanelen, bör det vara loggas 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

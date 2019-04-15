@@ -1,6 +1,6 @@
 ---
-title: Ordlista för utvecklare för Azure Active Directory | Microsoft Docs
-description: En lista över villkor för vanliga begrepp för utvecklare av Azure Active Directory och funktioner.
+title: Ordlista för utvecklare av Microsoft identity-plattformen | Azure
+description: En lista över villkor för vanliga begrepp för utvecklare av Microsoft identity-plattformen och funktioner.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650401"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565557"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Ordlista för utvecklare för Azure Active Directory
+# <a name="microsoft-identity-platform-developer-glossary"></a>Ordlista för utvecklare av Microsoft identity-plattformen
 
-Den här artikeln innehåller definitioner för några av de viktigaste Azure Active Directory (AD) developer begreppen, som är användbara när du lär dig om programutveckling för Azure AD.
+Den här artikeln innehåller definitioner för några av de grundläggande begrepp för utvecklare och terminologi, som är användbara när du lär dig mer om utveckling med hjälp av Microsoft identity-plattformen.
 
 ## <a name="access-token"></a>åtkomsttoken
 
@@ -38,11 +38,11 @@ En typ av [säkerhetstoken](#security-token) utfärdats av en [auktoriseringsser
 * [”Auktoriseringskod” auktoriseringsbeviljande](#authorization-grant), autentiserar användaren först som ägare till resursen delegera behörighet att klienten till resursen. Klienten autentiserar efteråt när hämta åtkomsttoken. Token kan ibland kallas mer specifikt en ”användare + App”-token som representerar både användaren som behörighet klientprogrammet och programmet.
 * [”Klientautentiseringsuppgifter” auktoriseringsbeviljande](#authorization-grant), klienten ger den enda autentiseringen fungerar utan på resurs-ägare autentisering/auktorisering, så att token kan ibland kallas en ”Appspecifika”-token.
 
-Se [tokenreferens för Azure-AD] [ AAD-Tokens-Claims] för mer information.
+Se [Microsoft identity-plattformen tokenreferens] [ AAD-Tokens-Claims] för mer information.
 
-## <a name="application-id-client-id"></a>program-id (klient-id)
+## <a name="application-id-client-id"></a>program-ID (klient-ID)
 
-Unik identifierare Azure AD-problem till en programregistrering som identifierar ett visst program och tillhörande konfigurationer. Den här program-id ([klient-id](https://tools.ietf.org/html/rfc6749#page-15)) används när du utför autentisering begär och är tillhandahålls autentisering-biblioteken i tid. Program-id (klient-id) är inte en hemlighet.
+Unik identifierare Azure AD-problem till en programregistrering som identifierar ett visst program och tillhörande konfigurationer. Den här program-ID ([klient-ID](https://tools.ietf.org/html/rfc6749#page-15)) används när du utför autentisering begär och är tillhandahålls autentisering-biblioteken i tid. Program-ID (klient-ID) är inte en hemlighet.
 
 ## <a name="application-manifest"></a>programmanifest
 
@@ -59,7 +59,7 @@ Mer information finns i [program och tjänstobjekt][AAD-App-SP-Objects].
 För att tillåta att ett program att integrera med och delegera Identity and Access Management-funktioner till Azure AD, måste den vara registrerad med en Azure AD [klient](#tenant). När du registrerar ditt program med Azure AD kan tillhandahåller du en identity-konfiguration för ditt program, så att den kan integreras med Azure AD och använder funktioner som:
 
 * Stabil hantering av enkel inloggning med hjälp av Azure AD Identity Management och [OpenID Connect] [ OpenIDConnect] protokollimplementering
-* Asynkrona åtkomst till [skyddade resurser](#resource-server) av [klientprogram](#client-application), via Azure AD OAuth 2.0 [auktoriseringsservern](#authorization-server) implementering
+* Asynkrona åtkomst till [skyddade resurser](#resource-server) av [klientprogram](#client-application), via OAuth 2.0 [auktoriseringsservern](#authorization-server)
 * [Ramverket för medgivande](#consent) för att hantera klientåtkomst till skyddade resurser, baserat på ägarauktorisering för resursen.
 
 Se [integrera program med Azure Active Directory] [ AAD-Integrating-Apps] för mer information.
@@ -93,13 +93,13 @@ En autentiseringsuppgift som representerar den [resource ägarens](#resource-own
 
 Enligt definitionen i den [OAuth2 auktorisering Framework][OAuth2-Role-Def], servern som är ansvarig för att utfärda åtkomst-token till den [klienten](#client-application) efter autentisering i [resursägaren](#resource-owner) och för att hämta dess tillstånd. En [klientprogram](#client-application) interagerar med auktoriseringsservern vid körning via dess [auktorisering](#authorization-endpoint) och [token](#token-endpoint) slutpunkter, i enlighet med OAuth2 definierats [auktoriseringsbeviljanden](#authorization-grant).
 
-När det gäller integrering av Azure AD, Azure AD implementerar rollen auktorisering för Azure AD-program och Microsoft service API: er, till exempel [Microsoft Graph API: er][Microsoft-Graph].
+När det gäller programintegrering för Microsoft identity-plattformen, Microsofts identitetsplattform implementerar rollen auktorisering för Azure AD-program och Microsoft service API: er, till exempel [Microsoft Graph API: er] [Microsoft-Graph].
 
 ## <a name="claim"></a>anspråk
 
 En [säkerhetstoken](#security-token) innehåller anspråk, som ger intyg om en entitet (till exempel en [klientprogram](#client-application) eller [resursägaren](#resource-owner)) till en annan entitet (till exempel [resursservern](#resource-server)). Anspråk är namn/värde-par som vidarebefordrar fakta om token område (till exempel det säkerhetsobjekt som autentiserades via den [auktoriseringsservern](#authorization-server)). Anspråk som finns i en viss token är beroende av flera variabler, inklusive vilken typ av token, vilken typ av autentiseringsuppgift som används för att autentisera ämne, programkonfiguration, osv.
 
-Se [tokenreferens för Azure AD] [ AAD-Tokens-Claims] för mer information.
+Se [tokenreferens för Microsoft identity-plattformen] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="client-application"></a>Klientprogram
 
@@ -117,7 +117,7 @@ Se [ramverket för medgivande](consent-framework.md) för mer information.
 
 En [OpenID Connect] [ OpenIDConnect-ID-Token] [säkerhetstoken](#security-token) tillhandahålls av en [auktorisering server](#authorization-server) [auktoriseringsslutpunkt](#authorization-endpoint), som innehåller [anspråk](#claim) hör till autentisering av en slutanvändare [resursägaren](#resource-owner). Som ett åtkomsttoken, representeras även ID-token som ett digitalt signerat [JSON Web Token (JWT)][JWT]. Till skillnad från en åtkomsttoken dock en ID-token anspråk används inte för syften som är relaterade till åtkomst till resurser och åtkomstkontroll specifikt.
 
-Se [tokenreferens för Azure AD] [ AAD-Tokens-Claims] för mer information.
+Se [tokenreferens för Microsoft identity-plattformen] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft identitetsplattform
 
@@ -220,14 +220,14 @@ En typ av [klientprogram](#client-application) som utför all kod på en webbser
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den [utvecklarhandboken för Azure AD] [ AAD-Dev-Guide] är landningssidan som ska användas för alla Azure AD-utveckling-relaterade ämnen, t.ex. en översikt över [programintegrering] [ AAD-How-To-Integrate] och grunderna i [Azure AD-autentisering och autentisering som stöds scenarier][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du får igång snabbt på [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+Den [Utvecklarguide för Microsoft identity-plattformen] [ AAD-Dev-Guide] är landningssidan som ska användas för alla Microsoft identity-plattformen utveckling-relaterade ämnen, t.ex. en översikt över [program integrering] [ AAD-How-To-Integrate] och grunderna i [Microsoft identity-plattformen autentisering och autentisering som stöds scenarier][AAD-Auth-Scenarios]. Du kan också hitta kodexempel och självstudier om hur du får igång snabbt på [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp att förfina och utforma det här innehållet, inklusive förfrågningar efter nya definitioner eller uppdatera befintliga!
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

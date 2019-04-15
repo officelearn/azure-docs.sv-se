@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350920"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563378"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API för visuellt innehåll
 
@@ -165,15 +165,15 @@ Här är ett exempel:
 }
 ```
 
-Fält | Type | Innehåll
+Fält | Typ | Innehåll
 ------|------|------|
-Taggar  | objekt | Huvudobjekt för taggmatris
-tags[].Name | sträng    | Nyckelord från taggklassificerare
-tags[].Score    | nummer    | Förtroendepoäng, mellan 0 och 1.
-beskrivning  | objekt   | Huvudobjekt för beskrivning
-description.tags[] |    sträng  | Lista med taggar.  Om det finns inte tillräckligt med förtroende för möjligheten att skapa en etikett, kan taggarna vara den enda informationen tillgänglig för anroparen.
-description.captions[].text | sträng    | En mening som beskriver bilden.
-description.captions[].confidence   | nummer    | Förtroende för frasen.
+Taggar  | `object` | Huvudobjekt för taggmatris
+tags[].Name | `string`  | Nyckelord från taggklassificerare
+tags[].Score    | `number`  | Förtroendepoäng, mellan 0 och 1.
+beskrivning  | `object` | Huvudobjekt för beskrivning
+description.tags[] |    `string`    | Lista med taggar.  Om det finns inte tillräckligt med förtroende för möjligheten att skapa en etikett, kan taggarna vara den enda informationen tillgänglig för anroparen.
+description.captions[].text | `string`  | En mening som beskriver bilden.
+description.captions[].confidence   | `number`  | Förtroende för frasen.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänspecifika modeller
 
@@ -227,12 +227,12 @@ För domänspecifika modeller med alternativ två (utökad analys) utökas den r
 
 Kategorifältet är en lista över en eller flera av de [86 kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Observera också att kategorier som slutar med ett understreck matchar den kategorin och dess underordnade (till exempel personer_ samt personer_grupp för kändismodellen).
 
-Fält   | Type  | Innehåll
+Fält   | Typ  | Innehåll
 ------|------|------|
-kategorier | objekt | Toppnivåobjekt
-categories[].name    | sträng   | Namn från 86-kategoritaxonomi
-categories[].score  | nummer    | Förtroendepoäng, mellan 0 och 1
-categories[].detail  | Objekt?      | Valfritt detaljobjekt
+kategorier | `object`   | Toppnivåobjekt
+categories[].name    | `string` | Namn från 86-kategoritaxonomi
+categories[].score  | `number`  | Förtroendepoäng, mellan 0 och 1
+categories[].detail  | `object?`      | Valfritt detaljobjekt
 
 Observera att om flera kategorier matchar (till exmpel 86-kategoriklassificeraren returnerar ett värde för såväl personer_ som personer_unga när modell=kändisar) är informationen kopplad till den mest allmänna nivåmatchningen (personer_ i detta exempel).
 

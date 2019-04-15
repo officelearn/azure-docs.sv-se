@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261045"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565558"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -255,7 +255,7 @@ Om nätverksmiljön företagets använder en proxyserver för att få åtkomst t
 
 ![Ange proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Lokal integration runtime använder proxyservern för att ansluta till Molntjänsten. Välj **Ändra-länk** under installationen. Du ser dialogrutan proxy-inställning.
+När konfigurerad, lokal integration runtime använder proxyservern kan ansluta till Molntjänsten, källa / mål (de som använder HTTP / HTTPS-protokollet). Det här är väljer **Ändra-länk** under installationen. Du ser dialogrutan proxy-inställning.
 
 ![Ställ in proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

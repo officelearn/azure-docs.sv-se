@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361310"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565690"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Konfigurera IP-adresser för att ansluta till virtuella Azure-datorer efter redundans
 
@@ -62,7 +62,7 @@ För Woodgrove ska kunna replikera dess virtuella datorer till Azure samtidigt s
 
 1. Skapa Azure-nätverk som virtuella Azure-datorer kommer att skapas efter redundans för lokala datorer. Det bör vara ett tillägg till det lokala nätverket, så att program kan växla över sömlöst.
 2. Före redundans i Site Recovery kan tilldela de samma IP-adress i egenskaperna för datorn. Efter en redundansväxling tilldelar Webbplatsåterställning den här adressen Azure-datorn.
-3. När redundansen körs och virtuella Azure-datorer skapas med samma IP-adress kan de ansluta till nätverket med hjälp av en [anslutning mellan virtuella nätverk](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Den här åtgärden kan skriptas.
+3. När redundansen körs och virtuella Azure-datorer skapas med samma IP-adress kan de ansluta till nätverket med hjälp av en [anslutning mellan virtuella nätverk](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Den här åtgärden kan skriptas.
 4. De måste du ändra vägar för att återspegla den 192.168.1.0/24 har nu flyttats till Azure.
 
 
@@ -84,4 +84,4 @@ Förutom vnet-till-vnet-anslutning efter redundansväxlingen kan Woodgrove stäl
 Detta [blogginlägget](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in nätverksinfrastrukturen i Azure när du inte behöver behålla IP-adresser efter redundansväxling. Det börjar med en beskrivning av programmet, tittar på hur du ställer in nätverk både lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
 
 ## <a name="next-steps"></a>Nästa steg
-[Köra en redundansväxling](site-recovery-failover.md)
+[Köra en redundans](site-recovery-failover.md)

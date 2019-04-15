@@ -11,34 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdbabc1a1ccf4bf27172a4db53255eeb1576def9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a168c3415996ff97137c4e312348f74a48e9531b
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180512"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565000"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Inaktivera användarinloggningar för en företagsapp i Azure Active Directory
-Det är enkelt att inaktivera ett företagsprogram så att inga användare kan logga in till det i Azure Active Directory (AD Azure). Du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.
+Det är enkelt att inaktivera ett företagsprogram så att inga användare kan logga in till den i Azure Active Directory (AD Azure). Du behöver behörighet att hantera appen enterprise. Och du måste vara global administratör för katalogen.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Hur jag för att inaktivera användarinloggningar?
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
-3. På den **Azure Active Directory** -  ***directoryname*** (det vill säga Azure AD fönstret för den katalog som du hanterar), väljer **företagsprogram**.
-
-    ![Att öppna företagsappar](./media/disable-user-sign-in-portal/open-enterprise-apps.png)
-4. På den **företagsprogram** väljer **alla program**. Du kan se en lista över appar som du kan hantera.
-5. På den **företagsprogram – alla program** fönstret väljer du en app.
-6. På den ***appname*** (det vill säga i rutan med namnet på den valda appen i rubriken) väljer **egenskaper**.
-
-    ![Att välja kommandot alla program](./media/disable-user-sign-in-portal/select-app.png)
-7. På den ***appname*** - **egenskaper** väljer **nr** för **aktiverad för användare att logga in?**.
-8. Välj den **spara** kommando.
+1. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
+1. På den **Azure Active Directory** -  ***directoryname*** (det vill säga Azure AD fönstret för den katalog som du hanterar), väljer **företagsprogram**.
+1. På den **företagsprogram – alla program** fönstret visas en lista över appar som du kan hantera. Välj en app.
+1. På den ***appname*** (det vill säga i rutan med namnet på den valda appen i rubriken) väljer **egenskaper**.
+1. På den ***appname*** - **egenskaper** väljer **nr** för **aktiverad för användare att logga in?**.
+1. Välj den **spara** kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)

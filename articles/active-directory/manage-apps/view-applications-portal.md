@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/25/2018
+ms.date: 04/09/2019
 ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918407"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564835"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visa programmen i din Azure Active Directory-klientorganisation
 
@@ -41,11 +41,11 @@ Så här hittar du programmen i din klientorganisation:
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, på den vänstra navigeringspanelen väljer **Azure Active Directory**. 
 
-2. I den **Azure Active Directory** väljer **företagsprogram**. 
+1. I den **Azure Active Directory** väljer **företagsprogram**. 
 
-3. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj **tillämpa**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+1. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj **tillämpa**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
    
-4. Om du vill visa fler program, Välj **Läs in fler** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
+1. Om du vill visa fler program, Välj **Läs in fler** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
@@ -53,17 +53,17 @@ Välj alternativ enligt vad du letar efter.
 
 1. Du kan se program som **programtyp**, **programstatus**, och **synlighet för program**. 
 
-2. Välj något av följande alternativ under **Programtyp**:
+1. Välj något av följande alternativ under **Programtyp**:
 
     - **Företagsprogram** visar andra program än Microsoft-program.
     - **Microsoft-program** visar Microsoft-program.
     - **Alla program** visar både Microsoft-program och andra program.
 
-3. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
+1. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
 
-4. Välj **Alla** eller **Dolda** under **Synlighet för program**. Den **Hidden** alternativet visar program som finns i klienten, men inte är synliga för användare.
+1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Den **Hidden** alternativet visar program som finns i klienten, men inte är synliga för användare.
 
-5. När du har valt önskade alternativ, Välj **tillämpa**.
+1. När du har valt önskade alternativ, Välj **tillämpa**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
@@ -72,11 +72,11 @@ Att söka efter ett visst program:
 
 1. I den **programtyp** menyn och välj **alla program**, och välj **tillämpa**.
 
-2. Ange namnet på det program som du vill söka efter. Om programmet har lagts till Azure AD-klienten, visas den i sökresultatet. Det här exemplet visar att GitHub inte har lagts till klient-program.
+1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till Azure AD-klienten, visas den i sökresultatet. Det här exemplet visar att GitHub inte har lagts till klient-program.
 
     ![Söka efter ett program](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
+1. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
 
     ![Söka med ett prefix](media/view-applications-portal/search-by-prefix.png)
 

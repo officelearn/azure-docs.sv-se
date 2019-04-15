@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491499"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564539"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar vidarebefordra autentiseringsbegäranden, så att de behöver känna till de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 NPS-tillägget är avsedda att fungera med din befintliga infrastruktur. Kontrollera att du har följande krav innan du börjar.
 
@@ -78,6 +78,12 @@ NPS-servern måste kunna kommunicera med följande webbadresser över portarna 8
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Dessutom kan anslutningen till följande URL: er för att slutföra den [installationen av kortet använder tillhandahållna PowerShell-skript](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -142,6 +148,14 @@ Användarna måste också att följa dessa steg för att registrera innan de kan
 1. [Hämta NPS-tillägget](https://aka.ms/npsmfa) från Microsoft Download Center.
 2. Kopiera den binära filen till nätverksprincipservern som du vill konfigurera.
 3. Kör *setup.exe* och Följ installationsanvisningarna. Om det uppstår fel kontrollerar du att två bibliotek från avsnittet förutsättningar har installerats.
+
+#### <a name="upgrade-the-nps-extension"></a>Uppgradera NPS-tillägget
+
+När du uppgraderar en befintlig NPS-tillägget installerat kan för att undvika att en omstart av den underliggande servern gör du följande:
+
+1. Avinstallera den befintliga versionen
+1. Kör installationsprogrammet för nya
+1. Starta om tjänsten Server (IAS)
 
 ### <a name="run-the-powershell-script"></a>Kör PowerShell-skriptet
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-När du har kört det här kommandot kan du gå till enhet C, letar du upp filen och dubbelklicka på den. Gå till information och rulla ”tumavtryck”, jämföra tumavtrycket för certifikatet som installerades på den här servern. Tumavtryck för certifikatet måste matcha.
+När du har kört det här kommandot kan gå att enhet C, leta reda på filen och dubbelklicka på den. Gå till information och rulla ”tumavtryck”, jämföra tumavtrycket för certifikatet som installerades på den här servern. Tumavtryck för certifikatet måste matcha.
 
 Giltigt-från- och -tills tidsstämplar som är i läsbara form, som kan användas för att filtrera bort uppenbara misfits om kommandot returnerar mer än ett certifikat.
 
@@ -239,7 +253,7 @@ Giltigt-från- och -tills tidsstämplar som är i läsbara form, som kan använd
 
 ### <a name="why-cant-i-sign-in"></a>Varför kan jag logga in?
 
-Kontrollera att lösenordet inte har gått ut. NPS-tillägget stöder inte ändring av lösenord som en del av arbetsflödet för inloggning. Kontakta din organisations IT-avdelning om du behöver ytterligare hjälp.
+Kontrollera att lösenordet inte har gått ut. NPS-tillägget stöder inte ändring av lösenord som en del av arbetsflödet för inloggning. Kontakta din organisations IT-personal för ytterligare hjälp.
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ Kontrollera att https://adnotifications.windowsazure.com kan nås från servern 
 
 Om din tidigare datorcertifikat har upphört att gälla och ett nytt certifikat har skapats, bör du ta bort utgångna certifikat. Med utgångna certifikat kan orsaka problem med NPS-tillägget startar.
 
-Kontrollera det lokala datorkontot Certificate Store med hjälp av MMC för att kontrollera om du har ett giltigt certifikat och se till att certifikatet inte har passerats dess förfallodatum. Om du vill generera ett nyligen giltigt certifikat, kör stegen i avsnittet ”[Kör PowerShell-skript](#run-the-powershell-script)”
+Kontrollera det lokala datorkontot Certificate Store med hjälp av MMC för att kontrollera om du har ett giltigt certifikat och se till att certifikatet inte har passerats dess förfallodatum. Generera ett nyligen giltigt certifikat genom att köra stegen i avsnittet ”[Kör PowerShell-skript](#run-the-powershell-script)”
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och chiffersviter
 

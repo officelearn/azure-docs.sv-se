@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7ab4007a94efbc48bfea67c6b954c02de0b2ba
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887445"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565894"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program och tjänstobjekt i Azure Active Directory
 
@@ -52,7 +52,7 @@ När du registrerar en Azure AD-program i den [Azure-portalen][AZURE-Portal], sk
 
 ### <a name="application-object"></a>programobjekt
 
-Ett Azure AD-program har definierats med dess ett och endast programobjektet, som finns i Azure AD-klient där programmet har registrerats, kallas programmets ”startklientorganisation”. Azure AD Graph [program entitet] [ AAD-Graph-App-Entity] definierar schemat för ett programobjekt egenskaper.
+Ett Azure AD-program har definierats med dess ett och endast programobjektet, som finns i Azure AD-klient där programmet har registrerats, kallas programmets ”startklientorganisation”. Microsoft Graph [program entitet] [ MS-Graph-App-Entity] definierar schemat för ett programobjekt egenskaper.
 
 ### <a name="service-principal-object"></a>tjänstens huvudnamnsobjekt
 
@@ -60,7 +60,7 @@ För att komma åt resurser som skyddas av en Azure AD-klient, måste den entite
 
 Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i Azure AD-klient. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
 
-När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Azure AD Graph [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper.
+När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Microsoft Graph [ServicePrincipal entitet] [ MS-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper.
 
 ### <a name="application-and-service-principal-relationship"></a>Program och tjänstens huvudnamn relation
 
@@ -68,7 +68,7 @@ När ett program ges behörighet att komma åt resurser i en klient (vid registr
 
 Programmet objektet fungerar som den mallen från vilka vanliga och standardegenskaperna är *härledda* som ska användas när motsvarande objekt för tjänstens huvudnamn. Ett programobjekt därför har en 1:1-relation med programmet och en 1:many relationer med dess motsvarande huvudnamn service-objekt.
 
-Ett huvudnamn för tjänsten måste skapas på varje klient där programmet används, så att systemet kan upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. En enda klient-programmet har bara ett huvudnamn för tjänsten (i dess startklientorganisation) skapas och godkänt villkoren för användning under programregistrering. En flera innehavare Webbapp/API har också ett huvudnamn för tjänsten som skapats i varje klienter där en användare från den klientorganisationen har samtyckt för dess användning. 
+Ett huvudnamn för tjänsten måste skapas på varje klient där programmet används, så att systemet kan upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. En enda klient-programmet har bara ett huvudnamn för tjänsten (i dess startklientorganisation) skapas och godkänt villkoren för användning under programregistrering. En flera innehavare Webbapp/API har också ett huvudnamn för tjänsten som skapats i varje klienter där en användare från den klientorganisationen har samtyckt för dess användning.
 
 > [!NOTE]
 > Alla ändringar du gör att din programobjektet också avspeglas i dess tjänstens huvudnamnsobjekt i programmets startklientorganisation endast (klient där det har registrerats). För program med flera klienter, programobjektet ändringar återspeglas inte i några konsument innehavare tjänsthuvudnamnsobjekt, förrän åtkomst tas bort via den [Programåtkomstpanelen](https://myapps.microsoft.com) och beviljat igen.
@@ -83,7 +83,7 @@ Följande diagram illustrerar förhållandet mellan ett programs programobjektet
 - **Contoso** -klienten som används av Contoso-organisationen som är konsumenter av den **HR-app**
 - **Fabrikam** -klienten som används av organisationen Fabrikam som använder också den **HR-app**
 
-![Förhållandet mellan ett programobjekt och en tjänstens huvudnamnsobjekt](./media/app-objects-and-service-principals/application-objects-relationship.png)
+![Förhållandet mellan ett programobjekt och en tjänstens huvudnamnsobjekt](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 I det här exemplet:
 
@@ -95,13 +95,13 @@ I det här exemplet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du kan använda den [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) att fråga både programmet och objekt för tjänstens huvudnamn.
-- Du kan komma åt programobjektet för ett program med hjälp av Azure AD Graph-API i [Azure-portalens] [ AZURE-Portal] redigeringsprogrammet för applikationsmanifestet, eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [program entitet][AAD-Graph-App-Entity].
-- Du kan komma åt ett program tjänstens huvudnamnsobjekt via Azure AD Graph-API eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity].
+- Du kan använda den [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) att fråga både programmet och objekt för tjänstens huvudnamn.
+- Du kan komma åt programobjektet för ett program med Microsoft Graph API i [Azure-portalens] [ AZURE-Portal] redigeringsprogrammet för applikationsmanifestet, eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , som representeras av dess OData [program entitet][MS-Graph-App-Entity].
+- Du kan komma åt ett program tjänstens huvudnamnsobjekt via Microsoft Graph API eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal entitet] [ MS-Graph-Sp-Entity].
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

@@ -16,13 +16,17 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268387"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565976"
 ---
+> [!NOTE]
+> Några av de riktlinjerna nedan fungerar endast på Windows eller Linux App Services. Till exempel körs Linux App Services i 64-bitars läge som standard.
+>
+
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
 
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om problem med programprestanda för den [Web Apps-funktionen i Azure App Service](https://azure.microsoft.com/services/app-service/web/).

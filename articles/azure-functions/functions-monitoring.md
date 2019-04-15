@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495693"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565979"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -99,11 +99,11 @@ Följande områden i Application Insights kan vara användbart när du utvärder
 
 | Tab | Beskrivning |
 | ---- | ----------- |
-| **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar som baseras på funktionen fel och undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden. |
+| **[fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar som baseras på funktionen fel och undantag. Den **Åtgärdsnamnet** är funktionsnamnet. Fel i beroenden visas inte om inte du implementera anpassad telemetri för beroenden. |
 | **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera problem med prestanda. |
 | **Servrar** | Visa resursanvändningen och dataflöde per server. Dessa data kan vara användbart för felsökning av scenarier där funktioner bogging ned dina underliggande resurser. Servrar kallas **Cloud rollinstanser**. |
 | **[Mått](../azure-monitor/app/metrics-explorer.md)** | Skapa diagram och aviseringar som baseras på mått. Mått är antalet funktionsanrop, körningstid och Slutförandefrekvens. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Visa måttdata som den har skapats i realtid. |
+| **[Live-ström med mätvärden](../azure-monitor/app/live-stream.md)** | Visa måttdata som den har skapats i realtid. |
 
 ## <a name="query-telemetry-data"></a>Telemetridata för fråga
 
@@ -127,11 +127,11 @@ Tabeller som är tillgängliga som visas i den **schemat** fliken till vänster.
 | Tabell | Beskrivning |
 | ----- | ----------- |
 | **spårningar** | Loggar som skapats av körningen, av funktionskoden. |
-| **förfrågningar** | En begäran för varje funktionsanrop. |
-| **undantag** | Alla undantag från körningen. |
+| **Begäranden** | En begäran för varje funktionsanrop. |
+| **Undantag** | Alla undantag från körningen. |
 | **customMetrics** | Totalt antal lyckade eller misslyckade anrop, Slutförandefrekvens och varaktighet. |
 | **customEvents** | Händelser som spåras av körning, till exempel: HTTP-begäranden som utlöser en funktion. |
-| **PerformanceCounters** | Information om prestanda för de servrar som funktionerna som körs på. |
+| **performanceCounters** | Information om prestanda för de servrar som funktionerna som körs på. |
 
 De andra tabellerna är för tillgänglighetstester och telemetri för klienten och webbläsare. Du kan implementera anpassade telemetri för att lägga till data i dem.
 
@@ -595,7 +595,9 @@ Den `tagOverrides` parameteruppsättningar den `operation_Id` till funktionens a
 
 ## <a name="dependencies"></a>Beroenden
 
-Beroenden som funktionen har till andra tjänster visas inte automatiskt. Du kan skriva anpassad kod för att visa beroenden. Exempel finns i exempelkoden i den [ C# anpassad telemetri avsnittet](#log-custom-telemetry-in-c-functions). Exempelkoden resulterar i en *programkartan* i Application Insights som ser ut som följande bild:
+Functions v2 samlar automatiskt in beroenden för HTTP-begäranden, ServiceBus och SQL.
+
+Du kan skriva anpassad kod för att visa beroenden. Exempel finns i exempelkoden i den [ C# anpassad telemetri avsnittet](#log-custom-telemetry-in-c-functions). Exempelkoden resulterar i en *programkartan* i Application Insights som ser ut som följande bild:
 
 ![Programkarta](./media/functions-monitoring/app-map.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502135"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565809"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -538,7 +538,7 @@ Den ursprungliga statusen i ett SAP-system dokumenteras i transaktionen DBACOCKP
 
 
 > [!IMPORTANT] 
-> Innan du startar testet ska du kontrollera att Pacemaker har inte alla misslyckade åtgärder (crm-status), och det finns inga Platsbegränsningar (rester av migreringen test) och IBM Db2 HADR synkroniseringen fungerar. Kontrollera med med användaren db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Innan du startar testet ska du kontrollera att Pacemaker har inte alla misslyckade åtgärder (crm-status), och det finns inga Platsbegränsningar (rester av migreringen test) och IBM Db2 HADR synkroniseringen fungerar. Kontrollera med användaren db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrera noden som kör den primära Db2-databasen genom att köra följande kommando:

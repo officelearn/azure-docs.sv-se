@@ -106,7 +106,7 @@ Om Azure Table-kolumn är av datetime-typ:
 | azureTablePartitionKeyName |Ange namnet på kolumnen vars värden används som partitionsnycklar. Om den inte anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumnnamn. |Nej |
 | azureTableRowKeyName |Ange namnet på den kolumn vars kolumnvärdena används som radnyckel. Om inte anges kan du använda ett GUID för varje rad. |Ett kolumnnamn. |Nej |
 | azureTableInsertType |Läget för att infoga data i Azure-tabell.<br/><br/>Den här egenskapen styr om befintliga rader i utdatatabellen med matchande partition och radnycklar har sina värden ersättas eller samman. <br/><br/>Läs om hur dessa inställningar (merge och Ersätt) fungerar i [Insert- eller Merge-entitet](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [infoga eller ersätta entitet](https://msdn.microsoft.com/library/azure/hh452242.aspx) ämnen. <br/><br> Den här inställningen gäller på radnivå, inte på tabellnivå, och varken alternativet tar bort rader i utdatatabellen som inte finns i aktuella indata. |Sammanfoga (standard)<br/>Ersätt |Nej |
-| WriteBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout uppnås. |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout uppnås. |Heltal (antal rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout namn |Tidsintervall<br/><br/>Exempel: ”00: 20:00” (20 minuter) |Nej (standard storage klienten standardvärdet för timeout-värdet 90 sek) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
@@ -477,7 +477,7 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 
 | OData-datatypen | .NET-typ | Information |
 | --- | --- | --- |
-| Edm.Binary |byte |En matris med byte upp till 64 KB. |
+| Edm.Binary |byte[] |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar från midnatt, 1 januari, 1601 e. kr. (C.E.), UTC. Intervallet som slutar på den 31 December 9999. |
 | Edm.Double |double |Ett 64-bitars flytande punktvärde. |
@@ -538,7 +538,7 @@ Få typmappningen från Azure Table OData-typ till .NET-typ, definierar du tabel
 | Kolumnnamn | Type |
 | --- | --- |
 | userid |Edm.Int64 |
-| namn |Edm.String |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Sedan definiera Azure Table-datauppsättningen. Du behöver inte ange ”struktur”-avsnittet med informationen eftersom informationen har redan angetts i det underliggande datalagringen.

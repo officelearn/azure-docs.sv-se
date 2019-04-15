@@ -34,8 +34,8 @@ Scheman har egenskaper i följande tabell.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Intervall |Hur ofta sökningen körs. Mätt i minuter. |
-| queryTimeSpan |Det tidsintervall som villkoren utvärderas. Måste vara lika med eller större än intervall. Mätt i minuter. |
+| Interval |Hur ofta sökningen körs. Mätt i minuter. |
+| QueryTimeSpan |Det tidsintervall som villkoren utvärderas. Måste vara lika med eller större än intervall. Mätt i minuter. |
 | Version |API-version som används.  För närvarande ska detta alltid vara inställd på 1. |
 
 Anta exempelvis att en fråga med ett intervall på 15 minuter och Timespan 30 minuter. I det här fallet frågan skulle köras var 15: e minut och en avisering skulle aktiveras om villkoren fortsatt att lösa till SANT över ett 30-minuters intervall.
@@ -359,9 +359,9 @@ E-postaviseringar skicka e-post till en eller flera mottagare.  De kan innehåll
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Mottagare |Lista över e-postadresser. |
-| Subjekt |Ämne för e-postmeddelandet. |
-| Bifogad fil |Bifogade filer stöds inte för närvarande, så att det alltid har värdet ”None”. |
+| Recipients |Lista över e-postadresser. |
+| Subject |Ämne för e-postmeddelandet. |
+| Attachment |Bifogade filer stöds inte för närvarande, så att det alltid har värdet ”None”. |
 
 Följande är ett exempelsvar för en e-notification-åtgärd med ett tröskelvärde.  
 
@@ -406,7 +406,7 @@ Reparationer innehålla egenskaper i följande tabell.
 |:--- |:--- |
 | RunbookName |Namnet på runbooken. Detta måste matcha en publicerad runbook i automation-kontot som konfigurerats i Automation-lösningen i Log Analytics-arbetsytan. |
 | WebhookUri |URI för webhooken. |
-| Förfallodatum |Upphör att gälla och tid för webhooken.  Om webhooken inte har en giltighetstid, kan det vara valfritt giltigt framtida datum. |
+| Expiry |Upphör att gälla och tid för webhooken.  Om webhooken inte har en giltighetstid, kan det vara valfritt giltigt framtida datum. |
 
 Följande är ett exempelsvar för en Reparationsåtgärd med ett tröskelvärde.
 

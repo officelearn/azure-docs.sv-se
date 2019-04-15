@@ -71,7 +71,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **AzureSqlDW** |Ja |
+| type |Type-egenskapen måste anges till: **AzureSqlDW** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för connectionString-egenskapen. Endast grundläggande autentisering stöds. |Ja |
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ GO
 | rejectType |Anger om alternativet rejectValue anges som ett exakt värde eller en procentandel. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden. |1, 2, … |Ja, om **rejectType** är **procent** |
 | useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |SANT, FALSKT (standard) |Nej |
-| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink example
@@ -276,10 +276,10 @@ I följande tabell innehåller exempel på hur du anger den **tableName** egensk
 
 | DB-Schema | Tabellnamn | tableName JSON-egenskap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable eller dbo. MyTable eller [dbo]. [Tabell] |
-| dbo1 |MyTable |dbo1. MyTable eller [dbo1]. [Tabell] |
-| dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo |MyTable |MyTable eller dbo.MyTable eller [dbo].[Tabell] |
+| dbo1 |MyTable |dbo1.MyTable eller [dbo1].[Tabell] |
+| dbo |My.Table |[My.Table] eller [dbo].[My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Om du ser följande fel kan bero det på ett problem med det värde du angav för egenskapen tableName. Se tabellen för det korrekta sättet att ange värden för egenskapen tableName JSON.
 
@@ -308,27 +308,27 @@ Data Factory skapar tabellen i målarkiv med samma tabellnamnet på källdatalag
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| Numerisk | Decimal |
-| Flyttal | Flyttal |
-| pengar | pengar |
+| Numeric | Decimal |
+| Float | Float |
+| Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binär | Binär |
-| varbinary | Varbinary (upp till 8000) |
+| Binary | Binary |
+| Varbinary | Varbinary (upp till 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Tid | Tid |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (upp till 8000) |
-| NText | NVarChar (upp till 4 000) |
-| Bild | VarBinary (upp till 8000) |
+| NText | NVarChar (upp till 4000) |
+| Image | VarBinary (upp till 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (upp till 8000) |
-| NVarChar | NVarChar (upp till 4 000) |
+| NVarChar | NVarChar (upp till 4000) |
 | Xml | Varchar (upp till 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
@@ -346,36 +346,36 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| binär |Byte] |
-| bitars |Boolesk |
-| Char |Sträng, Char] |
-| datum |DateTime |
-| DateTime |DateTime |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
-| FILESTREAM-attributet (varbinary(max)) |Byte] |
-| Flyttal |Double-värde |
-| image |Byte] |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| pengar |decimaltal |
-| nchar |Sträng, Char] |
-| ntext |Sträng, Char] |
-| numeriskt |decimaltal |
-| nvarchar |Sträng, Char] |
-| verkliga |Enkel |
-| ROWVERSION |Byte] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
-| sql_variant |Objektet * |
-| text |Sträng, Char] |
-| time |Tidsintervall |
-| tidsstämpel |Byte] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Sträng, Char] |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 Du kan också mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare i aktivitetsdefinitionen kopia. Mer information finns i [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

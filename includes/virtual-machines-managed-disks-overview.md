@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291761"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566549"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelarna med hanterade diskar
 
@@ -31,7 +31,7 @@ Med hanterade diskar kan du skapa upp till 50 000 VM **diskar** av en typ i en p
 
 Hanterade diskar är integrerade med tillgänglighetsuppsättningar för att se till att diskar på [virtuella datorer i en tillgänglighetsuppsättning](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Disks placeras automatiskt i olika lagringsskalenheter (stämplar). Om en stämpel misslyckas på grund av maskin- eller programvarufel, inte bara VM-instanserna med diskar på de stämplarna. Exempel: Anta att du har ett program som körs på fem virtuella datorer och de virtuella datorerna är i en Tillgänglighetsuppsättning. Diskarna fortsätter för de virtuella datorerna inte alla lagras i samma stämpeln, så om en stämpel stängs av andra instanser av programmet att köras.
 
-## <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
+### <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
 
 Hanterade diskar stöder [Tillgänglighetszoner](../articles/availability-zones/az-overview.md), vilket är ett erbjudande för hög tillgänglighet som skyddar dina program från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
 
@@ -70,7 +70,7 @@ En hanterad disk ögonblicksbild är en skrivskyddad fullständig kopia av en ha
 Mer information om hur du skapar ögonblicksbilder med hanterade diskar finns i följande resurser:
 
 * [Skapa kopia av virtuell Hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Skapa kopia av virtuell Hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Avbildningar
 
@@ -79,7 +79,7 @@ Hanterade diskar stöder även skapa en hanterad anpassad avbildning. Du kan ska
 Information om hur du skapar avbildningar finns i följande artiklar:
 
 * [Så här avbildar du en hanterad avbildning av en generaliserad virtuell dator i Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Hur du generalisera och avbildar en Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [Så här generaliserar och avbildar du en Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Bilder med ögonblicksbilder
 

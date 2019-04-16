@@ -111,21 +111,9 @@ items:
       maintainContext: true
   - name: Hantera
     items:
-    - name: Skapa Linux-kluster
+    - name: Skapa HDInsight-kluster
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Använda Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Använda cURL och Azure REST API
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Använda .NET SDK
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Använda Azure Classic CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Använda Azure-portalen
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -133,19 +121,41 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
-      maintainContext: true
-    - name: Hantera Apache Hadoop-kluster
-      href: ../hdinsight-administer-use-portal-linux.md
-      items:
-      - name: Använd .NET SDK
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Använda SDK för .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Använda SDK för Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Använda SDK för Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
       - name: Använda Azure PowerShell
-        href: ../hdinsight-administer-use-powershell.md
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Använda cURL och Azure REST API
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true
       - name: Använda Azure Classic CLI
-        href: ../hdinsight-administer-use-command-line.md
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
+      - name: Skapa kluster på begäran
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
+      maintainContext: true
+  - name: Hantera HDInsight-kluster
+    href: ../hdinsight-administer-use-portal-linux.md
+    items:
+    - name: Använda SDK för .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+    - name: Använda SDK för Python
+      href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+    - name: Använda SDK för Java
+      href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+    - name: Använda SDK för Go (förhandsversion)
+      href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
+    - name: Använda Azure PowerShell
+      href: ../hdinsight-administer-use-powershell.md
+      maintainContext: true
+    - name: Använda Azure Classic CLI
+      href: ../hdinsight-administer-use-command-line.md
       maintainContext: true
     - name: Hantera kluster med Apache Ambari-webbgränssnittet
       href: ../hdinsight-hadoop-manage-ambari.md
@@ -184,6 +194,7 @@ items:
     - name: OS-korrigering för HDInsight-kluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    maintainContext: true
   - name: Felsöka
     href: ../hdinsight-troubleshoot-guide.md
     items:
@@ -241,13 +252,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: SDK för .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK
+  - name: SDK för Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK
+  - name: SDK för Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK för Go
     href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
@@ -271,9 +282,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dedffe85d9ae7fc00bcbcc9ca7c8324c4618f8c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565106"
+ms.locfileid: "59578738"

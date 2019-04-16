@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189146"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571103"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -36,17 +36,18 @@ Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina V
 - [Big växel Big övervakning Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Säkerhetsanalyser, nätverk/hantering av programprestanda
 
 - [Aktiva säkerhet](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersäkerhet](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® plattform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
@@ -54,9 +55,9 @@ Följande bild visar hur virtuella nätverks-TRYCK fungerar. Du kan lägga till 
 
 ![Hur virtuella nätverk TRYCK fungerar](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du skapar en virtuell nätverks-TAP måste du ha fått en bekräftelse e-post som du har registrerat i förhandsversionen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributionsmodellen och en partner lösning för att sammanställa och tryck sedan på trafik i regionen västra centrala USA. Om du inte har en partnerlösning i ditt virtuella nätverk kan du läsa [partnerlösningar](#virtual-network-tap-partner-solutions) att distribuera en. Du kan använda samma virtuella nätverk trycker du på resursen att samla trafik från flera nätverksgränssnitt i samma eller olika prenumerationer. Om de övervakade nätverksgränssnitt finns i olika prenumerationer, måste prenumerationerna associeras till samma Azure Active Directory-klient. Övervakade nätverksgränssnitt och målslutpunkten för sammanställning av TRYCK trafiken kan dessutom finnas i peer-kopplade virtuella nätverk i samma region. Om du använder denna distributionsmodell kontrollerar du att den [virtuell nätverkspeering](virtual-network-peering-overview.md) är aktiverad innan du konfigurerar virtuella nätverks-TAP.
+Innan du skapar en virtuell nätverks-TAP måste du ha fått en bekräftelse e-post som du har registrerat i förhandsversionen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributionsmodellen och en partner lösning för att sammanställa och tryck sedan på trafik i samma azure-region. Om du inte har en partnerlösning i ditt virtuella nätverk kan du läsa [partnerlösningar](#virtual-network-tap-partner-solutions) att distribuera en. Du kan använda samma virtuella nätverk trycker du på resursen att samla trafik från flera nätverksgränssnitt i samma eller olika prenumerationer. Om de övervakade nätverksgränssnitt finns i olika prenumerationer, måste prenumerationerna associeras till samma Azure Active Directory-klient. Övervakade nätverksgränssnitt och målslutpunkten för sammanställning av TRYCK trafiken kan dessutom finnas i peer-kopplade virtuella nätverk i samma region. Om du använder denna distributionsmodell kontrollerar du att den [virtuell nätverkspeering](virtual-network-peering-overview.md) är aktiverad innan du konfigurerar virtuella nätverks-TAP.
 
 ## <a name="permissions"></a>Behörigheter
 

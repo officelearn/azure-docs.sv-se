@@ -1,6 +1,6 @@
 ---
 title: Felsökning av aviseringar i Azure Monitor | Microsoft Docs
-description: Vanliga problem, fel och lösningar för logg aviseringsregler i Azure.
+description: Vanliga problem, fel och upplösning för loggvarningsregler i Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005302"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578721"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 
@@ -25,7 +25,6 @@ Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en loggfr�
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn fall när Azure-portalen visar och varningen aktiverades av regeln och ett meddelande som utförs av en tillhörande åtgärd-grupperna. Sådana fall finns information i artikeln på [åtgärdsgrupper](../platform/action-groups.md).
-
 
 ## <a name="log-alert-didnt-fire"></a>Log aviseringen utlöses inte
 
@@ -92,9 +91,94 @@ Exempel: om loggvarningsregel har konfigurerats för att utlösa när antalet re
 
 ### <a name="alert-query-output-misunderstood"></a>Aviseringsfråga utdata tror många
 
-Du kan ange logiken för loggaviseringar i en analytics-fråga. Analytics-fråga kan använda olika stordata och matematiska funktioner.  Aviseringar tjänsten kör din fråga med intervall som angetts med data för en angiven tidsperiod. Aviseringar service gör små ändringar i angivna frågan baserat på den aviseringstyp som valts. Detta syns i avsnittet ”fråga för att köras” i *konfigurera signallogiken* skärmen som visas nedan: ![Fråga som ska köras](media/alert-log-troubleshoot/LogAlertPreview.png)
+Du kan ange logiken för loggaviseringar i en analytics-fråga. Analytics-fråga kan använda olika stordata och matematiska funktioner.  Aviseringar tjänsten kör din fråga med intervall som angetts med data för en angiven tidsperiod. Aviseringar service gör små ändringar i angivna frågan baserat på den aviseringstyp som valts. Den här ändringen kan visas i avsnittet ”fråga för att köras” i *konfigurera signallogiken* skärmen som visas nedan: ![Fråga som ska köras](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 Vad som visas i den **fråga som ska köras** rutan är varning Loggtjänsten körs. Du kan köra den angivna frågan samt timespan via [analysportalen](../log-query/portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) om du vill förstå vilka aviseringsfrågan utdata kan finnas innan du skapar aviseringen.
+
+## <a name="log-alert-was-disabled"></a>Log-aviseringen har inaktiverats
+
+Nedan visas några orsaker vilket [loggvarningsregel i Azure Monitor](../platform/alerts-log.md) kanske har inaktiverats av Azure Monitor.
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>Resursen där aviseringen skapades inte längre finns
+
+Loggvarningsregler som skapas i Azure Monitor rikta en specifik resurs som en Azure Log Analytics-arbetsyta, Azure Application Insights-app och Azure-resurs. Och kör avisering Loggtjänsten sedan analytics-fråga som angetts i regeln för det angivna målet. Men när regeln skapades, ofta användare går du vidare till ta bort från Azure eller flytta i Azure - målet för aviseringsregeln. Eftersom målet för loggvarningsregel inte längre giltig, regelns går inte att köra.
+
+I sådana fall kan Azure Monitor inaktivera aviseringen log och se till att kunder inte faktureras onödigt, när regeln själva inte kan kan köras kontinuerligt av ansenliga period som en vecka. Användare kan ta reda på den exakta tidpunkt då loggvarningsregel har inaktiverats av Azure Monitor via [Azure-aktivitetsloggen](../../azure-resource-manager/resource-group-audit.md). I Azure-aktivitetsloggen när loggvarningsregel inaktiveras av Azure, läggs en händelse till i Azure-aktivitetsloggen.
+
+En exempelhändelse i aktivitetsloggen för Azure för varningsregeln inaktiveras på grund av dess kontinuerliga misslyckades; visas nedan.
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>Fråga som används i loggen aviseringen är inte giltig
+
+Varje loggvarningsregel som skapats i Azure Monitor som en del av dess konfiguration måste ange en analytics-fråga som ska köras regelbundet av tjänsten avisering. Medan analytics-fråga kan ha rätt syntax vid tidpunkten för skapande eller uppdatering. Vissa gånger under en viss tidsperiod, frågan ger i loggen varningsregeln kan utveckla syntaxproblem och orsaka regelutförandet till börjar misslyckas. Några vanliga orsaker till varför analytics-fråga i en loggvarningsregel kan utveckla fel är:
+
+- Fråga skrivs till [körs över flera resurser](../log-query/cross-workspace-query.md) och en eller flera av de resurser som anges, nu inte finns.
+- Det har inga dataflöde för analytics-plattformen, vilket den [Frågekörningen ger fel](https://dev.loganalytics.io/documentation/Using-the-API/Errors) eftersom det finns inga data för den angivna frågan.
+- Ändringar i [frågespråk](https://docs.microsoft.com/azure/kusto/query/) har inträffat under vilka kommandon och -funktioner har ett reviderade format. Tidigare tillhandahållna frågan i varningsregeln är därför inte längre giltig.
+
+Användaren skall varnas om det här beteendet först [Azure Advisor](../../advisor/advisor-overview.md). En rekommendation skulle läggas till för den specifika loggvarningsregel på Azure Advisor under kategorin för hög tillgänglighet med medelstor inverkan och en beskrivning som ”reparation din loggvarningsregel för att säkerställa övervakning”. Om aviseringsfrågan i den angivna loggvarningsregel inte är ändras efter sju dagar av den givande rekommendationen om Azure Advisor. Azure Monitor kommer sedan inaktivera log aviseringen och se till kunder inte faktureras onödigt, när regeln själva inte kan kan köras kontinuerligt av ansenliga period som en vecka.
+
+Användare kan ta reda på den exakta tidpunkt då loggvarningsregel har inaktiverats av Azure Monitor via [Azure-aktivitetsloggen](../../azure-resource-manager/resource-group-audit.md). I Azure-aktivitetsloggen, när loggvarningsregel inaktiveras av Azure - läggs en händelse till i Azure-aktivitetsloggen.
 
 ## <a name="next-steps"></a>Nästa steg
 

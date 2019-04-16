@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549513"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578792"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
@@ -53,10 +53,7 @@ Den här tabellen anger de grundläggande funktionerna för text till tal:
 | Skapa och hantera röst teckensnitt tester. | Nej | Ja\* |
 | Hantera prenumerationer. | Nej | Ja\* |
 
-\* *De här tjänsterna är tillgängliga med hjälp av cris.ai-slutpunkt. Se [Swagger referens](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Anpassade voice-slutpunkter implementera begränsning som begränsar begäranden till 25 per 5 sekunder. När begränsning inträffar, kommer du att meddelas via meddelandehuvudena.
+\* *De här tjänsterna är tillgängliga med hjälp av cris.ai-slutpunkt. Se [Swagger referens](https://westus.cris.ai/swagger/ui/index). Dessa anpassade ton och API: er hantering kan du implementera begränsning att gränserna begäranden till 25 per 5 sekunder medan talsyntes själva API: T implementerar begränsning som tillåter 200 begäranden per sekund som högst. När begränsning inträffar, kommer du att meddelas via meddelandehuvudena.*
 
 ## <a name="get-started-with-text-to-speech"></a>Kom igång med text till tal
 

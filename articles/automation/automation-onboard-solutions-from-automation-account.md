@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843631"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578449"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -44,7 +44,7 @@ I följande tabell visas mappningarna som stöds:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
@@ -52,8 +52,7 @@ I följande tabell visas mappningarna som stöds:
 
 <sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
 
-> [!NOTE]
-> På grund av begäran kanske en region inte tillgänglig när du skapar din Automation-konto eller Log Analytics-arbetsyta.  Om så är fallet kontrollerar du att du använder en region i tabellen ovan, som du kan skapa resurser i.
+<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 

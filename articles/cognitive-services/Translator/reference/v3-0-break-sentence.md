@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916299"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578214"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -56,8 +56,8 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_sidhuvud_</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
+    <td>Rubriker för autentisering</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -172,7 +172,7 @@ Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden ä
 
 I följande exempel visas hur du skaffar mening gränser för en enskild mening. Språket i meningen identifieras automatiskt av tjänsten.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

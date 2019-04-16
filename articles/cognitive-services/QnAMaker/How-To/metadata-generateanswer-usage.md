@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958056"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579418"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -67,22 +67,23 @@ Den **URL för begäran** har följande format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
 ```
 
-|Egenskapen för HTTP-begäran|Namn|Type|Syfte|
+|Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|sträng|GUID för kunskapsbasen.|
 |URL-parameter för väg|QnAMaker slutpunktsvärd|sträng|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
 |Huvud|Content-Type|sträng|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
 |Huvud|Auktorisering|sträng|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar|
-|Parametern för frågesträngen (valfritt)|`isTest`|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
+
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Krävs|Type|Syfte|
+|Brödtext JSON-egenskap|Krävs|Typ|Syfte|
 |--|--|--|--|
 |`question`|obligatorisk|sträng|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
 |`userId`|valfri|sträng|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
+|`isTest`|valfri|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
 |`strictFilters`|valfri|sträng|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata.|
 
 Det ser ut som ett exempel på JSON-texten:
@@ -91,6 +92,7 @@ Det ser ut som ett exempel på JSON-texten:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

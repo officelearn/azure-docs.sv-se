@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007843"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579044"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
 
@@ -95,7 +95,8 @@ NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver oc
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 620<strong>&lt;nr&gt;</strong>
-* Med regler
+* Läsa in 
+* belastningsutjämningsregler
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -112,7 +113,7 @@ NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver oc
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 621<strong>&lt;nr&gt;</strong>
-* Med regler
+* Belastningsutjämningsregler
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -132,7 +133,8 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 
 Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [ASCS/SCS Multi-SID mallen] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure portal på ASCS/SCS mallen skapar endast den regler för belastningsutjämning för SAP NetWeaver ASCS/SCS och ÄNDARE instanser (endast Linux) medan konvergerade mallen skapar även belastningsutjämningsregler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserade system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [ASCS/SCS Multi-SID mallen] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure portal. 
+   ASCS/SCS-mallen skapar endast regler för belastningsutjämning för SAP NetWeaver ASCS/SCS och ÄNDARE (endast Linux) instanser medan konvergerade mallen skapar även belastningsutjämningsregler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserade system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
 1. Ange följande parametrar
    1. Resurs-Prefix (endast ASCS/SCS Multi-SID-mall)  
       Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som distribueras.
@@ -144,7 +146,7 @@ Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla n
       Välj en av Linux-distributioner. I det här exemplet väljer du SLES 12 BYOS
    6. DB-typ  
       Välj HANA
-   7. Storlek för SAP-System  
+   7. Storlek för SAP-System.  
       Mängden SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör
    8. Systemets tillgänglighet  
       Välj hög tillgänglighet
@@ -198,7 +200,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. Klicka på OK
       1. Port 621**02** för ASCS ÄNDARE
          * Upprepa stegen ovan för att skapa en hälsoavsökning för ÄNDARE (till exempel 621**02** och **nw1-aers-hp**)
-   1. Med regler
+   1. Belastningsutjämningsregler
       1. 32**00** TCP för ASCS
          1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
          1. Ange namnet på den nya belastningsutjämningsregeln (till exempel **nw1-lb-3200**)
@@ -530,6 +532,8 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[1]**  Skapa SAP-klusterresurser
 
+Om du använder sätta 1 serverarkitektur (ENSA1) definiera resurserna på följande sätt:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP-stöd för sätta servern 2, inklusive replikering, från och med SAP NV 7.52. Från och med ABAP plattform 1809, installeras placera servern 2 som standard. Se SAP anteckning [2630416](https://launchpad.support.sap.com/#/notes/2630416) placera servern 2 support.
+Om du använder sätta serverarkitektur 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definierar resurserna på följande sätt:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  Om du uppgraderar från en äldre version och växla till sätta server 2, se sap-kommentar [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ Följande tester är en kopia av TestCase i de bästa praxis riktlinjerna för S
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Skapa ett sätta Lås av, för exempel-redigera en användare i transaktionen su01. Kör följande kommandon som \<sapsid > adm på noden där den ASCS-instansen körs. Kommandona ska stoppa ASCS-instans och starta den igen. Placera låset förväntas gå förlorad i det här testet.
+   Skapa ett sätta Lås av, för exempel-redigera en användare i transaktionen su01. Kör följande kommandon som \<sapsid > adm på noden där den ASCS-instansen körs. Kommandona ska stoppa ASCS-instans och starta den igen. Om du använder sätta serverarkitektur 1 förväntas sätta låset gå förlorad i det här testet. Om du använder sätta serverarkitektur 2, ska sätta behållas. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

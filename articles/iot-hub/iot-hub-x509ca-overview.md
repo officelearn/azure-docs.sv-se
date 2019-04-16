@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489819"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571162"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autentisering med X.509 CA-certifikat
 
@@ -62,13 +62,15 @@ Ladda upp signeras ladda upp en fil som innehåller ditt certifikat.  Den här f
 
 Proof of tillgång steg innebär en kryptografisk utmaning och processen för svar mellan dig och IoT Hub.  Med hänsyn till att digitalt certifikat innehållet är offentliga och därför känslig för avlyssning, vill IoT Hub säkerställa att du verkligen äger CA-certifikatet.  Det bör göra det genom att generera en slumpmässig utmaning som måste du logga med CA-certifikatet motsvarande privata nyckel.  Om du behöll den privata nyckeln hemliga och skyddade som tidigare bäst, och du kommer endast har kunskapen för att slutföra det här steget. Hemlig privata nycklar är källan för förtroende för den här metoden.  Slutför det här steget när du har registrerat utmaningen genom att ladda upp en fil som innehåller resultatet.
 
-Läs här så [registrera Certifikatutfärdarens certifikat](iot-hub-security-x509-get-started.md#registercerts).
+Läs här så [registrera Certifikatutfärdarens certifikat](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Så här skapar du en enhet på IoT-hubb
 
 Om du vill hindra enheten personifiering, måste IoT Hub du så att den vet vilka enheter du kan förvänta dig.  Du kan göra detta genom att skapa en post i enhetsregistret för IoT-hubben.  Den här processen sker automatiskt när du använder IoT Hub [Device Provisioning-tjänsten](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Läs här så [manuellt skapa en enhet i IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
+Läs här så [manuellt skapa en enhet i IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+
+Skapa en X.509-enhet för din IoT hub
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Autentisera enheter signeras med X.509 CA-certifikat
 
@@ -76,7 +78,7 @@ Vad som finns kvar är autentisering från med X.509 CA-certifikat som är regis
 
 En lyckad enhetsanslutning till IoT Hub Slutför autentiseringen och är också en indikation på en korrekt installation.
 
-Läs här så [slutföra det här steget för anslutning av enheten](iot-hub-security-x509-get-started.md#authenticatedevice).
+Läs här så [slutföra det här steget för anslutning av enheten](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Nästa steg
 

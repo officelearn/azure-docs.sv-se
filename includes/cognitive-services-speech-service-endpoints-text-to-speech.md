@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 3ff49e800b8db09cbff5c07107f71532437a4572
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ef68d02f6aa23368962e08af7b35d2b81c0e80bb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671696"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579810"
 ---
 ### <a name="neural-voices"></a>Neural röster
 
@@ -31,7 +31,6 @@ Standard röster är tillgängliga i dessa regioner:
 | Region | Slutpunkt |
 |--------|----------|
 | Östra Australien | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 |
-| Södra Brasilien | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Centrala Kanada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Centrala USA | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Östasien | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -57,7 +56,6 @@ Om du har skapat en anpassad rösttyp kan använda den slutpunkt som du har skap
 | Region | Slutpunkt |
 |--------|----------|
 | Östra Australien | https://australiaeast.voice.speech.microsoft.com |
-| Södra Brasilien | https://brazilsouth.voice.speech.microsoft.com |
 | Centrala Kanada | https://canadacentral.voice.speech.microsoft.com |
 | Centrala USA | https://centralus.voice.speech.microsoft.com |
 | Östasien | https://eastasia.voice.speech.microsoft.com |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288103"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579503"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Datadrivna Style-uttryck (Web SDK)
 
@@ -45,7 +45,7 @@ Azure Maps Web SDK har stöd för många typer av uttryck som kan användas på 
 |---------------------|-------------|
 | [Booleska uttryck](#boolean-expressions) | Booleska uttryck ger en uppsättning med booleska operatorer uttryck för att utvärdera booleskt jämförelser. |
 | [Uttryck för färg](#color-expressions) | Färg uttryck gör det enklare att skapa och ändra färgvärden. |
-| [Villkorliga uttryck](#conditional-expressions) | Villkorsuttryck ger logic-åtgärder som påminner om if-uttryck. |
+| [Villkorsuttryck](#conditional-expressions) | Villkorsuttryck ger logic-åtgärder som påminner om if-uttryck. |
 | [Data-uttryck](#data-expressions) | Ger åtkomst till egenskapsdata i en funktion. |
 | [Interpolera och steg uttryck](#interpolate-and-step-expressions) | Interpolera och steg uttryck kan användas för att beräkna värden längs en interpolerad kurvan eller -steg-funktion. |
 | [Specifika Layer-uttryck](#layer-specific-expressions) | Särskilda uttryck som gäller endast för ett lager. |
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 En `coalesce` uttryck vägleder genom en uppsättning uttryck tills det första icke-null-värdet hämtas och returnerar värdet. 
 
-Följande pseudocode definierar strukturen för de ` coalesce` uttryck. 
+Följande pseudocode definierar strukturen för de `coalesce` uttryck. 
 
 ```javascript
 [
@@ -789,16 +789,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 Se följande artiklar om fler kodexempel som implementerar uttryck:
 
 > [!div class="nextstepaction"] 
-> [Lägga till ett symbolskikt](map-add-pin.md)
+> [Lägg till en symbol-lager](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Lägga till ett bubbelskikt](map-add-bubble-layer.md)
+> [Lägg till ett bubbeldiagram lager](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Lägga till former](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Lägga till ett heatmapskikt](map-add-heat-map-layer.md)
+> [Lägg till ett lager för den termiska kartan](map-add-heat-map-layer.md)
 
 Läs mer om alternativ för bildrutsskikt som stöder uttryck:
 

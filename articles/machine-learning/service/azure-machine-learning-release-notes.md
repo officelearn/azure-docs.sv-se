@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528143"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579163"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure Portal
+  + Du kan nu skicka ett befintligt skript som körs på en befintlig remote beräkningskluster. 
+  + Du kan nu köra en publicerade pipeline med nya parametrar på fliken Pipelines. 
+  + Körningsinformation har nu stöd för en ny ögonblicksbild-granskaren. Du kan visa en ögonblicksbild av katalogen när du har skickat in en specifik körning. Du kan också hämta anteckningsboken som skickades för att starta körningen.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
   + Kolumnen typidentifiering nu stöder kolumner av typen Long.
   + Ett fel har åtgärdats där vissa datumvärden visades som tidsstämplar i stället för Python datetime-objekt.
   + Ett fel har åtgärdats där vissa typ antal visades som Double-värden i stället för heltal.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

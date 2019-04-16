@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536291"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571302"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
-Varje IoT-lösning är olika, så Azure IoT Hub erbjuder flera alternativ baserat på priser och skalning. Den här artikeln är avsedd att hjälpa dig att utvärdera din IoT Hub-behov. Information om nivåerna om priser finns i [IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub). 
+Varje IoT-lösning är olika, så Azure IoT Hub erbjuder flera alternativ baserat på priser och skalning. Den här artikeln är avsedd att hjälpa dig att utvärdera din IoT Hub-behov. Information om nivåerna om priser finns i [IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub).
 
 För att avgöra vilken nivå för IoT Hub är rätt för din lösning, ställa dig två frågor:
 
 **Vilka funktioner jag tänker använda?**
+
 Azure IoT Hub har två nivåer, basic och standard, som skiljer sig åt i hur många funktioner de stöder. Om din IoT-lösning baserad kring att samla in data från enheter och analysera dem centralt, är den grundläggande nivån förmodligen rätt för dig. Om du vill använda mer avancerade konfigurationer att fjärrstyra IoT-enheter eller distribuera några av dina arbetsbelastningar till själva enheterna, bör du överväga standard-nivån. För en detaljerad analys på detaljnivå av vilka funktioner som ingår i varje nivå fortfarande [nivåerna Basic och standard](#basic-and-standard-tiers).
 
 **Hur mycket data jag tänker flytta varje dag?**
+
 Varje nivå för IoT Hub är tillgänglig i tre storlekar som baserat dataflöde för hur mycket data som de kan hantera i en viss dag. Dessa storlekar identifieras numeriskt som 1, 2 och 3. Varje enhet i en IoT-hubb på nivå 1 kan exempelvis hantera 400 tusen meddelanden per dag, medan en nivå 3-enhet kan hantera 300 miljoner. För mer information om riktlinjer för data kan fortsätta att [meddelandedataflöde](#message-throughput).
 
 ## <a name="basic-and-standard-tiers"></a>Nivåerna Basic och standard
@@ -46,15 +48,13 @@ Endast en typ av [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Enheten strömmar (förhandsversion)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
-IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsad meddelanden tilldelningar. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
-
+IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsad meddelanden tilldelningar. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard.
 
 ## <a name="partitions"></a>Partitioner
 
-Azure IoT-hubbar innehåller många kärnkomponenterna i [Azure Event Hubs](../event-hubs/event-hubs-features.md), inklusive [partitioner](../event-hubs/event-hubs-features.md#partitions). Händelseströmmar för IoT-hubbar är vanligtvis ifyllda med inkommande telemetridata som rapporteras av olika IoT-enheter. Partitionering över händelseströmmen används för att minska contentions som uppstår vid läsning och skrivning till händelseströmmar samtidigt. 
+Azure IoT-hubbar innehåller många kärnkomponenterna i [Azure Event Hubs](../event-hubs/event-hubs-features.md), inklusive [partitioner](../event-hubs/event-hubs-features.md#partitions). Händelseströmmar för IoT-hubbar är vanligtvis ifyllda med inkommande telemetridata som rapporteras av olika IoT-enheter. Partitionering över händelseströmmen används för att minska contentions som uppstår vid läsning och skrivning till händelseströmmar samtidigt.
 
 Partitionsgränsen väljs när IoT-hubben har skapats och kan inte ändras. Maximal partitionsgränsen för IoT Hub på grundläggande nivån och standardnivån för IoT Hub är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Mer information om hur du bestämmer partitionerna finns i Event Hubs vanliga frågor och svar [hur många partitioner behöver jag?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
-
 
 ## <a name="tier-upgrade"></a>Nivå-uppgradering
 
@@ -62,10 +62,9 @@ När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till stand
 
 Partitionskonfigurationen ändras inte när du migrerar från basic-nivån till standardnivån.
 
-
 ## <a name="iot-hub-rest-apis"></a>REST API:er för IoT Hub
 
-Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT Hub innebär att vissa API-anrop inte fungerar med nivån basic hubs. I följande tabell visas vilka API: er är tillgängliga: 
+Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT Hub innebär att vissa API-anrop inte fungerar med nivån basic hubs. I följande tabell visas vilka API: er är tillgängliga:
 
 | API | Basic-nivå | Kostnadsfria/Standard-nivå |
 | --- | ---------- | ------------- |
@@ -116,26 +115,24 @@ Som ett exempel på varje nivå trafikfunktioner Tänk meddelanden från enheten
 | B2, S2 |Upp till 16 MB per minut per enhet<br/>(22,8 GB per dag per enhet) |Medelvärde för 4,167 meddelanden per minut per enhet<br/>(6 miljoner meddelanden per dag per enhet) |
 | B3, S3 |Upp till 814 MB per minut per enhet<br/>(1144.4 GB per dag per enhet) |Medelvärde för 208,333 meddelanden per minut per enhet<br/>(300 miljoner meddelanden per dag per enhet) |
 
-Utöver den här dataflödesinformationen, se [IoT Hub-kvoter och begränsningar] [ IoT Hub quotas and throttles] och utforma din lösning på lämpligt sätt.
+Utöver den här dataflödesinformationen, se [IoT Hub-kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md) och utforma din lösning på lämpligt sätt.
 
 ### <a name="identity-registry-operation-throughput"></a>Identitet registret åtgärden dataflöde
+
 IoT Hub identitetsregisteråtgärder är inte ska vara körning åtgärder, eftersom de främst är relaterade till enhetsetablering.
 
-Specifika burst prestandasiffror Se [IoT Hub-kvoter och begränsningar][IoT Hub quotas and throttles].
+Specifika burst prestandasiffror Se [IoT Hub-kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="auto-scale"></a>Autoskala
+
 Om du närmar gräns för antalet tillåtna meddelanden på din IoT-hubb, kan du använda dessa [steg för att automatiskt skala](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) att räkna upp en enhet, IoT Hub i samma nivå för IoT Hub.
 
 ## <a name="sharding"></a>Horisontell partitionering
+
 Även om en enda IoT-hubb kan skala till miljoner enheter, kräver ibland din lösning specifika prestandaegenskaper som en enda IoT-hubb inte kan garantera. I så fall kan du partitionera dina enheter över flera IoT-hubbar. Flera IoT-hubbar jämna trafikökningar och hämta nödvändiga dataflöde eller åtgärden avgifter som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om IoT Hub funktioner och prestandainformation [IoT Hub priser] [ lnk-pricing] eller [IoT Hub-kvoter och begränsningar] [ IoT Hub quotas and throttles].
+* Läs mer om IoT Hub funktioner och prestandainformation [IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub) eller [IoT Hub-kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
+
 * Om du vill ändra nivå för IoT Hub följer du stegen i [uppgradera din IoT-hubb](iot-hub-upgrade.md).
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

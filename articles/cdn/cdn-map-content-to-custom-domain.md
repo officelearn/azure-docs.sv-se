@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294033"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579197"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudier: Lägga till en anpassad domän i din Azure CDN-slutpunkt
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
@@ -50,7 +50,7 @@ Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt måste du f�
 En anpassad domän och dess underdomän kan endast associeras med en slutpunkt åt gången. Men du kan använda olika underdomäner från samma anpassade domän för olika Azure-tjänstslutpunkter genom att använda flera CNAME-poster. Du kan också mappa en anpassad domän med olika underdomäner till samma CDN-slutpunkt.
 
 > [!NOTE]
-> Alla alias posttyp kan användas för anpassade domäner om du använder Azure DNS som din domänleverantör. Den här genomgången använder CNAME-posttypen. Om du använder A eller AAAA-posttyper Följ samma steg nedan när CNAME med posttyp valfri. Om du använder en aliaspost för att lägga till en rotdomän som en anpassad domän och du vill aktivera SSL, måste du använda manuell verifiering enligt [här](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
+> Alla alias posttyp kan användas för anpassade domäner om du använder Azure DNS som din domänleverantör. Den här genomgången använder CNAME-posttypen. Om du använder A eller AAAA-posttyper följer samma steg nedan och Ersätt CNAME med posttypen valfri. Om du använder en aliaspost för att lägga till en rotdomän som en anpassad domän och du vill aktivera SSL, måste du använda manuell verifiering enligt beskrivningen i [i den här artikeln](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Mer information finns i [punkt zonens apex till Azure CDN-slutpunkter](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Mappa den tillfälliga underdomänen cdnverify
 
@@ -66,7 +66,7 @@ Skapa en CNAME-post med underdomänen cdnverify:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | Källa                    | Type  | Mål                     |
+    | Källa                    | Typ  | Mål                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -160,7 +160,7 @@ Skapa en CNAME-post för den anpassade domänen:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | Källa          | Type  | Mål           |
+    | Källa          | Typ  | Mål           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

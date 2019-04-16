@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648827"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571060"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Identifiera och felsöka kopplar bort med Azure IoT Hub
 
@@ -28,13 +28,18 @@ Använda Azure Monitor för att få aviseringar och skriva loggar när enhetsans
 Aktivera diagnostik för IoT Hub för att logga enheten anslutningshändelser och fel.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Bläddra till din IoT-hubb.
-1. Välj **diagnostikinställningar**.
-1. Välj **slå på diagnostik**.
-1. Aktivera **anslutningar** loggar samlas in.
-1. För enklare analys, aktivera **skicka till Log Analytics** ([finns i prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exempel under [lösa anslutningsfel](#resolve-connectivity-errors).
 
-   ![Rekommenderade inställningar][2]
+2. Bläddra till din IoT-hubb.
+
+3. Välj **diagnostikinställningar**.
+
+4. Välj **slå på diagnostik**.
+
+5. Aktivera **anslutningar** loggar samlas in.
+
+6. För enklare analys, aktivera **skicka till Log Analytics** ([finns i prisinformationen](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exempel under [lösa anslutningsfel](#resolve-connectivity-errors).
+
+   ![Rekommenderade inställningar](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
 Mer information finns i [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md).
 
@@ -43,11 +48,16 @@ Mer information finns i [övervaka hälsotillståndet för Azure IoT Hub och dia
 Om du vill få aviseringar när Koppla från enheter, konfigurera aviseringar för den **anslutna enheter (förhandsversion)** mått.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Bläddra till din IoT-hubb.
-1. Välj **aviseringar**.
-1. Välj **ny aviseringsregel**.
-1. Välj **Lägg till villkor**, välj sedan ”anslutna enheter (förhandsversion)”.
-1. Slut ställa in din önskade trösklar och avisering alternativ genom att följande anvisningarna.
+
+2. Bläddra till din IoT-hubb.
+
+3. Välj **aviseringar**.
+
+4. Välj **ny aviseringsregel**.
+
+5. Välj **Lägg till villkor**, välj sedan ”anslutna enheter (förhandsversion)”.
+
+6. Slut ställa in din önskade trösklar och avisering alternativ genom att följande anvisningarna.
 
 Mer information finns i [vad är klassiska aviseringar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
@@ -56,8 +66,10 @@ Mer information finns i [vad är klassiska aviseringar i Microsoft Azure?](../az
 När du aktiverar diagnostikloggar och varningar för anslutna enheter kan få du aviseringar när ett fel uppstår. Det här avsnittet beskriver hur du löser vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor-loggar för dina diagnostikloggar.
 
 1. Få din arbetsyta **Log Analytics** i Azure-portalen.
-1. Välj **Loggsöknings**.
-1. Om du vill isolera anslutning felloggar för IoT-hubb, anger du följande fråga och välj sedan **kör**:
+
+2. Välj **Loggsöknings**.
+
+3. Om du vill isolera anslutning felloggar för IoT-hubb, anger du följande fråga och välj sedan **kör**:
 
     ```
     search *
@@ -67,12 +79,12 @@ När du aktiverar diagnostikloggar och varningar för anslutna enheter kan få d
 
 1. Om du får resultat, leta efter `OperationName`, `ResultType` (felkod:) och `ResultDescription` (ett felmeddelande) om du vill visa mer information om felet.
 
-   ![Exempel på fellogg][4]
+   ![Exempel på fellogg](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-1. Du kan använda den här tabellen för att förstå och lösa vanliga fel.
+2. Du kan använda den här tabellen för att förstå och lösa vanliga fel.
 
     | Fel | Rotorsak | Lösning |
-    |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |-------|------------|------------|
     | 404104 DeviceConnectionClosedRemotely | Anslutningen stängdes av enheten, men IoT Hub vet inte varför. Vanliga orsaker kan vara MQTT/AMQP anslutningsförlust timeout och internet. | Kontrollera att enheten kan ansluta till IoT Hub med [testar anslutningen](tutorial-connectivity.md). Om anslutningen är bra, men enheten kopplas från periodvis, se till att implementera logik som rätt keep alive enheten för ditt val av protokollet (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | IoT Hub gick inte att autentisera anslutningen. | Kontrollera att SAS eller andra säkerhetstoken som du använder inte gått ut. [Azure IoT SDK: er](iot-hub-devguide-sdks.md) automatiskt generera token utan att kräva särskild konfiguration. |
     | 409002 LinkCreationConflict | En enhet har fler än en anslutning. När en ny anslutningsbegäran gäller för en enhet, stängs den tidigare med det här felet i IoT Hub. | I de flesta fallen en enhet identifierar ett frånkoppling och försöker återupprätta anslutningen, men IoT Hub fortfarande tar hänsyn till den anslutna enheten. IoT Hub stängs den tidigare anslutningen och loggar det här felet. Det här felet visas vanligtvis som en sidoeffekt av ett annat, tillfälliga fel, så att leta efter andra fel i loggarna till felsökningen. Annars kan du se till att utfärda en ny begäran om anslutning om anslutningen bryts. |
@@ -84,7 +96,9 @@ När du aktiverar diagnostikloggar och varningar för anslutna enheter kan få d
 Om föregående steg inte hjälper kan du:
 
 * Om du har åtkomst till problematiska enheterna, fysiskt eller via en fjärranslutning (till exempel SSH), följer du de [enhetssidan felsökningsguide för](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) fortsätta felsökning.
+
 * Kontrollera att enheterna är **aktiverad** i Azure portal > din IoT-hubb > IoT-enheter.
+
 * Få hjälp från [Azure IoT Hub-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), eller [Azure-supporten](https://azure.microsoft.com/support/options/).
 
 Lämna en kommentar i feedback nedan för att förbättra dokumentationen för alla användare, om den här guiden hjälpte dig.
@@ -92,10 +106,5 @@ Lämna en kommentar i feedback nedan för att förbättra dokumentationen för a
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du löser problem finns [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
-* Läs mer om Azure IoT SDK och hantera återförsök, se [hur du hanterar anslutningar och tillförlitlig meddelandehantering med hjälp av Azure IoT Hub device-SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
-<!-- Images -->
-[1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png
-[2]: ./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png
-[3]: ./media/iot-hub-troubleshoot-connectivity/metric-alert.png
-[4]: ./media/iot-hub-troubleshoot-connectivity/diag-logs.png
+* Läs mer om Azure IoT SDK och hantera återförsök, se [hur du hanterar anslutningar och tillförlitlig meddelandehantering med hjälp av Azure IoT Hub device-SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332225"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578858"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudier: Använda program i Azure Blockchain Workbench
 
@@ -40,9 +40,9 @@ Du lär dig följande:
 
 Du måste logga in som medlem i Blockchain Workbench. Om inga program visas i listan är du medlem i Blockchain Workbench men inte i något program. Blockchain Workbench-administratören kan tilldela medlemmar till program.
 
-## <a name="create-new-contract"></a>Skapa nytt kontrakt 
+## <a name="create-new-contract"></a>Skapa nytt kontrakt
 
-För att skapa ett nytt kontrakt måste du vara en medlem som definierats som **kontraktinitierare**. Information om hur du definierar programroller och initierare för kontraktet finns i [Arbetsflöden i konfigurationsöversikten](configuration.md#workflows). Information om hur du tilldelar medlemmar till programroller finns i avsnittet om hur du [lägger till en medlem i ett program](manage-users.md#add-member-to-application).
+Om du vill skapa ett nytt kontrakt, du måste vara en medlem som angetts som ett kontrakt **initierare**. Information om hur du definierar programroller och initierare för kontraktet finns i [Arbetsflöden i konfigurationsöversikten](configuration.md#workflows). Information om hur du tilldelar medlemmar till programroller finns i avsnittet om hur du [lägger till en medlem i ett program](manage-users.md#add-member-to-application).
 
 1. I avsnittet för Blockchain Workbench-program väljer du programpanelen som innehåller det kontrakt som du vill skapa. En lista över aktiva kontrakt visas.
 

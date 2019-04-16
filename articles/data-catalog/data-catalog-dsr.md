@@ -4,21 +4,19 @@ description: Den här artikeln visas ett av datakällorna som stöds för närva
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410195"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579401"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Datakällor som stöds i Azure Data Catalog
 
 Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en gång registrering verktyget eller genom att manuellt ange information direkt till Azure Data Catalog webbportal. I följande tabell sammanfattas alla datakällor som stöds av katalogen idag och publicera funktionerna för var och en. Listan finns även de externa data-verktyg som varje datakälla kan starta från vår erfarenhet av portal ”öppna i”. Den andra tabellen innehåller en mer teknisk specifikation av Anslutningsegenskapen varje datakälla.
-
 
 ## <a name="list-of-supported-data-sources"></a>Lista över datakällor som stöds
 
@@ -32,7 +30,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
        <td><b>Anteckningar</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-katalogen</td>
+      <td>Azure Data Lake Store-katalogen (endast Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-fil</td>
+      <td>Azure Data Lake Store-fil (endast Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -172,7 +170,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-KPI</td>
+      <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -446,7 +444,7 @@ Om du vill se en särskild datakälla som stöds, föreslå den (eller röst sup
 
 <table>
     <tr>
-       <td><b>Typ av datakälla</b></td>
+       <td><b>Källtyp</b></td>
        <td><b>Tillgångstyp</b></td>
        <td><b>Objekt av typen</b></td>
        <td><b>DSL-struktur<b></td>

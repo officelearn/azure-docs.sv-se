@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263051"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579231"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -442,7 +442,7 @@ I föregående exempel visades en enkel likhetsfråga. SQL-API: et stöder olika
 
 Du kan använda följande operatorer som stöds binär:  
 
-|**Typ av frågeoperator**  | **Värden** |
+|**Operatortyp**  | **Värden** |
 |---------|---------|
 |Aritmetiska | +,-,*,/,% |
 |Binära    | \|, &, ^, <<, >>, >>> (högerskiftning med nollfyllning) |
@@ -484,15 +484,15 @@ Du kan också använda egenskapen referenser i frågor. Till exempel `SELECT * F
 
 I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan två godtyckliga JSON-typer.
 
-| **Op** | **Undefined (Odefinierad)** | **Null** | **Boolesk** | **Tal** | **String** | **Objekt** | **Matris** |
+| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Matris** |
 |---|---|---|---|---|---|---|---|
-| **Undefined (Odefinierad)** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Null** | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Tal** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **String** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** | Undefined (Odefinierad) |
-| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **OK** |
+| **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Null** | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) |
+| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** |
 
 För jämförelseoperatorer som `>`, `>=`, `!=`, `<`, och `<=`, jämförelse över typer eller mellan två objekt eller matriser ger `Undefined`.  
 
@@ -502,7 +502,7 @@ Om resultatet av det skalära uttrycket är `Undefined`, objektet inte ingår i 
 
 Logiska operatorer arbetar med booleska värden. Följande tabeller visar de logiska tabellerna sanningen för de här operatorerna:
 
-**ELLER har frågor**
+**Operatorn OR** (ELLER)
 
 | ELLER | True | False | Undefined (Odefinierad) |
 | --- | --- | --- | --- |
@@ -510,7 +510,7 @@ Logiska operatorer arbetar med booleska värden. Följande tabeller visar de log
 | False |True |False |Undefined (Odefinierad) |
 | Undefined (Odefinierad) |True |Undefined (Odefinierad) |Undefined (Odefinierad) |
 
-**OCH operatör**
+**Operatorn AND** (OCH)
 
 | AND | True | False | Undefined (Odefinierad) |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Logiska operatorer arbetar med booleska värden. Följande tabeller visar de log
 | False |False |False |False |
 | Undefined (Odefinierad) |Undefined (Odefinierad) |False |Undefined (Odefinierad) |
 
-**NOT-operator**
+**Operatorn NOT** (INTE)
 
 | NOT |  |
 | --- | --- |
@@ -1240,14 +1240,14 @@ Funktioner för typkontroll kan du kontrollera vilken typ av ett uttryck i en SQ
 
 | **Användning** | **Beskrivning** |
 |-----------|------------|
-| [IS_ARRAY (uttryck)](sql-api-query-reference.md#bk_is_array) | Returnerar ett booleskt värde som anger huruvida värdets typ är en matris. |
-| [IS_BOOL (uttryck)](sql-api-query-reference.md#bk_is_bool) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett booleskt värde. |
-| [IS_NULL (uttryck)](sql-api-query-reference.md#bk_is_null) | Returnerar ett booleskt värde som anger huruvida värdets typ är null. |
-| [IS_NUMBER (uttryck)](sql-api-query-reference.md#bk_is_number) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett tal. |
-| [IS_OBJECT (uttryck)](sql-api-query-reference.md#bk_is_object) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett JSON-objekt. |
-| [IS_STRING (uttryck)](sql-api-query-reference.md#bk_is_string) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng. |
-| [IS_DEFINED (uttryck)](sql-api-query-reference.md#bk_is_defined) | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
-| [IS_PRIMITIVE (uttryck)](sql-api-query-reference.md#bk_is_primitive) | Returnerar ett booleskt värde som anger om typ av värde är en sträng, nummer, booleskt värde, eller null. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Returnerar ett booleskt värde som anger huruvida värdets typ är en matris. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett booleskt värde. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Returnerar ett booleskt värde som anger huruvida värdets typ är null. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett tal. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Returnerar ett booleskt värde som anger huruvida värdets typ är ett JSON-objekt. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Returnerar ett booleskt värde som anger huruvida värdets typ är en sträng. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Returnerar ett booleskt värde som anger om typ av värde är en sträng, nummer, booleskt värde, eller null. |
 
 Du kan använda dessa funktioner för att köra frågor som i följande exempel:
 
@@ -1267,21 +1267,21 @@ Följande skalärfunktioner utföra en åtgärd på ett strängvärde för indat
 
 | Användning | Beskrivning |
 | --- | --- |
-| [LÄNGDEN (str_expr)](sql-api-query-reference.md#bk_length) | Returnerar antalet tecken i angivet stränguttryck. |
-| [SAMMANFOGA (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
-| [DELSTRÄNGEN (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returnerar en del av ett stränguttryck. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returnerar antalet tecken i angivet stränguttryck. |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returnerar en del av ett stränguttryck. |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra. |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
-| [INNEHÅLLER (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returnerar startpositionen för den första förekomsten av andra stränguttryck i första angivet stränguttryck eller -1 om strängen inte hittas. |
 | [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returnerar den vänstra delen av en sträng med det angivna antalet tecken. |
 | [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returnerar den högra delen av en sträng med det angivna antalet tecken. |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returnerar ett stränguttryck efter att inledande blanksteg har tagits bort. |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Returnerar ett stränguttryck efter att efterföljande blanksteg har trunkerats. |
-| [LÄGRE (str_expr)](sql-api-query-reference.md#bk_lower) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
-| [ÖVRE (str_expr)](sql-api-query-reference.md#bk_upper) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
-| [Ersätt (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde. |
-| [REPLIKERA (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | Upprepar ett strängvärde ett angivet antal gånger. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde. |
+| [REPLICATE (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | Upprepar ett strängvärde ett angivet antal gånger. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returnerar den omvända ordningen av ett strängvärde. |
 
 Med dessa funktioner kan du köra frågor som följande, vilket returnerar familjen `id` stora bokstäver:
@@ -1345,7 +1345,7 @@ Följande skalärfunktioner utföra en åtgärd på ett indatavärde för matris
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Returnerar antalet element i det angivna matrisuttrycket. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Returnerar en matris som är resultatet av en sammanfogning av två eller fler matrisvärden. |
-| [ARRAY_CONTAINS (arr_expr, uttryck [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Kan ange om matchningen är fullständig eller partiell. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Kan ange om matchningen är fullständig eller partiell. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returnerar en del av ett matrisuttryck. |
 
 Använda matrisfunktioner för att manipulera matriser i JSON. Här är till exempel en fråga som returnerar alla objekt `id`s där det är en av de `parents` är `Robin Wakefield`: 
@@ -1714,7 +1714,7 @@ I nästa exempel visas kopplingar, uttryckt genom LINQ `SelectMany`.
 
 .NET-klienten automatiskt går igenom alla sidor i frågeresultaten i den `foreach` blockerar, som visas i föregående exempel. Frågealternativ introducerades i den [REST API](#RestAPI) avsnittet är också tillgängliga i .NET-SDK med hjälp av den `FeedOptions` och `FeedResponse` klasser i den `CreateDocumentQuery` metoden. Du kan styra hur många sidor med hjälp av den `MaxItemCount` inställningen.
 
-Du kan även explicit styra sidonumrering genom att skapa `IDocumentQueryable` med hjälp av objektet `IQueryable` och sedan läsa ` ResponseContinuationToken`-värdena och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. Du kan ange `EnableScanInQuery` aktivera sökningar när frågan inte stöds av den konfigurera indexprincip. Du kan använda för partitionerad behållare `PartitionKey` att köra frågan mot en enskild partition, även om Azure Cosmos DB automatiskt extrahera detta från frågetexten. Du kan använda `EnableCrossPartitionQuery` att köra frågor mot flera partitioner.
+Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den `ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. Du kan ange `EnableScanInQuery` aktivera sökningar när frågan inte stöds av den konfigurera indexprincip. Du kan använda för partitionerad behållare `PartitionKey` att köra frågan mot en enskild partition, även om Azure Cosmos DB automatiskt extrahera detta från frågetexten. Du kan använda `EnableCrossPartitionQuery` att köra frågor mot flera partitioner.
 
 Mer .NET-exempel med frågor finns i [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet) i GitHub.
 
@@ -1915,7 +1915,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
 **Välj operator, exempel 1:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -1930,7 +1930,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
   
 **Välj operator, exempel 2:** 
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1945,7 +1945,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
   
 **Välj operator, exempel 3:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
     input.Select(family => new
@@ -1967,7 +1967,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
 Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck som returnerar en containertyp.
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -1986,7 +1986,7 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
 
 **Där operatör, exempel 1:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -2002,7 +2002,7 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
   
 **Där operatör, exempel 2:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Where(
@@ -2029,7 +2029,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
 
 **Sammanfoga, exempel 1:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Select(family=>family.parents[0])
@@ -2046,7 +2046,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
 
 **Sammanfoga exempel 2:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -2063,7 +2063,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
 
 **Sammanfoga exempel 3:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -2080,7 +2080,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
 
 **Sammanfoga exempel 4:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -2103,7 +2103,7 @@ En kapslad fråga gäller den inre frågan för varje element i behållaren yttr
 
 **Kapsling, exempel 1:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.SelectMany(family=>
@@ -2120,7 +2120,7 @@ En kapslad fråga gäller den inre frågan för varje element i behållaren yttr
 
 **Kapsling, exempel 2:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.SelectMany(family =>
@@ -2138,7 +2138,7 @@ En kapslad fråga gäller den inre frågan för varje element i behållaren yttr
 
 **Kapsling, exempel 3:**
 
-- **LINQ lambda-uttrycket**
+- **LINQ-lambdauttryck**
   
   ```csharp
       input.SelectMany(family => family.children.Where(

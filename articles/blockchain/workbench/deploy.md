@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098118"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579537"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -47,7 +47,7 @@ Kostnaden för Blockchain Workbench är en aggregering av kostnaden för de unde
 > [!IMPORTANT]
 > Om du använder en prenumeration med låg tjänstbegränsningar, till exempel en kostnadsfria nivån av Azure-prenumeration kan distributionen misslyckas på grund av otillräcklig kvot för VM-kärnor. Innan du distribuerar, kontrollera din kvot med hjälp av vägledning från den [VM vCPU-kvoter](../../virtual-machines/windows/quotas.md) artikeln. Standardvalet för virtuell dator kräver 6 VM-kärnor. Ändra till en mindre storlek på virtuell dator som *Standard DS1 v2* minskar antalet kärnor till 4.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Azure Blockchain Workbench kräver Azure AD-konfiguration och programmet registreringar. Du kan välja att göra Azure AD [konfigurationer manuellt](#azure-ad-configuration) innan distribution eller kör ett skript efter distributionen. Om du omdistribuerar Blockchain Workbench kan se [Azure AD-konfiguration](#azure-ad-configuration) för att verifiera din Azure AD-konfigurationen.
 

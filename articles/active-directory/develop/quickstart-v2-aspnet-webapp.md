@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505406"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579486"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -54,17 +54,17 @@ I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personli
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
->      - Lägg till `https://localhost:44368/` i **Svars-URL** och klicka på **Registrera**.
+>      - Lägg till `https://localhost:44368/` i **omdirigerings-URI**, och klicka på **registrera**.
 Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande** och välj sedan **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera måste vi lägga till en svars-URL som `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-aspnet-webapp/green-check.png) ditt program har konfigurerats med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) appen konfigureras med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
@@ -83,11 +83,11 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` -är program-Id för programmet som du har registrerat.
-> - `Enter_the_Tenant_Info_Here` -är ett av alternativen nedan:
+> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
 >   - Om ditt program stöder **Endast min organisation** ska du ersätta värdet med **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
->   - Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med `common`
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
@@ -158,7 +158,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. I verkliga program som du måste verifiera utfärdaren Se exemplen för att förstå hur du gör.
+> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. Du måste verifiera utfärdaren i verkliga program.
+> Se exemplen för att förstå hur du gör.
 
 ### <a name="initiate-an-authentication-challenge"></a>Initiera en autentiseringsfråga
 
@@ -187,9 +188,9 @@ Du kan skydda en kontrollant eller kontrollantåtgärder med attributet `[Author
 
 Prova att använda ASP.NET-självstudien för en komplett steg för steg-guide till att skapa appar och nya funktioner, bland annat en fullständig förklaring av den här snabbstarten.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar appen som används i den här snabbstarten
 
 > [!div class="nextstepaction"]
-> [Logga in självstudien](./tutorial-v2-asp-webapp.md)
+> [Självstudie om inloggning](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

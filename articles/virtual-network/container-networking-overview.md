@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548787"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579129"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Göra så att containrar kan använda Azure Virtual Network-funktioner
 
@@ -60,8 +60,8 @@ Plugin-programmet stöder upp till 250 poddar per virtuell dator och upp till 16
 Plugin-programmet kan användas på följande sätt för att tillhandahålla grundläggande anslutning av virtuellt nätverk för poddar eller Docker-containrar:
 
 - **Azure Kubernetes Service**: Plugin-programmet är integrerad i Azure Kubernetes Service (AKS) och kan användas genom att välja den *avancerade nätverk* alternativet. Via avancerade nätverk kan du distribuera ett Kubernetes-kluster i ett befintligt eller nytt virtuellt nätverk. Mer information om avancerade nätverk och hur du konfigurerar dem finns avsnittet om[nätverkskonfiguration i AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **ACS-Engine**: ACS-Engine är ett verktyg som genererar en Azure Resource Manager-mall för distribution av ett Kubernetes-kluster i Azure. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ACS-Engine Kubernetes-kluster](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster).
-- **Skapa din egen Kubernetes-kluster i Azure**: Plugin-programmet kan användas för att tillhandahålla grundläggande nätverk för Poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva AKS eller verktyg som ACS-Engine. I det här fallet är plugin-programmet installerat och aktiverat på varje virtuell dator i ett kluster. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+- **AKS-Engine**: AKS-motorn är ett verktyg som genererar en Azure Resource Manager-mall för distribution av ett Kubernetes-kluster i Azure. Detaljerade anvisningar finns i [distribuera plugin-programmet för AKS-Engine Kubernetes-kluster](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Skapa din egen Kubernetes-kluster i Azure**: Plugin-programmet kan användas för att tillhandahålla grundläggande nätverk för Poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva AKS eller verktyg som AKS-motorn. I det här fallet är plugin-programmet installerat och aktiverat på varje virtuell dator i ett kluster. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Virtuellt nätverk bifoga för Docker-behållare i Azure**: Plugin-programmet kan användas i fall där du inte vill skapa ett Kubernetes-kluster och vill skapa Docker-behållare med virtuellt nätverk ansluta på virtuella datorer. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
 ## <a name="next-steps"></a>Nästa steg

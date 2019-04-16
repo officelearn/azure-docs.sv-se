@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505355"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579469"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 
@@ -55,9 +55,9 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-Quickstart`.
->    - I **Svars-URL** lägger du till `https://localhost:44321/` och väljer **Registrera**.
+>    - I **omdirigerings-URI**, lägga till `https://localhost:44321/`, och välj **registrera**.
 > 1. Välj menyn **Autentisering** och lägg sedan till följande information:
->    - I **Svars-URL** lägger du till `https://localhost:44321/signin-oidc` och markerar **Registrera**.
+>    - I **omdirigerings-URI: er**, lägga till `https://localhost:44321/signin-oidc`, och välj **spara**.
 >    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit beviljande** kontrollerar du **ID-token**.
 >    - Välj **Spara**.
@@ -66,10 +66,10 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera ditt program i Azure Portal
 > För kodexemplen för att den här snabbstarten ska fungera måste du lägga till svars-URL som `https://localhost:44321/` och `https://localhost:44321/signin-oidc`, lägga till Utloggnings-URL som `https://localhost:44321/signout-oidc` och begära att ID-token ska utfärdas av auktoriseringsslutpunkten.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-aspnet-webapp/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Steg 2: Ladda ned ditt ASP.NET Core-projekt
 
@@ -88,11 +88,11 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 
 > [!div renderon="docs"]
 > Där:
-> - `Enter_the_Application_Id_here` -är den **(klient)-ID: T** för programmet som du registrerade i Azure-portalen. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
-> - `Enter_the_Tenant_Info_Here` -är en av följande alternativ:
+> - `Enter_the_Application_Id_here` – är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
+> - `Enter_the_Tenant_Info_Here` – är något av följande alternativ:
 >   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
->   - Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med `organizations`
->   - Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med `common`
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
 >
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
@@ -148,7 +148,8 @@ Den rad som innehåller `.AddAzureAd` lägger till Microsoft identity-plattforme
 
 
 > [!NOTE]
-> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. I verkliga program som du måste verifiera utfärdaren Se exemplen för att förstå hur du gör.
+> Ange `ValidateIssuer = false` är ett förenklat för den här snabbstarten. Du måste verifiera utfärdaren i verkliga program.
+> Se exemplen för att förstå hur du gör.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Skydda en kontrollant eller en kontrollants metod
 

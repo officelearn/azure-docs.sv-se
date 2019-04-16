@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493067"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577975"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -50,15 +50,14 @@ Vi har förbättrat sättet du kan visa återställning av lösenord och löseno
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** i den vänstra rutan.
 3. Sök efter **Azure Active Directory** i listan över tjänster och markera den.
-4. Välj **Användare och grupper**.
-5. Välj **granskningsloggar** från den **användare och grupper** menyn. Detta visar alla granskningshändelser som gjorts mot alla användare i din katalog. Du kan filtrera den här vyn om du vill se alla lösenord-relaterade händelser.
-6. Om du vill filtrera den här vyn om du vill visa endast de lösenord-återställning-relaterade händelserna, Välj den **Filter** längst upp i fönstret.
-7. Från den **Filter** menyn och välj den **kategori** nedrullningsbara listan och ändra det till den **Self-service lösenordshantering** kategorityp.
-8. Du kan också filtrera listan ytterligare genom att välja specifikt **aktivitet** du är intresserad av.
+4. Välj **användare** från avsnittet Hantera.
+5. Välj **granskningsloggar** från den **användare** bladet. Detta visar alla granskningshändelser som gjorts mot alla användare i din katalog. Du kan filtrera den här vyn om du vill se alla lösenord-relaterade händelser.
+6. Från den **Filter** menyn längst upp i fönstret, väljer den **Service** nedrullningsbara listan och ändra det till den **Self-service lösenordshantering** typ av tjänst.
+7. Du kan också filtrera listan ytterligare genom att välja specifikt **aktivitet** du är intresserad av.
 
 ### <a name="converged-registration-preview"></a>Konvergerade registrering (förhandsversion)
 
-Om ditt deltagande i den offentliga förhandsversionen av konvergerade registrering, information om användaraktivitet i granskningsloggarna finns under kategorin **autentiseringsmetoder**.
+Om ditt deltagande i den offentliga förhandsversionen av konvergerade registrering, information om användaraktivitet i granskningsloggarna finns i tjänsten **autentiseringsmetoder**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapportkolumner i Azure portal
 
@@ -176,14 +175,14 @@ I följande lista beskrivs den här aktiviteten i detalj:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
 * [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md).
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
-* [Vilka data som används av SSPR och vilka data bör du fylla för dina användare?](howto-sspr-authenticationdata.md)
-* [Vilka autentiseringsmetoder är tillgängliga för användare?](concept-sspr-howitworks.md#authentication-methods)
-* [Vad är principalternativ finns SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför behöver jag bry mig om det?](howto-sspr-writeback.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

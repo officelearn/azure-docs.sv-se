@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Konfigurera Zscaler tre för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Zscaler tre.
+description: I de här självstudierna lär du dig att konfigurera Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Zscaler tre.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -12,156 +12,150 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: ed158ae825ec8aac24a57eb0f5a986b2124b66fb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273693"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579061"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler tre för automatisk användaretablering
 
-Målet med den här självstudien är att demonstrera stegen som utförs i tre Zscaler och Azure Active Directory (AD Azure) att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper som ska Zscaler tre.
+I de här självstudierna lär du dig att konfigurera Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användare och/eller grupper som ska Zscaler tre.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Den här självstudien beskrivs en koppling som bygger på Azure AD-tjänst för användaretablering. Viktig information på vilka den här tjänsten gör och hur det fungerar och svar på vanliga frågor och svar, finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
-> Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningsappen är för närvarande i offentlig förhandsversion. Mer information om allmänna Azure användningsvillkoren för förhandsfunktionerna finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
+För att slutföra de steg som beskrivs i den här självstudien behöver du följande:
 
-* En Azure AD-klient
-* En Zscaler tre klient
-* Ett användarkonto i tre Zscaler med administratörsbehörighet
+* En Azure AD-klientorganisation.
+* En Zscaler tre klient.
+* Ett användarkonto i tre Zscaler med administratörsbehörighet.
 
 > [!NOTE]
-> Azure AD-etablering-integrering förlitar sig på Zscaler tre SCIM API, som är tillgängliga för Zscaler tre utvecklare för konton med Enterprise-paketet.
+> Etablering Azure AD-integrering är beroende av Zscaler ZSCloud SCIM-API, som är tillgängligt för företagskonton.
 
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Att lägga till tre Zscaler från galleriet
 
-Innan du konfigurerar Zscaler tre för automatisk användarförsörjning med Azure AD, som du behöver lägga till tre Zscaler från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Innan du konfigurerar Zscaler tre för automatisk användarförsörjning med Azure AD måste du lägga till Zscaler tre från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Om du vill lägga till tre Zscaler från Azure AD-programgalleriet, utför du följande steg:**
+I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+![Välj Azure Active Directory](common/select-azuread.png)
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Gå till **företagsprogram** och välj sedan **alla program**:
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+![Företagsprogram](common/enterprise-applications.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+![Välj nytt program](common/add-new-app.png)
 
-    ![Knappen Nytt program](common/add-new-app.png)
+I sökrutan anger **Zscaler tre**. Välj **Zscaler tre** i resultaten och välj sedan **Lägg till**.
 
-4. I sökrutan skriver **Zscaler tre**väljer **Zscaler tre** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+![Resultatlistan](common/search-new-app.png)
 
-    ![Zscaler tre i resultatlistan](common/search-new-app.png)
+## <a name="assign-users-to-zscaler-three"></a>Tilldela användare till tre Zscaler
 
-## <a name="assigning-users-to-zscaler-three"></a>Tilldela användare till tre Zscaler
+Azure AD-användare måste tilldelas åtkomst till valda appar innan de kan använda dem. I samband med automatisk användaretablering, synkroniseras de användare eller grupper som tilldelas till ett program i Azure AD.
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som är ”kopplade” till ett program i Azure AD.
-
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Zscaler tre. När du valt, kan du tilldela dessa användare och/eller grupper till Zscaler tre genom att följa instruktionerna här:
-
-* [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Zscaler tre. När du har bestämt som du kan tilldela dessa användare och grupper till Zscaler tre genom att följa instruktionerna i [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Viktiga tips för att tilldela användare till tre Zscaler
 
-* Vi rekommenderar att en enda Azure AD-användare har tilldelats Zscaler tre att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att du först tilldela en enda Azure AD-användare till Zscaler tre att testa konfigurationen för automatisk användaretablering. Du kan tilldela fler användare och grupper senare.
 
-* När du tilldelar en användare till tre Zscaler, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* Du måste välja en giltig programspecifika-roll (om tillgängligt) i dialogrutan tilldelning när du tilldelar en användare till Zscaler tre. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-zscaler-three"></a>Konfigurera automatisk användaretablering till tre Zscaler
+## <a name="set-up-automatic-user-provisioning"></a>Konfigurera automatisk användaretablering
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i Zscaler tre baserat på användare och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och grupper i Zscaler tre baserat på användar- och grupptilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Zscaler tre, följa anvisningarna enligt den [Zscaler tre självstudien för enkel inloggning](zscaler-three-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kanske också vill aktivera SAML-baserad enkel inloggning för Zscaler tre. Om du, följer du anvisningarna i den [Zscaler tre självstudien för enkel inloggning](zscaler-three-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, men de två funktionerna kompletterar varandra.
 
-### <a name="to-configure-automatic-user-provisioning-for-zscaler-three-in-azure-ad"></a>Konfigurera automatisk användaretablering för Zscaler tre i Azure AD:
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram** > **alla program** > **Zscaler tre**:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Zscaler tre**.
+    ![Företagsprogram](common/enterprise-applications.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+2. I listan med program väljer **Zscaler tre**:
 
-2. I listan med program väljer **Zscaler tre**.
+    ![Programlista](common/all-applications.png)
 
-    ![Zscaler tre länken i listan med program](common/all-applications.png)
-
-3. Välj den **etablering** fliken.
+3. Välj den **etablering** fliken:
 
     ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/provisioning-tab.png)
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ange den **Etableringsläge** till **automatisk**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/provisioning-credentials.png)
+    ![Ange Etableringsläge](./media/zscaler-three-provisioning-tutorial/provisioning-credentials.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **klient-URL** och **hemlighet Token** för tre Zscaler-kontot enligt beskrivningen i steg 6.
+5. I den **administratörsautentiseringsuppgifter** anger den **klient-URL** och **hemlighet Token** för tre Zscaler-kontot, enligt beskrivningen i nästa steg.
 
-6. Att hämta den **klient-URL** och **hemlighet Token**, gå till **Administration > autentiseringsinställningar** i Zscaler tre portalens användargränssnitt och klicka på  **SAML** under **autentiseringstyp**. 
+6. Att hämta den **klient-URL** och **hemlighet Token**går du till **Administration** > **autentiseringsinställningar** i Zscaler Tre portalen och välj **SAML** under **autentiseringstyp**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
+    ![Zscaler tre autentiseringsinställningar](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
-    Klicka på **konfigurera SAML** att öppna **Configuration SAML** alternativ.
+    Välj **konfigurera SAML** att öppna den **konfigurera SAML** fönster:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
+    ![Konfigurera SAML-fönstret](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
-    Välj **Enable SCIM-Based etablering** att hämta **bas-URL** och **ägar-Token**, spara inställningarna. Kopiera den **bas-URL** till **klient-URL** och **ägar-Token** till **hemlighet Token** i Azure-portalen.
+    Välj **Enable SCIM-Based etablering** och kopiera den **bas-URL** och **ägar-Token**, och spara inställningarna. Klistra in i Azure-portalen i **bas-URL** till den **klient-URL** box och **ägar-Token** till den **hemlighet Token** box.
 
-7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Zscaler tre. Om anslutningen misslyckas, kontrollera din Zscaler tre kontot har administratörsbehörighet och försök igen.
+7. När du har angett värdena i den **klient-URL** och **hemlighet Token** klickar eller trycker **Testanslutningen** att kontrollera att Azure AD kan ansluta till Zscaler tre. Om anslutningen misslyckas se till att din Zscaler tre kontot har administratörsbehörighet och försök igen.
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/test-connection.png)
+    ![Testa anslutningen](./media/zscaler-three-provisioning-tutorial/test-connection.png)
 
-8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan **skicka ett e-postmeddelande när ett fel inträffar**.
+8. I den **e-postmeddelande** anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel. Välj **skicka ett e-postmeddelande när ett fel inträffar**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/notification.png)
+    ![Konfigurera e-postmeddelande](./media/zscaler-three-provisioning-tutorial/notification.png)
 
-9. Klicka på **Spara**.
+9. Välj **Spara**.
 
-10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Zscaler tre**.
+10. I den **mappningar** väljer **synkronisera Azure Active Directory-användare till ZscalerThree**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/user-mappings.png)
+    ![Synkronisera Azure AD-användare](./media/zscaler-three-provisioning-tutorial/user-mappings.png)
 
-11. Granska användarattribut som synkroniseras från Azure AD till tre Zscaler i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Zscaler tre för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska användarattribut som synkroniseras från Azure AD till tre Zscaler i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Zscaler tre för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna.
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Attributmappningar](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
-12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper till Zscaler tre**.
+12. I den **mappningar** väljer **synkronisera Azure Active Directory-grupper till ZscalerThree**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/group-mappings.png)
+    ![Synkronisera Azure AD-grupper](./media/zscaler-three-provisioning-tutorial/group-mappings.png)
 
-13. Granska Gruppattribut som synkroniseras från Azure AD till tre Zscaler i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i Zscaler tre för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+13. Granska Gruppattribut som synkroniseras från Azure AD till tre Zscaler i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i Zscaler tre för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna.
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Attributmappningar](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](./../active-directory-saas-scoping-filters.md).
+14. Om du vill konfigurera Omfångsfilter läser du anvisningarna i den [Scoping filter självstudien](./../active-directory-saas-scoping-filters.md).
 
-15. Om du vill aktivera den Azure AD-etableringstjänsten för Zscaler tre, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+15. Om du vill aktivera den Azure AD-etableringstjänsten för Zscaler tre, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
+    ![Etableringsstatus](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
-16. Ange användare och/eller grupper som du vill kan etableras på tre Zscaler genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+16. Ange användare och/eller grupper som önskas kan etableras på tre Zscaler genom att välja de värden som du vill använda under **omfång** i den **inställningar** avsnittet:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/scoping.png)
+    ![Områdesvärden](./media/zscaler-three-provisioning-tutorial/scoping.png)
 
-17. När du är redo att etablera, klickar du på **spara**.
+17. När du är redo att etablera väljer **spara**:
 
-    ![Zscaler tre etablering](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
+    ![Klicka på Spara](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Zscaler tre.
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats under **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker varje 40 minuter så länge som den Azure AD-etableringtjänsten körs. Du kan övervaka förloppet i den **synkroniseringsinformation** avsnittet. Du kan även följa länkar till en aktivitetsrapporten för etablering, som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Zscaler tre.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantering av användarkontoetablering för företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

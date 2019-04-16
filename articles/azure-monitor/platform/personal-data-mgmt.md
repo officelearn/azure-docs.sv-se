@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121357"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577906"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -86,6 +86,9 @@ Som vi nämnde i den [strategi för hantering av personuppgifter](#strategy-for-
 ### <a name="view-and-export"></a>Visa och exportera
 
 För både visa och exportera databegäranden, den [Log Analytics-fråga API: N](https://dev.loganalytics.io/) eller [Application Insights fråga API: N](https://dev.applicationinsights.io/quickstart) ska användas. Logik för att omvandla formen av data till ett lämpligt alternativ för att förse dina användare kommer att upp till dig att implementera. [Azure Functions](https://azure.microsoft.com/services/functions/) gör ett bra ställe att vara värd för sådana logik.
+
+> [!IMPORTANT]
+>  Även om merparten av Rensa åtgärder kan slutföra mycket snabbare än serviceavtalet, **en formell serviceavtal (SLA) för att slutföra åtgärder för rensning har ställts in till 30 dagar** på grund av deras stor inverkan på dataplattform som används. Det här är en automatisk process. Det går inte att begära att en åtgärd ska hanteras snabbare.
 
 ### <a name="delete"></a>Ta bort
 

@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5f476aa571ba2827cbe6f4e4f258545b5e9d3ba1
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492489"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579316"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -453,7 +453,7 @@ Cross-instans service broker stöds inte:
   - `remote proc trans`
 - `sp_execute_external_scripts` stöds inte. Se [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` stöds inte. Se [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` stöds inte, inklusive `sp_addextendedproc` och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` stöds inte, inklusive `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ## <a name="Changes"></a> Funktionalitetsförändringar
@@ -480,7 +480,7 @@ Hanterad instans kan inte återställa [inneslutna databaser](https://docs.micro
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
-`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, och `RESTORE DATABASE` instruktioner misslyckas, eftersom instansen kan uppnår sin gräns för Azure Storage.
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE`, och `RESTORE DATABASE` instruktioner misslyckas, eftersom instansen kan uppnår sin gräns för Azure Storage.
 
 Varje allmänt syfte hanterad instans har till 35 TB lagring som är reserverade för diskutrymme för Azure Premium och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Outnyttjat utrymme på disken debiteras inte, men den totala summan av Azure Premium-diskstorlekar får inte överskrida 35 TB. I vissa fall kanske en hanterad instans som inte kräver 8 TB totalt överskrider 35 TB Azure begränsa lagringsstorleken, på grund av interna fragmentering.
 

@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855358"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578500"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -71,7 +71,7 @@ I följande tabell visas mappningarna som stöds:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
@@ -79,8 +79,7 @@ I följande tabell visas mappningarna som stöds:
 
 <sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
 
-> [!NOTE]
-> På grund av begäran kanske en region inte tillgänglig när du skapar din Automation-konto eller Log Analytics-arbetsyta.  Om så är fallet kontrollerar du att du använder en region i tabellen ovan, som du kan skapa resurser i.
+<sup>2</sup> på grund av begränsningar i kapaciteten regionen är inte tillgänglig när du skapar nya resurser. Detta inkluderar Automation-konton och Log Analytics-arbetsytor. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
 
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 

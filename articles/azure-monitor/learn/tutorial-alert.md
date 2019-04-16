@@ -4,93 +4,74 @@ description: Självstudie om hur du skickar aviseringar som svar på fel i ditt 
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/20/2017
+ms.date: 04/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05285a177827cd0dd1e0e39e779a395ccfdfc0cd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079170"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578772"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervaka och skicka aviseringar om programmets hälsotillstånd med Azure Application Insights
 
-Med Azure Application Insights kan du övervaka programmet och skicka aviseringar när det inte är tillgängligt, har drabbats av fel eller har prestandaproblem.  Den här självstudien går igenom processen med att skapa tester för att kontinuerligt kontrollera tillgängligheten för ditt program och för att skicka olika typer av aviseringar som svar på identifierade problem.  Lär dig att:
+Med Azure Application Insights kan du övervaka programmet och skicka aviseringar när det inte är tillgängligt, har drabbats av fel eller har prestandaproblem.  Den här självstudiekursen guidar dig genom processen att skapa tester för att kontinuerligt kontrollera tillgängligheten för ditt program.
+
+Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa tillgänglighetstest för att kontinuerligt kontrollera programmets respons
 > * Skicka e-post till administratörer när ett problem uppstår
-> * Skapa aviseringar utifrån prestandamått 
-> * Använda en logikapp för att skicka sammanfattade telemetridata enligt ett schema.
 
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
-- Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
-    - ASP.NET och webbutveckling
-    - Azure Development
-    - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+Skapa en [Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
 
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Skapa tillgänglighetstest
-Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt program från olika platser runt om i världen.   I den här självstudien får du utföra ett enkelt test för att säkerställa att programmet är tillgängligt.  Du kan även skapa en fullständig genomgång för att testa driften detaljerat. 
+
+Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt program från olika platser runt om i världen.   I den här självstudien får utföra du en url-test för att säkerställa att ditt webbprogram är tillgänglig.  Du kan även skapa en fullständig genomgång för att testa driften detaljerat. 
 
 1. Välj **Application Insights** och sedan din prenumeration.  
-1. Välj **Tillgänglighet** under menyn **Undersök** och klicka sedan på **Lägg till test**.
- 
-    ![Lägga till tillgänglighetstest](media/tutorial-alert/add-test.png)
 
-2. Skriv ett namn på testet och lämna de andra standardvärdena.  Detta begär startsidan för programmet var 5:e minut från 5 olika geografiska platser. 
-3. Välj **Aviseringar** för att öppna panelen **Aviseringar** där du kan definiera information om hur du svarar om testet misslyckas. Skriv en e-postadress att skicka när aviseringsvillkoren uppfylls.  Om du vill kan du ange adressen till en webhook att anropa när aviseringsvillkoren uppfylls.
+2. Välj **tillgänglighet** under den **Undersök** menyn och klicka sedan på **skapa test**.
 
-    ![Skapa test](media/tutorial-alert/create-test.png)
- 
-4. Gå tillbaka till testpanelen. Efter några minuter bör du börja se resultat från tillgänglighetstestet.  Klicka på testnamnet för att visa information för varje plats.  Punktdiagrammet visar status och varaktighet för varje test.
+    ![Lägga till tillgänglighetstest](media/tutorial-alert/add-test-001.png)
 
-    ![Testinformation](media/tutorial-alert/test-details.png)
+3. Skriv ett namn på testet och lämna de andra standardvärdena.  Det här alternativet utlöser begäranden för programmets url var femte minut från fem olika geografiska platser.
 
-5.  Du kan detaljgranska ett visst test genom att klicka på dess punkt i punktdiagrammet.  Exemplet nedan visar informationen för en misslyckad begäran.
+4. Välj **aviseringar** att öppna den **aviseringar** listrutan där du kan definiera information om hur du svarar om testet misslyckas. Välj **nära realtid** och ange status till **aktiverad.**
 
-    ![Testresultat](media/tutorial-alert/test-result.png)
+    Skriv en e-postadress att skicka när aviseringsvillkoren uppfylls.  Om du vill kan du ange adressen till en webhook att anropa när aviseringsvillkoren uppfylls.
+
+    ![Skapa test](media/tutorial-alert/create-test-001.png)
+
+5. Återgå till panelen test, väljer du ellipserna och redigera avisering om du vill ange konfigurationen för aviseringen i nära realtid.
+
+    ![Redigera avisering](media/tutorial-alert/edit-alert-001.png)
+
+6. Ange felaktiga platser till större än eller lika med 3. Skapa en [åtgärdsgrupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) konfigurera som hämtar ett meddelande när din tröskelvärdet överskrids.
+
+    ![Spara aviseringen UI](media/tutorial-alert/save-alert-001.png)
+
+7. När du har konfigurerat aviseringen, klickar du på test-namnet för att visa information från varje plats. Testerna kan visas i både rad graph och punktdiagram ritytans format för att visualisera lyckade/misslyckade för ett visst tidsintervall.
+
+    ![Testinformation](media/tutorial-alert/test-details-001.png)
+
+8. Du kan granska nedåt i detaljerna för valfritt test genom att klicka på dess punkt i punktdiagrammet. Detta startar den detaljerade vyn för slutpunkt till slutpunkt-transaktion. Exemplet nedan visar informationen för en misslyckad begäran.
+
+    ![Testresultat](media/tutorial-alert/test-result-001.png)
   
-6. Om aviseringsvillkoren uppfylls skickas ett e-postmeddelande liknande det nedan till den adress du har angett.
-
-    ![E-postavisering](media/tutorial-alert/alert-mail.png)
-
-
-## <a name="create-an-alert-from-metrics"></a>Skapa en avisering utifrån mått
-Utöver att skicka aviseringar från ett tillgänglighetstest kan du skapa en avisering utifrån valfritt prestandamått som samlas in för programmet.
-
-1. Välj **Aviseringar** på menyn **Konfigurera**.  Då öppnas panelen Azure-aviseringar.  Det kan finnas andra aviseringsregler här för andra tjänster.
-1. Klicka på **Lägg till måttavisering**.  Då öppnas panelen för att skapa en ny aviseringsregel.
-
-    ![Lägga till måttavisering](media/tutorial-alert/add-metric-alert.png)
-
-1. Skriv ett **namn** på aviseringsregeln och välj ditt program i listrutan för **Resurs**.
-1. Välj det **mått** som ska användas.  En graf visas med värdet för denna begäran under de senaste 24 timmarna.  Detta hjälper dig att ange villkoren för måttet.
-
-    ![Lägga till aviseringsregel](media/tutorial-alert/add-alert-01.png)
-
-1. Ange ett **villkor** och **tröskelvärde** för aviseringen. Detta är antalet gånger som måttet måste överskridas för att en avisering ska skapas. 
-1. Under **Meddela via** markerar du rutan **E-postägare, deltagare och läsare** för att skicka ett e-postmeddelande till dessa användare när aviseringsvillkoret uppfylls. Lägg till e-postadressen för eventuella ytterligare mottagare.  Du kan även ange en webhook eller en logikapp här som körs när villkoret uppfylls.  Dessa kan användas för att försöka åtgärda ett identifierat problem eller 
-
-    ![Lägga till aviseringsregel](media/tutorial-alert/add-alert-02.png)
-
-
-## <a name="proactively-send-information"></a>Proaktivt skicka information
-Aviseringar skapas som en reaktion på en viss uppsättning problem som identifierats i ditt program, och du reserverar normalt aviseringar för kritiska villkor som kräver omedelbar uppmärksamhet.  Du kan proaktivt ta emot information om ditt program med en logikapp som körs automatiskt enligt ett schema.  Du kan till exempel ha skickat e-post till administratörer dagligen med sammanfattad information som kräver ytterligare utvärdering.
-
-Information om hur du skapar en logikapp med Application Insights finns i [Automatisera Application Insights-processer med hjälp av logikappar](../../azure-monitor/app/automate-with-logic-apps.md)
-
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig hur du aviserar om problem går du vidare till nästa självstudie, där du lär dig att analyserar hur användare interagerar med ditt program.
 
 > [!div class="nextstepaction"]

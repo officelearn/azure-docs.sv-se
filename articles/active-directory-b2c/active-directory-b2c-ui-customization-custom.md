@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7463a61945524672c5124966db2464c036559db7
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818880"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571336"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55818880"
 
 När du har slutfört den här artikeln har du en anpassad princip för registrering och logga in med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C), du får nästan fullständig kontroll över HTML och CSS-innehåll som visas för användarna. När du använder en anpassad princip kan konfigurera du anpassning av Användargränssnittet i XML istället för att använda kontroller i Azure-portalen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
@@ -97,7 +97,7 @@ Om du vill skapa en offentlig behållare i Blob storage, gör du följande:
 Konfigurera Blob-lagring för Cross-Origin Resource Sharing genom att göra följande:
 
 1. I menyn, Välj **CORS**.
-2. För **tillåtna ursprung**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`. Du måste använda gemener när du anger namnet på din klientorganisation.
+2. För **tillåtna ursprung**, ange `https://your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda gemener när du anger namnet på din klientorganisation.
 3. För **tillåtna metoder**, markerar du båda `GET` och `OPTIONS`.
 4. För **tillåtna huvuden**, anger du en asterisk (*).
 5. För **exponerade rubriker**, anger du en asterisk (*).
@@ -144,8 +144,8 @@ Om du vill konfigurera anpassningar du kopiera den **ContentDefinition** och des
 
 ## <a name="upload-your-updated-custom-policy"></a>Ladda upp din uppdaterade anpassad princip
 
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Identitetsramverk**.
 2. Klicka på **alla principer**.
 3. Klicka på **överföra princip**.

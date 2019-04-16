@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452699"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578755"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referens för Azure Blockchain Workbench-konfiguration
 
- Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktionsmodellen för blockkedjeprogrammet. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
+Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktionsmodellen för blockkedjeprogrammet. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
 
 Konfigurationsmetadata anger följande information för varje blockchain-program:
 
@@ -67,11 +67,11 @@ Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtg
 
 Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Typ
 
 Datatyper som stöds.
 
-| Type | Beskrivning |
+| Typ | Beskrivning |
 |-------|-------------|
 | adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare*. |
 | matris    | Enskild nivå matris av typen heltal, bool, pengar och tid. Matriser kan vara statisk eller dynamisk. Använd **ElementType** Ange datatyp för element i matrisen. Se [exempelkonfiguration](#example-configuration-of-type-array). |

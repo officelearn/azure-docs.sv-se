@@ -11,12 +11,12 @@ ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884898"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577617"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Vad är Azure Active Directory Connect-administratörsagenten? 
 Azure AD Connect Administration-agenten är en ny komponent i Azure Active Directory Connect som är installerad på en Azure Active Directory Connect-server. Den används för att samla in specifika data från Active Directory-miljön som hjälper till att ett Microsoft-support-tekniker för att felsöka problem när du öppnar ett supportärende.
@@ -41,16 +41,18 @@ Microsoft Support-tekniker kan inte ändra data i systemet och kan inte se event
  
 Om du inte vill att Microsoft servicetekniker komma åt dina data för supportsamtal kan du inaktivera detta genom att ändra konfigurationsfilen service enligt beskrivningen nedan: 
 
-  1.    Öppna **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** i anteckningar.
-  2.    Inaktivera **UserDataEnabled** inställningen som visas nedan. Om **UserDataEnabled** inställningen finns och är inställd på true och inställd på false. Om inställningen inte finns, lägger du till inställningen som visas nedan.    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.    Spara konfigurationsfilen.
-  4.    Starta om tjänsten för Azure AD Connect Administration agenten enligt nedan
+1.  Öppna **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** i anteckningar.
+2.  Inaktivera **UserDataEnabled** inställningen som visas nedan. Om **UserDataEnabled** inställningen finns och är inställd på true och inställd på false. Om inställningen inte finns, lägger du till inställningen som visas nedan.    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.  Spara konfigurationsfilen.
+4.  Starta om tjänsten för Azure AD Connect Administration agenten enligt nedan
 
 ![Admin-agenten](media/whatis-aadc-admin-agent/adminagent2.png)
 

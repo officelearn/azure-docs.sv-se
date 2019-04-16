@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916673"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578665"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 
@@ -48,8 +48,8 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_sidhuvud_</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
+    <td>Rubriker för autentisering</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -176,7 +176,7 @@ Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden ä
 
 I följande exempel visas hur du hämtar språk som stöds för textöversättning.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

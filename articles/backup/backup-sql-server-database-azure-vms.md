@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849301"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578832"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du säkerhetskopierar en SQL Server-databas som kör
 > * Konfigurera automatiskt skydd för databaser.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
@@ -113,7 +113,7 @@ Identifiera databaser som körs på den virtuella datorn.
     - Azure Backup skapar tjänstkontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn.
       - Alla åtgärder för säkerhetskopiering och återställning använder tjänstkontot.
       - **NT Service\AzureWLBackupPluginSvc** behöver SQL-sysadmin-behörigheter. Alla virtuella SQL Server-datorer som skapas i Azure Marketplace har **SqlIaaSExtension** installerat. Tillägget **AzureBackupWindowsWorkload** använder **SQLIaaSExtension** för att automatiskt hämta de behörigheter som krävs.
-    - Om du inte skapade den virtuella datorn från Marketplace har den inte **SqlIaaSExtension** installerat, och identifieringsåtgärden misslyckas med felmeddelandet **UserErrorSQLNoSysAdminMembership**. Följ instruktionerna i [#fix-sql-sysadmin-permissions] för att åtgärda det här problemet.
+    - Om du inte skapade den virtuella datorn från Marketplace har den inte **SqlIaaSExtension** installerat, och identifieringsåtgärden misslyckas med felmeddelandet **UserErrorSQLNoSysAdminMembership**. Följ den [instruktioner](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) att åtgärda problemet.
 
         ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 1166f98dcd39362ef5e28be12ff9e2f561ab5b1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238232"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579020"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS
 
@@ -67,4 +67,4 @@ På den [Azure CDN sidan med priser](https://azure.microsoft.com/pricing/details
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera ett anpassat domännamn för din Blob storage-slutpunkt](storage-custom-domain-name.md)
-* [Värd för statisk webbplats i Azure Storage (förhandsversion)](storage-blob-static-website.md)
+* [Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website.md)

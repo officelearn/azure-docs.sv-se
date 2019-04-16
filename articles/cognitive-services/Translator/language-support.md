@@ -10,18 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267914"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577600"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
 Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig.
 
 [Mer information om hur maskinöversättning fungerar](https://www.microsoft.com/translator/mt.aspx)
+
+## <a name="translation"></a>Översättning
 
 **V2 Translator API**
 
@@ -113,10 +115,10 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabiska `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska (förenklad) `Hans`| <--> | Latin `Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska (förenklad) `Hans`| <--> | Kinesiska (traditionell) `Hant`|
-| Traditionell kinesiska | `zh-Hant` | Kinesiska (traditionell) `Hant`| <--> | Latin `Latn` |
-| Traditionell kinesiska | `zh-Hant` | Kinesiska (traditionell) `Hant`| <--> | Kinesiska (förenklad) `Hans` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Latin `Latn` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Kinesiska, traditionell `Hant`|
+| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Latin `Latn` |
+| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Kinesiska, förenklad `Hans` |
 | Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
 | Hebreiska | `he` | Hebreiska `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
@@ -124,11 +126,11 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 | Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbiska (kyrillisk) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbiska (latinsk) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamilska | `ta` | Tamilska `Taml` | --> | Latin `Latn` |
+| Tamilska | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
 
@@ -191,77 +193,8 @@ Ordlistan stöder följande språk till eller från engelska med hjälp av Sök-
 
 ## <a name="detect"></a>Detect
 
-Följande språk stöds av metoden identifiering. Identifiera maj identifiera språk som Microsoft Translator inte kan översätta.
+Translator Text API identifierar alla språk som är tillgängliga för översättning och transkriberingsspråk.
 
-| Språk    |
-|:----------- |
-| Afrikaans |
-| Albanska |
-| Arabiska |
-| Baskiska |
-| Vitryska |
-| Bulgariska |
-| Katalanska |
-| Kinesiska |
-| Förenklad kinesiska |
-| Traditionell kinesiska |
-| Kroatiska |
-| Tjeckiska |
-| Danska |
-| Nederländska |
-| Svenska |
-| Esperanto |
-| Estniska |
-| Finska |
-| Franska |
-| Galiciska |
-| Tyska |
-| Grekiska |
-| Haitiska |
-| Hebreiska |
-| Hindi |
-| Ungerska |
-| Isländska |
-| Indonesiska |
-| Iriska |
-| Italienska |
-| Japanska |
-| Koreanska |
-| Kurdiska (arabiska) |
-| Kurdiska (latinsk) |
-| Latin |
-| Lettiska |
-| Litauiska |
-| Makedonska |
-| Malajiska |
-| Maltesiska |
-| Norska |
-| Norska (nynorsk) |
-| Afghanska |
-| Persiska |
-| Polska |
-| Portugisiska |
-| Rumänska |
-| Ryska |
-| Serbiska (kyrillisk) |
-| Serbiska (latinsk) |
-| Slovakiska |
-| Slovenska |
-| Somali |
-| Spanska |
-| Swahili |
-| Svenska |
-| Tagalog |
-| Telugu |
-| Thai |
-| Turkiska |
-| Ukrainska |
-| Urdu |
-| Uzbekiska (kyrillisk) |
-| Uzbekiska (latinsk) |
-| Vietnamesiska |
-| Walesiska |
-| Jiddish |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Programmässig åtkomst Språklista Translator Text API
 
@@ -294,6 +227,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Hindi      | `hi`          |
 | Ungerska      | `hu`          |
 | Isländska | `is` |
+| Indonesiska|   `id`    |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 | Koreanska      | `ko`          |

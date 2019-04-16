@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916429"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578284"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ordlisteexempel
 
@@ -56,8 +56,8 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_sidhuvud_</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
+    <td>Rubriker för autentisering</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Det här exemplet visar hur du leta upp exempel för paret består av engelska termen `fly` och dess spanska translation `volar`.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

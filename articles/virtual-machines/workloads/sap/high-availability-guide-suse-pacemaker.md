@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549907"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577803"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -84,7 +84,7 @@ Kör följande kommandon på alla **iSCSI virtuella måldatorer**.
 
 Kör följande kommandon på alla **iSCSI virtuella måldatorer** att skapa iSCSI-diskar för kluster som används av dina SAP-system. I följande exempel skapas uppstår enheter för flera kluster. Den visar hur du använder en iSCSI-målservern för flera kluster. Enheterna som uppstår placeras på OS-disken. Se till att du har tillräckligt med utrymme.
 
-**` nfs`** används för att identifiera NFS-klustret **ascsnw1** används för att identifiera ASCS-kluster med **NW1**, **dbnw1** används för att identifiera databasen kluster **NW1** , **nfs-0** och **nfs-1** är värdnamnen för klusternoderna NFS **nw1-xscs-0** och **nw1 xscs 1**är värdnamnen för den **NW1** ASCS klusternoder och **nw1-db-0** och **nw1-db-1** är värdnamnen för databasen klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
+**`nfs`** används för att identifiera NFS-klustret **ascsnw1** används för att identifiera ASCS-kluster med **NW1**, **dbnw1** används för att identifiera databasen kluster **NW1** , **nfs-0** och **nfs-1** är värdnamnen för klusternoderna NFS **nw1-xscs-0** och **nw1 xscs 1**är värdnamnen för den **NW1** ASCS klusternoder och **nw1-db-0** och **nw1-db-1** är värdnamnen för databasen klusternoder. Ersätt dem med värdnamnen för klusternoderna och SID för SAP-system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Skapa den ` softdog` konfigurationsfil
+   Skapa den `softdog` konfigurationsfil
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

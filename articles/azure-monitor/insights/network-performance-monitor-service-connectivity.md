@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501970"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571179"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -68,7 +68,7 @@ Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänstes
 5. I **Target**, ange URL-Adressen/FQDN/IP-adressen som du vill övervaka nätverksanslutningar.
 6. I **portnummer**, ange portnumret för Måltjänsten. 
 7. I **testa frekvens**, ange ett värde för hur ofta du vill att testet ska köras. 
-8. Markera de noder som du vill övervaka nätverksanslutningar till tjänsten. 
+8. Markera de noder som du vill övervaka nätverksanslutningar till tjänsten. Kontrollera att antalet agenter som har lagts till per test är mindre än 150. Alla agenter kan testa maximala 150 slutpunkter/agenter.
 
     >[!NOTE]
     > För Windows server-baserade noderna använder funktionen för TCP-baserade förfrågningar för att utföra nätverksmätningar. För Windows klientbaserade noder använder funktionen för ICMP-baserade begäranden för att utföra nätverksmätningar. I vissa fall kan blockerar målprogrammet inkommande ICMP-baserade begäranden när noderna är Windows klientbaserade. Lösningen kan inte utföra nätverksmätningar. Vi rekommenderar att du använder Windows server-baserade noder i sådana fall. 

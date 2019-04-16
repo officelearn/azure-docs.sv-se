@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767047"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579282"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
@@ -22,12 +22,12 @@ Den här artikeln förklarar hur du gör de vanligaste uppgifterna med Azure Aut
 
 Den här artikeln innehåller en stegvis guide till med hjälp av Azure Automation State Configuration. Om du vill att en exempel-miljö som redan har konfigurerats utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mallen: [Azure Automation hanteras nodmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen ställer in en slutförd tillståndskonfigurationen för Azure Automation-miljön, inklusive en Azure-dator som hanteras av Azure Automation State Configuration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill utföra exemplen i den här artikeln, krävs följande:
 
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
-- En Azure Resource Manager-VM (inte klassisk) som kör Windows Server 2008 R2 eller senare. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- En Azure Resource Manager-VM (inte klassisk) som kör en [operativsystem som stöds](automation-dsc-overview.md#operating-system-requirements). Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Skapa en DSC-konfiguration
 
@@ -149,9 +149,9 @@ Du kan använda Azure Automation State Configuration för att hantera virtuella 
 1. På den **VM** redogör för sidan, klickar du på **+ Connect**.
 
    > [!IMPORTANT]
-   > Det här måste vara en Azure Resource Manager-VM som kör Windows Server 2008 R2 eller senare.
+   > Det här måste vara en Azure Resource Manager-VM som kör en [operativsystem som stöds](automation-dsc-overview.md#operating-system-requirements).
 
-1. I den **registrering** markerar du namnet på nodkonfigurationen som du vill använda för den virtuella datorn i den **nodkonfigurationsnamn** box. Det är valfritt att ange ett namn i det här läget. Du kan ändra den tilldelade nodkonfigurationen när noden.
+2. I den **registrering** markerar du namnet på nodkonfigurationen som du vill använda för den virtuella datorn i den **nodkonfigurationsnamn** box. Det är valfritt att ange ett namn i det här läget. Du kan ändra den tilldelade nodkonfigurationen när noden.
    Kontrollera **starta om nod vid behov**, klicka sedan på **OK**.
 
    ![Skärmbild av bladet registrering](./media/automation-dsc-getting-started/RegisterVM.png)

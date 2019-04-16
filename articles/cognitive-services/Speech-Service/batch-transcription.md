@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447658"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579367"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
 Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
@@ -88,6 +88,16 @@ Konfigurationsparametrar tillhandahålls som JSON:
 | `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfri |
  | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. | Valfri |
 
+### <a name="storage"></a>Storage
+
+Batch stöder avskrift [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa in ljud och avskrifter för skrivning till lagring.
+
+## <a name="webhooks"></a>Webhooks 
+
+Avsökning för transkription status kan inte de flesta prestanda eller ange den bästa användarupplevelsen. Om du vill söka efter status, kan du registrera återanrop som meddelar klienten när tidskrävande avskrift aktiviteterna har slutförts.
+
+Mer information finns i [Webhooks](webhooks.md).
+
 ## <a name="sample-code"></a>Exempelkod
 
 Hela exemplet finns i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples) inuti den `samples/batch` underkatalog.
@@ -108,10 +118,6 @@ Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinje
 
 > [!NOTE]
 > För baslinjen avskrifter behöver du inte deklarera ID för baslinjemodeller. Om du bara anger ett språk modell-ID (och inget akustisk modell-ID) markeras automatiskt en matchande akustisk modell. Om du bara anger en akustisk modell-ID, väljs automatiskt en matchande språkmodell.
-
-### <a name="supported-storage"></a>Lagring som stöds
-
-För närvarande stöds endast Azure Blob storage.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 

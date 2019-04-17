@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895796"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616279"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure-databas för MariaDB
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten.
@@ -28,10 +28,12 @@ Det maximala antalet anslutningar per prisnivå och virtuella kärnor är följa
 |Generellt syfte| 8| 1250|
 |Generellt syfte| 16| 2500|
 |Generellt syfte| 32| 5000|
+|Generellt syfte| 64| 10000|
 |Minnesoptimerad| 2| 600|
 |Minnesoptimerad| 4| 1250|
 |Minnesoptimerad| 8| 2500|
 |Minnesoptimerad| 16| 5000|
+|Minnesoptimerad| 32| 10000|
 
 När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 > FEL 1040 (08004): För många anslutningar

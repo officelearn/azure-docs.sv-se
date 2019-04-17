@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766958"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608902"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766958"
 
 Den här självstudien omfattar följande steg:
 
-1. Skapa ett Service Bus-namnområde med Azure Portal.
-2. Skapa ett Service Bus-ämne med Azure Portal.
-3. Skapa en Service Bus-prenumeration på ämnet med Azure Portal.
-4. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till ämnet.
-5. Skriva ett .NET Core-konsolprogram för att ta emot meddelanden från prenumerationen.
+1. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till ämnet.
+2. Skriva ett .NET Core-konsolprogram för att ta emot meddelanden från prenumerationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
-2. En Azure-prenumeration.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att utföra följande uppgifter:
+    1. Skapa ett Service Bus **namnområde**.
+    2. Hämta den **anslutningssträngen**.
+    3. Skapa en **avsnittet** i namnområdet.
+    4. Skapa **en prenumeration** till ämnet i namnområdet.
+3. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
+ 
 ## <a name="send-messages-to-the-topic"></a>Skicka meddelanden till ämnet
 
 För att kunna skicka meddelanden till ämnet skriver du ett C#-konsolprogram med Visual Studio.
@@ -204,7 +200,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
 
 ## <a name="receive-messages-from-the-subscription"></a>Ta emot meddelanden från prenumerationen
 
-För att ta emot de meddelanden som du just skickade skapar du ytterligare ett .NET Core-konsolprogram och installerar **Microsoft.Azure.ServiceBus** NuGet-paketet, på ungefär samma sätt som i det tidigare sändningsprogrammet.
+Skapa en annan .NET Core-konsolprogram för att ta emot meddelanden som du har skickat och installera den **Microsoft.Azure.ServiceBus** NuGet-paketet, ungefär som i det tidigare sändningsprogrammet.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Skriva kod för att ta emot meddelanden från prenumerationen
 

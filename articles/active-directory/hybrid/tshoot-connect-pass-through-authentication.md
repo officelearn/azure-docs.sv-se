@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184898"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616221"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -71,6 +71,9 @@ Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Di
 | 80007 | Det gick inte att ansluta autentiseringsagenten till Active Directory. | Kontrollera om din Active Directory kan nås från den Autentiseringsagenten.
 | 80010 | Autentiseringsagenten kan inte dekryptera lösenordet. | Om problemet är konsekvent reproducerbar, installera och registrera en ny Agent för autentisering. Och avinstallera den aktuella artikeln. 
 | 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet är konsekvent reproducerbar, installera och registrera en ny Agent för autentisering. Och avinstallera den aktuella artikeln.
+
+>[!IMPORTANT]
+>Direkt Autentiseringsagenter autentisera Azure AD-användare genom att verifiera användarnamn och lösenord mot Active Directory genom att anropa den [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Om du har angett inställningen ”logga in till” i Active Directory för att begränsa åtkomsten för arbetsstation inloggning, har du därför att lägga till servrar som hyser Autentiseringsagenter direkt i listan över ”logga in till”-servrar samt. Om du inte gör detta blockerar användarna från att logga in på Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Autentiseringsproblem Agent installation
 

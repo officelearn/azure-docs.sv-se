@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dadeda8bb270689530a34c3e36d33e439ea9e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180393"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616602"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -50,6 +50,10 @@ Ja, har stöd för direktautentisering `Alternate ID` som användarnamn när du 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Synkronisering av lösenordshash fungera som reserv för direktautentisering?
 
 Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Vad händer när jag växlar från synkronisering av lösenordshash till direktautentisering?
+
+När du använder Azure AD Connect för att växla metoden inloggning från synkronisering av lösenordshash till direktautentisering blir direktautentisering den primära inloggningsmetoden för dina användare i hanterade domäner. Observera att alla användare lösenords-hash som tidigare har synkroniserats med synkronisering av lösenordshash finns lagrade i Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../manage-apps/application-proxy.md) anslutningsapp på samma server som en Autentiseringsagenten för direktautentisering?
 

@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014397"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616364"
 ---
-# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervakning och felsökning från HANA-sida
+# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervaka och felsöka från HANA-sida
 
 För att effektivt analysera problem relaterade till SAP HANA på Azure (stora instanser), är det praktiskt att begränsa de grundläggande orsakerna till problem. SAP har publicerat en stor mängd dokumentation som hjälper dig att.
 
@@ -108,7 +108,7 @@ Referera till den [SAP HANA Felsökning: Nätverk prestanda och problem med nät
 
 ## <a name="storage"></a>Storage
 
-Ur ett för slutanvändare, ett program (eller systemet som helhet) körs långsamt, inte svarar eller även kan verka låsa om det finns problem med i/o-prestanda. I den **volymer** fliken i SAP HANA Studio ser du de anslutna volymerna och vilka volymer som används av varje tjänst.
+Ur ett för slutanvändare, ett program (eller systemet som helhet) körs långsamt, inte svarar eller även kan verka slutar svara om det finns problem med i/o-prestanda. I den **volymer** fliken i SAP HANA Studio ser du de anslutna volymerna och vilka volymer som används av varje tjänst.
 
 ![I fliken volymer i SAP HANA-Studio ser du de anslutna volymerna och vilka volymer som används av varje tjänst](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

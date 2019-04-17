@@ -1,29 +1,28 @@
 ---
-title: Schemareferens för Definitionsspråk för arbetsflödet – Azure Logic Apps | Microsoft Docs
-description: Skriva anpassade arbetsflödesdefinitioner för Azure Logic Apps med Definitionsspråk för arbetsflödet
+title: Schemareferens för Definitionsspråk för arbetsflödet – Azure Logic Apps
+description: Referensguide för Definitionsspråk för arbetsflödet schemat i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620844"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616809"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schemareferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
-När du skapar ett logic app-arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md), ditt arbetsflöde underliggande definitionen beskrivs den faktiska logik som körs i din logikapp. Den här beskrivningen följer en struktur som har definierats och godkänts av schemat Definitionsspråk för arbetsflödet som använder [JavaScript Object Notation (JSON)](https://www.json.org/).
+När du skapar en logikapp i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), din logikapp har en underliggande arbetsflödesdefinitionen som beskriver den faktiska logik som körs i din logikapp. Den arbetsflödesdefinitionen använder [JSON](https://www.json.org/) och följer en struktur som verifieras av schemat Definitionsspråk för arbetsflödet. Den här referensen innehåller en översikt om den här strukturen och hur schemat definierar element i din arbetsflödesdefinitionen.
 
 ## <a name="workflow-definition-structure"></a>Arbetsflöde-definitionsstruktur
 
-En arbetsflödesdefinition har minst en utlösare som skapar en instans av din logikapp, plus en eller flera åtgärder som din logikapp körs.
+En arbetsflödesdefinition alltid innehåller en utlösare för kontrollanten din logikapp och en eller flera åtgärder som körs när utlösaren aktiveras.
 
 Här är den övergripande strukturen för en arbetsflödesdefinition:
 
@@ -51,7 +50,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 
 ## <a name="parameters"></a>Parametrar
 
-I den `parameters` avsnittet, definiera alla arbetsflödesparametrar som logikappen använder vid distribution för att acceptera indata. Både parametern och parametervärden måste anges vid distributionen. Innan du kan använda dessa parametrar i andra avsnitt i arbetsflödet, se till att du deklarerar alla parametrar i dessa avsnitt. 
+I den `parameters` avsnittet, definiera alla arbetsflödesparametrar som din arbetsflödesdefinitionen använder vid distribution för att acceptera indata. Både parametern och parametervärden måste anges vid distributionen. Innan du kan använda dessa parametrar i andra avsnitt i arbetsflödet, se till att du deklarerar alla parametrar i dessa avsnitt. 
 
 Här är den allmänna strukturen för en parameterdefinition:
 
@@ -75,7 +74,7 @@ Här är den allmänna strukturen för en parameterdefinition:
 | typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
 | Standardvärde | Ja | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
 | allowedValues | Nej | Samma som `type` | En matris med värden som parametern kan acceptera |
-| metadata | Nej | JSON-objekt | Övriga parametern detaljer, till exempel namnet eller en läsbar beskrivning för din logikapp eller ett designläge data som används av Visual Studio eller andra verktyg |
+| metadata | Nej | JSON-objekt | Övriga parametern detaljer, till exempel namnet eller en läsbar beskrivning för logikappen eller flödet designfasen data som används av Visual Studio eller andra verktyg |
 ||||
 
 ## <a name="triggers-and-actions"></a>Utlösare och åtgärder
@@ -107,7 +106,7 @@ Här är den allmänna strukturen för en utdata-definition:
 | värde | Ja | Samma som `type` | Det returnera värdet för utdata |
 |||||
 
-Om du vill hämta utdata från ett arbetsflöde som kör granska logikappen körningshistorik och information i Azure portal eller Använd den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan även skicka utdata till externa system, till exempel Power BI så att du kan skapa instrumentpaneler.
+Om du vill hämta utdata från ett arbetsflöde som kör granska din logikapps körningshistorik och information i Azure portal eller Använd den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan även skicka utdata till externa system, till exempel Power BI så att du kan skapa instrumentpaneler.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ I [uttryck](#expressions) och [functions](#functions), operatorer för att utfö
 
 ## <a name="functions"></a>Functions
 
-Vissa uttryck få deras värden från runtime-åtgärder som inte kanske finns ännu när en logikapp börjar köras. Du kan använda för att referera till eller arbeta med dessa värden i uttryck, [ *functions* ](../logic-apps/workflow-definition-language-functions-reference.md) som tillhandahåller Definitionsspråk för arbetsflödet.
+Vissa uttryck få deras värden från runtime-åtgärder som inte kanske finns ännu när din arbetsflödesdefinitionen börjar köras. Du kan använda för att referera till eller arbeta med dessa värden i uttryck, [ *functions* ](../logic-apps/workflow-definition-language-functions-reference.md) som tillhandahåller Definitionsspråk för arbetsflödet.
 
 ## <a name="next-steps"></a>Nästa steg
 

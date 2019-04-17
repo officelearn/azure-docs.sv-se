@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 9476713bdca185fd84289fca3cf7aa304ad3f9fb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311432"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616874"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysisk server till Azure disaster recovery-arkitekturen
 
@@ -25,7 +25,7 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-**Azure** | En Azure-prenumeration, Azure storage-konto och Azure-nätverk. | Replikerade data från lokala virtuella datorer lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerad data när du kör en växling vid fel över från lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
+**Azure** | En Azure-prenumeration och ett Azure-nätverk. | Replikerade data från lokala fysiska datorer lagras i Azure-hanterade diskar. Virtuella Azure-datorer skapas med replikerad data när du kör en växling vid fel över från lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **Konfigurationsserver** | En enda lokal fysisk dator eller VMware VM distribueras för att köra alla lokalerna Site Recovery-komponenter. Den virtuella datorn körs på konfigurationsservern, processervern och huvudmålservern. | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
  **Processerver**:  | Installeras som standard tillsammans med konfigurationsservern. | Fungerar som en replikeringsgateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage.<br/><br/> Processervern installerar också mobilitetstjänsten på servrar som du vill replikera.<br/><br/> Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.
  **Huvudmålservern** | Installeras som standard tillsammans med konfigurationsservern. | Hanterar replikeringsdata vid återställning efter fel från Azure.<br/><br/> För stora distributioner, kan du lägga till en ytterligare, separat huvudmålserver för återställning efter fel.

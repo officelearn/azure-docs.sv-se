@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: e53a6fcefb0f5370f6e24cc50fad2ad4ad4c64e3
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57864097"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616636"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>SQL Data Warehouse arbetsbelastning vikten (förhandsversion)
 
 Den här artikeln förklarar hur arbetsbelastning prioritet kan påverka ordningen för körningen för SQL Data Warehouse-begäranden.
 
 > [!Note]
-> Prioritet för arbetsbelastningen är tillgänglig på SQL-informationslager Gen2.
+> Klassificering för arbetsbelastningen är tillgänglig för förhandsversionen av SQL Data Warehouse Gen2. Klassificering för hantering av arbetsbelastning och vikten förhandsversion är för versioner med ett frisläppningsdatum av 9 April 2019 eller senare.  Användare bör undvika att använda versioner tidigare än det här datumet för arbetsbelastningen management testning.  För att fastställa om din version är hantering av arbetsbelastning kan du köra väljer @@version när du är ansluten till din SQL Data Warehouse-instans.
 
 ## <a name="importance"></a>Prioritet
 

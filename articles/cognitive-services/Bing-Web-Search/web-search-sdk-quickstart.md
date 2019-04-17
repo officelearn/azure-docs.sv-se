@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 04/15/2019
 ms.author: aahi
-ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b1660034f1937d2d8ff9e70139407619626886a8
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860762"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606811"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snabbstart: Använda SDK för webbsökning i Bing för C#
 
@@ -25,7 +25,7 @@ SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) eller
@@ -82,11 +82,11 @@ I följande avsnitt bygger vi exempelprogrammet i den här klassen.
 Den här koden konstruerar sökfrågan.
 
 ```csharp
-public static void WebResults(WebSearchAPI client)
+public static async void WebResults(WebSearchClient client)
 {
     try
     {
-        var webData = client.Web.Search(query: "Yosemite National Park");
+        var webData = await client.Web.SearchAsync(query: "Yosemite National Park");
         Console.WriteLine("Searching for \"Yosemite National Park\"");
 
         // Code for handling responses is provided in the next section...
@@ -211,7 +211,7 @@ I det här programmet innehåller main-metoden kod som instansierar klienten, ve
 ```csharp
 static void Main(string[] args)
 {
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+    var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
     WebResults(client);
 
@@ -239,11 +239,11 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
 1. Lägg till den här koden i konsolprojektet:
 
     ```csharp
-    public static void WebResultsWithCountAndOffset(WebSearchAPI client)
+    public static async void WebResultsWithCountAndOffset(WebSearchClient client)
     {
         try
         {
-            var webData = client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
             Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
 
             if (webData?.WebPages?.Value?.Count > 0)
@@ -278,7 +278,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...
@@ -298,12 +298,12 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
 1. Lägg till den här koden i konsolprojektet:
 
     ```csharp
-    public static void WebSearchWithResponseFilter(WebSearchAPI client)
+    public static async void WebSearchWithResponseFilter(WebSearchClient client)
     {
         try
         {
             IList<string> responseFilterstrings = new List<string>() { "news" };
-            var webData = client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
             Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
 
             if (webData?.News?.Value?.Count > 0)
@@ -339,7 +339,7 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...
@@ -361,12 +361,12 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
 1. Lägg till den här koden i konsolprojektet:
 
     ```csharp
-    public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
+    public static async void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchClient client)
     {
         try
         {
             IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-            var webData = client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
             Console.WriteLine("\r\nSearching for \"Music Videos\"");
 
             if (webData?.Videos?.Value?.Count > 0)
@@ -401,7 +401,7 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...

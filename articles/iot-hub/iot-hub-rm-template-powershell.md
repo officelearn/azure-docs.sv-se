@@ -1,148 +1,57 @@
 ---
 title: Skapa en Azure IoT Hub med hjälp av en mall (PowerShell) | Microsoft Docs
-description: Hur du använder en Azure Resource Manager-mall för att skapa en IoT Hub med PowerShell.
+description: Hur du använder en Azure Resource Manager-mall för att skapa en IoT Hub med Azure PowerShell.
 author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.openlocfilehash: fcc9af9e614b0a1b7977ba18f3147fddab8b7b7d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/02/2019
+ms.openlocfilehash: d23d3824c477d3bba4e4900bee355376f1317f92
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045063"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609189"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Skapa en IoT hub med Azure Resource Manager-mall (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Du kan använda Azure Resource Manager för att skapa och hantera Azure-IoT-hubbar programmässigt. Den här självstudien visar hur du använder en Azure Resource Manager-mall för att skapa en IoT hub med PowerShell.
+Lär dig hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb och en konsumentgrupp. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Mer information om hur du utvecklar Resource Manager-mallar finns i [dokumentation om Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-> [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver distributionsmodellen Azure Resource Manager.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-För att kunna genomföra den här kursen behöver du följande:
+Resource Manager-mallen som används i den här snabbstarten är från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Här är en kopia av mallen:
 
-* Ett aktivt Azure-konto. <br/>Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.
-* [Azure PowerShell 1.0] [ lnk-powershell-install] eller senare.
+[!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-> [!TIP]
-> Artikeln [med hjälp av Azure PowerShell med Azure Resource Manager] [ lnk-powershell-arm] innehåller mer information om hur du använder PowerShell och Azure Resource Manager-mallar för att skapa Azure-resurser.
+Mallen skapar en Azure-Iot-hubb med tre slutpunkter (eventhub, moln-till-enhet och meddelanden) och en konsumentgrupp. Läs mer mallexempel [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Mallsschemat Iot Hub finns [här](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
-## <a name="connect-to-your-azure-subscription"></a>Ansluta till din Azure-prenumeration
+Det finns flera metoder för att distribuera en mall.  I den här självstudien använder du Azure PowerShell.
 
-Ange följande kommando för att logga in på Azure-prenumerationen i en PowerShell-Kommandotolken:
+Om du vill köra PowerShell-skriptet, Välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan klistra in:
 
-```powershell
-Connect-AzAccount
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$iotHubName = Read-Host -Prompt "Enter the IoT Hub name"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-with-consumergroup-create/azuredeploy.json" `
+    -iotHubName $iotHubName
 ```
 
-Om du har flera Azure-prenumerationer kan får logga in på Azure du åtkomst till alla Azure-prenumerationer som är associerade med dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
-
-```powershell
-Get-AzSubscription
-```
-
-Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
-
-```powershell
-Select-AzSubscription `
-    -SubscriptionName "{your subscription name}"
-```
-
-Du kan använda följande kommandon för att identifiera där du kan distribuera en IoT-hubb och de API-versionerna som stöds för tillfället:
-
-```powershell
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
-```
-
-Skapa en resursgrupp som innehåller din IoT-hubb med följande kommando i en av platserna som stöds för IoT Hub. Det här exemplet skapas en resursgrupp med namnet **MyIoTRG1**:
-
-```powershell
-New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
-```
-
-## <a name="submit-a-template-to-create-an-iot-hub"></a>Skicka in en mall för att skapa en IoT-hubb
-
-Använd en JSON-mall för att skapa en IoT-hubb i resursgruppen. Du kan också använda en Azure Resource Manager-mall för att göra ändringar i en befintlig IoT-hubb.
-
-1. Använd en textredigerare för att skapa en Azure Resource Manager-mall som kallas **template.json** med följande resursdefinition att skapa en ny standard IoT hub. Det här exemplet lägger till IoT Hub i den **USA, östra** region, skapar två konsumentgrupper (**cg1** och **cg2**) i Event Hub-kompatibla slutpunkten och använder den  **2016-02-03** API-versionen. Den här mallen förväntar dig att skicka in namnet för IoT-hubb som en parameter kallas **hubName**. Den aktuella listan över platser som har stöd för IoT Hub finns [Azure-Status][lnk-status].
-
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "hubName": {
-          "type": "string"
-        }
-      },
-      "resources": [
-      {
-        "apiVersion": "2016-02-03",
-        "type": "Microsoft.Devices/IotHubs",
-        "name": "[parameters('hubName')]",
-        "location": "East US",
-        "sku": {
-          "name": "S1",
-          "tier": "Standard",
-          "capacity": 1
-        },
-        "properties": {
-          "location": "East US"
-        }
-      },
-      {
-        "apiVersion": "2016-02-03",
-        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
-        "name": "[concat(parameters('hubName'), '/events/cg1')]",
-        "dependsOn": [
-          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
-        ]
-      },
-      {
-        "apiVersion": "2016-02-03",
-        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
-        "name": "[concat(parameters('hubName'), '/events/cg2')]",
-        "dependsOn": [
-          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
-        ]
-      }
-      ],
-      "outputs": {
-        "hubKeys": {
-          "value": "[listKeys(resourceId('Microsoft.Devices/IotHubs', parameters('hubName')), '2016-02-03')]",
-          "type": "object"
-        }
-      }
-    }
-    ```
-
-2. Spara mallfilen Azure Resource Manager på den lokala datorn. Det här exemplet förutsätts att du sparar den i en mapp med namnet **c:\templates**.
-
-3. Kör följande kommando för att distribuera ny IoT hub, skicka namnet på din IoT-hubb som en parameter. I det här exemplet är namnet på IoT-hubben `abcmyiothub`. Namnet på din IoT hub måste vara globalt unikt:
-
-    ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
-    ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
-
-4. Utdata visar nycklarna för IoT-hubben som du skapade.
-
-5. Kontrollera att ditt program har lagts till den nya IoT-hubben genom att gå till den [Azure-portalen] [ lnk-azure-portal] och visa din lista över resurser. Du kan också använda den **Get-AzResource** PowerShell-cmdlet.
-
-> [!NOTE]
-> Det här exempelprogrammet lägger till en S1 Standard IoT-hubb som du faktureras. Du kan ta bort IoT-hubben via den [Azure-portalen] [ lnk-azure-portal] eller genom att använda den **Remove-AzResource** PowerShell-cmdlet när du är klar.
+Som du ser i PowerShell-skriptet är den mall som användes från Azure Quickstart-mallar. Om du vill använda din egen, måste du först överföra mallfilen till cloudshell och sedan använda den `-TemplateFile` växel för att ange namnet på filen.  Ett exempel finns i [distribuera mallen](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har distribuerat en IoT hub med en Azure Resource Manager-mall med PowerShell, kanske du vill utforska ytterligare:
+Nu du har distribuerat en IoT-hubb med hjälp av en Azure Resource Manager-mall kan du utforska ytterligare:
 
 * Läs mer om funktionerna i den [IoT Hub REST API för resursprovider][lnk-rest-api].
 * Läs [översikt över Azure Resource Manager] [ lnk-azure-rm-overview] att lära dig mer om funktionerna för Azure Resource Manager.

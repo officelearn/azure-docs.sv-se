@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096868"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617229"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -136,7 +136,7 @@ Direktautentisering hanterar en användare loggar in begäran enligt följande:
 4. Användarna anger sina användarnamn i den **användarinloggning** sidan och väljer den **nästa** knappen.
 5. Användaren anger sitt lösenord till den **användarinloggning** sidan och väljer den **inloggning** knappen.
 6. Det användarnamn och lösenord skickas till Azure AD-STS i en POST för HTTPS-begäran.
-7. Azure AD STS hämtar offentliga nycklar för alla Autentiseringsagenter som är registrerad på din klient från Azure SQL-databasen och krypterar lösenordet genom att använda dem. 
+7. Azure AD STS hämtar offentliga nycklar för alla Autentiseringsagenter som är registrerad på din klient från Azure SQL-databasen och krypterar lösenordet genom att använda dem.
     - Den genererar ”N” krypterade lösenord värden för ”N” autentisering agenter som har registrerats på din klient.
 8. Azure AD STS placerar verifieringsbegäran lösenord som består av användarnamnet och krypterat lösenord-värden, till den Service Bus-kö som är specifik för din klient.
 9. Eftersom initierad Autentiseringsagenter är kontinuerligt anslutna till Service Bus-kö, hämtar ett av de tillgängliga Autentiseringsagenter begäran om verifiering av lösenord.
@@ -145,6 +145,9 @@ Direktautentisering hanterar en användare loggar in begäran enligt följande:
     - Detta API är samma API som används av Active Directory Federation Services (AD FS) för att logga in användare i ett scenario med federerad inloggning.
     - Detta API är beroende av lösningsprocessen som standard i Windows Server för att hitta domänkontrollanten.
 12. Autentiseringsagenten tar emot resultatet från Active Directory, till exempel lyckades, användarnamn eller felaktigt lösenord eller lösenordet har upphört att gälla.
+
+   > [!NOTE]
+   > Om agenten autentisering misslyckas under inloggning, har helt inloggningsbegäran släppts. Det finns inga hand-off för inloggning förfrågningar från en Autentiseringsagenten till en annan autentiseringsagent lokalt. De här agenterna kommunicerar endast med molnet och inte med varandra.
 13. Autentisering-agenten vidarebefordrar resultatet tillbaka till Azure AD-STS via en utgående HTTPS-kanal ömsesidigt autentiserad via port 443. Ömsesidig autentisering använder det certifikat som tidigare utfärdat till den Autentiseringsagenten under registreringen.
 14. Azure AD STS verifierar att det här resultatet kopplat till den specifika inloggningsbegäranden på din klient.
 15. Azure AD STS fortsätter med proceduren logga in som konfigurerats. Exempelvis om valideringen av lösenordet kan användaren vara på samma för multi-Factor Authentication eller omdirigeras tillbaka till programmet.
@@ -181,7 +184,7 @@ Förnya ett autentiseringsagent förtroende med Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Automatisk uppdatering av Autentiseringsagenter
 
-Updater-programmet uppdateras automatiskt den autentiseringsagent när en ny version har släppts. Programmet hanterar inte några förfrågningar för verifiering av lösenord för din klient. 
+Updater-programmet uppdateras automatiskt den autentiseringsagent när en ny version (med felkorrigeringar eller prestandaförbättringar) har släppts. Updater-programmet hanterar inte några förfrågningar för verifiering av lösenord för din klient.
 
 Azure AD är värd för den nya versionen av programvaran som loggat **Windows Installer-paketet (MSI)**. MSI signeras med hjälp av [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) med SHA256 som digest-algoritm. 
 
@@ -203,7 +206,7 @@ Att automatiskt uppdatera en autentiseringsagent:
     - Startar om tjänsten autentiseringsagent
 
 >[!NOTE]
->Om du har flera Autentiseringsagenter registrerad på din klient, Azure AD inte förnya sina certifikat och uppdatera dem på samma gång. Azure AD gör i stället så gradvis för att garantera hög tillgänglighet för inloggningsförfrågningar.
+>Om du har flera Autentiseringsagenter registrerad på din klient, Azure AD inte förnya sina certifikat och uppdatera dem på samma gång. Azure AD sker i stället så en åt gången för att garantera hög tillgänglighet för inloggningsförfrågningar.
 >
 
 

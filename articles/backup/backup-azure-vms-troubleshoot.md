@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361514"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618200"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -170,7 +170,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | VM-agenten inte finns på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [VM-agentinstallation och hur du validerar VM-agentinstallation](#vm-agent). |
 | Säkerhetskopieringen misslyckades att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för fil-system. | Vidta följande steg: <ul><li>Kontrollera filen systemtillståndet för alla monterade enheter med hjälp av den **'tune2fs'** kommando. Ett exempel är **tune2fs -l/dev/sdb1 \\** .\| grep **filsystem**. <li>Demontera enheterna som filen systemtillståndet inte ren med hjälp av den **'umount'** kommando. <li> Kör en konsekvenskontroll för fil-system på dessa enheter med hjälp av den **'fsck'** kommando. <li> Montera enheterna igen och försök säkerhetskopieringen.</ol> |
 | Ögonblicksbildsåtgärden misslyckades på grund av det gick inte att skapa en säker nätverkskommunikationskanal. | <ol><li> Öppna Registereditorn genom att köra **regedit.exe** en förhöjd behörighet. <li> Identifiera alla versioner av .NET Framework finns i systemet. De är närvarande under hierarkin för registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Lägg till följande nyckel för varje .NET Framework finns i registernyckeln: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| Ögonblicksbildsåtgärden misslyckades på grund av det gick inte att installera Visual C++ Redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2012_x64. Kontrollera att registernyckelvärdet som gör att installationen av den här anges till rätt värde. Det vill säga värdet för registernyckeln **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** är inställd på **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installationstjänsten genom att köra **MSIEXEC /UNREGISTER** följt av **MSIEXEC /REGISTER** från en upphöjd kommandotolk.  |
+| Ögonblicksbildsåtgärden misslyckades på grund av det gick inte att installera Visual C++ Redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2012_x64.<br/>Kontrollera att registernyckelvärdet som gör att installationen av service är inställt till det korrekta värdet. Ange det vill säga den **starta** värde i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installationstjänsten genom att köra **MSIEXEC /UNREGISTER** följt av **MSIEXEC /REGISTER** från en upphöjd kommandotolk.  |
 
 
 ## <a name="jobs"></a>Jobb

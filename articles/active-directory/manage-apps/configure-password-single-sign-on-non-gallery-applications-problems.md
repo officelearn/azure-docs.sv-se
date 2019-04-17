@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858005"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617386"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera lösenord för enkel inloggning för en icke-galleriprogram
 
@@ -142,7 +142,7 @@ Kontrollera följande om du stöter på någon av de här problemen:
 
 -   Prova manuell insamlingen igen och försäkra dig om de röda markörerna är över rätt fält.
 
--   Om det verkar som om den manuella processen låser sig eller på inloggningssidan inte göra något (fall 3 ovan), försök den manuella processen igen. Men nu när du har slutfört processen, tryck på den **F12** knappen för att öppna din webbläsare utvecklarkonsolen. När det, öppna den **konsolen** och skriv **window.location= ”&lt;ange inloggning url som du angav när du konfigurerar appen&gt;”** och tryck sedan på **RETUR** . Detta gör att en sida-omdirigering som slutar den här processen och lagrar de fält som har spelats in.
+-   Om det verkar som om den manuella processen slutar svara eller på inloggningssidan inte göra något (fall 3 ovan), försök den manuella processen igen. Men nu när du har slutfört processen, tryck på den **F12** knappen för att öppna din webbläsare utvecklarkonsolen. När det, öppna den **konsolen** och skriv **window.location= ”&lt;ange inloggning url som du angav när du konfigurerar appen&gt;”** och tryck sedan på **RETUR** . Detta gör att en sida-omdirigering som slutar den här processen och lagrar de fält som har spelats in.
 
 Om inget av dessa sätt fungerar för dig, hjälpa support. Öppna ett supportärende med information om vad du försökte, tillsammans med den information som samlas in den [hur du visar information om ett Portalmeddelande om](#i-cannot-manually-detect-sign-in-fields-for-my-application) och [få hjälp genom att skicka information om meddelande till en supporttekniker ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) avsnitten (om tillämpligt).
 

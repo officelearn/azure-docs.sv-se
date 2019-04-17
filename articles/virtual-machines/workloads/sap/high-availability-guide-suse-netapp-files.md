@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662378"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617775"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program
 
@@ -166,14 +166,11 @@ När du överväger Azure NetApp filer för SAP Netweaver på arkitektur med hö
 
 - Den minimikapacitet poolen är 4 TiB. Poolstorlek kapacitet måste vara i multiplar av 4 TiB.
 - Minsta volymen är 100 GiB
-- Azure NetApp-filer och alla virtuella datorer, där Azure NetApp Files volymer ska monteras måste vara i samma Azure-nätverk. [Virtuell nätverkspeering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) stöds inte ännu av Azure NetApp-filer.
+- Azure NetApp-filer och alla virtuella datorer, där Azure NetApp Files volymer ska monteras måste vara i samma Azure-nätverk eller i [peer-kopplade virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp filer åtkomst via VNET-peering i samma region stöds nu. NetApp åtkomst till Azure över global peering stöds inte ännu.
 - Det valda virtuella nätverket måste ha ett undernät som delegerats till Azure NetApp-filer.
 - Azure NetApp Files stöder för närvarande endast NFSv3 
 - NetApp-filer som Azure erbjuder [exportera princip](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan styra de tillåtna klienterna åtkomsttyp (läsa och skriva, skrivskyddad, osv.). 
 - Azure NetApp filer-funktionen är inte medvetna zon ännu. NetApp-filer för Azure-funktionen inte är distribuerad i alla tillgänglighetszoner i en Azure-region. Vara medveten om potentiella konsekvenser för svarstid i vissa Azure-regioner. 
-
-   > [!NOTE]
-   > Tänk på att Azure NetApp Files inte stöder virtuell Nätverkspeering ännu. Distribuera de virtuella datorerna och de Azure NetApp Files volymerna i samma virtuella nätverk.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Distribuera virtuella Linux-datorer manuellt via Azure-portalen
 
@@ -574,6 +571,8 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 9. **[1]**  Skapa SAP-klusterresurser
 
+Om du använder sätta 1 serverarkitektur (ENSA1) definiera resurserna på följande sätt:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP-stöd för sätta servern 2, inklusive replikering, från och med SAP NV 7.52. Från och med ABAP plattform 1809, installeras placera servern 2 som standard. Se SAP anteckning [2630416](https://launchpad.support.sap.com/#/notes/2630416) placera servern 2 support.
+Om du använder sätta serverarkitektur 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definierar resurserna på följande sätt:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Om du uppgraderar från en äldre version och växla till sätta server 2, se sap-kommentar [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 
@@ -1051,7 +1079,7 @@ Följande tester är en kopia av testfall i den [bästa praxis riktlinjer för S
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Skapa ett sätta Lås av, för exempel-redigera en användare i transaktionen su01. Kör följande kommandon som < sapsid\>adm på noden där den ASCS-instansen körs. Kommandona ska stoppa ASCS-instans och starta den igen. Placera låset förväntas gå förlorad i det här testet.
+   Skapa ett sätta Lås av, för exempel-redigera en användare i transaktionen su01. Kör följande kommandon som < sapsid\>adm på noden där den ASCS-instansen körs. Kommandona ska stoppa ASCS-instans och starta den igen. Om du använder sätta serverarkitektur 1 förväntas sätta låset gå förlorad i det här testet. Om du använder sätta serverarkitektur 2, ska sätta behållas. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Följande tester är en kopia av testfall i den [bästa praxis riktlinjer för S
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   Placera låset för transaktionen su01 bör gå förlorade och backend-bör har återställts. Resurstillstånd efter testet:
+   Placera låset för transaktionen su01 bör gå förlorade, om du använder sätta serverarkitektur replikering 1 och backend-bör har återställts. Resurstillstånd efter testet:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

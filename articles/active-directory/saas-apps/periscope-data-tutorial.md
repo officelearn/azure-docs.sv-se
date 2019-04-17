@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275546"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudier: Azure Active Directory-integrering med Periscope Data
 
@@ -33,7 +33,7 @@ Integreringen av Periscope Data med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Periscope Data behöver du följande:
 
@@ -136,7 +136,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     d. Leta upp taggen **SingleLogoutService** och klistra in värdet för **Plats** i textrutan **SLO URL** (URL för enkel utloggning).
 
-    e. Kopiera värdet för **Identifierare** för din instans och klistra in det i textrutan  **Identifierare (entitets-ID)** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    e. Kopiera den **identifierare** för din instans och klistra in den i **identifierare (entitets-ID)** textrutan för **SAML grundkonfiguration** avsnittet på Azure-portalen.
 
     f. Hitta den första taggen på XML-fil, Kopiera värdet för **entityID** och klistra in den i den **utfärdare** textrutan.
 
@@ -203,7 +203,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att göra det möjligt för Azure AD-användare att logga in på Periscope Data måste de etableras till Periscope Data. I Periscope Data är etablering en manuell uppgift.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på Periscope Data som administratör.
 
@@ -231,7 +231,7 @@ När du klickar på Periscope Data-panelen i åtkomstpanelen bör du automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

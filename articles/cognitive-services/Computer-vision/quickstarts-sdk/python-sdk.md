@@ -10,30 +10,30 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: fbdc6ca8a9d93c090c1cfda9dec41b948d95c6af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495353"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617979"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
 Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av.
 
 * [Analysera en bild](#analyze-an-image)
-* [Hämta en ämnesdomänlista](#get-subject-domain-list)
+* [Hämta ämnesdomänlista](#get-subject-domain-list)
 * [Analysera en bild efter domän](#analyze-an-image-by-domain)
-* [Hämta en textbeskrivning av en bild](#get-text-description-of-an-image)
-* [Hämta handskriven text från avbildningen](#get-text-from-image)
+* [Hämta textbeskrivning av en bild](#get-text-description-of-an-image)
+* [Hämta handskriven text från en bild](#get-text-from-image)
 * [Skapa en miniatyrbild](#generate-thumbnail)
 
 Mer information om den här tjänsten finns i [Vad är visuellt innehåll?][computervision_docs].
 
 Letar du efter mer dokumentation?
 
-* [SDK referensdokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
-* [Dokumentation för kognitiva tjänster för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
+* [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+* [Dokumentation för Cognitive Services – Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -46,8 +46,8 @@ Skapa en kostnadsfri nyckel giltigt i 7 dagar med den **[prova] [ computervision
 
 Spara följande när nyckeln har skapats:
 
-* Nyckelvärdet: en 32 tecken lång sträng med formatet `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Viktiga slutpunkt: grundläggande slutpunkts-URL https://westcentralus.api.cognitive.microsoft.com
+* Nyckelvärdet: en sträng med 32 tecken med formatet `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Viktiga slutpunkt: basslutpunktens Webbadress, https\://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Om du har en Azure-prenumeration
 
@@ -319,7 +319,7 @@ När du arbetar med den [ComputerVisionClient] [ ref_computervisionclient] klien
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda innehåll taggar till avbildningar](../concept-tagging-images.md)
+> [Applicera innehållstaggar på bilder](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

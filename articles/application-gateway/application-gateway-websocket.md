@@ -1,18 +1,18 @@
 ---
 title: WebSocket-stöd i Azure Application Gateway | Microsoft Docs
 description: Den här sidan innehåller en översikt över Application Gateway WebSocket-stöd.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168127"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606913"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 
@@ -32,7 +32,7 @@ För att upprätta en WebSocket-anslutning, utväxlas en specifik HTTP-baserade 
 
 ### <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 
-En HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är ett utdrag från httpListeners-elementet från en exempelfil i mallen. Du behöver både HTTP och HTTPS-lyssnare för att stödja WebSocket och säker WebSocket-trafik. På samma sätt du kan använda den [portal](application-gateway-create-gateway-portal.md) eller [PowerShell](application-gateway-create-gateway-arm.md) att skapa en Programgateway med lyssnare på port 80/443 för att stödja WebSocket-trafik.
+En HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är ett utdrag från httpListeners-elementet från en exempelfil i mallen. Du behöver både HTTP och HTTPS-lyssnare för att stödja WebSocket och säker WebSocket-trafik. På samma sätt du kan använda portalen eller Azure PowerShell för att skapa en Programgateway med lyssnare på port 80/443 för att stödja WebSocket-trafik.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ En annan orsak kan vara hälsoavsökning för serverdelen som application gatewa
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om WebSocket-stöd, gå till [skapa en Programgateway](application-gateway-create-gateway.md) att komma igång med en WebSocket aktiverat webbprogram.
-
+När du läst om WebSocket-stöd, gå till [skapa en Programgateway](quick-create-powershell.md) att komma igång med en WebSocket aktiverat webbprogram.

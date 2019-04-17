@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 615eaa3df7cabad72ac321978eb01d93a7bfa988
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263771"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608293"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger loggar
 
@@ -414,16 +414,39 @@ Den under kodfragmentet konfigurerar loggar `Warning` och senare från alla kate
 
 * Application Insights-avbildningar och skickar `ILogger` loggar med samma `TelemetryConfiguration` används för alla andra telemetri. Det finns ett undantag till den här regeln. Standard `TelemetryConfiguration` fullständigt konfiguration när du loggar inte något från `Program.cs` eller `Startup.cs` själva, så att loggar från dessa platser har inte standardkonfigurationen och kan därför inte körs alla de `TelemetryInitializer`s och `TelemetryProcessor`s.
 
-*5. Vilken typ av telemetri för Application Insights skapas från `ILogger` loggar? eller var hittar jag `ILogger` loggar i Application Insights?*
+*5. Jag använder det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och jag vill logga vissa ytterligare telemetri om anpassade manuellt. Hur ska jag göra?*
+
+* När du använder det fristående paketet `TelemetryClient` matas inte till DI behållare, så att användare förväntas behöva skapa en ny instans av `TelemetryClient` genom att använda samma konfiguration som används av logger-leverantör som visas nedan. Detta säkerställer att samma konfiguration används för anpassad telemetri, samt de som hämtats från ILogger.
+
+```csharp
+public class MyController : ApiController
+{
+   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   private readonly TelemetryClient _telemetryClient;
+   private readonly ILogger _logger;
+
+   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   {
+        _telemetryClient = new TelemetryClient(options.Value);
+        _logger = logger;
+   }  
+}
+```
+
+> [!NOTE]
+> Observera att, om paketet Microsoft.ApplicationInsights.AspNetCore paketet används för att aktivera Application Insights, sedan i ovanstående exempel bör ändras för att få `TelemetryClient` direkt i konstruktorn. Se [detta](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) för fullständigt exempel.
+
+
+*6. Vilken typ av telemetri för Application Insights skapas från `ILogger` loggar? eller var hittar jag `ILogger` loggar i Application Insights?*
 
 * Samlar in ApplicationInsightsLoggerProvider `ILogger` loggar och skapar `TraceTelemetry` från den. Om ett undantag objekt skickas till metoden Log() på ILogger, sedan i stället för `TraceTelemetry`, en `ExceptionTelemetry` har skapats. Objekten telemetri finns på samma platser som någon annan `TraceTelemetry` eller `ExceptionTelemetry` för Application Insights, inklusive portal, analytics eller lokal Visual Studio-felsökaren.
 Om du vill skicka alltid `TraceTelemetry`, använda kodfragmentet ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
 
-*5. Jag behöver SDK är installerat, och jag använder Azure Web App Extension för att aktivera Application Insights för Mina Asp.Net Core-program. Hur kan jag använda den nya providern?*
+*7. Jag behöver SDK är installerat, och jag använder Azure Web App Extension för att aktivera Application Insights för Mina Asp.Net Core-program. Hur kan jag använda den nya providern?*
 
 * Application Insights-tillägget i Azure Web App använder den gamla-providern. Filtreringsregler kan ändras i `appsettings.json` för ditt program. Om du vill dra nytta av den nya providern kan du använda byggning instrumentation genom att nuget beroende på SDK: N. Det här dokumentet kommer att uppdateras när tillägget växlar till att använda den nya providern.
 
-*6. Jag är med hjälp av det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och aktivera Application Insights-providern genom att anropa builder. AddApplicationInsights("ikey"). Finns det ett alternativ för att hämta instrumenteringsnyckeln från konfigurationen?*
+*8. Jag är med hjälp av det fristående paketet Microsoft.Extensions.Logging.ApplicationInsights och aktivera Application Insights-providern genom att anropa builder. AddApplicationInsights("ikey"). Finns det ett alternativ för att hämta instrumenteringsnyckeln från konfigurationen?*
 
 
 * Ändra `Program.cs` och `appsettings.json` enligt nedan.

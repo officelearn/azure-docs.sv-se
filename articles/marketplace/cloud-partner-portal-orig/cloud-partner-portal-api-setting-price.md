@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811554"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607803"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Priser för erbjudanden som virtuell dator
+<a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 ==================================
 
 Det finns tre sätt att ange priser för erbjudanden som virtuell dator: anpassade core priser, priser per kärna och kalkylblad priser.
@@ -105,60 +105,60 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | **Region** | **Namn**             | **Valutakod** |
 |------------|----------------------|-------------------|
 | DZ         | Algeriet              | DZD               |
-| KUNDRESKONTRA         | Argentina            | ARS               |
-| AUSTRALIEN         | Australien            | AUD               |
+| AR         | Argentina            | ARS               |
+| AU         | Australien            | AUD               |
 | AT         | Österrike              | EUR               |
 | BH         | Bahrain              | BHD               |
-| GENOM ATT         | Vitryssland              | RUB               |
-| VARA         | Belgien              | EUR               |
+| BY         | Vitryssland              | RUB               |
+| BE         | Belgien              | EUR               |
 | BR         | Brasilien               | USD               |
 | BG         | Bulgarien             | BGN               |
 | CA         | Kanada               | CAD               |
 | CL         | Chile                | CLP               |
-| CO         | Colombia             | KOPIERA               |
+| CO         | Colombia             | COP               |
 | CR         | Costa Rica           | CRC               |
-| Personal         | Kroatien              | HRK               |
+| HR         | Kroatien              | HRK               |
 | CY         | Cypern               | EUR               |
 | CZ         | Tjeckien       | CZK               |
 | DK         | Danmark              | DKK               |
-| GÖR         | Dominikanska republiken   | USD               |
-| EG         | Ecuador              | USD               |
-| T.EX.         | Egypten                | EGP               |
-| SA         | El Salvador          | USD               |
+| DO         | Dominikanska republiken   | USD               |
+| EC         | Ecuador              | USD               |
+| EG         | Egypten                | EGP               |
+| SV         | El Salvador          | USD               |
 | EE         | Estland              | EUR               |
 | FI         | Finland              | EUR               |
 | FR         | Frankrike               | EUR               |
-| TYSKLAND         | Tyskland              | EUR               |
+| DE         | Tyskland              | EUR               |
 | GR         | Grekland               | EUR               |
 | GT         | Guatemala            | GTQ               |
 | HK         | Hongkong SAR        | HKD               |
 | HU         | Ungern              | HUF               |
-| ÄR         | Island              | ISKTILLDELNING               |
-| INDIEN         | Indien                | INR               |
+| IS         | Island              | ISK               |
+| IN         | Indien                | INR               |
 | ID         | Indonesien            | IDR               |
-| INTERNET EXPLORER         | Irland              | EUR               |
+| IE         | Irland              | EUR               |
 | IL         | Israel               | ILS               |
 | IT         | Italien                | EUR               |
 | JP         | Japan                | JPY               |
 | JO         | Jordanien               | JOD               |
-| KZ         | Kazakstan           | KZT               |
+| KZ         | Kazakhstan           | KZT               |
 | KE         | Kenya                | KES               |
-| KOREA         | Korea                | KRW               |
+| KR         | Korea                | KRW               |
 | KW         | Kuwait               | KWD               |
 | LV         | Lettland               | EUR               |
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Makedonien FYRO       | MKD               |
-| MIN         | Malaysia             | MYR               |
+| MK         | Nordmakedonien      | MKD               |
+| MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |
-| MIG         | Montenegro           | EUR               |
-| MA         | Marocko              | FÅR               |
+| ME         | Montenegro           | EUR               |
+| MA         | Marocko              | MAD               |
 | NL         | Nederländerna          | EUR               |
 | NZ         | Nya Zeeland          | NZD               |
 | NG         | Nigeria              | NGN               |
-| NEJ         | Norge               | NOK               |
+| NO         | Norge               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
@@ -167,8 +167,8 @@ I följande tabell visas de olika regionerna att du kan ange anpassade core pris
 | PH         | Filippinerna          | PHP               |
 | PL         | Polen               | PLN               |
 | PT         | Portugal             | EUR               |
-| PULL-BEGÄRAN         | Puerto Rico          | USD               |
-| KVALITETSKONTROLL         | Qatar                | QAR               |
+| PR         | Puerto Rico          | USD               |
+| QA         | Qatar                | QAR               |
 | RO         | Rumänien              | RON               |
 | RU         | Ryssland               | RUB               |
 | SA         | Saudiarabien         | SAR               |

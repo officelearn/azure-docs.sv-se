@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734546"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609429"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Hur du använder Service Bus-ämnen och prenumerationer med Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Den här artikeln beskriver hur du använder Service Bus-ämnen och prenumerationer från Ruby-program. Scenarier som omfattas är **skapa ämnen och prenumerationer, skapa prenumerationsfilter, skicka meddelanden** till ett ämne **ta emot meddelanden från en prenumeration**, och **tas bort ämnen och prenumerationer**. Mer information om ämnen och prenumerationer finns i den [nästa steg](#next-steps) avsnittet.
+Den här artikeln beskriver hur du använder Service Bus-ämnen och prenumerationer från Ruby-program. Scenarier som omfattas är:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Skapa ämnen och prenumerationer 
+- Skapa prenumerationsfilter 
+- Skicka meddelanden till ett ämne 
+- Ta emot meddelanden från en prenumeration
+- Ta bort ämnen och prenumerationer
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**. 
+
+    > [!NOTE]
+    > Skapar du en **avsnittet** och en **prenumeration** till ämnet med hjälp av **Ruby** i den här snabbstarten. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 

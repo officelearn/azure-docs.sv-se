@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882734"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524777"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program  
 
@@ -32,7 +32,7 @@ Den här självstudien innehåller fyra lektioner:
 3. Välj Smooth Streaming-dataströmmar
 4. Välj Smooth Streaming spår
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 > [!NOTE]
 > Windows Store-projekt version 8.1 och tidigare stöds inte i Visual Studio 2017.  Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet).
 
@@ -60,41 +60,42 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla bra 
 3. Ändra koden bakom filen
 4. Kompilerar och testar programmet
 
-**Skapa ett Windows Store-projekt**
+### <a name="to-create-a-windows-store-project"></a>Skapa ett Windows Store-projekt
 
 1. Kör Visual Studio; versioner 2012 till 2015 stöds.
-2. Klicka på **Nytt** på menyn **ARKIV** och klicka sedan på **Projekt**.
-3. Ange eller Välj följande värden från dialogrutan Nytt projekt:
+1. Klicka på **Nytt** på menyn **ARKIV** och klicka sedan på **Projekt**.
+1. Ange eller Välj följande värden från dialogrutan Nytt projekt:
 
-| Namn | Värde |
-| --- | --- |
-| Mallgrupp |Installerat/mallar/Visual C#Windows Store |
-| Mall |Tom App (XAML) |
-| Namn |SSPlayer |
-| Plats |C:\SSTutorials |
-| Lösningsnamn |SSPlayer |
-| Skapa katalog för lösningen |(valt) |
+    | Namn | Värde |
+    | --- | --- |
+    | Mallgrupp |Installerat/mallar/Visual C#Windows Store |
+    | Mall |Tom App (XAML) |
+    | Namn |SSPlayer |
+    | Plats |C:\SSTutorials |
+    | Lösningsnamn |SSPlayer |
+    | Skapa katalog för lösningen |(valt) |
 
 1. Klicka på **OK**.
 
-**Att lägga till en referens till den Smooth Streaming-klient SDK**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Att lägga till en referens till den Smooth Streaming-klient SDK
 
 1. Solution Explorer högerklickar du på **SSPlayer**, och klicka sedan på **Lägg till referens**.
-2. Ange eller välj följande värden:
+1. Ange eller välj följande värden:
 
-| Namn | Värde |
-| --- | --- |
-| För referensgrupp |Windows-tillägg |
-| Referens |Välj Microsoft Smooth Streaming-klient-SDK för Windows 8 och Microsoft Visual C++ Runtime-paketet |
+    | Namn | Värde |
+    | --- | --- |
+    | För referensgrupp |Windows-tillägg |
+    | Referens |Välj Microsoft Smooth Streaming-klient-SDK för Windows 8 och Microsoft Visual C++ Runtime-paketet |
 
 1. Klicka på **OK**. 
 
 När du lägger till referenser, måste du välja den aktuella plattformen (x64 eller x86), att lägga till referenser fungerar inte för alla CPU plattformskonfiguration.  I solution explorer visas den gula varning mark för dessa har lagts till referenser.
 
-**Att utforma användargränssnittet player**
+### <a name="to-design-the-player-user-interface"></a>Att utforma användargränssnittet player
 
 1. Från Solution Explorer dubbelklickar du på **MainPage.xaml** att öppna den i designvyn.
 2. Leta upp den **&lt;Grid&gt;** och **&lt;/Grid&gt;** taggar XAML-filen och klistra in följande kod mellan de två taggarna:
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ MediaElement-kontrollen stöder inte Smooth Streaming innehåll out-of-box. Om d
 
 Vissa händelsehanterare är associerade med kontroller i XAML-filen.  Du måste definiera dessa händelsehanterare.
 
-**Att ändra koden bakom filen**
+### <a name="to-modify-the-code-behind-file"></a>Att ändra koden bakom filen
 
 1. Solution Explorer högerklickar du på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. Lägg till följande överst i filen med hjälp av instruktionen:
@@ -210,7 +211,7 @@ Den färdiga koden bakom filen bör se ut så här:
 
 ![Codeview i Visual Studio för Smooth Streaming Windows Store-program][CodeViewPic]
 
-**Att kompilera och testa programmet**
+### <a name="to-compile-and-test-the-application"></a>Att kompilera och testa programmet
 
 1. Från den **skapa** -menyn klickar du på **Configuration Manager**.
 2. Ändra **Active lösningsplattform** så att den matchar din utvecklingsplattform.
@@ -238,7 +239,7 @@ Den här lektionen innehåller följande procedurer:
 5. Lägg till skjutreglaget relaterade streckkod
 6. Kompilerar och testar programmet
 
-**Att registrera hanteraren för Smooth Streaming-byte-ström och skicka propertyset**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Att registrera hanteraren för Smooth Streaming-byte-ström och skicka propertyset
 
 1. Från Solution Explorer, högerklicka på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. I början av filen lägger du till följande med instruktionen:
@@ -283,7 +284,7 @@ Den här lektionen innehåller följande procedurer:
    ```
 6. Tryck på **CTRL + S** att spara filen.
 
-**Du lägger till händelsehanteraren för anpassningsbar källa manager nivå**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Du lägger till händelsehanteraren för anpassningsbar källa manager nivå
 
 1. Från Solution Explorer, högerklicka på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. I den **MainPage** class, lägga till datamedlemmen följande:
@@ -311,7 +312,7 @@ Den här lektionen innehåller följande procedurer:
    ```
 5. Tryck på **CTRL + S** att spara filen.
 
-**Att lägga till anpassningsbar källa på händelsehanterare**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Att lägga till anpassningsbar källa på händelsehanterare
 
 1. Från Solution Explorer, högerklicka på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. I den **MainPage** class, lägga till datamedlemmen följande:
@@ -362,7 +363,7 @@ Den här lektionen innehåller följande procedurer:
 
 Samma händelser är tillgängliga på anpassningsbar källa Manager nivå, som kan användas för att hantera funktioner som är gemensamma för alla mediaelement i appen. Varje AdaptiveSource innehåller sina egna händelser och alla AdaptiveSource händelser ska vara överlappande under AdaptiveSourceManager.
 
-**Att lägga till Media elementet händelsehanterare**
+### <a name="to-add-media-element-event-handlers"></a>Att lägga till Media elementet händelsehanterare
 
 1. Från Solution Explorer, högerklicka på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. I slutet av den **MainPage** class, lägga till följande händelsehanterare:
@@ -398,7 +399,7 @@ Samma händelser är tillgängliga på anpassningsbar källa Manager nivå, som 
    ```
 4. Tryck på **CTRL + S** att spara filen.
 
-**Lägg till skjutreglaget kopplad kod**
+### <a name="to-add-slider-bar-related-code"></a>Lägg till skjutreglaget kopplad kod
 
 1. Från Solution Explorer, högerklicka på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. I början av filen lägger du till följande med instruktionen:
@@ -531,7 +532,7 @@ Samma händelser är tillgängliga på anpassningsbar källa Manager nivå, som 
    ```
 8. Tryck på **CTRL + S** att spara filen.
 
-**Att kompilera och testa programmet**
+### <a name="to-compile-and-test-the-application"></a>Att kompilera och testa programmet
 
 1. Tryck på **F6** projektet ska kompileras. 
 2. Tryck på **F5** för att köra programmet.
@@ -548,7 +549,7 @@ Smooth Streaming är kapabel att strömma innehåll med flera språk ljudspår s
 2. Ändra koden bakom filen
 3. Kompilerar och testar programmet
 
-**Att ändra XAML-filen**
+### <a name="to-modify-the-xaml-file"></a>Att ändra XAML-filen
 
 1. Solution Explorer högerklickar du på **MainPage.xaml**, och klicka sedan på **Vydesigner**.
 2. Leta upp &lt;Grid.RowDefinitions&gt;, och ändra RowDefinitions så att de kan se ut:
@@ -591,7 +592,7 @@ Smooth Streaming är kapabel att strömma innehåll med flera språk ljudspår s
    ```
 4. Tryck på **CTRL + S** att spara ändringarna.
 
-**Att ändra koden bakom filen**
+### <a name="to-modify-the-code-behind-file"></a>Att ändra koden bakom filen
 
 1. Solution Explorer högerklickar du på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. Lägg till en ny klass i namnområdet SSPlayer:
@@ -807,7 +808,8 @@ Smooth Streaming är kapabel att strömma innehåll med flera språk ljudspår s
             changeStreams(selectedStreams);
         }
    ```
-   **Att kompilera och testa programmet**
+
+### <a name="to-compile-and-test-the-application"></a>Att kompilera och testa programmet
 
 1. Tryck på **F6** projektet ska kompileras. 
 2. Tryck på **F5** för att köra programmet.
@@ -817,14 +819,15 @@ Smooth Streaming är kapabel att strömma innehåll med flera språk ljudspår s
 
 Du har slutfört lektion 3.  Lägg till funktioner för att välja strömmar i den här lektionen.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lektion 4: Välj Smooth Streaming spår
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lektion 4: Välj Smooth Streaming-spår
+
 En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika kvalitetsnivå (bithastigheter) och lösningar. I den här lektionen kan användarna välja spår. Den här lektionen innehåller följande procedurer:
 
 1. Ändra XAML-filen
 2. Ändra koden bakom filen
 3. Kompilerar och testar programmet
 
-**Att ändra XAML-filen**
+### <a name="to-modify-the-xaml-file"></a>Att ändra XAML-filen
 
 1. Solution Explorer högerklickar du på **MainPage.xaml**, och klicka sedan på **Vydesigner**.
 2. Leta upp den &lt;Grid&gt; tagg med namnet **gridStreamAndBitrateSelection**, Lägg till följande kod i slutet av taggen:
@@ -846,7 +849,7 @@ En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika
    ```
 3. Tryck på **CTRL + S** spara he ändringar
 
-**Att ändra koden bakom filen**
+### <a name="to-modify-the-code-behind-file"></a>Att ändra koden bakom filen
 
 1. Solution Explorer högerklickar du på **MainPage.xaml**, och klicka sedan på **Visa kod**.
 2. Lägg till en ny klass i namnområdet SSPlayer:
@@ -1009,7 +1012,8 @@ En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika
             changeStreams(selectedStreams);
          }
    ```
-   **Att kompilera och testa programmet**
+   
+### <a name="to-compile-and-test-the-application"></a>Att kompilera och testa programmet
 
 1. Tryck på **F6** projektet ska kompileras. 
 2. Tryck på **F5** för att köra programmet.
@@ -1020,6 +1024,7 @@ En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika
 Du har slutfört Lektion 4.  Lägg till funktioner för att välja spårar i den här lektionen.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

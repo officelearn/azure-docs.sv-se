@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272775"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618107"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
 
@@ -93,7 +93,7 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 - **Hubbnätverk**. Det finns en Hubbnätverk **källa Hubbnätverk**: 10.10.10.0/24.
   - Den här Hubbnätverk fungerar som gatekeepern.
   - All kommunikation över undernät igenom den här hubben.
-    - Hub vNet undernät **. Hubbnätverk har två undernät:
+    - **Hub vNet undernät**. Hubbnätverk har två undernät:
     - **NVA-undernätet**: 10.10.10.0/25. Det här undernätet innehåller en NVA (10.10.10.10).
     - **Gateway-undernät**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
 - Datacenter på plats har en ExpressRoute-krets-anslutning via en partner edge i Hongkong.
@@ -104,7 +104,7 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 
 #### <a name="spoke-to-hub"></a>Spoke till hub
 
-**Riktning** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
 Spoke till hub | Tillåt virtuell nätverksadress | Enabled
 Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
@@ -115,7 +115,7 @@ Spoke till hub | Använd ta bort gateways | Enabled
 
 #### <a name="hub-to-spoke"></a>Hub till spoke
 
-**Riktning** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
 Hub till spoke | Tillåt virtuell nätverksadress | Enabled
 Hub till spoke | Tillåt vidarebefordrad trafik | Enabled

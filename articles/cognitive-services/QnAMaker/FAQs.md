@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439476"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607180"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Vanliga frågor om QnA Maker
 
 Granskad lista över vanliga frågor för QnA Maker-tjänsten hjälper dig att använda tjänsten snabbare och bättre resultat.
+
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp-roboten i QnA Maker-portalen
+
+QnA Maker ger en **hjälpa** bot inom QnA Maker-portalen för att hjälpa dig. Hjälp-roboten är tillgänglig på varje webbsida. Roboten använder QnA Maker för att ge svar och ger den [ C# Bot Framework Kodprojekt](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) till roboten så att du snabbt igång med din egen svar-robot. 
+
+![! [QnA Maker ger en ** hjälp ** bot QnA Maker-portalen som hjälper dig att.] (. / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Hantera kunskapsbasen
 
@@ -98,7 +104,7 @@ Uppdatera dina endpoint-nycklar om du misstänker att de har komprometterats.
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Kan jag använda samma Azure Search-resurs för kunskapsbaser med flera språk?
 
-Om du vill använda flera språk och flera kunskapsbaser, har användaren att skapa en QnA Maker-resurs för varje språk. Detta skapar en separat Azure search-tjänster per språk. Blanda kunskapsbaser för olika språk i en enda Azure search-tjänst resulterar i degraderat relevans med resultat.
+Om du vill använda flera språk och flera kunskapsbaser, har användaren att skapa en QnA Maker-resurs för varje språk. Detta skapar en separat Azure search-tjänst per språk. Blanda kunskapsbaser för olika språk i en enda Azure search-tjänst resulterar i degraderat relevans med resultat.
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hur kan jag ändra namnet på Azure Search-resurs som används av QnA Maker?
 

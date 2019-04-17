@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001361"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608613"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enkel oc
 
 Information om automatisk redundans grupper med enkel och delade databaser finns i [bästa praxis att använda grupper för växling vid fel med enkel och delade databaser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Information om automatisk redundans grupper med hanterade instanser (förhandsversion) finns i [bästa praxis att använda grupper för växling vid fel med hanterade instanser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera aktiv geo-replikering med hjälp av Azure portal, behöver du följande resurser:
 
@@ -73,7 +73,7 @@ Den sekundära databasen kan stängas för att bli primärt.
     ![redundans](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Klicka på **Ja** starta redundansväxlingen.
 
-Kommandot växlar omedelbart sekundär databas till den primära rollen.
+Kommandot växlar omedelbart sekundär databas till den primära rollen. Den här processen är normalt bör slutföras inom 30 sekunder eller mindre.
 
 Det finns en kort tidsperiod under vilken båda databaserna är inte tillgänglig (i storleksordningen 0 till 25 sekunder) när rollerna växlas. Om den primära databasen har flera sekundära databaser, konfigurerar kommandot automatiskt om de andra sekundärservrar för att ansluta till den nya primärt. Hela åtgärden tar normalt mindre än en minut att slutföra under normala omständigheter.
 

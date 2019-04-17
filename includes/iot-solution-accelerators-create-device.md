@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435120"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630576"
 ---
 I det första scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhetstyp.
 
@@ -23,7 +23,7 @@ I det andra scenariot vill Contoso testa en ny smart glödlampan-enhet. Om du vi
 
 | Namn                     | Värden                      |
 | ------------------------ | --------------------------- |
-| Färg                    | Vit, röd, blå            |
+| Färg                    | White, Red, Blue            |
 | Ljusstyrka               | 0 till 100                    |
 | Beräknad återstående livslängd | Nedräkning från 10 000 timmar |
 
@@ -33,9 +33,9 @@ I följande tabell visas data på glödlampan rapporterar till molnet som en dat
 
 | Namn   | Värden      |
 | ------ | ----------- |
-| Status | ”på”, ”av” |
+| Status | "on", "off" |
 | Temperatur | Grader F |
-| Online | SANT, FALSKT |
+| online | SANT, FALSKT |
 
 > [!NOTE]
 > Den **online** telemetrivärde är obligatoriskt för alla simulerade typer.
@@ -67,12 +67,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa den här guiden behöver du:
 
 * Visual Studio Code. Du kan [ladda ned Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
-* .NET core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
+* .NET Core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
 * [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. Du kan ladda ned [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
 * En [IoT hub som är distribuerad på Azure-prenumerationen](../articles/iot-hub/iot-hub-create-through-portal.md). Du behöver anslutningssträngen för IoT-hubben att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
@@ -98,13 +98,11 @@ Hämta och packa upp den [enheten simulering mikrotjänst](https://github.com/Az
 
 Öppna den **remote-monitoring-services-dotnet-master\storage-adapter** mappen i Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
 
-Öppna den **.vscode/launch.json** fil och tilldela din Cosmos DB-anslutningssträngen till den **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** miljövariabeln.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Öppna den **storage-adapter/WebService/appsettings.ini** fil och tilldela din Cosmos DB-anslutningssträngen till den **documentDBConnectionString** variabeln.
 
 Om du vill köra mikrotjänst lokalt, klickar du på **Felsök > Starta felsökning**.
 
-Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl”.
+Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl ”.
 
 Lämna storage adapter-mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför nästa steg.
 
@@ -118,12 +116,12 @@ I det här avsnittet ska du lägga till en ny **intern temperatur** typ av telem
 
     | Källa | Mål |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Öppna den **C:\temp\devicemodels\chiller-01.json** fil.
 
@@ -417,11 +415,7 @@ I det här avsnittet ska testa du de enhetstyper som du skapade i föregående a
 
 Öppna den **enhet-simulering-dotnet-master** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
 
-Öppna den **.vscode/launch.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln. I samma fil, lägger du till den **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** miljövariabeln och tilldela anslutningssträngen för din Cosmos DB-databas.
-
-Öppna den **WebService/Properties/launchSettings.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln.
-
-Öppna den **WebService/appsettings.ini** -filen och ändra följande inställningar:
+Öppna den **WebService/appsettings.ini** fil och tilldela din Cosmos DB-anslutningssträngen till den **documentdb_connstring** variabeln och även ändra följande inställningar:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

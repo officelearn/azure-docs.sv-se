@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257016"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608018"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Ditt konto för Azure-anteckningsböcker
 
@@ -41,6 +41,9 @@ Microsoft-konton används för att logga in på flera Microsoft-produkter och tj
 Om du är osäker, väljer du den **skapa en** i konto-prompten. Du kan skapa ett nytt microsoftkonto med valfri e-postadress från valfri provider.
 
 ![Kommando för att skapa ett nytt microsoftkonto](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerade med den kan du se meddelandet ”du kan inte logga här med ett arbets eller skolans e-postadress. Använda en personlig e-post, till exempel Gmail eller Yahoo! eller hämta en ny Outlook-e-post ”. I så fall kan du prova att logga in med den e-postadressen för arbetet utan att skapa ett nytt konto.
 
 För barnkonton blockeras åtkomst till Azure-anteckningsböcker som standard. Logga in med ett barnkonto visar felet visas nedan:
 

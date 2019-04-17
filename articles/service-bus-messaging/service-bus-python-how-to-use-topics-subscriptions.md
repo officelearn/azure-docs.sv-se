@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351673"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607083"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerationer. Exemplen är skrivna i Python och Använd den [Azure Python SDK-paketet][Azure Python package]. Scenarier som omfattas är **skapa ämnen och prenumerationer**, **skapa prenumerationsfilter**, **skicka meddelanden till ett ämne**, **tar emot meddelanden från en prenumeration**, och **ta bort ämnen och prenumerationer**. Läs mer om ämnen och prenumerationer, den [nästa steg](#next-steps) avsnittet.
+I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerationer. Exemplen är skrivna i Python och Använd den [Azure Python SDK-paketet][Azure Python package]. Scenarier som omfattas är:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Skapa ämnen och prenumerationer 
+- Skapa prenumerationsfilter 
+- Skicka meddelanden till ett ämne 
+- Ta emot meddelanden från en prenumeration
+- Ta bort ämnen och prenumerationer
 
-> [!NOTE] 
-> Om du vill installera Python eller [Azure Python-paketet][Azure Python package], finns i den [Python installationsguide](../python-how-to-install.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Skapar du en **avsnittet** och en **prenumeration** till ämnet med hjälp av **Python** i den här snabbstarten. 
+3. Installera [Azure Python-paketet][Azure Python package]. Se den [Python installationsguide](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 

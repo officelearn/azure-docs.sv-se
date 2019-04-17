@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: 23d683fea494ad0509af359d6e49519f2bc6aa99
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081125"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615786"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure portal
 
@@ -79,7 +79,7 @@ Följande steg återställer exempelservern till point-in-time:
 ## <a name="geo-restore"></a>GEO-återställning
 Om du har konfigurerat din server som geografiskt redundanta säkerhetskopieringar, kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i valfri region som Azure Database for MariaDB är tillgängligt.  
 
-1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen. Skriv in **Azure Database for MariaDB** i sökrutan för att hitta tjänsten.
+1. Välj **databaser** > **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
 
    ![Alternativet ”Azure-databas för MariaDB”](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587165"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608885"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Använd Service Bus-ämnen och prenumerationer med Node.js
 
@@ -35,9 +35,12 @@ Den här guiden beskriver hur du använder Service Bus-ämnen och prenumeratione
 
 Läs mer om ämnen och prenumerationer, [nästa steg](#next-steps) avsnittet.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera din [Visual Studio eller MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i den [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer till ämnet](service-bus-quickstart-topics-subscriptions-portal.md) att skapa ett Service Bus **namnområde** och få den **anslutningssträngen**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Skapar du en **avsnittet** och en **prenumeration** till ämnet med hjälp av **Node.js** i den här snabbstarten. 
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 Skapa en tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till en Azure Web Site], [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell eller webbplats med WebMatrix.

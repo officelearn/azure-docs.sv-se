@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904907"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606896"
 ---
-# <a name="set-environment-variables"></a>Ange miljövariabler
+# <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i container instances
 
-Ställa in miljövariabler i container instances kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren. Ange miljövariabler i en behållare genom att ange dem när du skapar en behållarinstans. Du kan ange miljövariabler när du startar en behållare med den [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), och [Azure-portalen](#azure-portal-example).
+Ställa in miljövariabler i container instances kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren. Detta liknar den `--env` kommandoradsargument till `docker run`. 
+
+Ange miljövariabler i en behållare genom att ange dem när du skapar en behållarinstans. Den här artikeln visar exempel på att ställa in miljövariabler när du startar en behållare med den [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), och [Azure-portalen](#azure-portal-example). 
 
 Exempel: Om du kör Microsofts [aci wordcount] [ aci-wordcount] behållaravbildningen, du kan ändra sitt beteende genom att ange följande miljövariabler:
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Nästa steg
 
-Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera behållare för batchbearbetning kan dra nytta av anpassade miljövariabler vid körning. Mer information om hur du kör uppgiftsbaserade behållare finns i [köra behållarbaserade uppgifter i Azure Container Instances](container-instances-restart-policy.md).
+Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera behållare för batchbearbetning kan dra nytta av anpassade miljövariabler vid körning. Mer information om hur du kör uppgiftsbaserade behållare finns i [köra behållarbaserade uppgifter med principer för omstart](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

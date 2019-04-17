@@ -1,33 +1,20 @@
 ---
-title: Skapa en Azure Application Gateway - mallar | Microsoft Docs
-description: Den här sidan innehåller anvisningar för hur du skapar en programgateway i Azure med hjälp av Azure Resource Manager-mallen
-documentationcenter: na
+title: Skapa en Azure Application Gateway - mallar
+description: Den här artikeln innehåller instruktioner för att skapa en Programgateway i Azure med hjälp av Azure Resource Manager-mall
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084937"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608470"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway innehåller många ADC-funktioner (Application Delivery Controller), inklusive HTTP-belastningsutjämning, cookie-baserad sessionstilldelning, SSL-avlastning (Secure Sockets Layer), anpassade hälsoavsökningar, stöd för flera platser och mycket mer. En fullständig lista över funktioner som stöds finns [översikt över Application Gateway](application-gateway-introduction.md)
 
@@ -243,4 +230,3 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

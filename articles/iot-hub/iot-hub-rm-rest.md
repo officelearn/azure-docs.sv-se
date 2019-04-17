@@ -9,29 +9,28 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b24c8fa76e5bb3f8cdf7d246f7f7aa0f1a62258a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051520"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606794"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Skapa en IoT hub med resource provider REST API (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Du kan använda den [IoT Hub REST API för resursprovider] [ lnk-rest-api] att skapa och hantera Azure-IoT-hubbar programmässigt. Den här självstudien visar hur du använder IoT Hub resource provider REST API för att skapa en IoT hub från ett C#-program.
-
-> [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Azure Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver distributionsmodellen Azure Resource Manager.
+Du kan använda den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource) att skapa och hantera Azure-IoT-hubbar programmässigt. Den här självstudien visar hur du använder IoT Hub resource provider REST API för att skapa en IoT hub från ett C#-program.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio 2015 eller Visual Studio 2017.
-* Ett aktivt Azure-konto. <br/>Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.
-* [Azure PowerShell 1.0] [ lnk-powershell-install] eller senare.
+
+* Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+
+* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller senare.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,13 +71,14 @@ För att kunna genomföra den här kursen behöver du följande:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>Använda REST API för resursprovider för att skapa en IoT-hubb
 
-Använd den [IoT Hub REST API för resursprovider] [ lnk-rest-api] att skapa en IoT-hubb i din resursgrupp. Du kan också använda REST API för resursprovider för att göra ändringar i en befintlig IoT-hubb.
+Använd den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource) att skapa en IoT-hubb i din resursgrupp. Du kan också använda REST API för resursprovider för att göra ändringar i en befintlig IoT-hubb.
 
 1. Lägg till följande metod i Program.cs:
 
@@ -96,7 +96,7 @@ Använd den [IoT Hub REST API för resursprovider] [ lnk-rest-api] att skapa en 
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Lägg till följande kod till den **CreateIoTHub** metod. Den här koden beskriver IoT-hubben som du skapar och genererar en JSON-representation. Den aktuella listan över platser som har stöd för IoT Hub finns [Azure-Status][lnk-status]:
+3. Lägg till följande kod till den **CreateIoTHub** metod. Den här koden beskriver IoT-hubben som du skapar och genererar en JSON-representation. Den aktuella listan över platser som har stöd för IoT Hub finns [Azure-Status](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -166,35 +166,25 @@ Du kan nu slutföra programmet genom att anropa den **CreateIoTHub** metoden inn
 
 3. Klicka på **felsöka** och sedan **Starta felsökning** att köra programmet. Det kan ta flera minuter för att distributionen ska köra.
 
-4. Kontrollera att ditt program till den nya IoT-hubben genom att gå till den [Azure-portalen] [ lnk-azure-portal] och visa din lista över resurser. Du kan också använda den **Get-AzResource** PowerShell-cmdlet.
+4. Kontrollera att ditt program till den nya IoT-hubben genom att gå till den [Azure-portalen](https://portal.azure.com/) och visa din lista över resurser. Du kan också använda den **Get-AzResource** PowerShell-cmdlet.
 
 > [!NOTE]
-> Det här exempelprogrammet lägger till en S1 Standard IoT-hubb som du faktureras. När du är klar tar du bort IoT-hubben via den [Azure-portalen] [ lnk-azure-portal] eller genom att använda den **Remove-AzResource** PowerShell-cmdlet när du är klar.
+> Det här exempelprogrammet lägger till en S1 Standard IoT-hubb som du faktureras. När du är klar tar du bort IoT-hubben via den [Azure-portalen](https://portal.azure.com/) eller genom att använda den **Remove-AzResource** PowerShell-cmdlet när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu du har distribuerat en IoT hub med REST API för resursprovider, kanske du vill utforska ytterligare:
 
-* Läs mer om funktionerna i den [IoT Hub REST API för resursprovider][lnk-rest-api].
-* Läs [översikt över Azure Resource Manager] [ lnk-azure-rm-overview] att lära dig mer om funktionerna för Azure Resource Manager.
+* Läs mer om funktionerna i den [IoT Hub REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+
+* Läs [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) att lära dig mer om funktionerna för Azure Resource Manager.
 
 Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
-* [Introduktion till C SDK][lnk-c-sdk]
-* [Azure IoT SDK: er][lnk-sdks]
+* [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

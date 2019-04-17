@@ -1,7 +1,7 @@
 ---
 title: Log mått under träningskörningar
 titleSuffix: Azure Machine Learning service
-description: Du kan spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning.
+description: Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning. Du kan spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494635"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609475"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
 
-I Azure Machine Learning-tjänsten kan du spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. I den här artikeln lär du dig hur du Lägg till loggning i dina utbildningsskript, skicka en körning av experiment, övervaka körningen och visa resultatet av en körning.
+I den här artikeln lär du dig hur du Lägg till loggning i dina utbildningsskript, skicka en körning av experiment, övervaka körningen och visa resultatet av en körning i Azure Machine Learning-tjänsten. Förbättra skapandeprocessen modellen genom att spåra dina experiment och övervakning av mått. 
 
 ## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
 
@@ -389,7 +389,7 @@ Exempel 2: En modell för över confident ![en överdrivet confident-modell](./m
 
 ### <a name="regression"></a>Regression
 För varje regressionsmodell du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning kan du se följande diagram: 
-+ [Förväntade vs. True](#pvt)
++ [Förväntade vs. SANT](#pvt)
 + [Histogram för restbelopp](#histo)
 
 <a name="pvt"></a>
@@ -422,9 +422,9 @@ Funktionen vikten ger ett värde som anger hur värdefull varje funktion befann 
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [How-to-use-azureml/Training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [How-to-use-azureml/Training/Train-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

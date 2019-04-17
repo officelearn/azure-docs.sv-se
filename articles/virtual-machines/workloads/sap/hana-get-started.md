@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001700"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618132"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -30,7 +30,7 @@ Den här guiden kan du ställa in en enda instans SAP HANA på Azure virtuella d
 >[!Note]
 >Den här guiden beskriver distributioner av SAP HANA i Azure virtuella datorer. Information om hur du distribuerar SAP HANA på stora HANA-instanser finns i [med SAP på virtuella Azure-datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här guiden förutsätter att du är bekant med denna infrastruktur som en tjänst (IaaS)-grunder som:
  * Hur du distribuerar virtuella datorer eller virtuella nätverk via Azure portal eller PowerShell.
  * Azures plattformsoberoende kommandoradsgränssnitt (CLI), inklusive möjligheten att använda mallar i JavaScript Object Notation (JSON).
@@ -269,7 +269,7 @@ Innan du börjar installera SAP kan du kontrollera att du inkluderar värdnamn o
 
 ### <a name="the-etcfstab-file"></a>Fstab-filen/etc /
 
-Det kan vara bra att lägga till den **nofail** parameter fstab-filen. Det här sättet om något går fel med diskar, den virtuella datorn inte låser sig i startprocessen. Men kom ihåg att ytterligare diskutrymme inte kanske är tillgänglig och processer blir fullt rot-filsystemet. SAP HANA startar inte om /hana saknas.
+Det kan vara bra att lägga till den **nofail** parameter fstab-filen. Det här sättet om något går fel med diskar, den virtuella datorn slutar inte svarar på i startprocessen. Men kom ihåg att ytterligare diskutrymme inte kanske är tillgänglig och processer blir fullt rot-filsystemet. SAP HANA startar inte om /hana saknas.
 
 ![Lägg till parametern nofail i fstab-filen](./media/hana-get-started/image000c.jpg)
 

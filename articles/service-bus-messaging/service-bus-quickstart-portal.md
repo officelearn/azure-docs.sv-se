@@ -5,17 +5,16 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 700b58723073e425c0587665ccd884932837dcbf
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501084"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607763"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -72,7 +71,7 @@ Det här avsnittet innehåller mer information om vad exempelkoden gör.
 
 ### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
 
-Anslutningsnamn för sträng- och kö har skickats till den `Main()` metod som kommandoradsargument. `Main()` deklarerar två strängvariabler för dessa värden:
+Anslutningsnamn för sträng- och kö har skickats till den `Main()` metod som kommandoradsargument. `Main()` deklarerar två strängvariabler för att hålla dessa värden:
 
 ```csharp
 static void Main(string[] args)
@@ -207,7 +206,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
 
-[Azure-konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

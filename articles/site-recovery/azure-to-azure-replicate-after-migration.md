@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317144"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615922"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
 
-Använd den här artikeln om du har [migreras lokala datorer till virtuella Azure-datorer](tutorial-migrate-on-premises-to-azure.md) med hjälp av den [Site Recovery](site-recovery-overview.md) , och du nu vill hämta de virtuella datorerna för haveriberedskap till en sekundär Azure-region. Artikeln beskriver hur du kontrollera att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery-mobilitetstjänsten som inte längre behövs efter migreringen.
+Följ den här artikeln om du har [migreras lokala datorer till virtuella Azure-datorer](tutorial-migrate-on-premises-to-azure.md) med hjälp av den [Site Recovery](site-recovery-overview.md) , och du nu vill hämta de virtuella datorerna för haveriberedskap till en sekundär Azure-region. Artikeln beskriver hur du kontrollera att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery-mobilitetstjänsten som inte längre behövs efter migreringen.
 
 
 
@@ -77,7 +77,7 @@ Installera den [virtuell Linux-dator](../virtual-machines/extensions/agent-linux
         ```
     - Logga in som en rotanvändare för Linux. I en terminal, går du till **/user/local/ASR**, och kör följande kommando:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Starta om den virtuella datorn innan du konfigurerar replikering.
 

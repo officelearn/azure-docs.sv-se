@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996721"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607406"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
-I den här snabbstarten får du lära dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en container i Azure Blob Storage. 
+I den här snabbstarten lär du dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage. BLOB-lagring är bara de objekt som kan innehålla vilken mängd text eller binära data (till exempel bilder, dokument, strömmande media, arkivera data, etc.) och skiljer sig i Azure Storage från filresurser, schemalös tabeller och meddelandeköer. (Mer information finns i [introduktion till Azure Storage](/azure/storage/common/storage-introduction.md).)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

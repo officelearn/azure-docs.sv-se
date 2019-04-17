@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548533"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617724"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Rollbaserad åtkomstkontroll (RBAC) för Media Services-konton
 
-Azure Media Services för närvarande inte definierats någon specifik anpassade roller till tjänsten. Kunder kan använda de inbyggda rollerna för **ägare** eller **deltagare** att få fullständig åtkomst till ett Media Services-konto. Den största skillnaden mellan dessa roller är: den **ägare** kan styra vem som har åtkomst till en resurs och **deltagare** kan inte. Inbyggda reader-konto bara har läsbehörighet till Media Services-kontot. 
+Azure Media Services anger för närvarande inte någon specifik anpassade roller till tjänsten. För att få fullständig åtkomst till Media Services-kontot kan kunder kan använda de inbyggda rollerna för **ägare** eller **deltagare**. Den största skillnaden mellan dessa roller är: den **ägare** kan styra vem som har åtkomst till en resurs och **deltagare** kan inte. Inbyggt **läsare** rollen kan också användas, men användaren eller programmet har bara läsbehörighet till API: er för Media Services. 
 
 ## <a name="design-principles"></a>Designprinciper
 
-En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er inte returnerar hemligheter eller autentiseringsuppgifter på **hämta** eller **lista** åtgärder. Nycklarna är alltid null, tomma eller oberoende av svaret. Användaren måste anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter. Den **läsare** rollen kan inte anropa åtgärder så att det går inte att anropa åtgärder som Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Med separata åtgärder kan du ange mer detaljerade RBAC-säkerhetsbehörighet i en anpassad roll om du vill.
+En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er inte returnerar hemligheter eller autentiseringsuppgifter på **hämta** eller **lista** åtgärder. Nycklarna är alltid null, tomma eller oberoende av svaret. Användaren måste anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter. Den **läsare** rollen kan inte anropa åtgärder som Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Med separata åtgärder kan du ange mer detaljerade RBAC-säkerhetsbehörighet i en anpassad roll om du vill.
 
 Om du vill visa åtgärder Media Services stöder, gör du:
 

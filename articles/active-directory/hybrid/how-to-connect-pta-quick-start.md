@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101014"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617809"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
 
@@ -111,7 +111,15 @@ Om du planerar att distribuera direktautentisering i en produktionsmiljö bör d
 >[!IMPORTANT]
 >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 40 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Följ dessa instruktioner för att hämta programvaran för autentiseringsagent:
+Installera flera Autentiseringsagenter för vidarekoppling säkerställer hög tillgänglighet, men inte deterministisk belastningsutjämning mellan agenter för autentisering. Överväg att högsta och genomsnittliga belastningen för inloggningsförfrågningar du förväntar dig att se på din klient för att avgöra hur många Autentiseringsagenter som du behöver för din klient. Som prestandamått, kan en enda autentiseringsagent hantera 300 och 400 autentiseringar per sekund på en standard processor i 4 kärnor, 16 GB RAM-servern.
+
+Du kan beräkna nätverkstrafik, använder du följande storlek-riktlinjer:
+- Varje begäran har en nyttolast på (0,5 k + 1 K * num_of_agents) byte. d.v.s. utgående data från Azure AD-autentisering-agenten. Här anger ”num_of_agents” antalet Autentiseringsagenter registrerad på din klient.
+- Varje svar har en nyttolast på 1K byte. d.v.s. utgående data från agenten autentisering till Azure AD.
+
+Tre Autentiseringsagenter totalt är tillräckliga för hög tillgänglighet och kapacitet för de flesta kunder. Du bör installera Autentiseringsagenter nära domänkontrollanterna för att förbättra inloggningen svarstid.
+
+För att börja, följer du dessa instruktioner för att hämta programvaran autentiseringsagent:
 
 1. Ladda ned den senaste versionen av Autentiseringsagenten (version 1.5.193.0 eller senare), logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med global administratörsbehörighet för din klient.
 2. Välj **Azure Active Directory** i den vänstra rutan.
@@ -141,6 +149,13 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
 3. Gå till **C:\Program Files\Microsoft Azure AD Connect-Autentiseringsagenten** och kör följande skript med den `$cred` objektet som du skapade:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>Om en Authentication-Agent installeras på en virtuell dator, kan du klona den virtuella datorn för att konfigurera en annan Autentiseringsagenten. Den här metoden är **stöds inte**.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>Steg 5: Konfigurera funktionen för smarta kontoutelåsning
+
+Smart kontoutelåsning hjälper utelåsning illvilliga aktörer som försöker gissa användarnas lösenord eller med brute force-metoder för att få. Genom att konfigurera inställningar för Smart kontoutelåsning i Azure AD och / eller lämpliga kontoutelåsning inställningar i den lokala Active Directory, att attacker filtreras bort innan de når Active Directory. Läs [i den här artikeln](../authentication/howto-password-smart-lockout.md) mer information om hur du konfigurerar inställningar för Smart kontoutelåsning på din klient för att skydda dina användarkonton.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoptadp) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.

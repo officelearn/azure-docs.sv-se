@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002150"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606930"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation-watcher uppgifter för att spåra ändringar i filen på en lokal dator
 
@@ -29,13 +29,16 @@ I den här guiden får du lära dig att:
 > * Utlösa en Övervakare
 > * Granska utdata
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att genomföra kursen:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](automation-offering-get-started.md) bevakaren och åtgärdsrunbooks och Bevakaraktiviteten.
 * En [hybrid runbook worker](automation-hybrid-runbook-worker.md) där bevakaraktiviteten körs.
+
+> [!NOTE]
+> Bevakaraktiviteter stöds inte i Azure Kina.
 
 ## <a name="import-a-watcher-runbook"></a>Importera ett bevakarrunbookflöde
 

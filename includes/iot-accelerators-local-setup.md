@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125251"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630575"
 ---
 ## <a name="download-the-source-code"></a>Ladda ned källkoden
 
@@ -59,7 +59,7 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
      Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder. Du kan ta bort den här resursgruppen när du behöver inte längre på motsvarande resurser.
 
-     Skriptet lägger också till en uppsättning miljövariabler med prefixet **datorer** till den lokala datorn. När du startar Docker-behållare eller mikrotjänster projekt lokalt, kan de läsa sina konfigurationsvärden från dessa miljövariabler.
+     Skriptet lägger också till en uppsättning miljövariabler med prefixet **datorer** till den lokala datorn. Dessa miljövariabler ange uppgifter för fjärrövervakning för att kunna läsa från en Azure Key Vault-resurs. Den här Key Vault-resursen är där fjärrövervakning läsa dess konfigurationsvärden från.
 
      > [!TIP]
      > När skriptet har körts också sparas miljövariablerna i en fil med namnet  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** . Du kan använda dem för framtida solution accelerator distributioner. Observera att alla miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
@@ -68,4 +68,12 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
 ### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
 
-Om du redan har skapat resurserna som krävs Azure skapar du motsvarande miljövariabler på den lokala datorn. Dessa kan sparas i den  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** filen från distributionen. Observera att miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
+Om du redan har skapat resurserna som krävs Azure skapar du motsvarande miljövariabler på den lokala datorn.
+Ange miljövariabler för följande:
+* **PCS_KEYVAULT_NAME** -namnet på den Azure Key Vault-resursen
+* **PCS_AAD_APPID** -ID för det AAD-program
+* **PCS_AAD_APPSECRET** -programhemlighet i AAD
+
+Konfigurationsvärden ska läsas från den här Azure Key Vault-resursen. Dessa miljövariabler kan sparas i den  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** filen från distributionen. Observera att miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
+
+Del av konfigurationen som krävs av mikrotjänst lagras i en instans av **Key Vault** som skapades på den första distributionen. De motsvarande variablerna i keyvault ska ändras efter behov.

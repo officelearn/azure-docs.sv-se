@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280867"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608205"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snabbstart: Logga in och ange ett användar-ID
 
@@ -33,6 +33,9 @@ Men du kan alltid visa Azure-datorer utan att logga in, måste du logga in på K
 1. När du uppmanas, anger du e-postadressen till en Account eller ett arbets eller skolkonto och välj **nästa**. Kontotyper beskrivs på [ditt konto för Azure-anteckningsböcker](azure-notebooks-user-account.md). Om du inte har ett Account eller vill göra något speciellt för Azure-datorer, Välj **skapar ett**:
 
     ![Skapa nytt Microsoft-konto-kommando i inloggningsuppmaning](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerade med den kan du se meddelandet ”du kan inte logga här med ett arbets eller skolans e-postadress. Använda en personlig e-post, till exempel Gmail eller Yahoo! eller hämta en ny Outlook-e-post ”. I så fall kan du prova att logga in med den e-postadressen för arbetet utan att skapa ett nytt konto.
 
 1. Ange ditt lösenord när du tillfrågas.
 
@@ -64,4 +67,4 @@ Att logga ut, väljer användarnamnet längst upp till höger på sidan och seda
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa och dela en notebook-fil](quickstart-create-share-jupyter-notebook.md)
+> [Snabbstart: Skapa och dela en anteckningsbok](quickstart-create-share-jupyter-notebook.md)

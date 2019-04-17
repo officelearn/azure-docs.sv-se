@@ -1,44 +1,26 @@
 ---
-title: Skapa ett Azure Application Gateway – klassisk Azure CLI | Microsoft Docs
+title: Skapa ett Azure Application Gateway – klassisk Azure CLI
 description: Lär dig hur du skapar en Programgateway med hjälp av den klassiska Azure CLI i Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974433"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608480"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Skapa en Programgateway med hjälp av Azure CLI
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-> * [Klassisk Azure CLI](application-gateway-create-gateway-cli.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
-
-Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application gateway tillhandahåller de följande funktionerna för programleverans: HTTP läsa in belastningsutjämning, cookie-baserad sessionstillhörighet och Secure Sockets Layer (SSL) avlastning, anpassade hälsoavsökningar och stöd för flera platser.
+Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application gateway tillhandahåller följande funktioner för leverans av programmet: HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och Secure Sockets Layer (SSL) avlastning, anpassade hälsoavsökningar, och stöd för flera platser.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Förutsättning: Installera Azure CLI
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure CLI](../xplat-cli-install.md) och du behöver [logga in på Azure](/cli/azure/authenticate-azure-cli). 
+Om du vill utföra stegen i den här artikeln, måste du [installera Azure CLI](../xplat-cli-install.md) och du behöver [loggar du in Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Om du inte har ett Azure-konto, behöver du en. Registrera dig för en [kostnadsfri utvärderingsversion här](../active-directory/fundamentals/sign-up-organization.md).
@@ -60,15 +42,15 @@ Det här scenariot kommer att:
 
 Azure Application Gateway kräver ett eget undernät. När du skapar ett virtuellt nätverk kan du se till att lämna tillräckligt med adressutrymme för att du har flera undernät. När du distribuerar en application gateway till ett undernät kan kan bara ytterligare programgatewayer läggas till i undernätet.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Öppna den **Kommandotolken för Microsoft Azure**, och logga in. 
+Öppna den **Kommandotolken för Microsoft Azure**, och logga in.
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-När du skriver i föregående exempel finns en kod. Gå till https://aka.ms/devicelogin i en webbläsare för att fortsätta inloggningen.
+När du skriver i föregående exempel finns en kod. Gå till https://aka.ms/devicelogin i en webbläsare för att fortsätta tecknet om processen.
 
 ![cmd som visar inloggning på enhet][1]
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-När det virtuella nätverk och undernät har skapats, är krav för application gateway klar. Dessutom ett tidigare exporterade PFX-certifikat och lösenord för certifikatet måste anges för följande steg: IP-adresser som används för serverdelen är IP-adresser för backend-servern. Dessa värden kan vara antingen privata IP-adresser i det virtuella nätverket, offentliga IP-adresser eller fullständigt kvalificerat domännamn för backend-servrarna.
+När det virtuella nätverk och undernät har skapats, är krav för application gateway klar. Dessutom måste ett tidigare exporterade PFX-certifikat och lösenord för certifikatet anges för följande steg: IP-adresser som används för serverdelen är IP-adresser för backend-servern. Dessa värden kan vara antingen privata IP-adresser i det virtuella nätverket, offentliga IP-adresser eller fullständigt kvalificerat domännamn för backend-servrarna.
 
 ```azurecli-interactive
 azure network application-gateway create \

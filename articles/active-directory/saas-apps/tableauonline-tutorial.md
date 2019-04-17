@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278113"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Självstudier: Azure Active Directory-integrering med Tableau Online
 
@@ -34,7 +34,7 @@ Integrera Tableau Online med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Tableau Online, behöver du följande objekt:
 
@@ -105,9 +105,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
 
     ![Tableau Online domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I den **inloggnings-URL** text skriver du URL: en: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. I rutan **Inloggnings-URL** anger du följande URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. I den **identifierare (entitets-ID)** text skriver du URL: en: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
     > Du får den `<entityid>` värdet från den **konfigurera Tableau Online** avsnitt i den här självstudien. ID-värdet entitet kommer att **Azure AD-identifierare** värde i **konfigurera Tableau Online** avsnittet.
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
   
     a. I Azure-portalen går du vidare den **Tableau Online** integrering programsidan.
 
-    b. I den ** användarattribut och anspråk *** avsnittet, klickar du på redigeringsikonen.
+    b. I den **användarattribut och anspråk** klickar du på redigeringsikonen.
 
    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
     a. I fältet **Namn** anger du **BrittaSimon**.
   
     b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    Till exempel BrittaSimon\@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -243,7 +243,7 @@ När du klickar på panelen Tableau Online i åtkomstpanelen, bör det vara logg
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

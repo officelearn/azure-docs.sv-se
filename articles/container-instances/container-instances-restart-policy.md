@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369984"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606845"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Köra behållarbaserade uppgifter med principer för omstart
 
@@ -93,98 +93,9 @@ Utdata:
 
 Det här exemplet visar utdata som skriptet skickas till STDOUT. Dina behållarbaserade uppgifter, men kan i stället skriva sina utdata till beständig lagring för senare hämtning. Till exempel till ett [Azure-filresurs](container-instances-mounting-azure-files-volume.md).
 
-## <a name="manually-stop-and-start-a-container-group"></a>Stoppa och starta en behållargrupp manuellt
-
-Oavsett omstartsprincip som konfigurerats för en [behållargruppen](container-instances-container-groups.md), kanske du vill stoppa och starta en behållargrupp manuellt.
-
-* **Stoppa** – du kan manuellt stoppa en behållargrupp som körs när som helst – till exempel med hjälp av den [az container stoppa] [ az-container-stop] kommando. För vissa arbetsbelastningar, kan du stoppa en behållargrupp när du har en definierad period att sänka kostnaderna. 
-
-  Stoppa en behållargrupp avslutas och återanvänds behållare i gruppen. behållartillstånd bevaras inte. 
-
-* **Starta** – när en behållargrupp har stoppats - antingen eftersom behållarna avbröts på egen hand eller manuellt stoppad gruppen – du kan använda den [behållare starta API](/rest/api/container-instances/containergroups/start) eller Azure portal för att manuellt starta behållarna i gruppen. Om behållaravbildning för alla behållare uppdateras, hämtas en ny avbildning. 
-
-  Starta en behållargrupp börjar en ny distribution med samma behållarkonfiguration för. Med hjälp av den här åtgärden kan du snabbt återanvända en grupp kända container-konfiguration som fungerar som förväntat. Du behöver att skapa en ny behållargrupp som kör samma arbetsbelastning.
-
-* **Starta om** – du kan starta om en behållargrupp när den körs – till exempel med hjälp av den [az container omstart] [ az-container-restart] kommando. Den här åtgärden startar om alla behållare i behållargruppen. Om behållaravbildning för alla behållare uppdateras, hämtas en ny avbildning. 
-
-  Starta om en behållargrupp är användbart när du vill felsöka ett distributionsproblem. Till exempel om en temporär begränsningen förhindrar att dina behållare körs, kan startar om gruppen lösa problemet.
-
-Starta om principen när du manuellt starta eller starta om en behållargrupp behållare grupp körs enligt det konfigurerade.
-
-## <a name="configure-containers-at-runtime"></a>Konfigurera behållare vid körning
-
-När du skapar en behållarinstans kan du ange dess **miljövariabler**, samt ange en anpassad **kommandoraden** ska köras när behållaren har startats. Du kan använda de här inställningarna i dina batch-jobb för att förbereda varje behållare med uppgiftsspecifika konfiguration.
-
-## <a name="environment-variables"></a>Miljövariabler
-
-Ange miljövariabler i din behållare för dynamisk konfiguration av program eller skript som körs av behållaren. Detta liknar den `--env` kommandoradsargument till `docker run`.
-
-Du kan till exempel ändra beteendet för skriptet i behållaren exempel genom att ange följande miljövariabler när du skapar behållarinstansen:
-
-*NumWords*: Antalet ord som skickas till STDOUT.
-
-*MinLength*: Minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer2 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
-```
-
-Genom att ange `NumWords=5` och `MinLength=8` för behållarens miljövariabler, behållarloggarna ska visa resultatet. När visas status för container *Uppsagd* (Använd `az container show` att kontrollera dess status), visa loggar för att se den nya utdatan:
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer2
-```
-
-Utdata:
-
-```bash
-[('CLAUDIUS', 120),
- ('POLONIUS', 113),
- ('GERTRUDE', 82),
- ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]
-```
-
-
-
-## <a name="command-line-override"></a>Åsidosättning av kommandoraden
-
-Ange en kommandorad när du skapar en behållarinstans åsidosätta kommandoraden som är inbyggd i behållaravbildningen. Detta liknar den `--entrypoint` kommandoradsargument till `docker run`.
-
-Du kan exempelvis ha behållaren exempel analysera text än *samhälle* genom att ange en annan kommandorad. Python-skriptet som körs av behållare, *wordcount.py*accepterar en URL som ett argument och bearbetar den sidan innehåll i stället för standardvärdet.
-
-Till exempel för att fastställa topp 3 femsiffrig orden i *Romeo och Juliet*:
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer3 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=3 MinLength=5 \
-    --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
-```
-
-Igen, när behållaren är *Uppsagd*, visa utdata genom att visa behållarens loggar:
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer3
-```
-
-Utdata:
-
-```bash
-[('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="persist-task-output"></a>Spara aktivitetsutdata
+Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera behållare för batchbearbetning kan dra nytta av anpassade [miljövariabler](container-instances-environment-variables.md) eller [kommandorader](container-instances-start-command.md) vid körning.
 
 Mer information om hur du bevarar utdata för dina behållare att slutföras finns [montera en Azure-filresurs med Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
@@ -194,7 +105,5 @@ Mer information om hur du bevarar utdata för dina behållare att slutföras fin
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

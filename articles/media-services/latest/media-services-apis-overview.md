@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546406"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617404"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -25,7 +25,8 @@ Den här artikeln beskrivs regler som gäller för entiteter och API: er när du
 
 ## <a name="accessing-the-azure-media-services-api"></a>Åtkomst till Azure Media Services API
 
-Om du vill få åtkomst till Azure Media Services-resurserna, bör du använda tjänstobjektautentisering för Azure Active Directory (AD). Azure Media Services-API kräver att användaren eller programmet som gör REST API-förfrågningar har åtkomst till resursen i Azure Media Services-konto (vanligtvis antingen den **deltagare** eller **ägare** rollen). Mer information finns i [rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
+Du kan använda tjänstobjektautentisering för Azure Active Directory (AD) för att få åtkomst till Azure Media Services-resurserna.
+Media Services-API kräver att användaren eller programmet att göra REST API-begäranden har åtkomst till resursen i Media Services-konto och använder en **deltagare** eller **ägare** roll. API: et kan användas med den **läsare** roll men endast **hämta** eller **lista**   operations blir tillgängliga. Mer information finns i [rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
 
 Överväg att använda hanterade identiteter för Azure-resurser för att få åtkomst till Media Services-API via Azure Resource Manager istället för att skapa ett huvudnamn för tjänsten. Läs mer om hanterade identiteter för Azure-resurser i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 

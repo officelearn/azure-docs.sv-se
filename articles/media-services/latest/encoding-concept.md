@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243627"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617639"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
@@ -54,19 +54,38 @@ Media Services stöder för närvarande följande inbyggda förinställningar f�
 
 Följande förinställningar stöds för närvarande:
 
-- **EncoderNamedPreset.AdaptiveStreaming** (rekommenderas). Mer information finns i [autogenerering en bithastighetsstege](autogen-bitrate-ladder.md).
 - **EncoderNamedPreset.AACGoodQualityAudio** -producerar en enda MP4-fil som innehåller endast stereo ljud kodade med 192 kbit/s.
+- **EncoderNamedPreset.AdaptiveStreaming** (rekommenderas). Mer information finns i [autogenerering en bithastighetsstege](autogen-bitrate-ladder.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -Exponerar en experimentella förinställd för innehåll-medvetna encoding. Angivna indata innehåll försöker tjänsten automatiskt fastställa det optimala antalet lager, lämpliga bithastighet och upplösningen för leverans av Adaptiv direktuppspelning. De underliggande algoritmerna fortsätter att utvecklas över tid. Utdata innehåller MP4-filer med video och ljud överlagrad. Mer information finns i [Experimental förinställning för innehåll-medvetna encoding](cae-experimental.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080p** -producerar en uppsättning 8 GOP-justerad MP4-filer, sträcker sig från 6000 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 1080p och ned 360 p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** -producerar en uppsättning 6 GOP-justerad MP4-filer, sträcker sig från 3400 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 720p och ned 360 p.
-- **EncoderNamedPreset.H264MultipleBitrateSD** -producerar en uppsättning 5 GOP-justerad MP4-filer, sträcker sig från 1600 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas på 480 pixlar och ned 360 p.<br/><br/>Mer information finns i [överför, koda och strömma filer](stream-files-tutorial-with-api.md).
+- **EncoderNamedPreset.H264MultipleBitrateSD** -producerar en uppsättning 5 GOP-justerad MP4-filer, sträcker sig från 1600 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas på 480 pixlar och ned 360 p.
+- **EncoderNamedPreset.H264SingleBitrate1080p** -producerar en MP4-fil där videon kodas med H.264-codec i 6750 kbit/s och höjdvärdet bild 1 080 bildpunkter och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
+- **EncoderNamedPreset.H264SingleBitrate720p** -producerar en MP4-fil där videon kodas med H.264-codec på 4500 kbit/s och en Bildhöjd på 720 bildpunkter och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
+- **EncoderNamedPreset.H264SingleBitrateSD** -producerar en MP4-fil där videon kodas med H.264-codec på 2200 kbit/s och en bild höjden 480 pixlar och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
+
+Den senaste listan finns i [inbyggda förinställningar som ska användas för kodning videor](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+
+Om du vill se hur förinställningarna används, Kolla in [överför, koda och strömma filer](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset-preset"></a>StandardEncoderPreset förinställning
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver inställningar som ska användas när kodning indatavideon med Standard-kodare. Använd denna förinställning när du anpassar transformeringen förinställningar. 
 
-#### <a name="custom-presets"></a>Anpassade förinställningar
+#### <a name="considerations"></a>Överväganden
 
-Media Services stöder helt anpassa alla värden i förinställningar för att uppfylla dina specifika kodning behov och krav. Du använder den **StandardEncoderPreset** förinställda när du anpassar transformeringen förinställningar. För en detaljerade förklaringar och exempel finns i [hur du anpassar encoder förinställningar](customize-encoder-presets-how-to.md).
+När du skapar anpassade förinställningar, gäller följande:
+
+- Alla värden för höjd och bredd på AVC innehåll måste vara en multipel av 4.
+- I Azure Media Services v3 är alla kodning bithastighet i bitar per sekund. Detta skiljer sig från förinställningar med våra v2 API: er, som används kilobit per sekund som enheten. Till exempel om bithastigheten i v2 har angetts som 128 (kbit/s) skulle i v3 det ställas in till 128000 (bitar per sekund).
+
+#### <a name="examples"></a>Exempel
+
+Media Services stöder helt anpassa alla värden i förinställningar för att uppfylla dina specifika kodning behov och krav. Exempel som visar hur du anpassar encoder förinställningar finns:
+
+- [Anpassa förinställningar med .NET](customize-encoder-presets-how-to.md)
+- [Anpassa förinställningar med CLI](custom-preset-cli-howto.md)
+- [Anpassa förinställningar med REST](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 

@@ -1,8 +1,8 @@
 ---
-title: Bläddra in/bläddra in-scenarier i varaktiga funktioner – Azure
+title: FAN-in/fan-i scenarier i varaktiga funktioner – Azure
 description: Lär dig hur du implementerar ett bläddra in-bläddra ut-scenario i tillägget varaktiga funktioner för Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0bef5f1b64ec9f322070ba5c36cab138c7327da2
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727385"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608511"
 ---
-# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Bläddra in/bläddra in-scenariot i varaktiga funktioner – Cloud backup-exempel
+# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner – Cloud backup-exempel
 
-*Bläddra in/bläddra in* refererar till mönstret för att köra flera funktioner samtidigt och sedan utför en aggregering på resultatet. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera ett bläddra in/bläddra in-scenario. I exemplet är en hållbar funktion som säkerhetskopierar alla eller några av webbplatsinnehåll för en app till Azure Storage.
+*FAN-in/fan-i* refererar till mönstret för att köra flera funktioner samtidigt och sedan utför en aggregering på resultatet. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera ett fan-i/fan-in scenario. I exemplet är en hållbar funktion som säkerhetskopierar alla eller några av webbplatsinnehåll för en app till Azure Storage.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 

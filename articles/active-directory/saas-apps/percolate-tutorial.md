@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275852"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Självstudier: Azure Active Directory-integrering med Percolate
 
@@ -34,7 +34,7 @@ Integrera Percolate med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Percolate, behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Percola
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
+4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
 
     ![Percolate domän och URL: er enkel inloggning för information](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Percola
 
     b. I den **entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
-    c. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet och klistra in den i den **x509 certifikat** box.
+    c. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet och klistra in den i den **x509 certifikat** box.
 
     d. I den **e-attributet** textrutan typ **e-postadress**.
 
@@ -207,7 +207,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Om du vill aktivera Azure AD-användare att logga in på Percolate, måste de etableras i Percolate. I Percolate är etablering en manuell aktivitet.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på Percolate som administratör.
 
@@ -219,9 +219,9 @@ Om du vill aktivera Azure AD-användare att logga in på Percolate, måste de et
 
     ![Konfigurera enkel inloggning](./media/percolate-tutorial/configure04.png)
 
-    a. I **e-post** text, ange den e-postadressen för användaren som brittasimon@contoso.com.
+    a. I **e-post** text, ange den e-postadressen för användaren som brittasimon@contoso.com.
 
-    b. I **Fullname** text, ange namnet på användaren som **Brittasimon**.
+    b. I **Fullname** text, ange namnet på användaren som **Brittasimon**.
 
     c. Klicka på **skapa användare**.
 
@@ -233,7 +233,7 @@ När du klickar på panelen Percolate i åtkomstpanelen, bör det vara loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

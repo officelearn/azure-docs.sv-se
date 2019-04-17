@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905944"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617826"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -235,7 +235,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Type            | Visningsnamn | Fältnamn | Datatyp |
+| Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Enhetsegenskap | Enhetsplats   | location  | location    |
@@ -246,8 +246,8 @@ Visa/Dölj inställningar
 | Visningsnamn | Fältnamn | Returtyp | Inmatningsfält visningsnamn | Inkommande fältnamn | Inkommande fälttyp |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | eko       | text        | värde som ska visas         | displayedValue   | text             |
-| Nedräkning    | nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
+| Nedräkning    | Nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en enhet för DevKit till programmet Azure IoT Central, föreslagna nästa steg är att [Förbered och ansluter en Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Nu när du har lärt dig hur du ansluter en Raspberry Pi till programmet Azure IoT Central, föreslagna nästa steg är att lära dig hur du [konfigurera en anpassad enhet mall](howto-set-up-template.md) för dina egna IoT-enheter.

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648564"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617140"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Tillagt stöd för ändringsfeed.
 * Stöd har lagts till för samlingen kvotinformation via RequestOptions.setPopulateQuotaInfo.
 * Stöd har lagts till för lagrad procedur skriptet loggning via RequestOptions.setScriptLoggingEnabled.
-* Ett fel har åtgärdats där frågan i DirectHttps läge låser sig när den påträffar begränsning fel.
+* Ett fel har åtgärdats där frågan i DirectHttps läge slutar svara när den påträffar begränsning fel.
 * Ett fel har åtgärdats i sessionsläge för konsekvens.
 * Ett fel som kan orsaka ett Nullreferensundantag i HttpContext när frågehastigheten är för hög har åtgärdats.
 * Förbättrad prestanda för DirectHttps läge.

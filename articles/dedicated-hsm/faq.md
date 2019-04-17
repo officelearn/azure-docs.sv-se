@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540830"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608877"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -155,6 +155,10 @@ Ja. Varje HSM-installation är helt dedikerad till en enda kund och ingen annan 
 
 Microsoft har inte några administrativa eller kryptografiska kontroll över HSM. Microsoft har Övervakare på åtkomst via seriell port-anslutning att hämta grundläggande telemetri, till exempel temperatur och komponenten hälsa. På så sätt kan Microsoft för att ge Proaktiva meddelanden om problem med hälsotillstånd. Om det behövs kan kan kunden inaktivera det här kontot.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>F: Vad är ”tenantadmin”-konto Microsoft använder, jag är van vid att administratörsanvändare som ”admin” på SafeNet HSM: er?
+
+HSM-enheten levereras med en standardanvändaren administratör med standardlösenordet vanligt. Microsoft ville inte ha standardlösenordet används när alla enheter är i en pool som väntar på att etableras av kunder. Detta skulle inte uppfyller våra stränga säkerhetskrav. Därför måste ange vi ett starkt lösenord som tas bort på etableringstid. Dessutom på etableringstid skapa vi en ny användare i administratörsrollen som kallas ”tenantadmin”. Den här användaren har standardlösenordet och kunder ändra detta som den första åtgärden när du först loggar in på nyetablerade enheten. Den här processen säkerställer hög grad av säkerhet och underhåller vår löftet om ensam administrativ kontroll för våra kunder. Det bör noteras att ”tenantadmin” användaren kan användas för att återställa administratörslösenord om en kund föredrar att använda det kontot. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>F: Kan Microsoft eller någon på Microsoft åtkomstnycklar i mitt dedikerade HSM?
 
 Nej. Microsoft har inte åtkomst till nycklar som lagras i kund som allokerats dedikerad HSM.
@@ -201,7 +205,7 @@ Nej.
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>F: Vad är serviceavtalet för dedikerad HSM-tjänst?
 
-Det finns inga specifika drifttid guarentee för dedikerad HSM-tjänst. Microsoft garanterar nätverksåtkomst till enheten och kan därför standard Azure networking serviceavtal gäller.
+Det finns inga specifika driftgaranti för dedikerad HSM-tjänst. Microsoft garanterar nätverksåtkomst till enheten och kan därför standard Azure networking serviceavtal gäller.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>F: Hur används HSM: erna i Azure dedikerad HSM-skyddade?
 
@@ -217,7 +221,7 @@ Vi rekommenderar starkt att använda en lokal HSM säkerhetskopieringsenhet för
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>F: Hur får jag support för dedikerad HSM?
 
-Support tillhandahålls av både Microsoft och Gemalto.  Om du har ett problem med maskinvaran eller nätverksåtkomst, begär support med Microsoft och om du har ett problem med konfiguration, programvara och programutveckling, HSM du rasie ett supportärende med Gemalto. Om du har ett obestämd problem, generera en support begäran withg Microsoft och sedan Gemalto kan användas som krävs. 
+Support tillhandahålls av både Microsoft och Gemalto.  Om du har ett problem med maskinvara eller nätverk, skapar du en supportbegäran hos Microsoft och om du har ett problem med HSM-konfiguration, programvara och programutveckling skapar du en supportförfrågan med Gemalto. Om du har ett obestämd problem, begär support med Microsoft och sedan Gemalto kan användas som krävs. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>F: Hur får jag klienten programvara, dokumentation och åtkomst till integration vägledning för SafeNet Luna 7 HSM?
 

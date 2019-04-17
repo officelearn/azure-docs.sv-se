@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82c1909a28de694925a12e9b801361cad1f36d2
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494713"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608783"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Identifiering av startsfär för Azure Active Directory-inloggningssidor
 
@@ -49,7 +49,7 @@ En annan fördel av detta arbete är förbättrad fel meddelanden. Här följer 
     ![lösenordet är fel med bra användarnamn](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Den här funktionen kan påverka på federerade domäner som förlitar sig på gamla domännivå identifiering av startsfär att tvinga federation. Uppdateringarna på när federerad domänstöd kommer att läggas till, finns [startsfär identifiering under inloggning för Microsoft 365-tjänster](https://blogs.azure.net/updates/Admin/Blogs/29/Posts/3170). Under tiden kan har vissa organisationer tränats sina anställda att logga in med ett användarnamn som inte finns i Azure Active Directory men innehåller rätt domännamn, eftersom domännamnen dirigerar användare för närvarande till organisationens domän slutpunkt. Det nya beteendet inloggning tillåter inte detta. Användaren meddelas att rätta användarnamnet och de tillåts inte att logga in med ett användarnamn som inte finns i Azure Active Directory.
+> Den här funktionen kan påverka på federerade domäner som förlitar sig på gamla domännivå identifiering av startsfär att tvinga federation. Uppdateringarna på när federerad domänstöd kommer att läggas till, finns [startsfär identifiering under inloggning för Microsoft 365-tjänster](https://azure.microsoft.com/en-us/updates/signin-hrd/). Under tiden kan har vissa organisationer tränats sina anställda att logga in med ett användarnamn som inte finns i Azure Active Directory men innehåller rätt domännamn, eftersom domännamnen dirigerar användare för närvarande till organisationens domän slutpunkt. Det nya beteendet inloggning tillåter inte detta. Användaren meddelas att rätta användarnamnet och de tillåts inte att logga in med ett användarnamn som inte finns i Azure Active Directory.
 >
 > Om du eller din organisation har metoder som är beroende av den gamla funktionen, är det viktigt för organisationens administratörer uppdatera dokumentationen för inloggning och autentisering av medarbetare och träna anställda använder sina Azure Active Directory-användarnamn för inloggning.
   

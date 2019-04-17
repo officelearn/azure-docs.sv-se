@@ -15,22 +15,18 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547716"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607780"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Python-app ovanpå den inbyggda Python-avbildningen (förhandsversion) i App Service i Linux med hjälp av [Azure-CLI:t](/cli/azure/install-azure-cli).
-
-Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator.
+I den här snabbstarten distribuerar du en enkel Python-app till [App Service i Linux](app-service-linux-intro.md), vilket ger en mycket skalbar och automatiskt uppdaterad Webbvärdtjänst värdtjänst. Du använder Azures kommandoradsgränssnitt (den [Azure CLI](/cli/azure/install-azure-cli)) via interaktiv, webbläsarbaserad Azure Cloud Shell, så att du kan följa stegen använder en Mac, Linux eller Windows-dator.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -38,6 +34,7 @@ För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Installera Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
+* En Azure-prenumeration. Om du inte har ett redan, skapar du en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 ## <a name="download-the-sample-locally"></a>Ladda ned exemplet lokalt
 
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 Spara dina ändringar och avsluta redigeraren. Använd kommandot `^S` för att spara och `^Q` för att avsluta.
 
-Distribuera nu om programmet. Ersätt `<app-name>` med din app.
+Distribuera om appen med den [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) kommando. Ersätt namnet på din app för `<app-name>`, och ange en plats för `<location-name>` (med någon av de värden som visas från den [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.

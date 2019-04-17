@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905009"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609412"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för att replikera virtuella Azure-datorer från en region till en annan
 
@@ -32,7 +32,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 
 ## <a name="resource-support"></a>Resursstöd för
 
-**Resursåtgärden** | **Information**
+**Resursåtgärden** | **Detaljer**
 --- | --- | ---
 **Flytta valv mellan resursgrupper** | Stöds inte
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när Virtuellt datorn replikeras, måste du inaktivera och återaktivera replikering för den virtuella datorn.
@@ -69,7 +69,7 @@ Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 
 Den här tabellen sammanfattar stödet för cachelagringskonto som används av Site Recovery under replikeringen.
 
-**Inställning** | **Support** | **Information**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Generell användning V2-lagringskonton (frekvent och lågfrekvent nivå) | Stöds ej. | Begränsningen finns för cachelagring eftersom transaktionskostnader för V2 är betydligt högre än V1-lagringskonton.
 Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du använder brandvägg är aktiverad cachelagringskontot eller mållagringskontot, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -81,7 +81,7 @@ Site Recovery har stöd för replikering av virtuella Azure-datorer som kör ope
 
 ### <a name="windows"></a>Windows
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Windows Server 2019 |
 Windows Server 2016  | Server Core, Server med Skrivbordsmiljö
@@ -91,7 +91,7 @@ Windows Server 2008 R2 | Med SP1 eller senare
 
 #### <a name="linux"></a>Linux
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
@@ -99,7 +99,7 @@ Ubuntu 14.04 LTS Server | [Stöds kernel-versioner](#supported-ubuntu-kernel-ver
 Ubuntu 16.04 LTS Server | [Stöds kernel-version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och logga in och cloud-init-paketet för att konfigurera virtuella datorer, kan ha lösenordsbaserad inloggning inaktiverad på redundans (beroende på cloudinit-konfiguration). Lösenordsbaserad inloggning kan återaktiveras på den virtuella datorn genom att återställa lösenordet från stödet > Felsökning > menyn Inställningar (på den redundansväxlade virtuella datorn i Azure-portalen.
 Debian 7 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av datorer som replikeras från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats, måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Köra antingen kompatibel Red Hat-kernel eller Unbreakable Enterprise Kernel version 3 (UEK3).
@@ -107,7 +107,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för Azure-datorer
 
-**Frisläpp** | **Mobilitetstjänstversionen** | **Kernel-version** |
+**Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
 14.04 LTS | 9.23 | 3.13.0-24-Generic till 3.13.0-165-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-142-generic,<br/>4.15.0-1023-Azure till 4.15.0-1037-azure |
 14.04 LTS | 9.22 | 3.13.0-24-Generic till 3.13.0-164-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-140-generic,<br/>4.15.0-1023-Azure till 4.15.0-1036-azure |
@@ -121,7 +121,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian kernel-versioner som stöds för virtuella Azure-datorer
 
-**Frisläpp** | **Mobilitetstjänstversionen** | **Kernel-version** |
+**Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
 Debian 7 | 9.19,9.20,9.21,9.22,9.23 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -130,9 +130,9 @@ Debian 8 | 9.19 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server 12 kernel-versioner som stöds för Azure-datorer
 
-**Frisläpp** | **Mobilitetstjänstversionen** | **Kernel-version** |
+**Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.23 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.79-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default till 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default |
@@ -147,7 +147,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default ti
 
 ## <a name="replicated-machines---compute-settings"></a>Replikerade datorer - inställningarna för beräkning
 
-**Inställning** | **Support** | **Information**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
@@ -162,7 +162,7 @@ RBAC-principer | Stöds inte | Rollbaserad åtkomst till principer för åtkomst
 
 ## <a name="replicated-machines---disk-actions"></a>Replikerade datorer - disk åtgärder
 
-**Åtgärd** | **Information**
+**Åtgärd** | **Detaljer**
 -- | ---
 Ändra storlek på disk på den replikerade virtuella datorn | Stöds
 Lägg till en disk till en replikerad virtuell dator | Stöds ej.<br/><br/> Du måste inaktivera replikering för den virtuella datorn, Lägg till disk och aktiverar sedan replikeringen igen.
@@ -175,7 +175,7 @@ Den här tabellen sammanfattas stöd för Azure VM OS-disk, datadisk och tillfä
 - Om du distribuerar med standardinställningarna, skapar Site Recovery automatiskt diskar och lagringskonton baserat på inställningar för datakälla.
 - Om du har ändrat kan du kontrollera att du följer riktlinjerna.
 
-**Komponent** | **Support** | **Information**
+**Komponent** | **Support** | **Detaljer**
 --- | --- | ---
 Maximal storlek för OS-disk | 2 048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
 Temporär disk | Stöds inte | Den temporära disken utelämnas alltid från replikering.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md).
@@ -217,7 +217,7 @@ I följande tabell sammanfattas gränserna för Site Recovery.
 - Det finns två begränsningar att överväga per disk data churn och per virtuell datordata omsättning.
 - Till exempel om vi använder en Premium P20-disk som beskrivs i tabellen nedan, kan Site Recovery hantera 5 MB om dataomsättningen per disk, med på max för fem dessa diskar per virtuell dator, på grund av att gränsen på 25 MB/s totala dataomsättningen per virtuell dator.
 
-**Lagringsmålet** | **Genomsnittlig källdisken i/o** |**Genomsnittlig källa dataomsättningen för disken** | **Total source disk dataomsättning per dag**
+**Lagringsmålet** | **Genomsnittlig källdisken i/o** |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
@@ -226,7 +226,7 @@ Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 ## <a name="replicated-machines---networking"></a>Replikerade datorer - nätverk
-**Inställning** | **Support** | **Information**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Nätverkskort | Högsta antal som stöds för en viss Azure VM-storlek | Nätverkskort skapas när den virtuella datorn skapas under en redundansväxling.<br/><br/> Antal nätverkskort på den virtuella datorn som redundansväxlingen beror på antalet nätverkskort på den Virtuella källdatorn när replikering har aktiverats. Om du lägger till eller ta bort ett nätverkskort efter att ha aktiverat replikering, kan den inte påverkar antalet nätverkskort på den replikerade virtuella datorn efter redundans.
 Internet-lastbalanserare | Stöds | Associera förkonfigurerade belastningsutjämnaren med hjälp av en Azure Automation-skript i en återställningsplan.

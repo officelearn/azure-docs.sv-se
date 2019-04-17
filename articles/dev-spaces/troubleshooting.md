@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548788"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609083"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -357,3 +357,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 När din kontrollant har installerats om måste du distribuera om poddarna.
+
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Felaktig RBAC-behörigheter för att anropa Dev blanksteg styrenhet och API: er
+
+### <a name="reason"></a>Orsak
+Användaren kommer åt Azure Dev blanksteg kontrollanten måste ha åtkomst till Läs administratören *kubeconfig* på AKS-klustret. Exempelvis kan den här behörigheten finns i den [inbyggda Azure Kubernetes Service-kluster-administratörsrollen](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Användaren kommer åt Azure Dev blanksteg kontrollanten måste också ha den *deltagare* eller *ägare* RBAC-roll för styrenheten.
+
+### <a name="try"></a>Testa
+Mer information om hur du uppdaterar en användares behörigheter för ett AKS-kluster finns [här](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+Så här uppdaterar användarens RBAC-roll för styrenheten:
+
+1. Logga in på Azure Portal på https://portal.azure.com.
+1. Navigera till resursgruppen som innehåller den domänkontrollant som vanligtvis är samma som ditt AKS-kluster.
+1. Aktivera den *Visa dolda typer* kryssrutan.
+1. Klicka på kontrollanten.
+1. Öppna den *åtkomstkontroll (IAM)* fönstret.
+1. Klicka på den *rolltilldelningar* fliken.
+1. Klicka på *Lägg till* sedan *Lägg till rolltilldelning*.
+    * För *rollen* väljer du antingen *deltagare* eller *ägare*.
+    * För *tilldela åtkomst till* Välj *Azure AD-användare, grupp eller tjänstens huvudnamn*.
+    * För *Välj* söker efter användaren som du vill ge behörighet.
+1. Klicka på *Spara*.

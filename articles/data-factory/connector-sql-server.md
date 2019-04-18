@@ -55,10 +55,10 @@ Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SqlServer** | Ja |
+| type | Type-egenskapen måste anges till: **SqlServer** | Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel.<br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
-| Användarnamn |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
-| lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
+| userName |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]
@@ -148,7 +148,7 @@ För att kopiera data från/till SQL Server-databas, ange typegenskapen på data
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
 | tableName |Namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
 **Exempel:**
@@ -180,7 +180,7 @@ För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiv
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SqlSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SqlSource** | Ja |
 | sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. |Nej |
 | sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
@@ -283,8 +283,8 @@ För att kopiera data till SQL Server, ange Mottagartyp i kopieringsaktiviteten 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
-| WriteBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standard: 10000) |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **SqlSink** | Ja |
+| writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standard: 10000) |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel: ”00: 30:00” (30 minuter). |Nej |
 | preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten till att köra innan du skriver data till SQL Server. Det ska bara anropas en gång per kopia som kör. Du kan använda den här egenskapen för att rensa tidigare inlästa data. |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen, t.ex. att göra upsertar eller transformering med egen affärslogik. <br/><br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `preCopyScript` egenskapen. |Nej |
@@ -512,36 +512,36 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | SQL Server-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| binär |Byte] |
-| bitars |Boolesk |
-| Char |Sträng, Char] |
-| datum |DateTime |
-| DateTime |DateTime |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
-| FILESTREAM-attributet (varbinary(max)) |Byte] |
-| Flyttal |Double-värde |
-| image |Byte] |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| pengar |decimaltal |
-| nchar |Sträng, Char] |
-| ntext |Sträng, Char] |
-| numeriskt |decimaltal |
-| nvarchar |Sträng, Char] |
-| verkliga |Enkel |
-| ROWVERSION |Byte] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
-| sql_variant |Objekt |
-| text |Sträng, Char] |
-| time |Tidsintervall |
-| tidsstämpel |Byte] |
+| smallmoney |Decimal |
+| sql_variant |Object |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Sträng, Char] |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]

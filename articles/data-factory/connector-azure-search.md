@@ -43,7 +43,7 @@ Följande egenskaper har stöd för Azure Search länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AzureSearch** | Ja |
+| type | Type-egenskapen måste anges till: **AzureSearch** | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
 | key | Admin-nyckel för Azure Search-tjänsten. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
@@ -81,7 +81,7 @@ Om du vill kopiera data till Azure Search, ange typegenskapen på datauppsättni
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **AzureSearchIndex** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **AzureSearchIndex** | Ja |
 | indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
 
 **Exempel:**
@@ -112,9 +112,9 @@ Om du vill kopiera data till Azure Search, ange typ av datakälla i kopieringsak
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureSearchIndexSink** | Ja |
-| WriteBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).<br/><br/>Tillåtna värden är: **Sammanfoga** (standard), och **överför**. | Nej |
-| WriteBatchSize | Överför data till Azure Search-indexet när buffertstorleken når writeBatchSize. Se den [WriteBatchSize egenskapen](#writebatchsize-property) mer information.<br/><br/>Tillåtna värden är: heltal 1 och 1 000; Standardvärdet är 1000. | Nej |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureSearchIndexSink** | Ja |
+| writeBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).<br/><br/>Tillåtna värden är: **Sammanfoga** (standard), och **överför**. | Nej |
+| writeBatchSize | Överför data till Azure Search-indexet när buffertstorleken når writeBatchSize. Se den [WriteBatchSize egenskapen](#writebatchsize-property) mer information.<br/><br/>Tillåtna värden är: heltal 1 och 1 000; Standardvärdet är 1000. | Nej |
 
 ### <a name="writebehavior-property"></a>WriteBehavior egenskap
 
@@ -173,9 +173,9 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolesk | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
-| Strängmatris | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Nästa steg

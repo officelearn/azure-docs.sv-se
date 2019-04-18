@@ -78,7 +78,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
-| Kategorier |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
+| Categories |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
 | RetentionEnabled |Nej |Booleskt värde som anger om en bevarandeprincip är aktiverade på den här resursen. |
 | RetentionInDays |Nej |Antal dagar som händelser ska behållas mellan 1 och 2147483647. Värdet noll lagras loggarna på obestämd tid. |

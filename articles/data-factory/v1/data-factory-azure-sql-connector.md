@@ -65,7 +65,7 @@ En länkad Azure SQL-tjänsten länkar en Azure SQL-databas till datafabriken. F
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **AzureSqlDatabase** |Ja |
+| type |Type-egenskapen måste anges till: **AzureSqlDatabase** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure SQL Database-instans för connectionString-egenskapen. Endast grundläggande autentisering stöds. |Ja |
 
 > [!IMPORTANT]
@@ -148,7 +148,7 @@ GO
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
-| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. Mer information finns i [upprepningsbara kopiera](#repeatable-copy). |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Ange ett kolumnnamn för Kopieringsaktiviteten vill fylla med automatiskt genererad sektorn identifierare som används för att rensa data för en viss sektor när köras på nytt. Mer information finns i [upprepningsbara kopiera](#repeatable-copy). |Kolumnnamnet på en kolumn med datatypen för binary(32). |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur du använder källdata i måltabellen, t.ex. att göra upsertar eller transformering med egen affärslogik. <br/><br/>Observera att den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärd som endast körs en gång och har inget att göra med källdata, t.ex. Ta bort/trunkera, Använd `sqlWriterCleanupScript` egenskapen. |Namnet på den lagrade proceduren. |Nej |
@@ -638,36 +638,36 @@ När du flyttar data till och från Azure SQL Database, används följande mappn
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| binär |Byte] |
-| bitars |Boolesk |
-| Char |Sträng, Char] |
-| datum |DateTime |
-| DateTime |DateTime |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
-| FILESTREAM-attributet (varbinary(max)) |Byte] |
-| Flyttal |Double-värde |
-| image |Byte] |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| pengar |decimaltal |
-| nchar |Sträng, Char] |
-| ntext |Sträng, Char] |
-| numeriskt |decimaltal |
-| nvarchar |Sträng, Char] |
-| verkliga |Enkel |
-| ROWVERSION |Byte] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
-| sql_variant |Objektet * |
-| text |Sträng, Char] |
-| time |Tidsintervall |
-| tidsstämpel |Byte] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Sträng, Char] |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare

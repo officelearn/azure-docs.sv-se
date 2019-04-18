@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
 ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012222"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på macOS med hjälp av tal-SDK
@@ -23,7 +23,7 @@ ms.locfileid: "59012222"
 
 I den här artikeln skapar du ett C++-konsolprogram för macOS 10.13 och senare. Du använder Cognitive Services [tal SDK](speech-sdk.md) att transkribera tal till text i realtid från din Mac mikrofon. Programmet har skapats med den [tal SDK för macOS](https://aka.ms/csspeech/macosbinary) och din Mac standard C++-kompilatorn (till exempel `g++`).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 

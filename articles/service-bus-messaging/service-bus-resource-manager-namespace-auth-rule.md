@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048010"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Skapa en Service Bus-auktoriseringsregel för namnområde och kö med en Azure Resource Manager-mall
@@ -32,7 +32,7 @@ Läs den fullständiga mallen, den [regelmall för Service Bus-auktorisering] [ 
 > [!NOTE]
 > Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
+> * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
 > * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
 > * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
 > * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
@@ -49,7 +49,7 @@ Den här mallen använder [signatur för delad åtkomst (SAS)](service-bus-sas.m
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
-[![Deploy till Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Distribuera till Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametrar
 

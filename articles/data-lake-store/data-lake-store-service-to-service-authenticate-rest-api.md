@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885731"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med REST API
@@ -23,13 +23,13 @@ ms.locfileid: "58885731"
 > * [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Använda Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Använda REST-API:et](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Använda REST-API](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 > 
 
 I den här artikeln lär du dig hur du använder REST API för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av REST API, se [slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-end-user-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).

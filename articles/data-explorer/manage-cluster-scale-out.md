@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261606"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
@@ -57,7 +57,7 @@ Följande bild visar flödet av de kommande stegen. Mer information följer på 
     | Inställning | Beskrivning och värde |
     | --- | --- |
     | **Åtgärd** | Välj rätt alternativ för att skala in eller skala ut. |
-    | **Antal instanser** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
+    | **Instansantal** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
     | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
     |  |  |
 
@@ -68,7 +68,7 @@ Följande bild visar flödet av de kommande stegen. Mer information följer på 
     | Inställning | Beskrivning och värde |
     | --- | --- |
     | **Minimum** | Antalet instanser som klustret inte skalas nedan, oavsett användning. |
-    | **Maximal** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
+    | **Maximalt** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
     | **Standard** | Standardantalet instanser. Den här inställningen används om det är problem med att läsa. |
     |  |  |
 

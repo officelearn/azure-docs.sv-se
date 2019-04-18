@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896167"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
@@ -29,7 +29,7 @@ Azure Functions har stöd för C# och C#-skript som programmeringsspråk. Om du 
 Den här artikeln förutsätter att du redan har läst i följande artiklar:
 
 * [Azure Functions-guide för utvecklare](functions-reference.md)
-* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
+* [Visual Studio 2017-verktyg för Azure Functions](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions klassbiblioteksprojektet
 
@@ -158,7 +158,7 @@ Den *function.json* filen utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.Functio
 
 Samma paket som ska användas för både version 1.x och 2.x av Functions-körning. Målramverk är vad särskiljer ett 1.x-projekt från ett 2.x-projekt. Här följer de relevanta delarna av *.csproj* filer, som visar olika mål ramverk och samma `Sdk` paketet:
 
-**Functions 1.x**
+**1.x-funktioner**
 
 ```xml
 <PropertyGroup>
@@ -169,7 +169,7 @@ Samma paket som ska användas för både version 1.x och 2.x av Functions-körni
 </ItemGroup>
 ```
 
-**Functions 2.x**
+**2.x-funktioner**
 
 ```xml
 <PropertyGroup>

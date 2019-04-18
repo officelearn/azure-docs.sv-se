@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010200"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
@@ -28,10 +28,10 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 
 | Tjänst | Funktion | Beskrivning | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Tal till text](speech-to-text.md) | Tal till text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech-to-Text](speech-to-text.md) | Tal-till-text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch avskrift](batch-transcription.md) | Batch avskrift gör det möjligt för asynkron tal till text transkription av stora mängder data. Det här är en REST-baserad tjänst som använder samma slutpunkt som anpassning och modellhantering. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | | [Anpassning](#customize-your-speech-experience) | Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Text till tal](text-to-speech.md) | Text-till-tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Anpassning](#customize-your-speech-experience) | Skapa anpassade rösttyper unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Talöversättning](speech-translation.md) | Talöversättning | Talöversättning gör i realtid, flera språk översättning av tal till dina program, verktyg och enheter. Använd den här tjänsten för tal-till-tal- och tal till text. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
 
@@ -51,7 +51,7 @@ Vi erbjuder snabbstarterna i mest populära programmeringsspråk, alla har utfor
 | Tal till text (SDK) | Translation (SDK) | Text till tal (REST) | Text till tal (SDK) |
 |-------------------|-------------------|-----------------------|-----------------------|
 | [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (webbläsare)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
 | [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
@@ -75,14 +75,14 @@ Azure Speech Services fungerar bra med inbyggda modeller, men du kanske vill att
 |----------------|-------|-------------|
 | Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg, eller enheter som är särskilt används miljöer som i en bil eller på fabriksgolvet, var och en med specifika inspelning villkor. Exempel är accenttecken tal, specifika bakgrundsljud eller med en specifik mikrofon för inspelning. |
 | | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språkmodell för att förbättra avskrift för fält-specifika ordförråd och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
-| | [Uttal av modellen](how-to-customize-pronunciation.md) | Du kan definiera fonetiska, formulär och visning av ett ord eller en term med en anpassad uttal-modell. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
+| | [Uttalsmodell](how-to-customize-pronunciation.md) | Du kan definiera fonetiska, formulär och visning av ett ord eller en term med en anpassad uttal-modell. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil. |
 | Text till tal | [Rösttyp](how-to-customize-voice-font.md) | Anpassade rösttyper kan du skapa en identifierbara, en av en typ ton för ditt varumärke. Det tar bara en liten mängd data för att komma igång. Ju mer data som du ger, mer naturliga och människoliknande din rösttyp kommer ljud. |
 
 ## <a name="reference-docs"></a>Referensdokument
 
 * [Speech SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [REST-API: Tal till text](rest-speech-to-text.md)
+* [Tal enheter SDK](speech-devices-sdk.md)
+* [REST-API: Speech-to-text](rest-speech-to-text.md)
 * [REST-API: Text till tal](rest-text-to-speech.md)
 * [REST-API: Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
 

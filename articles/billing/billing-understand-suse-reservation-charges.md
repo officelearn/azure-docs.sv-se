@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917795"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur SUSE Linux Enterprise software reservationsrabatten plan tillämpas för Azure
@@ -126,10 +126,10 @@ Azure portal marketplace-namn:
 
 Mer information om reservationer, finns i följande artiklar:
 
-- [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Betala i förskott för SUSE-programvaruplaner med Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
+- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 

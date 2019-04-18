@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862717"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
@@ -29,7 +29,7 @@ ms.locfileid: "58862717"
 
 Den här artikeln förklarar Azure Security Center (ASC) IoT prissättningsmodell, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 ASC för IoT prismodellen består av två delar och debiteras när en IoT-hubb är [aktiverat](quickstart-onboard-iot-hub.md) i ASC för IoT:
 
@@ -62,7 +62,7 @@ Du ändrar inställningarna:
 
 Följande tabell innehåller en sammanfattning av associerade kostnader och konsekvenserna av varje alternativ.
 
-|     | Användning | Kommentar |
+|     | Användning | Kommentera |
 | --- | --- | --- |
 | **Förbrukning för IoT Hub-kvot** |  |
 | [Exportera enheten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) jobb (twin export) | En gång om dagen | Inaktivera _twin metadatasamlingen_ |

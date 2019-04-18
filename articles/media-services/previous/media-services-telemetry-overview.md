@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58803316"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services-telemetri  
@@ -74,12 +74,12 @@ Det här ger många vanliga frågor för att effektivt:
 
 Dessa data lagras i samlingen i en tabell, ”TelemetryMetrics20160321” där ”20160321” är datumet för den skapade tabellen. Telemetrisystem skapar en separat tabell för varje ny dag baserat på 00:00 UTC. Tabellen används för att lagra återkommande värden som matar in bithastighet inom en viss period av tid, skickade byte osv. 
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|{account ID} _ {entitets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Konto-ID är inkluderat i partitionsnyckel för att förenkla arbetsflöden där flera Media Services-konton skriver till samma lagringskonto.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>Radnyckeln börjar med antalet sekunder till midnatt att tillåta övre n style frågor inom en partition. Mer information finns i [den här artikeln](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
 Tidsstämpel|Datum/tid|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Type|Typen av enhet som tillhandahåller telemetridata för|Kanalen eller StreamingEndpoint/arkivfiler<br/><br/>Händelsetypen är bara ett strängvärde.
+Typ|Typen av enhet som tillhandahåller telemetridata för|Kanalen eller StreamingEndpoint/arkivfiler<br/><br/>Händelsetypen är bara ett strängvärde.
 Namn|Namnet på händelsen telemetri|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Den tid som telemetri händelsen inträffade (UTC)|2016-09-09T22:42:36.924Z<br/><br/>Den observerade tid kommer från den entitet som skickar telemetri (till exempel en kanal). Det kan finnas tid göra en uppskattning av synkroniseringsproblem mellan komponenter så att det här värdet är
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -93,14 +93,14 @@ Det finns tre typer av entiteter telemetriska dataposter vidare med följande fr
 - Livekanaler: Varje minut
 - Live-arkivet: Varje minut
 
-**Slutpunkten för direktuppspelning**
+**Slutpunkt för direktuppspelning**
 
-Egenskap |Värde|Exempel
+Egenskap|Värde|Exempel
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpel från Azure Table 2016-09-09T22:43:42.241Z
-Type|Type|StreamingEndpoint
+Typ|Typ|StreamingEndpoint
 Namn|Namn|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -114,12 +114,12 @@ E2ELatency|Genomsnittlig svarstid för slutpunkt till slutpunkt|250
 
 **Live channel**
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Type|Type|Kanal
+Typ|Typ|Kanal
 Namn|Namn|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -132,19 +132,19 @@ OverlapCount|Överlappar i för inmatning|0
 DiscontinuityCount|Avvikelse för spår|0
 LastTimestamp|Tidsstämpel för senaste insamlade data|1800488800
 NonincreasingCount|Antal fragment förkastas på grund av icke-ökande tidsstämpel|2
-UnalignedKeyFrames|Om vi har tagit emot fragmenten (över kvalitetsnivå) där nyckeln inte justerade bildrutor |True
-UnalignedPresentationTime|Om vi har tagit emot fragmenten (alla kvalitet nivåer/spår) där presentation tid är inte justerad|True
-UnexpectedBitrate|Värdet är true, == beräknade/faktiska bithastigheter för ljud/video spåra > 40 000 bit/s och IncomingBitrate eller IncomingBitrate och actualBitrate skiljer sig med 50% 0 |True
-Felfri|SANT, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är alla 0|True<br/><br/>Felfria är en sammansatt funktion som returnerar false när något av följande villkor håller:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Om vi har tagit emot fragmenten (över kvalitetsnivå) där nyckeln inte justerade bildrutor |Sant
+UnalignedPresentationTime|Om vi har tagit emot fragmenten (alla kvalitet nivåer/spår) där presentation tid är inte justerad|Sant
+UnexpectedBitrate|Värdet är true, == beräknade/faktiska bithastigheter för ljud/video spåra > 40 000 bit/s och IncomingBitrate eller IncomingBitrate och actualBitrate skiljer sig med 50% 0 |Sant
+Felfri|SANT, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är alla 0|Sant<br/><br/>Felfria är en sammansatt funktion som returnerar false när något av följande villkor håller:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Live-arkivet**
 
-Egenskap |Värde|Exempel/Anteckningar
+Egenskap|Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Type|Type|Arkiv
+Typ|Typ|Arkiv
 Namn|Namn|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -163,7 +163,7 @@ Måttdata lagras som en serie med Azure-tabeller i kundens lagringskonto. Dessa 
 
 - AMS SDK
 - Microsoft Azure Storage Explorer (stöd för att exportera till CSV-format och bearbetade i Excel)
-- REST-API
+- REST API
 
 ### <a name="how-to-find-average-bandwidth-consumption"></a>Så här hittar du genomsnittlig bandbreddsanvändning?
 

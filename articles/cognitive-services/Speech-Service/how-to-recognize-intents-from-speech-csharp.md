@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280544"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
@@ -36,7 +36,7 @@ I den här självstudien använder du Speech SDK för att utveckla ett C#-konsol
 > * Identifiera tal från en fil
 > * Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande innan du börjar den här självstudiekursen.
 
@@ -133,7 +133,7 @@ Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingM
 
 Att lägga till avsikter kräver tre argument: LUIS-modell (som har skapats och heter `model`), avsiktlig namn och en avsiktlig-ID. Skillnaden mellan ID och namnet är som följer.
 
-|`AddIntent()` Argumentet|Syfte|
+|`AddIntent()`-argument|Syfte|
 |--------|-------|
 |intentName |Namnet på avsikten enligt vad som definierats i LUIS-appen. Måste matcha LUIS-avsiktsnamnet exakt.|
 |intentID    |Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Kan vara vad som helst; det behöver inte motsvara avsiktsnamnet enligt vad som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
@@ -188,4 +188,4 @@ Leta upp koden från den här artikeln i mappen samples/csharp/sharedcontent/con
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hur du känna igen tal](how-to-recognize-speech-csharp.md)
+> [Så identifierar du tal](how-to-recognize-speech-csharp.md)

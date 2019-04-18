@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266961"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Med QnA Maker portal kan du skapa en kunskapsbas
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Den programmässiga versionen av den här självstudien finns med en kompletta lösning från GitHub-lagringsplatsen [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). 
 
@@ -66,8 +66,8 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
     |Inställningsnamn|Inställningsvärde|Syfte|
     |--|--|--|
-    |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
-    |Fil |_inte används i den här självstudien_|Det här laddar upp filer för frågor och svar. |
+    |Webbadress|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
+    |Fil |_används inte i den här självstudien_|Det här laddar upp filer för frågor och svar. |
     |Kommunikationspersonlighet|Vännen|Detta ger en informell och avslappnad personlighet för vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
 
     ![Steg 4 i skapandeprocessen för kunskapsbas](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)

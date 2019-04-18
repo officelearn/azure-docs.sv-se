@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885714"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
@@ -73,7 +73,7 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | int |int |AMQP-värde |
 | lång |lång |AMQP-värde |
 | flyt |flyt |AMQP-värde |
-| double |double |AMQP-värde |
+| dubbel |dubbel |AMQP-värde |
 | decimal |decimal128 |AMQP-värde |
 | Char |Char |AMQP-värde |
 | DateTime |tidsstämpel |AMQP-värde |
@@ -86,7 +86,7 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | URI |Beskrivningen sträng (se nedan) |AMQP-värde |
 | DateTimeOffset |Beskrivningen länge (se nedan) |AMQP-värde |
 | TimeSpan |Beskrivningen länge (se följande) |AMQP-värde |
-| Strömma |binär |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
+| Stream |binär |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
 | Andra objekt |binär |AMQP-Data (kan vara flera). Innehåller den serialiserade binära filen på det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
 | .NET-typ | Mappade AMQP beskrivs typ | Anteckningar |

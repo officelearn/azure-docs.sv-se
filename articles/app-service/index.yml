@@ -106,8 +106,8 @@ sections:
         style: ordered
         items:
           - html: Skapa ett program med hjälp av <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET med Azure SQL DB</a> eller <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program </a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">BindA ett befintligt SSL-certifikat till ditt program</a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
   - title: Utveckla dina färdigheter med Microsoft Learn
     items:
@@ -157,6 +157,6 @@ sections:
           - title: Kommandorad
             html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
           - title: Språk
-            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+            html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST
-            html: <p><a href="/rest/api/appservice">Referens för REST API</a></p>
+            html: <p><a href="/rest/api/appservice">REST API-referens</a></p>

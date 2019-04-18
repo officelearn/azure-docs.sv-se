@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257237"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
@@ -74,4 +74,4 @@ QnA Maker-arkitekturen består av följande två komponenter:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en QnA Maker-tjänsten](../how-to/set-up-qnamaker-service-azure.md)
+> [Skapa en QnA Maker-tjänst](../how-to/set-up-qnamaker-service-azure.md)

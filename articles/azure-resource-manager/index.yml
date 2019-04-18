@@ -61,7 +61,7 @@ sections:
         className: spaced noBullet
         items:
           - html: '<a href="https://azure.microsoft.com/resources/templates/">Azure-snabbstartmallar</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (förhandsversion)</a>'
+          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (Förhandsversion)</a>'
   - title: Referens
     items:
       - type: list
@@ -69,10 +69,10 @@ sections:
         className: cardsD
         items:
           - title: Mallar
-            html: <p><a href="/azure/templates/">Mallreferens</a></p><p><a href="/azure/resource-group-template-functions">Mallfunktioner</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funktioner för användargränssnittsdefinition</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Element för användargränssnittsdefinition</a></p>
+            html: <p><a href="/azure/templates/">Mallreferens</a></p><p><a href="/azure/resource-group-template-functions">Mallfunktioner</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funktioner för användargränssnittsdefinition</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Definitionselement för användargränssnitt</a></p>
           - title: Kommandorad
             html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
           - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
+            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
           - title: REST
             html: <p><a href="/rest/api/resources/">REST-API</a></p>

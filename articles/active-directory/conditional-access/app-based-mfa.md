@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5ab513034d6e2946dcb31f3a31dbf86f14873e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895993"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory
@@ -28,7 +28,7 @@ Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra scenariot i den här snabbstarten behöver du:
 
@@ -74,7 +74,7 @@ Ange i din princip:
 
 1. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
 
-   ![Villkorlig åtkomst](./media/app-based-mfa/03.png)
+   ![Villkorad åtkomst](./media/app-based-mfa/03.png)
 
 1. På den **villkorlig åtkomst** , i verktygsfältet högst upp, klickar du på **ny princip**.
 
@@ -184,7 +184,7 @@ I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad in
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) med hjälp av din **Isabella Simonsen** testa konto. Du bör se en dialogruta som du måste ange ditt konto för ytterligare säkerhetsverifiering.
 
-![Multi-Factor Authentication](./media/app-based-mfa/22.png)
+![Multifaktorautentisering](./media/app-based-mfa/22.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -193,7 +193,7 @@ När den inte längre behövs kan du ta bort testanvändaren och principen för 
 - Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multi-Factor Authentication](./media/app-based-mfa/33.png)
+    ![Multifaktorautentisering](./media/app-based-mfa/33.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

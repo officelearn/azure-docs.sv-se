@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918560"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
@@ -32,7 +32,7 @@ Du kan använda en SAS för att definiera olika parametrar för åtkomst till en
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Ställa in Azure CDN för att arbeta med SAS-lagring
 Följande tre alternativ rekommenderas för att använda SAS med Azure CDN. Alla alternativ förutsätter att du redan har skapat ett fungerande SAS (se krav). 
  
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Skapa ett lagringskonto för att starta, och sedan skapa en SAS för tillgången. Du kan skapa två typer av signaturer lagrade åtkomst: tjänst-SAS eller ett SAS-konto. Mer information finns i [typer av signaturer för delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 När du har genererat en SAS-token kan du komma åt din blob storage-fil genom att lägga till `?sv=<SAS token>` till din URL. Denna URL har följande format: 
@@ -89,8 +89,7 @@ Det här alternativet är endast tillgänglig för **Azure CDN Premium från Ver
    ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Exempel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`

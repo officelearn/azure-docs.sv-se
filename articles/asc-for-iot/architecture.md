@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862373"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center för IoT-arkitekturen
@@ -55,9 +55,9 @@ ASC för IoT-rekommendationer och aviseringar (analytics pipeline utdata) skrivs
 
 I den här artikeln har du lärt dig om grundläggande arkitektur och arbetsflöde för ASC för IoT-lösning. Mer information om förutsättningar, hur du kommer igång och aktivera din säkerhetslösning i IoT Hub finns i följande artiklar:
 
-- [Förutsättningar för tjänsten](service-prerequisites.md)
+- [Krav för tjänst](service-prerequisites.md)
 - [Komma igång](getting-started.md)
-- [Konfigurera lösningen](quickstart-configure-your-solution.md)
+- [Konfigurera din lösning](quickstart-configure-your-solution.md)
 - [Aktivera säkerhet i IoT Hub](quickstart-onboard-iot-hub.md)
 - [ASC för IoT vanliga frågor och svar](resources-frequently-asked-questions.md)
 - [ASC för IoT-säkerhetsvarningar](concept-security-alerts.md)

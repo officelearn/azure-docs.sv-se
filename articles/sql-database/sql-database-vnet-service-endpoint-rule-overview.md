@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805201"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
@@ -172,7 +172,7 @@ Azure Storage har implementerats i samma funktion som låter dig begränsa anslu
 
 PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage-kontot som du läser in data från begränsar endast åtkomst till en uppsättning VNet-undernät, bryter anslutningen från PolyBase till kontot. För att aktivera båda PolyBase importera och exportera scenarier med Azure SQL Data Warehouse anslutningen till Azure Storage som skyddas till virtuellt nätverk, följer du stegen som anges nedan:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -285,7 +285,7 @@ Internt, anropa PowerShell-cmdlets för SQL VNet åtgärder REST API: er. Du kan
 
 - [Regler för virtuellt nätverk: Åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste redan ha ett undernät som är taggade med viss tjänstslutpunkt för virtuellt nätverk *typnamn* relevant för Azure SQL Database.
 

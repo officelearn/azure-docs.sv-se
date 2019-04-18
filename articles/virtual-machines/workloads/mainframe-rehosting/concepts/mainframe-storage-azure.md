@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896478"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Flytta lagringen för stordatorprogram till Azure
@@ -51,7 +51,7 @@ Azure storage är tillgängligt som [Azure Disks](/azure/virtual-machines/window
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Beskrivning</th><th>Använd när du vill:</th></tr>
+    <tr><th>Typ</th><th>Beskrivning</th><th>Använd när du vill:</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure Files
@@ -94,7 +94,7 @@ Typ av lagring för ett visst system är beroende av kraven i systemet, inklusiv
 
 SSD ger högsta lagringsprestanda på Azure. Följande alternativ är tillgängliga (från och med skrivning av det här dokumentet):
 
-| Type         | Storlek           | IOPS                  |
+| Typ         | Storlek           | IOPS                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 GB till 64 TB  | 1 200 160,000 IOPS |
 | Premium SSD  | 32 GB till 32 TB | 12 till 15 000 IOPS     |

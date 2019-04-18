@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048970"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurera IoT Hub-filöverföringar med hjälp av Azure CLI
@@ -138,7 +138,7 @@ Läs mer om funktionerna du kan ladda upp filen för IoT Hub, [ladda upp filer f
 Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
 
 * [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub-mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:

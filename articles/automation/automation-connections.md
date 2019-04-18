@@ -10,10 +10,10 @@ ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918033"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
@@ -39,7 +39,7 @@ I de flesta fall behöver du inte skapa en anslutningsresurs när den skapas nä
 
 Cmdlets i följande tabell används för att skapa och hantera anslutningar för Automation med Windows PowerShell. De levereras som en del av den [Azure PowerShell-modulen](/powershell/azure/overview) som är tillgängligt för användning i Automation-runbooks och DSC-konfigurationer.
 
-|Cmdlet|Beskrivning|
+|Cmdlet:|Beskrivning|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Hämtar en anslutning. Innehåller en hash-tabell med värdena för anslutningens fält.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Skapar en ny anslutning.|

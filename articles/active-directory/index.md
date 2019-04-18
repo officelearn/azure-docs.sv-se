@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 352050f4bd53188a420f75607677d88ebc081505
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051043"
 ---
 <div id="main" class="v2">
@@ -164,12 +164,12 @@ ms.locfileid: "59051043"
                                                         <h3><a href="authentication/index.yml">Autentisering</a></h3>
                                                         <p>
                                                             <a href="authentication/concept-mfa-howitworks.md">Så här fungerar det: Azure MFA</a><br>
-                                                            <a href="authentication/concept-sspr-howitworks.md">Självåterställning av lösenord i Azure AD</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Lösenordsåterställning via självbetjäning i Azure AD</a><br>
                                                             <a href="authentication/concept-password-ban-bad.md">Azure AD-lösenordsskydd</a><br>
                                                             <a href="authentication/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Företag till företag (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/what-is-b2b.md">Vad är Azure AD B2B?</a><br>
                                                             <a href="b2b/add-users-administrator.md">Lägga till gästanvändare på portalen</a><br>
@@ -177,7 +177,7 @@ ms.locfileid: "59051043"
                                                             <a href="b2b/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Företag till konsument (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Vad är Azure AD B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Skapa en Azure AD B2C-klient</a><br>
@@ -198,8 +198,8 @@ ms.locfileid: "59051043"
                                                         <h3><a href="conditional-access/index.yml">Villkorlig åtkomst</a></h3>
                                                         <p>
                                                             <a href="conditional-access/overview.md">Vad är villkorsstyrd åtkomst?</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">Kräv MFA för specifika appar</a><br>
-                                                            <a href="conditional-access/location-condition.md">Villkor som baseras på plats</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">Kräva MFA för specifika appar</a><br>
+                                                            <a href="conditional-access/location-condition.md">Villkor baserade på plats</a><br>
                                                             <a href="conditional-access/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
@@ -219,11 +219,11 @@ ms.locfileid: "59051043"
                                                             <a href="devices/index.yml"><i>Mer information &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
+                                                        <h3><a href="/azure/active-directory-domain-services/index">Domäntjänster</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-overview">Vad är Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Aktivera Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administrera en grupprincip</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administrera grupprincip</a><br>
                                                             <a href="/azure/active-directory-domain-services/index"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
@@ -257,7 +257,7 @@ ms.locfileid: "59051043"
                                                         <p>
                                                             <a href="governance/create-access-review.md">Skapa en åtkomstgranskning</a><br>
                                                             <a href="governance/perform-access-review.md">Starta en åtkomstgranskning</a><br>
-                                                            <a href="conditional-access/terms-of-use.md">Användningsvillkor</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Använda användningsvillkoren</a><br>
                                                             <a href="governance/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>

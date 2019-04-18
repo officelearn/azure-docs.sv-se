@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012243"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Windows med hjälp av tal-SDK
@@ -25,7 +25,7 @@ Funktionen som beskrivs i den här artikeln är tillgänglig från [tal SDK 1.4.
 
 En fullständig lista över språk/röster som är tillgängliga för talsyntes Se [språkstöd](language-support.md#text-to-speech).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
@@ -69,4 +69,4 @@ Ytterligare exempel, till exempel hur du sparar tal i en ljudfil, är tillgängl
 ## <a name="see-also"></a>Se också
 
 - [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Spela in röstexempel](record-custom-voice-samples.md)
+- [Post voice-exempel](record-custom-voice-samples.md)

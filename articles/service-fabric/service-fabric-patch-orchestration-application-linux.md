@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266145"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Uppdatera operativsystemet Linux i Service Fabric-klustret
@@ -57,7 +57,7 @@ Appen patch orchestration består av följande delkomponenter:
 > [!NOTE]
 > Patch orchestration appen använder tjänsten Service Fabric reparera manager system att inaktivera eller aktivera noden och utföra hälsokontroller. Reparationsuppgiften som skapats av appen patch orchestration förloppet på uppdatering för varje nod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Se till att dina virtuella Azure-datorer kör Ubuntu 16.04
 Vid tidpunkten för att skriva det här dokumentet, Ubuntu 16.04 (`Xenial Xerus`) är den enda versionen som stöds.
@@ -127,7 +127,7 @@ Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA
 
 Patch orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att skicka in parametern program under programmet skapas eller uppdatera. Programparametrar kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdletar.
 
-|**Parameter**        |**Type**                          | **Information**|
+|**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal resultat för uppdatering, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Uppdateringarna är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Uppdateringarna är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för uppdatering.)
@@ -173,8 +173,7 @@ Powershell (Undeploy.ps1) och bash (Undeploy.sh)-skript har angetts tillsammans 
 
 ## <a name="view-the-update-results"></a>Visa resultat för uppdatering
 
-Appen patch orchestration exponerar REST-API: er för att visa historiska resultat för användaren. Nedan följer ett exempel-resultat:
-```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+Appen patch orchestration exponerar REST-API: er för att visa historiska resultat för användaren. Nedan följer ett exempel-resultat: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 

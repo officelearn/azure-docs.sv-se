@@ -390,14 +390,14 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 
 | Egenskap | Beskrivning |
 |---|---|
-| Dator | Namn på den dator där data samlades in |
+| Computer | Namn på den dator där data samlades in |
 | TimeGenerated | Tid för posten |
 | LocalIP | IP-adressen för den lokala datorn |
 | SessionState | Ansluten eller frånkopplad |
 | ReceivedBytes | Mängden byte som tagits emot |
 | ProtocolName | Namnet på det nätverksprotokoll som används |
 | IPVersion | IP-version |
-| Riktning | Inkommande eller utgående |
+| Direction | Inkommande eller utgående |
 | MaliciousIP | IP-adressen för en känd skadlig källa |
 | Severity | Allvarlighetsgrad för misstänkt skadlig programvara |
 | RemoteIPCountry | Land för fjärr-IP-adress |

@@ -53,10 +53,10 @@ Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **SqlServer**. | Ja. |
+| type | Type-egenskapen måste anges till **SqlServer**. | Ja. |
 | connectionString |Den här egenskapen anger connectionString information som behövs för att ansluta till den hanterade instansen med hjälp av SQL-autentisering eller Windows-autentisering. Mer information finns i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja. |
-| Användarnamn |Den här egenskapen anger ett användarnamn om du använder Windows-autentisering. Ett exempel är **domainname\\användarnamn**. |Nej. |
-| lösenord |Den här egenskapen anger ett lösenord för det användarkonto som du angav för användarnamnet. Välj **SecureString** att lagra connectionString-information på ett säkert sätt i Data Factory eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej. |
+| userName |Den här egenskapen anger ett användarnamn om du använder Windows-autentisering. Ett exempel är **domainname\\användarnamn**. |Nej. |
+| password |Den här egenskapen anger ett lösenord för det användarkonto som du angav för användarnamnet. Välj **SecureString** att lagra connectionString-information på ett säkert sätt i Data Factory eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej. |
 | connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Etablera den lokala integreringskörningen i samma virtuella nätverk som din hanterade instans. |Ja. |
 
 >[!TIP]
@@ -146,7 +146,7 @@ För att kopiera data till och från Azure SQL Database Managed Instance, ange t
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till **SqlServerTable**. | Ja. |
+| type | Type-egenskapen för datauppsättningen måste anges till **SqlServerTable**. | Ja. |
 | tableName |Den här egenskapen är namnet på tabellen eller vyn i den databasinstans som den länkade tjänsten refererar till. | Nej för källa. Ja för mottagaren. |
 
 **Exempel**
@@ -178,7 +178,7 @@ För att kopiera data från Azure SQL Database Managed Instance kan du ange typ 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SqlSource**. | Ja. |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SqlSource**. | Ja. |
 | sqlReaderQuery |Den här egenskapen använder anpassade SQL-fråga för att läsa data. Ett exempel är `select * from MyTable`. |Nej. |
 | sqlReaderStoredProcedureName |Den här egenskapen är namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej. |
 | storedProcedureParameters |Det är dessa parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrarna måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej. |
@@ -281,8 +281,8 @@ Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagart
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja. |
-| WriteBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är heltal för hur många rader. |Nej (standard: 10,000). |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja. |
+| writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är heltal för hur många rader. |Nej (standard: 10,000). |
 | writeBatchTimeout |Denna egenskap anger väntetiden batch Infoga åtgärd ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är för tidsintervallet. Ett exempel är ”00: 30:00”, som är 30 minuter. |Nej. |
 | preCopyScript |Den här egenskapen anger en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till den hantera instansen. Den anropas bara en gång per kopia som kör. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej. |
 | sqlWriterStoredProcedureName |Det här namnet är för den lagrade proceduren som definierar hur du använder källdata i måltabellen. Exempel på procedurer är att göra upsertar eller transformeringar med egen affärslogik. <br/><br/>Den här lagrade proceduren är *anropas per batch*. För att göra en åtgärd som körs bara en gång och har inget att göra med källdata, till exempel ta bort eller trunkera använder den `preCopyScript` egenskapen. |Nej. |
@@ -510,36 +510,36 @@ När data kopieras till och från Azure SQL Database Managed Instance, används 
 | Azure SQL Database Managed Instance-datatyp | Azure Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| binär |Byte] |
-| bitars |Boolesk |
-| Char |Sträng, Char] |
-| datum |DateTime |
-| DateTime |DateTime |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
-| FILESTREAM-attributet (varbinary(max)) |Byte] |
-| Flyttal |Double-värde |
-| image |Byte] |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| pengar |decimaltal |
-| nchar |Sträng, Char] |
-| ntext |Sträng, Char] |
-| numeriskt |decimaltal |
-| nvarchar |Sträng, Char] |
-| verkliga |Enkel |
-| ROWVERSION |Byte] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimaltal |
-| sql_variant |Objekt |
-| text |Sträng, Char] |
-| time |Tidsintervall |
-| tidsstämpel |Byte] |
+| smallmoney |Decimal |
+| sql_variant |Object |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Sträng, Char] |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]

@@ -143,9 +143,9 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Name |Ja |Namnet på din loggprofil. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto som aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som du vill ha händelsehubbar som skapats i. Är en sträng med det här formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Plats |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. |
+| Location |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. |
 | RetentionInDays |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategori |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
+| Category |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder. |
 
 #### <a name="remove-a-log-profile"></a>Ta bort en loggprofil
 
